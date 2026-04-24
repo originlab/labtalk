@@ -1,0 +1,74 @@
+﻿<h1 class="firstHeading">Mean/Average</h1><p class='urlname' style='display: none'>Mean-func</p>
+<p><br />
+</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1"><a href="#Description"><span class="tocnumber">1</span> <span class="toctext">Description</span></a></li>
+<li class="toclevel-1"><a href="#Syntax"><span class="tocnumber">2</span> <span class="toctext">Syntax</span></a></li>
+<li class="toclevel-1"><a href="#Parameters"><span class="tocnumber">3</span> <span class="toctext">Parameters</span></a></li>
+<li class="toclevel-1"><a href="#Return"><span class="tocnumber">4</span> <span class="toctext">Return</span></a></li>
+<li class="toclevel-1"><a href="#Example"><span class="tocnumber">5</span> <span class="toctext">Example</span></a></li>
+<li class="toclevel-1"><a href="#See_Also"><span class="tocnumber">6</span> <span class="toctext">See Also</span></a></li>
+</ul>
+</div>
+
+<h2 class="ref"><a name="Description"></a><span class="mw-headline">Description</span></h2>
+<p>Returns the average of a vector.
+</p>
+<table class="note">
+
+<tr>
+<td><b>Notes:</b>
+<ul><li> Mean() and Average() are functionally identical. Use either of them as you like.</li>
+<li> Mean() and Average() functions calculate average by column. If you want to calculate the average of multiple datasets by row, you can use syntax <code>sum(vd)</code> to sum datasets by row and generate temporary datasets of related statistics values, and then use <code>_mean</code> to get the meanu value. See <a href="../../LabTalk/LabTalk/Sum_(function).html" title="LabTalk:Sum (function)">the <b>sum()</b> function</a> for more information.</li></ul>
+</td></tr></table>
+<h2 class="ref"><a name="Syntax"></a><span class="mw-headline">Syntax</span></h2>
+<pre class="lt" style="font-family:monospace;">double Mean<span style="color: #000000;">&#40;</span>dataset vd<span style="color: #000000;">&#41;</span></pre>
+<pre class="lt" style="font-family:monospace;">double Average<span style="color: #000000;">&#40;</span>dataset vd<span style="color: #000000;">&#41;</span></pre>
+<h2 class="ref"><a name="Parameters"></a><span class="mw-headline">Parameters</span></h2>
+<p><b>vd</b> 
+</p>
+<dl><dd>A range, dataset or column. </dd></dl>
+<h2 class="ref"><a name="Return"></a><span class="mw-headline">Return</span></h2>
+<p>Returns the average of specified argument.
+</p>
+<h2 class="ref"><a name="Example"></a><span class="mw-headline">Example</span></h2>
+<p><b>EX1</b>
+</p>
+<pre class="lt" style="font-family:monospace;">double aa<span style="color: #000080;">=</span>mean<span style="color: #000000;">&#40;</span>col<span style="color: #000000;">&#40;</span>A<span style="color: #000000;">&#41;</span><span style="color: #000000;">&#41;</span>;
+aa<span style="color: #000080;">=</span>; <span style="color: #008000;">//Should return the average value of the specified column.</span></pre>
+<p><b>EX2</b>
+</p>
+<pre class="lt" style="font-family:monospace;">mean<span style="color: #000000;">&#40;</span>A1<span style="color: #000000;">:</span>B11<span style="color: #000000;">&#41;</span></pre>
+<p><b>EX3</b>
+</p>
+<pre class="lt" style="font-family:monospace;">average<span style="color: #000000;">&#40;</span>join<span style="color: #000000;">&#40;</span>A1<span style="color: #000000;">:</span>A5, A11<span style="color: #000000;">:</span>A15<span style="color: #000000;">&#41;</span><span style="color: #000000;">&#41;</span></pre>
+<p><b>EX4</b>
+</p><p>Suppose you have signal data in column A and indexes stored in column B and C. Fill following formula in column D's F(x) cell
+</p>
+<pre class="lt" style="font-family:monospace;">average<span style="color: #000000;">&#40;</span>A<span style="color: #000000;">&#91;</span>B<span style="color: #000000;">:</span>C<span style="color: #000000;">&#93;</span><span style="color: #000000;">&#41;</span></pre> 
+<p>to fill column D with average values of sub-range in column A, which range between indexes <code>col(B)[i]</code> and <code>col(C)[i]</code>.
+</p><p><b>EX5</b>
+</p>
+<pre class="lt" style="font-family:monospace;"><span style="color: #008000;">// create a new workbook with 3 columns</span>
+newbook;
+wks.<span style="color: #000080;">nCols</span> <span style="color: #000080;">=</span> <span style="color: #0000dd;">3</span>;
+
+<span style="color: #008000;">// fill first 2 columns with datdasets</span>
+col<span style="color: #000000;">&#40;</span>A<span style="color: #000000;">&#41;</span> <span style="color: #000080;">=</span> <span style="color: #000000;">&#123;</span><span style="color: #0000dd;">18</span>, <span style="color: #0000dd;">2</span>, <span style="color: #0000dd;">3</span>, <span style="color: #0000dd;">19</span>, <span style="color: #0000dd;">10</span>, <span style="color: #0000dd;">17</span>, <span style="color: #0000dd;">15</span>, <span style="color: #0000dd;">16</span>, <span style="color: #0000dd;">14</span>, <span style="color: #0000dd;">1</span>, <span style="color: #0000dd;">4</span>, <span style="color: #0000dd;">17</span>, <span style="color: #0000dd;">1</span>, <span style="color: #0000dd;">13</span>, <span style="color: #0000dd;">6</span>, <span style="color: #0000dd;">12</span>, <span style="color: #0000dd;">21</span>, <span style="color: #0000dd;">10</span>, <span style="color: #0000dd;">1</span>, <span style="color: #0000dd;">15</span><span style="color: #000000;">&#125;</span>;
+col<span style="color: #000000;">&#40;</span>B<span style="color: #000000;">&#41;</span> <span style="color: #000080;">=</span> data<span style="color: #000000;">&#40;</span><span style="color: #0000dd;">1</span>,<span style="color: #0000dd;">20</span><span style="color: #000000;">&#41;</span>;
+
+<span style="color: #008000;">// search values of column A in column B, return the index;</span>
+<span style="color: #008000;">// then set column C with average of range from B1 to the row before returned index  </span>
+csetvalue col<span style="color: #000000;">:</span><span style="color: #000080;">=</span>col<span style="color: #000000;">&#40;</span>C<span style="color: #000000;">&#41;</span> formula<span style="color: #000000;">:</span><span style="color: #000080;">=</span><span style="color: #ff00ff;">&quot;average(B[1:list(A[i],B)-1])&quot;</span>;
+<span style="color: #008000;">// column C should fill with dataset {9, 1, 1.5, 9.5, 5, 8.5, 7.5, 8, 7, 0/0, 2, 8.5, 0/0, 6.5, 3, 6, 0/0, 5, 0/0, 7.5};</span></pre>
+<h2 class="ref"><a name="See_Also"></a><span class="mw-headline">See Also</span></h2>
+<p><a href="../../LabTalk/LabTalk/Median_(function).html" title="LabTalk:Median (function)">Median</a>,<a href="../../LabTalk/LabTalk/Min_(function).html" title="LabTalk:Min (function)">Min</a>,<a href="../../LabTalk/LabTalk/Max_(function).html" title="LabTalk:Max (function)">Max</a>,<a href="../../LabTalk/LabTalk/Total_(function).html" title="LabTalk:Total (function)">Total</a>
+</p>
+
+
+
+
+
+
+    

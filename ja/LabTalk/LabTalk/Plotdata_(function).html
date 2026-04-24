@@ -1,0 +1,78 @@
+﻿<h1 class="firstHeading">Plotdata</h1><p class='urlname' style='display: none'>Plotdata-func</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>目次</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Description"><span class="tocnumber">1</span> <span class="toctext">概要</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Syntax"><span class="tocnumber">2</span> <span class="toctext">構文</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Parameter"><span class="tocnumber">3</span> <span class="toctext">パラメータ</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Return"><span class="tocnumber">4</span> <span class="toctext">戻り値</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="#Example"><span class="tocnumber">5</span> <span class="toctext">サンプル</span></a>
+<ul>
+<li class="toclevel-2 tocsection-6"><a href="#Example1"><span class="tocnumber">5.1</span> <span class="toctext">サンプル1</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="#Example2"><span class="tocnumber">5.2</span> <span class="toctext">サンプル2</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+<h2><a name="Description"></a><span class="mw-headline"><font color="chocolate">概要</font></span></h2>
+<p>この関数は、アクティブレイヤの(colNum, rowNum)パネルにあるインデックス番号プロットの指定されたデータセットを返します。
+</p>
+<h2><a name="Syntax"></a><span class="mw-headline"><font color="chocolate">構文</font></span></h2>
+<pre class="lt" style="font-family:monospace;">dataset plotdata<span style="color: #000000;">(</span>int nIndex, int nDesignation, int colNum <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span>, int rowNum <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span>, int m <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span>, int n <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span><span style="color: #000000;">)</span></pre>
+<h2><a name="Parameter"></a><span class="mw-headline"><font color="chocolate">パラメータ</font></span></h2>
+<p><b>nIndex</b>
+</p>
+<dl><dd> プロットのインデックス番号。次のいずれかになります。
+<ul><li> プロットインデックス。例えば、レイヤの最初にリストされているプロットの場合は<i>1</i>となります（<a class="external text" href="../../QuickHelp/QuickHelp/How_do_I_change_the_order_of_data_plotted_in_a_graph_layer.html">プロット順序の詳細情報</a>）。</li>
+<li> レイヤ内のすべてのプロットを示すアスタリスク (<b>*</b>) 。</li>
+<li> フィット曲線を除くレイヤ内のすべてのプロットを示すアスタリスク-ダッシュ (<b>*-</b>) 。</li></ul></dd></dl>
+<p><b>nDesignation</b>
+</p>
+<dl><dd> 列タイプ列挙 
+<ul><li> X: X値</li>
+<li> Y: Y値</li>
+<li> Z: Z値</li>
+<li> XE: Xエラー</li>
+<li> YE: Yエラー</li></ul></dd></dl>
+<p><b>colNum</b>
+</p>
+<dl><dd> パネルの列番号</dd></dl>
+<p><b>rowNum</b>
+</p>
+<dl><dd> パネルの行番号 </dd></dl>
+<p><b>m</b><font color="red">(Origin 2025)</font>
+</p>
+<dl><dd> 水平パネルのレベル </dd></dl>
+<p><b>n</b><font color="red">(Origin 2025)</font>
+</p>
+<dl><dd> 垂直パネルのレベル </dd></dl>
+<h2><a name="Return"></a><span class="mw-headline"><font color="chocolate">戻り値</font></span></h2>
+<p>(<b>colNum</b>, <b>rowNum</b>) パネルで指定したインデックス番号プロットのデータセットを返します。
+</p>
+<h2><a name="Example"></a><span class="mw-headline"><font color="chocolate">サンプル</font></span></h2>
+<h3><a name="Example1"></a><span class="mw-headline">サンプル1</span></h3>
+<pre class="lt" style="font-family:monospace;">newbook;
+fname<span style="color: #000080;">$</span> <span style="color: #000080;">=</span> system.<span style="color: #000080;">path</span>.<span style="color: #000080;">program</span><span style="color: #000080;">$</span> <span style="color: #000080;">+</span> <span style="color: #ff00ff;">&quot;Samples\Curve Fitting\Multiple Gaussians.dat&quot;</span>;
+impASC;
+plotxy iy<span style="color: #000000;">:</span><span style="color: #000080;">=</span><span style="color: #000000;">(</span><span style="color: #0000dd;">1</span>,<span style="color: #0000dd;">2</span><span style="color: #000000;">:</span>end<span style="color: #000000;">)</span> plot<span style="color: #000000;">:</span><span style="color: #000080;">=</span><span style="color: #0000dd;">200</span>;
+allymean <span style="color: #000080;">=</span> Mean<span style="color: #000000;">(</span>plotdata<span style="color: #000000;">(</span><span style="color: #000080;">*</span>, Y<span style="color: #000000;">)</span><span style="color: #000000;">)</span>&nbsp;; <span style="color: #008000;">//全てのプロットのY値平均を取得</span>
+allymean <span style="color: #000080;">=</span>;
+y1max <span style="color: #000080;">=</span> Max<span style="color: #000000;">(</span>plotdata<span style="color: #000000;">(</span><span style="color: #0000dd;">1</span>,Y<span style="color: #000000;">)</span><span style="color: #000000;">)</span>;
+y1max <span style="color: #000080;">=</span>;</pre>
+<h3><a name="Example2"></a><span class="mw-headline">サンプル2</span></h3>
+<pre class="lt" style="font-family:monospace;">newbook;
+fname<span style="color: #000080;">$</span> <span style="color: #000080;">=</span> system.<span style="color: #000080;">path</span>.<span style="color: #000080;">program</span><span style="color: #000080;">$</span> <span style="color: #000080;">+</span> <span style="color: #ff00ff;">&quot;Samples\Data Manipulation\WeatherStations.DAT&quot;</span>;
+impASC;
+plot_group iy<span style="color: #000000;">:</span><span style="color: #000080;">=</span>col<span style="color: #000000;">(</span><span style="color: #0000dd;">6</span><span style="color: #000000;">)</span> type<span style="color: #000000;">:</span><span style="color: #000080;">=</span><span style="color: #0000dd;">3</span> horz<span style="color: #000000;">:</span><span style="color: #000080;">=</span>col<span style="color: #000000;">(</span><span style="color: #0000dd;">5</span><span style="color: #000000;">)</span> vert<span style="color: #000000;">:</span><span style="color: #000080;">=</span>col<span style="color: #000000;">(</span><span style="color: #0000dd;">4</span><span style="color: #000000;">)</span>;
+sunnymean <span style="color: #000080;">=</span> Mean<span style="color: #000000;">(</span>plotdata<span style="color: #000000;">(</span><span style="color: #0000dd;">1</span>, Y, <span style="color: #0000dd;">5</span>, <span style="color: #000080;">*</span><span style="color: #000000;">)</span><span style="color: #000000;">)</span>; 
+sunnymean<span style="color: #000080;">=</span>;
+wilmottmax <span style="color: #000080;">=</span> Max<span style="color: #000000;">(</span>plotdata<span style="color: #000000;">(</span><span style="color: #0000dd;">1</span>,Y,<span style="color: #000080;">*</span>,<span style="color: #0000dd;">2</span><span style="color: #000000;">)</span><span style="color: #000000;">)</span>;
+wilmottmax<span style="color: #000080;">=</span>;</pre>
+
+
+
+
+
+
+
+    

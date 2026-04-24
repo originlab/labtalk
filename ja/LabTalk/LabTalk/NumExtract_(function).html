@@ -1,0 +1,41 @@
+﻿<h1 class="firstHeading">NumExtract</h1>
+<p class='urlname' style='display: none'>NumExtract-func</p>
+<div id="toc" class="toc">
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#Description"><span class="tocnumber">1</span> <span class="toctext">Description</span></a></li>
+<li class="toclevel-1"><a href="#Syntax"><span class="tocnumber">2</span> <span class="toctext">Syntax</span></a></li>
+<li class="toclevel-1"><a href="#Parameters"><span class="tocnumber">3</span> <span class="toctext">Parameters</span></a></li>
+<li class="toclevel-1"><a href="#Return"><span class="tocnumber">4</span> <span class="toctext">Return</span></a></li>
+<li class="toclevel-1"><a href="#Example"><span class="tocnumber">5</span> <span class="toctext">Example</span></a></li>
+<li class="toclevel-1"><a href="#See_Also"><span class="tocnumber">6</span> <span class="toctext">See Also</span></a></li>
+</ul>
+</div>
+<h2 class="ref"><a name="Description" id="Description"></a><span class="mw-headline">Description</span></h2>
+<p>This function takes a mixed string "<i>str$</i>" and returns the <i>count</i>-th consecutive digit block. If count is omitted it defaults to 1 (i.e. return the first block).</p>
+<h2 class="ref"><a name="Syntax" id="Syntax"></a><span class="mw-headline">Syntax</span></h2>
+<pre class="lt" style="font-family:monospace;">
+ string NumExtract<span style="color: #000000;">(</span>string str<span style="color: #000080;">$</span><span style="color: #000000;">[</span>, int count<span style="color: #000000;">]</span><span style="color: #000000;">)</span><span style="color: #000080;">$</span>
+</pre>
+<h2 class="ref"><a name="Parameters" id="Parameters"></a><span class="mw-headline">Parameters</span></h2>
+<p><b>str$</b></p>
+<dl>
+<dd>is a string from which to extract number(s).</dd>
+</dl>
+<p><b>count</b></p>
+<dl>
+<dd>is a integer specifying the <i>n</i>th digit block to extract. It is optional. Default is 1, which means return the first digital block in the string <b>str$</b>. count = 0 returns the last block.</dd>
+</dl>
+<h2 class="ref"><a name="Return" id="Return"></a><span class="mw-headline">Return</span></h2>
+<p>Returns the <b>count</b>-th consecutive digit block in <b>str$</b>.</p>
+<h2 class="ref"><a name="Example" id="Example"></a><span class="mw-headline">Example</span></h2>
+<pre class="lt" style="font-family:monospace;">
+numextract<span style="color: #000000;">(</span><span style="color: #ff00ff;">"1-413-586-2013"</span>,<span style="color: #0000dd;">2</span><span style="color: #000000;">)</span><span style="color: #000080;">$</span><span style="color: #000080;">=</span>; <span style="color: #008000;">//should return 413</span>
+numextract<span style="color: #000000;">(</span><span style="color: #ff00ff;">"1-413-586-2013"</span>,<span style="color: #0000dd;">0</span><span style="color: #000000;">)</span><span style="color: #000080;">$</span><span style="color: #000080;">=</span>; <span style="color: #008000;">//should return 2013</span>
+
+numextract<span style="color: #000000;">(</span><span style="color: #ff00ff;">"Jan-12"</span><span style="color: #000000;">)</span><span style="color: #000080;">=</span>; <span style="color: #008000;">//should return 12, "-" in a string will not be treated as minus sign</span>
+</pre>
+<h2 class="ref"><a name="See_Also" id="See_Also"></a><span class="mw-headline">See Also</span></h2>
+<p><a href="../../LabTalk/LabTalk/NumBreak_(function).html" title="LabTalk:NumBreak (function)">NumBreak</a></p>

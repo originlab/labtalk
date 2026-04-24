@@ -1,0 +1,435 @@
+﻿<h1 class="firstHeading">Label (command)</h1><p class='urlname' style='display: none'>Label-cmd</p>
+<p><br />
+ページにテキストラベルを配置します。
+</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>目次</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Syntax:"><span class="tocnumber">1</span> <span class="toctext">構文</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Note--Using_Escape_Sequences_to_Control_Text_Format:"><span class="tocnumber">2</span> <span class="toctext">Note--エスケープシーケンスを使用してテキストフォーマットを制御する：</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Options:"><span class="tocnumber">3</span> <span class="toctext">オプション</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#no_option.2C_Place_a_unnamed_label_in_the_default_location"><span class="tocnumber">3.1</span> <span class="toctext">オプションなし、名前のないラベルをデフォルトの場所に配置する</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#-a.3B_Place_a_new_label_at_specified_point_in_the_Cartesian_coordinate"><span class="tocnumber">3.2</span> <span class="toctext">-a; デカルト座標の指定したポイントに新しいラベルを配置する</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#-al.3B_Arrange_the_2D_legend_object_into_multiple_columns"><span class="tocnumber">3.3</span> <span class="toctext">-al; 2D凡例オブジェクトを複数の列に配置する</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="#-b.3B_Set_the_label_border_style"><span class="tocnumber">3.4</span> <span class="toctext">-b; ラベルの境界線のスタイルを設定する</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="#-d.3B_Place_a_new_label_at_the_specified_point_measured_in_screen_pixels"><span class="tocnumber">3.5</span> <span class="toctext">-d; 画面ピクセル単位で指定したポイントに新しいラベルを配置する</span></a></li>
+<li class="toclevel-2 tocsection-9"><a href="#-e.3B_Open_the_Object_Properties_dialog_box_with_the_specified_message"><span class="tocnumber">3.6</span> <span class="toctext">-e; 指定したメッセージを表示してオブジェクトプロパティダイアログボックスを開く</span></a></li>
+<li class="toclevel-2 tocsection-10"><a href="#-f.3B_Change_the_label_font_type"><span class="tocnumber">3.7</span> <span class="toctext">-f; ラベルのフォントタイプを変更する</span></a></li>
+<li class="toclevel-2 tocsection-11"><a href="#-fp.3B_Remove_escape_code"><span class="tocnumber">3.8</span> <span class="toctext">-fp; エスケープコードを削除する</span></a></li>
+<li class="toclevel-2 tocsection-12"><a href="#-j.3B_Justify_the_label_message_text"><span class="tocnumber">3.9</span> <span class="toctext">-j; の位置を揃える</span></a></li>
+<li class="toclevel-2 tocsection-13"><a href="#-l.2C_-lr.3B_Get_all_connected_graphic_objects"><span class="tocnumber">3.10</span> <span class="toctext">-l, -lr;  接続されているすべてのグラフオブジェクトを取得する</span></a></li>
+<li class="toclevel-2 tocsection-14"><a href="#-n.3B_Create_a_new_label_or_replace_the_specified_label"><span class="tocnumber">3.11</span> <span class="toctext">-n; 新しいラベルを作成する、または指定したラベルを置き換える</span></a></li>
+<li class="toclevel-2 tocsection-15"><a href="#-o.3B_Set_the_label_offset"><span class="tocnumber">3.12</span> <span class="toctext">-o; ラベルオフセットを設定する</span></a></li>
+<li class="toclevel-2 tocsection-16"><a href="#-p.3B_Place_a_new_label_at_the_point_specified_by_the_percent_distance"><span class="tocnumber">3.13</span> <span class="toctext">-p; 距離のパーセントで指定したポイントに新しいラベルを配置する</span></a></li>
+<li class="toclevel-2 tocsection-17"><a href="#-px.3B_Place_a_label_at_the_point_specified_by_pixel"><span class="tocnumber">3.14</span> <span class="toctext">-px; ピクセルで指定したポイントにラベルを配置する</span></a></li>
+<li class="toclevel-2 tocsection-18"><a href="#-q.3B_Place_a_label_into_the_nth_quarter"><span class="tocnumber">3.15</span> <span class="toctext">-q; n番目の四半期にラベルを配置する</span></a></li>
+<li class="toclevel-2 tocsection-19"><a href="#-r.3B_Delete_the_specified_label_or_graph_object"><span class="tocnumber">3.16</span> <span class="toctext">-r; 指定したラベルまたはグラフオブジェクトを削除する</span></a></li>
+<li class="toclevel-2 tocsection-20"><a href="#-ra.3B_Delete_all_labels_with_the_specified_prefix_in_label_name"><span class="tocnumber">3.17</span> <span class="toctext">-ra; ラベル名に指定された接頭辞を持つすべてのラベルを削除する</span></a></li>
+<li class="toclevel-2 tocsection-21"><a href="#-rc.3B_Delete_the_specified_label_and_all_its_connected_ones"><span class="tocnumber">3.18</span> <span class="toctext">-rc; 指定されたラベルとそれに接続されているすべてのラベルを削除する</span></a></li>
+<li class="toclevel-2 tocsection-22"><a href="#-s.3B_Enable_the_use_of_substitution_notation_.28.25_and_.24.29_in_the_argument_string"><span class="tocnumber">3.19</span> <span class="toctext">-s; 引数文字列での置換表記(%と$)の使用を有効にする</span></a></li>
+<li class="toclevel-2 tocsection-23"><a href="#-sa.3B_Enable_conversion_of_.5Cr.5Cn.5Ct_type_of_notation"><span class="tocnumber">3.20</span> <span class="toctext">-sa; \r\n\t表記の変換を有効にする</span></a></li>
+<li class="toclevel-2 tocsection-24"><a href="#-sl.3B_Create_a_message_label_with_the_Link_to_Variables_check_box"><span class="tocnumber">3.21</span> <span class="toctext">-sl; 「変数へのリンク」チェックボックスがオンのメッセージラベルを作成する</span></a></li>
+<li class="toclevel-2 tocsection-25"><a href="#-t.3B_Create_a_label_with_message"><span class="tocnumber">3.22</span> <span class="toctext">-t; メッセージ付きのラベルを作成する</span></a></li>
+<li class="toclevel-2 tocsection-26"><a href="#-xb.3B_Reset_the_bottom_X_axis_title"><span class="tocnumber">3.23</span> <span class="toctext">-xb; 下X軸タイトルをリセットする</span></a></li>
+<li class="toclevel-2 tocsection-27"><a href="#-xt.3B_Reset_the_top_X_axis_title"><span class="tocnumber">3.24</span> <span class="toctext">-xt; 上X軸タイトルをリセットする</span></a></li>
+<li class="toclevel-2 tocsection-28"><a href="#-yl.3B_Reset_the_left_Y_axis_title"><span class="tocnumber">3.25</span> <span class="toctext">-yl; 左Y軸タイトルをリセットする</span></a></li>
+<li class="toclevel-2 tocsection-29"><a href="#-yr.3B_Reset_the_right_Y_axis_title"><span class="tocnumber">3.26</span> <span class="toctext">-yr; 右Y軸タイトルをリセットする</span></a></li>
+<li class="toclevel-2 tocsection-30"><a href="#-zb.3B_Reset_the_back_Z_axis_title"><span class="tocnumber">3.27</span> <span class="toctext">-zb; 後Z軸タイトルをリセットする</span></a></li>
+<li class="toclevel-2 tocsection-31"><a href="#-zf.3B_Reset_the_front_Z_axis_title"><span class="tocnumber">3.28</span> <span class="toctext">-zf; 前Z軸タイトルをリセットする</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-32"><a href="#Examples:"><span class="tocnumber">4</span> <span class="toctext">サンプル</span></a></li>
+<li class="toclevel-1 tocsection-33"><a href="#See_Also:"><span class="tocnumber">5</span> <span class="toctext">関連情報</span></a></li>
+</ul>
+</div>
+
+<h2><a name="Syntax:"></a><span class="mw-headline"><font color="chocolate">構文</font></span></h2>
+<pre class="lt" style="font-family:monospace;">label <span style="color: #000000;">[</span>options<span style="color: #000000;">]</span> message</pre>
+<p>1つ以上のオプションスイッチを追加することで、ラベルの作成方法を変更できます。ラベルによって表示されるメッセージは常に最後の引数です。labelコマンドでは複数のオプションを切り替えることができます。-xb, -yl, -xt, -yr, -zf, -zb を使用した場合は、それらが最後のオプション（ラベルメッセージの直前）である必要があります。また、-nを使用する場合は、最後のオプション（ラベルメッセージの直前）である必要があります。オプションは、それがそうすることが理にかなっているとき、そしてそれらが互いに競合しないときにのみ組み合わせることができます。
+</p><p>メッセージに文字列を入力することに加えて、<i>$[OMGfileName].Section.Title</i> を指定することもできます。これにより、メッセージファイル内の文字列タイトルにアクセスできるようになります。<i>OMGfileName</i>拡張子は<i>OMG</i>であると仮定されます。<i>OMGfileName</i>が指定されていない場合は、 <i>ORIGIN.OMG</i> ファイルが使用されます。この構文を使用する例については、<a href="../../LabTalk/LabTalk/Type_(command).html" title="LabTalk:Type (command)">Type</a>コマンドを参照してください。
+</p>
+<h2><a name="Note--Using_Escape_Sequences_to_Control_Text_Format:"></a><span class="mw-headline"><font color="chocolate">Note--エスケープシーケンスを使用してテキストフォーマットを制御する：</font></span></h2>
+<p>文字列内にエクスケープシーケンスを使用して、テキスト表示をカスタマイズすることができます。  これらのシーケンスはバックスラッシュ文字 (\) で始まります。  すべてのテキストオブジェクト（labelコマンドまたはテキストツールを使用して作成されたもの）およびラベル列からプロットされたテキストは、これらのシーケンスのルールに従って表示されます。  
+</p><p>次のテキストフォーマットコマンドを使用できます。  
+</p>
+<table class="simple">
+
+<tr>
+<td>\(ASCII character code)
+</td>
+<td>指定したASCII記号を表示します。例：
+<pre class="lt" style="font-family:monospace;">\<span style="color: #000000;">(</span><span style="color: #0000dd;">65</span><span style="color: #000000;">)</span>; <span style="color: #008000;">// &quot;A&quot;を意味する</span></pre>
+</td></tr>
+<tr>
+<td>\+(text)
+</td>
+<td>テキストを上付き文字として設定します。
+</td></tr>
+<tr>
+<td>\-(text)
+</td>
+<td>テキストを下付き文字として設定します。
+</td></tr>
+<tr>
+<td>\=(text1,text2)
+</td>
+<td>text1を下付き文字、text2を上付き文字として書式設定します。
+</td></tr>
+<tr>
+<td>\ab(text)
+</td>
+<td>テキストの上にバーを表示します。
+</td></tr>
+<tr>
+<td>\ad(text)
+</td>
+<td>テキストの上にドットを表示します。
+</td></tr>
+<tr>
+<td>\at(text)
+</td>
+<td>テキストの上にチルダを追加します。
+</td></tr>
+<tr>
+<td>\b(text)
+</td>
+<td>テキストを太字に設定します。
+</td></tr>
+<tr>
+<td>\c<i>number</i>(text)
+</td>
+<td>色ドロップダウンリストにある位置数で示される色でテキストを表示します。例：
+<pre class="lt" style="font-family:monospace;">\c4<span style="color: #000000;">(</span>This is blue<span style="color: #000000;">)</span>; <span style="color: #008000;">// フォントの色を青に設定</span></pre>
+</td></tr>
+<tr>
+<td>\cp<i>#</i>(text)
+</td>
+<td>現在のレイヤのインデックス付きプロットの色でテキストを表示します。
+<pre class="lt" style="font-family:monospace;">\cp2<span style="color: #000000;">(</span>color of 2nd plot<span style="color: #000000;">)</span>; <span style="color: #008000;">// 2番目のプロットの色に従うようにフォントの色を設定</span></pre>
+</td></tr>
+<tr>
+<td>\f:<i>fontname</i>(text)
+</td>
+<td>テキストを<i>fontname</i>のフォントを使用して表示します。  フォント名は同定可能な範囲で略記可能です。例：
+<pre class="lt" style="font-family:monospace;">\f<span style="color: #000000;">:</span>Times New Roman<span style="color: #000000;">(</span>This font is <span style="color: #ff00ff;">&quot;Times New Roman&quot;</span><span style="color: #000000;">)</span>;</pre>
+</td></tr>
+<tr>
+<td>\g(text)
+</td>
+<td>テキストをギリシャ文字に設定します。例：
+<pre class="lt" style="font-family:monospace;">\g<span style="color: #000000;">(</span>a<span style="color: #000000;">)</span>; <span style="color: #008000;">// アルファを表示</span></pre>
+</td></tr>
+<tr>
+<td>\h(text)
+</td>
+<td>置換表記をブロックします。例：
+<pre class="lt" style="font-family:monospace;">\h<span style="color: #000000;">(</span>\l<span style="color: #000000;">(</span><span style="color: #0000dd;">1</span><span style="color: #000000;">)</span> <span style="color: #000080;">%</span><span style="color: #000000;">(</span>?Y<span style="color: #000000;">)</span><span style="color: #000000;">)</span>; <span style="color: #008000;">// 文字列 \l(1)&nbsp;%(?Y)が表示される</span></pre>
+</td></tr>
+<tr>
+<td>\i(text)
+</td>
+<td>テキストを斜体に設定します。
+</td></tr>
+<tr>
+<td>\p<i>%pointsize</i>(text)
+</td>
+<td>テキストの大きさを%倍に変更します。200は2倍、100は大きさの変更なしです。例：
+<pre class="lt" style="font-family:monospace;">\p200<span style="color: #000000;">(</span>Double font size<span style="color: #000000;">)</span>;</pre>
+</td></tr>
+<tr>
+<td>\s(text)
+</td>
+<td>テキストを打ち消します。
+</td></tr>
+<tr>
+<td>\sc(text)
+</td>
+<td>連続する複数のスペースがある場合でも、文字列に条件付き水平スペースを1つ挿入します。例：
+<pre class="lt" style="font-family:monospace;">\b<span style="color: #000000;">(</span><span style="color: #000080;">%</span><span style="color: #000000;">(</span>1Y,@LL<span style="color: #000000;">)</span>\sc<span style="color: #000080;">%</span><span style="color: #000000;">(</span>1Y,@LD3<span style="color: #000000;">)</span>\sc<span style="color: #000080;">%</span><span style="color: #000000;">(</span>1Y,@LD4<span style="color: #000000;">)</span>\sc<span style="color: #000000;">(</span><span style="color: #000080;">%</span><span style="color: #000000;">(</span>1Y,@LU<span style="color: #000000;">)</span><span style="color: #000000;">)</span><span style="color: #000000;">)</span><span style="color: #008000;">//@LD3と@LD4が存在しないと仮定すると、スペースは2つになる\sc はスペースを1つだけ作成します。</span></pre>
+</td></tr>
+<tr>
+<td>\u(text)
+</td>
+<td>テキストに下線を引きます。
+</td></tr>
+<tr>
+<td>\v(text)
+</td>
+<td>エスケープシーケンスの解釈を上書きして、\nが新規行として認識されず、\rが改行として認識されないようにします。例：
+<pre class="lt" style="font-family:monospace;"><span style="color: #008000;">//  \v() を使用しないとパスが正しく表示されない</span>
+label <span style="color: #000080;">-</span>p <span style="color: #0000dd;">0</span> <span style="color: #0000dd;">0</span> <span style="color: #000080;">-</span>s \v<span style="color: #000000;">(</span>My UFF is<span style="color: #000000;">:</span> <span style="color: #000080;">%</span>Y<span style="color: #000000;">)</span>;</pre>
+</td></tr></table>
+<p>次の文字に対応していますが、一部は印刷できません。
+</p>
+<table class="simple">
+<tr>
+<td>\\
+</td>
+<td>バックスラッシュ
+</td></tr>
+<tr>
+<td>\&apos;
+</td>
+<td>一重引用符
+</td></tr>
+<tr>
+<td>\&quot;
+</td>
+<td>二重引用符
+</td></tr>
+<tr>
+<td>\y(&apos;)
+</td>
+<td>フルハイトプライム
+</td></tr>
+<tr>
+<td>\y(&quot;)
+</td>
+<td>フルハイトダブルプライム
+</td></tr>
+<tr>
+<td>\+(\y(&apos;))
+</td>
+<td>プライムの組み合わせ
+</td></tr>
+<tr>
+<td>\+(\y(&quot;))
+</td>
+<td>ダブルプライムの組み合わせ
+</td></tr>
+<tr>
+<td>\n
+</td>
+<td>新規行
+</td></tr>
+<tr>
+<td>\r
+</td>
+<td>改行
+</td></tr>
+<tr>
+<td>\d
+</td>
+<td>削除/バックスペース
+</td></tr>
+<tr>
+<td>\t
+</td>
+<td>タブ
+</td></tr>
+<tr>
+<td>\x<i>hh</i>
+</td>
+<td>16進数表記のASCII文字。<i>hh</i>は2桁の16進数です。
+</td></tr></table>
+<table class="note">
+<tr>
+<td>
+<p><b>Note: </b>エスケープシーケンスの中には上記の2つの表に記載されていないものもあります。詳細については、<a class="external text" href="../../UserGuide/UserGuide/Escape_Sequences.html">ユーザーガイド</a>を参照してください。
+</p>
+</td></tr></table>
+<h2><a name="Options:"></a><span class="mw-headline"><font color="chocolate">オプション：</font></span></h2>
+<h3><a name="no_option.2C_Place_a_unnamed_label_in_the_default_location"></a><span class="mw-headline">オプションなし、名前のないラベルをデフォルトの場所に配置する</span></h3>
+<p><b>構文：</b> label <i>message</i>
+</p><p>名前のないテキストラベルメッセージを、アクティブなウィンドウのページ上のデフォルトの場所に配置します。
+</p>
+<pre class="lt" style="font-family:monospace;">label test; <span style="color: #008000;">//デフォルトの場所に&quot;test&quot;と表示されているラベルを追加</span></pre>
+<h3><a name="-a.3B_Place_a_new_label_at_specified_point_in_the_Cartesian_coordinate"></a><span class="mw-headline">-a; デカルト座標の指定したポイントに新しいラベルを配置する</span></h3>
+<p><b>構文：</b> label <b>-a</b> <i>x y message</i>
+</p><p>xy座標にラベルを配置します（xとyはデカルト座標値）。
+</p>
+<pre class="lt" style="font-family:monospace;">label <span style="color: #000080;">-</span>a <span style="color: #0000dd;">10</span> <span style="color: #0000dd;">15</span> test; <span style="color: #008000;">//(10,15)に&quot;test&quot;と表示されているラベルを追加</span></pre>
+<h3><a name="-al.3B_Arrange_the_2D_legend_object_into_multiple_columns"></a><span class="mw-headline">-al; 2D凡例オブジェクトを複数の列に配置する</span></h3>
+<p><b>構文：</b> label <b>-al</b> <i>number of columns</i>
+</p>
+<pre class="lt" style="font-family:monospace;">label <span style="color: #000080;">-</span>al <span style="color: #0000dd;">3</span>; <span style="color: #008000;">//凡例の内容を3列に配置</span></pre>
+<p><a href="../../LabTalk/LabTalk/Legend_(command).html" title="LabTalk:Legend (command)"><b>legend</b>コマンドフラグ<b>-av</b> と <b>-ah</b></a>も参照してください。
+</p>
+<h3><a name="-b.3B_Set_the_label_border_style"></a><span class="mw-headline">-b; ラベルの境界線のスタイルを設定する</span></h3>
+<p><b>構文：</b> label <b>-b</b> <i>n message</i>
+</p><p>テキストオブジェクトダイアログボックスの枠の設定で、テキストラベルの境界線スタイルをn番目のスタイルに設定します。
+</p>
+<pre class="lt" style="font-family:monospace;"><span style="color: #008000;">// test2 というテキストラベルを追加し、背景は </span>
+<span style="color: #008000;">//2番目のスタイル &quot;Black Line&quot;とする</span>
+label <span style="color: #000080;">-</span>b <span style="color: #0000dd;">2</span> test2;</pre>
+<h3><a name="-d.3B_Place_a_new_label_at_the_specified_point_measured_in_screen_pixels"></a><span class="mw-headline">-d; 画面ピクセル単位で指定したポイントに新しいラベルを配置する</span></h3>
+<p><b>構文：</b> label <b>-d</b> <i>x y message</i>
+</p><p>ページの左上隅から画面ピクセルで測定した座標xyにラベルを配置します。
+</p>
+<h3><a name="-e.3B_Open_the_Object_Properties_dialog_box_with_the_specified_message"></a><span class="mw-headline">-e; 指定したメッセージを表示してオブジェクトプロパティダイアログボックスを開く</span></h3>
+<p><b>構文：</b> label <b>-e</b> <i>message</i>
+</p><p>テキストボックスに<i>message</i>が表示されたテキストオブジェクトダイアログボックスを開きます。OKをクリックして、メッセージ付きのテキストラベルを作成します。
+</p>
+<pre class="lt" style="font-family:monospace;">label <span style="color: #000080;">-</span>e test5;</pre>
+<h3><a name="-f.3B_Change_the_label_font_type"></a><span class="mw-headline">-f; ラベルのフォントタイプを変更する</span></h3>
+<p><b>構文：</b> label <b>-f</b> <i>fontName message</i>
+</p><p>ラベルフォントタイプを<i>fontName</i>に変更します。<i>fontName</i>は名前が一意である限り省略できます。複数単語のフォント名の場合は、<i>fontName</i>を引用符で囲む必要があります。
+</p>
+<h3><a name="-fp.3B_Remove_escape_code"></a><span class="mw-headline">-fp; エスケープコードを削除する</span></h3>
+<p><b>構文：</b> label <b>-fp</b> <i>name</i>
+</p><p>nameオブジェクトのエスケープコードを削除します。
+</p><p><b>構文：</b> label <b>-fpp</b> *
+</p><p>レイヤ内のすべてのテキストオブジェクトのエスケープコードを削除します。
+</p>
+<h3><a name="-j.3B_Justify_the_label_message_text"></a><span class="mw-headline">-j; ラベルメッセージテキストの位置を揃える</span></h3>
+<p><b>構文：</b> label <b>-j</b> <i>n message</i>
+</p><p>ラベルメッセージテキストの位置を合わせます。nは0(左)、1(中央)、2(右)のいずれかです。  軸タイトルの位置合わせは事前設定されており、変更できません。
+</p>
+<pre class="lt" style="font-family:monospace;">label <span style="color: #000080;">-</span>j <span style="color: #0000dd;">1</span> test6;</pre>
+<h3><a name="-l.2C_-lr.3B_Get_all_connected_graphic_objects"></a><span class="mw-headline">-l, -lr;  接続されているすべてのグラフオブジェクトを取得する</span></h3>
+<p><b>構文：</b> label <b>-l</b> <i>graphicObject stringArray</i>
+</p><p><i>graphicObject</i>に接続されているすべてのグラフィックオブジェクトを取得します。<i>stringArray</i>はそれらの名前を格納するのに使われます。
+</p>
+<pre class="lt" style="font-family:monospace;">StringArray sa;
+<span style="color: #008000;">// rectに接続されたすべてのオブジェクトを取得し、それらの名前をsaに保存</span>
+label <span style="color: #000080;">-</span>l rect sa;</pre>
+<p><b>構文：</b> label <b>-lr</b> <i>graphicObject stringArray</i>
+</p><p><i>graphicObject</i>のすべての接続されたグラフィックオブジェクトを再帰的に取得します。<i>stringArray</i>はそれらの名前を格納するのに使われます。再帰的に検索するため、<i>graphicObject</i>自体の名前も<i>stringArray</i>に格納されます。
+</p>
+<pre class="lt" style="font-family:monospace;">StringArray sa;
+<span style="color: #008000;">// rectに再帰的に接続されたすべてのオブジェクトを取得し、その名前をsaに保存</span>
+label <span style="color: #000080;">-</span>lr rect sa;</pre>
+<p>関連項目: <a href="../../LabTalk/LabTalk/Graphic_Objects.html#GetConnected_method" title="LabTalk:Graphic Objects">GetConnectedメソッド</a>
+</p>
+<h3><a name="-n.3B_Create_a_new_label_or_replace_the_specified_label"></a><span class="mw-headline">-n; 新しいラベルを作成する、または指定したラベルを置き換える</span></h3>
+<p><b>構文：</b> label <b>-n</b> <i>labelName message</i>
+</p><p>名前付きラベルの新しい<i>message</i>を作成するか、既存の<i>message</i>を置き換えます。<i>labelName</i>は、テキストオブジェクトダイアログボックスに表示されるラベルの名前を指定します。
+</p>
+<pre class="lt" style="font-family:monospace;">label <span style="color: #000080;">-</span>n text1 aa; <span style="color: #008000;">//text1のラベルを新規ラベルaaに置き換える</span></pre>
+<p><b>Note:</b> -<i>n</i>スイッチは最後のスイッチ、つまりラベルメッセージの直前に配置する必要があります。
+</p>
+<h3><a name="-o.3B_Set_the_label_offset"></a><span class="mw-headline">-o; ラベルオフセットを設定する</span></h3>
+<p><b>構文：</b> label <b>-o</b> <i>dx dy message</i>
+</p><p>ラベルオフセット（パーセント単位）を設定します。このオプションは、レイヤとスケールに接続されたラベル（ラベルのテキストオブジェクトダイアログボックスの「接続先」）にのみ適用されます。
+</p>
+<pre class="lt" style="font-family:monospace;"><span style="color: #008000;">//現在のマウスの位置から10%オフセットした場所に</span>
+<span style="color: #008000;">//&quot;tt&quot;というラベルを追加</span>
+label <span style="color: #000080;">-</span>o <span style="color: #0000dd;">10</span> <span style="color: #0000dd;">10</span> tt;</pre>
+<h3><a name="-p.3B_Place_a_new_label_at_the_point_specified_by_the_percent_distance"></a><span class="mw-headline">-p; 距離のパーセントで指定したポイントに新しいラベルを配置する</span></h3>
+<p><b>構文：</b> label <b>-p</b> <i>x y message</i>
+</p><p>xy座標にラベルを配置します（xとyはレイヤ枠の左上隅からの距離のパーセント）。
+</p>
+<pre class="lt" style="font-family:monospace;">label <span style="color: #000080;">-</span>p <span style="color: #0000dd;">50</span> <span style="color: #0000dd;">50</span> Center; <span style="color: #008000;">//レイヤ枠の中央にラベルを追加</span></pre>
+<h3><a name="-px.3B_Place_a_label_at_the_point_specified_by_pixel"></a><span class="mw-headline">-px; ピクセルで指定したポイントにラベルを配置する</span></h3>
+<p><b>構文：</b> label <b>-px</b> <i>x y message</i>
+</p><p>ラベルを(x,y)に配置します。ここで、xとyはグラフウィンドウの左上隅からのピクセル距離を表します。 
+</p>
+<pre class="lt" style="font-family:monospace;">label <span style="color: #000080;">-</span>px <span style="color: #0000dd;">10</span> <span style="color: #0000dd;">20</span> Place Label by Pixel;</pre>
+<h3><a name="-q.3B_Place_a_label_into_the_nth_quarter"></a><span class="mw-headline">-q; n番目の四半期にラベルを配置する</span></h3>
+<p><b>構文：</b> label <b>-q</b> <i>n message</i>
+</p><p>ラベルを4つのアクティブなレイヤ象限nのいずれかに配置します。象限には、右上から反時計回りに1から4までの番号が付けられています。
+</p>
+<pre class="lt" style="font-family:monospace;">label <span style="color: #000080;">-</span>q <span style="color: #0000dd;">3</span> hello; <span style="color: #008000;">//3番目の象限にラベルを追加</span></pre>
+<h3><a name="-r.3B_Delete_the_specified_label_or_graph_object"></a><span class="mw-headline">-r; 指定したラベルまたはグラフオブジェクトを削除する</span></h3>
+<p><b>構文：</b> label <b>-r</b> <i> labelName/objectName</i>
+</p>
+<p class="version" >必要なOriginのバージョン: Origin 8.51 SR0以降</p>
+<p><i>labelName</i>という名前のラベルを削除します（接続されているオブジェクトは除く）。
+</p>
+<pre class="lt" style="font-family:monospace;">label <span style="color: #000080;">-</span>r text2; <span style="color: #008000;">//ラベルtext2を削除</span>
+label <span style="color: #000080;">-</span>r Rect; <span style="color: #008000;">// アクティブなグラフページの長方形オブジェクトを削除</span></pre>
+<p><b><i>Note: </i></b> ここでの<i>objectName</i>はワイルドカードをサポートします。例：
+</p>
+<pre class="lt" style="font-family:monospace;"> label <span style="color: #000080;">-</span>r text<span style="color: #000080;">*</span>; <span style="color: #008000;">// &quot;text&quot;で始まるすべてのオブジェクトを削除</span></pre>
+<p><br />
+</p>
+<h3><a name="-ra.3B_Delete_all_labels_with_the_specified_prefix_in_label_name"></a><span class="mw-headline">-ra; ラベル名に指定された接頭辞を持つすべてのラベルを削除する</span></h3>
+<p><b>構文：</b> label <b>-ra</b> <i> labelNamePrefix</i>
+</p><p>名前が<i>labelNamePrefix</i>で始まるすべてのオブジェクトを削除します。<i>labelNamePrefix</i>が含まれていない場合、ページ上のすべてのラベルが削除されます。
+</p>
+<pre class="lt" style="font-family:monospace;">label <span style="color: #000080;">-</span>ra text; <span style="color: #008000;">//接頭辞&quot;text&quot;が付いたラベルをすべて削除</span></pre>
+<h3><a name="-rc.3B_Delete_the_specified_label_and_all_its_connected_ones"></a><span class="mw-headline">-rc; 指定されたラベルとそれに接続されているすべてのラベルを削除する</span></h3>
+<p><b>構文：</b> label <b>-rc</b> <i>labelName</i>
+</p><p><i>labelName</i>という名前のグラフオブジェクトを、接続されたオブジェクトとともに削除します。
+</p>
+<pre class="lt" style="font-family:monospace;"><span style="color: #008000;">//新しいグラフウィンドウで線と長方形を描画し、</span>
+<span style="color: #008000;">//オブジェクト名は&quot;line&quot;と&quot;rect&quot;であると仮定します。次のスクリプトを実行します。</span>
+
+<span style="color: #008000;">// 線を長方形に接続</span>
+line.<span style="color: #000080;">connect</span><span style="color: #000000;">(</span>rect, <span style="color: #0000dd;">1</span><span style="color: #000000;">)</span>;
+<span style="color: #008000;">// 線を削除すると、接続されている長方形も削除される</span>
+label <span style="color: #000080;">-</span>rc line;</pre>
+<h3><a name="-s.3B_Enable_the_use_of_substitution_notation_.28.25_and_.24.29_in_the_argument_string"></a><span class="mw-headline">-s; 引数文字列での置換表記(%と$)の使用を有効にする</span></h3>
+<p><b>構文：</b> label <b>-s</b> <i>message</i>
+</p><p>引数文字列での置換表記(%と$)の使用を有効にします。デフォルトでは、labelコマンドは&nbsp;%と$表記を置換しません。このオプションを使用すると、ラベルメッセージに数値変数と文字列変数を挿入できます。
+</p>
+<pre class="lt" style="font-family:monospace;"><span style="color: #008000;">// ユーザファイルフォルダのパスとして表示されるラベルを追加</span>
+<span style="color: #008000;">// Note: ファイルパス内の &quot;\&quot; を正しく表示するために、</span>
+<span style="color: #008000;">// エスケープシーケンス \v() を使用する必要がある</span>
+label <span style="color: #000080;">-</span>s \v<span style="color: #000000;">(</span><span style="color: #000080;">%</span>Y<span style="color: #000000;">)</span>;</pre>
+<h3><a name="-sa.3B_Enable_conversion_of_.5Cr.5Cn.5Ct_type_of_notation"></a><span class="mw-headline">-sa; \r\n\t表記の変換を有効にする</span></h3>
+<p><b>構文：</b> label <b>-sa</b> <i>message</i>
+</p><p>\r\n\t表記の変換を有効にします。スクリプトに新しい行を追加せずに複数の行テキストラベル(\r\n)を作成するには、このオプションを使用します。置換も有効にするには、-s -saを一緒に使用します。
+</p>
+<pre class="lt" style="font-family:monospace;">label <span style="color: #000080;">-</span>sa Hello\nHello;</pre>
+<p>このコマンドは次のように表示されるラベルを追加します。 
+</p>
+<dl><dd><code>Hello</code><br /><code>Hello</code></dd></dl>
+<h3><a name="-sl.3B_Create_a_message_label_with_the_Link_to_Variables_check_box"></a><span class="mw-headline">-sl; 「変数へのリンク」チェックボックスがオンのメッセージラベルを作成する</span></h3>
+<p><b>構文：</b> label <b>-sl</b> <i>message</i>
+</p><p>メッセージラベルを作成しテキストオブジェクトダイアログボックスの変数へのリンクチェックボックスをオンにします。以下の例を参照してください。
+</p>
+<h3><a name="-t.3B_Create_a_label_with_message"></a><span class="mw-headline">-t; メッセージ付きのラベルを作成する</span></h3>
+<p><b>構文：</b> label <b>-t</b> <i>message</i>
+</p><p>メッセージ付きのラベルを作成し、オブジェクトTITLEに名前を付けます。
+</p>
+<pre class="lt" style="font-family:monospace;">label <span style="color: #000080;">-</span>t abc; <span style="color: #008000;">//TITLEという名前の、 &quot;abc&quot; と表示されるラベルを追加</span></pre>
+<h3><a name="-xb.3B_Reset_the_bottom_X_axis_title"></a><span class="mw-headline">-xb; 下X軸タイトルをリセットする</span></h3>
+<p><b>構文：</b> label <b>-xb</b> <i>message</i>
+</p><p>新しい下X軸タイトルを作成するか、既存の下軸タイトルを置換します。
+</p>
+<pre class="lt" style="font-family:monospace;">label <span style="color: #000080;">-</span>xb time; <span style="color: #008000;">//下X軸のタイトルを time と設定</span></pre>
+<h3><a name="-xt.3B_Reset_the_top_X_axis_title"></a><span class="mw-headline">-xt; 上X軸タイトルをリセットする</span></h3>
+<p><b>構文：</b> label <b>-xt</b> <i>message</i>
+</p><p>新しい上X軸タイトルを作成するか、既存の上X軸タイトルを置換します。
+</p>
+<h3><a name="-yl.3B_Reset_the_left_Y_axis_title"></a><span class="mw-headline">-yl; 左Y軸タイトルをリセットする</span></h3>
+<p><b>構文：</b> label <b>-yl</b> <i>message</i>
+</p><p>新しい左Y軸タイトルを作成するか、既存の左Y軸タイトルを置換します。
+</p>
+<h3><a name="-yr.3B_Reset_the_right_Y_axis_title"></a><span class="mw-headline">-yr; 右Y軸タイトルをリセットする</span></h3>
+<p><b>構文：</b> label <b>-yr</b> <i>message</i>
+</p><p>新しい右Y軸タイトルを作成するか、既存の右Y軸タイトルを置換します。
+</p>
+<h3><a name="-zb.3B_Reset_the_back_Z_axis_title"></a><span class="mw-headline">-zb; 後Z軸タイトルをリセットする</span></h3>
+<p><b>構文：</b> label <b>-zb</b> <i>message</i>
+</p><p>新しい後Z軸タイトルを作成するか、既存の後Z軸タイトルを置換します。
+</p>
+<h3><a name="-zf.3B_Reset_the_front_Z_axis_title"></a><span class="mw-headline">-zf; 前Z軸タイトルをリセットする</span></h3>
+<p><b>構文：</b> label <b>-zf</b> <i>message</i>
+</p><p>新しい前Z軸タイトルを作成するか、既存の前Z軸タイトルを置換します。
+</p>
+<h2><a name="Examples:"></a><span class="mw-headline"><font color="chocolate">サンプル：</font></span></h2>
+<p><b>サンプル 1</b>
+</p><p>次のスクリプトは、中央揃えで MYLABEL という名前の「New Label Text」というラベルを作成します。  アクティブウィンドウのアクティブレイヤの象限3にラベルを描画します。
+</p>
+<pre class="lt" style="font-family:monospace;">label <span style="color: #000080;">-</span>q <span style="color: #0000dd;">3</span> <span style="color: #000080;">-</span>j <span style="color: #0000dd;">2</span> <span style="color: #000080;">-</span>n MYLABEL New Label Text;</pre>
+<p><b>サンプル 2</b>
+</p><p>次のスクリプトでは、下X軸ラベルMaximum Currentを作成します。
+</p>
+<pre class="lt" style="font-family:monospace;">lab <span style="color: #000080;">-</span>xb <span style="color: #000000;">(</span>Maximum Current<span style="color: #000000;">)</span>;</pre>
+<p><b>サンプル 3</b>
+</p><p>次のスクリプトは、myLabelという名前のラベルの内容を実行時の値で更新します。  テキストオブジェクトダイアログボックスで変数へのリンクオプションを有効にして、同じテキストでラベルを設定することもできることに注意してください（次の例を参照）。 
+</p>
+<pre class="lt" style="font-family:monospace;"><span style="color: #000080;">%</span>A <span style="color: #000080;">=</span> <span style="color: #ff00ff;">&quot;position = $(x)&quot;</span>;
+label <span style="color: #000080;">-</span>s <span style="color: #000080;">-</span>n myLabel <span style="color: #000080;">%</span>A;</pre>
+<p><b>サンプル 4</b>
+</p><p>次のスクリプトでは、テキストオブジェクトダイアログボックスの変数へのリンクチェックボックスをオンにしたmyLabelという名前のラベルが作成されます。  ラベルはxシステム変数の現在の値を表示します。これは、スクリーンリーダー、データリーダー、またはデータセレクタツールの現在のX座標です。
+</p>
+<pre class="lt" style="font-family:monospace;">label <span style="color: #000080;">-</span>sl <span style="color: #000080;">-</span>n mylabel <span style="color: #ff00ff;">&quot;position = $(x)&quot;</span>;</pre>
+<p><b>サンプル 5</b>
+</p><p>このスクリプトは、グラフラベルとしてファイルパスを追加し、グラフをエクスポートした後に削除する方法を示します。。%Gと&nbsp;%Xは現在のファイル名とパスの<a href="../../LabTalk/LabTalk/String_registers.html#String_Registers_as_System_Variables" title="LabTalk:文字列レジスタ">文字列レジスタ</a>であり、\v()は<a href="../../LabTalk/LabTalk/Label_(command).html#Note--Using_Escape_Sequences_to_Control_Text_Format:" title="LabTalk:Label （コマンド）">エスケープシーケンス</a>です。
+</p>
+<pre class="lt" style="font-family:monospace;">label <span style="color: #000080;">-</span>s <span style="color: #000080;">-</span>px <span style="color: #0000dd;">20</span> <span style="color: #0000dd;">10</span> <span style="color: #000080;">-</span>n ForPrintOnly \v<span style="color: #000000;">(</span>Generated from <span style="color: #000080;">%</span>X<span style="color: #000080;">%</span>G.<span style="color: #000080;">opj</span><span style="color: #000000;">)</span>;
+expGraph type<span style="color: #000000;">:</span><span style="color: #000080;">=</span>png filename<span style="color: #000000;">:</span><span style="color: #000080;">=</span>MySampleGraph path<span style="color: #000000;">:</span><span style="color: #000080;">=</span>D<span style="color: #000000;">:</span>\;
+label <span style="color: #000080;">-</span>r ForPrintOnly;</pre>
+<h2><a name="See_Also:"></a><span class="mw-headline"><font color="chocolate">関連情報：</font></span></h2>
+<p><a href="../../LabTalk/LabTalk/Legend_(command).html" title="LabTalk:Legend (command)">Legend (command)</a> はグラフに凡例を作成します。
+</p>
+
+
+
+
+
+
+    

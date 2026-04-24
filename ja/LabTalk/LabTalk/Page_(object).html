@@ -1,0 +1,1048 @@
+﻿<h1 class="firstHeading">Page</h1><p class='urlname' style='display: none'>Page-obj</p>
+<p><b>Page</b>オブジェクトはグラフ、ワークブック、行列ウィンドウのプロパティの読み取りと設定に使用できます。様々なPageプロパティとPageメソッドが用意されており、ワークブック内のシート数やグラフ内のレイヤ数の読み取り、指定したシート名でシート番号を検索、指定した番号または名前でシートをアクティブにする、ページをファイルとして保存するなどの処理を実行できます。
+</p><p><br />
+</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>目次</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Properties:Page_Property"><span class="tocnumber">1</span> <span class="toctext">プロパティ：<span class="OIndex" style="display:none">Pageプロパティ</span></span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Methods:Page_Method"><span class="tocnumber">2</span> <span class="toctext">メソッド：<span class="OIndex" style="display:none">Pageメソッド</span></span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Examples:"><span class="tocnumber">3</span> <span class="toctext">サンプル：</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#Active_a_layer_or_sheet"><span class="tocnumber">3.1</span> <span class="toctext">レイヤまたはシートをアクティブ化</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Reorder_Layers"><span class="tocnumber">3.2</span> <span class="toctext">レイヤの並び替え</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Work_with_Window_Names"><span class="tocnumber">3.3</span> <span class="toctext">ウィンドウ名の操作</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="#Read_and_Set_Number_of_Layers.2FSheets"><span class="tocnumber">3.4</span> <span class="toctext">レイヤ/シート数の読み取りと設定</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="#Save_an_Analysis_Template"><span class="tocnumber">3.5</span> <span class="toctext">分析テンプレートを保存</span></a></li>
+<li class="toclevel-2 tocsection-9"><a href="#Accessing_Metadata_Stored_in_Workbook"><span class="tocnumber">3.6</span> <span class="toctext">ワークブックに保存されているメタデータへのアクセス</span></a></li>
+<li class="toclevel-2 tocsection-10"><a href="#Adding_User_Tree_to_Workbook"><span class="tocnumber">3.7</span> <span class="toctext">ワークブックへのユーザーツリーの追加</span></a></li>
+<li class="toclevel-2 tocsection-11"><a href="#Sheet_Switching_Browser_Graph"><span class="tocnumber">3.8</span> <span class="toctext">ブラウザグラフのシート切り替え</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+<h2><a name="Properties:Page_Property"></a><span class="mw-headline"><font color="chocolate">プロパティ：</font><span class="OIndex" style="display:none">Pageプロパティ</span></span></h2>
+<p>Pageプロパティは、以下の構文で実行できます。
+</p>
+<dl><dd><ul><li> <b>page.property</b>（数値）または<b>page.property$</b>（文字列）-アクティブなウィンドウの場合 </li>
+<li> <b>windowShortName! page.property</b>（数値）または<b>windowShortName! Page.property$</b> -指定したウィンドウの場合</li>
+<li> <b>rPage.property</b>（数値）または<b>rPage.property$</b>（文字列） -rPageがページオブジェクトの<a href="../../LabTalk/LabTalk/Range_Notation.html" title="LabTalk:Range Notation">範囲変数</a>の場合</li></ul></dd></dl>
+<p>Note: 使用可能なすべてのプロパティを表示するには、<b>page.=</b>、<b>windowShortName! page.=</b>または<b>rPage.=</b>を使用します。
+</p>
+<table class="simple">
+<tr>
+<th width="110">プロパティ
+</th>
+<th width="70">適用先
+</th>
+<th width="70">アクセス
+</th>
+<th width="540">説明
+</th></tr>
+<tr>
+<td> <b>page.aa</b>
+</td>
+<td> グラフ
+</td>
+<td> 読み/書き、<br />数値
+</td>
+<td> アンチエイリアスのon/off。
+</td></tr>
+<tr>
+<td> <b>page.active</b>
+</td>
+<td> グラフ、<br />ワークブック、<br />行列
+</td>
+<td> 読み/書き、<br />数値
+</td>
+<td> アクティブなレイヤ番号。
+</td></tr>
+<tr>
+<td> <b>page.active$</b>
+</td>
+<td> ワークブック、<br />行列
+</td>
+<td> 読み/書き、<br />文字列
+</td>
+<td> アクティブなレイヤ名。
+</td></tr>
+<tr>
+<td> <b>page.activeDataIndicator</b>
+</td>
+<td> ワークブック、<br />行列
+</td>
+<td> 読み/書き、<br />数値
+</td>
+<td> 凡例にボックスを表示してアクティブなデータプロットを示します。
+</td></tr>
+<tr>
+<td> <b>page.activeonly</b>
+</td>
+<td> グラフ
+</td>
+<td> 読み/書き、<br />数値
+</td>
+<td> アクティブなレイヤのみを表示するかどうか。
+</td></tr>
+<tr>
+<td> <b>page.ali</b>
+</td>
+<td> グラフ
+</td>
+<td> 読み/書き、<br />数値
+</td>
+<td> アクティブレイヤインジケータの表示/非表示。1 =表示、0 =非表示
+</td></tr>
+<tr>
+<td> <b>page.autoSize</b>
+</td>
+<td> グラフ
+</td>
+<td> 読み/書き、<br />数値
+</td>
+<td> 目盛ラベルの自動回転がオンになっている場合に、レイヤの自動サイズ変更を制御します。
+<p><br />
+0=(デフォルト)<a class="external text" href="../../UserGuide/UserGuide/Tick_Labels_2.html#Rotate_.28deg..29">これら3つの条件が満たされた</a>場合、レイヤサイズを自動変更<br />
+1=レイヤサイズを常に自動変更<br />
+2=レイヤサイズを自動変更しない
+</p>
+</td></tr>
+<tr>
+<td> <b>page.banner</b>
+</td>
+<td> グラフ
+</td>
+<td> 読み/書き、<br />数値
+</td>
+<td> エクスポート/印刷しない<b>スピードモードバナー</b>のon/offを切り替えます。<br />
+<p>0 =バナー非表示<br />
+1=バナー表示
+</p>
+</td></tr>
+<tr>
+<td> <b>page.barShowZero</b>
+</td>
+<td> グラフ
+</td>
+<td> 読み/書き、<br />数値
+</td>
+<td> 棒の幅/高さが0の場合に棒を表示するかどうかを決定します。
+<p>-1=自動：メニューの<b>環境設定：オプション</b>ダイアログの<b>棒グラフの場合に0値を表示する</b>の設定に従う
+<br />0=幅/高さが0の場合は棒を表示しない
+<br />1=幅/高さが0の場合も棒を表示する
+</p>
+</td></tr>
+<tr>
+<td> <b>page.barWidthNoMissing</b>
+</td>
+<td> グラフ
+</td>
+<td> 読み/書き、<br />数値
+</td>
+<td> XYペアのZ値が欠損している場合、棒の幅の欠損データを無視します。
+<p>0=<a class="external text" href="../../UserGuide/UserGuide/Setting_the_Page_Color_and_Other_Page_Display_Preferences.html#Ignore_Missing_Data_for_Column.2FBar_Width"><b>棒の幅の欠損データを無視</b></a>を無効にする<br />
+1=（デフォルト）<a class="external text" href="../../UserGuide/UserGuide/Setting_the_Page_Color_and_Other_Page_Display_Preferences.html#Ignore_Missing_Data_for_Column.2FBar_Width"><b>棒の幅の欠損データを無視</b></a>を有効にする<br />
+</p><p><a class="external text" href="../../UserGuide/UserGuide/3D_Bars.html#Notes">3D棒グラフの<b>Note</b></a>を参照してください。
+</p>
+</td></tr>
+<tr>
+<td> <b>page.baseColor</b>
+</td>
+<td> グラフ、<br />ワークブック、<br />行列
+</td>
+<td> 読み/書き、<br />数値
+</td>
+<td> ページの色。カラーリストの数値：transparent (0)。color()関数は次のように使用できます。<b>page.basecolor = color(blue)</b>;
+</td></tr>
+<tr>
+<td> <b>page.breaktype</b>
+</td>
+<td> グラフ
+</td>
+<td> 読み/書き、<br />数値
+</td>
+<td> グラフに軸破断がある場合は、<b>page.breaktype = 1</b>を設定し、軸破断の前後の線のトレンド（実数の線の傾き）を軸破断がないかのように維持します。<b>作図の詳細 - ページ属性</b>ダイアログの<b>表示指定</b>タブの、<a class="external text" href="../../UserGuide/UserGuide/Setting_the_Page_Color_and_Other_Page_Display_Preferences.html#Keep_Line_Trend_as_if_no_Axis_Break"><b>軸破断がないように線の勾配を保持</b></a>オプションに対するスクリプトアクセスです。
+</td></tr>
+<tr>
+<td> <b>page.canswitch </b>
+</td>
+<td> グラフ
+</td>
+<td> 読み取り
+</td>
+<td> ページを切り替えることができる場合は戻ります。0=いいえ、1=シート、2=ブック
+</td></tr>
+<tr>
+<td> <b>page.cd</b>
+</td>
+<td> グラフ
+</td>
+<td> 読み取り/書き込み
+</td>
+<td> 共通のディスプレイ設定。関連項目: <a href="../../LabTalk/LabTalk/Page.cd_(object).html" title="LabTalk:Page.cd (object)">Page.cd</a>オブジェクトプロパティ
+</td></tr>
+<tr>
+<td> <b>page.closeBits</b>
+</td>
+<td> グラフ
+</td>
+<td> 読み/書き、<br />数値
+</td>
+<td> ウィンドウを閉じる動作。0=正常、1=ウィンドウを閉じない、2=ウィンドウを閉じるときに警告メッセージを表示しない
+</td></tr>
+<tr>
+<td> <b>page.cntrl</b>
+</td>
+<td> グラフ、<br />行列
+</td>
+<td> 読み/書き、<br />数値
+</td>
+<td> グラフの場合、重なり合うレイヤの描画を制御します。<br />0=別のレイヤに拡張されたデータを表示する（デフォルト）<br />4=レイヤを順番に描画し、その下にあるデータを非表示にする。これにより、例えば、インセットグラフを介して元データが表示されなくなります。<br />16=システムテーマを無視する。これにより、システムテーマがテンプレート設定を上書きできなくなります。
+<p>行列の場合、表示モードを制御します。<br />0=データ表示モード<br />1=画像表示モード<br />2= X/Y座標を表示
+</p>
+</td></tr>
+<tr>
+<td> <b>page.cntrlColor</b>
+</td>
+<td> グラフ
+</td>
+<td> 読み/書き、<br />数値
+</td>
+<td> 制御領域が表示されている場合 (<b>page.cntrlregion</b> = <b>1</b>)、<b>page.cntrlcolor</b>はカラーリストの番号を使用して制御領域の色を設定/読み取りします。<b>page.cntrlcolor</b> = <b>18</b>を設定すると、グラフウィンドウの余白色（灰色の領域）を使用して制御領域が表示されます。
+</td></tr>
+<tr>
+<td> <b>page.cntrlHeight</b>
+</td>
+<td> グラフ
+</td>
+<td> 読み/書き、<br />数値
+</td>
+<td> 制御領域の高さを設定します（ページの上部に制御領域を表示する場合）。
+</td></tr>
+<tr>
+<td> <b>page.cntrlRegion</b>
+</td>
+<td> グラフ
+</td>
+<td> 読み/書き、<br />数値
+</td>
+<td> 制御領域を表示するには<b>page.cntrlregion</b> = <b>1</b> と設定します。制御領域は、ツールを配置するための便利な場所を提供します。表示を無効化する場合は<b>page.contrlregion</b> = <b>0</b>と設定します。
+</td></tr>
+<tr>
+<td> <b>page.cntrlWidth</b>
+</td>
+<td> グラフ
+</td>
+<td> 読み/書き、<br />数値
+</td>
+<td> 制御領域の幅を設定します（ページの左側に制御領域を表示する場合）。
+</td></tr>
+<tr>
+<td> <b>page.comments$</b>
+</td>
+<td> グラフ、<br />ワークブック、<br />行列
+</td>
+<td> 読み/書き、<br />文字列
+</td>
+<td> ページレベルのコメント。
+</td></tr>
+<tr>
+<td> <b>page.columnOffset</b>
+</td>
+<td> グラフ、<br />ワークブック、<br />行列
+</td>
+<td> 読み/書き、<br />数値
+</td>
+<td> プロットの色を列のインデックスまたは列の名前でマッピングするかどうかを指定します。0=カラーマップを列インデックスで関連付ける1（デフォルト）=カラーマップを列名で関連付けるOrigin 2016以前は、プロットの色は列インデックスでのみマッピングされていました。
+</td></tr>
+<tr>
+<td> <b>page.connect</b>
+</td>
+<td> グラフ
+</td>
+<td> 読み/書き、<br />数値
+</td>
+<td> 折れ線グラフの欠損値を越えてグラフを結ぶ。0=無効、1=有効。
+</td></tr>
+<tr>
+<td> <b>page.cp</b>
+</td>
+<td> ワークブック<br />行列
+</td>
+<td> 読み取り/書き込み
+</td>
+<td> コントロールパネルの設定。関連項目: <a href="../../LabTalk/LabTalk/Page.cp_(object).html" title="LabTalk:Page.cp (object)">Page.cp</a>オブジェクトプロパティ
+</td></tr>
+<tr>
+<td> <b>page.cropmark</b>
+</td>
+<td> グラフ
+</td>
+<td> 読み/書き、<br />数値
+</td>
+<td> クロップマークを印刷します。
+</td></tr>
+<tr>
+<td> <b>page.customheight</b>
+</td>
+<td> グラフ
+</td>
+<td> 読み/書き、<br />数値
+</td>
+<td> 印刷時のカスタム高さ。複数ページ印刷でのみ、プリンタ設定がグラフごとに異なる場合に使用されます。
+</td></tr>
+<tr>
+<td> <b>page.customwidth</b>
+</td>
+<td> グラフ
+</td>
+<td> 読み/書き、<br />数値
+</td>
+<td> 印刷時のカスタム幅。複数ページ印刷で、印刷設定がグラフごとに異なる可能性がある場合にのみ使用されます。
+</td></tr>
+<tr>
+<td> <b>page.df</b>
+</td>
+<td> グラフ
+</td>
+<td> 読み取り、<br />数値
+</td>
+<td> グラフページにフィルタがあるかどうか。グラフウィンドウでない場合は-1を返します。
+</td></tr>
+<tr>
+<td> <b>page.dvHeight</b>
+</td>
+<td> グラフ
+</td>
+<td> 読み取り、<br />数値
+</td>
+<td> <b>page.viewPaper</b> = <b>0</b> (viewpaper off) の場合、<b>page.dvheight</b> = ページのピクセル高さ（白い領域）。<b>page.viewPaper</b> = <b>1</b> (viewpaper on) の場合、<b>page.dvheight</b>は 2*<b>page.dvtop</b>だけ小さくなります。  ウィンドウのサイズが変更されると、プロパティ値が変化します。
+</td></tr>
+<tr>
+<td> <b>page.dvLeft</b>
+</td>
+<td> グラフ
+</td>
+<td> 読み取り、<br />数値
+</td>
+<td> When <b>page.viewPaper</b> = <b>0</b> (viewpaper off)の場合、<b>page.dvleft</b> = <b>0</b>となります。When <b>page.viewPaper</b> = <b>1</b> (viewpaper on) の場合、<b>page.dvleft</b> = <b>12</b>となります。ウィンドウのサイズが変更されると、プロパティ値が変化します。
+</td></tr>
+<tr>
+<td> <b>page.dvTop</b>
+</td>
+<td> グラフ
+</td>
+<td> 読み取り、<br />数値
+</td>
+<td> When <b>page.viewPaper</b> = <b>0</b> (viewpaper off) の場合、<b>page.dvtop</b> = <b>0</b>となります。<b>page.viewPaper</b> = <b>1</b> (viewpaper on) の場合、<b>page.dvtop</b> = <b>9</b>となります。ウィンドウのサイズが変更されると、プロパティ値が変化します。
+</td></tr>
+<tr>
+<td> <b>page.dvWidth</b>
+</td>
+<td> グラフ
+</td>
+<td> 読み取り、数値
+</td>
+<td> <b>page.viewPaper</b> = <b>0</b> (viewpaper off) の場合、<b>page.dvwidth</b> = ページのピクセル幅（白い領域）。<b>page.viewPaper</b> = <b>1</b> (viewpaper on) の場合、<b>page.dvwidth</b>は2*<b>page.dvleft</b>だけ小さくなります。ウィンドウのサイズが変更されると、プロパティ値が変化します。
+</td></tr>
+<tr>
+<td> <b>page.emo</b>
+</td>
+<td> グラフ
+</td>
+<td> 読み/書き、数値
+</td>
+<td> <b>page.emo</b> = <b>0</b>を指定すると、余白のオフセットが削除されます。<br /><b>Note: </b> 0以外の値に設定しても動作しません。
+</td></tr>
+<tr>
+<td> <b>page.extInfo</b>
+</td>
+<td> ワークブック
+</td>
+<td> 読み取り、<br />数値
+</td>
+<td> アクティブなワークシートウィンドウの種類。 0=Originワークシート、1= Excel 2003以前のバージョンのさーくブック(*.xls)、2= Excel 2007以降のバージョンのワークブック(*.xlsx)。
+</td></tr>
+<tr>
+<td> <b>page.filename$</b>,<br /> <b>page.filepath$</b>
+</td>
+<td> ワークブック、<br />行列
+</td>
+<td> 読み/書き、<br />文字列
+</td>
+<td> ウィンドウがogw、ogg、または外部Excelブックとして保存されると、これらのプロパティはファイル名にアクセスできます。
+</td></tr>
+<tr>
+<td> <b>page.floating</b>
+</td>
+<td> グラフ、<br />ワークブック、<br />行列、<br />画像<br />、レイアウト
+</td>
+<td> 読み/書き、<br />数値
+</td>
+<td> ウィンドウをフローティングまたは閉じるように制御します。
+<p>0=フローティングウィンドウを閉じる
+<br />1=ウィンドウをフローティング（第1モニタに）
+<br />2=ウィンドウをフローティング（第2モニタに）
+</p>
+</td></tr>
+<tr>
+<td> <b>page.fwom</b>
+</td>
+<td> フローティングウィンドウ（グラフ、<br />ワークブック、<br />行列、<br />画像、<br />レイアウト）
+</td>
+<td> 読み/書き、<br />数値
+</td>
+<td> フローティングウィンドウ内のオブジェクトマネージャの場所を制御します。
+<p>0 =オブジェクトマネージャを非表示
+<br />1/2/3/4/5 =オブジェクトマネージャを上/左/右/下/フローティングに設定
+<br />10=オブジェクトマネージャが非表示の場合、最後に設定した位置をアクティブ化できる
+</p>
+</td></tr>
+<tr>
+<td> <b>page.gradColor</b>
+</td>
+<td> グラフ、<br />ワークブック
+</td>
+<td> 読み/書き、<br />数値
+</td>
+<td> グラデーション塗りを使用してページを表示する場合、<b>page.gradColor</b>はグラデーションの色を決定します。カラーリストの数値を使用します：transparent (0)。<b>color()</b>関数は <b>page.gradcolor = color(blue)</b>; のように使用できます。
+</td></tr>
+<tr>
+<td> <b>page.height</b>
+</td>
+<td> グラフ
+</td>
+<td> 読み/書き、<br />数値
+</td>
+<td> ページの高さ（ドット単位）。インチ単位の高さは、[page.height/page.resy] から<b>page.resy</b> （下記）の解像度を使用して計算できます。
+</td></tr>
+<tr>
+<td> <b>page.imgauto</b>
+</td>
+<td> 画像
+</td>
+<td> 読み/書き、<br />数値
+</td>
+<td>  元画像が変更されたときに、グラフに挿入されたリンク画像の更新を許可するかどうか。
+<dl><dd>0 = デフォルト値。グラフにリンクされた画像が含まれている場合、プロジェクトを開くとグラフにダウンロードボタンが表示され、リンクされた画像を再インポートできます。画像ファイルが変更された場合は、変更を確認するために再インポートする必要があります。</dd>
+<dd>1=画像ファイルが変更された場合、画像ウィンドウにダウンロードボタンを表示します。 </dd>
+<dd>2 =画像ファイルが変更された場合に自動的に再インポートします。 </dd></dl>
+</td></tr>
+<tr>
+<td> <b>page.icons</b>
+</td>
+<td> グラフ
+</td>
+<td> 読み/書き、<br />数値
+</td>
+<td> レイヤアイコン：1=表示、0=非表示
+</td></tr>
+<tr>
+<td> <b>page.info</b>
+</td>
+<td> グラフ、<br />ワークブック、<br />行列
+</td>
+<td> 読み/書き、<br />Tree列
+</td>
+<td> ページストレージオブジェクト。通常、<a class="external text" href="../../UserGuide/Category/Accessing_Metadata_Associated_with_Imported_Files.html">最後にインポートされたファイルに関連付けられたメタデータ</a>（ファイルの日付、名前、パスなど）と、インポートウィザードを使用してファイルから抽出された変数が含まれます。<br /><br />格納される情報の種類は、ウィンドウの種類とユーザーの設定によって異なります。例えば、よく見られるpage.infoセクションは、SYSTEM.FORMULA（ページ内の数値と文字列の値を格納するために使用されるシステム変数<a href="../../LabTalk/LabTalk/System_Variables.html#V1.E2.80.93V9" title="LabTalk:システム変数">v1-v4）</a>とSYSTEM.IMPORT（ページ内のインポートファイルの詳細を格納するために使用されるシステム変数）の2つです。<br /><br />システム変数はユーザ変数とは異なり、システム変数の作成、削除、名前変更はできず、値だけが変更されます。<br />
+<p><a class="external text" href="../../LabTalk/LabTalk/Page_(object).html#Accessing_Metadata_Stored_in_Workbook">以下の例ではメタデータへのアクセス方法を示します。</a>
+<br />User Treeのデータにアクセスするには、代わりに<b>page.tree</b>を使用します。
+</p>
+</td></tr>
+<tr>
+<td> <b>page.isEmbedded</b>
+</td>
+<td> グラフ
+</td>
+<td> 読み取り、<br />数値
+</td>
+<td> 指定されたページ（画像、グラフ、またはスパークライン）が埋め込まれたセルからポップされたかどうかを示します。1=埋め込み、0=埋め込みなし。
+</td></tr>
+<tr>
+<td> <b>page.isEmbedded$</b>
+</td>
+<td> グラフ
+</td>
+<td> 読み取り、<br />文字列
+</td>
+<td> 埋め込まれたページのソースセル範囲を保持します。
+</td></tr>
+<tr>
+<td> <b>page.label$</b>
+</td>
+<td> グラフ、<br />ワークブック、<br />行列
+</td>
+<td> 読み/書き、<br />文字列
+</td>
+<td> 8.0より前のバージョンでは、ウィンドウへのラベルにアクセスするためにこれが使用されます。代わりにロングネームの使用を推奨します。ロングネームをウィンドウタイトルとして表示するには、<b>page.title</b> = 1とします。（Note: <a href="../../LabTalk/LabTalk/Window_(command)&amp;action=edit&amp;redlink=1.html" class="new" title="LabTalk:Window (command) (page does not exist)">win -rl windowName &quot;labelContents&quot;</a>コマンドを使用してウィンドウラベルを定義して表示することもできます。）
+</td></tr>
+<tr>
+<td> <b>page.layoutCntrl</b>
+</td>
+<td> グラフ
+</td>
+<td> 読み/書き、<br />数値
+</td>
+<td> すべてのグラフウィンドウのスピードモードと表示モードは、レイアウトページウィンドウが存在する場合、1=有効、0=無効で制御されます。
+</td></tr>
+<tr>
+<td> <b>page.layoutSpeed</b>
+</td>
+<td> レイアウト<br />ページ
+</td>
+<td> 読み/書き、<br />数値
+</td>
+<td> 「図のプレースホルダを表示」モードを使用すると、レイアウトページウィンドウ内のグラフまたはワークシートの図が、名前付きのハッチングボックスとして表示されます。1=有効、0=無効
+</td></tr>
+<tr>
+<td> <b>page.LNexp$</b>
+</td>
+<td> ワークブック
+</td>
+<td> 読み取り、<br />文字列
+</td>
+<td> ホルダーブックロングネーム。埋め込みグラフ、行列、メモ、またはHTMLレポートのコンテナワークブックのロングネームを返します。
+</td></tr>
+<tr>
+<td> <b>page.lock</b>
+</td>
+<td> グラフ
+</td>
+<td> 読み/書き、<br />数値
+</td>
+<td> グラフウィンドウで<a class="external text" href="../../GettingStarted/OriginLab/How_to_Handle_Repetitive_Tasks.html#Recalculation">再計算ロックアイコン</a>の表示/非表示を制御します。1=表示、0=非表示
+</td></tr>
+<tr>
+<td> <b>page.longminus</b>
+</td>
+<td> グラフ
+</td>
+<td> 読み/書き、<br />数値
+</td>
+<td> 目盛ラベルのマイナス記号と乗算記号のページレベル制御。0(デフォルト)=フォントで制御、1=科学および工学表記で表示するように設定された目盛の表示を一般的に改善する「長いマイナス」と乗算記号の使用。
+<table class="noborder">
+	<tr>
+	<td style="vertical-align:top" width="60"><img src="../images/Page_(object)/Alert_icon.png" width="57"  border="0" /></td><td><p>Origin 2022b以降では、システムテンプレートから作成されたグラフではデフォルトで「長いマイナス」が使用されるようになりました。詳細は<a class="external text" href="../../QuickHelp/QuickHelp/How_to_add_real_minus_to_axis_tick_labels.html">FAQ-992 どのようにして私の軸の目盛りラベルにUnicodeの &quot;本物の&quot;マイナス記号を使用できますか？</a>を参照してください。
+</p>
+	</td>
+	</tr>
+	</table>
+</td></tr>
+<tr>
+<td> <b>page.longname$</b>
+</td>
+<td> ワークブック、<br />行列
+</td>
+<td> 読み/書き、<br />文字列
+</td>
+<td> ページレベルのロングネーム。
+</td></tr>
+<tr>
+<td> <b>page.mask</b>
+</td>
+<td> グラフ
+</td>
+<td> 読み/書き、<br />数値
+</td>
+<td> <a href="../../LabTalk/LabTalk/Mark_(command).html#-u.3B_Update_all_graphs_with_masked_data" title="LabTalk:Mark (command)">グローバルマスク</a>のページレベルマスクオーバーライド。0=マスクされたポイントを非表示、1=マスクされたポイントを表示、2=自動（デフォルト、グローバル設定に従う）。<a href="../../LabTalk/LabTalk/Options_for_DataPlots.html#-md" title="LabTalk: データプロットのオプション">プロットレベルのマスキング</a>はページレベルのマスキングよりも優先されることに注意してください（プロット&gt;ページ&gt;グローバル）。
+</td></tr>
+<tr>
+<td> <b>page.master</b>
+</td>
+<td> グラフ
+</td>
+<td> 読み/書き、<br />数値
+</td>
+<td> <a class="external text" href="../../UserGuide/UserGuide/Setting_the_Page_Color_and_Other_Page_Display_Preferences.html#Use_Master_Items"><b>マスター項目の使用</b></a>の制御。
+<p>0= 無効<br />
+1=エクスポートのみ有効<br />
+2=画面に対しては有効だが、ビット<b>1</b>が設定されていない場合は無視<br />
+3=エクスポートと画面の両方に対して有効
+</p>
+</td></tr>
+<tr>
+<td> <b>page.maxPts</b>
+</td>
+<td> グラフ
+</td>
+<td> 読み/書き、<br />数値
+</td>
+<td> ワークシートデータプロットのスピードモード。レイヤ内の各列ベースのデータプロットに表示するデータポイントの最大数（画面表示のみ）。印刷とエクスポートでスピードモードが使用されません。ワークシートデータプロットのスピードモードをオフにするには、これを0に設定します。これは旧バージョンのOriginとの互換性のために使用します。代わりに<a href="../../LabTalk/LabTalk/Layer_(object).html#Properties:" title="LabTalk:Layer (オブジェクト)">layer.maxpts</a>の使用を推奨します。
+</td></tr>
+<tr>
+<td> <b>page.name$</b>
+</td>
+<td> グラフ、<br />ワークブック
+</td>
+<td> 読み取り、<br />文字列
+</td>
+<td> ショートネーム
+</td></tr>
+<tr>
+<td> <b>page.nLayers</b>
+</td>
+<td> グラフ、<br />ワークブック、<br />行列
+</td>
+<td> 読み取り（グラフ、ワークブック、行列）/書き込み（ワークブック、行列）<br />数値
+</td>
+<td> ページ上のレイヤの数。Origin 2018 sr0からは、page.nLayersはワークブックと行列に対して書き込み可能であり、ブックにシートを追加するために使用できるようになっています（<a href="#Adding_Sheets_to_Workbooks_or_Matrices">下記</a>の例を参照）。
+</td></tr>
+<tr>
+<td> <b>page.nLinks</b>
+</td>
+<td> グラフ
+</td>
+<td> 読み取り、<br />数値
+</td>
+<td> ページ上の子レイヤの総数。
+</td></tr>
+<tr>
+<td> <b>page.noClick</b>
+</td>
+<td> グラフ、<br />ワークブック、<br />行列
+</td>
+<td> 読み/書き、<br />数値
+</td>
+<td> さまざまなオブジェクトでマウスクリックを無効にします。1=軸と列ヘッダ、2=データプロットとセル、4=ラベル、8=オブジェクト、16=レイヤ枠、32=目盛ラベル。  値は累積されるため、<b>page.noclick</b> = 5は軸とラベルのクリックを無効にします。
+</td></tr>
+<tr>
+<td> <b>page.order</b>
+</td>
+<td> グラフ
+</td>
+<td> 読み/書き、<br />数値
+</td>
+<td> スライドインデックス
+</td></tr>
+<tr>
+<td> <b>page.orientation</b>
+</td>
+<td> ワークブック、<br />行列、<br />グラフ
+</td>
+<td> 読み/書き、<br />数値
+</td>
+<td> 印刷設定がページごとに異なる可能性がある場合に、複数ページ印刷でのみ使用されます。ウィンドウがワークシートまたは行列の場合、アクティブなシートに適用され、グラフウィンドウには直接適用されます。
+<p>0 = 自動（ワークシート/行列のみ）
+<br /> 
+1 = 縦
+<br />
+2 = 横
+</p>
+</td></tr>
+<tr>
+<td> <b>page.outsiderangespecpaint</b>
+</td>
+<td> ワークブック
+</td>
+<td> 読み/書き、<br />数値
+</td>
+<td> 未使用のワークシートセルの背景色の制御。0=無効、1=有効
+</td></tr>
+<tr>
+<td> <b>page.resx</b>
+</td>
+<td> グラフ、<br />ワークブック、<br />行列
+</td>
+<td> 読み/書き、<br />数値
+</td>
+<td> 水平方向の解像度（インチあたりのドット数）。
+</td></tr>
+<tr>
+<td> <b>page.resy</b>
+</td>
+<td> グラフ、<br />ワークブック、<br />行列
+</td>
+<td> 読み/書き、<br />数値
+</td>
+<td> 縦方向の解像度（インチあたりのドット数）。
+</td></tr>
+<tr>
+<td> <b>page.rtMaxPts</b>
+</td>
+<td> グラフ
+</td>
+<td> 読み/書き、<br />数値
+</td>
+<td> maxptsの独立したリアルタイム計算。0 =無効化してmaxptsを使用する
+</td></tr>
+<tr>
+<td> <b>page.SaveWks</b>
+</td>
+<td> グラフ
+</td>
+<td> 読み/書き、<br />数値
+</td>
+<td> OGG/OLEオブジェクトを保存するときに元のワークブック全体のデータを保存するかどうかを制御します。0 =自動、保存ステータスビットがまだ設定されていない状態。1 =元のワークブック全体を保存し、制御ビットも保存され、変更できない。2 =現在のプロットに関連するデータのみ保存し、制御ビットも保存され、変更できない。
+</td></tr>
+<tr>
+<td> <b>page.sysWin</b>
+</td>
+<td> グラフ、<br />ワークブック、<br />行列
+</td>
+<td> 読み/書き、<br />数値
+</td>
+<td> プロジェクトを閉じても開いたままになるシステム ィンドウとしてウィンドウを設定します。1 = 有効、0 = 無効
+</td></tr>
+<tr>
+<td> <b>page.title</b>
+</td>
+<td> グラフ、<br />ワークブック、<br />行列
+</td>
+<td> 読み/書き、<br />数値
+</td>
+<td> ウィンドウタイトルの表示を制御して、ショートネームまたはロングネーム、またはその両方を表示します。1=ロングネーム、2または0=ショートネーム、3=ショートネーム-ロングネーム
+</td></tr>
+<tr>
+<td> <b>page.tkey$</b>
+</td>
+<td> ワークブック<br />行列
+</td>
+<td> 読み/書き、<br />文字列
+</td>
+<td> テンプレートキー（文字列）をユーザ定義テンプレートに保存するために使用します。例えば、カスタムワークブックや行列ブックテンプレートを使うのに必要なPythonパッケージの名前を指定するのに使うことができます。テンプレートがアクティブな状態で、テンプレートを保存する前にスクリプトウィンドウに次のように入力します。
+<pre class="lt" style="font-family:monospace;">page.<span style="color: #000080;">tkey</span><span style="color: #000080;">$</span> <span style="color: #000080;">=</span> <span style="color: #ff00ff;">&quot;py:pandas&quot;</span>; <span style="color: #008000;">// 必要なパッケージを指定</span>
+page.<span style="color: #000080;">tkey</span><span style="color: #000080;">$</span> <span style="color: #000080;">=</span> <span style="color: #ff00ff;">&quot;py:pandas scipy numpy&quot;</span>; <span style="color: #008000;">// 複数のパッケージを指定</span></pre>
+<p>テンプレートを読み込むと、プロパティが読み込まれ、不足しているパッケージをインストールするように求めるプロンプトが表示されます。プロパティはアクティブなテンプレートに必要なパッケージの名前を返すためにも使うことができます。
+</p>
+</td></tr>
+<tr>
+<td><b>page.tree</b>
+</td>
+<td> グラフ、<br />ワークブック、<br />行列
+</td>
+<td> 読み/書き、<br />Tree列
+</td>
+<td> ページストレージオブジェクト。page.tree領域は、ユーザ定義の情報をツリー構造で保持するために使用される記憶領域です。例えば、ユーザはテンプレートで使用するための設定情報を追加することができます。<br /><br />元のファイルに関連付けられたメタデータにアクセスするには、代わりに<b>page.info</b>を使用してください。
+</td></tr>
+<tr>
+<td> <b>page.triangulationnormalizedata</b>
+</td>
+<td> グラフ（XYZ等高線/曲面）
+</td>
+<td> 読み/書き、<br />bool
+</td>
+<td> XYZ等高線図とXYZ曲面図のデータを正規化(=1)。デフォルト：(0) =未加工のXYZデータをプロット。<a class="external text" href="../../UserGuide/UserGuide/The_(Plot_Details)_Miscellaneous_Tab.html#Normalize_Data_for_XYZ_Contour.2FSurface_Plot">XYZ等高線/曲面図のデータの正規化</a>を参照してください。
+</td></tr>
+<tr>
+<td> <b>page.unit</b>
+</td>
+<td> グラフ
+</td>
+<td> 読み/書き、<br />数値
+</td>
+<td> ページサイズの単位（「作図の詳細 - ページ属性」ダイアログボックスの「印刷・ページサイズ」タブと同様）。1=インチ、2=cm、3=mm、4=ピクセル、5=ポイント
+</td></tr>
+<tr>
+<td> <b>page.updatetoprinter</b>
+</td>
+<td> グラフ
+</td>
+<td> 読み/書き、<br />数値
+</td>
+<td> アクティブなプリンタの寸法に従ってページの寸法を設定するかどうかを指定します。
+<ul><li><b>0</b> - 読み込み中のテンプレートでプリンタをチェックしない。つまり、ページ寸法は常にそのままテンプレートから読み込まれます。</li>
+<li><b>1</b> - デフォルト。現在のテンプレートの解像度をチェックします。テンプレートの解像度が600DPI（またはorigin.inで変更されたデフォルト値）未満の場合、ページのサイズは600DPI解像度のプリンタのサイズに合わせて更新されます。テンプレートの解像度が600DPI以上の場合、ページのサイズは変更されません（0と同様）。</li>
+<li><b>2</b> - 常に現在アクティブなプリンタを確認し、ページサイズをプリンタ解像度に更新します。</li></ul>
+</td></tr>
+<tr>
+<td> <b>page.viewmode</b>
+</td>
+<td> グラフ
+</td>
+<td> 読み/書き、<br />数値
+</td>
+<td> ページビューモード（「作図の詳細 - ページ属性」ダイアログボックスの「その他のオプション」タブと同様）。1=印刷ビュー、2=ページビュー、3=古いウィンドウビュー（使用非推奨）、4=ドラフトビュー、5=ウィンドウビュー
+</td></tr>
+<tr>
+<td> <b>page.viewPaper</b>
+</td>
+<td> グラフ
+</td>
+<td> 読み/書き、<br />数値
+</td>
+<td> ページを背景色で囲みます。1=有効、0=無効。背景色は<a href="../../LabTalk/LabTalk/System_(object).html" title="LabTalk:System (object)">system.ExtBackColor</a>プロパティで設定できます。
+</td></tr>
+<tr>
+<td> <b>page.width</b>
+</td>
+<td> グラフ
+</td>
+<td> 読み/書き、<br />数値
+</td>
+<td> ページ幅（ドット単位）。  インチ単位の幅は [page.width/page.resx] から確認できます。
+</td></tr>
+<tr>
+<td> <b>page.win</b>
+</td>
+<td> グラフ、<br />ワークブック、<br />行列
+</td>
+<td> 読み取り、<br />数値
+</td>
+<td> ページ状態。0=非表示（アイコンはプロジェクトエクスプローラで非表示）、1=ウィンドウ非表示（アイコンはプロジェクトエクスプローラで通常表示）、2=最小化、3=標準、4=最大化
+</td></tr>
+<tr>
+<td> <b>page.xlcolname</b>
+</td>
+<td> ワークブック
+</td>
+<td> 読み/書き、<br />数値
+</td>
+<td> <a class="external text" href="../../UserGuide/UserGuide/Column_Short_Name_Restriction.html">Excelのような列のショートネームの制限</a>をオンにするかどうかを指定します。1=オン、0=オフ
+</td></tr>
+<tr>
+<td> <b>page.ytitle</b>
+</td>
+<td> グラフ
+</td>
+<td> 読み/書き、<br />数値
+</td>
+<td> すべてのレイヤのレイヤ枠からのY軸タイトルのオフセットを指定します。例えば、<i>page.ytitle=15</i>は、レイヤ枠から15%（レイヤ枠幅）の距離を意味します。
+</td></tr>
+<tr>
+<td> <b>page.zoom</b>
+</td>
+<td> グラフ、<br />ワークブック、<br />行列
+</td>
+<td> 読み/書き、<br />数値
+</td>
+<td> ウィンドウの大きさをズームします。「プロット操作・オブジェクト作成」ツールバーのズームボタンと同じように機能します。例えば、page.zoom=50は倍率ズームレベルを50%に設定します。または、ズームレベルをパーセントで返すこともできます。
+</td></tr>
+<tr>
+<td> <b>page.zoomIn</b>
+</td>
+<td> グラフ
+</td>
+<td> 書き込み、<br />数値
+</td>
+<td> グラフウィンドウ内の任意のズーム位置を拡大します。<br /><b>Note: </b><code>page.zoomIn = 0</code> の場合、グラフウィンドウの中央ーにグラフをズームインします。<code>page.zoomIn = 1</code>の場合、このスクリプトを実行した後、クリックして目的のズーム位置を選択する必要があります。これは実際にはメソッドであり、プロパティではないため、値を読み取ることができません。
+</td></tr>
+<tr>
+<td> <b>page.zoomOut</b>
+</td>
+<td> グラフ
+</td>
+<td> 書き込み、<br />数値
+</td>
+<td>  グラフウィンドウ内の任意のズーム位置をズームアウトします。<br /><b>Note: </b>これは実際にはメソッドであり、プロパティではないため、値を読み取ることはできません。実行する前に値を割り当てる必要があります。例：<code>page.zoomOut = 1</code>
+</td></tr>
+<tr>
+<td> <b>page.zoomWhole</b>
+</td>
+<td> グラフ
+</td>
+<td> 書き込み、<br />数値
+</td>
+<td>  ページを100%表示に戻す。<br /><b>Note: </b>これは実際にはメソッドであり、プロパティではないため、値を読み取ることはできません。実行する前に値を割り当てる必要があります。例：<code>page.zoomWhole = 1</code>
+</td></tr>
+<tr>
+<td> <b>page.zoomLayer</b>
+</td>
+<td> グラフ
+</td>
+<td> 書き込み、<br />数値
+</td>
+<td>  グラフレイヤをズームイン/ズームアウトする。<br /><b>Note: </b>これは実際にはメソッドであり、プロパティではないため、値を読み取ることはできません。実行する前に値を割り当てる必要があります。例：<code>page.zoomLayer= 1</code>
+</td></tr></table>
+<h2><a name="Methods:Page_Method"></a><span class="mw-headline"><font color="chocolate">メソッド：</font><span class="OIndex" style="display:none">Pageメソッド</span></span></h2>
+<p>Pageプロパティは、以下の構文で実行できます。
+</p>
+<dl><dd><ul><li> <b>Page.method(引数)</b>) - アクティブなウィンドウの場合</li>
+<li> <b>windowShortName!method(引数)</b> - 指定したウィンドウの場合</li>
+<li><b>rPage.method(引数)</b> - rPageがページオブジェクトの範囲変数の場合</li></ul></dd></dl>
+<p>Note: <b>page.()</b>、<b>windowShortName!page.()</b>または<b>rPage.()</b>を使用して、ウィンドウの使用可能なメソッドをすべて表示します。
+</p>
+<table class="simple">
+<tr>
+<th width="225">メソッド
+</th>
+<th> 説明
+</th></tr>
+<tr>
+<td> <b>page.copy([<i>arg</i>])</b>
+</td>
+<td> 引数が指定されていない場合はページをコピーします。現在のワークブック、行列ブックおよびノートウィンドウが対象です。引数が&quot;OLE&quot;の場合、グラフページをOLEとしてコピーします。
+</td></tr>
+<tr>
+<td> <b>page.cp.add(1 12 DataNavigator:DC)</b>
+</td>
+<td> アクティブなワークブックの左側にデータナビゲータパネルを追加します。データコネクタを使用するワークブックが対象です。
+</td></tr>
+<tr>
+<td> <b>page.dimUpdate()</b>
+</td>
+<td> アクティブなグラフウィンドウを印刷設定モードに更新します。
+</td></tr>
+<tr>
+<td> <b>page.findLayer(<i>cIndex</i>)</b>
+</td>
+<td> 作成された<i>cIndex</i>番目（ゼロ開始）レイヤのレイヤ番号（1開始）を返します。<i>cIndex</i>が有効な作成インデックスでない場合は0を返します。Note: アクティブレイヤの作成インデックスは<a href="../../LabTalk/LabTalk/Layer_(object).html#Properties:" title="LabTalk:Layer (オブジェクト)">layer.cindex</a>で取得できます。
+</td></tr>
+<tr>
+<td> <b>page.GetDF(<i>range</i>)</b>
+</td>
+<td> アクティブグラフ内のデータフィルタの状態を取得します。状態値については<a href="../../LabTalk/LabTalk/Page_(command).html#-dfs.3B_Retrieve_the_state_of_data_filter_in_the_active_graph" title="LabTalk:Page (command)">こちら</a>を参照してください。また、<i>範囲</i>はワークシートの範囲を受け取る文字列変数です。
+<pre class="lt" style="font-family:monospace;">fname<span style="color: #000080;">$</span> <span style="color: #000080;">=</span> System.<span style="color: #000080;">path</span>.<span style="color: #000080;">program</span><span style="color: #000080;">$</span> <span style="color: #000080;">+</span> <span style="color: #ff00ff;">&quot;Samples\Statistics\automobile.dat&quot;</span>;
+newbook;
+impASC;
+worksheet <span style="color: #000080;">-</span>shdf uidShDF <span style="color: #000000;">[</span><span style="color: #000000;">[</span>D<span style="color: #000000;">:</span><span style="color: #0000dd;">3</span><span style="color: #000000;">:</span><span style="color: #ff00ff;">&quot;between(16,23)&quot;</span><span style="color: #000000;">]</span><span style="color: #000000;">]</span>; <span style="color: #008000;">//共有データフィルタ (ShDF) の定義</span>
+create myshdfvsy <span style="color: #000080;">-</span>vsshdf col<span style="color: #000000;">(</span>F<span style="color: #000000;">)</span> uidShDF; <span style="color: #008000;">//既存のShDFを使用して仮想データセットを作成</span>
+plotxy iy<span style="color: #000000;">:</span><span style="color: #000080;">=</span><span style="color: #000000;">(</span>C,myshdfvsy<span style="color: #000000;">)</span> plot<span style="color: #000000;">:</span><span style="color: #000080;">=</span><span style="color: #0000dd;">202</span>;
+page.<span style="color: #000080;">GetDF</span><span style="color: #000000;">(</span>strrange<span style="color: #000080;">$</span><span style="color: #000000;">)</span><span style="color: #000080;">=</span>;<span style="color: #008000;">//nn=2 および strrange$=[automobile]automobile</span></pre>
+</td></tr>
+<tr>
+<td> <b>page.getFileName(<i>A</i>)</b>
+</td>
+<td> ウィンドウラベルを取得するか、ラベルがない場合はウィンドウ名を&nbsp;%Aに入れます。アクティブなウィンドウに<b>page.label</b>がある場合（表示されているかどうかにかかわらず）、ラベルは指定された文字列変数に返されます。そうでない場合は、ウィンドウ名が返されます。
+</td></tr>
+<tr>
+<td> <b>page.layerNumber(<i>layerName</i>)</b>
+</td>
+<td> <i>LayerName</i>レイヤのレイヤ番号を返します。  LayerNameが有効な名前でない場合は0を返します。複数のシートを持つExcelブックで作業する場合に便利です。Note: アクティブなレイヤの名前は、オブジェクトプロパティ<a href="../../LabTalk/LabTalk/Layer_(object).html#Properties:" title="LabTalk:Layer (オブジェクト)">layer.name$</a>に格納されます。
+</td></tr>
+<tr>
+<td> <b>page.reorder(<i>n</i>[<i>, m</i>])</b>
+</td>
+<td> レイヤ番号の変更。<i>m</i>が指定されていない場合は、現在のレイヤを<i>n</i>番目の位置に変更します。  それ以外の場合は、<i>n</i>番目のレイヤを<i>m</i>番目のレイヤに変更します。Note: グラフにリンクされたレイヤが含まれている場合は、親レイヤ番号のみを変更する必要があります。  並び替え処理中にOriginがリンクを分断することがあります。
+</td></tr>
+<tr>
+<td> <b>page.reverse([<i>n</i>])</b>
+</td>
+<td> page.reverse() または page.reverse(0) は、ダークモードでグラフの色を反転させます。page.reverse(1) は、ダークモードでグラフの色を自動に設定します。
+</td></tr>
+<tr>
+<td> <b>page.save(fname$[, <i>n</i>, comments$])</b>
+</td>
+<td> ワークブックまたは分析テンプレートを path = fname$ に保存します。オプションで、ブックを保存するには<i>n</i> = 0（デフォルト）を指定します。分析テンプレートを保存するには n = 1 ～ 4 を指定します。n &gt; 1 の場合は操作入力がなく、データがクリアされます。2 = インポートされたデータがクリア、3 = アクティブ シートのデータがクリア、4 = すべてのシートのデータがクリアされます。
+</td></tr>
+<tr>
+<td> <b>page.switch(sheetname$)</b>
+</td>
+<td> グラフページに複数のシートのデータが含まれている場合、page.switch() はワークシートを変更し、グラフ内のプロットはすべて新しいシートに切り替わります。
+</td></tr></table>
+<h2><a name="Examples:"></a><span class="mw-headline"><font color="chocolate">サンプル：</font></span></h2>
+<h3><a name="Active_a_layer_or_sheet"></a><span class="mw-headline">レイヤまたはシートをアクティブ化</span></h3>
+<p>Layer2を<span class="OIndex">アクティブなレイヤ</span>として設定し、グラフ1で<span class="OIndex" style="display:none">アクティブ化する</span>
+</p>
+<pre class="lt" style="font-family:monospace;">Graph1<span style="color: #000080;">!</span>page.<span style="color: #000080;">active</span> <span style="color: #000080;">=</span> <span style="color: #0000dd;">2</span>;</pre>
+<p>シート名によるアクティブなワークシート<span class="OIndex" style="display:none">アクティブなワークシート</span>
+</p>
+<pre class="lt" style="font-family:monospace;"><span style="color: #008000;">//現在のウィンドウが &quot;Raw Data&quot;という名前の1つのシートを持つ複数シートワークブックであると仮定;</span>
+page.<span style="color: #000080;">active</span><span style="color: #000080;">$</span> <span style="color: #000080;">=</span> <span style="color: #ff00ff;">&quot;Raw Data&quot;</span> <span style="color: #008000;">// &quot;Raw Data&quot;という名前のワークシートをアクティブにする</span></pre>
+<p>Note: シートをアクティブ化してもウィンドウはアクティブになりません。例えば、次のスクリプトは2つのワークブックを作成します。非アクティブなワークブックに複数のシートがあります。シートをアクティブ化しても、そのワークブックはプロジェクトのアクティブウィンドウにはなりません。
+</p>
+<pre class="lt" style="font-family:monospace;"><span style="color: #008000;">// 新しいワークブックを作成し、ブック名を bkn$ に保存</span>
+newbook result<span style="color: #000000;">:</span><span style="color: #000080;">=</span>bkn<span style="color: #000080;">$</span>;
+
+<span style="color: #008000;">// bkn$ に新しいワークシートを追加して、シートが2つになり、sheet2がアクティブになる</span>
+newsheet;
+
+<span style="color: #008000;">// 他のワークブックを作成。これがアクティブウィンドウになる</span>
+newbook;
+
+<span style="color: #008000;">// bkn$ の sheet1 をアクティブ シートにする。bkn$ ブックはまだアクティブウィンドウではない</span>
+bkn<span style="color: #000080;">$!</span>page.<span style="color: #000080;">active</span> <span style="color: #000080;">=</span> <span style="color: #0000dd;">1</span>;
+
+<span style="color: #008000;">//次のスクリプトはアクティブウィンドウの列Aに対して機能するが、bkn$ に対しては機能しない</span>
+col<span style="color: #000000;">(</span>a<span style="color: #000000;">)</span> <span style="color: #000080;">=</span> <span style="color: #000000;">{</span><span style="color: #0000dd;">1</span><span style="color: #000000;">:</span><span style="color: #0000dd;">10</span><span style="color: #000000;">}</span>;</pre>
+<h3><a name="Reorder_Layers"></a><span class="mw-headline">レイヤの並び替え</span></h3>
+<p>Graph1に2つのレイヤがあるとします。Layer1は左側のレイヤであり、layer2は右側のレイヤです。以下のスクリプトを実行してください。
+</p>
+<pre class="lt" style="font-family:monospace;">Graph1<span style="color: #000080;">!</span>page.<span style="color: #000080;">reorder</span><span style="color: #000000;">(</span><span style="color: #0000dd;">1</span>,<span style="color: #0000dd;">2</span><span style="color: #000000;">)</span>;</pre>
+<p>右側のレイヤがlayer1になり、左側のレイヤがlayer2になります。 
+</p><p>reorder()メソッドはレイヤの位置を入れ替えることはありません。レイヤの位置を入れ替えるには、次のようにします。 
+</p>
+<dl><dd><ul><li> メニューから<b>グラフ操作：レイヤ管理</b>を選択し、<b>サイズ/位置</b>タブに移動します。</li>
+<li> <b><a class="external text" href="../../XFunction/X-Function/Layswap.html">layswap</a></b>Xファンクションを使用します。</li></ul></dd></dl>
+<h3><a name="Work_with_Window_Names"></a><span class="mw-headline">ウィンドウ名の操作</span></h3>
+<p><b>page.name $</b>はページのショートネームのための読み取り専用プロパティです。ページのショートネームを変更するには、<a href="../../LabTalk/LabTalk/Window_(command)&amp;action=edit&amp;redlink=1.html" class="new" title="LabTalk: Set(コマンド)">win -r</a>コマンドを使用します。
+</p>
+<pre class="lt" style="font-family:monospace;">string winname<span style="color: #000080;">$</span><span style="color: #000080;">=</span>page.<span style="color: #000080;">name</span><span style="color: #000080;">$</span>; <span style="color: #008000;">//page.name$ は読み取り専用</span>
+<span style="color: #008000;">// ウィンドウのショートネームを winname$ で &quot;Source&quot;に変更</span>
+win <span style="color: #000080;">-</span>r <span style="color: #000080;">%</span><span style="color: #000000;">(</span>winname<span style="color: #000080;">$</span><span style="color: #000000;">)</span> Source;</pre>
+<p><b>page.label$</b>とpage.longname$ (old) はページのロングネームを表します。これはページのロングネーム/ラベルを読み込んだり設定したりするのに使用できます。
+</p>
+<pre class="lt" style="font-family:monospace;">page.<span style="color: #000080;">label</span><span style="color: #000080;">$</span> <span style="color: #000080;">=</span> <span style="color: #ff00ff;">&quot;Temperature&quot;</span>; <span style="color: #008000;">// ロングネームを &quot;Temperature&quot;に変更</span></pre>
+<p>ウィンドウのショートネームを変更するには<span class="OIndex" style="display:none">ウィンドウ名の変更</span>、<a href="../../LabTalk/LabTalk/Window_(command)&amp;action=edit&amp;redlink=1.html" class="new" title="LabTalk: Set(コマンド)">win -r</a>コマンドを使用します。
+</p><p><b>page.title</b>プロパティは、<span class="OIndex">ウィンドウ名</span>、ショートネーム、ロングネーム、またはその両方の表示方法を制御します。
+</p>
+<pre class="lt" style="font-family:monospace;">page.<span style="color: #000080;">title</span> <span style="color: #000080;">=</span> <span style="color: #0000dd;">3</span>; <span style="color: #008000;">// ショートネームとロングネームの両方を表示</span></pre>
+<h3><a name="Read_and_Set_Number_of_Layers.2FSheets"></a><span class="mw-headline">レイヤ/シート数の読み取りと設定</span></h3>
+<p>page.nlayers はワークブック内のシート数またはグラフウィンドウ内のレイヤ数の合計を返します。
+</p>
+<pre class="lt" style="font-family:monospace;">page.<span style="color: #000080;">active</span><span style="color: #000080;">=</span>page.<span style="color: #000080;">nlayers</span>; <span style="color: #008000;">//最後に使用したシート/レイヤをアクティブ化</span></pre>
+<p>Origin 2018 SR0から、最大シート数が1024に増加しました（OPJUプロジェクトファイル形式のみ）。 
+ワークブックと行列ウィンドウでは、page.nlayersを使用してシートを簡単に追加できます。
+</p>
+<pre class="lt" style="font-family:monospace;">book1<span style="color: #000080;">!</span>page.<span style="color: #000080;">nlayers</span><span style="color: #000080;">=</span><span style="color: #0000dd;">500</span>; <span style="color: #008000;">//repeat 500 {newsheet;}を使用するよりも高速</span></pre>
+<p>Note: 既存のシート数よりも小さい数を設定した場合は何も起こりません。例：<b>page.nlayers=1</b>は余分な499シートを削除しません。
+</p>
+<h3><a name="Save_an_Analysis_Template"></a><span class="mw-headline">分析テンプレートを保存</span></h3>
+<pre class="lt" style="font-family:monospace;"><span style="color: #008000;">//ウィンドウラベル名をファイル名とするユーザーファイルフォルダをビルドする</span>
+string fname<span style="color: #000080;">$</span><span style="color: #000080;">=</span><span style="color: #ff00ff;">&quot;%Y%(page.label$).ogwu&quot;</span>; 
+string comments<span style="color: #000080;">$</span> <span style="color: #000080;">=</span> <span style="color: #ff00ff;">&quot;analysis template&quot;</span>;
+
+page.<span style="color: #000080;">save</span><span style="color: #000000;">(</span>fname<span style="color: #000080;">$</span>,<span style="color: #0000dd;">2</span>,comments<span style="color: #000080;">$</span><span style="color: #000000;">)</span>; <span style="color: #008000;">// データをクリアした状態で分析テンプレートとして保存</span></pre>
+<h3><a name="Accessing_Metadata_Stored_in_Workbook"></a><span class="mw-headline">ワークブックに保存されているメタデータへのアクセス</span></h3>
+<pre class="lt" style="font-family:monospace;"><span style="color: #008000;">//以下のスクリプトを実行する前に、ファイルをワークブックにインポートしてアクティブ化する</span>
+<span style="color: #008000;">//page.info領域に保存されている内容をダンプする</span>
+page.<span style="color: #000080;">info</span>.<span style="color: #000080;">=</span>;
+<span style="color: #008000;">//インポートしたファイルの基本情報をダンプする</span>
+page.<span style="color: #000080;">info</span>.<span style="color: #000080;">system</span>.<span style="color: #000080;">=</span>&nbsp;;
+<span style="color: #008000;">//インポートされたファイルから抽出された変数が存在する場合はそれをダンプする</span>
+page.<span style="color: #000080;">info</span>.<span style="color: #000080;">user</span>.<span style="color: #000080;">=</span>&nbsp;;
+<span style="color: #008000;">//ツリーから変数の値を取得する</span>
+string strName<span style="color: #000080;">$</span> <span style="color: #000080;">=</span> page.<span style="color: #000080;">info</span>.<span style="color: #000080;">system</span>.<span style="color: #000080;">import</span>.<span style="color: #000080;">filename</span><span style="color: #000080;">$</span>;
+string strDate<span style="color: #000080;">$</span> <span style="color: #000080;">=</span> page.<span style="color: #000080;">info</span>.<span style="color: #000080;">system</span>.<span style="color: #000080;">import</span>.<span style="color: #000080;">filedate</span><span style="color: #000080;">$</span>;
+type &ldquo;File<span style="color: #000000;">:</span> <span style="color: #000080;">%</span><span style="color: #000000;">(</span>strName<span style="color: #000080;">$</span><span style="color: #000000;">)</span>, Date<span style="color: #000000;">:</span> <span style="color: #000080;">%</span><span style="color: #000000;">(</span>strDate<span style="color: #000080;">$</span><span style="color: #000000;">)</span>&rdquo;
+
+<span style="color: #008000;">// ストレージをクリアする。&lt;DEL&gt; は単一の値、単一のセクション、またはストレージ全体を削除可能</span>
+page.<span style="color: #000080;">info</span>.<span style="color: #000080;">Spacing</span><span style="color: #000080;">=&lt;</span>DEL<span style="color: #000080;">&gt;</span>; <span style="color: #008000;">/// ストレージ全体</span></pre>
+<pre class="lt" style="font-family:monospace;"><span style="color: #008000;">//ページ/レイヤにユーザー変数を追加</span>
+
+<span style="color: #008000;">//add: ストレージ追加</span>
+page.<span style="color: #000080;">info</span>.<span style="color: #000080;">add</span><span style="color: #000000;">(</span>user<span style="color: #000000;">)</span>;
+
+<span style="color: #008000;">//addsection: セクション追加</span>
+page.<span style="color: #000080;">info</span>.<span style="color: #000080;">user</span>.<span style="color: #000080;">addsection</span><span style="color: #000000;">(</span>variables<span style="color: #000000;">)</span>;
+
+<span style="color: #008000;">//adddouble: double型変数を追加</span>
+page.<span style="color: #000080;">info</span>.<span style="color: #000080;">user</span>.<span style="color: #000080;">variables</span>.<span style="color: #000080;">adddouble</span><span style="color: #000000;">(</span>version, <span style="color: #0000dd;">4.12</span><span style="color: #000000;">)</span>;
+
+<span style="color: #008000;">//addstring: 文字列変数を追加</span>
+string str1<span style="color: #000080;">=</span><span style="color: #ff00ff;">&quot;world&quot;</span>;
+page.<span style="color: #000080;">info</span>.<span style="color: #000080;">user</span>.<span style="color: #000080;">variables</span>.<span style="color: #000080;">addstring</span><span style="color: #000000;">(</span>hello, <span style="color: #ff00ff;">&quot;%(str1$)&quot;</span><span style="color: #000000;">)</span>;</pre>
+<p>その他の例については、<a href="../../LabTalk/Script/Accessing_Metadata.html#Access_Import_File_Tree_Nodes" title="スクリプト: メタデータにアクセスする">こちらのページ</a>を参照してください。
+</p>
+<h3><a name="Adding_User_Tree_to_Workbook"></a><span class="mw-headline">ワークブックへのユーザーツリーの追加</span></h3>
+<pre class="lt" style="font-family:monospace;"><span style="color: #008000;">// 以下のスクリプトを実行する前にワークブックをアクティブ化する</span>
+<span style="color: #008000;">//&ldquo;sample1&rdquo;という名前のブランチをユーザツリーに追加</span>
+page.<span style="color: #000080;">tree</span>.<span style="color: #000080;">sample1</span>.<span style="color: #000080;">name</span><span style="color: #000080;">$</span> <span style="color: #000080;">=</span> <span style="color: #ff00ff;">&quot;Jack&quot;</span>;
+page.<span style="color: #000080;">tree</span>.<span style="color: #000080;">sample1</span>.<span style="color: #000080;">gender</span><span style="color: #000080;">$</span> <span style="color: #000080;">=</span> <span style="color: #ff00ff;">&quot;Male&quot;</span>;
+page.<span style="color: #000080;">tree</span>.<span style="color: #000080;">sample1</span>.<span style="color: #000080;">age</span> <span style="color: #000080;">=</span> <span style="color: #0000dd;">23</span>;
+<span style="color: #008000;">//&ldquo;sample2&rdquo;という名前のブランチをユーザツリーに追加</span>
+page.<span style="color: #000080;">tree</span>.<span style="color: #000080;">sample2</span>.<span style="color: #000080;">name</span><span style="color: #000080;">$</span> <span style="color: #000080;">=</span> <span style="color: #ff00ff;">&quot;Lucy&quot;</span>;
+page.<span style="color: #000080;">tree</span>.<span style="color: #000080;">sample2</span>.<span style="color: #000080;">gender</span><span style="color: #000080;">$</span> <span style="color: #000080;">=</span> <span style="color: #ff00ff;">&quot;Female&quot;</span>
+page.<span style="color: #000080;">tree</span>.<span style="color: #000080;">sample2</span>.<span style="color: #000080;">age</span> <span style="color: #000080;">=</span> <span style="color: #0000dd;">28</span>;
+<span style="color: #008000;">// ユーザツリーの内容をダンプ</span>
+page.<span style="color: #000080;">tree</span>.<span style="color: #000080;">=</span>
+<span style="color: #008000; font-style: regular;">/*
+Output: 
+    SAMPLE1
+         +---NAME = Jack
+         +---GENDER = Male
+         \---AGE = 23
+    SAMPLE2
+         +---NAME = Lucy
+         +---GENDER = Female
+          \---AGE = 28
+*/</span></pre>
+<p>その他の例については、<a href="../../LabTalk/Script/Accessing_Metadata.html#User_Tree_in_Page_Storage" title="スクリプト: メタデータにアクセスする">こちらのページ</a>を参照してください。
+</p>
+<h3><a name="Sheet_Switching_Browser_Graph"></a><span class="mw-headline">ブラウザグラフのシート切り替え</span></h3>
+<pre class="lt" style="font-family:monospace;">page.<span style="color: #000080;">switch</span><span style="color: #000000;">(</span><span style="color: #ff00ff;">&quot;[book2]sheet&quot;</span><span style="color: #000000;">)</span>;
+page.<span style="color: #000080;">switch</span><span style="color: #000000;">(</span><span style="color: #ff00ff;">&quot;sheet&quot;</span><span style="color: #000000;">)</span>; <span style="color: #008000;">//without book name means to use the same book</span>
+page.<span style="color: #000080;">switch</span><span style="color: #000000;">(</span><span style="color: #ff00ff;">&quot;[book2]&quot;</span><span style="color: #000000;">)</span>;</pre>
+
+
+
+    

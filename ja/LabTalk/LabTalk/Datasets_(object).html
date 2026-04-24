@@ -1,0 +1,346 @@
+﻿<h1 class="firstHeading">Datasets</h1><p class='urlname' style='display: none'>Datasets</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>目次</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#IntroductionDataset"><span class="tocnumber">1</span> <span class="toctext">概要<span class="OIndex" style="display:none">Dataset</span></span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Creating_a_DatasetCreate_Dataset"><span class="tocnumber">2</span> <span class="toctext">データセットの作成<span class="OIndex" style="display:none">Create Dataset</span></span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="#Declaring_a_Dataset_and_the_Dataset_-a_option"><span class="tocnumber">2.1</span> <span class="toctext">データセットの宣言とDataset -a オプション</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="#Examples"><span class="tocnumber">2.2</span> <span class="toctext">サンプル</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-5"><a href="#Deleting_a_DatasetDelete_Dataset"><span class="tocnumber">3</span> <span class="toctext">データセットの削除<span class="OIndex" style="display:none">Delete Dataset</span></span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="#Getting_and_Setting_SizeGet_dataset_sizeSet_dataset_size"><span class="tocnumber">4</span> <span class="toctext">サイズの取得と設定<span class="OIndex" style="display:none">Get dataset size</span><span class="OIndex" style="display:none">Set dataset size</span></span></a></li>
+<li class="toclevel-1 tocsection-7"><a href="#Accessing_DatasetsAccessing_Dataset"><span class="tocnumber">5</span> <span class="toctext">データセットへのアクセス<span class="OIndex" style="display:none">Accessing Dataset</span></span></a>
+<ul>
+<li class="toclevel-2 tocsection-8"><a href="#Range_Variables"><span class="tocnumber">5.1</span> <span class="toctext">Range変数</span></a>
+<ul>
+<li class="toclevel-3 tocsection-9"><a href="#For_Worksheet_Data"><span class="tocnumber">5.1.1</span> <span class="toctext">ワークシートデータの場合</span></a></li>
+<li class="toclevel-3 tocsection-10"><a href="#For_Plotted_.28Graph.29_Data"><span class="tocnumber">5.1.2</span> <span class="toctext">プロットされた(グラフ)データの場合</span></a></li>
+<li class="toclevel-3 tocsection-11"><a href="#For_Matrix_Data"><span class="tocnumber">5.1.3</span> <span class="toctext">行列データの場合</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-12"><a href="#By_Col.28.29.2C_Mat.28.29.2C_and_WCol.28.29_function"><span class="tocnumber">5.2</span> <span class="toctext">Col(), Mat(), WCol() 関数による</span></a></li>
+<li class="toclevel-2 tocsection-13"><a href="#Cell_FunctionCell_Function"><span class="tocnumber">5.3</span> <span class="toctext">Cell関数<span class="OIndex" style="display:none">Cell Function</span></span></a></li>
+<li class="toclevel-2 tocsection-14"><a href="#.25.28.29_Substitution_Notation"><span class="tocnumber">5.4</span> <span class="toctext">%() 置換表記</span></a></li>
+<li class="toclevel-2 tocsection-15"><a href="#By_Dataset_Name"><span class="tocnumber">5.5</span> <span class="toctext">データセット名による</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-16"><a href="#Accessing_Dataset_Storage"><span class="tocnumber">6</span> <span class="toctext">データセットストレージへのアクセス</span></a></li>
+<li class="toclevel-1 tocsection-17"><a href="#Masking_Cells"><span class="tocnumber">7</span> <span class="toctext">セルのマスキング</span></a></li>
+<li class="toclevel-1 tocsection-18"><a href="#Set_Column_Values_with_a_Dataset"><span class="tocnumber">8</span> <span class="toctext">データセットに対する列値の設定</span></a></li>
+<li class="toclevel-1 tocsection-19"><a href="#Using_Loose_Datasets_in_X-FunctionsLoose_Dataset.2C_X-FunctionX-Function.2C_Loose_Dataset"><span class="tocnumber">9</span> <span class="toctext">Xファンクションでルーズデータセットを使用<span class="OIndex" style="display:none">Loose Dataset, X-Function</span><span class="OIndex" style="display:none">X-Function, Loose Dataset</span></span></a></li>
+</ul>
+</div>
+
+<h2><a name="IntroductionDataset"></a><span class="mw-headline">概要<span class="OIndex" style="display:none">Dataset</span></span></h2>
+<p>datasetは基本的なOriginオブジェクトであり、数値やテキストの値を含むことができる1次元配列です。
+</p>
+<ul><li> データセット内の個々の値は要素と呼ばれます。</li>
+<li> データセット内の各要素は1から始まるインデックス番号でアクセスできます。インデックスが0から始まるC言語の慣例とは異なりますので注意してください。新しいバージョンでは、最後の要素のインデックスは0です。</li>
+<li> <a href="../../LabTalk/Category/LT_The_Origin_Project.html" title="Category:LT The Origin Project">Originプロジェクト</a>の各データセットには一意の名前が付けられています。</li>
+<li> データセットには異なるデータ型が含まれている場合があります。</li></ul>
+<p>データセットは、ワークシートの列や1つ以上のデータプロットに関連付けられることが多いです。  データセットが削除されると、関連するワークシート列とデータプロットも削除されます。
+</p><p>データセットもLabTalk<a href="../../LabTalk/LabTalk/Data_Types_and_Variables.html" title="LabTalk:データ型と変数">変数</a>であるため、プロジェクトに属するか、ローカル変数として<a href="../../LabTalk/LabTalk/Data_Types_and_Variables.html#Dataset" title="LabTalk:データ型と変数">宣言する</a>ことができます。Originでサポートされているデータセットのタイプは次の通りです：
+</p><p><span class="OIndex">Column</span>または<span class="OIndex">Matrix</span>オブジェクト：ワークシートの列または行列シートの行列オブジェクトに関連付けられているデータセット。
+</p><p><span class="OIndex">ルーズデータセット</span>：ワークシートまたは行列シートに関連づけられていないデータセット。
+</p><p><span class="OIndex">一時データセット</span>：ルーズデータセットの一種。一時データセットストレージとして使用されます。Originは、_tempのようにアンダースコア(&quot;_&quot;)文字で始まる名前の一時データセットを作成します。  プロジェクトを保存するか、グラフページを印刷/コピーすると、元の一時データセットが削除されます。ユーザーが作成した一時データセットは、プロジェクトが閉じられたとき、または新しいプロジェクトが開かれたときに削除されます。
+</p><p>既存のデータセットの名前を表示するには、 <font color="navy"><i>List s</i></font> コマンドを使用します。
+</p>
+<h2><a name="Creating_a_DatasetCreate_Dataset"></a><span class="mw-headline">データセットの作成<span class="OIndex" style="display:none">Create Dataset</span></span></h2>
+<p>ワークシートの列と行列シートの行列オブジェクトは自動的にデータセットオブジェクトとして設定され、col()またはmat()でアクセスできます。例えば、 
+</p>
+<ul><li> col(1) は第1列を表します。</li>
+<li> col(A) はAというショートネームの列を表します。</li>
+<li> col(&quot;Amplitude&quot;) はAmplitudeというロングネームの列を表します。</li>
+<li> mat(1) はアクティブな行列シート内の第1行列オブジェクトを指します。</li></ul>
+<p>存在しない列または行列に値を代入/出力すると、対応する列または行列オブジェクトが自動的に追加されます。例えば、
+</p>
+<pre class="lt" style="font-family:monospace;">wks.<span style="color: #000080;">ncols</span> <span style="color: #000080;">=</span> <span style="color: #0000dd;">3</span>; <span style="color: #008000;">// アクティブなシートを3列のみに設定</span>
+col<span style="color: #000000;">(</span><span style="color: #0000dd;">4</span><span style="color: #000000;">)</span><span style="color: #000080;">=</span><span style="color: #000000;">{</span><span style="color: #0000dd;">1</span>,<span style="color: #0000dd;">2</span>,<span style="color: #0000dd;">3</span><span style="color: #000000;">}</span>; <span style="color: #008000;">// ワークシートに4番目の列が自動敵に追加される</span></pre>
+<p>ルーズデータセットを作成する方法は3つあります：
+</p>
+<dl><dd><ul><li> [LabTalk:Dataset_(command)|dataset command]] で宣言する</li>
+<li> <a href="../../LabTalk/LabTalk/Create_(command).html" title="LabTalk:Create (command)">Create (Command)</a>を使用する</li>
+<li> 代入を使用して自動作成</li></ul></dd></dl>
+<h3><a name="Declaring_a_Dataset_and_the_Dataset_-a_option"></a><span class="mw-headline">データセットの宣言とDataset -a オプション</span></h3>
+<p><b>-a</b>オプションを使用<i>せずに</i><a href="../../LabTalk/LabTalk/Dataset_(command).html" title="LabTalk:Dataset (command)">データセットを宣言する</a>と、<b>数値(Double)</b>としてのみ作成されます。<b>文字と数値</b>型のデータセットを作成するには、<b>-a</b>オプションを追加します。
+</p>
+<h3><a name="Examples"></a><span class="mw-headline">サンプル</span></h3>
+<pre class="lt" style="font-family:monospace;"><span style="color: #008000;">// 数値データセットを宣言して初期化</span>
+Dataset ds1 <span style="color: #000080;">=</span> <span style="color: #000000;">{</span><span style="color: #0000dd;">1</span>,<span style="color: #0000dd;">2</span>,<span style="color: #0000dd;">3</span><span style="color: #000000;">}</span>;
+ds1<span style="color: #000000;">[</span><span style="color: #0000dd;">1</span><span style="color: #000000;">]</span><span style="color: #000080;">=</span>&nbsp;; <span style="color: #008000;">//最初の要素の値を取得</span>
+type <span style="color: #000080;">$</span><span style="color: #000000;">(</span>ds1<span style="color: #000000;">)</span>; <span style="color: #008000;">//すべての数値要素を表示</span>
+
+<span style="color: #008000;">// 文字と数値型のデータセットを宣言</span>
+dataset <span style="color: #000080;">-</span>a vv;
+vv<span style="color: #000080;">=</span>data<span style="color: #000000;">(</span><span style="color: #0000dd;">1</span>,<span style="color: #0000dd;">10</span><span style="color: #000000;">)</span>;<span style="color: #008000;">// vvに1,2, ...10と代入。要素数は10個</span>
+vv<span style="color: #000000;">[</span><span style="color: #0000dd;">2</span><span style="color: #000000;">]</span><span style="color: #000080;">$</span><span style="color: #000080;">=</span><span style="color: #ff00ff;">&quot;Beta&quot;</span>; <span style="color: #008000;">// 2番目の要素を文字（テキスト）に変換)</span>
+vv<span style="color: #000000;">[</span><span style="color: #0000dd;">2</span><span style="color: #000000;">]</span><span style="color: #000080;">$</span><span style="color: #000080;">=</span>&nbsp;; <span style="color: #008000;">// 2番目の要素の文字を取得</span>
+type <span style="color: #000080;">$</span><span style="color: #000000;">(</span>vv<span style="color: #000000;">)</span>; <span style="color: #008000;">//全ての数値要素の値を表示。文字は -- と出力</span>
+vv<span style="color: #000000;">[</span><span style="color: #0000dd;">0</span><span style="color: #000000;">]</span><span style="color: #000080;">$</span><span style="color: #000080;">=</span><span style="color: #ff00ff;">&quot;Bye&quot;</span>; <span style="color: #008000;">// vv[10]$=&quot;Bye&quot;として保存 </span>
+vv<span style="color: #000000;">[</span><span style="color: #0000dd;">0</span><span style="color: #000000;">]</span><span style="color: #000080;">$</span><span style="color: #000080;">=</span>&nbsp;; <span style="color: #008000;">//最後の要素の文字を取得。vv[10]$と同様</span>
+
+<span style="color: #008000;">// 代入結果としてルーズデータセットmydata1が作成される</span>
+mydata1 <span style="color: #000080;">=</span> col<span style="color: #000000;">(</span><span style="color: #0000dd;">1</span><span style="color: #000000;">)</span>; <span style="color: #008000;">// mydata1の第1列に値を代入</span>
+type <span style="color: #000080;">$</span><span style="color: #000000;">(</span>mydata1<span style="color: #000000;">)</span>; <span style="color: #008000;">//全ての数値要素を表示</span></pre>
+<p><br />
+</p>
+<h2><a name="Deleting_a_DatasetDelete_Dataset"></a><span class="mw-headline">データセットの削除<span class="OIndex" style="display:none">Delete Dataset</span></span></h2>
+<p>LabTalkコマンド<a href="../../LabTalk/LabTalk/Delete_(command).html" title="LabTalk:Delete (コマンド)">delete</a>を使用してデータセットオブジェクトを削除します。これはルーズ/一時データセットや、range、col()、mat()などで作成されたデータセットに対して動作します。
+Note: OriginのLabTalkコマンドは、一意である限り短縮表記ができます。例えば、<b>delete</b>は<b>del</b>と短縮表記できます。
+</p>
+<pre class="lt" style="font-family:monospace;"><span style="color: #008000;">//列の削除</span>
+del col<span style="color: #000000;">(</span>B<span style="color: #000000;">)</span>; 
+
+<span style="color: #008000;">//範囲の削除</span>
+range r3<span style="color: #000080;">=</span><span style="color: #0000dd;">3</span>; <span style="color: #008000;">//アクティブなシートの3番目の列</span>
+del r3; <span style="color: #008000;">//r3で参照されるデータセットを削除</span>
+del <span style="color: #000080;">-</span>ra r3; <span style="color: #008000;">//範囲変数を削除</span>
+
+<span style="color: #008000;">//データセットの削除</span>
+dataset ds1<span style="color: #000080;">=</span><span style="color: #000000;">{</span><span style="color: #0000dd;">1</span>,<span style="color: #0000dd;">2</span>,<span style="color: #0000dd;">3</span><span style="color: #000000;">}</span>;
+list s; <span style="color: #008000;">//全てのデータセットを一覧表示。Session: partのds1を参照のこと</span>
+del ds1; <span style="color: #008000;">// データセットを削除</span>
+del <span style="color: #000080;">-</span>al ds1 <span style="color: #008000;">//変数を削除</span>
+list s;</pre>
+<p><br />
+データセットが宣言なしで作成された場合、それはプロジェクト変数となります。データセットはプロジェクトファイルと一緒に保存されます。
+</p>
+<pre class="lt" style="font-family:monospace;">mydata1 <span style="color: #000080;">=</span> data<span style="color: #000000;">(</span><span style="color: #0000dd;">1</span>,<span style="color: #0000dd;">30</span><span style="color: #000000;">)</span>;</pre>
+<p>データセットが宣言付きで作成された場合、それはセッション変数となります。現在のOriginセッションが閉じられると、この値は消えてしまいます。 
+</p>
+<pre class="lt" style="font-family:monospace;">dataset mydata2 <span style="color: #000080;">=</span> data<span style="color: #000000;">(</span><span style="color: #0000dd;">1</span>,<span style="color: #0000dd;">100</span><span style="color: #000000;">)</span>;</pre>
+<p>スクリプトウィンドウで、「ツール：変数...」を選択するか、&quot;edit&quot;コマンドを実行して、すべての変数とそのスコープ(型)を表示するダイアログを開きます。変数を削除するための削除ボタンがあります。
+</p>
+<h2><a name="Getting_and_Setting_SizeGet_dataset_sizeSet_dataset_size"></a><span class="mw-headline">サイズの取得と設定<span class="OIndex" style="display:none">Get dataset size</span><span class="OIndex" style="display:none">Set dataset size</span></span></h2>
+<p>Origin 8以前は、データセットのサイズを設定して取得するには、データセット名を指定してsetとgetコマンドを使用する必要がありました。Origin 8以降では、次の2つの方法を使用できます。
+</p>
+<ul><li> GetSize()</li>
+<li> SetSize(int nSize)</li></ul>
+<p>これらは<b>ベクトルベース</b>のOriginCクラスの一部であり、LabTalkデータセットによって継承されます。これらのメソッドを使用するには、Range型またはDataset型の変数が必要です。例：
+</p>
+<pre class="lt" style="font-family:monospace;">Dataset ds1 <span style="color: #000080;">=</span> <span style="color: #000000;">{</span><span style="color: #0000dd;">1</span>,<span style="color: #0000dd;">2</span>,<span style="color: #0000dd;">3</span><span style="color: #000000;">}</span>;
+for<span style="color: #000000;">(</span> int ii <span style="color: #000080;">=</span> <span style="color: #0000dd;">1</span>&nbsp;; ii <span style="color: #000080;">&lt;=</span> ds1.<span style="color: #000080;">GetSize</span><span style="color: #000000;">(</span><span style="color: #000000;">)</span>&nbsp;; ii<span style="color: #000080;">++</span> <span style="color: #000000;">)</span>
+<span style="color: #000000;">{</span>
+  ds1<span style="color: #000000;">[</span>ii<span style="color: #000000;">]</span><span style="color: #000080;">=</span> ds1<span style="color: #000000;">[</span>ii<span style="color: #000000;">]</span><span style="color: #000080;">^</span><span style="color: #0000dd;">2</span>;
+<span style="color: #000000;">}</span>;
+type <span style="color: #000080;">$</span><span style="color: #000000;">(</span>ds1<span style="color: #000000;">)</span>;</pre>
+<p>宣言なしで代入によって作成されたデータセットに対して、次のメソッドを使用することはできません。
+</p>
+<pre class="lt" style="font-family:monospace;">temp <span style="color: #000080;">=</span> col<span style="color: #000000;">(</span>a<span style="color: #000000;">)</span>; <span style="color: #008000;">//tempは代入によって作成される</span>
+temp.<span style="color: #000080;">GetSize</span><span style="color: #000000;">(</span><span style="color: #000000;">)</span><span style="color: #000080;">=</span>; <span style="color: #008000;">// 結果は -- となる</span></pre>
+<p>代わりに、まずDatasetオブジェクトを宣言します。
+</p>
+<pre class="lt" style="font-family:monospace;">Dataset temp <span style="color: #000080;">=</span> col<span style="color: #000000;">(</span>a<span style="color: #000000;">)</span>; <span style="color: #008000;">//tempの宣言と初期化</span>
+<span style="color: #008000;">// データセットが小さすぎない場合</span>
+if<span style="color: #000000;">(</span> temp.<span style="color: #000080;">GetSize</span><span style="color: #000000;">(</span><span style="color: #000000;">)</span> <span style="color: #000080;">&lt;</span> <span style="color: #0000dd;">50</span> <span style="color: #000000;">)</span>
+   <span style="color: #008000;">// これを大きくする</span>
+   temp.<span style="color: #000080;">SetSize</span><span style="color: #000000;">(</span><span style="color: #0000dd;">366</span><span style="color: #000000;">)</span>;
+temp.<span style="color: #000080;">GetSize</span><span style="color: #000000;">(</span><span style="color: #000000;">)</span><span style="color: #000080;">=</span>;</pre>
+<h2><a name="Accessing_DatasetsAccessing_Dataset"></a><span class="mw-headline">データセットへのアクセス<span class="OIndex" style="display:none">Accessing Dataset</span></span></h2>
+<p>ワークシートおよび行列内のデータセットには、次の方法でアクセスできます。
+</p>
+<ol><li> 範囲変数</li>
+<li> Col() または Mat() 関数と WCol() 関数</li>
+<li> Cell()関数</li>
+<li> 置換表記</li>
+<li> データセット名</li></ol>
+<h3><a name="Range_Variables"></a><span class="mw-headline">範囲変数</span></h3>
+<p>範囲変数は、ワークシート、グラフ、行列のデータにアクセスするために使用できます。 
+</p>
+<h4><a name="For_Worksheet_Data"></a><span class="mw-headline">ワークシートデータの場合</span></h4>
+<pre class="lt" style="font-family:monospace;">string strBk<span style="color: #000080;">$</span> <span style="color: #000080;">=</span> Book1;
+string strSh<span style="color: #000080;">$</span> <span style="color: #000080;">=</span> Sheet1;
+range rDa <span style="color: #000080;">=</span> <span style="color: #000000;">[</span>strBk<span style="color: #000080;">$</span><span style="color: #000000;">]</span>strSh<span style="color: #000080;">$!</span>col<span style="color: #000000;">(</span>A<span style="color: #000000;">)</span>;  <span style="color: #008000;">// これはデータ範囲</span>
+range rSh <span style="color: #000080;">=</span> <span style="color: #000000;">[</span>strBk<span style="color: #000080;">$</span><span style="color: #000000;">]</span>strSh<span style="color: #000080;">$!</span>;        <span style="color: #008000;">// これはシート範囲</span>
+rDa <span style="color: #000080;">=</span> <span style="color: #000000;">{</span><span style="color: #0000dd;">1</span><span style="color: #000000;">:</span><span style="color: #0000dd;">30</span><span style="color: #000000;">}</span>; <span style="color: #008000;">// 1から30まで、増分1のデータを生成</span>
+<span style="color: #008000;">// シート範囲/オブジェクトのプロパティを使用</span>
+if<span style="color: #000000;">(</span>rSh.<span style="color: #000080;">ncols</span> <span style="color: #000080;">&lt;</span> <span style="color: #0000dd;">10</span><span style="color: #000000;">)</span> 
+   <span style="color: #008000;">// 列の追加は次のように簡単に実行できる</span>
+   rSh.<span style="color: #000080;">nCols</span> <span style="color: #000080;">=</span> <span style="color: #0000dd;">10</span>; 
+loop<span style="color: #000000;">(</span>ii,<span style="color: #0000dd;">2</span>,<span style="color: #0000dd;">10</span><span style="color: #000000;">)</span>
+<span style="color: #000000;">{</span>
+<span style="color: #008000;">// プログラムで範囲を再代入</span>
+range rDb <span style="color: #000080;">=</span> <span style="color: #000000;">[</span>strBk<span style="color: #000080;">$</span><span style="color: #000000;">]</span>strSh<span style="color: #000080;">$!</span>wcol<span style="color: #000000;">(</span>ii<span style="color: #000000;">)</span>; 
+    rDb <span style="color: #000080;">=</span> normal<span style="color: #000000;">(</span><span style="color: #0000dd;">30</span><span style="color: #000000;">)</span>;
+    rDb <span style="color: #000080;">+</span><span style="color: #000080;">=</span> rDa;
+<span style="color: #000000;">}</span></pre>
+<h4><a name="For_Plotted_.28Graph.29_Data"></a><span class="mw-headline">プロットされた(グラフ)データの場合</span></h4>
+<p>プロットされたデータからも様々な範囲を得ることができます。
+</p>
+<pre class="lt" style="font-family:monospace;"><span style="color: #008000;">// アクティブレイヤの3番目のデータプロットの範囲( [Book]Sheet!col ) を取得</span>
+range <span style="color: #000080;">-</span>w rngData <span style="color: #000080;">=</span> <span style="color: #0000dd;">3</span>; 
+rngData <span style="color: #000080;">=</span> rngData<span style="color: #000080;">+</span><span style="color: #0000dd;">10</span>; <span style="color: #008000;">//各要素に10を追加</span></pre>
+<h4><a name="For_Matrix_Data"></a><span class="mw-headline">行列データの場合</span></h4>
+<p>同様に、Range変数とmatrix要素で行列オブジェクトにアクセスするには、[<i>rowNumber</i>, <i>colNumber</i>]を使用します。
+</p>
+<pre class="lt" style="font-family:monospace;">newbook mat<span style="color: #000000;">:</span><span style="color: #000080;">=</span><span style="color: #0000dd;">1</span>; <span style="color: #008000;">//行列ワークブックを作成</span>
+wks.<span style="color: #000080;">ncols</span><span style="color: #000080;">=</span><span style="color: #0000dd;">5</span>; <span style="color: #008000;">//列数を5に設定</span>
+wks.<span style="color: #000080;">nrows</span><span style="color: #000080;">=</span><span style="color: #0000dd;">4</span>; <span style="color: #008000;">//行数を4に設定</span>
+range mymat<span style="color: #000080;">=</span><span style="color: #0000dd;">1</span>; <span style="color: #008000;">//範囲変数mymatは第1行列オブジェクトを参照</span>
+mymat<span style="color: #000080;">=</span>data<span style="color: #000000;">(</span><span style="color: #0000dd;">1</span>,<span style="color: #0000dd;">20</span><span style="color: #000000;">)</span>; <span style="color: #008000;">//mymatに1から20までの値を代入</span></pre>
+<p>行列は二次元配列(MxNの表)のように見えますが、実際は行メジャー配列を使った一次元配列です。行列の値にアクセスするには：
+</p>
+<dl><dd>MatrixObject[<i>N*(i - 1) + j</i>]</dd></dl>
+<p>ここで、<i>N</i>は行列の列の数、<i>i</i>および<i>j</i>は行と列の数です。よって、4行×5列の行列に対して、[2,3]と[8]を使うと、同じセルが参照されます。例：上記のコードの後、次を実行します。
+</p>
+<pre class="lt" style="font-family:monospace;">if<span style="color: #000000;">(</span>mymat<span style="color: #000000;">[</span><span style="color: #0000dd;">2</span>, <span style="color: #0000dd;">3</span><span style="color: #000000;">]</span> <span style="color: #000080;">==</span> mymat<span style="color: #000000;">[</span><span style="color: #0000dd;">8</span><span style="color: #000000;">]</span><span style="color: #000000;">)</span> 
+	type <span style="color: #ff00ff;">&quot;They are the same!&quot;</span>;</pre>
+<h3><a name="By_Col.28.29.2C_Mat.28.29.2C_and_WCol.28.29_function"></a><span class="mw-headline">Col(), Mat(), WCol() 関数による</span></h3>
+<p>Col()およびWCol( )を使用してワークブックの列にアクセスする
+</p>
+<pre class="lt" style="font-family:monospace;"><span style="color: #008000;">// Sheet2を含むBook5という名前のワークブックがあることを確認</span>
+<span style="color: #008000;">// ここで win -o コマンドを使用して一時的にワークブックを切り替え、次のように設定</span>
+string strBk<span style="color: #000080;">$</span> <span style="color: #000080;">=</span> Book5;
+string strSh<span style="color: #000080;">$</span> <span style="color: #000080;">=</span> Sheet2;
+win <span style="color: #000080;">-</span>o strBk<span style="color: #000080;">$</span>
+<span style="color: #000000;">{</span>
+   temp <span style="color: #000080;">=</span> page.<span style="color: #000080;">active</span>;       <span style="color: #008000;">// アクティブシートを記録</span>
+   page.<span style="color: #000080;">active</span><span style="color: #000080;">$</span> <span style="color: #000080;">=</span> strSh<span style="color: #000080;">$</span>;
+   <span style="color: #008000;">// col( ) 関数によって列名(1..n)を取得</span>
+   col<span style="color: #000000;">(</span><span style="color: #0000dd;">1</span><span style="color: #000000;">)</span> <span style="color: #000080;">=</span> <span style="color: #000000;">{</span><span style="color: #0000dd;">1</span><span style="color: #000000;">:</span><span style="color: #0000dd;">30</span><span style="color: #000000;">}</span>;          
+   loop<span style="color: #000000;">(</span>ii,<span style="color: #0000dd;">2</span>,<span style="color: #0000dd;">10</span><span style="color: #000000;">)</span>
+   <span style="color: #000000;">{</span>
+      <span style="color: #008000;">// wcol( ) 関数によって列番号または整数値を取得</span>
+      wcol<span style="color: #000000;">(</span>ii<span style="color: #000000;">)</span> <span style="color: #000080;">=</span> normal<span style="color: #000000;">(</span><span style="color: #0000dd;">30</span><span style="color: #000000;">)</span>; 
+      <span style="color: #008000;">// col( ) 関数はショートネームを取得可能</span>
+      wcol<span style="color: #000000;">(</span>ii<span style="color: #000000;">)</span> <span style="color: #000080;">+</span><span style="color: #000080;">=</span> col<span style="color: #000000;">(</span>A<span style="color: #000000;">)</span>;    
+   <span style="color: #000000;">}</span>
+   page.<span style="color: #000080;">active</span> <span style="color: #000080;">=</span> temp;     <span style="color: #008000;">// 元のアクティブシートに戻す</span>
+<span style="color: #000000;">}</span>                          
+<span style="color: #008000;">// &apos;win -o&apos;を終了して元のアクティブウィンドウに戻る</span></pre>
+<p>通常のワークブックと同様に、行列ワークブックには複数の行列シートが存在する場合があります。そして各行列シートには、通常のシートの列に類似した複数の行列オブジェクトが存在する可能性があります。
+したがって、Mat()はCol( )と似た形で使うことができます。 
+</p>
+<pre class="lt" style="font-family:monospace;">newbook mat<span style="color: #000000;">:</span><span style="color: #000080;">=</span><span style="color: #0000dd;">1</span>; <span style="color: #008000;">//新規ワークブックを作成。デフォルトは32x32の行列</span>
+mat<span style="color: #000000;">(</span><span style="color: #0000dd;">1</span><span style="color: #000000;">)</span><span style="color: #000080;">=</span>normal<span style="color: #000000;">(</span><span style="color: #0000dd;">32</span><span style="color: #000080;">*</span><span style="color: #0000dd;">32</span><span style="color: #000000;">)</span>; <span style="color: #008000;">//1番目の行列オブジェクトに正規化したランダム値を代入</span>
+wks.<span style="color: #000080;">nmats</span><span style="color: #000080;">=</span><span style="color: #0000dd;">2</span>; <span style="color: #008000;">//行列オブジェクトの数を2に設定</span>
+matrix <span style="color: #000080;">-</span>it <span style="color: #0000dd;">1</span>; <span style="color: #008000;">//行列シート内の全ての行列オブジェクトを確認するため、サムネイル画像を表示</span>
+wks.<span style="color: #000080;">active</span><span style="color: #000080;">=</span><span style="color: #0000dd;">2</span>; <span style="color: #008000;">//2番目の行列オブジェクトをアクティブ化</span>
+mat<span style="color: #000000;">(</span><span style="color: #0000dd;">2</span><span style="color: #000000;">)</span><span style="color: #000080;">=</span>data<span style="color: #000000;">(</span><span style="color: #0000dd;">0.01</span>, <span style="color: #0000dd;">10.24</span>, <span style="color: #0000dd;">0.01</span><span style="color: #000000;">)</span>; <span style="color: #008000;">//2番目の行列オブジェクトに0.01から10.24までの値を増分0.01で代入</span></pre>
+<h3><a name="Cell_FunctionCell_Function"></a><span class="mw-headline">Cell関数<span class="OIndex" style="display:none">Cell Function</span></span></h3>
+<p>Cell()関数は、ワークシートまたは行列のいずれかで使用できます。アクティブでないブックを参照する場合、プレフィックス<b>bookshortname!</b>を使用して、指定されたブック内のアクティブシートのみを参照できます。
+</p>
+<pre class="lt" style="font-family:monospace;">cell<span style="color: #000000;">(</span><span style="color: #0000dd;">5</span>,<span style="color: #0000dd;">2</span><span style="color: #000000;">)</span> <span style="color: #000080;">=</span> <span style="color: #0000dd;">50</span>; <span style="color: #008000;">// アクティブウィンドウの行5, 列2のセル</span>
+                <span style="color: #008000;">//（ワークシートまたは行列）の値を50に設定</span>
+<span style="color: #008000;">// 異なるワークブック/行列ウィンドウに対してはプレフィクスを使用できる。</span>
+<span style="color: #008000;">// しかしターゲットはその中のアクティブシートになることに注意</span>
+
+<span style="color: #008000;">// アクティブシートの行10、列1のセルの値を100に設定</span>
+Book5<span style="color: #000080;">!</span>cell<span style="color: #000000;">(</span><span style="color: #0000dd;">10</span>,<span style="color: #0000dd;">1</span><span style="color: #000000;">)</span> <span style="color: #000080;">=</span> <span style="color: #0000dd;">100</span>; 
+<span style="color: #008000;">// 関数は変数を許可</span>
+for<span style="color: #000000;">(</span>ii <span style="color: #000080;">=</span> <span style="color: #0000dd;">1</span>&nbsp;; ii <span style="color: #000080;">&lt;=</span> <span style="color: #0000dd;">32</span>&nbsp;; ii<span style="color: #000080;">++</span><span style="color: #000000;">)</span>
+<span style="color: #000000;">{</span>
+    for<span style="color: #000000;">(</span>jj <span style="color: #000080;">=</span> <span style="color: #0000dd;">1</span>&nbsp;; jj <span style="color: #000080;">&lt;=</span> <span style="color: #0000dd;">32</span>&nbsp;; jj<span style="color: #000080;">++</span><span style="color: #000000;">)</span>
+    <span style="color: #000000;">{</span>
+        MBook1<span style="color: #000080;">!</span>cell<span style="color: #000000;">(</span>ii,jj<span style="color: #000000;">)</span> <span style="color: #000080;">=</span> <span style="color: #000000;">(</span>ii<span style="color: #000080;">-</span><span style="color: #0000dd;">1</span><span style="color: #000000;">)</span> <span style="color: #000080;">*</span> <span style="color: #0000dd;">32</span> <span style="color: #000080;">+</span> jj;
+    <span style="color: #000000;">}</span>
+<span style="color: #000000;">}</span></pre>
+<h3><a name=".25.28.29_Substitution_Notation"></a><span class="mw-headline">%() 置換表記</span></h3>
+<p><a href="../../LabTalk/LabTalk/String_Substitution.html#Worksheet_Column_and_Cell_Substitution" title="LabTalk:String Substitution">ワークシート列とセルの置換</a>を使用して、ワークシートのデータセットにアクセスします。
+</p>
+<pre class="lt" style="font-family:monospace;"><span style="color: #008000;">//ワークブックの列にアクセス</span>
+<span style="color: #000080;">%</span><span style="color: #000000;">(</span><span style="color: #000080;">%</span>H, A<span style="color: #000000;">)</span><span style="color: #000080;">=</span>data<span style="color: #000000;">(</span><span style="color: #0000dd;">1</span>,<span style="color: #0000dd;">30</span><span style="color: #000000;">)</span>; <span style="color: #008000;">//アクティブウィンドウのアクティブシートの列A</span>
+<span style="color: #000080;">%</span><span style="color: #000000;">(</span><span style="color: #000000;">[</span><span style="color: #000080;">%</span>H<span style="color: #000000;">]</span>Sheet2, A<span style="color: #000000;">)</span><span style="color: #000080;">=</span>data<span style="color: #000000;">(</span><span style="color: #0000dd;">50</span>,<span style="color: #0000dd;">70</span>, <span style="color: #0000dd;">0.5</span><span style="color: #000000;">)</span>; <span style="color: #008000;">//アクティブウィンドウのsheet2の列A</span>
+
+<span style="color: #008000;">//ワークブックのセルにアクセス</span>
+<span style="color: #000080;">%</span><span style="color: #000000;">(</span><span style="color: #000080;">%</span>H,<span style="color: #0000dd;">2</span>,<span style="color: #0000dd;">1</span><span style="color: #000000;">)</span> <span style="color: #000080;">=</span> <span style="color: #0000dd;">1</span>;       <span style="color: #008000;">// アクティブウィンドウのアクティブシートの列2、行1</span>
+<span style="color: #000080;">%</span><span style="color: #000000;">(</span><span style="color: #000000;">[</span>Book2<span style="color: #000000;">]</span>Sheet3,<span style="color: #0000dd;">2</span>,<span style="color: #0000dd;">1</span><span style="color: #000000;">)</span> <span style="color: #000080;">=</span> <span style="color: #0000dd;">100</span>; <span style="color: #008000;">//book2, sheet3, 列2、行1</span>
+<span style="color: #000080;">%</span><span style="color: #000000;">(</span><span style="color: #000000;">[</span>Book2<span style="color: #000000;">]</span>,<span style="color: #0000dd;">2</span>,<span style="color: #0000dd;">1</span><span style="color: #000000;">)</span> <span style="color: #000080;">=</span> <span style="color: #0000dd;">10</span>; <span style="color: #008000;">// 古いバージョンではコマンドエラーが発生する場合がある</span>
+<span style="color: #000080;">%</span><span style="color: #000000;">(</span>Book2,<span style="color: #0000dd;">2</span>,<span style="color: #0000dd;">1</span><span style="color: #000000;">)</span> <span style="color: #000080;">=</span> <span style="color: #0000dd;">10</span>;   <span style="color: #008000;">// Book2, アクティブシート、列2、行1</span>
+
+<span style="color: #008000;">// 置換は実行前に機能するため、次のようなことが可能になる</span>
+<span style="color: #000080;">%</span><span style="color: #000000;">(</span><span style="color: #000000;">[</span>Book2<span style="color: #000000;">]</span>Sheet1,<span style="color: #0000dd;">2</span>,<span style="color: #0000dd;">1</span><span style="color: #000000;">)</span> <span style="color: #000080;">+</span> <span style="color: #000080;">%</span><span style="color: #000000;">(</span><span style="color: #000000;">[</span>Book2<span style="color: #000000;">]</span>Sheet2,<span style="color: #0000dd;">2</span>,<span style="color: #0000dd;">1</span><span style="color: #000000;">)</span> <span style="color: #000080;">+</span> <span style="color: #000080;">%</span><span style="color: #000000;">(</span><span style="color: #000000;">[</span>Book2<span style="color: #000000;">]</span>Sheet3,<span style="color: #0000dd;">2</span>,<span style="color: #0000dd;">1</span><span style="color: #000000;">)</span><span style="color: #000080;">=</span>;
+val <span style="color: #000080;">=</span> <span style="color: #000080;">%</span><span style="color: #000000;">(</span><span style="color: #000000;">[</span>Book2<span style="color: #000000;">]</span>Sheet1,<span style="color: #0000dd;">2</span>,<span style="color: #0000dd;">1</span><span style="color: #000000;">)</span> <span style="color: #000080;">+</span> <span style="color: #000080;">%</span><span style="color: #000000;">(</span><span style="color: #000000;">[</span>Book2<span style="color: #000000;">]</span>Sheet2,<span style="color: #0000dd;">2</span>,<span style="color: #0000dd;">2</span><span style="color: #000000;">)</span> <span style="color: #000080;">+</span> <span style="color: #000080;">%</span><span style="color: #000000;">(</span><span style="color: #000000;">[</span>Book2<span style="color: #000000;">]</span>Sheet3,<span style="color: #0000dd;">2</span>,<span style="color: #0000dd;">3</span><span style="color: #000000;">)</span>;
+type <span style="color: #ff00ff;">&quot;Cross-sheet sum \x3D $(val)&quot;</span>;</pre>
+<h3><a name="By_Dataset_Name"></a><span class="mw-headline">データセット名による</span></h3>
+<p>これはLabTalkの最も古い表記であり、古いLabTalkコードを維持する必要がある場合、またはワークブックに1つのシートしかないことがわかっている場合、またはルーズデータセットで作業している場合を除き、使用しないでください。
+</p>
+<pre class="lt" style="font-family:monospace;"><span style="color: #008000;">// データセット名</span>
+<span style="color: #008000;">// データセットの正式名称を使用：</span>
+<span style="color: #008000;">// PageName_ColumnName[@SheetIndex]</span>
+<span style="color: #008000;">// ここで PageName および ColumnName はショートネームを表す</span>
+<span style="color: #008000;">//SheetIndexは作成順のインデックス</span>
+<span style="color: #008000;">// (SheetIndexはウィンドウ内のタブとして並んでいる順番ではないことに注意)</span>
+Book1_B <span style="color: #000080;">=</span> Uniform<span style="color: #000000;">(</span><span style="color: #0000dd;">100</span><span style="color: #000000;">)</span>;   <span style="color: #008000;">//データセットを埋める</span>
+Book1_B@2 <span style="color: #000080;">=</span> Data<span style="color: #000000;">(</span><span style="color: #0000dd;">1</span>,<span style="color: #0000dd;">365</span><span style="color: #000000;">)</span>;  <span style="color: #008000;">// 同じブック名、列名だが、</span>
+                          <span style="color: #008000;">// 2番目のシートを指す</span>
+July_Week1@3<span style="color: #000000;">[</span><span style="color: #0000dd;">5</span><span style="color: #000000;">]</span><span style="color: #000080;">$</span> <span style="color: #000080;">=</span> Sell;  <span style="color: #008000;">// 特定の行要素にアクセス</span>
+                          <span style="color: #008000;">// (&apos;July&apos;という名前のブックのsheetindex 3の</span>
+                          <span style="color: #008000;">// &apos;Week1&apos;列の5行目)</span>
+BSmith <span style="color: #000080;">=</span> <span style="color: #0000dd;">6</span>;
+ChemLab_Grade@3<span style="color: #000000;">[</span>BSmith<span style="color: #000000;">]</span> <span style="color: #000080;">=</span> <span style="color: #0000dd;">86</span>; 
+     <span style="color: #008000;">// 行へのアクセスに編素を使用可</span>
+     <span style="color: #008000;">//(&apos;ChemLab&apos;の3番目のシートのGrade&apos;列の6行目)</span></pre>
+<h2><a name="Accessing_Dataset_Storage"></a><span class="mw-headline">データセットストレージへのアクセス</span></h2>
+<p>Origin 2018b以降、LabTalkはデータセットストレージにアクセスできます。現時点では実用性は限られていますが、今後のバージョンで拡張される予定です。
+</p><p>データセット名の前に次のプレフィクスを付けます。
+</p>
+<pre class="lt" style="font-family:monospace;">dataset.</pre>
+<p>例：
+</p>
+<pre class="lt" style="font-family:monospace;">dataset.<span style="color: #000080;">Book1_B</span>.<span style="color: #000080;">info</span>.<span style="color: #000080;">=</span>; <span style="color: #008000;">// データセットのinfo.エリアにある情報を返す</span>
+dataset.<span style="color: #000080;">Book1_B</span>.<span style="color: #000080;">info</span>.<span style="color: #000080;">Add</span><span style="color: #000000;">(</span>Something<span style="color: #000000;">)</span>; <span style="color: #008000;">// データセットにストレージオブジェクト&quot;Something&quot;を追加</span>
+dataset.<span style="color: #000080;">Book1_B</span>.<span style="color: #000080;">info</span>.<span style="color: #000080;">Remove</span><span style="color: #000000;">(</span>Something<span style="color: #000000;">)</span>; <span style="color: #008000;">//データセットからストレージオブジェクト&quot;Something&quot;を削除</span></pre>
+<h2><a name="Masking_Cells"></a><span class="mw-headline">セルのマスキング</span></h2>
+<p><span class="OIndex" style="display:none">Mask Cell</span>ワークシートの列および行列シートのセルは、次のようにマスクできます。
+</p>
+<dl><dd>dataset&lt;<i>index</i>&gt; = 1</dd></dl>
+<p>例：
+</p>
+<pre class="lt" style="font-family:monospace;"><span style="color: #008000;">// 列Aのセル3をマスク</span>
+col<span style="color: #000000;">(</span>a<span style="color: #000000;">)</span><span style="color: #000080;">&lt;</span><span style="color: #0000dd;">3</span><span style="color: #000080;">&gt;</span> <span style="color: #000080;">=</span> <span style="color: #0000dd;">1</span>;
+<span style="color: #008000;">// 行列内のセルをマスク</span>
+range rr <span style="color: #000080;">=</span> <span style="color: #000000;">[</span>mbook1<span style="color: #000000;">]</span>msheet1<span style="color: #000080;">!</span>mat<span style="color: #000000;">(</span><span style="color: #0000dd;">1</span><span style="color: #000000;">)</span>;
+rr<span style="color: #000080;">&lt;</span><span style="color: #0000dd;">2</span><span style="color: #000080;">&gt;</span> <span style="color: #000080;">=</span> <span style="color: #0000dd;">1</span>;
+
+<span style="color: #008000;">// セルのマスク解除</span>
+col<span style="color: #000000;">(</span>a<span style="color: #000000;">)</span><span style="color: #000080;">&lt;</span><span style="color: #0000dd;">3</span><span style="color: #000080;">&gt;</span> <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span>;</pre>
+<p>行列の場合、 &lt;row, col&gt;を使用してセルを指定することもできます。
+</p>
+<pre class="lt" style="font-family:monospace;"><span style="color: #008000;">// 現在の行列シートの行2、列3セルをマスク</span>
+<span style="color: #000080;">%</span>C<span style="color: #000080;">&lt;</span><span style="color: #0000dd;">2</span>,<span style="color: #0000dd;">3</span><span style="color: #000080;">&gt;</span> <span style="color: #000080;">=</span> <span style="color: #0000dd;">1</span>;
+<span style="color: #008000;">// 現在の行列シートの2行目全体をマスク</span>
+<span style="color: #000080;">%</span>C<span style="color: #000080;">&lt;</span><span style="color: #0000dd;">2</span>,<span style="color: #0000dd;">0</span><span style="color: #000080;">&gt;</span> <span style="color: #000080;">=</span> <span style="color: #0000dd;">1</span>;
+<span style="color: #008000;">// 現在の行列シートの3列目全体をマスク</span>
+<span style="color: #000080;">%</span>C<span style="color: #000080;">&lt;</span><span style="color: #0000dd;">0</span>,<span style="color: #0000dd;">3</span><span style="color: #000080;">&gt;</span> <span style="color: #000080;">=</span> <span style="color: #0000dd;">1</span>;</pre>
+<p>指定した範囲をマスクするには、<a href="../../LabTalk/LabTalk/Mark_(command).html" title="LabTalk:Mark (command)">markコマンド</a>を参照してください。
+</p>
+<h2><a name="Set_Column_Values_with_a_Dataset"></a><span class="mw-headline">データセットに対する列値の設定</span></h2>
+<p class="version" >必要なOriginのバージョン: 9.0 SR0以降</p>
+<p>あるサイズのデータセットを数式と実行前の処理スクリプトで生成し、後でそのデータセットを特定の列に割り当てることができます。構文は次の通りです：
+</p><p><i>dataset</i>.setvalues(&quot;<i>Formula</i>&quot;, &quot;<i>Before formula script&quot;, &quot;</i>From<i>&quot;, &quot;</i>To<i>&quot;)</i>
+</p><p><i>Formula</i>では、<a class="external text" href="../../UserGuide/UserGuide/Menu_Options_and_Dialog_Controls.html#F.28x.29_Menu">列値の設定ダイアログのF(x)メニュー</a>のような関数を呼び出すことができます。
+</p><p>次に例を示します：
+</p>
+<pre class="lt" style="font-family:monospace;">newbook;
+wks.<span style="color: #000080;">addcol</span><span style="color: #000000;">(</span><span style="color: #000000;">)</span>;
+dataset ds1,ds2,ds3;<span style="color: #008000;">//3つのデータセットオブジェクトを定義</span>
+<span style="color: #008000;">//各オブジェクトの値を設定</span>
+ds1.<span style="color: #000080;">setvalues</span><span style="color: #000000;">(</span><span style="color: #ff00ff;">&quot;i+grnd()&quot;</span>,<span style="color: #ff00ff;">&quot;&quot;</span>,<span style="color: #ff00ff;">&quot;1&quot;</span>,<span style="color: #ff00ff;">&quot;20&quot;</span><span style="color: #000000;">)</span>;
+ds2.<span style="color: #000080;">setvalues</span><span style="color: #000000;">(</span><span style="color: #ff00ff;">&quot;sin(i)&quot;</span>,<span style="color: #ff00ff;">&quot;&quot;</span>,<span style="color: #ff00ff;">&quot;1&quot;</span>,<span style="color: #ff00ff;">&quot;20&quot;</span><span style="color: #000000;">)</span>;
+ds3.<span style="color: #000080;">setvalues</span><span style="color: #000000;">(</span><span style="color: #ff00ff;">&quot;col(1)*col(2)&quot;</span>,<span style="color: #ff00ff;">&quot;col(1)=ds1;col(2)=ds2;&quot;</span>,<span style="color: #ff00ff;">&quot;1&quot;</span>,<span style="color: #ff00ff;">&quot;20&quot;</span><span style="color: #000000;">)</span>;
+<span style="color: #008000;">//列3の値としてds3データセットを使用</span>
+col<span style="color: #000000;">(</span><span style="color: #0000dd;">3</span><span style="color: #000000;">)</span><span style="color: #000080;">=</span>ds3;</pre>
+<p>データセットの<b>setvalues</b> メソッドは、再計算オプションをサポートしていないことに注意してください。これについては<a class="external text" href="../../XFunction/X-Function/Csetvalue.html"><b>csetvalue</b></a> Xファンクションを参照してください。
+</p>
+<h2><a name="Using_Loose_Datasets_in_X-FunctionsLoose_Dataset.2C_X-FunctionX-Function.2C_Loose_Dataset"></a><span class="mw-headline">Xファンクションでルーズデータセットを使用<span class="OIndex" style="display:none">Loose Dataset, X-Function</span><span class="OIndex" style="display:none">X-Function, Loose Dataset</span></span></h2>
+<p>ルーズデータセットはワークシートの列のオーバーヘッドを持たないため、LabTalkスクリプトで使用する方が効率的です。スコープ内で使用すると、スコープが終了したときに自動的にクリーンアップされます。  たとえば、ルーズデータセットの<i>missingvals</i>を宣言し、<a class="external text" href="../../XFunction/X-Function/Vfind.html"><b>vfind</b> Xファンクション</a>を使用して(アクティブなワークシートの)列1に欠損値の行番号を代入します。
+</p>
+<pre class="lt" style="font-family:monospace;"><span style="color: #008000;">// ルーズデータセットを宣言</span>
+dataset  missingvals;
+<span style="color: #008000;">// 行番号の検索のためにvFind Xファンクションを呼び出す</span>
+<span style="color: #008000;">// ここでは列1に欠損値がある</span>
+vfind ix<span style="color: #000000;">:</span><span style="color: #000080;">=</span><span style="color: #0000dd;">1</span> value<span style="color: #000000;">:</span><span style="color: #000080;">=</span>NANUM ox<span style="color: #000000;">:</span><span style="color: #000080;">=</span>missingvals;
+<span style="color: #008000;">// 結果のmissingvalsにアクセス</span>
+for<span style="color: #000000;">(</span>int ii<span style="color: #000080;">=</span><span style="color: #0000dd;">1</span>; ii<span style="color: #000080;">&lt;=</span>missingvals.<span style="color: #000080;">GetSize</span><span style="color: #000000;">(</span><span style="color: #000000;">)</span>; ii<span style="color: #000080;">++</span><span style="color: #000000;">)</span>
+   type <span style="color: #000080;">$</span><span style="color: #000000;">(</span>missingvals<span style="color: #000000;">[</span>ii<span style="color: #000000;">]</span><span style="color: #000000;">)</span>;</pre>
+<p>多くのXファンクションは<a href="../../LabTalk/LabTalk/Data_Types_and_Variables.html#Tree" title="LabTalk:データ型と変数">ツリー</a>形式で出力を生成し、ツリーノードのいくつかはベクトルになることがあります。このようなベクトルにアクセスするには、データセットにコピーする必要があります。  ツリーベクトルを直接列に入れることもできますが、その後の計算でベクトルを使用する場合は、ルーズデータセットを使用する方が効率的です。
+</p>
+
+
+
+
+
+
+    

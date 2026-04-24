@@ -1,0 +1,207 @@
+﻿<h1 class="firstHeading">Doc</h1><p class='urlname' style='display: none'>Doc-obj</p>
+<p><b>LabTalkオブジェクトタイプ：</b> 
+</p>
+<dl><dd><a href="../../LabTalk/LabTalk/Utility_Objects,_Property_and_Method_Syntax_(Object).html" title="LabTalk:Utility Objects, Property and Method Syntax (Object)">ユーティリティオブジェクト</a> </dd></dl>
+<p><b>doc</b>オブジェクトは、一般的なプロジェクトプロパティへの読み取り専用アクセスを提供します。  
+</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>目次</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Properties:"><span class="tocnumber">1</span> <span class="toctext">プロパティ</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Methods:"><span class="tocnumber">2</span> <span class="toctext">メソッド</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Examples:"><span class="tocnumber">3</span> <span class="toctext">サンプル</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#doc.wksnamen.24"><span class="tocnumber">3.1</span> <span class="toctext">doc.wksnamen$</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#doc.FindLN"><span class="tocnumber">3.2</span> <span class="toctext">doc.FindLN</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+<h2><a name="Properties:"></a><span class="mw-headline"><font color="chocolate">プロパティ：</font></span></h2>
+<table class="simple">
+<tr>
+<th width="110">プロパティ
+</th>
+<th width="70">アクセス
+</th>
+<th width="540">説明
+</th></tr>
+<tr>
+<td> <b>doc.AuditLog</b>
+</td>
+<td> 読み取り、数値
+</td>
+<td>
+<p>監査ログが現在のプロジェクトで有効になっている場合は1を返します。そうでない場合は0を返します。
+</p>
+</td></tr>
+<tr>
+<td> <b>doc.comments$</b>
+</td>
+<td> 読み/書き、文字列
+</td>
+<td> プロジェクトファイルのコメントを返すか、カスタマイズします。
+</td></tr>
+<tr>
+<td> <b>doc.dropCount</b>
+</td>
+<td> 読み取り、数値
+</td>
+<td>
+<p>Originワークスペースにドロップされたファイルの総数。  DOFILE.OGSのOnOpenセクションはドロップされたファイルごとに1回実行されます。dropIndexは処理されているファイルを示し、1からdropCountまで増加します。
+</p>
+</td></tr>
+<tr>
+<td> <b>doc.dropIndex</b>
+</td>
+<td> 読み取り、数値
+</td>
+<td>
+<p>1つ以上のデータファイルがOriginにドロップされた場合、このプロパティはドロップされたファイルの数を保持します。  
+</p>
+</td></tr>
+<tr>
+<td> <b>doc.dropLayer</b>
+</td>
+<td> 読み取り、数値
+</td>
+<td>
+<p>1つ以上のデータファイルがグラフにドロップされた場合、このプロパティはデータが追加されたレイヤ番号を保持します。  データがワークシートにドロップされると、このプロパティは1に設定されます。  ドロップ位置がOriginプログラムウィンドウ内にあるが、ワークシートまたはグラフウィンドウの外にある場合、このプロパティは0に設定されます。  ドロップ位置がOriginプログラムアイコン上にある場合、このプロパティは-1に設定されます。  
+</p>
+</td></tr>
+<tr>
+<td> <b>doc.dropWinName$</b>
+</td>
+<td> 読み取り、文字列
+</td>
+<td>
+<p>1つ以上のデータファイルがグラフまたはワークシートウィンドウにドロップされた場合、このプロパティはウィンドウ名を保持します。  ファイルがウィンドウにドロップされない場合、またはファイルがOriginプログラムアイコンにドロップされた場合、このプロパティは&quot;&quot;に設定されます。  
+</p>
+</td></tr>
+<tr>
+<td> <b>doc.isNew</b>
+</td>
+<td> 読み取り、数値
+</td>
+<td>
+<p>プロジェクトが新しいプロジェクト（ファイルからロードされていない）で、保存されたことがない場合、このプロパティの値は1になります。  プロジェクトが保存されると、このプロパティは0になります。
+</p>
+</td></tr>
+<tr>
+<td> <b>doc.LineSpace</b>
+</td>
+<td> 読み/書き、数値
+</td>
+<td>
+<p>行間隔設定をプロジェクトに保存：いいえ= 0、はい= 1。
+</p>
+</td></tr>
+<tr>
+<td> <b>doc.PWD</b>
+</td>
+<td> 読み取り、数値
+</td>
+<td>
+<p>現在のプロジェクトでパスワード保護が有効になっている場合は1を返します。そうでない場合は0を返します。
+</p>
+</td></tr>
+<tr>
+<td> <b>doc.SepP</b>
+</td>
+<td> 読み/書き、数値
+</td>
+<td>
+<p>プロジェクトにセパレータ設定を保存：いいえ= 0、はい= 1。
+</p>
+</td></tr>
+<tr>
+<td> <b>doc.size</b>
+</td>
+<td> 読み取り、数値
+</td>
+<td>
+<p>opjuに保存されないデータを除外した保存サイズ。@KBSと同様です。
+</p>
+</td></tr>
+<tr>
+<td> <b>doc.wksNamen$</b>
+</td>
+<td> 読み取り、文字列
+</td>
+<td>
+<p>n番目のワークシートの名前を返します。  nはプロジェクトでワークシートが作成された順序（1、2など）です。  
+</p>
+</td></tr></table>
+<h2><a name="Methods:"></a><span class="mw-headline"><font color="chocolate">メソッド：</font></span></h2>
+<table class="simple">
+<tr>
+<th width="180">メソッド
+</th>
+<th> 説明
+</th></tr>
+<tr>
+<td><b>doc.DCFileGroup(strExt, strDCPath)</b>
+</td>
+<td>
+<p>このメソッドは、データコネクタのファイル拡張子グループを取得するために使用されます。
+</p>
+<pre class="lt" style="font-family:monospace;"><span style="color: #008000;">//拡張子を取得するために %A のような文字列レジスタを使用 </span>
+i <span style="color: #000080;">=</span> doc.<span style="color: #000080;">DCFileGroup</span><span style="color: #000000;">(</span>A, <span style="color: #ff00ff;">&quot;CSV_Connector&quot;</span><span style="color: #000000;">)</span>; <span style="color: #008000;">// 成功した場合 i = 1 </span>
+<span style="color: #000080;">%</span>A<span style="color: #000080;">=</span>; <span style="color: #008000;">//*.csv;*.txt;*.asc;*.dat</span></pre>
+</td></tr>
+<tr>
+<td><b>doc.download(file,[<i>silent</i>])</b>
+</td>
+<td>
+<p>このメソッドはファイルのダウンロードとインストールに使用されます。<i>file</i>にはテンプレート名またはアプリケーション名を指定できます。
+</p>
+<pre class="lt" style="font-family:monospace;">doc.<span style="color: #000080;">download</span><span style="color: #000000;">(</span><span style="color: #ff00ff;">&quot;RaisedReliefMap.otpu&quot;</span><span style="color: #000000;">)</span></pre>
+<p><i>file</i>はfidにすることもできます。 
+</p>
+<pre class="lt" style="font-family:monospace;">doc.<span style="color: #000080;">download</span><span style="color: #000000;">(</span><span style="color: #0000dd;">227</span><span style="color: #000000;">)</span>;<span style="color: #008000;">//tangent app</span></pre>
+テンプレートセンターダイアログで、任意のテンプレートをクリックすると、fid付きのWebリンクが開きます。 <pre class="lt" style="font-family:monospace;">https<span style="color: #000000;">:</span><span style="color: #008000;">//www.originlab.com/fileexchange/details.aspx?fid=895</span></pre> 
+<p><font color="red">(2025b)</font><i>silent</i>が設定されている場合、アプリのopxファイルを置き換えるかどうかを尋ねることなくサイレントにインストールします。
+</p>
+</td></tr>
+<tr>
+<td><b>doc.rangescount([<i>RangeType</i>])</b>
+</td>
+<td>
+<p>このメソッドはプロジェクト範囲の数を取得するために使用されます。これらの範囲は、解析操作、データインポートなどによって生成されうるものです。<i>RangeType</i>はオプションの変数です。値が割り当てられていない場合、出力はデータ範囲の総数となります。<i>RangeType</i>= 16は空の範囲の数を出力します。<i>RangeType</i>=32は「オートフィル」で生成された範囲の数を出力します。
+</p><p><b>Note: </b> <a href="../../LabTalk/LabTalk/List_(command).html" title="LabTalk:List (command)">list rng</a> コマンドを使用して、すべてのプロジェクト範囲の詳細を一覧表示できます。
+</p>
+</td></tr>
+<tr>
+<td> <b>doc.FindLN(strRegister, strLN, windowtype)</b>
+</td>
+<td>
+<p>このメソッドは、ページのロングネームからショートネームを見つけるために使用されます。
+</p>
+<ul><li>ロングネーム文字列に一致するページウィンドウの数を返します。 </li>
+<li>strRegister: どの文字列レジスタに出力されるか</li>
+<li>strLN: 検索するロングネーム</li>
+<li>windowtype: 2 = ワークブック、3 = グラフ、5 = 行列ブック</li></ul>
+</td></tr></table>
+<h2><a name="Examples:"></a><span class="mw-headline"><font color="chocolate">サンプル：</font></span></h2>
+<h3><a name="doc.wksnamen.24"></a><span class="mw-headline">doc.wksnamen$</span></h3>
+<p>Data1がプロジェクトで最初に作成されたワークシートの場合、次のスクリプトはData1を返します。  
+</p>
+<pre class="lt" style="font-family:monospace;"><span style="color: #000080;">%</span>Z <span style="color: #000080;">=</span> doc.<span style="color: #000080;">wksName1</span><span style="color: #000080;">$</span>;
+<span style="color: #000080;">%</span>Z <span style="color: #000080;">=</span>&nbsp;;</pre>
+<h3><a name="doc.FindLN"></a><span class="mw-headline">doc.FindLN</span></h3>
+<p>ロングネームが&quot;some name&quot;のブックが1つある場合、次のスクリプトは、1つのウィンドウを見つけ、そのショートネームBook2を返します。
+</p>
+<pre class="lt" style="font-family:monospace;">int nFound <span style="color: #000080;">=</span> doc.<span style="color: #000080;">FindLN</span><span style="color: #000000;">(</span>A, <span style="color: #ff00ff;">&quot;some name&quot;</span>, <span style="color: #0000dd;">2</span><span style="color: #000000;">)</span>;
+
+nFound<span style="color: #000080;">=</span>;
+nFound<span style="color: #000080;">=</span><span style="color: #0000dd;">1</span>;
+<span style="color: #000080;">%</span>A<span style="color: #000080;">=</span>;
+Book2</pre>
+
+
+
+
+
+
+
+    

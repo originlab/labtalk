@@ -1,0 +1,52 @@
+﻿<h1 class="firstHeading">StdDevP/StDev.p</h1><p class='urlname' style='display: none'>StdDevP-func</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>目次</h2></div>
+<ul>
+<li class="toclevel-1"><a href="#Description"><span class="tocnumber">1</span> <span class="toctext">概要</span></a></li>
+<li class="toclevel-1"><a href="#Syntax"><span class="tocnumber">2</span> <span class="toctext">構文</span></a></li>
+<li class="toclevel-1"><a href="#Parameters"><span class="tocnumber">3</span> <span class="toctext">パラメータ</span></a></li>
+<li class="toclevel-1"><a href="#Return"><span class="tocnumber">4</span> <span class="toctext">戻り値</span></a></li>
+<li class="toclevel-1"><a href="#Example"><span class="tocnumber">5</span> <span class="toctext">サンプル</span></a></li>
+<li class="toclevel-1"><a href="#See_Also"><span class="tocnumber">6</span> <span class="toctext">関連項目</span></a></li>
+</ul>
+</div>
+
+<h2 class="ref"><a name="Description"></a><span class="mw-headline">概要</span></h2>
+<p>母集団の標準偏差を計算します。
+</p>
+<dl><dd><img src="../images/StdDevP_(function)/math-b67a753a6bb11e764af0a9f82dde291f.png" title="s = \sqrt{\frac{1}{n} \sum_{i=1}^n (x_i - \overline{x})^2}" alt="s = \sqrt{\frac{1}{n} \sum_{i=1}^n (x_i - \overline{x})^2}" class="tex"/></dd></dl>
+<table class="note">
+
+<tr>
+<td><b>Notes:</b>
+<p>StdDevP() と StDev.p() は機能的に同一です。お好みの方をご利用ください。
+</p>
+</td></tr></table>
+<h2 class="ref"><a name="Syntax"></a><span class="mw-headline">構文</span></h2>
+<pre class="lt" style="font-family:monospace;">double StdDevP<span style="color: #000000;">(</span>dataset vd<span style="color: #000000;">)</span></pre>
+<pre class="lt" style="font-family:monospace;">double StDev.<span style="color: #000080;">p</span><span style="color: #000000;">(</span>dataset vd<span style="color: #000000;">)</span></pre>
+<h2 class="ref"><a name="Parameters"></a><span class="mw-headline">パラメータ</span></h2>
+<p><b>vd</b> 
+</p>
+<dl><dd>入力データセット。</dd></dl>
+<h2 class="ref"><a name="Return"></a><span class="mw-headline">戻り値</span></h2>
+<p>母集団の標準偏差を返します。
+</p>
+<h2 class="ref"><a name="Example"></a><span class="mw-headline">サンプル</span></h2>
+<p><b>EX1</b>
+</p>
+<pre class="lt" style="font-family:monospace;">double ee<span style="color: #000080;">=</span>StdDevP<span style="color: #000000;">(</span>col<span style="color: #000000;">(</span>A<span style="color: #000000;">)</span><span style="color: #000000;">)</span>;
+ee<span style="color: #000080;">=</span>;</pre>
+<p><b>EX2</b>
+</p>
+<pre class="lt" style="font-family:monospace;">range rr<span style="color: #000080;">=</span><span style="color: #0000dd;">1</span><span style="color: #000080;">!</span><span style="color: #0000dd;">1</span><span style="color: #000000;">[</span><span style="color: #0000dd;">1</span><span style="color: #000000;">]</span><span style="color: #000000;">:</span><span style="color: #0000dd;">2</span><span style="color: #000000;">[</span><span style="color: #0000dd;">10</span><span style="color: #000000;">]</span>;
+StDev.<span style="color: #000080;">p</span><span style="color: #000000;">(</span>rr<span style="color: #000000;">)</span><span style="color: #000080;">=</span>;</pre>
+<h2 class="ref"><a name="See_Also"></a><span class="mw-headline">関連情報</span></h2>
+<p><a href="../../LabTalk/LabTalk/StdDev_(function).html" title="LabTalk:StdDev (function)">StdDev/StDev.s</a>
+</p>
+
+
+
+
+
+
+    

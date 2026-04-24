@@ -1,0 +1,381 @@
+﻿<h1 class="firstHeading">その他のオプション</h1><p class='urlname' style='display: none'>Document_Options_Others</p>
+<p><br />
+</p>
+<h2><a name="-e"></a><span class="mw-headline">-e</span></h2>
+<p><b>構文：</b> doc <b>-e</b> <i>object {script}</i>
+</p><p>指定された種類のすべてのオブジェクトに対して、指定された<i>script</i>を実行します。このコマンドはオブジェクトをアクティブにし、指定されたタイプの各オブジェクトがアクティブになるまでループする関連スクリプトを実行します。ほとんどのLabTalkコマンド、メソッド、プロパティはアクティブウィンドウで動作します。ループスクリプトがアクティブオブジェクトに影響するように名前が必要な場合は、<a href="../../LabTalk/LabTalk/System_Variables.html" title="LabTalk:システム変数">システム変数</a>を使用します。<i>object</i>には、次のいずれかを指定できます。 
+</p>
+<dl><dd><table class="simple">
+<tr>
+<td> D
+</td>
+<td> グラフウィンドウがアクティブな場合は、アクティブレイヤのすべてのデータプロットに対して実行します。ワークシートがアクティブな場合は、アクティブなワークシート内のすべてのデータセット(列)に対して実行します。  （行列がアクティブな場合、反復は1回のみです）。 &nbsp;%Hにはウィンドウ名が含まれ、&nbsp;%Cには各反復のデータセット名が含まれます。
+</td></tr>
+<tr>
+<td> DY
+</td>
+<td> グラフウィンドウがアクティブな場合、エラーバーとラベルを除くアクティブレイヤのすべてのデータプロットに対して実行します。  ワークシートがアクティブな場合は、アクティブなワークシート内のすべてのYデータセットに対して（のみ）実行します。（行列がアクティブな場合、反復は1回のみです）。%Hにはウィンドウ名が含まれ、&nbsp;%Cには各反復のデータセット名が含まれます。
+</td></tr>
+<tr>
+<td> G
+</td>
+<td> アクティブなグラフレイヤ、アクティブなワークシート、またはアクティブなレイアウトページ内のすべてのラベルおよびその他の名前付きオブジェクトに対して実行します。%Bには各反復のオブジェクト名が含まれます。これは<b>list -o</b>で示されるオブジェクトコレクションと同じです。
+</td></tr>
+<tr>
+<td> GD
+</td>
+<td> <i>doc -e GD</i>はグループの奥深くに入りますが、 <i>doc -e G</i> は内部に入りません。
+<pre class="lt" style="font-family:monospace;">doc <span style="color: #000080;">-</span>e GD <span style="color: #000000;">{</span><span style="color: #000080;">%</span>B<span style="color: #000080;">=</span><span style="color: #000000;">}</span>;</pre>
+</td></tr>
+<tr>
+<td> I
+</td>
+<td> <font color="red">(2025b)</font>すべてのイメージウィンドウに対して実行します。
+</td></tr>
+<tr>
+<td> L
+</td>
+<td> プロジェクト内のすべてのレイヤに対して実行します。レイアウトページには1つのレイヤがあり、ワークブック、行列ブック、グラフには複数のレイヤがあることに注意してください。%Hには各反復のウィンドウ名が含まれます。<a href="../../LabTalk/LabTalk/Page_(object).html" title="LabTalk:Page (object)">Page.active</a>はアクティブなレイヤ番号を保持します。<a href="../../LabTalk/LabTalk/Page_(object).html" title="LabTalk:Page (object)">Page.active</a>を表現するには、例えば<b>type</b>ステートメントで<b>$(page.active)を使用します。 </b>
+<p><b>例</b>：次のスクリプトでは、プロジェクト内のすべてのレイヤを再スケールしてすべてのデータを表示し、各X軸のスケールの初期値を0に設定し、それぞれのウィンドウ名とレイヤ番号をスクリプトウィンドウに入力します。
+</p>
+<pre class="lt" style="font-family:monospace;">doc <span style="color: #000080;">-</span>e L 
+<span style="color: #000000;">{</span>
+     layer <span style="color: #000080;">-</span>a; 
+      x1 <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span>;
+      type <span style="color: #ff00ff;">&quot;Window:&nbsp;%H, layer number: $(page.active)&quot;</span>;
+<span style="color: #000000;">}</span>;</pre>
+</td></tr>
+<tr>
+<td> LB
+</td>
+<td> <font color="red">(8.0 SR3)</font> プロジェクト内のすべてのワークブックおよび行列ブックのすべてのシートに対して実行します。 &nbsp;%Hには各反復の現在ブック名が含まれます。<a href="../../LabTalk/LabTalk/Page_(object).html" title="LabTalk:Page (object)">Page.active</a>はアクティブなシートインデックスを保持します。 <a href="../../LabTalk/Script/Looping_Over_Objects.html#Looping_over_Workbooks_and_Worksheets" title="Script:Looping Over Objects"> The Origin Project: オブジェクトのループ</a>を参照してください。
+</td></tr>
+<tr>
+<td> LBC
+</td>
+<td> <font color="red">(2019b)</font> 全てのデータコネクタに対して実行します（プロジェクト内のすべてのワークブックおよび行列ブック内のシートを含む）。%Hには各反復の現在ブック名が含まれます。コネクタがないブックはスキップされます。例えば、次のコードはループして<b>データソース</b>を<a href="../../LabTalk/Category/Wks.DC_(object).html" title="Category:Wks.DC (object)"><b>絶対パス</b></a>に変換します。
+<pre class="lt" style="font-family:monospace;">doc <span style="color: #000080;">-</span>e LBC <span style="color: #000000;">{</span>
+	<span style="color: #000080;">%</span>H<span style="color: #000080;">=</span>;
+	page.<span style="color: #000080;">Active</span><span style="color: #000080;">=</span>;
+	wks.<span style="color: #000080;">dc</span>.<span style="color: #000080;">SType</span><span style="color: #000080;">=</span><span style="color: #0000dd;">0</span>;
+<span style="color: #000000;">}</span></pre>
+</td></tr>
+<tr>
+<td> LI
+</td>
+<td> <font color="red">(2025b)</font>全てのイメージウィンドウ内の全てのレイヤに対して実行します。
+</td></tr>
+<tr>
+<td> LP
+</td>
+<td> プロジェクト内のすべてのグラフウィンドウおよびレイアウトウィンドウのすべてのレイヤに対してのみ実行します。 &nbsp;%Hには各反復のウィンドウ名が含まれます。<a href="../../LabTalk/LabTalk/Page_(object).html" title="LabTalk:Page (object)">Page.active</a>はアクティブなレイヤ番号を保持します。
+</td></tr>
+<tr>
+<td> LR <i>ClassName</i>
+</td>
+<td> <font color="red">(8.0 SR3)</font> 指定したレポートワークシートでスクリプトを実行します。アクティブなウィンドウ内のすべてのレポートシートにdoc-e LRWを使用します。
+<p><i>ClassName</i>は次の通りです。
+</p>
+<table class="wikitable" border="1" style="width:50%">
+
+<tr style="background: #DDFFDD;">
+<th> クラス名
+</th>
+<th> 解析ツール
+</th></tr>
+<tr>
+<td> <i>FitNL</i>
+</td>
+<td> 非線形カーブフィット
+</td></tr>
+<tr>
+<td> <i>FitLinear</i>
+</td>
+<td> 線形フィット
+</td></tr>
+<tr>
+<td> <i>FitPolynomial</i>
+</td>
+<td> 多項式フィット
+</td></tr>
+<tr>
+<td> <i>MR</i>
+</td>
+<td> 線形多重回帰
+</td></tr>
+<tr>
+<td> <i>DescStats</i>
+</td>
+<td> 列の統計
+</td></tr>
+
+<tr>
+<td> <i>DescStats_1</i>
+</td>
+<td> 行の統計
+</td></tr>
+<tr>
+<td> <i>NormalityTest</i>
+</td>
+<td> 正規性検定
+</td></tr>
+<tr>
+<td> <i>ANOVAOneWay</i>
+</td>
+<td> 一元配置ANOVA
+</td></tr>
+<tr>
+<td> <i>ANOVATwoWay</i>
+</td>
+<td> 二元配置ANOVA
+</td></tr>
+<tr>
+<td> <i>ANOVAOneWayRM</i>
+</td>
+<td> 一元配置（繰り返し測定）ANOVA
+</td></tr>
+<tr>
+<td> <i>ANOVATwoWayRM</i>
+</td>
+<td> 二元配置（繰り返し測定）ANOVA
+</td></tr>
+<tr>
+<td> <i>ROCCurve</i>
+</td>
+<td> ROC曲線
+</td></tr></table>
+<p>例：
+</p>
+<pre class="lt" style="font-family:monospace;">document <span style="color: #000080;">-</span>e lr ANOVAOneWay
+<span style="color: #000000;">{</span>
+	tree tt;
+	getresults tr<span style="color: #000000;">:</span><span style="color: #000080;">=</span>tt;
+	tt.<span style="color: #000080;">=</span>; <span style="color: #008000;">// ANOVAレポートツリー</span>
+<span style="color: #000000;">}</span></pre>
+</td></tr>
+<tr>
+<td> LW
+</td>
+<td> 現在のウィンドウ内のすべてのレイヤに対してのみ実行します。レイアウトページには1つのレイヤがあり、ワークブック、行列ブック、グラフには複数のレイヤがあることに注意してください。%Hには各反復のウィンドウ名が含まれます。<a href="../../LabTalk/LabTalk/Page_(object).html" title="LabTalk:Page (object)">Page.active</a>はアクティブなレイヤ番号を保持します。
+</td></tr>
+<tr>
+<td> M
+</td>
+<td> プロジェクト内のすべての行列ブックに対して実行します。%Hには各反復の行列ブック名が含まれます。これはシートレベルでは反復されないことに注意してください。埋め込み画像用に作成された行列が表示されている場合は、<a href="../../LabTalk/LabTalk/Page_(object).html" title="LabTalk:Page (object)">Page.isEmbedded</a>プロパティの値をテストしてそれを判断できます。
+</td></tr>
+<tr>
+<td> O
+</td>
+<td> プロジェクト内の最小化されていないすべてのウィンドウに対して実行します。%Hには各反復のウィンドウ名が含まれます。埋め込まれたグラフは、最小化されたブックウィンドウ内のグラフであってもカウントされることに注意してください。<a href="../../LabTalk/LabTalk/Page_(object).html" title="LabTalk:Page (object)">Page.isEmbedded</a>プロパティを使用して、これに該当するかどうかを判断できます。
+<p><b>例：</b>このスクリプトは、最小化されていないすべてのウィンドウを調べ、その名前とウィンドウタイプを入力します。
+</p>
+<pre class="lt" style="font-family:monospace;">doc <span style="color: #000080;">-</span>e O <span style="color: #000000;">{</span>
+   type <span style="color: #000080;">=</span> exist<span style="color: #000000;">(</span><span style="color: #000080;">%</span>H<span style="color: #000000;">)</span>;
+   switch<span style="color: #000000;">(</span>type<span style="color: #000000;">)</span>
+   <span style="color: #000000;">{</span>
+   case <span style="color: #0000dd;">2</span><span style="color: #000000;">:</span>
+      if<span style="color: #000000;">(</span><span style="color: #000080;">%</span>H<span style="color: #000080;">!</span>page.<span style="color: #000080;">extinfo</span><span style="color: #000000;">)</span> type <span style="color: #000080;">%</span>H is an Excel Workbook;
+      else type <span style="color: #000080;">%</span>H is an Origin Workbook;
+      break;
+   case <span style="color: #0000dd;">3</span><span style="color: #000000;">:</span>
+      type <span style="color: #000080;">%</span>H is a Graph window;
+      break;
+   case <span style="color: #0000dd;">4</span><span style="color: #000000;">:</span>
+      type <span style="color: #000080;">%</span>H is a Matrixbook;
+      break;
+   case <span style="color: #0000dd;">11</span><span style="color: #000000;">:</span>
+      type <span style="color: #000080;">%</span>H is a Layout page;
+      break;
+   <span style="color: #000000;">}</span>
+<span style="color: #000000;">}</span></pre>
+</td></tr>
+<tr>
+<td> P
+</td>
+<td> プロジェクト内のすべてのグラフウィンドウとレイアウトウィンドウに対して実行します。 &nbsp;%Hには各反復のウィンドウ名が含まれます。
+<p>（Note: ワークシートのセルに埋め込まれたグラフウィンドウを除外するには、<a href="../../LabTalk/LabTalk/Page_(object).html" title="LabTalk:Page (object)">Page.isEmbedded</a>プロパティの値をテストしてください。
+</p>
+<pre class="lt" style="font-family:monospace;">doc <span style="color: #000080;">-</span>e p <span style="color: #000000;">{</span>win <span style="color: #000080;">-</span>ppc<span style="color: #000000;">}</span> <span style="color: #008000;">// OPJからすべてのグラフプレビューをクリーンアップ</span></pre>
+<p>次のスクリプトは、プロジェクト内のすべてのグラフウィンドウの内容を表示します。
+</p>
+<pre class="lt" style="font-family:monospace;">doc <span style="color: #000080;">-</span>e P print;</pre>
+</td></tr>
+<tr>
+<td> S
+</td>
+<td> プロジェクト内のすべてのデータセットに対して実行します。%Cには、各反復のデータセット名が含まれます。
+</td></tr>
+<tr>
+<td> W
+</td>
+<td> プロジェクト内のすべてのワークブックに対して実行します。%Hには各反復のウィンドウ名が含まれます。<br />
+<p><b>例：</b>次のスクリプトは、最初のワークシートの名前を&nbsp;%Aに挿入します。
+</p>
+<pre class="lt" style="font-family:monospace;">doc <span style="color: #000080;">-</span>e W 
+<span style="color: #000000;">{</span>
+      <span style="color: #000080;">%</span>A <span style="color: #000080;">=</span> <span style="color: #000080;">%</span>H; 
+      break;
+<span style="color: #000000;">}</span>;</pre>
+</td></tr>
+<tr>
+<td> WM
+</td>
+<td> プロジェクト内のすべてのワークブック<i>および</i>行列ブックに対して実行します。%Hには各反復のウィンドウ名が含まれます。
+</td></tr>
+<tr>
+<td> WW
+</td>
+<td> &quot;W&quot;と同じ動作をしますが、プロジェクト内のExcelブックはスキップされます。
+</td></tr></table>
+<p>他のループコマンドも参照してください：<a href="../../LabTalk/LabTalk/For_(command).html" title="LabTalk:For (command)">for</a>, <a href="../../LabTalk/LabTalk/Loop_(command).html" title="LabTalk:Loop (command)">loop</a>, <a href="../../LabTalk/LabTalk/Repeat_(command).html" title="LabTalk:Repeat (command)">repeat</a>
+</p>
+<h2><a name="-ef"></a><span class="mw-headline">-ef</span></h2>
+<p><b>構文：</b> doc <b>-ef</b> 
+</p><p>現在のプロジェクトエクスプローラフォルダ内の指定された種類のすべてのオブジェクトに対して、指定されたスクリプトを実行します。-eオプションと同様ですが、現在のプロジェクトエクスプローラフォルダのみが対象となります。
+</p><p><b>Note: </b>プロジェクトエクスプローラの表示モードが「アクティブフォルダ内のウィンドウを表示」に設定されていることを前提としています。表示モードが「アクティブフォルダとサブフォルダ内のウィンドウを表示」に設定されている場合、このコマンドはアクティブなフォルダ<i>および</i>サブフォルダを考慮します。
+</p>
+<pre class="lt" style="font-family:monospace;"><span style="color: #008000;">//フォルダ内の埋め込みウィンドウをループする(2025b)</span>
+doc <span style="color: #000080;">-</span>ef LB <span style="color: #000000;">{</span>wks.<span style="color: #000080;">embeds</span><span style="color: #000080;">$</span><span style="color: #000080;">=</span>;<span style="color: #000000;">}</span></pre>
+<h2><a name="-ffu"></a><span class="mw-headline">-ffu</span></h2>
+<p><b>構文：</b> doc <b>-ffu</b> 
+</p><p>どのような状況でも、プロジェクトファイル内のすべての列の式を強制的に更新します。
+</p>
+<h2><a name="-gp"></a><span class="mw-headline">-gp</span></h2>
+<p><b>構文：</b> doc <b>-gp</b> <i>state</i>
+</p><p>プロジェクトエクスプローラで以前のバージョンのグラフのプレビューを生成し、グラフアイコンにカーソルを合わせるとツールチップビューが表示されるようにします。<i>state</i> = 0,の場合、再帰的ではなく現在のフォルダーのプレビューを生成します。<i>state</i> = 1の場合、現在のフォルダとサブフォルダのプレビューを生成します。<i>state</i> = 2の場合、プロジェクト全体のプレビューを生成します。
+</p>
+<h2><a name="-ha"></a><span class="mw-headline">-ha</span></h2>
+<p>アクティブフォルダ内のすべてのウィンドウを非表示にします。メニュー操作では<b>ウィンドウ：全ウィンドウを非表示</b>です。
+</p>
+<h2><a name="-l"></a><span class="mw-headline">-l</span></h2>
+<p><b>構文</b>: doc <b>-l</b> 
+</p><p>すべてのウィンドウに更新メッセージを送信します。
+</p>
+<h2><a name="-lr"></a><span class="mw-headline">-lr</span></h2>
+<p><b>構文</b>: doc <b>-lr</b> <i>flag</i>
+</p>
+<dl><dd><table class="simple">
+<tr>
+<th> フラグ
+</th>
+<th> 説明
+</th></tr>
+<tr>
+<td> 16
+</td>
+<td> <a class="external text" href="CodeBuilderUsersGuide.chm::/Category/Code_Builder.html">コードビルダ</a>の<b>Project</b>フォルダへのアクセスを無効にします。
+</td></tr></table></dd></dl>
+<p><b>Note</b>:
+</p>
+<dl><dd><pre class="lt" style="font-family:monospace;">doc <span style="color: #000080;">-</span>lr <span style="color: #0000dd;">0</span>; <span style="color: #008000;">// 全てのフラグをオフにする</span></pre></dd></dl>
+<h2><a name="-m"></a><span class="mw-headline">-m</span></h2>
+<p><b>構文：</b> doc <b>-m</b> <i>Origin_window_state</i>
+</p><p>これらのオプションは、Originウィンドウの表示状態を制御します。
+</p>
+<dl><dd><table class="simple">
+<tr>
+<td> 0
+</td>
+<td> 非表示
+</td></tr>
+<tr>
+<td> 1
+</td>
+<td> 通常
+</td></tr>
+<tr>
+<td> 2
+</td>
+<td> 最小化
+</td></tr>
+<tr>
+<td> 3
+</td>
+<td> 最大化
+</td></tr>
+<tr>
+<td> 4
+</td>
+<td> 復元
+</td></tr>
+<tr>
+<td> 5
+</td>
+<td> 表示
+</td></tr></table></dd></dl>
+<h2><a name="-nav"></a><span class="mw-headline">-nav</span></h2>
+<p><b>構文</b>: doc <b>-nav</b>
+</p><p><font color="red">(2025b)</font>ナビゲータウィンドウを表示します。
+</p>
+<h2><a name="-pda"></a><span class="mw-headline">-pda</span></h2>
+<p><b>構文</b>: doc <b>-pda</b>[<b>d</b>]
+</p><p>プロジェクト内の他のグラフページにマスターテンプレートのページの向きを適用します。<br />
+ コマンドが発行されたときに<a class="external text" href="../../UserGuide/UserGuide/Creating_a_master_Page_Layout_for_Graphs.html">マスターテンプレート</a>がアクティブになっている必要があります。オプションの<b>d</b>は、影響を受けるグラフのリストを<a class="external text" href="../../GettingStarted/OriginLab/The_Origin_Interface.html#Messages_Log">メッセージログ</a>にダンプします。 
+</p><p>このコマンドは横向きのページを縦向きに変換することはできないことに注意してください。<i>その逆も同様です。</i>ページの向きを変更するには、<a href="../../LabTalk/LabTalk/Page_(command).html#-o.3B_Set_the_page_to_portrait.2C_landscape.2C_or_rotate_the_page" title="LabTalk:Page (command)"><b>page -o</b>コマンド</a>を参照してください。
+</p>
+<h2><a name="-rr"></a><span class="mw-headline">-rr</span></h2>
+<p><b>構文：</b> doc <b>-rr</b>
+</p><p>プロジェクト全体で空のUIDデータ参照を持つ範囲を回復します。
+</p>
+<h2><a name="-rri"></a><span class="mw-headline">-rri</span></h2>
+<p><b>構文：</b> doc <b>-rri</b>
+</p><p>空のUIDデータ参照を持つ範囲を回復し、プロジェクト全体の操作の入力も回復します（推測を伴うため、必ずしも信頼できるとは限りません）。
+</p>
+<h2><a name="-rrit"></a><span class="mw-headline">-rrit</span></h2>
+<p><b>構文：</b> doc <b>-rrit</b>
+</p><p>読み込み後、プロジェクト全体のグラフページ上のテーブルオブジェクトを接続します。この後、テーブルオブジェクトを表示するには、手動でグラフを更新する必要があります。
+</p>
+<h2><a name="-sot"></a><span class="mw-headline">-sot</span></h2>
+<p><b>構文：</b> doc <b>-sot</b>
+</p><p>現在のプロジェクトのダークモード/ライトモードのテーマプレビューの両方を作成/更新します。
+</p>
+<h2><a name="-u.3B_Set_update_flags.3D"></a><span class="mw-headline">-u; 更新フラグを設定=</span></h2>
+<p><b>構文：</b> doc <b>-u</b>
+</p><p>すべてのウィンドウのすべてのレイヤに更新フラグを設定します。
+</p>
+<h2><a name="-uw"></a><span class="mw-headline">-uw</span></h2>
+<p><b>構文：</b> doc <b>-uw</b>
+</p><p>現在のウィンドウ内のすべてのレイヤにのみ更新フラグを設定します。
+</p>
+<h2><a name="-vsshdfd"></a><span class="mw-headline">-vsshdfd</span></h2>
+<p><b>構文：</b> doc <b>-vsshdfd</b>
+</p><p>共有データフィルタを使用するすべての仮想データセットを、共有データフィルタの定義とともに出力します。<i>list vsh</i>と同様
+</p>
+<h2><a name="-vsshdfdu"></a><span class="mw-headline">-vsshdfdu</span></h2>
+<p><b>構文：</b> doc <b>-vsshdfdu</b>
+</p><p>上記のコマンド(doc-vsshdfd)は、現在「元に戻す」スタックにあるものをダンプしません。このコマンド(doc-vsshdfdu)を使用すると、現在「元に戻す」スタックにあるものを含められます。
+</p>
+<h2><a name="-wf"></a><span class="mw-headline">-wf</span></h2>
+<p><b>構文：</b> doc <b>-wf</b> <i>[option]</i>
+</p><p>すべてのセルまたは列の数式/リンク/スクリプトを削除します。<br />
+</p>
+<ul><li> <b>option =</b> <i>1</i>&nbsp;: 列の数式を削除して値を保持</li>
+<li> <b>option =</b> <i>2</i>&nbsp;: セルの数式とリンクを削除して値を保持</li>
+<li> <b>option =</b> <i>4</i>&nbsp;: すべてのワークシートスクリプト内のスクリプトを削除</li>
+<li> <b>option =</b> <i>8</i>&nbsp;: すべてのボタンスクリプト内のスクリプトを削除</li>
+<li> <b>option =</b> <i>16</i>&nbsp;: DDEリンクをプロジェクト全体の値に変換</li>
+<li> <b>option =</b> <i>32</i>&nbsp;: すべてのウィンドウでセクションストレージとツリーストレージをクリーニング </li></ul>
+<p><br />
+全てのオプションはビットの組み合わせです。例えば、次のようにコマンドを書くことができます。
+</p>
+<pre class="lt" style="font-family:monospace;">doc <span style="color: #000080;">-</span>wf <span style="color: #0000dd;">3</span>; <span style="color: #008000;">///すべての列の数式とセルの数式/リンクを消去削除 (Option =  &quot;1&quot;+&quot;2&quot;=&quot;3&quot;)</span>
+doc <span style="color: #000080;">-</span>wf; <span style="color: #008000;">///すべての数式、リンク、関連するスクリプトを削除</span></pre>
+<h2><a name="-wpl"></a><span class="mw-headline">-wpl</span></h2>
+<p><b>構文：</b> doc <b>-wpl</b> <i>fileName</i>
+</p><p><i>filename</i>からウィンドウの位置設定を読み込みます。
+</p>
+<h2><a name="-wps"></a><span class="mw-headline">-wps</span></h2>
+<p><b>構文：</b> doc <b>-wpl</b> <i>[fileName]</i>
+</p><p>ウィンドウの位置設定を<i>fileName</i>に保存します。<i>filename</i>はオプションで、 相対ファイル名はユーザーファイルフォルダに保存されます。
+</p>
+<h2><a name="-xw"></a><span class="mw-headline">-xw</span></h2>
+<p><b>構文：</b> doc <b>-xw</b> <i>excelBookName</i>
+</p><p>内部ExcelブックをOriginワークブックに変換します。<i>excelBookName</i>という名前を指定すると、指定されたExcelブックが変換されます。名前が指定されていない場合は、プロジェクト内のすべての内部ExcelブックがOriginワークブックに変換されます。
+</p>
+
+
+
+
+
+
+    

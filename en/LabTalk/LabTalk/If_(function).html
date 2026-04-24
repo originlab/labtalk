@@ -1,0 +1,109 @@
+<h1 class="firstHeading">3.5.10.4 If</h1><p class='urlname' style='display: none'>If-func</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1"><a href="#Description"><span class="tocnumber">1</span> <span class="toctext">Description</span></a></li>
+<li class="toclevel-1"><a href="#Syntax"><span class="tocnumber">2</span> <span class="toctext">Syntax</span></a></li>
+<li class="toclevel-1"><a href="#Parameters"><span class="tocnumber">3</span> <span class="toctext">Parameters</span></a></li>
+<li class="toclevel-1"><a href="#Return"><span class="tocnumber">4</span> <span class="toctext">Return</span></a></li>
+<li class="toclevel-1"><a href="#Example"><span class="tocnumber">5</span> <span class="toctext">Example</span></a></li>
+<li class="toclevel-1"><a href="#See_Also"><span class="tocnumber">6</span> <span class="toctext">See Also</span></a></li>
+</ul>
+</div>
+
+<h2 class="ref"><a name="Description"></a><span class="mw-headline">Description</span></h2>
+<p class="version" >Minimum Origin Version Required: 2019 SR0</p>
+<p>Like the MS Excel function of the same name, this function is used to evaluate a condition and return certain values depending on whether the condition is True or False. The values can be text and numeric. To compare a set of values by multiple conditions, use nested IF functions.
+</p><p><b>Notes</b>: 
+</p>
+<ul><li> IF function can only be used in <b>Set Column Values</b> dialog or Cell Formula. It cannot be used in general Labtalk script.</li>
+<li> As a general programming rule, a non-zero value is treated as "true", while zero is treated as "false". Therefore, if your "conditional" parameter -- which typically (but not necessarily) takes the form of a comparison -- evaluates to con &gt; 0,  it will be treated as "true"; and con = 0, will be treated as "false." See example 5, below.</li></ul>
+<h2 class="ref"><a name="Syntax"></a><span class="mw-headline">Syntax</span></h2>
+<pre class="lt" style="font-family:monospace;">double If<span style="color: #000000;">&#40;</span>string con, double val_true<span style="color: #000000;">&#91;</span>, double val_false<span style="color: #000000;">&#93;</span><span style="color: #000000;">&#41;</span></pre>
+<pre class="lt" style="font-family:monospace;">string If<span style="color: #000000;">&#40;</span>string con, string val_true<span style="color: #000080;">$</span><span style="color: #000000;">&#91;</span>, string val_false<span style="color: #000080;">$</span><span style="color: #000000;">&#93;</span><span style="color: #000000;">&#41;</span><span style="color: #000080;">$</span></pre>
+<h2 class="ref"><a name="Parameters"></a><span class="mw-headline">Parameters</span></h2>
+<p><b>con</b>
+</p>
+<dl><dd> The condition expression to be evaluated as "true" or "false." See "Notes" above.</dd></dl>
+<p><b>val_true</b>
+</p>
+<dl><dd> the returned value when the condition is True. It can be numeric or text. If text value, must be enclosed in double quotes (" ").</dd></dl>
+<p><b>val_false</b>
+</p>
+<dl><dd> the returned value when the condition is False. It can be numeric or text. If text value, must be enclosed in double quotes (" ").</dd></dl>
+<h2 class="ref"><a name="Return"></a><span class="mw-headline">Return</span></h2>
+<p>Return the specified values depending on the result of comparison.
+</p>
+<h2 class="ref"><a name="Example"></a><span class="mw-headline">Example</span></h2>
+<p><b>Ex1 - Compare Values in Two Columns</b>
+</p><p>Compare values in column A and B row by row: If A &gt; B, return 1, otherwise 0.
+</p>
+<ol>
+<li>Create a new Workbook. Fill col(A) and col(B) with random numbers.</li>
+<li>Add col(C), and in the F(x)= cell, enter:</li>
+<pre class="lt" style="font-family:monospace;">if<span style="color: #000000;">&#40;</span>A <span style="color: #000080;">&gt;</span> B, <span style="color: #0000dd;">1</span>, <span style="color: #0000dd;">0</span><span style="color: #000000;">&#41;</span></pre>
+</ol>
+<p><br />
+</p><p><b>Ex2 - Compare Values in Cell Formula</b>
+</p><p>Check cell value in column A above average of column A or not and return text accordingly.
+</p>
+<ol>
+<li>Create a new Workbook. Fill col(A) with random numbers.</li>
+<li>In cell B1, enter the formula:</li>
+<pre class="lt" style="font-family:monospace;"><span style="color: #000080;">=</span>if<span style="color: #000000;">&#40;</span>A1 <span style="color: #000080;">&gt;</span> mean<span style="color: #000000;">&#40;</span>A<span style="color: #000000;">&#41;</span>, <span style="color: #ff00ff;">&quot;Above Average&quot;</span>, <span style="color: #ff00ff;">&quot;Below Average&quot;</span><span style="color: #000000;">&#41;</span></pre>
+<li>Press Enter to confirm.</li>
+<li>To fill down the rest of the column, drag from the bottom-right corner of B1.</li>
+</ol>
+<p><br />
+</p><p><b>Ex3 - Nested IF to Categorize Values</b>
+</p><p>Use nested IF to return "Large", "Small", or "Median" based on value range.
+</p>
+<ol>
+<li>Create a new Workbook. Fill col(A) with random numbers.</li>
+<li>In Column B's F(x)= cell, enter:</li>
+<pre class="lt" style="font-family:monospace;">If<span style="color: #000000;">&#40;</span>A <span style="color: #000080;">&gt;</span> <span style="color: #0000dd;">0.5</span>, <span style="color: #ff00ff;">&quot;Large&quot;</span>, If<span style="color: #000000;">&#40;</span>A <span style="color: #000080;">&lt;</span> <span style="color: #0000dd;">0.3</span>, <span style="color: #ff00ff;">&quot;Small&quot;</span>, <span style="color: #ff00ff;">&quot;Median&quot;</span><span style="color: #000000;">&#41;</span><span style="color: #000000;">&#41;</span></pre>
+</ol>
+<p><br />
+</p><p><b>Ex4 - Use Function Return as Condition</b>
+</p><p>There are 3 groups in column A. Use diff(A, 2) as condition to only show difference at the start of each group. Note: When using value as condition, any non-zero value will be treated as true.
+</p>
+<ol>
+<li>Create a new Workbook.</li>
+<li>Copy these numbers: <tt>1 1 1 2 2 2 0.5 0.5 0.5</tt>. Right-click cell A1 in column A and choose <b>Paste Transpose</b>.</li>
+<li>In column B's F(x)= cell, enter:</li>
+<pre class="lt" style="font-family:monospace;">if<span style="color: #000000;">&#40;</span>diff<span style="color: #000000;">&#40;</span>A, <span style="color: #0000dd;">2</span><span style="color: #000000;">&#41;</span>, diff<span style="color: #000000;">&#40;</span>A, <span style="color: #0000dd;">2</span><span style="color: #000000;">&#41;</span>, <span style="color: #000000;">&#41;</span> <span style="color: #008000;">//  show difference if there is difference, otherwise fill with missing value</span></pre>
+<li>Add column C. In col(C)'s F(x)= cell, enter:</li>
+<pre class="lt" style="font-family:monospace;">if<span style="color: #000000;">&#40;</span>diff<span style="color: #000000;">&#40;</span>A, <span style="color: #0000dd;">2</span><span style="color: #000000;">&#41;</span>, diff<span style="color: #000000;">&#40;</span>A, <span style="color: #0000dd;">2</span><span style="color: #000000;">&#41;</span>, <span style="color: #ff00ff;">&quot;&quot;</span><span style="color: #000000;">&#41;</span> <span style="color: #008000;">// show difference if there is difference, otherwise leave it blank</span></pre>
+</ol>
+<p><br />
+</p><p><b>Ex5 - Compare Text in Two Columns</b>
+</p><p>Compare two string columns and return a match status. Add $ after column short name will treat the column as strings.
+</p>
+<ol>
+<li>Create a new Workbook. Select columns A and B, right-click and choose <b>Fill Column with: Arbitrary set of Text&amp;Numeric values</b>. In <b>Text to Repeat</b>, enter <tt>Alpha Beta Gamma</tt>. Set <b>Mode</b> = <b>Random</b> and click <b>OK</b>.</li>
+<li>Add a third column. In the F(x)= cell, enter:</li>
+<pre class="lt" style="font-family:monospace;">if<span style="color: #000000;">&#40;</span>A<span style="color: #000080;">$</span><span style="color: #000080;">==</span>B<span style="color: #000080;">$</span>, <span style="color: #0000dd;">1</span>, <span style="color: #0000dd;">0</span><span style="color: #000000;">&#41;</span> <span style="color: #008000;">// 1 if A matches B, else 0</span></pre>
+<li>Add a fourth column. In the F(x)= cell, enter:</li>
+<pre class="lt" style="font-family:monospace;">if<span style="color: #000000;">&#40;</span>A<span style="color: #000080;">$</span><span style="color: #000080;">==</span>B<span style="color: #000080;">$</span>, <span style="color: #ff00ff;">&quot;Match&quot;</span>, <span style="color: #ff00ff;">&quot;&quot;</span><span style="color: #000000;">&#41;</span> <span style="color: #008000;">// label matching strings</span></pre>
+</ol>
+<p><br />
+</p><p><b>Ex6 - Detect Email Domain with OR Condition</b>
+</p><p>Return "Non-Commercial" if email domain contains ".org", ".gov" or ".edu".
+</p>
+<ol>
+<li>Create a new Workbook.</li>
+<li>Copy the following email addresses jane@nonprofit.org john@example.com smith@university.edu ccc@usda.gov.</li>
+<li> Right click on A1 cell and paste transpose.
+<li>In col(B)'s F(x)= cell, enter the formula:</li>
+<pre class="lt" style="font-family:monospace;">if<span style="color: #000000;">&#40;</span>find<span style="color: #000000;">&#40;</span>A<span style="color: #000080;">$</span>, <span style="color: #ff00ff;">&quot;.org&quot;</span><span style="color: #000000;">&#41;</span> <span style="color: #000080;">!</span><span style="color: #000080;">=</span> <span style="color: #000080;">-</span><span style="color: #0000dd;">1</span> <span style="color: #000080;">||</span> find<span style="color: #000000;">&#40;</span>A<span style="color: #000080;">$</span>, <span style="color: #ff00ff;">&quot;.gov&quot;</span><span style="color: #000000;">&#41;</span> <span style="color: #000080;">!</span><span style="color: #000080;">=</span> <span style="color: #000080;">-</span><span style="color: #0000dd;">1</span><span style="color: #000080;">||</span> find<span style="color: #000000;">&#40;</span>A<span style="color: #000080;">$</span>, <span style="color: #ff00ff;">&quot;.edu&quot;</span><span style="color: #000000;">&#41;</span> <span style="color: #000080;">!</span><span style="color: #000080;">=</span> <span style="color: #000080;">-</span><span style="color: #0000dd;">1</span>, <span style="color: #ff00ff;">&quot;Non-Commercial&quot;</span>, <span style="color: #ff00ff;">&quot;&quot;</span><span style="color: #000000;">&#41;</span></pre>
+</ol>
+<p><br />
+<br />
+</p>
+<h2 class="ref"><a name="See_Also"></a><span class="mw-headline">See Also</span></h2>
+<p><a href="../../LabTalk/LabTalk/Ifs_(function).html" title="LabTalk:Ifs (function)">Ifs</a>, <a href="../../LabTalk/LabTalk/Switch_(function).html" title="LabTalk:Switch (function)">Switch</a>
+</p>
+
+
+
+
+

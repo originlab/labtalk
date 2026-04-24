@@ -1,0 +1,35 @@
+﻿<h1 class="firstHeading">ワークシートセルから</h1>
+<p class='urlname' style='display: none'>From-Worksheet-Cell</p>
+<p><span class="OIndex" style="display:none">Run Script from Worksheet Cell</span><span class="OIndex" style="display:none">script, from worksheet cell</span></p>
+<p>実行可能なLabTalkスクリプトは、次の構文を使用して、列ラベル行のセルを含むワークシートセルに挿入できます。<b>DisplayedText</b>はオプションです。ない場合スクリプト自体が表示されます。</p>
+<dl>
+<dd><code><b>labtalk://<i>Script</i> <i>DisplayedText</i></b></code></dd>
+</dl>
+<p>Note: ダイアログを開くスクリプトの場合は、スクリプトの前に<b>;</b>を付けてください。付けない場合ダイアログを閉じた後にセルが編集モードになります。</p>
+<p>再度編集するには</p>
+<ul>
+<li>セル上でそれをシングルクリックし、マウスを2秒以上押したままにしてから離します。</li>
+<li>Altキーを押しながらダブルクリック</li>
+<li><b>編集:編集モード(Ctrl+Alt+B)</b>メニューを選択します。編集後、再度メニューを選択して編集モードを終了してください。</li>
+</ul>
+<p><br />
+<b>サンプル</b></p>
+<ol>
+<li>スペースなしの単一行スクリプトを追加します。クリックすると、現在のシートに新しい列が追加されます。
+<dl>
+<dd><code><b>labtalk://wks.ncols+=1</b></code></dd>
+</dl>
+</li>
+<li>スペース付きの1行のテキストを追加します。クリックすると、Xファンクションベースのsmoothダイアログが開きます。ダイアログを閉じた後に編集モードに入らないように、最初に;を追加しています。
+<dl>
+<dd><code><b>labtalk://";smooth -d" Open Smooth Dialog</b></code></dd>
+</dl>
+</li>
+<li>file.ogsファイルの[open]セクションを実行します。クリックするとファイル:開くダイアログが開きます。
+<dl>
+<dd><code><b>labtalk://;run.section(file.ogs, open) Open File...</b></code></dd>
+</dl>
+</li>
+</ol>
+<p><br />
+詳細については、<a class="external text" href="../../UserGuide/UserGuide/Inserting_Links_into_Worksheet_Cells.html#Inserting_Executable_LabTalk_Script">実行可能なLabTalkスクリプトの挿入</a>を参照してください。</p>

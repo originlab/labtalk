@@ -1,0 +1,28 @@
+<h1 class="firstHeading">2.5.1.16 From Worksheet Cell</h1><p class='urlname' style='display: none'>From-Worksheet-Cell</p>
+<p><span class="OIndex" style="display:none">Run Script from Worksheet Cell</span><span class="OIndex" style="display:none">script, from worksheet cell</span>
+</p><p>Executable LabTalk script can be inserted into worksheet cells, including cells in column label rows with the following syntax. The <b>DisplayedText</b> is optional. Without it, the script itself will show. 
+</p>
+<dl><dd> <code><b>labtalk://<i>Script</i> <i>DisplayedText</i></b></code></dd></dl>
+<p>Note: If the script opens a dialog, please prefix the script with <b>;</b>. Otherwise after closing the dialog, the cell with end up in edit mode.
+</p><p>To edit it again:
+</p>
+<ul><li> Single click it on the cell and hold the mouse for more than 2 seconds before releasing. </li>
+<li> Alt + double click</li>
+<li> Choose <b>Edit: Edit Mode (Ctrl+Alt+B)</b> menu. After editing, please make sure select the menu again to exit the edit mode.</li></ul>
+<p><br />
+<b>Examples</b>
+</p>
+<ol><li> Add a single line script without space. Click on it will add a new column in current sheet.
+<dl><dd><code><b>labtalk://wks.ncols+=1</b></code></dd></dl></li>
+<li> Add a single line text with space. Click it will open x-function based smooth dialog.&#160;; is added at the beginning to avoid entering edit mode after closing the dialog.
+<dl><dd><code><b>labtalk://";smooth -d" Open Smooth Dialog</b></code></dd></dl></li>
+<li> Run [open] section of file.ogs file. Click it will open File: Open dialog
+<dl><dd><code><b>labtalk://;run.section(file.ogs, open) Open File...</b></code></dd></dl></li></ol>
+<p><br />
+Please visit <a class="external text" href="../../UserGuide/UserGuide/Inserting_Links_into_Worksheet_Cells.html#Inserting_Executable_LabTalk_Script">Inserting Executable LabTalk Script</a> for more information.
+</p>
+
+
+
+
+

@@ -1,0 +1,242 @@
+﻿<h1 class="firstHeading">LabTalkを使いましょう</h1><p class='urlname' style='display: none'>Tutorial-Get-Started</p>
+<p><br />
+</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>目次</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">概要</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_You_Will_Learn"><span class="tocnumber">2</span> <span class="toctext">学習内容</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Steps"><span class="tocnumber">3</span> <span class="toctext">ステップ</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#Run_Script_From_Script_Window"><span class="tocnumber">3.1</span> <span class="toctext">スクリプトウィンドウからスクリプトを実行</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Run_Script_From_Command_Window"><span class="tocnumber">3.2</span> <span class="toctext">コマンドウィンドウからスクリプトを実行</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Save_Script_as_an_OGS_File_and_Run_it"><span class="tocnumber">3.3</span> <span class="toctext">スクリプトをOGSファイルとして保存して実行</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="#Run_Script_From_Buttons"><span class="tocnumber">3.4</span> <span class="toctext">ボタンからスクリプトを実行</span></a>
+<ul>
+<li class="toclevel-3 tocsection-8"><a href="#From_Custom_Routine_Toolbar_Button"><span class="tocnumber">3.4.1</span> <span class="toctext">カスタムルーチンツールバーボタンから</span></a></li>
+<li class="toclevel-3 tocsection-9"><a href="#From_A_User-Defined_Toolbar_Button"><span class="tocnumber">3.4.2</span> <span class="toctext">ユーザ定義ツールバーボタンから</span></a></li>
+<li class="toclevel-3 tocsection-10"><a href="#From_A_User-Defined_Button_on_Graph_Window"><span class="tocnumber">3.4.3</span> <span class="toctext">グラフウィンドウのユーザ定義ボタンから</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-11"><a href="#Run_Script_from_User-defined_Menu"><span class="tocnumber">3.5</span> <span class="toctext">ユーザー定義メニューからスクリプトを実行</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h2><a name="Summary"></a><span class="mw-headline">概要</span></h2>
+<p>LabTalkはOriginのスクリプト言語です。スクリプトを記述してインポートやデータ解析、グラフ作成や出力を行うことができます。LabTalkスクリプトは、スクリプト/コマンドウィンドウ内で独立して実行したり、メニュー、ツールバー、グラフィックオブジェクト(ボタン、テキスト、線、矢印、長方形など)の背後で実行させたり、ダイアログ内に設定して一緒に実行したりできます。
+</p><p>LabTalkスクリプトは、LabTalkのインタプリタにより受け取られ、解釈･実行される、ひとまとまりのLabTalkテキストのことです。LabTalkスクリプトは、1つ以上のプログラミングステートメントで構成され、それぞれに割り当てられた操作を実行します。
+</p><p>LabTalkプログラミングの構文には次の種類の要素があります。<a href="../../LabTalk/LabTalk/System_Variables.html" title="LabTalk:システム変数">システム変数</a>、<a href="../../LabTalk/LabTalk/Command_Statements.html" title="LabTalk:コマンドステートメント">コマンド</a>、<a href="../../LabTalk/LabTalk/Functions.html" title="LabTalk:関数">関数</a>、<a href="../../LabTalk/LabTalk/Macros.html" title="LabTalk:マクロ">マクロ</a>、<a href="../../LabTalk/LabTalk/LabTalk_Objects.html" title="LabTalk:LabTalk オブジェクト">オブジェクト</a>、<a href="../../LabTalk/Script/Brief_X_Function_Introduction.html" title="Script:簡単なXファンクションの説明">Xファンクション</a>。
+</p>
+<dl><dd><ul><li> ステートメントはセミコロン<b>;</b>で区切ります。</li>
+<li> スクリプトは<b>大文字と小文字を区別しません。</b></li></ul></dd></dl>
+<h2><a name="What_You_Will_Learn"></a><span class="mw-headline">学習内容</span></h2>
+<p>このチュートリアルでは、さまざまな要素を持つ基本的なステートメントと、OriginでLabTalkスクリプトを実行するさまざまな方法を学びます。
+</p>
+<dl><dd><ul><li><a href="../../LabTalk/Script/From_Script_and_Command_Window.html" title="Script: スクリプトとコマンドウィンドウから">スクリプトウィンドウ/コマンドウィンドウから</a></li>
+<li><a href="../../LabTalk/Script/From_Files.html" title="Script:ファイルから">.ogsファイルから</a></li>
+<li><a href="../../LabTalk/Script/From_a_Toolbar_Button.html" title="Script:ツールバーボタンから">ツールバーボタンから</a></li>
+<li><a href="../../LabTalk/Script/From_Graphical_Objects.html" title="Script:グラフィックオブジェクトから">グラフオブジェクト</a></li>
+<li>ユーザー定義メニューから</li></ul></dd></dl>
+<h2><a name="Steps"></a><span class="mw-headline">ステップ</span></h2>
+<h3><a name="Run_Script_From_Script_Window"></a><span class="mw-headline">スクリプトウィンドウからスクリプトを実行</span></h3>
+<p>スクリプトウィンドウはLabTalkスクリプトの実行を行う追加機能を備えたテキストエディタです。単一行または短いスクリプトを実行する場合に最も有用です。スクリプトウィンドウは子ウィンドウではないため、プロジェクトの一部として保存されません。 
+</p>
+<ol>
+<li>メニューから<b>ウィンドウ：スクリプトウィンドウ</b>を選択（もしくは<b>Alt+Shift+3</b>を押す）してスクリプトウィンドウを開きます。
+<li>スクリプトウィンドウの上部にある<b>編集</b>メニューをクリックします。<b>スクリプトの実行</b>がチェックされていることを確認します。
+<li>次の<b>コマンド</b>をコピーしてスクリプトウィンドウに貼り付け、<b>Enter</b>キーを押すと実行されます。
+<pre class="lt" style="font-family:monospace;">type <span style="color: #ff00ff;">&quot;Hello World&quot;</span></pre>
+<p>コマンドはスクリプトウィンドウに文字列を出力します。<b>Hello World</b>は次の行に出力されます。<b>;</b>  は実行を示すために最後に自動的に追加されます。
+</p>
+<li> 再度実行するには、カーソルを <b>;</b> の前の任意の場所に置き、<b></b><b>Enter</b>キーを押します。 
+Note: カーソルを&nbsp;; の後ろに置いて <b>Enter</b>キーをした場合、スクリプトは実行されません。Originは新しい行を開始します。カーソルはその下の新しい行に移動するだけです。
+<li> 以下の複数行のスクリプトをコピーして、スクリプトウィンドウに貼り付けます。 
+<li> 3行全てを選択して<b>Enter</b>キーを押すことで一括で実行できます。スクリプトにより4つの列を持つ新しいワークブックが作成され、ワークブック名(<a href="../../LabTalk/LabTalk/String_registers.html#.25.40_String_Registers" title="LabTalk:文字列レジスタ">文字列レジスタ</a><b>%H</b>に保存されています)と列数(<a href="../../LabTalk/LabTalk/Numeric_to_String_Conversion.html" title="LabTalk:Numeric to String Conversion">置換表記</a><b>$(wks.ncols)</b>に保存されています)をスクリプトウィンドウに出力します。
+<pre class="lt" style="font-family:monospace;">newbook; <span style="color: #008000;">//Xファンクション</span>
+wks.<span style="color: #000080;">ncols</span><span style="color: #000080;">=</span><span style="color: #0000dd;">4</span>; <span style="color: #008000;">//wksオブジェクトのncolsプロパティ</span>
+<span style="color: #008000;">//コマンドを -b スイッチオプションと一緒に入力する。これによりOKボタンのあるメッセージボックスが表示される</span>
+<span style="color: #008000;">//%Hはウィンドウ名の文字列レジスタ</span>
+type <span style="color: #000080;">-</span>b <span style="color: #ff00ff;">&quot;%H内に$(wks.ncols)列あります。&quot;</span>;</pre>
+<p>Note: スクリプトウィンドウで複数行のスクリプトを手動で入力したい場合は、スクリプトの最後に<b>;</b>を追加し、<b>Enter</b>キーを押してスクリプトが実行されないようにしてください。
+</p><p>場合によっては、スクリプトを複数行で記述した方が明確になることがあります。そのような場合には、末尾に ; はまだ付きません。不完全なスクリプトを実行せずに新しい行を開始するには、<b>Ctrl</b>キーを押したまま<b>Enter</b>キーを押します。これにより、実行せずに新しい行が開始され、末尾に ; は追加されません。例えば、以下のforループは複数行で記述する方が適切です。
+</p>
+<li>次の4行のスクリプトを1行ずつ入力してください。各行の末尾でCtrl + Enterキーを押して、新しい行を開始してください。
+<pre class="lt" style="font-family:monospace;">for<span style="color: #000000;">(</span>ii<span style="color: #000080;">=</span><span style="color: #0000dd;">1</span>; ii<span style="color: #000080;">&lt;=</span>wks.<span style="color: #000080;">ncols</span>; ii<span style="color: #000080;">++</span><span style="color: #000000;">)</span> <span style="color: #008000;">//forループ</span>
+<span style="color: #000000;">{</span>
+   wcol<span style="color: #000000;">(</span>ii<span style="color: #000000;">)</span><span style="color: #000080;">=</span>data<span style="color: #000000;">(</span>ii, ii<span style="color: #000080;">+</span><span style="color: #0000dd;">10</span><span style="color: #000000;">)</span>; <span style="color: #008000;">//wcol() 関数、data() 関数</span>
+<span style="color: #000000;">}</span></pre>
+<li> すべての行を選択し、<b>Enter</b>キーを押してスクリプトを実行します。
+<table class="noborder"><tr>
+	<td style="vertical-align:top" width="60"><img src="../images/Tutorial_Get_Started/Tip_icon.png" width="57"  border="0" /></td><td><p>スクリプトウィンドウは長いスクリプトを書くのには適しません。ただし、実行を一時停止してスクリプトの作成と編集を行うことは可能です。スクリプトウィンドウ内の<b>編集</b>メニューを選択し、<b>スクリプトの実行</b>のチェックを外します。スクリプトウィンドウは純粋なエディタになります。編集後、<i>再度メニューの<b>編集：スクリプトの実行</b>にチェックを入れ、全ての行を選択して<b>Enter</b>キーを押すとスクリプトが実行されます。</i>
+</p></td></tr></table>
+</ol>
+<h3><a name="Run_Script_From_Command_Window"></a><span class="mw-headline">コマンドウィンドウからスクリプトを実行</span></h3>
+<p>コマンドウィンドウはスクリプトを実行するもう一つの場所です。スクリプトウィンドウが実行機能を備えた純粋なテキストエディタである一方、コマンドウィンドウは次の機能を備えています。
+</p>
+<dl><dd><ul><li> <b>&gt;&gt;</b>プロンプトが表示され、プロンプトで入力されたすべてのコード（複数行のスクリプトを含む）を実行します。</li>
+<li> スクリプトの記述に役立つコマンドと関数を自動補完します。</li>
+<li> コマンド、関数、変数、文字列などのキーワードの色分けして表示します。 </li>
+<li> 上下キーで前のコマンドと次のコマンドを呼び出して実行できます。</li>
+<li> 履歴タブで実行履歴を表示します。履歴タブでスクリプトを実行することもできます。</li>
+<li> コマンドウィンドウを閉じて再度開いても、履歴は保持されます。右側のパネルの内容は同じOriginセッションでのみ保持されます。 </li></ul></dd></dl>
+<p>コマンドウィンドウは、複数行のスクリプトを編集するのには向いていません。例えばカーソルが<b>;</b>の後にあっても、<b>Enter</b>キーを押すとその行が実行されます。コマンドウィンドウで新しい行を開始するには、常に<b>Ctrl</b>キーを押しながら<b>Enterキー</b>を押す必要があります。スクリプトを1行ずつ実行した後は、出力をクリーンアップしてスクリプトをogsファイルとして保存することはできません。
+</p><p>ユーザは必要に応じてどちらのウィンドウからスクリプトを実行するか選択できます。
+</p><p>スクリプトウィンドウ部分と同じスクリプトを試してみましょう。
+</p>
+<ol>
+<li>メニューから<b>ウィンドウ：コマンドウィンドウ</b>を選択（もしくは<b>Alt+3</b>キーを押す）してコマンドウィンドウを開きます。
+<li> <b>&gt;&gt;</b>プロンプトの後に<b>t</b>を入力すると、<b>t</b>で始まるすべてのLabTalkコマンドとXファンクションがドロップダウンリストに表示されます。
+<dl><dd><a  class="image"><img alt="Command win autofill.png" src="../images/Tutorial_Get_Started/Command_win_autofill.png" width="641"  /></a></dd></dl>
+<li> リスト内の<b>type</b>まで下矢印キーを押し、Enterキーを押すとコマンドが選択されます。または、<b>type</b>ダブルクリックして選択します。typeはLabTalkコマンドなので、色つきで表示されます。
+<li> <b>type &quot;Hello World&quot;</b>となるように入力を続けます。文字列も色付きで表示されます。
+<li><b>Enter</b>キーを押して実行します。Hello Worldは<b>次の行に出力されます。コマンドの最後に&nbsp;; は追加されません。コマンドは左側の履歴タブに出力されます。</b>
+<dl><dd><a  class="image"><img alt="Command win color history.png" src="../images/Tutorial_Get_Started/Command_win_color_history.png" width="642"  /></a></dd></dl>
+<li> 新しい<b>&gt;&gt;</b>の後にカーソルを置いて、上矢印キーを押すと、<b>type &quot;Hello World&quot;</b>が再度読み込まれます。<b>Enter</b>キーを押して実行します。 
+<li> 履歴タブの<b>type &quot;Hello World&quot;</b>行にカーソルを置き、<b>Enter</b>キーを押すと同様に実行されます。 
+<li> また既に実行された &gt;&gt;行のどこかにカーソルを置き、<b>Enter</b>キーを押すと同様に実行されます。
+<li> 本ページのスクリプトウィンドウセクションの複数行スクリプトをコピーし、コマンドウィンドウで&gt;&gt;の後にカーソルを置いて貼り付けます。 
+<dl><dd><a  class="image"><img alt="Command win multiline.png" src="../images/Tutorial_Get_Started/Command_win_multiline.png" width="773"  /></a></dd></dl>
+<li> <b>Enter</b>キーを押します。スクリプトの範囲を選択する必要はありません。4列の新しいワークブックが作成され、ブック名と列数のポップアップメッセージが表示されます。
+</ol>
+<h3><a name="Save_Script_as_an_OGS_File_and_Run_it"></a><span class="mw-headline">スクリプトをOGSファイルとして保存して実行</span></h3>
+<p>OriginのLabTalkスクリプトは、今後使用するために.ogsファイルとして保存することができます。
+OGSファイルはセクションと呼ばれるブロックからなり、各セクションの先頭に<b>[セクション名]</b>が付きます。OGSファイルの先頭にセクション名のないスクリプトもあります。
+</p><p><a href="../../LabTalk/LabTalk/Run_(object).html" title="LabTalk:Run (オブジェクト)"><i>Run</i></a> LabTalkオブジェクトの2つの方法でOGSファイル内のスクリプトを実行できます。
+</p>
+<dl><dd><ul><li> 任意のセクションの前にスクリプトを実行するには<a href="../../LabTalk/LabTalk/Run_(object).html#Methods:" title="LabTalk:Run (オブジェクト)"><i>run.file( ファイル名.ogs )</i></a> を使用します。</li>
+<li> 指定したセクションを実行するには<a href="../../LabTalk/LabTalk/Run_(object).html#Methods:" title="LabTalk:Run (オブジェクト)"><i>run.section( ファイル名.ogs , セクション名 )</i></a>を使用します。</li></ul></dd></dl>
+<p>Note:
+</p>
+<dl><dd><ul><li> スクリプトは新しい [セクション名] （または<i>return</i>ステートメント）にたどり着くと終了します。 </li>
+<li> <b>.ogs</b>はスクリプト内でスキップできます。 </li>
+<li> .ogsファイルが<b>ユーザファイルフォルダ</b>に保存されていない場合は、フルファイルパスをスクリプトに記述する必要があります。</li></ul></dd></dl>
+<p>OGSファイルを保存して実行する例を以下に示します。
+</p>
+<ol>
+<li>以下のスクリプトをコピーして、空のスクリプトウィンドウに貼り付けます。
+<pre class="lt" style="font-family:monospace;">type <span style="color: #000080;">-</span>b <span style="color: #ff00ff;">&quot;HELLO WORLD&quot;</span>;
+<span style="color: #000000;">[</span>Section1<span style="color: #000000;">]</span>
+type <span style="color: #000080;">-</span>a <span style="color: #ff00ff;">&quot;Hello&quot;</span>;
+<span style="color: #000000;">[</span>Section2<span style="color: #000000;">]</span>
+type <span style="color: #000080;">-</span>a <span style="color: #ff00ff;">&quot;World&quot;</span>;</pre>
+<li>スクリプトウィンドウのメニューから<b>ファイル[テキスト形式]：新規保存</b>をクリックし<b>ユーザファイルフォルダ</b>にTest.ogsとしてスクリプトを保存します。
+<li>スクリプトウィンドウで新規の行を開始し、次のテキストを入力して<b>Enter</b>をクリックします。
+<pre class="lt" style="font-family:monospace;">run.<span style="color: #000080;">file</span><span style="color: #000000;">(</span>Test<span style="color: #000000;">)</span> <span style="color: #008000;">//もしくは run.file(Test.ogs)</span></pre> 
+<li><b>OK</b>をクリックして&rdquo;HELLO WORLD&rdquo;と表示されたボックスを閉じ、次のテキストを新しい行に入力して<b>Enter</b>を押します。
+<pre class="lt" style="font-family:monospace;">run.<span style="color: #000080;">section</span><span style="color: #000000;">(</span>Test, Section1<span style="color: #000000;">)</span> <span style="color: #008000;">//もしくは run.section(Test.ogs, Section1)</span></pre>
+</ol>
+<table class="noborder"><tr>
+	<td style="vertical-align:top" width="60"><img src="../images/Tutorial_Get_Started/Tip_icon.png" width="57"  border="0" /></td><td><p>OGSファイルはOriginに組み込まれている<i><b>コードビルダ</b></i>で書くのが簡単です。メニューから<b>表示：コードビルダ</b>を選択するか、標準ツールバーの<b>コードビルダ</b>ボタンをクリックして開きます。次に、コードビルダ内のメニューから<b>ファイル：新規</b>を選択し、<b>LabTalk Script File</b>を選択してOGSファイルを作成します。
+</p></td></tr></table>
+<h3><a name="Run_Script_From_Buttons"></a><span class="mw-headline">ボタンからスクリプトを実行</span></h3>
+<h4><a name="From_Custom_Routine_Toolbar_Button"></a><span class="mw-headline">カスタムルーチンツールバーボタンから</span></h4>
+<p>デフォルトでは、Originは<b>Custom.ogs</b>ファイル内のスクリプトを実行するために標準ツールバー上に1つのツールバーボタン<a  class="image"><img alt="Button Custom Routine.png" src="../images/Tutorial_Get_Started/Button_Custom_Routine.png" width="23"  /></a>を予約しているため、ユーザーはツールバー ボタンを追加するプロセスを実行することなく、ファイルに簡単にスクリプトを配置できます。
+</p>
+<dl><dd><a  class="image"><img alt="Custom routine.png" src="../images/Tutorial_Get_Started/Custom_routine.png" width="273"  /></a></dd></dl>
+<ol>
+<li>カスタムルーチンボタンをクリックすると、このツールバーボタンがどのように機能するかについての情報が表示されます。
+<dl><dd><a  class="image"><img alt="Custom routine default.png" src="../images/Tutorial_Get_Started/Custom_routine_default.png" width="413"  /></a></dd></dl>
+<li>OKをクリックして閉じます。
+<li><b>Ctrl + Shift</b>キーを押しながらカスタムルーチンボタンをクリックすると、コードビルダで<b>Custom.ogs</b>ファイルが開かれます（Note: システム変数<a href="../../LabTalk/LabTalk/System_Variable_List.html#H.2CI.2CJ.2CK" title="LabTalk:System Variable List">@KCK</a>を設定して、<b>Ctrl + Shift</b>キーのデフォルトの動作を変更することができます）。 
+<li>[Main]内のスクリプトを削除し、次の内容に書き換えます。 
+<pre class="lt" style="font-family:monospace;">newbook;
+wks.<span style="color: #000080;">ncols</span><span style="color: #000080;">=</span><span style="color: #0000dd;">4</span>;
+type <span style="color: #000080;">-</span>b <span style="color: #ff00ff;">&quot;In&nbsp;%H, there are $(wks.ncols) columns.&quot;</span>;</pre>
+<li><b>保存</b>ボタンをクリックします。
+<li><b>コードビルダ</b>を閉じるか最小化してOriginメインワークスペースに戻ります。
+<li><a  class="image"><img alt="Button Custom Routine.png" src="../images/Tutorial_Get_Started/Button_Custom_Routine.png" width="23"  /></a>ツールバーボタンをクリックします。
+4列を持つ新規のワークブックが作成され、メッセージボックスにブック名と列数の情報が表示されます。
+<dl><dd><a  class="image"><img alt="Custom routine modified.png" src="../images/Tutorial_Get_Started/Custom_routine_modified.png" width="453"  /></a></dd></dl>
+</ol>
+<h4><a name="From_A_User-Defined_Toolbar_Button"></a><span class="mw-headline">ユーザ定義ツールバーボタンから</span></h4>
+<p>このセクションでは、LabTalkスクリプトを実行するためのユーザー定義ツールバーボタンを作成する例を示します。
+</p>
+<ol>
+<li><a href="../../LabTalk/LabTalk/Tutorial_Get_Started.html#Save_script_as_an_OGS_file_and_Run_it" title="LabTalk:LabTalkを使いましょうチュートリアル">「スクリプトをOGSファイルとして保存して実行」の章</a>で<b>ユーザファイルフォルダ</b>に保存したTest.ogsファイルを使用します。
+<li><b>スクリプトウィンドウ</b>と<b>コマンドウィンドウを</b>閉じます。
+<li>メニューから<b>表示：ツールバー...</b>をクリックして、ツールバーの<b>カスタマイズ</b>ダイアログを開きます。
+<li><b>ボタングループ</b>タブに移動し、 <b>グループ</b>セクションで<b>User Defined</b>を選択します。これは、あらかじめ用意された10個のボタンを含むボタングループです。
+<li>任意のボタンを選んでください。例えば、7番目の<b>実行</b>ボタンを選択します。 
+<li><b>設定...</b>ボタンをクリックして、<b>ボタンの設定</b>ダイアログを開きます。
+<li><b>ファイル名</b>ボックスの右側にある<b>一覧</b>ボタンをクリックし、<b>ユーザファイルフォルダ</b>に作成した<b>Test.ogs</b>ファイルを選択します。
+<li><b>セクション名</b>に<b>Section1</b>と入力します。 
+<li><b>ツールチップテキスト</b>に &quot;type hello&quot; と入力します。
+<li>他にも、どのウィンドウでボタンを有効にするか、引数を必要とするセクションの引数リストなど、多くの設定がありますが、ここでは使用しません。
+<li><b>OK</b>をクリックして設定を適用し、<b>ボタンの設定</b>ダイアログを閉じます。
+<li>ボタンをOriginワークスペース（<b>カスタマイズ</b>ダイアログの外）にドラッグするか、現在のツールバー内の目的の場所にドラッグします。その後<b><b>カスタマイズ</b></b>ダイアログを閉じます。
+<li><b>実行</b>ボタンがOriginインターフェイスでフローティング状態になります。 
+<li>ボタンの上にマウスを重ねます。ツールチップには<b>run type hello</b>と表示されます。 
+<li>クリックするとtest.ogsファイルのsection1が実行されます。
+スクリプトウィンドウが開かれ、テキスト&quot;Hello&quot;が入力されます。これはtypeコマンドで -a スイッチを使用すると、文字列を強制的にスクリプトウィンドウに出力するためです。
+<li><b>実行</b>ボタンをドラッグして、既存のツールバーにドッキングできます。
+</ol>
+<h4><a name="From_A_User-Defined_Button_on_Graph_Window"></a><span class="mw-headline">グラフウィンドウのユーザ定義ボタンから</span></h4>
+<ol>
+<li><a  class="image"><img alt="Button New Graph.png" src="../images/Tutorial_Get_Started/Button_New_Graph.png" width="23"  /></a>ボタンをクリックして空のグラフを作成します。
+<li>空白の部分を右クリックしてコンテクストメニューから<b>テキストの追加</b>を選択し、ラベルとして<b>Run2</b>と入力します。
+<li>テキストオブジェクトを選択し、右クリックして<b>プロパティ...</b>を選択すると<b>テキストオブジェクト</b>ダイアログが開きます。
+<li><b>プログラミング</b>タブに移動します。
+<li> <b>のあとでスクリプトを実行</b>で<b>ボタンアップ</b>を選択し、スクリプト編集ボックスに次のスクリプトを入力します。<pre class="lt" style="font-family:monospace;">run.<span style="color: #000080;">section</span><span style="color: #000000;">(</span>Test, Section2<span style="color: #000000;">)</span>;</pre>
+<p><a  class="image"><img alt="LT Tutorial Get Started 02.png" src="../images/Tutorial_Get_Started/LT_Tutorial_Get_Started_02.png" width="643"  /></a>
+</p>
+<li>これで、テキストラベルがボタンになりました。<b>Run2</b>ボタンをクリックしてスクリプトを実行します。
+テキスト<b>World</b>がスクリプトウィンドウに出力されます。
+<li>ボタンを右クリックしてコンテキストメニューを表示し、プロパティを再度変更することはできません。
+<li>ボタンのスクリプトを変更するには、<b>Alt</b>キーを押しながらボタンをダブルクリックして、プログラミングタブに直接移動します。
+<li> ツールバーボタンはOGSファイルからのみスクリプトを実行できますが、このボタンは複数行スクリプトを実行できます。ダイアログに次のスクリプトを入力します。
+<pre class="lt" style="font-family:monospace;">type <span style="color: #ff00ff;">&quot;current window is&nbsp;%H&quot;</span>;
+type <span style="color: #ff00ff;">&quot;current folder is&nbsp;%@F&quot;</span>;
+type <span style="color: #ff00ff;">&quot;current project is&nbsp;%G&quot;</span>;</pre>
+<li><b>テキスト</b>タブに移動し、<b>Run2</b>を<b>Info</b>に変更してOKをクリックします。
+<li>ボタンの名前が<b>Info</b>に変更されます。クリックします。
+現在のウィンドウ、フォルダ、プロジェクトの情報がスクリプトウィンドウに出力されます。
+<table class="noborder"><tr>
+	<td style="vertical-align:top" width="60"><img src="../images/Tutorial_Get_Started/Tip_icon.png" width="57"  border="0" /></td><td><p><b>Alt </b>+ダブルクリックでボタンの<b>テキストオブジェクト</b>ダイアログを開く方法の他、メニューの<b>編集：編集モード</b>ですべてのオブジェクト（ボタン、ラベル、グラフィックオブジェクト）を編集する方法もあります。これは、現在および将来のセッションのすべてのウィンドウに適用されます。これで、テキストを右クリックしてプロパティを選択できます。編集モードを終了するには、メニューの<b>編集：編集モード</b>を再度選択することを忘れないでください。そうでないと、全てのOrigin内のグラフは次のように表示されます。
+</p>
+<dl><dd><a  class="image"><img alt="Edit mode.png" src="../images/Tutorial_Get_Started/Edit_mode.png" width="507"  /></a></dd></dl>
+<p>Note: <b>編集モード</b>はOrigin 2017より前のバージョンでは<b>ボタン編集モード</b>という名前です。 
+</p>
+<ol>
+</ol>
+</td></tr></table>
+<p><br />
+</p>
+<h3><a name="Run_Script_from_User-defined_Menu"></a><span class="mw-headline">ユーザー定義メニューからスクリプトを実行</span></h3>
+<p>OriginはLabTalk Scriptを実行するための<a class="external text" href="../../UserGuide/Category/Custom_Menus.html">カスタムメニュー</a>を作成することができます。 
+</p>
+<ol>
+<li> メニューから「環境設定：カスタムメニュー・オーガナイザ..」を開きます。
+<dl><dd><a  class="image"><img alt="Custom menu organizer.png" src="../images/Tutorial_Get_Started/Custom_menu_organizer.png" width="637"  /></a></dd></dl>
+<li><b>カスタムメニューの追加</b>タブで、左パネルを右クリックして<b>新しいメインポップアップ</b>を選択します。
+<li>ポップアップテキストの名前を<b>MyTools</b>に変更します。これはOriginワークスペースの<b>ウィンドウ</b>メニューの前に表示されるメニューになります。
+<li>左側の<b>MyTools</b>を右クリックして、<b>項目の追加</b>を選択します。
+<li><b>項目テキスト</b>の名前を<b>New Sheet with Data</b>に変更します。
+<li>次のLabTalkスクリプトを入力します。
+<pre class="lt" style="font-family:monospace;">newsheet; <span style="color: #008000;">//新規のシートを追加</span>
+col<span style="color: #000000;">(</span>A<span style="color: #000000;">)</span><span style="color: #000080;">=</span>data<span style="color: #000000;">(</span><span style="color: #0000dd;">1</span>,<span style="color: #0000dd;">100</span><span style="color: #000000;">)</span>;<span style="color: #008000;">//列Aに値1, 2, ...100を入れる</span>
+col<span style="color: #000000;">(</span>B<span style="color: #000000;">)</span><span style="color: #000080;">=</span>normal<span style="color: #000000;">(</span><span style="color: #0000dd;">100</span><span style="color: #000000;">)</span><span style="color: #000080;">*</span><span style="color: #0000dd;">2</span><span style="color: #000080;">+</span><span style="color: #0000dd;">5</span>; <span style="color: #008000;">//列Bに平均5、標準偏差2の100個のランダムな数値を入れる</span></pre>
+<li>閉じるボタンをクリックします。
+<li><b>変更を以下のファイルに保存しますか？ Default</b>というプロンプトが表示されます。<b>はい</b>ボタンをクリックします。
+<b>MyTools</b>メニューが<b>ウィンドウ</b>メニューの前に追加されます。
+<dl><dd><a  class="image"><img alt="Custom menu MyTools.png" src="../images/Tutorial_Get_Started/Custom_menu_MyTools.png" width="202"  /></a></dd></dl>
+<li>ワークブックウィンドウがアクティブな状態で、メニューの<b>MyTools：新規のシート</b>をクリックします。
+<li>新しいシートが追加され、列Aと列Bにデータが入力されます。
+<dl><dd><a  class="image"><img alt="Custom menu new sheet result.png" src="../images/Tutorial_Get_Started/Custom_menu_new_sheet_result.png" width="331"  /></a></dd></dl>
+<table class="noborder"><tr>
+	<td style="vertical-align:top" width="60"><img src="../images/Tutorial_Get_Started/Tip_icon.png" width="57"  border="0" /></td><td><p><b>カスタムメニューオーガナイザ</b>内の<b>ファイル：削除</b>メニューを選択して、変更された<b>default</b>メニューを削除することができます。または、メニューを作成した後、<b>ファイル：名前を付けて保存</b>を選択して、<b>default</b>とは異なる名前で保存します。その後「環境設定：メニュー」からカスタマイズされたメニューを選びます。 
+</p></td></tr></table>
+</ol></li>
+</li>
+</li>
+</li>
+</li>
+</li>
+</li>
+</li>
+</li>
+</li>
+</li>
+</ol>
+
+
+    

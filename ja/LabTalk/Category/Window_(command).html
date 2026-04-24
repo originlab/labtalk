@@ -1,0 +1,363 @@
+﻿<h1 class="firstHeading">Window</h1><p class='urlname' style='display: none'>Window-cmd</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>目次</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Brief_Introduction"><span class="tocnumber">1</span> <span class="toctext">はじめに</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Syntax:"><span class="tocnumber">2</span> <span class="toctext">構文</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Options:"><span class="tocnumber">3</span> <span class="toctext">オプション</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#Options_to_Activate.2FHide.2FMaxmize.2FMinimize"><span class="tocnumber">3.1</span> <span class="toctext">アクティブ化/非表示/最大化/最小化のオプション</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Options_to_Delete.2FClose"><span class="tocnumber">3.2</span> <span class="toctext">削除/閉じるオプション</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Options_to_Create.2FDuplicate"><span class="tocnumber">3.3</span> <span class="toctext">作成/複製オプション</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="#Options_to_Name"><span class="tocnumber">3.4</span> <span class="toctext">名前オプション</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="#Options_to_Arrange"><span class="tocnumber">3.5</span> <span class="toctext">配置オプション</span></a></li>
+<li class="toclevel-2 tocsection-9"><a href="#Other_Options"><span class="tocnumber">3.6</span> <span class="toctext">その他のオプション</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-10"><a href="#See_Also:"><span class="tocnumber">4</span> <span class="toctext">関連情報</span></a></li>
+</ul>
+</div>
+
+<h2><a name="Brief_Introduction"></a><span class="mw-headline">はじめに</span></h2>
+<p>このコマンドは、グラフウィンドウとワークシートウィンドウを作成、開く、閉じる、アクティブ化する、などの様々な操作を実行します。
+</p>
+<h2><a name="Syntax:"></a><span class="mw-headline"><font color="chocolate">構文</font></span></h2>
+<pre class="lt" style="font-family:monospace;">window  option</pre>
+<dl><dd>オプションスイッチは実行される操作を決定します。</dd></dl>
+<h2><a name="Options:"></a><span class="mw-headline"><font color="chocolate">オプション：</font></span></h2>
+<h3><a name="Options_to_Activate.2FHide.2FMaxmize.2FMinimize"></a><span class="mw-headline">アクティブ化/非表示/最大化/最小化のオプション</span></h3>
+<table class="simple">
+<tr>
+<th width="10%">オプション
+</th>
+<th width="80%">説明
+</th></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Window_Options_to_Activate.html#-a" title="LabTalk:ウィンドウをアクティブにするオプション">-a</a>
+</td>
+<td>winNameをアクティブウィンドウとして設定
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Window_Options_to_Activate.html#-af" title="LabTalk:ウィンドウをアクティブにするオプション">-af</a>
+</td>
+<td>ミリ秒のタイムアウトでn回アクティブウィンドウをフラッシュ
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Window_Options_to_Activate.html#-an" title="LabTalk:ウィンドウをアクティブにするオプション">-an</a>
+</td>
+<td>winNameメモウィンドウをアクティブにする
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Window_Options_to_Activate.html#-b" title="LabTalk:ウィンドウをアクティブにするオプション">-b</a>
+</td>
+<td>指定したウィンドウを開くか、アクティブに設定
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Window_Options_to_Activate.html#-ch" title="LabTalk:ウィンドウをアクティブにするオプション">-ch</a>
+</td>
+<td>アクティブなウィンドウを非表示にして表示モードを変更する
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Window_Options_to_Activate.html#-h" title="LabTalk:ウィンドウをアクティブにするオプション">-h</a>
+</td>
+<td>アクティブなウィンドウを非表示にするが、表示モードは変更しない
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Window_Options_to_Activate.html#-hc" title="LabTalk:ウィンドウをアクティブにするオプション">-hc</a>
+</td>
+<td>アクティブなウィンドウまたは名前付きウィンドウを非表示にし、表示モードを変更する
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Window_Options_to_Activate.html#-hn" title="LabTalk:Window Options to Activate">-hn</a>
+</td>
+<td>メモウィンドウを表示または非表示にする
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Window_Options_to_Activate.html#-i" title="LabTalk:ウィンドウをアクティブにするオプション">-i</a>
+</td>
+<td>アクティブなウィンドウを最小化する
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Window_Options_to_Activate.html#-ia" title="LabTalk:ウィンドウをアクティブにするオプション">-ia</a>
+</td>
+<td>アクティブウィンドウを最小化し、以前アクティブにしたウィンドウを強制的にアクティブ化する
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Window_Options_to_Activate.html#-in" title="LabTalk:ウィンドウをアクティブにするオプション">-in</a>
+</td>
+<td>winNameメモウィンドウを最小化する
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Window_Options_to_Activate.html#-r" title="LabTalk:Window Options to Activate">-r</a>
+</td>
+<td>現在のウィンドウを最大化または最小化から復元する
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Window_Options_to_Activate.html#-z" title="LabTalk:ウィンドウをアクティブにするオプション">-z</a>
+</td>
+<td>アクティブなウィンドウを最大化する
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Window_Options_to_Activate.html#-zn" title="LabTalk:Window Options to Activate">-zn</a>
+</td>
+<td>winNameメモウィンドウを最大化する
+</td></tr></table>
+<h3><a name="Options_to_Delete.2FClose"></a><span class="mw-headline">削除/閉じるオプション</span></h3>
+<table class="simple">
+<tr>
+<th width="10%">オプション
+</th>
+<th width="80%">説明
+</th></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Window_Options_to_Close.html#-c" title="LabTalk:Window Options to Close">-c</a>
+</td>
+<td>winNameウィンドウを削除する
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Window_Options_to_Close.html#-cw" title="LabTalk:Window Options to Close">-cw</a>
+</td>
+<td>winNameウィンドウの削除（ワイルドカードをサポート）
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Window_Options_to_Close.html#-ca" title="LabTalk:Window Options to Close">-ca</a>
+</td>
+<td>winNameウィンドウを閉じる
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Window_Options_to_Close.html#-cwa" title="LabTalk:Window Options to Close">-cwa</a>
+</td>
+<td>winNameウィンドウを閉じる（ワイルドカードをサポート）
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Window_Options_to_Close.html#-cd" title="LabTalk:Window Options to Close">-cd</a>
+</td>
+<td>ワークブックを閉じて、すべてのデータを削除する
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Window_Options_to_Close.html#-cwd" title="LabTalk:Window Options to Close">-cwd</a>
+</td>
+<td>ワークブックを閉じて、すべてのデータを削除する(ワイルドカードをサポート)
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Window_Options_to_Close.html#-cn" title="LabTalk:Window Options to Close">-cn</a>
+</td>
+<td>プロンプトを表示せずにwinNameメモウィンドウを閉じる
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Window_Options_to_Close.html#-cp" title="LabTalk:Window Options to Close">-cp</a>
+</td>
+<td>winNameウィンドウを閉じるメッセージを表示する
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Window_Options_to_Close.html#-cwn" title="LabTalk:Window Options to Close">-cwn</a>
+</td>
+<td>プロンプトを表示せずにwinNameメモウィンドウを閉じる（ワイルドカードをサポート）
+</td></tr></table>
+<h3><a name="Options_to_Create.2FDuplicate"></a><span class="mw-headline">作成/複製オプション</span></h3>
+<table class="simple">
+<tr>
+<th width="10%">オプション
+</th>
+<th width="80%">説明
+</th></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Window_Options_to_Create.html#-d" title="LabTalk:Window Options to Create">-d</a>
+</td>
+<td>アクティブなウィンドウの複製を作成し、新しいウィンドウをアクティブにする
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Window_Options_to_Create.html#-da" title="LabTalk:ウィンドウを作成するオプション">-da</a>
+</td>
+<td>現在のウィンドウをアクティブにしたまま、アクティブウィンドウの複製を作成する
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Window_Options_to_Create.html#-dg" title="LabTalk:ウィンドウを作成するオプション">-dg</a>
+</td>
+<td>現在のグラフウィンドウを複製してOpenGLに変換する
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Window_Options_to_Create.html#-n" title="LabTalk:ウィンドウを作成するオプション">-n</a>
+</td>
+<td>新規ウィンドウを作成し、winNameという名前を付ける
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Window_Options_to_Create.html#-t" title="LabTalk:ウィンドウを作成するオプション">-t</a>
+</td>
+<td>テンプレートファイルから新しいウィンドウを作成する
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Window_Options_to_Create.html#-t_WF" title="LabTalk:ウィンドウを作成するオプション">-t WF</a>
+</td>
+<td>テンプレートファイルからワークシートを作成し、winNameを列挙する
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Window_Options_to_Create.html#-th" title="LabTalk:ウィンドウを作成するオプション">-th</a>
+</td>
+<td>テンプレートファイルから非表示の新規ウィンドウを作成する
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Window_Options_to_Create.html#-ti" title="LabTalk:ウィンドウを作成するオプション">-ti</a>
+</td>
+<td>テンプレートファイルから最小化された新規ウィンドウを作成する
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Window_Options_to_Create.html#-tu" title="LabTalk:ウィンドウを作成するオプション">-tu</a>
+</td>
+<td>テンプレートファイルから新しいウィンドウを作成するが、「元に戻す」を許可する
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Window_Options_to_Create.html#-tx" title="LabTalk:ウィンドウを作成するオプション">-tx</a>
+</td>
+<td>新規のExcelワークブックを開く
+</td></tr></table>
+<h3><a name="Options_to_Name"></a><span class="mw-headline">名前オプション</span></h3>
+<table class="simple">
+<tr>
+<th width="10%">オプション
+</th>
+<th width="80%">説明
+</th></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Window_Options_to_Name.html#-r" title="LabTalk:ウィンドウの名前オプション">-r</a>
+</td>
+<td>指定したnewNameでWindowNameの名前を変更する
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Window_Options_to_Name.html#-ra" title="LabTalk:ウィンドウの名前オプション">-ra</a>
+</td>
+<td>名前の変更ダイアログボックスを開く
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Window_Options_to_Name.html#-rl" title="LabTalk:ウィンドウの名前オプション">-rl</a>
+</td>
+<td>ウィンドウラベルを指定し、ウィンドウタイトルにラベルを表示するように設定する
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Window_Options_to_Name.html#-rn" title="LabTalk:ウィンドウの名前オプション">-rn</a>
+</td>
+<td>notesWindowNameメモウィンドウの名前を指定したnewNameに変更する
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Window_Options_to_Name.html#-rp" title="LabTalk:ウィンドウの名前オプション">-rp</a>
+</td>
+<td>グラフテンプレートのショートネームまたはロングネームプリセットでWindowNameを更新する
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Window_Options_to_Name.html#-w" title="LabTalk:ウィンドウの名前オプション">-w</a>
+</td>
+<td>アクティブウィンドウを一時的にwinNameに設定する
+</td></tr></table>
+<h3><a name="Options_to_Arrange"></a><span class="mw-headline">配置オプション</span></h3>
+<table class="simple">
+<tr>
+<th width="10%">オプション
+</th>
+<th width="80%">説明
+</th></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Window_Options_to_Arrange.html#-s_C" title="LabTalk:ウィンドウの配置オプション">-s C</a>
+</td>
+<td>すべてのウィンドウを重ねるためのウィンドウシステムコール
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Window_Options_to_Arrange.html#-s_ch" title="LabTalk:ウィンドウの配置オプション">-s ch, -s cv</a>
+</td>
+<td>すべてのウィンドウを特定の順序で並べてから、各列を重ねて表示する
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Window_Options_to_Arrange.html#-s_ct" title="LabTalk:ウィンドウの配置オプション">-s ct</a>
+</td>
+<td>すべてのウィンドウを並べて重ねて表示
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Window_Options_to_Arrange.html#-s_T" title="LabTalk:ウィンドウの配置オプション">-s</a>
+</td>
+<td>すべてのウィンドウを並べて表示するウィンドウシステムコール
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Window_Options_to_Arrange.html#-s_th" title="LabTalk:ウィンドウの配置オプション">-s th, -s tv</a>
+</td>
+<td>すべてのウィンドウを順番に並べて表示
+</td></tr></table>
+<h3><a name="Other_Options"></a><span class="mw-headline">その他のオプション</span></h3>
+<table class="simple">
+<tr>
+<th width="10%">オプション
+</th>
+<th width="80%">説明
+</th></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Window_Options_Other.html#-aw" title="LabTalk:Window Options Other">-aw</a>
+</td>
+<td>URL Webページに移動する
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Window_Options_Other.html#-e" title="LabTalk:Window Options Other">-e</a>
+</td>
+<td>グラフウィンドウをアクティブにして、すべてのデータプロットを削除する
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Window_Options_Other.html#-g" title="LabTalk:Window Options Other">-g</a>
+</td>
+<td>パスとテンプレートファイル名を&nbsp;%A に入れる
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Window_Options_Other.html#-ge" title="LabTalk:Window Options Other">-ge</a>
+</td>
+<td>テンプレートファイル拡張子を&nbsp;%Bに入れ、パスとテンプレートファイル名を&nbsp;%Aに入れる
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Window_Options_Other.html#-l_0" title="LabTalk:Window Options Other">-l 0</a>
+</td>
+<td>アクティブなウィンドウを「ウィンドウ」メニューのウィンドウリストの最後に配置する
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Window_Options_Other.html#-m" title="LabTalk:Window Options Other">-m</a>
+</td>
+<td>すべてのグラフウィンドウを統合する
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Window_Options_Other.html#-ma" title="LabTalk:Window Options Other">-ma</a>
+</td>
+<td>すべてのグラフウィンドウを統合する前にダイアログボックスを表示する
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Window_Options_Other.html#-o" title="LabTalk:Window Options Other">-o</a>
+</td>
+<td>指定したウィンドウに対して指定したスクリプトを実行する
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Window_Options_Other.html#-oa" title="LabTalk:Window Options Other">-oa</a>
+</td>
+<td>指定された非表示ウィンドウに対して指定されたスクリプトを実行する
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Window_Options_Other.html#-os" title="LabTalk:Window Options Other">-os</a>
+</td>
+<td>非表示のマップ境界ワークシートをルートフォルダに追加する
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Window_Options_Other.html#-ppc" title="LabTalk:Window Options Other">-ppc</a>
+</td>
+<td>プロジェクトエクスプローラのページプレビュークリーンアップ機能を呼び出す
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Window_Options_Other.html#-w" title="LabTalk:Window Options Other">-w</a>
+</td>
+<td>コマンドを再度使用する前に、通常の動作を復元する
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Window_Options_Other.html#-z0" title="LabTalk:Window Options Other">-z0</a>
+</td>
+<td>ページをウィンドウサイズに合わせる
+</td></tr></table>
+<h2><a name="See_Also:"></a><span class="mw-headline"><font color="chocolate">関連情報</font></span></h2>
+<p><a href="../../LabTalk/LabTalk/System.Display_(object).html" title="LabTalk:System.Display (object)">System.Display</a>, <a href="../../LabTalk/LabTalk/Clr_(macro).html" title="LabTalk:Clr (macro)">Clr</a>, <a href="../../LabTalk/LabTalk/Page_(object).html" title="LabTalk:Page (object)">Page</a>
+</p>
+
+
+
+
+
+
+    

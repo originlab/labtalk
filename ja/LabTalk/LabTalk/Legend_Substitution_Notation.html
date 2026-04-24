@@ -1,0 +1,1261 @@
+﻿<h1 class="firstHeading">凡例の置換表記</h1><p class='urlname' style='display: none'>凡例の置換表記</p>
+<p><br />
+</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>目次</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Origin_Graph_Legends"><span class="tocnumber">1</span> <span class="toctext">Originにおけるグラフの凡例</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Data_Plot_Legend_.28most_2D_and_3D_graphs.29"><span class="tocnumber">2</span> <span class="toctext">データプロットの凡例（ほとんどの2D・3Dグラフ）</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="#Plot_Symbol_Component"><span class="tocnumber">2.1</span> <span class="toctext">プロットシンボルのコンポーネント</span></a>
+<ul>
+<li class="toclevel-3 tocsection-4"><a href="#Basic_Syntax:"><span class="tocnumber">2.1.1</span> <span class="toctext">基本構文</span></a></li>
+<li class="toclevel-3 tocsection-5"><a href="#Legend_of_Partial_Property_of_Symbol"><span class="tocnumber">2.1.2</span> <span class="toctext">シンボルの部分的なプロパティの凡例</span></a></li>
+<li class="toclevel-3 tocsection-6"><a href="#Legend_of_Scaled_Symbols"><span class="tocnumber">2.1.3</span> <span class="toctext">スケーリングされたシンボルの凡例</span></a></li>
+<li class="toclevel-3 tocsection-7"><a href="#Legend_of_Bar_Elements"><span class="tocnumber">2.1.4</span> <span class="toctext">棒グラフ要素の凡例</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-8"><a href="#Text_Component"><span class="tocnumber">2.2</span> <span class="toctext">テキストコンポーネント</span></a>
+<ul>
+<li class="toclevel-3 tocsection-9"><a href="#Basic_Syntax"><span class="tocnumber">2.2.1</span> <span class="toctext">基本構文</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-10"><a href="#Examples"><span class="tocnumber">2.3</span> <span class="toctext">サンプル</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-11"><a href="#Categorical_Values_Legend"><span class="tocnumber">3</span> <span class="toctext">カテゴリ値の凡例</span></a>
+<ul>
+<li class="toclevel-2 tocsection-12"><a href="#Plot_Symbol_and_Text_Components"><span class="tocnumber">3.1</span> <span class="toctext">プロットシンボルとテキストコンポーネント</span></a>
+<ul>
+<li class="toclevel-3 tocsection-13"><a href="#Basic_Syntax_2"><span class="tocnumber">3.1.1</span> <span class="toctext">基本構文</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-14"><a href="#Examples:"><span class="tocnumber">3.2</span> <span class="toctext">サンプル:</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-15"><a href="#The_Box_Chart_Components_Legend"><span class="tocnumber">4</span> <span class="toctext">ボックスチャートコンポーネントの凡例</span></a>
+<ul>
+<li class="toclevel-2 tocsection-16"><a href="#Plot_Symbol_Component_2"><span class="tocnumber">4.1</span> <span class="toctext">プロットシンボルのコンポーネント</span></a></li>
+<li class="toclevel-2 tocsection-17"><a href="#Text_Component_2"><span class="tocnumber">4.2</span> <span class="toctext">テキストコンポーネント</span></a>
+<ul>
+<li class="toclevel-3 tocsection-18"><a href="#Values_of_ComponentChar"><span class="tocnumber">4.2.1</span> <span class="toctext">ComponentCharの値</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-19"><a href="#Point-by-Point_Legend"><span class="tocnumber">5</span> <span class="toctext">1ポイントずつの凡例</span></a>
+<ul>
+<li class="toclevel-2 tocsection-20"><a href="#Basic_Syntax_3"><span class="tocnumber">5.1</span> <span class="toctext">基本構文</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-21"><a href="#Legend_Text_Customization"><span class="tocnumber">6</span> <span class="toctext">凡例テキストのカスタマイズ</span></a>
+<ul>
+<li class="toclevel-2 tocsection-22"><a href="#Basic_Syntax_4"><span class="tocnumber">6.1</span> <span class="toctext">基本構文</span></a></li>
+<li class="toclevel-2 tocsection-23"><a href="#List_of_.40Options"><span class="tocnumber">6.2</span> <span class="toctext">@Optionsのリスト</span></a></li>
+<li class="toclevel-2 tocsection-24"><a href="#Worksheet_Cell_Access"><span class="tocnumber">6.3</span> <span class="toctext">ワークシートセルへのアクセス</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-25"><a href="#Adding_Symbols_Not_Used_in_Plots"><span class="tocnumber">7</span> <span class="toctext">プロットで使用されていないシンボルの追加</span></a>
+<ul>
+<li class="toclevel-2 tocsection-26"><a href="#Options_for_Constructing_Symbol.2C_Line_.2B_Symbol.2C_Line"><span class="tocnumber">7.1</span> <span class="toctext">シンボル、線+シンボル、折れ線を構築するためのオプション</span></a></li>
+<li class="toclevel-2 tocsection-27"><a href="#Options_for_Constructing_Blocks"><span class="tocnumber">7.2</span> <span class="toctext">ブロックを構築するためのオプション</span></a></li>
+<li class="toclevel-2 tocsection-28"><a href="#Old_Syntax_for_Adding_Symbols_Not_Used_in_Plots_.28v2017_and_earlier.29"><span class="tocnumber">7.3</span> <span class="toctext">プロットで使用されていないシンボルを追加するための以前の構文(v2017以前)</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-29"><a href="#Other_Legend_Customizations"><span class="tocnumber">8</span> <span class="toctext">その他凡例のカスタマイズ</span></a>
+<ul>
+<li class="toclevel-2 tocsection-30"><a href="#Special_Formatting_of_Legend_Text"><span class="tocnumber">8.1</span> <span class="toctext">凡例テキストの特別なフォーマット</span></a></li>
+<li class="toclevel-2 tocsection-31"><a href="#Legend_Element_Alignment"><span class="tocnumber">8.2</span> <span class="toctext">凡例要素の配置</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h2><a name="Origin_Graph_Legends"></a><span class="mw-headline">Originにおけるグラフの凡例</span></h2>
+<p>Originのグラフには4つの基本的な凡例があります。
+</p>
+<dl><dd><table class="simple">
+<tr>
+<th> <a class="external text" href="../../GettingStarted/OriginLab/Customizing_Graphs.html#Graph_Legends">データプロットの凡例</a>
+</th>
+<th> <a class="external text" href="../../UserGuide/UserGuide/Legends_for_Categorical_Data.html">カテゴリ値の凡例</a>
+</th>
+<th> <a class="external text" href="../../UserGuide/UserGuide/Legend_for_Box_Components.html">ボックスチャートコンポーネントの凡例</a>
+</th>
+<th> <a class="external text" href="../../UserGuide/UserGuide/Point_by_Point_Legend.html">1ポイントずつの凡例</a>
+</th></tr>
+<tr align="center">
+<td><a  class="image"><img alt="Graph Legends and Color Scales 001.png" src="../images/Legend_Substitution_Notation/Graph_Legends_and_Color_Scales_001.png" width="124"  /></a>
+</td>
+<td><a  class="image"><img alt="Graph Legends and Color Scales 2.png" src="../images/Legend_Substitution_Notation/Graph_Legends_and_Color_Scales_2.png" width="108"  /></a>
+</td>
+<td><a  class="image"><img alt="Graph Legends and Color Scales 05.png" src="../images/Legend_Substitution_Notation/Graph_Legends_and_Color_Scales_05.png" width="172"  /></a>
+</td>
+<td><a  class="image"><img alt="Graph Legends and Color Scales 04.png" src="../images/Legend_Substitution_Notation/Graph_Legends_and_Color_Scales_04.png" width="146"  /></a>
+</td></tr></table></dd></dl>
+<ul><li> <b>データプロットの凡例</b>: ほとんどの2Dや3Dグラフのデフォルトの凡例はプロットシンボルに列のメタデータ（例:列のロングネーム)から派生したテキストを結合したものです。</li>
+<li> <b>カテゴリ値の凡例</b>: 凡例の項目はプロットのシンボル--ワークシートデータの列にあるそれぞれのカテゴリの1つ--にカテゴリの名前を表すテキストを結合したのもです。カテゴリの凡例は複数のカテゴリ変数（カテゴリデータを表す複数の列）を表すことができ、カテゴリ変数ごとにシンボルのバリエーションが一覧表示されます。</li>
+<li> <b>ボックスチャートコンポーネントの凡例</b>: 凡例の項目は通常、プロットシンボルに列のメタデータかカテゴリラベルを結合したものに加えて、表示された統計のシンボリックリストとも組み合わせます。 </li>
+<li> <b>1ポイントずつの凡例</b>: プロットシンボルに数字（数字はインデックスかデータの値を表します）を組み合わせた凡例です。全てのデータポイントが凡例の項目に生成されるので、この凡例タイプは特定のプロットタイプ（例:トリリニアダイアグラム）や小さいデータセットに最も適しています。</li></ul>
+<p><br />
+次の情報は、さまざまな凡例の背後にある変数の構文を理解し、必要に応じて凡例をオブジェクトのコンテンツを変更するのに役立ちます。
+</p>
+<h2><a name="Data_Plot_Legend_.28most_2D_and_3D_graphs.29"></a><span class="mw-headline">データプロットの凡例（ほとんどの2D・3Dグラフ）</span></h2>
+<p>ほとんどの2D・3Dグラフでは、凡例は次の置換構文に従って作成されます。
+</p><p>プロットシンボルのコンポーネント: <b>\L(<i>[LayerIndex.]PlotIndex[,PointIndex[,option]]</i>)</b><br />
+テキストコンポーネント: <b>%(<i>LayerIndex.PlotIndex</i>[<i>Axis</i>, <i>@option</i>])</b><br />
+<br />
+これは凡例オブジェクトを右クリックし、<b>プロパティ</b>を選択したときに表示されます。:
+</p>
+<dl><dd><a  class="image"><img alt="Legend construction object properties 2.png" src="../images/Legend_Substitution_Notation/Legend_construction_object_properties_2.png" width="498"  /></a></dd></dl>
+<p><br />
+<i><b>2つの注意事項:</b></i>
+</p>
+<ul><li> シンボルコンポーネントは<b>\L()</b>によって囲まれ、テキストコンポーネントは<b>%()</b>によって囲まれます。</li>
+<li> 構文モデル内の角括弧はオプションの引数を示すだけなので、角括弧を入力する必要はありません。</li></ul>
+<h3><a name="Plot_Symbol_Component"></a><span class="mw-headline"><font color="chocolate">プロットシンボルのコンポーネント</font></span></h3>
+<p>この表記は特定のデータプロットのシンボルを表示することにより、凡例のデータプロットシンボルを構成することに使用されます。<i><b>LayerIndex</b></i>はオプションですが、省略した場合にはアクティブレイヤが想定されます。加えて、オプションの<i><b>PointIndex</b></i>は<a href="../../LabTalk/LabTalk/Options_for_DataPlots.html#-c" title="LabTalk: データプロットのオプション">特別なデータポイント</a>に割り当てられたシンボルを表示するのに使用されます。
+</p>
+<h4><a name="Basic_Syntax:"></a><span class="mw-headline">基本構文:</span></h4>
+<p><b>\L(<i>[LayerIndex.]PlotIndex[,PointIndex[,Option]]</i>)</b>
+</p><p><br />
+<i><b>ここでは、</b></i>
+</p>
+<ul><li> <i><b>LayerIndex</b></i>（オプション）: 特定のデータプロットのレイヤで、1からのインデックスになっています。アクティブレイヤを指す場合にはこのオプションは省略でき、<b>\L(<i>PlotIndex</i>)</b>のようになります。</li>
+<li> <i><b>PlotIndex</b></i>: <b>データ</b>メニューの下部もしくは<b>レイヤの内容</b>のデータリスト内でのデータプロットの位置（1からのインデックス）Note: このリストはアクティブなグラフレイヤのすべてのプロット用です。</li>
+<li> <i><b>PointIndex</b></i>（オプション): データプロットの1点がカスタマイズされている場合、このオプションはその1点シンボルを表示するために使用されます。</li>
+<li> <i><b>Option</b></i>:  通常、プロットシンボルは、指定されたレイヤの指定されたデータプロットの最初の点の表現（散布図シンボルなど）、またはデータプロットの表現（折れ線グラフの線など）で生成されます。または、PointIndexが指定されている場合は、指定された点の表現になります。ただし、次の<i><b>サンプル</b></i>で示すように、凡例データプロットシンボルをカスタマイズして、データプロットとは独立して表示することができます。必要に応じて、グラフウィンドウのデータプロット（シンボル、線+シンボル、線種）から完全に独立したプロットシンボルを生成できます。詳細は<a href="#Options_for_Constructing_Symbol.2C_Line_.2B_Symbol.2C_Line">以下のセクション</a>を参照ください。</li></ul>
+<h4><a name="Legend_of_Partial_Property_of_Symbol"></a><span class="mw-headline">シンボルの部分的なプロパティの凡例</span></h4>
+<table class="simple" width="95%">
+<tr>
+<th width="35%">凡例の項目
+</th>
+<th width="45%">説明
+</th>
+<th width="15%">例
+</th></tr>
+<tr>
+<td> \l(1)&nbsp;%(1)
+</td>
+<td> もとの線＋シンボルプロット
+</td>
+<td><a  class="image"><img alt="LSN Original Symbol.png" src="../images/Legend_Substitution_Notation/80px-LSN_Original_Symbol.png" width="80"   /></a>
+</td></tr>
+<tr>
+<td> \l(1, style:s)&nbsp;%(1)
+</td>
+<td> 線＋シンボルプロットのうちシンボルのみを表示
+</td>
+<td><a  class="image"><img alt="LSN Style S.png" src="../images/Legend_Substitution_Notation/80px-LSN_Style_S.png" width="80"   /></a>
+</td></tr>
+<tr>
+<td>\l(1, style:l)&nbsp;%(1)
+</td>
+<td> 線＋シンボルプロットのうち線のみを表示
+</td>
+<td><a  class="image"><img alt="LSN Style L.png" src="../images/Legend_Substitution_Notation/80px-LSN_Style_L.png" width="80"   /></a>
+</td></tr>
+<tr>
+<td> \l(1, style:sls)
+</td>
+<td> 線＋シンボルプロットをシンボル線シンボルの順で表示
+</td>
+<td><a  class="image"><img alt="LSN Style SLS.png" src="../images/Legend_Substitution_Notation/80px-LSN_Style_SLS.png" width="80"   /></a>
+</td></tr></table>
+<h4><a name="Legend_of_Scaled_Symbols"></a><span class="mw-headline">スケーリングされたシンボルの凡例</span></h4>
+<table class="simple" width="95%">
+<tr>
+<th width="35%">凡例の項目
+</th>
+<th width="45%">説明
+</th>
+<th width="15%">例
+</th></tr>
+<tr>
+<td> \l(1)&nbsp;%(1)
+</td>
+<td> もとの線＋シンボルプロット
+</td>
+<td><a  class="image"><img alt="LSN Original Symbol.png" src="../images/Legend_Substitution_Notation/80px-LSN_Original_Symbol.png" width="80"   /></a>
+</td></tr>
+<tr>
+<td>\l(1, size:5)&nbsp;%(1)
+</td>
+<td> シンボルのサイズを5にして表示
+</td>
+<td> <a  class="image"><img alt="LSN Size 5.png" src="../images/Legend_Substitution_Notation/80px-LSN_Size_5.png" width="80"   /></a>
+</td></tr>
+<tr>
+<td>\l(1, size:p150)&nbsp;%(1)
+</td>
+<td> シンボルのサイズを元のシンボルサイズの150％にして表示
+</td>
+<td><a  class="image"><img alt="LSN Size P150.png" src="../images/Legend_Substitution_Notation/80px-LSN_Size_P150.png" width="80"   /></a>
+</td></tr>
+<tr>
+<td>\l(1, LineWidth:3)&nbsp;%(1)
+</td>
+<td> 線分の幅を3にして表示
+</td>
+<td><a  class="image"><img alt="LSN Width 3.png" src="../images/Legend_Substitution_Notation/80px-LSN_Width_3.png" width="80"   /></a>
+</td></tr>
+<tr>
+<td>\l(1, LineWidth:p1000)&nbsp;%(1)
+</td>
+<td> 線分をもとの線幅の1000％にして表示
+</td>
+<td><a  class="image"><img alt="LSN Width P1000.png" src="../images/Legend_Substitution_Notation/80px-LSN_Width_P1000.png" width="80"   /></a>
+</td></tr>
+<tr>
+<td>\l(1, Length:p50)&nbsp;%(1)
+</td>
+<td> 線分をもとの長さの50%にして表示
+</td>
+<td><a  class="image"><img alt="LSN Length P50.png" src="../images/Legend_Substitution_Notation/80px-LSN_Length_P50.png" width="80"   /></a>
+</td></tr>
+<tr>
+<td> \l(1)&nbsp;%(1)
+</td>
+<td> もとの縦棒プロット
+</td>
+<td><a  class="image"><img alt="LSN Original Barl.png" src="../images/Legend_Substitution_Notation/80px-LSN_Original_Barl.png" width="80"   /></a>
+</td></tr>
+<tr>
+<td>\l(1, PatternHeight:p50)&nbsp;%(1)
+</td>
+<td> 棒をもとの高さの50％にして表示
+</td>
+<td><a  class="image"><img alt="LSN Bar Height P50.png" src="../images/Legend_Substitution_Notation/80px-LSN_Bar_Height_P50.png" width="80"   /></a>
+</td></tr>
+<tr>
+<td>\l(1, PatternWidth:p50)&nbsp;%(1)
+</td>
+<td> 棒をもとの幅の50％にして表示
+</td>
+<td><a  class="image"><img alt="LSN Bar Width P50.png" src="../images/Legend_Substitution_Notation/80px-LSN_Bar_Width_P50.png" width="80"   /></a>
+</td></tr></table>
+<h4><a name="Legend_of_Bar_Elements"></a><span class="mw-headline">棒グラフ要素の凡例</span></h4>
+<table class="simple" width="95%">
+<tr>
+<th width="35%">凡例の項目
+</th>
+<th width="45%">説明
+</th>
+<th width="15%">例
+</th></tr>
+<tr>
+<td>\l(1) Bar
+</td>
+<td> もとの棒グラフプロット（１つ目のレイヤの１番目のプロット）
+</td>
+<td><a  class="image"><img alt="LSN Element Bar.png" src="../images/Legend_Substitution_Notation/100px-LSN_Element_Bar.png" width="100"   /></a>
+</td></tr>
+<tr>
+<td>\l(1, style:C) Fill Color
+</td>
+<td> 塗りつぶしの色の棒グラフプロットを表示
+</td>
+<td><a  class="image"><img alt="LSN Element Bar Fill2.png" src="../images/Legend_Substitution_Notation/110px-LSN_Element_Bar_Fill2.png" width="110"   /></a>
+</td></tr>
+<tr>
+<td>\l(1, 1, 2) Fill Color
+</td>
+<td> ブロックを１つ目のレイヤの１番目棒グラフプロットの塗りつぶしの色にして表示
+</td>
+<td><a  class="image"><img alt="LSN Element Bar Fill.png" src="../images/Legend_Substitution_Notation/110px-LSN_Element_Bar_Fill.png" width="110"   /></a>
+</td></tr>
+<tr>
+<td>\l(1, style:P) Pattern
+</td>
+<td> 棒グラフプロットのパターンを表示
+</td>
+<td><a  class="image"><img alt="LSN Element Bar Pattern Style.png" src="../images/Legend_Substitution_Notation/90px-LSN_Element_Bar_Pattern_Style.png" width="90"   /></a>
+</td></tr>
+<tr>
+<td>\l(1, style:P#81F7F3) Custom Fill Color
+</td>
+<td> 指定した色で塗りつぶして凡例を表示
+</td>
+<td><a  class="image"><img alt="LSN Element Bar Custom Fill.png" src="../images/Legend_Substitution_Notation/150px-LSN_Element_Bar_Custom_Fill.png" width="150"   /></a>
+</td></tr>
+<tr>
+<td> \l(1, 1, 1) Border Color
+</td>
+<td> ブロックを１つ目のレイヤの１番目棒グラフプロットの縁の色にして表示
+</td>
+<td><a  class="image"><img alt="LSN Element Bar Border.png" src="../images/Legend_Substitution_Notation/120px-LSN_Element_Bar_Border.png" width="120"   /></a>
+</td></tr>
+<tr>
+<td>\l(1, 1, 3) Pattern Color
+</td>
+<td> ブロックを１つ目のレイヤの１番目棒グラフプロットのパターンの色にして表示
+</td>
+<td><a  class="image"><img alt="LSN Element Bar Pattern.png" src="../images/Legend_Substitution_Notation/120px-LSN_Element_Bar_Pattern.png" width="120"   /></a>
+</td></tr></table>
+<table class="noborder"><tr>
+	<td style="vertical-align:top" width="60"><img src="../images/Legend_Substitution_Notation/Tip_icon.png" width="57"  border="0" /></td><td><p>レイヤ内の<i>どのプロットにも</i>関連付いていない<b>シンボル</b>、<b>線+シンボル</b>、および<b>折れ線</b>タイプのプロットシンボルを凡例に追加することができます。詳細は、<a href="#Adding_Symbols_Not_Used_in_Plots"><b>プロットで使用されていないシンボルの追加</b></a>を参照してください。
+</p></td></tr></table>
+<h3><a name="Text_Component"></a><span class="mw-headline"><font color="chocolate">テキストコンポーネント</font></span></h3>
+<p>凡例テキストは文字テキストを使って（手動で）作成できますが、より一般的で効率のよい方法で<a href="../../LabTalk/LabTalk/String_Substitution.html#Legend_and_Axis_Title_SubstitutionLegend_Substitution_Axis_Title_Substitution" title="LabTalk:String Substitution">置換表記</a>というものがあります。これはデータプロットに紐づいたメタデータをLabTalk変数を使って表示する方法です。これらのメタデータには<a href="../../LabTalk/LabTalk/Legend_Substitution_Notation.html#List_of_.40Options" title="LabTalk:凡例の置換表記"><b>「@」オプション</b></a>を指定することでアクセスでき、グラフの<b>作図の詳細</b>ダイアログボックスの<a class="external text" href="../../UserGuide/UserGuide/The_(Plot_Details)_Legends_Titles_Tab.html#Auto_Legend%7C"><b>凡例/タイトル</b>タブ</a>で指定されたデフォルトの凡例構成を上書きするために使用できます。前述のように、角括弧はオプションの引数を示し、凡例テキストを作成するときには入力しません。 
+</p>
+<h4><a name="Basic_Syntax"></a><span class="mw-headline">基本構文</span></h4>
+<p><b>%(<i>[LayerIndex.]PlotIndex</i>[<i>Axis</i>[, @<i>option</i>]])</b>
+</p><p><br />
+<i><b>ここでは、</b></i>
+</p>
+<ul><li> <i><b>LayerIndex</b></i>（オプション）: 特定のデータプロットのレイヤで、1からのインデックスになっています。アクティブレイヤを指す場合にはこのオプションは省略でき、<b>\L(<i>PlotIndex</i>)</b>のようになります。</li>
+<li> <i><b>PlotIndex</b></i>: <b>データ</b>メニューの下部もしくは<b>レイヤの内容</b>のデータリスト内でのデータプロットの位置（1からのインデックス）Note: このリストはアクティブなグラフレイヤのすべてのプロット用です。</li>
+<li> <i><b>Axis</b></i>: 特定のレイヤやプロットで、<b>X</b>、<b>Y</b>または<b>Z</b>はどのソースデータ列が参照されているかを表します。指定がない（デフォルトの）とき、2Dグラフでは<b>Y</b>、3Dグラフでは<b>Z</b>とみなされます。</li>
+<li> <i><b>@Option:</b></i>: このオプションはグラフテンプレートに保存されたデフォルトの<a class="external text" href="../../UserGuide/UserGuide/The_(Plot_Details)_Legends_Titles_Tab.html"><b>凡例の自動更新モード</b></a>を上書きするために使用されます。グラフの凡例に関連した@optionのリストについては、このページの<a href="../../LabTalk/LabTalk/Legend_Substitution_Notation.html#Legend_Text_Customization" title="LabTalk:凡例の置換表記">凡例テキストの編集</a>のセクションをご覧ください。</li></ul>
+<h3><a name="Examples"></a><span class="mw-headline"><font color="chocolate">サンプル</font></span></h3>
+<table class="simple" width="95%">
+<tr>
+<th width="35%">凡例の項目
+</th>
+<th width="60%">説明
+</th></tr>
+<tr>
+<td>
+<p>\l(1)&nbsp;%(1)<br />
+\l(2)&nbsp;%(2)
+</p>
+</td>
+<td>
+<p>2つの行はアクティブレイヤのデータプロットの凡例です。最初の行は1つ目のプロットのもので、次の行は2つ目のプロットのものです。
+</p><p>グラフの<b>作図の詳細</b>ダイアログにある<a class="external text" href="../../UserGuide/UserGuide/The_(Plot_Details)_Legends_Titles_Tab.html#Auto_Legend%7C"><b>凡例/タイトル</b></a>タブで指定された一般的なデフォルト設定では、凡例のラベルはソースデータワークシートで<b>コメント</b>を探し、<b>コメント</b>がない場合には<b>ロングネーム</b>を使用します。<b>ロングネーム</b>もない場合には<b>ショートネーム</b>を使用します。 
+</p>
+</td></tr>
+<tr>
+<td>
+<p>\l(1.1)&nbsp;%(1.1)<br /> 
+\l(2.1)&nbsp;%(2.1)
+</p>
+</td>
+<td>
+<p>最初の行は1つ目のレイヤの1番目のプロットの凡例で、次の行は2つ目のレイヤの1番目のプロットの凡例です。
+</p>
+</td></tr>
+<tr>
+<td>
+<p>\l(1)&nbsp;%(1, @LD1)<br />
+\l(1)&nbsp;%(1Y, @LD1)<br />
+\l(1)&nbsp;%(1, @LD&quot;UserP Name&quot;)
+</p>
+</td>
+<td>
+<p>凡例のシンボルはアクティブレイヤの最初のプロットのもので、凡例ラベルはソースデータワークシートのY列にある最初の<b>ユーザパラメータ</b>を使用します。Yはオプションなので2Dでは同一のものを表します。ユーザパラメータの行番号または名前（名前にスペースがある場合には、ダブルクォーテーションで囲みます）でパラメータを参照できます。
+</p>
+</td></tr>
+<tr>
+<td>
+<p>\l(1)&nbsp;%(1X, @L)
+</p>
+</td>
+<td>
+<p>凡例のシンボルはアクティブレイヤの最初のプロットのもので、凡例ラベルはソースデータワークシートのX列の<b>ロングネーム</b>を使用します。
+</p>
+</td></tr>
+<tr>
+<td>
+<p>\l(2.3, 5)&nbsp;%(2.3X, @LU) Lowest Value
+</p>
+</td>
+<td>
+<p>凡例のシンボルは2つ目のレイヤの3番目のプロットの5番目の点のもので、凡例ラベルはソースデータワークシートのX列の<b>単位</b>を使用し、さらに次のユーザの指定テキストを付け加えます:<b>Lowest Value</b>
+</p>
+</td></tr>
+<tr>
+<td>
+<p>\l(1, 3, 2)&nbsp;%(1)
+</p>
+</td>
+<td>
+<p>凡例シンボルはアクティブレイヤの3番目のシンボルで、使用されるプロット要素は内部の色です。
+</p>
+</td></tr></table>
+<p><br />
+<br />
+<i><b>Notes:</b></i>
+</p>
+<ul><li> オブジェクトプロパティの <b>プログラミング</b>タブにある<a class="external text" href="../../UserGuide/UserGuide/The_(Object_Properties)_Programming_tab.html#The_Link_to_Variables_.28.25.2C.24.29.2C_Substitution_Level_Drop-down_List"><b>(%,$)にリンク,置換レベル</b></a>を1に設定すると任意のテキストオブジェクトにこの構文を含めることができ、凡例のように機能します。</li>
+<li> 任意の凡例オブジェクトの<i>アクティブ</i>なレイヤ はオブジェクトが<a class="external text" href="../../UserGuide/UserGuide/Object_Attachment_and_Scaling.html">接続</a>されたレイヤです。</li>
+<li> 任意の1つのレイヤには<a class="external text" href="../../UserGuide/UserGuide/The_(Object_Properties)_Programming_tab.html#Name"><b>Legend</b>という名前</a>のオブジェクトは1つのみが存在できます。</li></ul>
+<h2><a name="Categorical_Values_Legend"></a><span class="mw-headline">カテゴリ値の凡例</span></h2>
+<p>Originでは、カテゴリデータセット内のそれぞれの「値」はプロットや分析操作をするために1から始まるインデックス値でマッピングされます。このインデックス値はプロット順などを制御するため、 使い方に合わせて<a class="external text" href="../../UserGuide/UserGuide/The_(Column_Properties)_Categories_Tab.html">カテゴリ値を変更する</a>ことができます。
+</p><p>標準のデータプロットの凡例と同様に、Originは特別な構文を使用してプロットシンボルとテキストがカテゴリ値凡例に表示される方法を制御します。この特殊な凡例タイプに対応するには、グラフが特定の要件を満たしている必要があります。詳細は<a class="external text" href="../../UserGuide/UserGuide/Legends_for_Categorical_Data.html#Plot_Requirement">プロット要件</a>をご覧ください。
+</p><p>プロットシンボルコンポーネント: <b>\L(<i>PlotIndex[.DataPoint], </i>m<i>CategoryIndex, PlotElement</i>)</b><br />
+テキストコンポーネント: <b>%(<i>PlotIndex, </i>m<i>CategoryIndex, PlotElement</i>)</b>
+</p><p><br />
+<i><b>注意事項:</b></i>
+</p>
+<ul><li> 構文は標準の凡例に似ていますが、プロットシンボルとテキストコンポーネントの両方の2番目の引数に<b>m</b>の文字 が含まれています。</li></ul>
+<h3><a name="Plot_Symbol_and_Text_Components"></a><span class="mw-headline"><font color="chocolate">プロットシンボルとテキストコンポーネント</font></span></h3>
+<h4><a name="Basic_Syntax_2"></a><span class="mw-headline">基本構文</span></h4>
+<p><b>\L(<i>PlotIndex[.DataPoint], </i>m<i>CategoryIndex, PlotElement</i>)</b> <b>%(<i>PlotIndex, </i>m<i>CategoryIndex, PlotElement</i>)</b>
+</p><p><br />
+<i><b>ここでは、</b></i>
+</p>
+<ul><li><i><b>PlotIndex</b></i>: プロット順（作図の詳細もしくは <b>データ</b>リストで確認できます)を示す値です。</li>
+<li><i><b>DataPoint</b></i>: データポイントの行インデックスの値です。</li>
+<li><i><b>CategoryIndex</b></i>:  特定のカテゴリ値のインデックス番号です。（列の<a class="external text" href="../../UserGuide/UserGuide/The_(Column_Properties)_Categories_Tab.html#Sort"><b>ソート</b></a> の状態で決定されます) </li>
+<li><i><b>PlotElement</b></i>: データセット内のカテゴリにインデックス付けされているプロット要素を表す整数パラメータは1から14の値をとり、1=縁の色, 2=塗りつぶしの色, 3=パターンの色, 4=シンボルの形, 5=シンボルの内部, 6=シンボルのサイズ, 7=線のスタイル, 8=塗りつぶしパターン, 9=ボックスチャートの接続線, 10=ベクトルの色, 11=ベクトルのスタイル, 12=線のスタイル, 13=線の幅, 14=バイオリンプロットの塗りつぶしの色　となっています。パターンの色(<a class="external text" href="../../UserGuide/UserGuide/The_(Plot_Details)_Pattern_Tab.html"><b>パターン</b> タブ</a>で定義されているもの)を除いて、すべてのプロット要素はプロットの <a class="external text" href="../../UserGuide/UserGuide/The_(Plot_Details)_Symbol_Tab.html#Symbol_Type_.283D.29"><b>シンボル</b> タブ</a>で制御されます。すべての値が特定のプロットスタイルに対して有効であるとは限りません。この場合、無効なエントリは、赤いボックス内の赤いxまたは中空の黒い四角で示されます。</li></ul>
+<dl><dd><dl><dd><a  class="image"><img alt="LTGuide Categorical Legend Components.png" src="../images/Legend_Substitution_Notation/LTGuide_Categorical_Legend_Components.png" width="526"  /></a></dd></dl></dd></dl>
+<p><br />
+各プロット要素は、プロット要素と列メタデータから派生したデータセット識別子を組み合わせた凡例の項目を生成します。上記の例では、<i><b>PlotElement</b></i> =Symbol Color　(縁の色) 　の場合、識別子は「Gender」です。この識別子は<a href="../../LabTalk/LabTalk/Legend_Substitution_Notation.html#List_of_.40Options" title="LabTalk:凡例の置換表記">下記のリスト</a>から選択した「@option」によって決定されます。「Gender」というテキストを生成する残りの部分は<i><b>PlotElement</b></i>のインデックス作成に使用されるブックや列を識別するものであり、変更することを意図したものではありません。
+</p>
+<h3><a name="Examples:"></a><span class="mw-headline"><font color="chocolate">サンプル：</font></span></h3>
+<table class="simple" width="95%">
+<tr>
+<th width="35%">凡例の項目
+</th>
+<th width="60%">説明
+</th></tr>
+<tr>
+<td> Edge Color&nbsp;%(<i>Book</i>, <i>@option</i>, <i>ColumnIndex</i>) <br /> \l(1, m1, 1)&nbsp;%(1, m1, 1) <br /> \l(1, m2, 1)&nbsp;%(1, m2, 1) <br /> \l(1, m3, 1)&nbsp;%(1, m3, 1)
+</td>
+<td> シンボルの<a class="external text" href="../../UserGuide/UserGuide/The_(Plot_Details)_Symbol_Tab.html#Color">縁の色</a>はカテゴリデータセットによって制御されます。
+</td></tr>
+<tr>
+<td> Color &nbsp;%(<i>Book</i>, <i>@option</i>, <i>ColumnIndex</i>) <br /> \l(1,m1,1)&nbsp;%(1,m1,1) <br /> \l(1,m2,1)&nbsp;%(1,m2,1)
+</td>
+<td> <a class="external text" href="../../UserGuide/UserGuide/The_(Plot_Details)_Symbol_Tab.html#Color">シンボルの色</a>はカテゴリデータセットによって制御されます。
+</td></tr>
+<tr>
+<td> Fill Color &nbsp;%(<i>Book</i>, <i>@option</i>, <i>ColumnIndex</i>) <br /> \l(1, m1, 2)&nbsp;%(1, m1, 2) <br /> \l(1, m2, 2)&nbsp;%(1, m2, 2) <br /> \l(1, m3, 2)&nbsp;%(1, m3, 2)
+</td>
+<td> シンボルの<a class="external text" href="../../UserGuide/UserGuide/The_(Plot_Details)_Symbol_Tab.html#Color">塗りつぶしの色</a>はカテゴリデータセットによって制御されます。
+</td></tr>
+<tr>
+<td> Fill Pattern &nbsp;%(<i>Book</i>, <i>@option</i>, <i>ColumnIndex</i>) <br />\l(1,m1,8 1 2 3)&nbsp;%(1,m1,8)<br />\l(1,m2,8 1 2 3)&nbsp;%(1,m2,8)<br />\l(1,m3,8 1 2 3)&nbsp;%(1,m3,8)
+</td>
+<td> <a class="external text" href="../../UserGuide/UserGuide/The_(Plot_Details)_Pattern_Tab.html#Fill">塗りつぶしのパターン</a>はカテゴリデータセットによって制御されます。
+</td></tr>
+<tr>
+<td> Pattern Color &nbsp;%(<i>Book</i>, <i>@option</i>, <i>ColumnIndex</i>) <br />\l(1,m1,3)&nbsp;%(1,m1,3)<br /> \l(1,m2,3)&nbsp;%(1,m2,3)
+</td>
+<td> <a class="external text" href="../../UserGuide/UserGuide/The_(Plot_Details)_Pattern_Tab.html#Fill">パターンの色</a>はカテゴリデータセットによって制御されます。
+</td></tr>
+<tr>
+<td> Shape &nbsp;%(<i>Book</i>, <i>@option</i>, <i>ColumnIndex</i>) <br /> \l(1, m1, 4)&nbsp;%(1, m1, 4) <br /> \l(1, m2, 4)&nbsp;%(1, m2, 4) <br /> \l(1, m3, 4)&nbsp;%(1, m3, 4)
+</td>
+<td> <a class="external text" href="../../UserGuide/UserGuide/The_(Plot_Details)_Symbol_Tab.html#Custom_Construction_and_associated_controls_.282D.29">シンボルの形</a>はカテゴリデータセットによって制御されます。(2Dグラフのみ）
+</td></tr>
+<tr>
+<td> Interior &nbsp;%(<i>Book</i>, <i>@option</i>, <i>ColumnIndex</i>) <br /> \l(1, m1, 5)&nbsp;%(1, m1, 5) <br /> \l(1, m2, 5)&nbsp;%(1, m2, 5) <br /> \l(1, m3, 5)&nbsp;%(1, m3, 5) <br /> \l(1, m4, 5)&nbsp;%(1, m4, 5)
+</td>
+<td> <a class="external text" href="../../UserGuide/UserGuide/The_(Plot_Details)_Symbol_Tab.html#Custom_Construction_and_associated_controls_.282D.29">シンボルの内部</a>はカテゴリデータセットによって制御されます。(2Dのシンボルのみ)
+</td></tr>
+<tr>
+<td> Size &nbsp;%(<i>Book</i>, <i>@option</i>, <i>ColumnIndex</i>) <br /> \l(1, m1, 6)&nbsp;%(1, m1, 6) <br /> \l(1, m2, 6)&nbsp;%(1, m2, 6)
+</td>
+<td> <a class="external text" href="../../UserGuide/UserGuide/The_(Plot_Details)_Symbol_Tab.html#Size">シンボルサイズ</a>はカテゴリデータセットによって制御されます。
+</td></tr></table>
+<h2><a name="The_Box_Chart_Components_Legend"></a><span class="mw-headline">ボックスチャートコンポーネントの凡例</span></h2>
+<p>ほかの凡例タイプと同様に<a class="external text" href="../../UserGuide/UserGuide/Legend_for_Box_Components.html">ボックスチャートコンポーネントの凡例</a>もシンボルコンポーネントとテキストコンポーネントで構成されています。ただ、この構文はボックスチャートの凡例で固有のものです。 
+</p>
+<h3><a name="Plot_Symbol_Component_2"></a><span class="mw-headline"><font color="chocolate">プロットシンボルのコンポーネント</font></span></h3>
+<p><b>\L(<i>PlotIndex</i>,<i>ComponentChar</i>)</b>
+</p>
+<h3><a name="Text_Component_2"></a><span class="mw-headline"><font color="chocolate">テキストコンポーネント</font></span></h3>
+<p><b>%(<i>PlotIndex</i>, @V&quot;Box_<i>ComponentChar</i>&quot;)</b>
+</p>
+<h4><a name="Values_of_ComponentChar"></a><span class="mw-headline">ComponentCharの値</span></h4>
+<ul><li><i><b>PlotIndex</b></i>: データプロットの番号を定義する整数</li>
+<li><i><b>ComponentChar</b></i>: ボックスチャートのコンポーネントを定義する1つ以上の文字テキスト置換では、文字の前に<b>Box_</b>が付き、ダブルクォーテーションで囲まれていることに注意してください。</li></ul>
+<dl><dd><dl><dd><a  class="image"><img alt="LTGuide Box Chart Legend Components.png" src="../images/Legend_Substitution_Notation/LTGuide_Box_Chart_Legend_Components.png" width="550"  /></a></dd></dl></dd></dl>
+<table class="simple" width="95%">
+<tr>
+<th width="15%">文字
+</th>
+<th width="55%">説明（置換テキスト）
+</th>
+<th width="25%">例
+</th></tr>
+<tr>
+<td><b>B</b>
+</td>
+<td> ボックスそのものこの文字はプロットシンボルコンポーネントにのみ使用されます。
+</td>
+<td><i>\L(1,B)</i> <i>----------</i>
+</td></tr>
+<tr>
+<td><b>R</b>
+</td>
+<td>ボックスの範囲（例: <b>25%~75%</b>）この文字はテキストコンポーネントにのみ使用されます。
+</td>
+<td><i>----------</i> <i>%(1, @V&quot;Box_R&quot;)</i>
+</td></tr>
+<tr>
+<td><b>W</b>
+</td>
+<td>ボックスのヒゲ(例 <b>外れ値</b>)
+</td>
+<td><i>\L(1,W)&nbsp;%(1,@V&quot;Box_W&quot;)</i>
+</td></tr>
+<tr>
+<td><b>MDL</b>
+</td>
+<td>ボックスの中央値線(<b>中央値線</b>)
+</td>
+<td><i>\L(1,MDL)&nbsp;%(1,@V&quot;Box_MDL&quot;)</i>
+</td></tr>
+<tr>
+<td><b>ML</b>
+</td>
+<td>ボックスの平均線(<b>平均線</b>)
+</td>
+<td><i>\L(1,ML)&nbsp;%(1,@V&quot;Box_ML&quot;)</i>
+</td></tr>
+<tr>
+<td><b>Max</b>
+</td>
+<td>ボックスの最大のパーセンタイルポイント(<b>最大</b>)
+</td>
+<td><i>\L(1,Max)&nbsp;%(1,@V&quot;Box_Max&quot;)</i>
+</td></tr>
+<tr>
+<td><b>P99</b>
+</td>
+<td>ボックスの99%パーセンタイルポイント(<b>99%</b>)
+</td>
+<td><i>\L(1,P99)&nbsp;%(1,@V&quot;Box_P99&quot;)</i>
+</td></tr>
+<tr>
+<td><b>M</b>
+</td>
+<td>ボックスのの平均パーセンタイルポイント(<b>平均</b>)
+</td>
+<td><i>\L(1,M)&nbsp;%(1,@V&quot;Box_M&quot;)</i>
+</td></tr>
+<tr>
+<td><b>P1</b>
+</td>
+<td>ボックスの1%パーセンタイルポイント(<b>1%</b>)
+</td>
+<td><i>\L(1,P1)&nbsp;%(1,@V&quot;Box_P1&quot;)</i>
+</td></tr>
+<tr>
+<td><b>Min</b>
+</td>
+<td>ボックスの最小パーセンタイルポイント(<b>最小</b>)
+</td>
+<td><i>\L(1,Min)&nbsp;%(1,@V&quot;Box_Min&quot;)</i>
+</td></tr>
+<tr>
+<td><b>D</b>
+</td>
+<td>ボックスのデータポイント(<b>データ</b>)
+</td>
+<td><i>\L(1,D)&nbsp;%(1,@V&quot;Box_D&quot;)</i>
+</td></tr>
+<tr>
+<td><b>O</b>
+</td>
+<td>ボックスの外れ値(<b>外れ値</b>)
+</td>
+<td><i>\L(1,O)&nbsp;%(1,@V&quot;Box_O&quot;)</i>
+</td></tr></table>
+<h2><a name="Point-by-Point_Legend"></a><span class="mw-headline">1ポイントずつの凡例</span></h2>
+<p>1ポイントずつの凡例はプロットされたデータポイントすべての凡例項目を作成します。 
+</p><p>この特殊な凡例タイプに対応するには、グラフが特定の要件を満たしている必要があります。詳細は<a class="external text" href="../../UserGuide/UserGuide/Point_by_Point_Legend.html">プロット要件</a>をご覧ください。1ポイントずつの凡例はトリリニアダイアグラムではデフォルトの凡例タイプになっています。
+</p><p>ほかの凡例と同様に、1ポイントずつの凡例の構文にはプロットシンボルコンポーネントとテキストコンポーネントがあります。
+</p>
+<h4><a name="Basic_Syntax_3"></a><span class="mw-headline">基本構文</span></h4>
+<p><b>\L(<i>[LayerIndex.]PlotIndex[,PointIndex]</i>)</b> <b>%(<i>[LayerIndex.]PlotIndex[, @option]</i>)</b>
+</p>
+<dl><dd><dl><dd><a  class="image"><img alt="LTGuide Point Legend Components.png" src="../images/Legend_Substitution_Notation/LTGuide_Point_Legend_Components.png" width="413"  /></a></dd></dl></dd></dl>
+<p>1ポイントずつの凡例で通常使用される「@option」はワークシートのセルへのアクセス用で、具体的には@Vと@WTのオプションを使用します。<a href="../../LabTalk/LabTalk/Legend_Substitution_Notation.html#Worksheet_Cell_Access" title="LabTalk:凡例の置換表記">ワークシートセルへのアクセス</a>をご覧ください。
+</p>
+<h2><a name="Legend_Text_Customization"></a><span class="mw-headline">凡例テキストのカスタマイズ</span></h2>
+<p>凡例テキストは ワークシート列に保存されているデータセットのメタデータを組み込んだ<a href="../../LabTalk/LabTalk/String_Substitution.html#Legend_and_Axis_Title_SubstitutionLegend_Substitution_Axis_Title_Substitution" title="LabTalk:String Substitution">%( ) substitution notation</a> によって作成されます。デフォルトでは、グラフテンプレートはワークシートテンプレートとともに保存される <a class="external text" href="../../UserGuide/UserGuide/The_(Plot_Details)_Legends_Titles_Tab.html"><b>凡例の自動</b>設定</a>を使用します。下記のリストの「@options」を使用してデフォルトの構成を上書きできます。
+</p>
+<h4><a name="Basic_Syntax_4"></a><span class="mw-headline">基本構文</span></h4>
+<p><b>@<i>options</i></b>変数の使用については上記の個々の凡例タイプの説明を参照してください。
+</p><p><br />
+例としてほとんどの2Dと3Dグラフで共通の<a href="../../LabTalk/LabTalk/Legend_Substitution_Notation.html#Data_Plot_Legend_.28most_2D_and_3D_graphs.29" title="LabTalk:凡例の置換表記">データプロットの凡例</a> を使用します。
+</p><p><b>%([<i>LayerIndex</i>.]<i>PlotIndex</i>[<i>Axis</i>] [,@<i>option</i>])</b>
+</p>
+<ul><li> シンボルカラーもしくはサイズがデータセットで定義されている場合、<i><b>PlotIndex</b></i> でデータセットの変更を参照する特別な構文に置き換えることができます: カラーマッピング/インデックス作成では<i><b>?R</b></i>を、 サイズインデックス作成では<i><b>?S</b></i>を使用します。</li></ul>
+<dl><dd> たとえば、%(1S,@LL)を使用すると最初のプロットのSizeデータセットの列のロングネームが表示されます。</dd>
+<dd> たとえば、%(1.2R,@LL) を使用すると最初のレイヤの2番目のプロットの色データセットの列のロングネームが表示されます。</dd></dl>
+<ul><li> 任意のテキストが混在する複数の「@オプション」を組み合わせるには、次の構文を使用します。</li></ul>
+<dl><dd><dl><dd><b>%(<i>PlotIndex</i>,@(<i>@option1</i>+<i>@option2</i>+...))</b></dd></dl></dd></dl>
+<dl><dd>例えば、 <b>%(1,@(@LL(@LU)))</b>を使用した場合、ロングネームと単位が<b><i>ロングネーム</i>(<i>単位</i>)</b>.の形式で結合されます。 </dd></dl>
+<ul><li> 内側の括弧内には、次のように任意のテキストを混在させることができます。</li></ul>
+<dl><dd><dl><dd><b>%(1X,@(Long Name @LL, Units @LU, Comments @LC))</b></dd></dl></dd></dl>
+<h3><a name="List_of_.40Options"></a><span class="mw-headline">@Optionsのリスト</span></h3>
+<p>以下はグラフの凡例テキストをカスタマイズするためによく使用される <i>@options</i>です。すべての@オプションの詳細については、<a href="../../LabTalk/LabTalk/Text_Label_Options.html#List_of_.40Options" title="LabTalk：テキストラベルオプション">@オプションのリスト</a>を参照してください。
+</p>
+<table class="note">
+<tr>
+<td><b>Notes:</b>これらの&quot;@&quot;ラベル オプションの多くはワークブック データにのみ適用できますが、一部は行列データにも適用できます。次に例を示します。
+<pre class="lt" style="font-family:monospace;"><span style="color: #000080;">%</span><span style="color: #000000;">(</span><span style="color: #0000dd;">1</span>,@W<span style="color: #000000;">)</span> <span style="color: #008000;">// 行列ブックのショートネームを返す</span></pre>
+</td></tr></table>
+<dl><dd><a  class="image"><img alt="LTlegend list of @options.png" src="../images/Legend_Substitution_Notation/LTlegend_list_of__40options.png" width="332"  /></a></dd></dl>
+<p>次の表の例は上図を参照しています:
+</p>
+<ul><li> システムパラメータは常に <i>Parameters</i>, <i>Parameters 2</i>,などの名前が付けられますが、ユーザ定義パラメータには<i>UserDefined</i>, <i>UserDefined1</i>のような名前や<i>No. of points</i>, <i>Sample</i>,のような名前も割り当てることができます。 </li>
+<li> 構文のプロット部分は番号（「1」など）もしくはプロットデータと同じ列のラベル行セルを参照するワイルドカード「？」を使って参照できます。</li></ul>
+<table class="simple" width="95%">
+<tr>
+<th width="15%">@option
+</th>
+<th width="40%">置換テキストの参照先
+</th>
+<th width="40%">例
+</th></tr>
+<tr>
+<td> @D
+</td>
+<td> データセット名
+</td>
+<td> <i>%(1,@D)</i> --&gt; <b>Book1_B</b>
+</td></tr>
+<tr>
+<td> @GF
+</td>
+<td> グラフのフィルタ条件。
+<p>ページタイトルに<i>%(L</i>をサポートしています。例えば、<i>%(L[n],@GF)</i>でLは現在のレイヤ、L2はレイヤ2です。
+</p>
+</td>
+<td> <i>%(1,@GF)</i> --&gt; <b>&gt; 1996</b>
+</td></tr>
+<tr>
+<td> @GFN
+</td>
+<td> 列名を持つグラフのフィルタ条件。
+</td>
+<td> <i>%(1,@GFN)</i> --&gt; <b>Year &gt; 1996</b>
+</td></tr>
+<tr>
+<td> @LA
+</td>
+<td> 利用可能ならロングネーム、そうでなければショートネーム
+</td>
+<td> <i>%(1,@LA)</i> --&gt; <b>Delta Temperature</b>
+</td></tr>
+<tr>
+<td> @LC
+</td>
+<td> 利用可能ならコメント、そうでなければロングネーム、それもできなければショートネームを参照
+</td>
+<td> <i>%(1,@LC)</i> --&gt; <b>S15-125-03 (filename)</b>
+</td></tr>
+<tr>
+<td> @LD<i>n</i>
+</td>
+<td> ユーザ定義パラメータの<i>n</i>番目@LD は @LD1　と同じものを指す <font color="red">(2025)</font><i>n = 0</i>は最後のユーザ定義パラメータです。
+</td>
+<td> <i>%(1,@LD2)</i> --&gt;<b>YCBO milled</b>
+</td></tr>
+<tr>
+<td> @LG
+</td>
+<td> ロングネーム（使用できなければショートネーム）と単位（あれば）@Uと同等
+</td>
+<td> <i>%(1,@LG)</i> --&gt;<b>Delta Temperature (K)</b>
+</td></tr>
+<tr>
+<td> @LH<i>n</i>
+</td>
+<td> <i>n</i>番目のユーザ定義パラメータ行の名前@LH1 は @LH　と同じ <font color="red">(2025)</font><i>n = 0</i>は最後のユーザ定義パラメータです。
+</td>
+<td><i>%(1,@LH3)</i> --&gt;<b>Time</b>
+</td></tr>
+<tr>
+<td> @LL
+</td>
+<td>列のロングネームロングネームがない場合には欠損値を返します
+</td>
+<td> <i>%(1,@LL)</i> --&gt; <b>Delta Temperature</b>
+</td></tr>
+<tr>
+<td> @LM
+</td>
+<td> 利用可能ならコメントの1行目を、できなければロングネームを、それもできなければショートネームを参照
+</td>
+<td> <i>%(1,@LM)</i> --&gt; <b>S15-125-03</b>
+</td></tr>
+<tr>
+<td> @LN
+</td>
+<td> コメントの1行目（利用できなければロングネームを、それもできなければショートネーム）を参照<i>@(@LM(@LU))</i>.と同じ
+</td>
+<td> <i>%(1,@LN)</i> --&gt; <b>S15-125-03(K)</b>
+</td></tr>
+<tr>
+<td> @LP<i>n</i>
+</td>
+<td> <i>n</i>番目のシステムパラメータ。@LP と @LP1　は同じ
+</td>
+<td> <i>%(1,@LP2)</i> --&gt; <b>12/01/2004</b>
+</td></tr>
+<tr>
+<td> @LS
+</td>
+<td> 列のショートネーム、@Cと同等
+</td>
+<td> <i>%(1,@LS)</i>  --&gt; <b>B</b>
+</td></tr>
+<tr>
+<td> @LU
+</td>
+<td> 単位
+</td>
+<td> <i>%(1,@LU)</i>  --&gt; <b>(K)</b>
+</td></tr>
+<tr>
+<td> @LUP,@LUS,@LUA,@LUC
+</td>
+<td> 単位に括弧を追加。<b>P</b>は括弧 = (), <b>S</b>は角括弧 = [], <b>A</b>は山括弧 = &lt;&gt;, <b>C</b>は波括弧 = {}
+</td>
+<td> <i>%(1,@LUA)</i>  --&gt; <b>&lt;km&gt;</b>
+</td></tr>
+<tr>
+<td> @W
+</td>
+<td> ワークブックのショートネーム
+<p><b>Note</b>: <i>@W, <i>UserVar</i>$</i>を使用してユーザ変数にアクセスできます。詳細は後述の<a href="#Imported_File_Information_Access">インポートしたファイルの情報アクセスセクション</a>を参照してください。
+</p>
+</td>
+<td> <i>%(1,@W)</i> --&gt;<b>Book1</b>
+</td></tr>
+<tr>
+<td> @WC<i>n</i>
+</td>
+<td> ワークブックコメントの<i>n</i>番目の行。<i>n</i>の指定がない場合には最初の行のみが表示されます。
+</td>
+<td><i>%(1,@WC2)</i> --&gt;
+<p><b>&lt;Origin EXE Folder&gt;\Samples\Curve Fitting</b>
+</p>
+</td></tr>
+<tr>
+<td> @WL
+</td>
+<td> ワークブックのロングネーム
+</td>
+<td> <i>%(1,@WL)</i> --&gt;<b>S15-125-03.dat</b>
+</td></tr>
+<tr>
+<td> @WM<i>n</i>
+</td>
+<td> ワークシートコメントの<i>n</i>番目の行。<i>n</i>の指定がない場合には最初の行のみが表示されます。
+</td>
+<td><i>%(1,@WM)</i> --&gt;<b>Data imported from</b>
+</td></tr>
+<tr>
+<td> @WN
+</td>
+<td> セルノートの内容。
+</td>
+<td><i>%(1,@WN,1)</i> --&gt;1番目のプロットのソース列、行[1]のノートの内容。
+</td></tr>
+<tr>
+<td> @WS
+</td>
+<td> ワークシートの名前
+</td>
+<td> <i>%(1,@WS)</i> --&gt;<b>Trial Run 1</b>
+</td></tr></table>
+<table class="note">
+<tr>
+<td>
+<p><b>Note:</b>　単位が凡例に表示されている場合、英語と日本語版のOriginでは単位を括弧()で囲みますが、ドイツ語版では角括弧[]を使用します。
+</p>
+</td></tr></table>
+<h3><a name="Worksheet_Cell_Access"></a><span class="mw-headline">ワークシートセルへのアクセス</span></h3>
+<p>ワークシートセルの内容を返すための特別な@optionsがいくつかあります。<i>@V</i> と <i>@WT</i>オプションは主に<a class="external text" href="../../UserGuide/UserGuide/Point_by_Point_Legend.html">1ポイントずつの凡例</a>で使用されます。
+</p>
+<table class="simple" width="95%">
+<tr>
+<th width="25%">@option
+</th>
+<th width="35%">置換テキストの参照先
+</th>
+<th width="35%">例
+</th></tr>
+<tr>
+<td> @L, n
+</td>
+<td> データプロット内にある<i>n</i>番目のポイントのX値
+</td>
+<td>
+<ul><li> <i>%(1, @L, 2)</i> 
+<dl><dd>１つ目のデータプロット内にある2番目のポイントのX値を指します。</dd></dl></li></ul>
+</td></tr>
+<tr>
+<td> @V, n
+</td>
+<td> データプロット内にある<i>n</i>番目のポイントのY値
+</td>
+<td>
+<ul><li> <i>&nbsp;%(1, @V, 2)</i> 
+<dl><dd>１つ目のデータプロット内にある2番目のポイントのY値を指します。</dd></dl></li></ul>
+</td></tr>
+<tr>
+<td> @WT, <i>ColIndex</i>/<i>ColName</i>, <i>RowIndex</i>
+</td>
+<td> 列番号（もしくはショートネームや行番号）で指定されたワークシートセルの値
+</td>
+<td>
+<ul><li><i>%(1, @WT, 2, 3)</i> 
+<dl><dd>は1つ目のデータプロットのソースワークシートにある2列3行目のセルの値を指します。</dd></dl></li>
+<li><i>%(1, @WT, B, 3)</i> 
+<dl><dd>は1つ目のデータプロットのソースワークシートにあるB列3行目のセルの値を指します。</dd></dl></li></ul>
+</td></tr>
+<tr>
+<td> @WT, <i>ColIndex</i>/<i>ColName</i>, <i>ColLabelRowCharacter</i>
+</td>
+<td> 列番号（もしくはショートネーム）と<a href="../../LabTalk/LabTalk/Column_Label_Row_Characters.html" title="LabTalk:Column Label Row Characters">列ラベルの行の文字</a>で指定されたワークシートセルの値
+</td>
+<td>
+<ul><li><i>%(1, @WT, B, C)</i> 
+<dl><dd><a href="../../LabTalk/LabTalk/Column_Label_Row_Characters.html#Examples" title="LabTalk:Column Label Row Characters">B[C]$</a>と同様に、これは1つ目のデータプロットのソースワークシートにある列Bのコメントを取得します。</dd></dl></li></ul>
+</td></tr></table>
+<h2><a name="Adding_Symbols_Not_Used_in_Plots"></a><span class="mw-headline">プロットで使用されていないシンボルの追加</span></h2>
+<p><a href="#Data_Plot_Legend_.28most_2D_and_3D_graphs.29"><i>前述の通り</i></a>、凡例の内容はプロットシンボルコンポーネントとテキストコンポーネントで構成されています。通常、凡例プロットシンボルはグラフウィンドウのデータプロットの1つで使用されます。ただし、グラフ内のどのプロットでも使用されていない凡例プロットシンボルを追加したい場合もあるでしょう。それがこのセクションの主題です。
+</p>
+<h3><a name="Options_for_Constructing_Symbol.2C_Line_.2B_Symbol.2C_Line"></a><span class="mw-headline">シンボル、線+シンボル、折れ線を構築するためのオプション</span></h3>
+<p><b>Origin 2018</b>以降では、凡例オブジェクトの<b>テキスト</b>タブ（<b>プロパティ</b> &gt; <b>テキスト</b>タブ &gt; <a class="external text" href="../../UserGuide/UserGuide/The_(Text_Object_Properties)_Text_tab.html#Add_Legend_Symbol_button"><b>凡例シンボル追加</b></a>ボタン）を使用して、シンボル（散布図）、線+シンボル、および折れ線グラフで使用されるプロットシンボルを手動で追加できます。 
+</p><p><a href="#Old_Syntax_for_Adding_Symbols_Not_Used_in_Plots_.28v2017_and_earlier.29"><i>以前は</i></a>複雑な構文を使用してシンボルを手動で作成する必要がありましたが、これにより、ユーザーインターフェイスダイアログボックスを使用してプロットシンボルを簡単に作成できるようになりました。これを使う場合、シンボルの作成に使用される構文が同時に生成されます。したがって、このユーザーインターフェイスによって、カスタムシンボルを生成するための文字列を簡単に取得できます。
+</p><p><a  class="image"><img alt="LTREF Properties add legend symbol.png" src="../images/Legend_Substitution_Notation/LTREF_Properties_add_legend_symbol.png" width="1118"  /></a>
+</p><p><br />
+<i><b>サンプル：</b></i>
+プロパティはコンマ区切りのリストで組み合わせることができます。
+</p>
+<pre class="lt" style="font-family:monospace;">\L<span style="color: #000000;">(</span>O Shape<span style="color: #000000;">:</span>Star, Interior<span style="color: #000000;">:</span>Open, Style<span style="color: #000000;">:</span>s, Fill<span style="color: #000000;">:</span><span style="color: #0000dd;">3</span>, EdgeColor<span style="color: #000000;">:</span><span style="color: #0000dd;">4</span>, Size<span style="color: #000000;">:</span><span style="color: #0000dd;">15.0</span>, EdgeWidth<span style="color: #000000;">:</span><span style="color: #0000dd;">20.0</span><span style="color: #000000;">)</span>
+\L<span style="color: #000000;">(</span>O LineStyle<span style="color: #000000;">:</span>Dash, ArrowShape<span style="color: #000000;">:</span>Stealth, BeginArrowShape<span style="color: #000000;">:</span>Diamond, Style<span style="color: #000000;">:</span>L, LineColor<span style="color: #000000;">:</span><span style="color: #0000dd;">2</span>, ArrowWidth<span style="color: #000000;">:</span><span style="color: #0000dd;">7.0</span>, ArrowLength<span style="color: #000000;">:</span><span style="color: #0000dd;">10.0</span>,
+     BeginArrowWidth<span style="color: #000000;">:</span><span style="color: #0000dd;">8.0</span>, BeginArrowLength<span style="color: #000000;">:</span><span style="color: #0000dd;">12.0</span><span style="color: #000000;">)</span>
+\L<span style="color: #000000;">(</span>O Shape<span style="color: #000000;">:</span>Circle, Interior<span style="color: #000000;">:</span>Open, LineStyle<span style="color: #000000;">:</span>Solid, Fill<span style="color: #000000;">:</span><span style="color: #0000dd;">2</span>, EdgeColor<span style="color: #000000;">:</span><span style="color: #0000dd;">5</span>, Size<span style="color: #000000;">:</span><span style="color: #0000dd;">14</span>, EdgeWidth<span style="color: #000000;">:</span><span style="color: #0000dd;">15.0</span>, LineColor<span style="color: #000000;">:</span><span style="color: #0000dd;">5</span>, Gap<span style="color: #000000;">:</span><span style="color: #0000dd;">60</span><span style="color: #000000;">)</span></pre>
+<table class="simple" width="95%">
+<tr>
+<th width="25%">プロパティ
+</th>
+<th width="45%">オプション
+</th>
+<th width="30%">例
+</th></tr>
+<tr>
+<td><b>Style</b>
+</td>
+<td><b>Style:<i>&lt;keyword&gt;</i></b>は折れ線およびシンボルシーケンスを設定します（s=シンボル, l=線のセグメント）。任意の順序で表示できます。
+</td>
+<td> Style:sls
+</td></tr>
+<tr>
+<td><b>Gap</b>
+</td>
+<td><b>Gap:##</b> はポイントサイズでシンボルとの間隔を設定し、 <b>Gap:p##</b> はデフォルトのパーセントで間隔を設定します（100%を超える値も設定可）。
+</td>
+<td> Gap:24 <br />Gap:p200
+</td></tr>
+<tr>
+<td><b>Size</b>
+</td>
+<td> <b>Size:##</b>は散布図シンボルのポイントサイズを設定し、<b>Size:p##</b>は（プロット）シンボルサイズのパーセントを設定します（100%を超える値も設定可）。
+</td>
+<td> Size:18<br />Size:p200
+</td></tr>
+<tr>
+<td><b>Shape</b>
+</td>
+<td> <b>Shape:<i>&lt;keyword&gt;</i></b>はシンボルの形状を設定します。次のものが利用できます。Square, Circle, UpTri, DownTri, Diamond, Plus, Times, Asterisk, HorizontalBar, VerticalBar, Arrow, LeftTri, RightTri, Hexagon, Star, Pentagon, Sphere.
+</td>
+<td> Shape:Star
+</td></tr>
+<tr>
+<td><b>Interior</b>
+</td>
+<td> <b>Interior:<i>&lt;keyword&gt;</i></b>シンボル内部を設定します。次のものが利用できます。Solid, Open, Dot, Hollow, Cross, XLines, HLine, VLine, HalfUp, HalfRight, HalfDown, HalfLeft
+</td>
+<td> Interior:Open
+</td></tr>
+<tr>
+<td><b>Fill</b>
+</td>
+<td><b>Fill:<i>&lt;index&gt;</i></b>または<b>Fill:<i>&lt;htmlColor&gt;</i></b> はシンボル内部の色を設定します。<a href="../../LabTalk/LabTalk/List_of_Colors.html" title="LabTalk:List of Colors">LabTalkカラーインデックス</a>またはHTMLのカラーコードで指定できます。
+</td>
+<td> Fill:18<br />Fill:#FFFFFF
+</td></tr>
+<tr>
+<td><b>EdgeColor</b>
+</td>
+<td><b>EdgeColor:<i>&lt;index&gt;</i></b> or <b>EdgeColor:<i>&lt;htmlColor&gt;</i></b>はsolidシンボルの内部の色を設定します。<a href="../../LabTalk/LabTalk/List_of_Colors.html" title="LabTalk:List of Colors">LabTalkカラーインデックス</a>またはHTMLのカラーコードで指定できます。
+</td>
+<td> EdgeColor:1<br />EdgeColor:#000000
+</td></tr>
+<tr>
+<td><b>EdgeWidth</b>
+</td>
+<td><b>EdgeWidth:<i>##</i></b> はポイントサイズでシンボルの縁の太さを設定し、<b>EdgeWidth:p##</b>はプロットシンボルの縁幅のパーセントで太さを指定します（100%を超える値も設定可）。
+</td>
+<td> EdgeWidth:15.0<br />EdgeWidth:p100
+</td></tr>
+<tr>
+<td><b>LineStyle</b>
+</td>
+<td> <b>LineStyle:<i>&lt;keyword&gt;</i></b>線のスタイルを設定します。次のものが利用できます。Solid, Dash, Dot, DashDot, DashDotDot, ShortDash, ShortDot, ShortDashDot
+</td>
+<td> LineStyle:Solid
+</td></tr>
+<tr>
+<td><b>LineColor</b>
+</td>
+<td> <b>LineColor:<i>&lt;index&gt;</i></b>または<b>LineColor:<i>&lt;htmlColor&gt;</i></b>は線の色を設定します。<a href="../../LabTalk/LabTalk/List_of_Colors.html" title="LabTalk:List of Colors">LabTalkカラーインデックス</a>またはHTMLのカラーコードで指定できます。
+</td>
+<td> LineColor:1<br />LineColor:#000000
+</td></tr>
+<tr>
+<td><b>LineWidth</b>
+</td>
+<td> <b>LineWidth:##</b>はポイントサイズで線の幅を設定し、<b>LineWidth:p##</b>はプロット線サイズのパーセントで線の幅を表示します（100%を超える値も設定可）。
+</td>
+<td> LineWidth:1.5<br />LineWidth:p100
+</td></tr>
+<tr>
+<td><b>Length</b>
+</td>
+<td><b>Length:##</b>はポイントサイズで線分の長さを設定します。 <b>Length:p##</b>は <a class="external text" href="../../UserGuide/UserGuide/The_(Plot_Details)_Legends_Titles_Tab.html#Indicate_Active_Dataset">アクティブデータセットの標識</a>の幅のパーセントで設定します（100%を超える値も設定可）。
+</td>
+<td> Length:100<br />Length:p200
+</td></tr>
+<tr>
+<td> <b>BeginArrowShape</b>
+</td>
+<td> <b>BeginArrowShape:<i>&lt;keyword&gt;</i></b>は矢印の始端 (左側) の形状を設定します。次のものが利用できます。Filled, Empty, Stealth, FilledReverse, EmptyReverse, StealthReverse, Stick, Cross, Diamond, Rectangle, Ellipse, StickUp, StickDown
+</td>
+<td> BeginArrowShape:Diamond
+</td></tr>
+<tr>
+<td> <b>BeginArrowWidth</b>
+</td>
+<td> <b>BeginArrowWidth:<i>##</i></b>は、矢印の始端 (左側) の矢印幅をポイントサイズで設定します。
+</td>
+<td> BeginArrowWidth:8.0
+</td></tr>
+<tr>
+<td> <b>BeginArrowLength</b>
+</td>
+<td> <b>BeginArrowLength:<i>##</i></b>は、矢印の始端 (左側) の矢印の先端の長さをポイントサイズで設定します。
+</td>
+<td> BeginArrowLength:12.0
+</td></tr>
+<tr>
+<td><b>ArrowShape</b>
+</td>
+<td> <b>ArrowShape:<i>&lt;keyword&gt;</i></b>は矢印の終端(右側)の形状を設定します。次のものが利用できます。Filled, Empty, Stealth, FilledReverse, EmptyReverse, StealthReverse, Stick, Cross, Diamond, Rectangle, Ellipse, StickUp, StickDown
+</td>
+<td> ArrowShape:Diamond
+</td></tr>
+<tr>
+<td><b>ArrowWidth</b>
+</td>
+<td><b>ArrowWidth:<i>##</i></b>矢印の終端(右側)の矢印の幅をポイントサイズで設定します。
+</td>
+<td> ArrowWidth:8.0
+</td></tr>
+<tr>
+<td><b>ArrowLength</b>
+</td>
+<td><b>ArrowLength:<i>##</i></b>矢印の終端(右側)の矢印の長さをポイントサイズで設定します。
+</td>
+<td> ArrowLength:12.0
+</td></tr></table>
+<h3><a name="Options_for_Constructing_Blocks"></a><span class="mw-headline">ブロックを構築するためのオプション</span></h3>
+<p>次の表は、ブロックスタイルのプロットシンボルの作成に使用する構文を説明しています。 
+</p><p>線、線+シンボル、および線スタイルのプロットシンボルに使用される構文とは、いくつかの点で大きな違いがあります。
+</p>
+<ul><li> <b>\L(O</b> 構文は、このスタイルのプロットシンボルではサポートされていません。代わりに、<b>\L(1,</b> 構文を使用します。</li>
+<li> <b>\L(1,</b>構文は親データプロットなしでシンボルを作成することができません。<b>\L(O</b>構文では、空のグラフウィンドウの凡例オブジェクトにシンボルを追加できますが、<b>\L(1,</b>構文は、適切なタイプの既存のデータプロット（つまり、縦棒グラフなどの作図の詳細ダイアログの<b>パターン</b>タブを使用するプロット）で開始する必要があります。したがって、凡例に追加するシンボルは、実際には既存のプロットシンボルの修正であり、完全に新しいものではありません。</li>
+<li> <b>\L(O</b> 構文はカンマ区切りのリストを使用するのに対し、<b>\L(1,</b> 構文はスペース区切りのリストを使用します。</li></ul>
+<p><br />
+<i><b>サンプル：</b></i>
+プロパティはスペース区切りのリストで組み合わせることができます。
+</p>
+<pre class="lt" style="font-family:monospace;">\L<span style="color: #000000;">(</span><span style="color: #0000dd;">1</span>, PatternScale<span style="color: #000000;">:</span>p200 PatternFill<span style="color: #000000;">:</span><span style="color: #0000dd;">2</span> BorderStyle<span style="color: #000000;">:</span>Dash BorderColor<span style="color: #000000;">:</span><span style="color: #0000dd;">4</span> BorderThick<span style="color: #000000;">:</span><span style="color: #0000dd;">2</span> Width<span style="color: #000000;">:</span><span style="color: #0000dd;">40</span> Height<span style="color: #000000;">:</span><span style="color: #0000dd;">40</span><span style="color: #000000;">)</span></pre>
+<table class="simple" width="95%">
+<tr>
+<th width="25%">プロパティ
+</th>
+<th width="45%">オプション
+</th>
+<th width="30%">例
+</th></tr>
+<tr>
+<td> <b>Pattern</b>
+</td>
+<td> <b>Pattern:##</b> はインデックス番号でパターンを設定します。1から始まります。
+</td>
+<td> Pattern:5
+</td></tr>
+<tr>
+<td> <b>PatternColor</b>
+</td>
+<td> <b>PatternColor:<i>##</i></b>または<b>PatternColor:<i>&lt;htmlColor&gt;</i></b>はパターンの色を設定します。<a href="../../LabTalk/LabTalk/List_of_Colors.html" title="LabTalk:List of Colors">LabTalkカラーインデックス</a>またはHTMLのカラーコードで指定できます。
+</td>
+<td> PatternColor:6<br />PatternColor:#FF00FF
+</td></tr>
+<tr>
+<td> <b>PatternFill</b>
+</td>
+<td> <b>PatternFill:<i>##</i></b>または<b>PatternFill:<i>&lt;htmlColor&gt;</i></b>はブロック内部の色を設定します。<a href="../../LabTalk/LabTalk/List_of_Colors.html" title="LabTalk:List of Colors">LabTalkカラーインデックス</a>またはHTMLのカラーコードで指定できます。
+</td>
+<td> PatternFill:5<br />PatternFill:#81F7F3
+</td></tr>
+<tr>
+<td> <b>BorderStyle</b>
+</td>
+<td> <b>BorderStyle<i>&lt;keyword&gt;</i></b> は境界線のスタイルを設定します。次のものが利用できます。 Solid, Dash, Dot, DashDot, DashDotDot, ShortDash, ShortDot, ShortDashDot
+</td>
+<td> BorderStyle:Dash
+</td></tr>
+<tr>
+<td> <b>BorderColor</b>
+</td>
+<td> <b>BorderColor:<i>##</i></b>または<b>BorderColor:<i>&lt;htmlColor&gt;</i></b>はブロック内部の色を設定します。<a href="../../LabTalk/LabTalk/List_of_Colors.html" title="LabTalk:List of Colors">LabTalkカラーインデックス</a>またはHTMLのカラーコードで指定できます。
+</td>
+<td>  BorderColor:16<br />BorderColor:#8000FF
+</td></tr>
+<tr>
+<td> <b>BorderThick</b>
+</td>
+<td> <b>BorderThick:##</b> デフォルトの太さの倍数で縁の太さを設定します。
+</td>
+<td> BorderThick:2
+</td></tr>
+<tr>
+<td> <b>PatternWidth</b>または<b>Width</b>
+</td>
+<td> <b>PatternWidth:p<i>##</i></b>または<b>Width:p<i>##</i></b> は<a class="external text" href="../../UserGuide/UserGuide/The_(Plot_Details)_Legends_Titles_Tab.html#Indicate_Active_Dataset">アクティブデータセットの標識</a>のパーセントでブロック幅を設定します（最大幅 = 100%）。
+</td>
+<td> PatternWidth:40
+</td></tr>
+<tr>
+<td> <b>PatternHeight</b>または<b>Height</b>
+</td>
+<td> <b>Height:p##</b>  <a class="external text" href="../../UserGuide/UserGuide/The_(Plot_Details)_Legends_Titles_Tab.html#Indicate_Active_Dataset">アクティブデータセットの標識</a>のパーセントでブロックの高さを指定します。 (最大値 = 100%)
+</td>
+<td> PatternHeight:20
+</td></tr></table>
+<h3><a name="Old_Syntax_for_Adding_Symbols_Not_Used_in_Plots_.28v2017_and_earlier.29"></a><span class="mw-headline">プロットで使用されていないシンボルを追加するための以前の構文(v2017以前)</span></h3>
+<p>ある程度の忍耐が必要ですが、プロットされたデータとは関係のない凡例シンボルを作成できます。
+</p><p>次の4種類の構文は、使用するシンボルの種類に応じて、さまざまな場面で使用できます。
+</p>
+<table class="simple">
+<tr>
+<td><b>\L(O <i>SymEdgeColor</i>,<i>Sym</i>,<i>Fill</i>,<i>Size</i>,<i>ColorLn</i>,<i>LineStyle</i>,<i>Gap</i>,<i>LnWidth</i>,<i>SymFillColor</i>,<i>EdgeThickness</i>)</b>
+</td></tr>
+<tr>
+<td><b>\L(S 0, <i>Sym</i>, <i>Fill</i>, <i>SymEdgeColor</i>, <i>SymFillColor</i>, <i>Size</i>, <i>LineStyle</i>, <i>ColorLn</i>, <i>LnWidth</i>, <i>Gap</i>, <i>EdgeThickness</i>)</b>
+</td></tr>
+<tr>
+<td><b>\L(S 1, <i>SymIndex</i>, <i>SymEdgeColor</i>, <i>Size</i>,  ,  , <i>LineStyle</i>,<i>ColorLn</i>, <i>LnWidth</i>, <i>Gap</i>)</b>
+</td></tr>
+<tr>
+<td><b>\L(S 1,<i>CharIndex</i>,<i>CharColor</i>,<i>Size</i>,<i>Font</i>,<i>FontStyle</i>,<i>LineStyle</i>,<i>ColorLn</i>, <i>LnWidth</i>, <i>Gap</i>)</b>
+</td></tr></table>
+<p><b>Note:</b> <b>\L(S )</b>構文を使用する場合、最初の変数を0として定義した場合には、Originの組み込みのシンボルを使用することを意味し、1と定義した場合には、<a class="external text" href="../../UserGuide/UserGuide/The_(Options)_Graph_Tab.html#User-defined_Symbols_Grid">ユーザ定義シンボル</a>もしくはASCII文字を使用することを意味します。
+</p><p>それぞれの変数の定義は下記のリストのようになっています:
+</p>
+<table class="simple">
+<tr>
+<th width="155">引数
+</th>
+<th> 説明
+</th></tr>
+<tr>
+<td> SymEdgeColor
+</td>
+<td> <a href="../../LabTalk/LabTalk/List_of_Colors.html" title="LabTalk:List of Colors">Originのカラーインデックス</a>: 1...24(1=黒,2=赤,...)もしくはユーザ定義カラーがあれば24...40から<br />HTMLのカラーコード: #ff0000 など（<a href="../../LabTalk/LabTalk/Color_(function).html" title="LabTalk:Color (function)">the color() 関数</a>を使用する場合はダブルクォーテーションで囲む必要はありません。）から
+</td></tr>
+<tr>
+<td> Sym
+</td>
+<td> Originの形状番号を使ってシンボルを指定します。（0 = シンボルなし、1 = 正方形、2 = 丸、3 = 三角、4 = 逆三角、5 = 菱形、6 = 十字(+)、7 = エックス(×)、8 = アスタリスク(*)、9 = 横棒(-)、10 = 縦棒(|)、11 = 数字(1234...)、12 = 大文字(ABCD...)、13 = 小文字(abcd...)、14 = 右矢印(→)、15 = 左三角、16 = 右三角、17 = 六角形、18 = 星、19 = 五角形、20 = 球）
+</td></tr>
+<tr>
+<td> Fill
+</td>
+<td> シンボル内側を指定するOriginの番号から選んで塗りつぶします。（0=単色、1=空白、2=中央に点、3=枠のみ、4=＋中央、5=×中央、6=－中央、7=｜中央、8=上半分塗り、9=右半分塗り、10=下半分塗り、11=左半分塗り)
+</td></tr>
+<tr>
+<td> Size
+</td>
+<td> ポイントのシンボルサイズ
+</td></tr>
+<tr>
+<td> ColorLn
+</td>
+<td> Originのカラー番号かHTMLのカラーコードで指定します（SymEdgeColor　をご覧ください）
+</td></tr>
+<tr>
+<td> LineStyle
+</td>
+<td> Originの線種から線種を指定します。（0=実線, 1=破線, 2=点線, 3=1点鎖線, 4=2点鎖線, 5=短い破線, 6=短い点線, 7=短い1点鎖線）
+</td></tr>
+<tr>
+<td> Gap
+</td>
+<td> シンボルサイズのパーセントでシンボルと線分の間隔を設定します。
+</td></tr>
+<tr>
+<td> LnWidth
+</td>
+<td> ポイントの線分の太さを指定します。
+</td></tr>
+<tr>
+<td> SymFillColor
+</td>
+<td> Originのカラー番号かHTMLのカラーコードで指定します（SymEdgeColor　をご覧ください）
+</td></tr>
+<tr>
+<td> EdgeThickness
+</td>
+<td> 0から100までのパーセントでシンボルの枠の太さを指定します。
+</td></tr>
+<tr>
+<td> SymIndex
+</td>
+<td> <a class="external text" href="../../UserGuide/UserGuide/The_(Options)_Graph_Tab.html#User-defined_Symbols_Grid">ユーザ定義シンボル</a>にあるユーザ定義のシンボルの順序を指定します。1から31の整数で入力できます。
+</td></tr>
+<tr>
+<td> CharIndex
+</td>
+<td> 文字のASCIIコードを指定します。32から255の整数で入力できます。
+</td></tr>
+<tr>
+<td> CharColor
+</td>
+<td> ASCII文字の色番号を指定します。(SymEdgeColor　をご覧ください)
+</td></tr>
+<tr>
+<td> Font
+</td>
+<td> フォントリストから特定のフォントのインデックス番号を指定します。インデックス番号を取得したい場合には、<b>スクリプトウィンドウ</b> もしくは <b>コマンドウィンドウ</b>で <b>font(<i>fontname</i>)=</b> を実行してください。
+</td></tr>
+<tr>
+<td> Font Style
+</td>
+<td> フォントスタイルのインデックス番号を指定します。（下線、イタリック、太字）0=スタイルなし, 1= 下線のみ, 2=イタリックのみ, 3=下線＋イタリック, 4=太字のみ, 5=下線＋太字, 6=イタリック＋太字, 7=下線＋イタリック＋太字
+</td></tr></table>
+<table class="noborder"><tr>
+	<td style="vertical-align:top" width="60"><img src="../images/Legend_Substitution_Notation/Tip_icon.png" width="57"  border="0" /></td><td><p>1つの変数を空のままにすると、この変数にはデフォルト値が使用されます。構文 <b>\L(O <i>SymEdgeColor</i>,<i>Sym</i>,<i>Fill</i>,)</b> は <i>Fill</i>　のあとのすべての変数にデフォルトの値を使用します。
+</p><p><a href="../../LabTalk/LabTalk/String_Substitution.html#Worksheet_Column_and_Cell_Substitutionsubstitution.2C_worksheet_column.2Fcellworksheet.2C_column_and_cell_substitution" title="LabTalk:String Substitution">これらのワークシートセルへのアクセス表記</a>を使ってワークシートセルの値を使用した1つの変数を定義することもできます。
+</p></td></tr></table>
+<p>線の凡例シンボルを作成する場合、より簡単な構文があります。
+</p><p><b>\L(L <i>Color</i>, <i>Thickness</i>, <i>Style</i>)</b>
+</p>
+<table class="simple">
+<tr>
+<th width="155">引数
+</th>
+<th> 説明
+</th></tr>
+<tr>
+<td> Color
+</td>
+<td> Originのカラーインデックス: 1...24(1=黒,2=赤,...)もしくはユーザ定義カラーがあれば24...40から線の色を指定します。
+</td></tr>
+<tr>
+<td> Thickness
+</td>
+<td> ポイントの線分の太さを指定します。
+</td></tr>
+<tr>
+<td> Style
+</td>
+<td> Originの線種から線種を指定します。（0=実線, 1=破線, 2=点線, 3=1点鎖線, 4=2点鎖線, 5=短い破線, 6=短い点線, 7=短い1点鎖線）
+</td></tr></table>
+<h2><a name="Other_Legend_Customizations"></a><span class="mw-headline">その他凡例のカスタマイズ</span></h2>
+<h3><a name="Special_Formatting_of_Legend_Text"></a><span class="mw-headline">凡例テキストの特殊なフォーマット</span></h3>
+<p><a class="external text" href="../../UserGuide/UserGuide/Escape_Sequences.html#Available_text_formatting_commands">エスケープシーケンス</a>を使ってテキストフォーマットをカスタマイズできます。よく使用されるいくつかの例を以下に示します:
+</p>
+<table class="simple">
+<tr>
+<th>使用構文
+</th>
+<th> フォーマットテキスト
+</th>
+<th> 例
+</th></tr>
+<tr>
+<td> \+(text)
+</td>
+<td> 上付き文字
+</td>
+<td>&nbsp;%(1)\+(2)
+</td></tr>
+<tr>
+<td> \-(text)
+</td>
+<td> 下付き文字
+</td>
+<td>&nbsp;%(1)\-(n)
+</td></tr>
+<tr>
+<td> \g(text)
+</td>
+<td> ギリシャ文字
+</td>
+<td> \g(m)
+</td></tr>
+<tr>
+<td> \b(text)
+</td>
+<td> 太字
+</td>
+<td> \b(Important)
+</td></tr>
+<tr>
+<td> \i(text)
+</td>
+<td> イタリック
+</td>
+<td> \i(%(1))
+</td></tr>
+<tr>
+<td> \u(text)
+</td>
+<td> 下線
+</td>
+<td> \u(%(1X,@L))
+</td></tr>
+<tr>
+<td> \sc
+</td>
+<td> 複数の連続スペースの場合でも、1つの水平スペース
+</td>
+<td> \b(%(1Y,@LL)\sc%(1Y,@LD3)\sc%(1Y,@LD4)\sc(%(1Y,@LU)))
+</td></tr></table>
+<h3><a name="Legend_Element_Alignment"></a><span class="mw-headline">凡例要素の配置</span></h3>
+<table class="note">
+<tr>
+<td><b>Note:</b> 以下の情報によって凡例要素をより柔軟に配置できる<i>場合があります</i>。凡例テキストを右揃えにすることに関心がある場合は、 <a class="external text" href="../../QuickHelp/QuickHelp/How_to_change_the_alignment_of_legend_into_right.html">このFAQ</a>を参照してください。
+</td></tr></table>
+<p><br />
+凡例シンボルとテキストの配置プロパティを指定するには、グラフをアクティブにして、<b>スクリプトウィンドウ</b>で以下のスクリプトを実行する必要があります。
+</p>
+<pre class="lt" style="font-family:monospace;">legend.<span style="color: #000080;">align</span><span style="color: #000080;">=</span><span style="color: #0000dd;">1</span>;   <span style="color: #008000;">//配置モードをオンに</span></pre>
+<p>次に、凡例を右クリックして <b>プロパティ</b>を選択してダイアログを開き、セルアンカーとして<b>\^()</b>を追加します。これによりアンカー右側にあるオブジェクトの配置が設定されます。<b>\^(l), \^(c), \^(r)</b>はそれぞれ左、中央、右に配置する設定です。次に例を示します:
+</p>
+<dl><dd><a  class="image"><img alt="Alignment 1.png" src="../images/Legend_Substitution_Notation/Alignment_1.png" width="643"  /></a></dd></dl>
+<p>OKをクリックすると、ダイアログのプレビューにあったものと同じ凡例が表示されます。
+</p><p>または、Ctrlキーを押しながらドラッグして、凡例を再配置することもできます:
+</p>
+<dl><dd><a  class="image"><img alt="Arrange Legend.gif" src="../images/Legend_Substitution_Notation/Arrange_Legend.gif" width="300"  /></a></dd></dl>
+<table class="note">
+<tr>
+<td><b>Note:</b> Origin2020b以降には、テキストを簡単に整列できるように<b>テキストオブジェクト-凡例</b>ダイアログの<b>テキスト</b>タブに<b>テキストを整列</b>するドロップダウンリストがあります。<br />
+<p><a  class="image"><img alt="Text Object AlignTextButton.png" src="../images/Legend_Substitution_Notation/450px-Text_Object_AlignTextButton.png" width="643"   /></a>
+</p>
+</td></tr></table>
+<p>たとえば、Ctrl +ドラッグを使用すると、現在の凡例行の右側に凡例オブジェクトを作成できます。この場合、シンボルとテキストの間に<b>\^(l), \^(c), \^(r)</b>の代わりに <b>\^(lu), \^(cc), \^(ru)</b>を使用する必要があります。
+</p>
+<dl><dd><a  class="image"><img alt="Alignment 2.png" src="../images/Legend_Substitution_Notation/650px-Alignment_2.png" width="650"   /></a></dd></dl>
+<p>このように、プロットと特別なポイントの凡例アイテムは、以下に示すように、Ctrlキーを押しながらドラッグして再配置すると1つのグループとして扱われます:
+</p>
+<dl><dd><a  class="image"><img alt="Alignment 3.png" src="../images/Legend_Substitution_Notation/600px-Alignment_3.png" width="600"   /></a></dd></dl>
+<p>それ以外の場合、Ctrlキーを押しながらドラッグして再配置すると、シンボルと対応するテキストが分離されます。
+</p>
+<dl><dd><a  class="image"><img alt="Alignment 4.png" src="../images/Legend_Substitution_Notation/750px-Alignment_4.png" width="750"   /></a></dd></dl>
+
+
+    

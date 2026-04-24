@@ -1,0 +1,185 @@
+﻿<h1 class="firstHeading">その他のオプション</h1><p class='urlname' style='display: none'>Worksheet_Options_Other</p>
+<p><br />
+</p>
+<h2><a name="-b"></a><span class="mw-headline">-b</span></h2>
+<p><b>構文：</b> worksheet <b>-b</b> <i>winName</i> [<i>TemplateName</i>]
+</p><p><i>winName</i>で始まる最初のワークシートを取得します。
+</p>
+<ol><li>指定したウィンドウが見つかった場合、<i>TemplateName</i>は無視されます。</li>
+<li><i>TemplateName</i>が省略された場合、<i>winName</i>もテンプレート名とみなされます。</li>
+<li>指定したウィンドウが見つからない場合は、<i>TemplateName</i>という名前のテンプレートファイルを探して開きます。 </li>
+<li>テンプレートファイルが見つからない場合は、ORIGIN.OTWを開きます。</li>
+<li>ORIGIN.OTWが見つからない場合は、ウィンドウを新規に作成し、<i>winName</i>という名前を付けて列挙します。</li></ol>
+<pre class="lt" style="font-family:monospace;"><span style="color: #008000;">//3つのワークブック&quot;Book1&quot;, &quot;Test1&quot; , &quot;Test2&quot;を作成し、&quot;Test1&quot;をアクティブ化</span>
+worksheet <span style="color: #000080;">-</span>b book1; <span style="color: #008000;">//ワークブックbook1がアクティブ化される</span>
+worksheet <span style="color: #000080;">-</span>b t; <span style="color: #008000;">//ワークブックTest1がアクティブ化される</span>
+worksheet <span style="color: #000080;">-</span>b AA; <span style="color: #008000;">//&quot;AA&quot;という名前の新規ワークブックを作成・アクティブ化</span></pre>
+<h2><a name="-cdf"></a><span class="mw-headline">-cdf</span></h2>
+<p><b>構文：</b> worksheet <b>-cdf</b>
+</p><p>アクティブなワークシートで、ワークシート全体または列全体で書式設定をクリーンアップします。
+</p><p>このコマンドでは、個々のワークシートセルの書式設定はクリアされないことに注意してください。
+</p>
+<h2><a name="-cof"></a><span class="mw-headline">-cof</span></h2>
+<p><b>構文：</b> worksheet <b>-cof</b>
+</p><p>アクティブなワークシートで、非<a class="external text" href="../../UserGuide/UserGuide/Column_Short_Name_Restriction.html">SCN (スプレッドシートセル表記)</a>列の数式をSCNに変換します。そうでない場合はSCNがオンになります。
+</p><p>このコマンドは式を変換するだけで、実行しないことに注意してください。
+</p>
+<h2><a name="-crr"></a><span class="mw-headline">-crr</span></h2>
+<p><b>構文：</b> worksheet <b>-crr</b>
+</p><p>テーブル（グラフウィンドウに挿入されたワークシートテーブルまたは中間テーブル）で、セルの背景色を塗りつぶすことにより、古い帯付き行フォーマットをクリアします。
+</p><p><b>Note: </b>クリア後に中間テーブルのフォーマットが乱れた場合、<a href="../../LabTalk/LabTalk/System_Variable_List.html#U.2CV.2CW" title="LabTalk:システム変数リスト">@WEF = 1</a>を設定して<b>フォーマット編集</b>ダイアログ（テーブルウィンドウのタイトルバーを右クリック）を開いてリセットすることができます。
+</p>
+<h2><a name="-e"></a><span class="mw-headline">-e</span></h2>
+<p><b>構文：</b> worksheet <b>-e</b> <i>dialogbox</i>
+</p><p>指定したワークシート<i>dialogbox</i>を開きます。<i>dialogbox</i>の値は以下の通りです。  
+</p>
+<table class="note">
+
+<tr>
+<td><b>Note: </b><b>フォーマット</b>には列を選択する必要があります。<a href="../../LabTalk/LabTalk/Wks_(object).html#methods:" title="LabTalk:Wks (object)"><b>wks.colSel()</b></a>オブジェクトメソッドを使用します。
+</td></tr></table>
+<p><span class="note">ASCII -- データ用のASCIIインポートオプション</span>ダイアログボックス。
+<span class="note">DisplayControl --ワークシート表示コントロール</span>ダイアログボックス。
+<span class="note">Format -- ワークシートの列フォーマットダイアログ</span>ボックス(最初に列を選択)。
+<span class="note">Par --インポート検証</span>ダイアログボックス。
+<span class="note">Script -- ワークシートスクリプト</span>ダイアログボックス。ユーザーが<b>実行</b>ボタンをクリックすると、iは1に設定されます。  ユーザーが<b>更新</b>ボタンをクリックすると、iは0に設定されます。
+</p>
+<pre class="lt" style="font-family:monospace;">worksheet <span style="color: #000080;">-</span>e script; <span style="color: #008000;">//ワークシートスクリプトダイアログを開く</span>
+<span style="color: #008000;">//ダイアログに次のスクリプトを入力</span>
+<span style="color: #008000;">//   worksheet -c;</span>
+<span style="color: #008000;">//   nn=wks.ncols;</span>
+<span style="color: #008000;">//   wcol(nn)=data(1,10);</span>
+<span style="color: #008000;">//「更新」ボタンを押す</span>
+worksheet <span style="color: #000080;">-</span>dr Test; <span style="color: #008000;">//&quot;Test&quot;という名前の3列のワークブックが新規作成される</span>
+                    <span style="color: #008000;">//C列の値は Col(C)={1,2,...,10}</span></pre>
+<h2><a name="-es"></a><span class="mw-headline">-es</span></h2>
+<p><b>構文：</b> worksheet <b>-es</b>
+</p><p>選択が失敗したときにワークシートの範囲選択動作をリセットする：<br />
+完全に理解されていない理由で、ワークシート内の範囲選択が無効になることがあります。列ヘッダをダブルクリックしての列選択や、ワークシート内のセル範囲の選択ができない場合があります。スクリプトウィンドウ（メニューの「ウィンドウ：スクリプトウィンドウ」）を開き、問題のあるワークシートをアクティブにして次のコマンドを実行すると、問題が修正され、正しい選択動作が復元されます。
+</p><p>Origin 2018b以降では、このコマンドは以前に保存したウィンドウやプロジェクトを読み込むときに実行され、問題の発生を防ぐ必要があります。
+</p>
+<h2><a name="-fp"></a><span class="mw-headline">-fp</span></h2>
+<p><b>構文：</b> worksheet <b>-fp</b>
+</p><p><a class="external text" href="../../GettingStarted/OriginLab/Workbooks_Worksheets_Columns.html#Freeze_rows_or_columns_in_the_worksheet">GUI</a>または<a href="../../LabTalk/LabTalk/Wks_(object).html#PropertiesWorksheet_Property" title="LabTalk:Wks (object)"><b>wks.frozen$</b></a>で設定されたフリーズペインを切り替えます。
+</p>
+<pre class="lt" style="font-family:monospace;">work <span style="color: #000080;">-</span>fp; <span style="color: #008000;">// フリーズペインをオンに</span>
+work <span style="color: #000080;">-</span>fp <span style="color: #0000dd;">0</span>; <span style="color: #008000;">// フリーズペインをオフに</span></pre>
+<h2><a name="-frd"></a><span class="mw-headline">-frd</span></h2>
+<p><b>構文：</b> worksheet <b>-frd</b>
+</p><p>アクティブシート内の重複を修正：<br />
+名前が配置されている列と一致するものを除くすべての重複を新規の空のデータセットに取得します。
+</p>
+<h2><a name="-gd_pb.3B_Custom_Page_Breaks"></a><span class="mw-headline">-gd pb; Custom Page Breaks</span></h2>
+<p><b>構文：</b> worksheet <b>-gb pb -i/m(r/c)</b> rowcol [rowcol2]
+</p><p>カスタム改ページ：<br />
+最初に<b>表示</b>メニューから改ページを表示するようにワークシートを設定するか、スクリプト<b>wo -q 1</b>を使用します。
+</p>
+<pre class="lt" style="font-family:monospace;"><span style="color: #008000;">//最初に「表示」メニューから改ページを有効にする</span>
+<span style="color: #008000;">// insert -ir -ic でカスタム改ページを追加</span>
+wo <span style="color: #000080;">-</span>gd pb <span style="color: #000080;">-</span>ir <span style="color: #0000dd;">12</span>;<span style="color: #008000;">//12行目に挿入</span>
+<span style="color: #008000;">//既知の場所へ改ページを移動</span>
+wo <span style="color: #000080;">-</span>gd pb <span style="color: #000080;">-</span>mr <span style="color: #0000dd;">12</span> <span style="color: #0000dd;">14</span>;<span style="color: #008000;">//12行目から14行目へ移動</span></pre>
+<h2><a name="-q"></a><span class="mw-headline">-q</span></h2>
+<p><b>構文：</b> worksheet <b>-q</b> <i>n</i>
+</p><p>現在のワークシートの改ページ表示のオン/オフを切り替えます。
+</p>
+<pre class="lt" style="font-family:monospace;">wo <span style="color: #000080;">-</span>q <span style="color: #0000dd;">1</span>;<span style="color: #008000;">//改ページを表示</span>
+wo <span style="color: #000080;">-</span>q <span style="color: #0000dd;">0</span>;<span style="color: #008000;">//改ページを非表示</span></pre>
+<h2><a name="-r"></a><span class="mw-headline">-r</span></h2>
+<p><b>構文：</b> worksheet <b>-r</b>
+</p><p><b>ワークシートスクリプト</b>ダイアログボックスでスクリプトを実行します。<br />
+ワークブックがアクティブな状態で、<b>F4</b>キーを押して<b>ワークシートプロパティ</b>ダイアログを開きます。<b>スクリプト</b>タブに切り替えて、編集ボックスに次のスクリプトコマンドを入力します。<br />
+</p>
+<pre class="lt" style="font-family:monospace;">worksheet <span style="color: #000080;">-</span>a <span style="color: #0000dd;">3</span>;</pre>
+<p><b>OK</b>を押してダイアログを閉じ、スクリプトを保存します。スクリプトウィンドウに移動し、次を入力します。
+</p>
+<pre class="lt" style="font-family:monospace;">worksheet <span style="color: #000080;">-</span>r;</pre>
+<p>ワークシートスクリプトが実行され、ワークシートに3つの列が追加されます。
+</p>
+<h2><a name="-rf"></a><span class="mw-headline">-rf</span></h2>
+<p><b>構文：</b> worksheet <b>-rf</b> <i>columns</i>
+</p><p>ワークシートの列の値の設定の修復：<br />
+ <a class="external text" href="../../UserGuide/UserGuide/Quick_Start_SetColumnValues.html">値の設定</a>の操作が多いプロジェクトでは、問題が発生することがあります。このコマンドは正しい入力を再確立し、<a class="external text" href="../../UserGuide/UserGuide/Recalculating_Analysis_Results.html">オペレーションロック</a>の欠落などを復元できます。
+</p>
+<pre class="lt" style="font-family:monospace;">work <span style="color: #000080;">-</span>rf <span style="color: #000080;">*</span>; <span style="color: #008000;">//すべての数式を修復 </span>
+work <span style="color: #000080;">-</span>rf G; <span style="color: #008000;">//col(G)の数式を修復</span></pre>
+<h2><a name="-rr"></a><span class="mw-headline">-rr</span></h2>
+<p><b>構文：</b> worksheet <b>-rr</b>
+</p><p>レポートシートがアクティブな状態で、このコマンドを実行して、レポートシート内の空のUIDデータ参照を持つ範囲を回復します。
+</p>
+<h2><a name="-rri"></a><span class="mw-headline">-rri</span></h2>
+<p><b>構文：</b> worksheet <b>-rri</b>
+</p><p>レポートシートがアクティブな状態で、このコマンドを実行して、レポートシート内の空のUIDデータ参照を持つ範囲を回復します。さらに同じシート内に出力がある操作の入力も回復します（推測が含まれるため、必ずしも信頼できるとは限りません）。
+</p>
+<h2><a name="-s"></a><span class="mw-headline">-s</span></h2>
+<p><b>構文：</b> worksheet <b>-s</b> <i>c1 r1 c2 r2</i>
+</p><p>指定した範囲を現在のワークシートの選択範囲に設定します。列全体を選択するには、<i>r1</i>と<i>r2</i>をゼロに設定します。  行全体を選択するには、<i>c1</i>と<i>c2</i>をゼロに設定します。範囲が指定されていない場合は、全てを選択解除します。
+</p>
+<table class="note">
+
+<tr>
+<td><b>Note: </b>列全体を選択する場合は、「<a href="../../LabTalk/LabTalk/Wks_(object).html#Methods" title="LabTalk:Wks (object)">wks.colSel(<i>colnumber</i>,<i>n</i>)</a> メソッドを使用する(列選択のみ)」を参照してください。
+</td></tr></table>
+<p>次のスクリプトはdata1ワークシートの選択範囲を設定し、このデータを散布図テンプレートにプロットします。次に、スクリプトはワークシートに新しい選択範囲を設定し、データを2番目のグラフウィンドウにプロットします。
+</p>
+<pre class="lt" style="font-family:monospace;">win <span style="color: #000080;">-</span>a data1;  <span style="color: #008000;">//data1をアクティブ化</span>
+worksheet <span style="color: #000080;">-</span>s <span style="color: #0000dd;">2</span> <span style="color: #0000dd;">0</span> <span style="color: #0000dd;">2</span> <span style="color: #0000dd;">0</span>;  <span style="color: #008000;">//列2を選択</span>
+worksheet <span style="color: #000080;">-</span>p <span style="color: #0000dd;">201</span> scatter;  <span style="color: #008000;">//散布図テンプレートにプロット</span>
+win <span style="color: #000080;">-</span>a data1;  <span style="color: #008000;">//data1を再度アクティブ化</span>
+worksheet <span style="color: #000080;">-</span>s <span style="color: #0000dd;">3</span> <span style="color: #0000dd;">0</span> <span style="color: #0000dd;">3</span> <span style="color: #0000dd;">0</span>;  <span style="color: #008000;">//列3を選択</span>
+worksheet <span style="color: #000080;">-</span>p <span style="color: #0000dd;">201</span> scatter;  <span style="color: #008000;">//散布図テンプレートにプロット</span></pre>
+<h2><a name="-scf"></a><span class="mw-headline">-scf</span></h2>
+<p><b>構文：</b> worksheet <b>-scf</b> <i>[FILTERSTYLE]</i>
+</p><p>選択した範囲の指定されたセルフォーマット<i>FILTERSTYLE</i>をクリアします。<i>FILTERSTYLE</i>が指定されていない場合は、すべてのフォーマットがクリアされます。<i>FILTERSTYLE</i>のリストはoc_const.h ファイル（<i>&lt;exe folder&gt;/OriginC/system/</i>）にあります。0からのインデックス番号を使用します。例えば、塗りつぶし色(OFST_Interior)のインデックスは6で、フォント(OFST_Font)は8です。複数の<i>FILTERSTYLE</i>はスペースで区切られています。
+</p>
+<pre class="lt" style="font-family:monospace;">work <span style="color: #000080;">-</span>scf <span style="color: #0000dd;">6</span> <span style="color: #0000dd;">8</span>;  <span style="color: #008000;">// 塗りつぶしの色とフォントをクリア</span></pre>
+<h2><a name="-shdf"></a><span class="mw-headline">-shdf</span></h2>
+<b>構文</b> <pre class="lt" style="font-family:monospace;">worksheet <span style="color: #000080;">-</span>shdf uidShDF <span style="color: #000000;">[</span><span style="color: #000000;">[</span>columnfilter<span style="color: #000000;">]</span><span style="color: #000000;">]</span></pre>
+<p>共有データフィルタ(ShDF)を作成または変更します。共有データフィルタを作成する場合、<i>uidShDF</i>はLabTalk変数の名前であり、作成されたShDFのUIDを受け取ります。共有データフィルタを変更する場合、<i>uidShDF</i>に既存のShDFのuidが含まれます。二重括弧内のテキストは<code>onecolumnfilter,onecolumnfilter, etc</code>, 形式です。ここで<i>onecolumnfilter</i>は<code>colname:filtertype:string defining filter</code>形式の1列のフィルタで、フィルタタイプは次の通りです。
+</p>
+<pre class="oc" style="font-family:monospace;"><span style="color: #0000ff;">enum</span>
+<span style="color: #000000;">{</span>
+COLUMN_FILTER_TYPE_NONE <span style="color: #000080;">=</span> <span style="color: #000040;">-</span><span style="color: #0000dd;">1</span>,
+COLUMN_FILTER_TYPE_CHECK_LIST <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span>,
+COLUMN_FILTER_TYPE_CUSTOM,
+COLUMN_FILTER_TYPE_COMMAND,
+COLUMN_FILTER_TYPE_DATASET_FUNC,
+<span style="color: #000000;">}</span>;</pre>
+<pre class="lt" style="font-family:monospace;">worksheet <span style="color: #000080;">-</span>shdf uidShDF <span style="color: #000000;">[</span><span style="color: #000000;">[</span>d<span style="color: #000000;">:</span><span style="color: #0000dd;">3</span><span style="color: #000000;">:</span><span style="color: #ff00ff;">&quot;between(11,15)&quot;</span><span style="color: #000000;">]</span><span style="color: #000000;">]</span>; <span style="color: #008000;">//column(d)に共有データフィルタを作成</span>
+
+worksheet <span style="color: #000080;">-</span>shdf uid1 <span style="color: #000000;">[</span><span style="color: #000000;">[</span>d<span style="color: #000000;">:</span><span style="color: #0000dd;">3</span><span style="color: #000000;">:</span><span style="color: #ff00ff;">&quot;between(11,15)&quot;</span>,e<span style="color: #000000;">:</span><span style="color: #0000dd;">3</span><span style="color: #000000;">:</span><span style="color: #ff00ff;">&quot;between(1700,2200)&quot;</span><span style="color: #000000;">]</span><span style="color: #000000;">]</span>; <span style="color: #008000;">//2つの列フィルタ</span></pre>
+<p><br />
+</p>
+<h2><a name="-shdfd"></a><span class="mw-headline">-shdfd</span></h2>
+<p><b>構文：</b> worksheet <b>-shdfd</b>
+</p><p>ワークシートに共有データフィルタをダンプします。
+</p>
+<h2><a name="-sl"></a><span class="mw-headline">-sl</span></h2>
+<p><b>構文：</b> worksheet <b>-sl</b> <i>c1 r1 c2 r2</i>
+</p><p>ラベル行セルの範囲を選択します。範囲が指定されていない場合は、現在の選択をクリアします。
+</p>
+<pre class="lt" style="font-family:monospace;">worksheet <span style="color: #000080;">-</span>sl <span style="color: #0000dd;">0</span> <span style="color: #0000dd;">1</span> <span style="color: #0000dd;">0</span> <span style="color: #0000dd;">1</span>; <span style="color: #008000;">// 最初のラベル行を選択</span>
+worksheet <span style="color: #000080;">-</span>sl <span style="color: #0000dd;">1</span> <span style="color: #0000dd;">1</span> <span style="color: #0000dd;">3</span> <span style="color: #0000dd;">3</span>; <span style="color: #008000;">// ラベル行 c1,r1 から c3,r3 を選択</span>
+worksheet <span style="color: #000080;">-</span>sl <span style="color: #008000;">// 現在の選択をクリア</span></pre>
+<h2><a name="-sou_db"></a><span class="mw-headline">-sou db</span></h2>
+<p><b>構文：</b> worksheet <b>-sou db</b>
+</p><p>選択した行の上のワークシート行を削除し、現在の行を一番上に移動します（つまり1行目に設定します）。
+</p>
+<h2><a name="-sou_extend"></a><span class="mw-headline">-sou extend</span></h2>
+<p><b>構文：</b> worksheet <b>-sou extend</b>
+</p><p>セルの現在の選択範囲を列の最後まで拡張します。
+</p>
+<h2><a name="-sou_mr"></a><span class="mw-headline">-sou mr</span></h2>
+<p><b>構文：</b> worksheet <b>-sou mr</b> <i>n</i>
+</p><p>現在選択されている行を<i>n</i>行上または下に移動します。n &gt; 0の場合は下へ移動、n &lt; 0の場合は上へ移動します。
+</p>
+<pre class="lt" style="font-family:monospace;">work <span style="color: #000080;">-</span>sou mr <span style="color: #0000dd;">1</span>;  <span style="color: #008000;">//1行下へ移動</span>
+work <span style="color: #000080;">-</span>sou mr <span style="color: #000080;">-</span><span style="color: #0000dd;">1</span>; <span style="color: #008000;">//1行上へ移動</span></pre>
+
+
+
+
+
+
+
+    

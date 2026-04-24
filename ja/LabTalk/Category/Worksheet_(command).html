@@ -1,0 +1,309 @@
+﻿<h1 class="firstHeading">Worksheet</h1><p class='urlname' style='display: none'>Worksheet-cmd</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>目次</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Brief_Introduction"><span class="tocnumber">1</span> <span class="toctext">はじめに</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Syntax:"><span class="tocnumber">2</span> <span class="toctext">構文</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Options:"><span class="tocnumber">3</span> <span class="toctext">オプション</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#Options_for_Column"><span class="tocnumber">3.1</span> <span class="toctext">列のオプション</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Options_to_Copy.2FDuplicate.2FExtract"><span class="tocnumber">3.2</span> <span class="toctext">コピー/複製/抽出のオプション</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Options_for_Import"><span class="tocnumber">3.3</span> <span class="toctext">インポートのオプション</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="#Options_for_Plot"><span class="tocnumber">3.4</span> <span class="toctext">プロットのオプション</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="#Other_Options"><span class="tocnumber">3.5</span> <span class="toctext">その他のオプション</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-9"><a href="#See_Also:"><span class="tocnumber">4</span> <span class="toctext">関連情報</span></a></li>
+</ul>
+</div>
+
+<h2><a name="Brief_Introduction"></a><span class="mw-headline">はじめに</span></h2>
+<p>このコマンドを使用して、アクティブなワークシートのさまざまなフォーマット設定オプションを設定し、データをプロットします。
+</p>
+<h2><a name="Syntax:"></a><span class="mw-headline"><font color="chocolate">構文</font></span></h2>
+<pre class="lt" style="font-family:monospace;">worksheet  option argument</pre>
+<h2><a name="Options:"></a><span class="mw-headline"><font color="chocolate">オプション：</font></span></h2>
+<h3><a name="Options_for_Column"></a><span class="mw-headline">列のオプション</span></h3>
+<table class="simple">
+<tr>
+<th width="10%">オプション
+</th>
+<th width="80%">説明
+</th></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Worksheet_Options_for_Column.html#-a" title="LabTalk:Worksheet Options for Column">-a</a>
+</td>
+<td>アクティブなワークシートにn列追加
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Worksheet_Options_for_Column.html#-c" title="LabTalk:Worksheet Options for Column">-c</a>
+</td>
+<td>colNameという名前の新しいY列を作成し、ワークシートの最後に追加
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Worksheet_Options_for_Column.html#-f" title="LabTalk:Worksheet Options for Column">-f</a>
+</td>
+<td>colRef列を指定したフォーマットに設定
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Worksheet_Options_for_Column.html#-fd" title="LabTalk:Worksheet Options for Column">-fd</a>
+</td>
+<td>colRef列で使用する小数点以下の桁数を設定
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Worksheet_Options_for_Column.html#-fi" title="LabTalk:Worksheet Options for Column">-fi</a>
+</td>
+<td>colRef列の内部型を指定した値に設定
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Worksheet_Options_for_Column.html#-i" title="LabTalk:Worksheet Options for Column">-i</a>
+</td>
+<td>名前列をワークシートにn+1列として挿入
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Worksheet_Options_for_Column.html#-n" title="LabTalk:Worksheet Options for Column">-n</a>
+</td>
+<td>colRef列の名前をnewNameに変更
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Worksheet_Options_for_Column.html#-so_D" title="LabTalk:Worksheet Options for Column">-so D</a>
+</td>
+<td>ワークシートの列を削除
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Worksheet_Options_for_Column.html#-so_I" title="LabTalk:Worksheet Options for Column">-so I</a>
+</td>
+<td>ワークシートに列を挿入
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Worksheet_Options_for_Column.html#-sou_Y" title="LabTalk:Worksheet Options for Column">-sou Y</a>
+</td>
+<td>列属性を設定
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Worksheet_Options_for_Column.html#-t" title="LabTalk:Worksheet Options for Column">-t</a>
+</td>
+<td>colRef列を指定された列タイプとして設定
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Worksheet_Options_for_Column.html#-v" title="LabTalk:Worksheet Options for Column">-v</a>
+</td>
+<td>名前付きの列が存在することを確認
+</td></tr></table>
+<h3><a name="Options_to_Copy.2FDuplicate.2FExtract"></a><span class="mw-headline">コピー/複製/抽出のオプション</span></h3>
+<table class="simple">
+<tr>
+<th width="10%">オプション
+</th>
+<th width="80%">説明
+</th></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Worksheet_Options_to_Copy.html#-cp" title="LabTalk:Worksheet Options to Copy">-cp</a>
+</td>
+<td>アクティブなワークシートで選択したデータをプロット用にクリップボードにコピー
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Worksheet_Options_to_Copy.html#-d" title="LabTalk:Worksheet Options to Copy">-d</a>
+</td>
+<td>アクティブなブワークックをwksNameという名前の新しいワークブックに複製し、新しいワークシートをアクティブ化
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Worksheet_Options_to_Copy.html#-da" title="LabTalk:Worksheet Options to Copy">-da</a>
+</td>
+<td>アクティブなワークブックをwksNameという名前の新しいワークブックに複製（元のワークブックはアクティブ化されたまま）
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Worksheet_Options_to_Copy.html#-dr" title="LabTalk:Worksheet Options to Copy">-dr</a>
+</td>
+<td>アクティブなワークブックを新しいワークブックに複製し、アクティブなワークシートのワークシートスクリプトを実行
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Worksheet_Options_to_Copy.html#-qa" title="LabTalk:Worksheet Options to Copy">-qa</a>
+</td>
+<td>指定されたSQLクエリに一致する列を抽出し、アクティブなワークブックに配置
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Worksheet_Options_to_Copy.html#-qn" title="LabTalk:Worksheet Options to Copy">-qn</a>
+</td>
+<td>指定されたSQLクエリに一致する列を抽出し、新規のワークブックに配置
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Worksheet_Options_to_Copy.html#-tc" title="LabTalk:Worksheet Options to Copy">-tc</a>
+</td>
+<td>アクティブなワークシートをHTML/EMFテーブルとしてコピー
+</td></tr></table>
+<h3><a name="Options_for_Import"></a><span class="mw-headline">インポートのオプション</span></h3>
+<table class="simple">
+<tr>
+<th width="10%">オプション
+</th>
+<th width="80%">説明
+</th></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Worksheet_Options_for_Import.html#-k" title="LabTalk:Worksheet Options for Import">-k</a>
+</td>
+<td>ASCIIデータのインポート時にn行のヘッダをスキップ
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Worksheet_Options_for_Import.html#-kl" title="LabTalk:Worksheet Options for Import">-kl</a>
+</td>
+<td>ASCIIデータのインポート時に列ラベルに最大n行のヘッダ情報を保存
+</td></tr></table>
+<h3><a name="Options_for_Plot"></a><span class="mw-headline">プロットのオプション</span></h3>
+<table class="simple">
+<tr>
+<th width="10%">オプション
+</th>
+<th width="80%">説明
+</th></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Worksheet_Options_for_Plot.html#-p" title="LabTalk:Worksheet Options for Plot">-p</a>
+</td>
+<td>現在のワークシートのデータをn番目のグラフタイプでテンプレートにプロット
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Worksheet_Options_for_Plot.html#-pa" title="LabTalk:Worksheet Options for Plot">-pa</a>
+</td>
+<td>現在のワークブック/ワークシートのデータを、指定したクローンテンプレートにプロット
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Worksheet_Options_for_Plot.html#-pc" title="LabTalk:Worksheet Options for Plot">-pc</a>
+</td>
+<td>現在のワークシートで開始列と増分を指定してデータをプロット
+</td></tr></table>
+<h3><a name="Other_Options"></a><span class="mw-headline">その他のオプション</span></h3>
+<table class="simple">
+<tr>
+<th width="10%">オプション
+</th>
+<th width="80%">説明
+</th></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Worksheet_Options_Other.html#-b" title="LabTalk:Worksheet Options Other">-b</a>
+</td>
+<td>winNameで始まる最初のワークブックを取得
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Worksheet_Options_Other.html#-cdf" title="LabTalk:Worksheet Options Other">-cdf</a>
+</td>
+<td>アクティブなワークシートの範囲スタイルと名前の範囲書式設定をクリーンアップ
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Worksheet_Options_Other.html#-cof" title="LabTalk:Worksheet Options Other">-cof</a>
+</td>
+<td>アクティブなワークシートの非スプレッドシートセル表記列数式をスプレッドシートセル表記に変換
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Worksheet_Options_Other.html#-crr" title="LabTalk:Worksheet Options Other">-crr</a>
+</td>
+<td>テーブル内の古い帯付き行フォーマットをクリア
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Worksheet_Options_Other.html#-e" title="LabTalk:Worksheet Options Other">-e</a>
+</td>
+<td>指定したワークシートのダイアログボックスを開く
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Worksheet_Options_Other.html#-es" title="LabTalk:Worksheet Options Other">-es</a>
+</td>
+<td>選択に失敗した場合、ワークシート範囲の選択動作をリセット
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Worksheet_Options_Other.html#-fp" title="LabTalk:Worksheet Options Other">-fp</a>
+</td>
+<td>フリーズしたペインのオンとオフを切り替え
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Worksheet_Options_Other.html#-frd" title="LabTalk:Worksheet Options Other">-frd</a>
+</td>
+<td>アクティブシートの重複を修正
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Worksheet_Options_Other.html#-gd_pb" title="LabTalk:Worksheet Options Other">-gd pb</a>
+</td>
+<td>カスタム改ページ
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Worksheet_Options_Other.html#-q" title="LabTalk:Worksheet Options Other">-q</a>
+</td>
+<td>改ページを表示
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Worksheet_Options_Other.html#-r" title="LabTalk:Worksheet Options Other">-r</a>
+</td>
+<td>ワークシートスクリプトダイアログボックスでスクリプトを実行
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Worksheet_Options_Other.html#-rf" title="LabTalk:Worksheet Options Other">-rf</a>
+</td>
+<td>ワークシート列の「値の設定」式を修復
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Worksheet_Options_Other.html#-rr" title="LabTalk:Worksheet Options Other">-rr</a>
+</td>
+<td>空のUIDデータ参照を使用して範囲を回復
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Worksheet_Options_Other.html#-rri" title="LabTalk:Worksheet Options Other">-rri</a>
+</td>
+<td>空のUIDデータ参照と入力を持つ範囲を回復
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Worksheet_Options_Other.html#-s" title="LabTalk:Worksheet Options Other">-s</a>
+</td>
+<td>指定した範囲を現在のワークシートの選択範囲に設定
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Worksheet_Options_Other.html#-scf" title="LabTalk:Worksheet Options Other">-scf</a>
+</td>
+<td>選択した範囲のセルの書式をクリア
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Worksheet_Options_Other.html#-shdf" title="LabTalk:Worksheet Options Other">-shdf</a>
+</td>
+<td>共有データフィルタを作成または変更
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Worksheet_Options_Other.html#-shdfd" title="LabTalk:Worksheet Options Other">-shdfd</a>
+</td>
+<td>ワークシートに共有データフィルタをダンプ
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Worksheet_Options_Other.html#-sl" title="LabTalk:Worksheet Options Other">-sl</a>
+</td>
+<td>ラベル行のセル範囲を選択
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Worksheet_Options_Other.html#-sou_db" title="LabTalk:Worksheet Options Other">-sou db</a>
+</td>
+<td>選択した行の前の行を削除
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Worksheet_Options_Other.html#-sou_extend" title="LabTalk:Worksheet Options Other">-sou extend</a>
+</td>
+<td>現在の選択範囲を列の一番下まで拡張
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Worksheet_Options_Other.html#-sou_mr" title="LabTalk:Worksheet Options Other">-sou mr</a>
+</td>
+<td>選択した行をn行上または下に移動
+</td></tr></table>
+<h2><a name="See_Also:"></a><span class="mw-headline"><font color="chocolate">関連情報：</font></span></h2>
+<p><b>
+<a href="../../LabTalk/LabTalk/Wks_(object).html" title="LabTalk:Wks (object)">Worksheet (object)</a>
+</b>
+</p><p><a href="../../LabTalk/Category/Document_(command).html" title="Category:Document (command)">Document</a> {<a href="../../LabTalk/LabTalk/Window_Options_to_Close.html#-cw" title="LabTalk:Window Options to Close">-cw</a>, <a href="../../LabTalk/LabTalk/Window_Options_Other.html#-e" title="LabTalk:Window Options Other">-e W</a> } (command),
+<a href="../../LabTalk/LabTalk/Doc_(object).html" title="LabTalk:Doc (object)">doc.wksNamen$</a> (object),
+<a href="../../LabTalk/LabTalk/Mark_(command).html" title="LabTalk:Mark (command)">Mark -d (command)</a>,
+<a href="../../LabTalk/LabTalk/Page_(object).html" title="LabTalk:Page (object)">Page (object)</a>,
+<a href="../../LabTalk/LabTalk/Plot_(command).html" title="LabTalk:Plot (command)">Plot -a (command)</a>,
+<a href="../../LabTalk/LabTalk/Numeric_to_String_Conversion.html" title="LabTalk:Numeric to String Conversion">%() Substitution Notation</a>,
+<a href="../../LabTalk/LabTalk/Undo_(command).html" title="LabTalk:Undo (command)">Undo -w* (command)</a>,
+<a href="../../LabTalk/Category/Wks.Col_(object).html" title="Category:Wks.Col (object)">Wks.Col_(object)</a>
+</p>
+
+
+
+
+
+
+    

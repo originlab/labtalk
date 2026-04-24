@@ -1,0 +1,371 @@
+﻿<h1 class="firstHeading">Spectrum1</h1><p class='urlname' style='display: none'>Spectrum1-obj</p>
+<p>カラースケールオブジェクト<b>Spectrum1</b>は、カラーマップデータプロットのカラーマップとその数値スケールを表示するグラフィックオブジェクトです。カラースケールは、カラーまたはグレースケールの等高線図を作成するときにデフォルトで表示されます。
+</p>
+<h2><a name="Properties:"></a><span class="mw-headline"><font color="chocolate">プロパティ：</font></span></h2>
+<table class="simple">
+<tr>
+<th width="110">プロパティ
+</th>
+<th width="70">アクセス
+</th>
+<th width="540">説明
+</th></tr>
+<tr>
+<td>Spectrum1.barthick
+</td>
+<td>読み/書き<br />数値
+</td>
+<td>
+<p>カラースケールの幅をフォントの高さの%で設定します。
+</p>
+</td></tr>
+<tr>
+<td>Spectrum1.lgap
+</td>
+<td>読み/書き<br />数値
+</td>
+<td>
+<p>カラースケールとそれに関連付けられたラベルの間隔を、フォントの高さの%で設定します。
+</p>
+</td></tr>
+<tr>
+<td>Spectrum1.loffset
+</td>
+<td>読み/書き<br />数値
+</td>
+<td>
+<p>カラースケールラベルの中心を基準にしてカラースケールオブジェクトの方向に沿ってラベルをシフトするには、&nbsp;フォントの高さに対する%を指定します。
+</p>
+</td></tr>
+<tr>
+<td>Spectrum1.revorder
+</td>
+<td>読み/書き<br />数値
+</td>
+<td>
+<p>カラーマップと関連付けられたラベルを反転するかどうかを指定します。1= 反転する、 0=反転しない
+</p>
+</td></tr>
+<tr>
+<td>Spectrum1.title$
+</td>
+<td>読み/書き<br />文字列
+</td>
+<td>
+<p>カラースケールタイトルとして使用するテキスト
+</p>
+</td></tr>
+<tr>
+<td>Spectrum1.title
+</td>
+<td>読み/書き<br />数値
+</td>
+<td>
+<p>カラースケールタイトルを表示するかどうかを決定します。1 =表示、0 =非表示
+</p>
+</td></tr>
+<tr>
+<td>Spectrum1.levels.major
+</td>
+<td>読み/書き<br />数値
+</td>
+<td>
+<p>表示するカラースケールのレベルを指定します。 <br />
+</p>
+<ul>
+<li>1=すべての主レベル 
+<li>2=部分的な合計レベル 
+<li>3=カスタムレベル
+</ul>  
+</td></tr>
+<tr>
+<td>Spectrum1.levels.partial
+</td>
+<td>読み/書き<br />数値
+</td>
+<td>
+<p>これは、<i><b>Spectrum1.levels.major=2</b></i>（部分的な合計レベルを表示）が選択されているときのみ利用できます。これは、隣接する2つの主目盛の間のレベル数を指定するために使用されます。 
+</p>
+</td></tr>
+<tr>
+<td>Spectrum1.levels.from[$]
+</td>
+<td>読み/書き<br />文字列/数値
+</td>
+<td>
+<p>これは、 <i><b>Spectrum1.levels.major=3</b></i>（カスタムレベルを表示）が選択されているときのみ利用できます。カラースケールの開始値を指定します。
+</p>
+</td></tr>
+<tr>
+<td>Spectrum1.levels.to[$]
+</td>
+<td>読み/書き<br />文字列/数値
+</td>
+<td>
+<p>これは、 <i><b>Spectrum1.levels.major=3</b></i>（カスタムレベルを表示）が選択されているときのみ利用できます。カラースケールの終了値を指定します。
+</p>
+</td></tr>
+<tr>
+<td>Spectrum1.levels.type
+</td>
+<td>読み/書き<br />数値
+</td>
+<td>
+<p>これは、 <i><b>Spectrum1.levels.major=3</b></i>（カスタムレベルを表示）が選択されているときのみ利用できます。カラースケールのスケールタイプを指定します。
+</p>
+<ul>
+<li>1 = 線形 
+<li>2 = 常用対数Log10 
+<li>3 = 確率 
+<li>4 = プロビット 
+<li>5 = 逆数 
+<li>6 = オフセット逆数 
+<li>7 = ロジット 
+<li>8 = 自然対数Ln 
+<li>9 = Log2 
+<li>10 = 2重対数逆数 (Weibull)
+</ul> 
+</td></tr>
+<tr>
+<td>Spectrum1.levels.inc
+</td>
+<td>読み/書き<br />数値
+</td>
+<td>
+<p>このオプションは、<i><b>Spectrum1.levels.major=3</b></i>（カスタムレベルを表示）が選択されているときのみ利用できます。目盛の<b>タイプ</b>として<b>増分</b>を使用するかどうかを制御します。1 =増分、0 =その他のタイプ
+</p>
+</td></tr>
+<tr>
+<td>Spectrum1.levels.inc$
+</td>
+<td>読み/書き<br />文字列
+</td>
+<td>
+<p>このオプションは、<i><b>Spectrum1.levels.major=3</b></i>（カスタムレベルを表示）がオンで、 <i><b>Spectrum1.levels.inc=1</b></i>のときに、この軸の主目盛増分を設定する場合にのみ使用可能です。 
+</p>
+</td></tr>
+<tr>
+<td>Spectrum1.levels.majorticks
+</td>
+<td>読み/書き<br />数値
+</td>
+<td>
+<p>このオプションは、<i><b>Spectrum1.levels.major=3</b></i>（カスタムレベルを表示）が選択されているときのみ利用できます。主目盛のタイプを<b>カウント</b>に設定し、主目盛の合計数を指定します。 
+</p>
+</td></tr>
+<tr>
+<td>Spectrum1.levels.ticksbydata$
+</td>
+<td>読み/書き<br />文字列
+</td>
+<td>
+<p>このオプションは、<i><b>Spectrum1.levels.major=3</b></i>（カスタムレベルを表示）が選択されているときのみ利用できます。主目盛のタイプを<b>カスタム位置による</b>に設定し、位置としてデータセットを指定します。 
+</p>
+</td></tr>
+<tr>
+<td>Spectrum1.levels.ticksbylabel
+</td>
+<td>読み/書き<br />数値
+</td>
+<td>
+<p>このオプションは、<i><b>Spectrum1.levels.major=3</b></i>（カスタムレベルを表示）が選択されているときのみ利用できます。主目盛のタイプを<b>プロット列ラベルによる</b>に設定し、列ラベル行を指定します。1 = 自動、2 = ロングネーム、3 = 単位、4 = コメント、5= サンプリング間隔、6 = パラメータ
+</p>
+</td></tr>
+<tr>
+<td>Spectrum1.levels.firsttick
+</td>
+<td>読み/書き<br />数値
+</td>
+<td>
+<p>このオプションは、<i><b>Spectrum1.levels.major=3</b></i>（カスタムレベルを表示）がオンで、 主目盛のタイプが<b>増分</b>または<b>カウント</b>の場合にのみ使用可能です。最初の目盛を表示するかどうかを制御します。1 =表示、0 =非表示
+</p>
+</td></tr>
+<tr>
+<td>Spectrum1.levels.firsttick$
+</td>
+<td>読み/書き<br />文字列
+</td>
+<td>
+<p>このオプションは、Spectrum1.levels.major=3（カスタムレベルを表示）がオンで、 主目盛のタイプが<b>増分</b>または<b>カウント</b>の場合にのみ使用可能です。最初の主目盛の位置を指定します。
+</p>
+</td></tr>
+<tr>
+<td>Spectrum1.levels.minorticks
+</td>
+<td>読み/書き<br />数値
+</td>
+<td>
+<p>カラースケールの2つの主目盛間の副目盛の数を指定します。
+</p>
+</td></tr>
+<tr>
+<td>Spectrum1.levels.mticksbydata$
+</td>
+<td>読み/書き<br />文字列
+</td>
+<td>
+<p>既存のデータセットまたはスペースで区切られた一連の数字を使用して、副目盛の位置を設定します。
+</p>
+</td></tr>
+<tr>
+<td>Spectrum1.labels.align
+</td>
+<td> 読み/書き<br />数値
+</td>
+<td>
+<p>カラースケールのラベルを配置する方法を指定します。
+</p>
+</td></tr>
+<tr>
+<td>Spectrum1.labels.autodisp
+</td>
+<td>読み/書き<br />数値
+</td>
+<td>
+<p>値が1の場合、カラースケールレベルラベルの表示は<b>作図の詳細（プロット属性）</b>ダイアログの<a class="external text" href="../../UserGuide/UserGuide/The_(Plot_Details)_Label4_Tab.html">ラベルタブ</a>の設定に従います。
+<br />
+値が0の場合、<b>表示</b>ツリーノードの下にある他のコントロールを使用してカラースケールレベルラベルの表示はをカスタマイズできます。これらの詳細については<b>軸ダイアログの目盛ラベル</b>のヘルプファイルを参照してください。
+</p>
+</td></tr>
+<tr>
+<td>Spectrum1.labels.bold
+</td>
+<td>読み/書き<br />数値
+</td>
+<td>
+<p>ラベルを太字に設定するか、太字のステータスを取得します。
+</p>
+</td></tr>
+<tr>
+<td>Spectrum1.labels.color
+</td>
+<td> 読み/書き<br />数値
+</td>
+<td>
+<p>ラベルの色。カラーリストの数値または透明(0)を取ります。<a href="../../LabTalk/LabTalk/Color_(function).html" title="LabTalk:Color (function)">color</a>関数を利用可能です。
+</p>
+</td></tr>
+<tr>
+<td>Spectrum1.labels.font
+</td>
+<td>読み/書き<br />数値
+</td>
+<td>
+<p>ラベルフォント、現在のフォントリストのインデックス番号
+</p>
+</td></tr>
+<tr>
+<td>Spectrum1.labels.formrange
+</td>
+<td>読み/書き<br />数値
+</td>
+<td>
+<p>レベルを示すために使用するラベル形式を指定します。値のみを使用するか、範囲も表示します。
+</p>
+</td></tr>
+<tr>
+<td>Spectrum1.labels.fsize
+</td>
+<td>読み/書き<br />数値
+</td>
+<td>
+<p>ラベルのフォントサイズ
+</p>
+</td></tr>
+<tr>
+<td>Spectrum1.labels.italic
+</td>
+<td>読み/書き<br />数値
+</td>
+<td>
+<p>ラベルを斜体に設定するか、斜体ステータスを取得します。
+</p>
+</td></tr>
+
+<tr>
+<td>Spectrum1.labels.numdisp
+</td>
+<td>読み/書き<br />数値
+</td>
+<td>
+<p>表示の<b>タイプ</b>が<b>数値</b>の時、次のオプションが利用できます。1=十進数:1000、2=科学: 10^3、3=工学:1k、 4=十進数:1,000、5=科学:1E3、6=カスタム
+</p>
+</td></tr>
+<tr>
+<td>Spectrum1.labels.decplaces
+</td>
+<td>読み/書き<br />数値
+</td>
+<td>
+<p>表示の<b>タイプ</b>が<b>数値</b>で、<b>表示</b>が<b>カスタム</b>でない場合、小数点以下の桁数を指定します。
+</p>
+</td></tr>
+<tr>
+<td>Spectrum1.labels.cusfmt$
+</td>
+<td>読み/書き<br />文字列
+</td>
+<td>
+<p>有効桁数や小数点以下の桁数の設定など、ユーザー定義の目盛ラベルフォーマット文字列を指定します。
+</p>
+</td></tr>
+
+<tr>
+<td>Spectrum1.labels.rotate
+</td>
+<td>読み/書き<br />数値
+</td>
+<td>
+<p>ラベルの回転角度を設定/取得
+</p>
+</td></tr>
+
+<tr>
+<td>Spectrum1.labels.show
+</td>
+<td>読み/書き<br />数値
+</td>
+<td>
+<p>ラベル表示ステータスの設定/取得
+</p>
+</td></tr>
+<tr>
+<td>Spectrum1.labels.underline
+</td>
+<td>読み/書き<br />数値
+</td>
+<td>
+<p>ラベルに下線を引くかどうかを制御します。
+</p>
+</td></tr>
+<tr>
+<td>Spectrum1.labels.wrap
+</td>
+<td>読み/書き<br />数値
+</td>
+<td>
+<p>折り返すラベルを設定するか、折り返しステータスを取得します。
+</p>
+</td></tr></table>
+<h2><a name="Example"></a><span class="mw-headline"><font color="chocolate">例</span></span></h2>
+<pre class="lt" style="font-family:monospace;"><span style="color: #008000;">//カラースケール付きの等高線図をアクティブにする</span>
+layer.<span style="color: #000080;">cmap</span>.<span style="color: #000080;">palette</span><span style="color: #000080;">$</span><span style="color: #000080;">=</span><span style="color: #ff00ff;">&quot;Fire.pal&quot;</span>;   <span style="color: #008000;">//パレット&quot;Fire&quot;を読み込む;</span>
+spectrum1.<span style="color: #000080;">barthick</span><span style="color: #000080;">=</span><span style="color: #0000dd;">400</span>;   <span style="color: #008000;">//カラースケールの幅を変更</span>
+Spectrum1.<span style="color: #000080;">title</span><span style="color: #000080;">=</span><span style="color: #0000dd;">1</span>;   <span style="color: #008000;">//タイトルを追加</span>
+Spectrum1.<span style="color: #000080;">title</span><span style="color: #000080;">$</span><span style="color: #000080;">=</span> <span style="color: #ff00ff;">&quot;New color scale&quot;</span>;
+Spectrum1.<span style="color: #000080;">levels</span>.<span style="color: #000080;">major</span> <span style="color: #000080;">=</span> <span style="color: #0000dd;">3</span>; <span style="color: #008000;">// カスタムレベルを表示</span>
+Spectrum1.<span style="color: #000080;">levels</span>.<span style="color: #000080;">from</span> <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span>; <span style="color: #008000;">// 開始を指定</span>
+Spectrum1.<span style="color: #000080;">levels</span>.<span style="color: #000080;">to</span> <span style="color: #000080;">=</span> <span style="color: #0000dd;">1</span>; <span style="color: #008000;">//終了を指定</span>
+Spectrum1.<span style="color: #000080;">levels</span>.<span style="color: #000080;">inc</span> <span style="color: #000080;">=</span> <span style="color: #0000dd;">1</span>; <span style="color: #008000;">// 主目盛のタイプを増分に</span>
+Spectrum1.<span style="color: #000080;">levels</span>.<span style="color: #000080;">inc</span><span style="color: #000080;">$</span> <span style="color: #000080;">=</span> <span style="color: #0000dd;">0.2</span>; <span style="color: #008000;">// 増分の値を設定</span>
+Spectrum1.<span style="color: #000080;">labels</span>.<span style="color: #000080;">autodisp</span> <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span>; <span style="color: #008000;">// 表示のカスタマイズのために「自動」のチェックを外す</span>
+Spectrum1.<span style="color: #000080;">labels</span>.<span style="color: #000080;">numdisp</span> <span style="color: #000080;">=</span> <span style="color: #0000dd;">6</span>; <span style="color: #008000;">//表示フォーマットをカスタマイズ</span>
+Spectrum1.<span style="color: #000080;">labels</span>.<span style="color: #000080;">cusfmt</span><span style="color: #000080;">$</span> <span style="color: #000080;">=</span> <span style="color: #ff00ff;">&quot;*2&quot;</span> <span style="color: #008000;">//有効桁数を2に設定</span></pre></font>
+
+
+
+
+
+
+
+    

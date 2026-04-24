@@ -1,0 +1,396 @@
+﻿<h1 class="firstHeading">Layer</h1><p class='urlname' style='display: none'>Layer-cmd</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>目次</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Brief_Introduction"><span class="tocnumber">1</span> <span class="toctext">はじめに</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Syntax:"><span class="tocnumber">2</span> <span class="toctext">構文</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Options:"><span class="tocnumber">3</span> <span class="toctext">オプション</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#Options_for_Graph"><span class="tocnumber">3.1</span> <span class="toctext">グラフのオプション</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Options_for_Special_Graph"><span class="tocnumber">3.2</span> <span class="toctext">特殊グラフのオプション</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Options_for_Plot"><span class="tocnumber">3.3</span> <span class="toctext">プロットのオプション</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="#Options_for_Worksheet"><span class="tocnumber">3.4</span> <span class="toctext">ワークシートのオプション</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="#Options_for_Layer"><span class="tocnumber">3.5</span> <span class="toctext">レイヤのオプション</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-9"><a href="#See_Also:"><span class="tocnumber">4</span> <span class="toctext">関連情報</span></a></li>
+</ul>
+</div>
+
+<h2><a name="Brief_Introduction"></a><span class="mw-headline">はじめに</span></h2>
+<p>既存のレイヤに対してさまざまな操作を実行します。layerコマンドは、指定された場合を除いて、アクティブなレイヤに対して動作します。 
+</p>
+<table class="noborder"><tr>
+	<td style="vertical-align:top" width="60"><img src="../images/Layer_(command)/Tip_icon.png" width="57"  border="0" /></td><td><p>これらの機能の多くは<a class="external text" href="../../XFunction/X-Function/Laymanage.html"><b>laymanage</b></a> Xファンクションで使用できます。
+</p></td></tr></table>
+<h2><a name="Syntax:"></a><span class="mw-headline"><font color="chocolate">構文</font></span></h2>
+<pre class="lt" style="font-family:monospace;">layer <span style="color: #000000;">[</span>option<span style="color: #000000;">]</span> <span style="color: #000080;">&lt;</span>width height xOffset yOffset<span style="color: #000080;">&gt;</span></pre>
+<h2><a name="Options:"></a><span class="mw-headline"><font color="chocolate">オプション：</font></span></h2>
+<h3><a name="Options_for_Graph"></a><span class="mw-headline">グラフのオプション</span></h3>
+<table class="simple">
+<tr>
+<th width="10%">オプション
+</th>
+<th width="80%">説明
+</th></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Layer_Options_for_Graph.html#no_option" title="LabTalk:Layer Options for Graph">オプションなし</a>
+</td>
+<td>レイヤの位置を設定
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Layer_Options_for_Graph.html#-a" title="LabTalk:Layer Options for Graph">-a</a>
+</td>
+<td>アクティブレイヤのX軸とY軸を再スケールして、そのレイヤにプロットされたすべてのデータを表示する
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Layer_Options_for_Graph.html#-a_ma" title="LabTalk:Layer Options for Graph">-a ma</a>
+</td>
+<td>リンクされているすべてのレイヤのX軸とY軸を再スケールして、すべてのデータを表示する
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Layer_Options_for_Graph.html#-at" title="LabTalk:Layer Options for Graph">-at</a>
+</td>
+<td>軸目盛設定を無視して、アクティブレイヤのX軸とY軸を再スケールする
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Layer_Options_for_Graph.html#-b_3DB" title="LabTalk:Layer Options for Graph">-b 3DB</a>
+</td>
+<td>グラフ表示キャッシュの設定
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Layer_Options_for_Graph.html#-cm_l" title="LabTalk:Layer Options for Graph">-cm l</a>
+</td>
+<td>保存したカラーマップをロードする
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Layer_Options_for_Graph.html#-cm_s" title="LabTalk:Layer Options for Graph">-cm s</a>
+</td>
+<td>カラーマップを保存する
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Layer_Options_for_Graph.html#-gru" title="LabTalk:Layer Options for Graph">-gru</a>
+</td>
+<td>レイヤ内の既存のグラフオブジェクトの名前を一意にする
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Layer_Options_for_Graph.html#-k" title="LabTalk:Layer Options for Graph">-k</a>
+</td>
+<td>作図の詳細（プロット属性）または作図の詳細（レイヤ属性）ダイアログボックスを開く
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Layer_Options_for_Graph.html#-n" title="LabTalk:Layer Options for Graph">-n</a>
+</td>
+<td>アクティブなグラフウィンドウに新規レイヤ（リンク無し）を追加
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Layer_Options_for_Graph.html#-n_Both" title="LabTalk:Layer Options for Graph">-n Both</a>
+</td>
+<td>アクティブなグラフウィンドウにリンクレイヤを追加して上X軸と右Y軸を表示する
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Layer_Options_for_Graph.html#-n_X" title="LabTalk:Layer Options for Graph">-n X</a>
+</td>
+<td>アクティブなグラフウィンドウにリンクレイヤを追加して上X軸を表示する
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Layer_Options_for_Graph.html#-n_Y" title="LabTalk:Layer Options for Graph">-n Y</a>
+</td>
+<td>アクティブなグラフウィンドウにリンクレイヤを追加して右Y軸を表示する
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Layer_Options_for_Graph.html#-p" title="LabTalk:Layer Options for Graph">-p</a>
+</td>
+<td>アクティブなレイヤのXまたはYスケールをアクティブなウィンドウ内の他のすべてのレイヤー適用する
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Layer_Options_for_Graph.html#-u" title="LabTalk:Layer Options for Graph">-u</a>
+</td>
+<td>レイヤのサイズと位置の単位を変更する
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Layer_Options_for_Graph.html#-x" title="LabTalk:Layer Options for Graph">-x</a>
+</td>
+<td>レイヤ枠の寸法を変数に保存する
+</td></tr></table>
+<h3><a name="Options_for_Special_Graph"></a><span class="mw-headline">特殊グラフのオプション</span></h3>
+<table class="simple">
+<tr>
+<th width="10%">オプション
+</th>
+<th width="80%">説明
+</th></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Layer_Options_for_Special_Graph.html#-3d" title="LabTalk:Layer Options for Special Graph">-3d</a>
+</td>
+<td>3Dプロットの視点を制御する
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Layer_Options_for_Special_Graph.html#-3d_r" title="LabTalk:Layer Options for Special Graph">-3d r</a>
+</td>
+<td>3Dグラフの回転を設定する
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Layer_Options_for_Special_Graph.html#-3d_c" title="LabTalk:Layer Options for Special Graph">-3d c</a>
+</td>
+<td>GDIベースの3DグラフをOpenGLベースに変換する
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Layer_Options_for_Special_Graph.html#-cam" title="LabTalk:Layer Options for Special Graph">-cam</a>
+</td>
+<td>3D OpenGLプロットの方向を制御する
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Layer_Options_for_Special_Graph.html#-pgm" title="LabTalk:Layer Options for Special Graph">-pgm</a>
+</td>
+<td>2D直交座標レイヤの任意の回転とせん断を有効にする
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Layer_Options_for_Special_Graph.html#-Y_.3F" title="LabTalk:Layer Options for Special Graph">-Y ?</a>
+</td>
+<td>アクティブなグラフウィンドウ内のウォーターフォールグラフを参照し、XオフセットとYオフセットの値を変数XとYに割り当てる
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Layer_Options_for_Special_Graph.html#-Y_.21" title="LabTalk:Layer Options for Special Graph">-Y !</a>
+</td>
+<td>アクティブなグラフウィンドウないのウォーターフォールグラフのXオフセットとYオフセットを無効にする
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Layer_Options_for_Special_Graph.html#-Y" title="LabTalk:Layer Options for Special Graph">-Y</a>
+</td>
+<td>レイヤにプロットされた全データに対してウォーターフォール効果を設定するために、XおよびYオフセットを設定する
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Layer_Options_for_Special_Graph.html#-z" title="LabTalk:Layer Options for Special Graph">-z</a>
+</td>
+<td>極座標プロットの角度と方向をゼロに設定
+</td></tr></table>
+<h3><a name="Options_for_Plot"></a><span class="mw-headline">プロットのオプション</span></h3>
+<table class="simple">
+<tr>
+<th width="10%">オプション
+</th>
+<th width="80%">説明
+</th></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Layer_Options_for_Plot.html#-b" title="LabTalk:Layer Options for Plot">-b</a>
+</td>
+<td>特別なプロットパラメータ
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Layer_Options_for_Plot.html#-c" title="LabTalk:Layer Options for Plot">-c</a>
+</td>
+<td>アクティブレイヤにプロットされたデータセットをカウントする
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Layer_Options_for_Plot.html#-cx" title="LabTalk:Layer Options for Plot">-cx</a>
+</td>
+<td>Xデータを変更
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Layer_Options_for_Plot.html#-cxy" title="LabTalk:Layer Options for Plot">-cxy</a>
+</td>
+<td>XYデータを変更
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Layer_Options_for_Plot.html#-cy" title="LabTalk:Layer Options for Plot">-cy</a>
+</td>
+<td>Yデータを変更
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Layer_Options_for_Plot.html#-e" title="LabTalk:Layer Options for Plot">-e</a>
+</td>
+<td>アクティブレイヤからデータセットを削除するが、データプロットスタイルホルダは保持する
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Layer_Options_for_Plot.html#-g" title="LabTalk:Layer Options for Plot">-g</a>
+</td>
+<td>アクティブレイヤのデータセットをグループ化する
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Layer_Options_for_Plot.html#-gu" title="LabTalk:Layer Options for Plot">-gu</a>
+</td>
+<td>アクティブレイヤのすべてのデータセットのグループを解除する
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Layer_Options_for_Plot.html#-hp" title="LabTalk:Layer Options for Plot">-hp</a>
+</td>
+<td>データプロットの表示/非表示
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Layer_Options_for_Plot.html#-i" title="LabTalk:Layer Options for Plot">-i</a>
+</td>
+<td>アクティブなグラフウィンドウレイヤ内のすべてのデータプロットスタイルホルダを削除する
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Layer_Options_for_Plot.html#-i_dataset" title="LabTalk:Layer Options for Plot">-i dataset</a>
+</td>
+<td>アクティブなレイヤにデータセットを追加する
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Layer_Options_for_Plot.html#-i_.23" title="LabTalk:Layer Options for Plot">-i #</a>
+</td>
+<td>#で指定されたプロットタイプに再プロットする
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Layer_Options_for_Plot.html#-ic" title="LabTalk:Layer Options for Plot">-ic</a>
+</td>
+<td>指定したレイヤからアクティブなグラフレイヤにすべてのデータプロットをコピーする
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Layer_Options_for_Plot.html#-ie" title="LabTalk:Layer Options for Plot">-ie</a>
+</td>
+<td>アクティブなグラフウィンドウレイヤで使用されていないデータプロットスタイルホルダをすべて削除する
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Layer_Options_for_Plot.html#-il" title="LabTalk:Layer Options for Plot">-il</a>
+</td>
+<td>既存のラベルなしデータプロットにラベルを追加する
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Layer_Options_for_Plot.html#-ip" title="LabTalk:Layer Options for Plot">-ip</a>
+</td>
+<td>アクティブレイヤにデータセットが存在する場合でも、アクティブレイヤにデータセットを追加する
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Layer_Options_for_Plot.html#-iu" title="LabTalk:Layer Options for Plot">-iu</a>
+</td>
+<td>すべてのデータプロットスタイルホルダーを削除
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Layer_Options_for_Plot.html#-j" title="LabTalk:Layer Options for Plot">-j</a>
+</td>
+<td>複数のデータプロットを抽出
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Layer_Options_for_Plot.html#-pd_.23" title="LabTalk:Layer Options for Plot">-pd #</a>
+</td>
+<td>アクティブなプロットを#コピー分複製する
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Layer_Options_for_Plot.html#-r" title="LabTalk:Layer Options for Plot">-r</a>
+</td>
+<td>アクティブレイヤ内のデータプロットの順番を逆にする
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Layer_Options_for_Plot.html#-t_nrow" title="LabTalk:Layer Options for Plot">-t nrow</a>
+</td>
+<td>データプロットの軸タイトルと凡例テキストを含むワークシート行を設定する
+</td></tr></table>
+<h3><a name="Options_for_Worksheet"></a><span class="mw-headline">ワークシートのオプション</span></h3>
+<table class="simple">
+<tr>
+<th width="10%">オプション
+</th>
+<th width="80%">説明
+</th></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Layer_Options_for_Worksheet.html#-b_R" title="LabTalk:Layer Options for Worksheet">-b R</a>
+</td>
+<td>ワークシートを編集可能または読み取り専用として設定
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Layer_Options_for_Worksheet.html#-les" title="LabTalk:Layer Options for Worksheet">-les</a>
+</td>
+<td>保護されたワークシートに編集可能なセルを設定する
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Layer_Options_for_Worksheet.html#-lt" title="LabTalk:Layer Options for Worksheet">-lt</a>
+</td>
+<td>現在の保護ビットを印刷
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Layer_Options_for_Worksheet.html#-lw" title="LabTalk:Layer Options for Worksheet">-lw</a>
+</td>
+<td>ワークシートレベルで保護をオンにする
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Layer_Options_for_Worksheet.html#-s" title="LabTalk:Layer Options for Worksheet">-s</a>
+</td>
+<td>Excelワークブックでシートアクティビティを変更したときにOriginを更新する
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Layer_Options_for_Worksheet.html#-se" title="LabTalk:Layer Options for Worksheet">-se</a>
+</td>
+<td>名前付きExcelシートをアクティブレイヤとして設定
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Layer_Options_for_Worksheet.html#-trv" title="LabTalk:Layer Options for Worksheet">-trv</a>
+</td>
+<td>ワークシートの列を列リストビューに切り替える
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Layer_Options_for_Worksheet.html#-us" title="LabTalk:Layer Options for Worksheet">-us</a>
+</td>
+<td>アクティブなExcelシートを更新してデータをコピー
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Layer_Options_for_Worksheet.html#-usn" title="LabTalk:Layer Options for Worksheet">-usn</a>
+</td>
+<td>アクティブなExcelシートを更新する（データはコピーしない）
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Layer_Options_for_Worksheet.html#-w" title="LabTalk:Layer Options for Worksheet">-w</a>
+</td>
+<td>先頭と末尾の列番号と行番号を指定する
+</td></tr></table>
+<h3><a name="Options_for_Layer"></a><span class="mw-headline">レイヤのオプション</span></h3>
+<table class="simple">
+<tr>
+<th width="10%">オプション
+</th>
+<th width="80%">説明
+</th></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Layer_Options_for_Layer.html#-d" title="LabTalk:Layer Options for Layer">-d</a>
+</td>
+<td>アクティブレイヤを削除する
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Layer_Options_for_Layer.html#-dk" title="LabTalk:Layer Options for Layer">-dk</a>
+</td>
+<td>アクティブなレイヤを削除し、ブックを保持する
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Layer_Options_for_Layer.html#-f" title="LabTalk:Layer Options for Layer">-f</a>
+</td>
+<td>シートを複製
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Layer_Options_for_Layer.html#-h" title="LabTalk:Layer Options for Layer">-h</a>
+</td>
+<td>レイヤを表示/非表示
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Layer_Options_for_Layer.html#-m" title="LabTalk:Layer Options for Layer">-m</a>
+</td>
+<td>アクティブなレイヤの「切り取るレイヤの領域」ダイアログボックスを開く
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Layer_Options_for_Layer.html#-o" title="LabTalk:Layer Options for Layer">-o</a>
+</td>
+<td>指定したレイヤに対して指定した<i>script</i>で操作をを実行する
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Layer_Options_for_Layer.html#-s" title="LabTalk:Layer Options for Layer">-s</a>
+</td>
+<td>アクティブなウィンドウでアクティブなレイヤを選択する
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Layer_Options_for_Layer.html#-tm" title="LabTalk:Layer Options for Layer">-tm</a>
+</td>
+<td>結合されたセル範囲を返す
+</td></tr></table>
+<h2><a name="See_Also:"></a><span class="mw-headline"><font color="chocolate">関連情報：</font></span></h2>
+<p><b>
+<a href="../../LabTalk/LabTalk/Layer_(object).html" title="LabTalk:Layer (object)">Layer</a>
+</b>
+</p><p><a href="../../LabTalk/LabTalk/Layer.Axis_(object).html" title="LabTalk:Layer.Axis (object)">Layer.Axis</a>,
+<a href="../../LabTalk/LabTalk/Layer.Axis.Break_(object).html" title="LabTalk:Layer.Axis.Break (object)">Layer.Axis.Break</a>,
+<a href="../../LabTalk/LabTalk/Layer.Axis.Grid_(object).html" title="LabTalk:Layer.Axis.Grid (object)">Layer.Axis.Grid</a>,
+<a href="../../LabTalk/LabTalk/Layer.Axis.Label_(object).html" title="LabTalk:Layer.Axis.Label (object)">Layer.Axis.Label</a>,
+<a href="../../LabTalk/LabTalk/Layer.CMap_(object).html" title="LabTalk:Layer.CMap (object)">Layer.Cmap (object)</a>,
+<a href="../../LabTalk/LabTalk/Layer.Plotn.BoxChart_(object)&amp;action=edit&amp;redlink=1.html" class="new" title="LabTalk:Layer.Plotn.BoxChart (object) (page does not exist)">Layer.Plotn.BoxChart</a>
+</p>
+
+
+    

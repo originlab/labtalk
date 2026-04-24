@@ -1,0 +1,91 @@
+﻿<h1 class="firstHeading">Switch</h1>
+<p class="urlname" style="display: none;">Switch-cmd</p>
+<p><b>switch</b>コマンドは、式がいくつかの値のいずれかに一致するかどうかをテストし、それに応じて分岐する特別な多方向意思決定者です。 
+ </p>
+<p><br />
+</p>
+<h2><a name="Syntax:"></a><span class="mw-headline"><font color="#D2691E">構文</font></span></h2>
+<pre class="lt" style="font-family: monospace;">
+switch <span style="color: #000000;">(</span>expression<span style="color: #000000;">)</span> <span style="color: #000000;">{</span>case <span style="color: #0000dd;">1</span><span style="color: #000000;">:</span> . . . <span style="color: #000080;">case</span> <span style="color: #0000dd;">2</span><span style="color: #000000;">:</span> . . . <span style="color: #000080;">case</span> n<span style="color: #000000;">:</span> . .. <span style="color: #000000;">[</span>default<span style="color: #000000;">:</span> . . .<span style="color: #000000;">]</span><span style="color: #000000;">}</span>
+</pre>
+<p>値は定数、識別子、文字列変数のいずれかです。 <i>expression</i>が文字列変数の場合、大文字と小文字は区別されます（下記例を参照）。 
+ いずれのcaseも<b><a href="../../LabTalk/LabTalk/Break_(command).html" title="LabTalk:Break (command)">break</a></b>コマンドを必要とするため、以下のコマンドは実行されません。 
+ デフォルトのcaseも使用でき、最後に指定する必要があります（<b>switch</b>コマンドを入れ子にするときは、デフォルトのcaseが最後に指定される必要があります）。 
+ デフォルトのcaseは、他のcaseがマッチしない場合にのみ実行されます。 </p>
+<p><b>Note:</b> <b>case</b>, <b>default</b> および <b>to</b> キーワードは大文字小文字を区別しません。 
+ </p>
+<h2><a name="Examples:"></a><span class="mw-headline"><font color="#D2691E">例:</font></span></h2>
+<p><b>サンプル1：</b> </p>
+<p>次のスクリプトは<b>switch</b>コマンドを使用します。 <b>switch</b>コマンドの後の括弧内の式は変数 iiで評価値は2であるため、case 
+ 2が実行されます。 このスクリプトの結果はbです。 </p>
+<table class="noborder">
+	<tr>
+		<td style="vertical-align: top;" width="60"><img src="../images/Switch_(command)/Tip_icon.png" 
+														 alt="" width="57" 
+														 border="0" /></td>
+		<td><p>式が文字列に評価される場合、<a href="../../LabTalk/LabTalk/String_Substitution.html" 
+								 title="LabTalk:String Substitution">文字列の置換</a>が必要ととなります。例）<b>switch(%(COL(A[II]$))</b> 
+		 </p></td>
+	</tr>
+</table>
+<pre class="lt" style="font-family: monospace;">
+ii<span style="color: #000080;">=</span><span style="color: #0000dd;">2</span>;
+switch <span style="color: #000000;">(</span>ii<span style="color: #000000;">)</span>
+&#160;&#160;&#160;&#160;&#160;&#160;<span style="color: #000000;">{</span>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;case <span style="color: #0000dd;">1</span><span style="color: #000000;">:</span>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;type <span style="color: #ff00ff;">&quot;a&quot;</span>; 
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;break;
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;case <span style="color: #0000dd;">2</span><span style="color: #000000;">:</span>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;type <span style="color: #ff00ff;">&quot;b&quot;</span>; 
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;break;
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;case <span style="color: #0000dd;">3</span><span style="color: #000000;">:</span>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;type <span style="color: #ff00ff;">&quot;c&quot;</span>; 
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;break;
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;default<span style="color: #000000;">:</span>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;type <span style="color: #ff00ff;">&quot;none&quot;</span>; 
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;break;
+&#160;&#160;&#160;&#160;&#160;&#160;<span style="color: #000000;">}</span>
+</pre>
+<p><b>サンプル2：</b> </p>
+<p>次の例では、<b>switch</b>コマンドの後の括弧内の式は文字列変数であるため、評価では大文字と小文字が区別されます。 ただし、キーワードcase、default、toは大文字と小文字を区別しません。 
+ </p>
+<pre class="lt" style="font-family: monospace;">
+GetString <span style="color: #ff00ff;">&quot;Enter a string&quot;</span>; &#160;&#160;<span style="color: #008000;">// 入力は%Bに入力される</span>
+switch <span style="color: #000000;">(</span><span style="color: #000080;">%</span>B<span style="color: #000000;">)</span> &#160;
+&#160;&#160;&#160;&#160;&#160;&#160;<span style="color: #000000;">{</span>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;CASE <span style="color: #ff00ff;">&quot;a&quot;</span><span style="color: #000000;">:</span>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;type <span style="color: #000080;">-</span>a <span style="color: #ff00ff;">&quot;You entered an &amp;apos;a&amp;apos;.&quot;</span>; &#160;
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;break;
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;case <span style="color: #ff00ff;">&quot;b&quot;</span><span style="color: #000000;">:</span> CASE <span style="color: #ff00ff;">&quot;c&quot;</span><span style="color: #000000;">:</span> &#160;
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;type <span style="color: #000080;">-</span>a <span style="color: #ff00ff;">&quot;You entered a &amp;apos;b&amp;apos; or &amp;apos;c&amp;apos;.&quot;</span>;
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;break;
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;case <span style="color: #ff00ff;">&quot;A&quot;</span><span style="color: #000000;">:</span>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;type <span style="color: #000080;">-</span>a <span style="color: #ff00ff;">&quot;You entered an &amp;apos;A&amp;apos;.&quot;</span>;
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;break;
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;case <span style="color: #ff00ff;">&quot;A&quot;</span> <span style="color: #ff00ff;">&quot;B&quot;</span> <span style="color: #ff00ff;">&quot;F&quot;</span> to <span style="color: #ff00ff;">&quot;Z&quot;</span><span style="color: #000000;">:</span>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;type <span style="color: #000080;">-</span>a <span style="color: #ff00ff;">&quot;You entered &amp;apos;A&amp;apos; or &amp;apos;B&amp;apos; or between &amp;apos;F&amp;apos; and &amp;apos;Z&amp;apos;.&quot;</span>;
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;break;
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;case <span style="color: #0000dd;">1</span> <span style="color: #0000dd;">2</span> <span style="color: #0000dd;">5</span> to <span style="color: #0000dd;">7</span><span style="color: #000000;">:</span>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;type <span style="color: #000080;">-</span>a <span style="color: #ff00ff;">&quot;You entered 1 or 2 or between 5 and 7.&quot;</span>;
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;break;
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;default<span style="color: #000000;">:</span>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;type <span style="color: #000080;">-</span>a <span style="color: #ff00ff;">&quot;No match, this is the default case.&quot;</span>;
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;break;
+&#160;&#160;&#160;&#160;&#160;&#160;<span style="color: #000000;">}</span>
+</pre>
+<p>語彙順序はAaBbCc ...なので、&amp;apos;b&amp;apos;と&amp;apos;B&amp;apos;はどちらも次のように見つけることができます。： 
+ case &quot;A&quot; to &quot;C&quot;: </p>
+<h2><a name="See_Also:"></a><span class="mw-headline"><font color="#D2691E">関連情報：</font></span></h2>
+<p><b><a href="../../LabTalk/LabTalk/Break_(command).html" title="LabTalk:Break (command)">Break 
+ (command)</a></b>, <b><a href="../../LabTalk/LabTalk/If_(command).html" 
+							 title="LabTalk:If (command)">If (command)</a></b> 
+ </p>
+<p><br />
+<a href="../../LabTalk/LabTalk/Continue_(command).html" title="LabTalk:Continue (command)">Continue 
+ (command)</a>, <a href="../../LabTalk/Category/Document_(command).html" 
+					 title="Category:Document (command)">Document (command)</a>, 
+ <a href="../../LabTalk/LabTalk/Exit_(command).html" title="LabTalk:Exit (command)">Exit 
+ (command)</a>, <a href="../../LabTalk/LabTalk/For_(command).html" title="LabTalk:For (command)">For 
+ (command)</a>, <a href="../../LabTalk/LabTalk/Loop_(command).html" title="LabTalk:Loop (command)">Loop 
+ (command)</a>, <a href="../../LabTalk/LabTalk/Repeat_(command).html" title="LabTalk:Repeat (command)">Repeat 
+ (command)</a>, </p>

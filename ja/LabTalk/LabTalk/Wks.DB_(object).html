@@ -1,0 +1,123 @@
+﻿<h1 class="firstHeading">Wks.DB</h1><p class='urlname' style='display: none'>Wks-DB-obj</p>
+<p><span class="OIndex" style="display:none">オブジェクト、データベース</span>ワークシートへのデータベースのインポートは、Originでオブジェクトとして処理されます。<span class="OIndex">データベース</span>のインポート設定と情報にアクセスし、次の表のプロパティを使用して変更できます。
+</p>
+<h2><a name="PropertiesDatabase_Property"></a><span class="mw-headline">プロパティ<span class="OIndex" style="display:none">データベースプロパティ</span></span></h2>
+<table class="simple">
+<tr>
+<th width="110">プロパティ
+</th>
+<th width="50">タイプ
+</th>
+<th width="50">アクセス
+</th>
+<th width="540">説明
+</th></tr>
+<tr>
+<td> wks.db.auto
+</td>
+<td> int
+</td>
+<td> 読み/書き
+</td>
+<td> プロジェクトを開いたときにデータセットを自動インポートするかどうかを指定します。1=開いたときにインポートする、0=開いたときにインポートしない。
+</td></tr>
+<tr>
+<td> wks.db.sql$
+</td>
+<td> string
+</td>
+<td> 読み/書き
+</td>
+<td> ワークシートの現在のクエリに書き込む新しいSQL文字列を指定します。
+</td></tr>
+<tr>
+<td> wks.db.conn$
+</td>
+<td> string
+</td>
+<td> 読み/書き
+</td>
+<td> ワークシートの現在のクエリに書き込む新しい接続文字列を指定します。
+</td></tr>
+<tr>
+<td> wks.db.odbc
+</td>
+<td> int
+</td>
+<td> 読み/書き
+</td>
+<td> ODBCを使用してデータをインポートするかどうかを指定します。1= ODBCを使用、0= ADOオブジェクトを使用。
+</td></tr></table>
+<h2><a name="MethodsColumn_Method"></a><span class="mw-headline">メソッド<span class="OIndex" style="display:none">列のメソッド</span></span></h2>
+<p><span class="OIndex" style="display:none">レイヤメソッド</span>
+</p>
+<table class="simple" width="90%">
+<tr>
+<th width="25%">メソッド
+</th>
+<th width="75%">説明
+</th></tr>
+<tr>
+<td> wks.db.export(filepath, optn)
+</td>
+<td> データベースの<i>filepath</i>にエクスポートします。<i>filepath</i>が指定されていない場合は、現在の接続文字列を使って更新を行います。<i>optn</i>は非表示の列/行をスキップするかどうかを決定します。デフォルト(0)は非表示の列と行を無視しないことを意味します。1=非表示の列をスキップ、2=非表示の行をスキップします。
+</td></tr>
+<tr>
+<td> wks.db.remove()
+</td>
+<td> データベースコネクタを削除します。
+</td></tr>
+<tr>
+<td> wks.db.run(strErr$)
+</td>
+<td> Selectの場合、データベースをインポートし、そうでない場合はデータベースに実行すると、<i>strErr$</i>エラーメッセージが表示されることがあります。<b>EX1</b>を参照してください。
+</td></tr>
+<tr>
+<td> wks.db.test(n, strErr$)
+</td>
+<td> 接続をテストし、見つかったレコードを返します。<i>n</i>は取得するレコードの最大数で、戻り値のレコード数です。エラーの場合は負のコードを返し、<i>strErr$</i>はエラーメッセージを含みます。
+</td></tr></table>
+<h2><a name="Examples"></a><span class="mw-headline"><font color="chocolate">サンプル</font></span></h2>
+<p><b>EX1</b>レコードの挿入
+</p>
+<pre class="lt" style="font-family:monospace;">wks.<span style="color: #000080;">db</span>.<span style="color: #000080;">conn</span><span style="color: #000080;">$</span><span style="color: #000080;">=</span><span style="color: #ff00ff;">&quot;Driver={SQLite3 ODBC Driver};Database=C:\Users\dev\Downloads\hawaii.sqlite&quot;</span>;
+wks.<span style="color: #000080;">db</span>.<span style="color: #000080;">sql</span><span style="color: #000080;">$</span><span style="color: #000080;">=</span><span style="color: #ff00ff;">&quot;select * from station where name like &apos;bb&apos;&quot;</span>;
+if<span style="color: #000000;">(</span>wks.<span style="color: #000080;">db</span>.<span style="color: #000080;">test</span><span style="color: #000000;">(</span><span style="color: #0000dd;">1</span><span style="color: #000000;">)</span><span style="color: #000080;">==</span><span style="color: #0000dd;">0</span><span style="color: #000000;">)</span> <span style="color: #000000;">{</span>
+	wks.<span style="color: #000080;">db</span>.<span style="color: #000080;">sql</span><span style="color: #000080;">$</span><span style="color: #000080;">=</span><span style="color: #ff00ff;">&quot;INSERT INTO station VALUES(&apos;aa&apos;,&apos;bb&apos;, 21.4,-157.9,152.7)&quot;</span>;
+	wks.<span style="color: #000080;">db</span>.<span style="color: #000080;">run</span><span style="color: #000000;">(</span><span style="color: #000000;">)</span>;
+	type <span style="color: #ff00ff;">&quot;name = bb inserted&quot;</span>;
+<span style="color: #000000;">}</span>
+wks.<span style="color: #000080;">db</span>.<span style="color: #000080;">sql</span><span style="color: #000080;">$</span><span style="color: #000080;">=</span><span style="color: #ff00ff;">&quot;select * from station&quot;</span>;
+wks.<span style="color: #000080;">db</span>.<span style="color: #000080;">run</span><span style="color: #000000;">(</span><span style="color: #000000;">)</span>;</pre>
+<p><b>EX2</b>レコードの削除 
+</p>
+<pre class="lt" style="font-family:monospace;">wks.<span style="color: #000080;">db</span>.<span style="color: #000080;">conn</span><span style="color: #000080;">$</span><span style="color: #000080;">=</span><span style="color: #ff00ff;">&quot;Driver={SQLite3 ODBC Driver};Database=C:\Users\dev\Downloads\hawaii.sqlite&quot;</span>;
+string ssql<span style="color: #000080;">$</span><span style="color: #000080;">=</span><span style="color: #ff00ff;">&quot;select * from station&quot;</span>;
+wks.<span style="color: #000080;">db</span>.<span style="color: #000080;">sql</span><span style="color: #000080;">$</span><span style="color: #000080;">=</span>ssql<span style="color: #000080;">$</span>;
+wks.<span style="color: #000080;">db</span>.<span style="color: #000080;">odbc</span><span style="color: #000080;">=</span><span style="color: #0000dd;">1</span>;
+wks.<span style="color: #000080;">db</span>.<span style="color: #000080;">run</span><span style="color: #000000;">(</span><span style="color: #000000;">)</span>;
+wks.<span style="color: #000080;">db</span>.<span style="color: #000080;">sql</span><span style="color: #000080;">$</span><span style="color: #000080;">=</span><span style="color: #ff00ff;">&quot;select * from station where name like &apos;bb&apos;&quot;</span>;
+i<span style="color: #000080;">=</span>wks.<span style="color: #000080;">db</span>.<span style="color: #000080;">test</span><span style="color: #000000;">(</span><span style="color: #0000dd;">100</span><span style="color: #000000;">)</span>;
+type <span style="color: #ff00ff;">&quot;name = bb has $(i) records&quot;</span>;
+wks.<span style="color: #000080;">db</span>.<span style="color: #000080;">sql</span><span style="color: #000080;">$</span><span style="color: #000080;">=</span><span style="color: #ff00ff;">&quot;delete from station where name like &apos;bb&apos;&quot;</span>;
+wks.<span style="color: #000080;">db</span>.<span style="color: #000080;">run</span><span style="color: #000000;">(</span><span style="color: #000000;">)</span>;
+wks.<span style="color: #000080;">db</span>.<span style="color: #000080;">sql</span><span style="color: #000080;">$</span><span style="color: #000080;">=</span><span style="color: #ff00ff;">&quot;select * from station where name like &apos;bb&apos;&quot;</span>;
+i<span style="color: #000080;">=</span>wks.<span style="color: #000080;">db</span>.<span style="color: #000080;">test</span><span style="color: #000000;">(</span><span style="color: #0000dd;">100</span><span style="color: #000000;">)</span>;
+type <span style="color: #ff00ff;">&quot;after delete, name = bb has $(i) records&quot;</span>;</pre>
+<p><b>EX3</b>ブック内のすべてのシートをエクスポート 
+</p>
+<pre class="lt" style="font-family:monospace;">string dbName<span style="color: #000080;">$</span><span style="color: #000080;">=</span>page.<span style="color: #000080;">LongName</span><span style="color: #000080;">$</span> <span style="color: #000080;">+</span> <span style="color: #ff00ff;">&quot;.sqlite&quot;</span>;
+string strPath<span style="color: #000080;">$</span> <span style="color: #000080;">=</span> <span style="color: #000080;">%</span>Y<span style="color: #000080;">%</span><span style="color: #000000;">(</span>dbName<span style="color: #000080;">$</span><span style="color: #000000;">)</span>;
+strPath<span style="color: #000080;">$</span><span style="color: #000080;">=</span>;
+doc <span style="color: #000080;">-</span>e LW <span style="color: #000000;">{</span>
+	type <span style="color: #ff00ff;">&quot;Adding [%H]%(wks.Name$)&quot;</span>;
+	wks.<span style="color: #000080;">db</span>.<span style="color: #000080;">export</span><span style="color: #000000;">(</span>strPath<span style="color: #000080;">$</span><span style="color: #000000;">)</span>;
+<span style="color: #000000;">}</span></pre>
+
+
+
+
+
+
+
+    

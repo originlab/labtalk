@@ -1,0 +1,45 @@
+﻿<h1 class="firstHeading">名前オプション</h1><p class='urlname' style='display: none'>Window_Options_to_Name</p>
+<p><br />
+</p>
+<h2><a name="-r"></a><span class="mw-headline">-r</span></h2>
+<p><b>構文：</b> window <b>-r</b> 
+</p><p>現在のウィンドウを最大化または最小化から復元します。
+</p><p><b>構文：</b> window <b>-r</b> <i>windowName newName</i>
+</p><p>指定した<i>newName</i>で <i>windowName</i> の名前を変更します。
+</p>
+<h2><a name="-ra"></a><span class="mw-headline">-ra</span></h2>
+<p><b>構文：</b> window <b>-ra</b>
+</p><p><span class="db">名前の変更</span>ダイアログを開きます。
+</p>
+<h2><a name="-rl"></a><span class="mw-headline">-rl</span></h2>
+<p><b>構文：</b> window <b>-rl</b> <i>windowName &quot;labelContents&quot;</i>
+</p><p><i>windowName</i>ウィンドウのウィンドウラベルを指定し、ウィンドウタイトルにラベルを表示するように設定します。
+<br />これは下記と同様です。
+</p>
+<pre class="lt" style="font-family:monospace;">windowName<span style="color: #000080;">!</span>page.<span style="color: #000080;">title</span> <span style="color: #000080;">=</span> <span style="color: #0000dd;">1</span>; 
+windowName<span style="color: #000080;">!</span>page.<span style="color: #000080;">label</span><span style="color: #000080;">$</span> <span style="color: #000080;">=</span> <span style="color: #ff00ff;">&quot;labelContents&quot;</span>;</pre>
+<h2><a name="-rn"></a><span class="mw-headline">-rn</span></h2>
+<p><b>構文：</b> window <b>-rn</b> <i>notesWindowName newName</i>
+</p><p><i>notesWindowName</i>ノートウィンドウの名前を指定した<i>newName</i>に変更します。
+</p>
+<h2><a name="-rp"></a><span class="mw-headline">-rp</span></h2>
+<p><b>構文：</b> window <b>-rp</b> <i>windowName</i> [<i>strNewName</i>]
+</p><p>グラフテンプレートのショートネームまたはロングネームの事前設定で<i>WindowName</i>を更新します。<br />
+グラフウィンドウ<i>windowName</i> がショートネームまたはロングネームの事前設定のテンプレートから作成されている場合、このコマンドは<i>windowName</i>を事前設定名で更新し、更新されたショートネームを<i>strNewName</i>変数に保存します。
+</p><p>クローンテンプレート &quot;mytemplate&quot; をショートネーム事前設定でユーザファイルフォルダに保存すると仮定します。次に、準備したデータのワークブックをアクティブにし、次のスクリプトを実行してクローンテンプレートからグラフを作成し、グラフのショートネームを設定します。
+</p>
+<pre class="lt" style="font-family:monospace;">worksheet <span style="color: #000080;">-</span>pa&nbsp;? mytemplate.<span style="color: #000080;">otp</span>;
+win <span style="color: #000080;">-</span>rp <span style="color: #000080;">%</span>H strNewName<span style="color: #000080;">$</span>; <span style="color: #008000;">//更新されたショートネームは strNewName$ に保存される</span></pre>
+<h2><a name="-w"></a><span class="mw-headline">-w</span></h2>
+<p><b>構文：</b> window <b>-w</b> <i>winName</i>
+</p><p>アクティブウィンドウを一時的に<i>winName</i>に設定します。
+<br />これにより、アクティブウィンドウで動作するコマンドを<i>winName</i>に適用できます。
+<br />再度このコマンドを使用する前に、最終的に<code>win -w</code>を実行して通常の動作を復元する必要があります。
+</p>
+
+
+
+
+
+
+    

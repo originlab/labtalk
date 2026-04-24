@@ -1,0 +1,88 @@
+<h1 class="firstHeading">3.7.5.55 SDF</h1><p class='urlname' style='display: none'>SDF-obj</p>‎
+<p><b>LabTalk Object Type:</b>
+</p>
+<dl><dd><a href="../../LabTalk/Category/Origin_Object_Reference_(Labtalk).html" title="Category:Origin Object Reference (Labtalk)">Utility</a></dd></dl>
+<p>‎
+The shared data filter object access the graph based filter used for the plot. 
+</p>
+<h2><a name="Properties"></a><span class="mw-headline"><font color="chocolate">Properties</font></span></h2>
+<table class="simple">
+<tr>
+<th width="110">Property
+</th>
+<th width="70">Access
+</th>
+<th width="540">Description
+</th></tr>
+<tr>
+<td><b>SDF.enable</b>
+</td>
+<td> Read/write,<br />numeric
+</td>
+<td> Enable/disable data filter
+</td></tr>
+<tr>
+<td> <b>SDF.nf</b>
+</td>
+<td> Read,<br />numeric
+</td>
+<td> Number of columns to have filter
+</td></tr>
+<tr>
+<td> <b>SDF.wks$</b>
+</td>
+<td> Read,<br />string
+</td>
+<td> worksheet range
+</td></tr>
+<tr>
+<td> <b>SDF.fn.col</b>
+</td>
+<td> Read,<br />numeric
+</td>
+<td> first filter on which col
+</td></tr>
+<tr>
+<td> <b>SDF.fn.filter$</b>
+</td>
+<td> Read,<br />string
+</td>
+<td> query string
+</td></tr>
+<tr>
+<td> <b>SDF.fn.filterx$</b>
+</td>
+<td> Read,<br />string
+</td>
+<td> the x variable used inside the filter
+</td></tr></table>
+<h2><a name="Method"></a><span class="mw-headline"><font color="chocolate">Method</font></span></h2>
+<table class="simple" width="100%">
+<tr>
+<th width="25%">Method
+</th>
+<th width="75%">Description
+</th></tr>
+<tr>
+<td> <b>SDF.fn.set</b>
+</td>
+<td> set/replace the filter
+</td></tr></table>
+<p><br />
+</p>
+<h2><a name="Example"></a><span class="mw-headline"><font color="chocolate">Example</font></span></h2>
+<pre class="lt" style="font-family:monospace;"><span style="color: #008000;">//import ..\Samples\Statistics\automobile.dat and make a scatter plot with Col(C) as X Col(F) as Y</span>
+<span style="color: #008000;">//active the graph</span>
+layer.<span style="color: #000080;">plot</span>.<span style="color: #000080;">DF</span><span style="color: #000000;">&#40;</span><span style="color: #000000;">&#41;</span>;<span style="color: #008000;">//create a shared data filter</span>
+SDF ff <span style="color: #000080;">=</span> layer.<span style="color: #000080;">plot</span>.<span style="color: #000080;">SDF</span>;
+ff.<span style="color: #000080;">wks</span><span style="color: #000080;">$</span><span style="color: #000080;">=</span>;
+ff.<span style="color: #000080;">Set</span><span style="color: #000000;">&#40;</span>d<span style="color: #000000;">:</span><span style="color: #0000dd;">3</span><span style="color: #000000;">:</span><span style="color: #ff00ff;">&quot;between(18,23)&quot;</span><span style="color: #000000;">&#41;</span>;<span style="color: #008000;">//filter on Col(D)</span>
+ff.<span style="color: #000080;">Set</span><span style="color: #000000;">&#40;</span>e<span style="color: #000000;">:</span><span style="color: #0000dd;">3</span><span style="color: #000000;">:</span><span style="color: #ff00ff;">&quot;between(1700,2200)&quot;</span><span style="color: #000000;">&#41;</span>;<span style="color: #008000;">//filter on Col(E)</span>
+ff.<span style="color: #000080;">nf</span><span style="color: #000080;">=</span>;<span style="color: #008000;">//2</span>
+ff.<span style="color: #000080;">f1</span>.<span style="color: #000080;">col</span><span style="color: #000080;">=</span>;<span style="color: #008000;">//4</span></pre>
+
+
+
+
+
+

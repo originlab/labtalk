@@ -1,0 +1,341 @@
+<h1 class="firstHeading">3.7.5.23 Img</h1><p class='urlname' style='display: none'>Img-obj</p>
+<p><b>LabTalk Object Type:</b> 
+</p>
+<dl><dd><a href="../../LabTalk/LabTalk/Visual_Objects_Created_by_Origin_(Object).html" title="LabTalk:Visual Objects Created by Origin (Object)">Internal</a></dd></dl>
+<p>The <b>img</b> object provides script access for processing on image window, such as zooming the window, loading an image file, etc.
+</p><p>This object is introduced in Origin 2021b.
+</p>
+<h2><a name="Properties:"></a><span class="mw-headline"><font color="chocolate">Properties:</font></span></h2>
+<table class="simple">
+<tr>
+<th width="110">Property
+</th>
+<th width="70">Access
+</th>
+<th width="540">Description
+</th></tr>
+<tr>
+<td> <b>img.current</b>
+</td>
+<td> Read/write,<br />numeric
+</td>
+<td>
+<p>Get and set the current frame in video/multi-frame stacked image
+</p>
+</td></tr>
+<tr>
+<td> <b>img.ext$</b>
+</td>
+<td> Read only,<br />string
+</td>
+<td>
+<p>Get file type (file extension).
+</p>
+</td></tr>
+<tr>
+<td> <b>img.filesize</b>
+</td>
+<td> Read only,<br />numeric
+</td>
+<td>
+<p>Get file size.
+</p>
+</td></tr>
+<tr>
+<td> <b>img.fps</b>
+</td>
+<td> Read only,<br />numeric
+</td>
+<td>
+<p>Return the frames per second in video or a multi-frame image.
+</p>
+</td></tr>
+<tr>
+<td> <b>img.frames</b>
+</td>
+<td> Read only,<br />numeric
+</td>
+<td>
+<p>Return number of frames in video/multi-frame stacked image.
+</p>
+</td></tr>
+<tr>
+<td> <b>img.graymax</b>
+</td>
+<td> Read/Write,<br />numeric
+</td>
+<td>
+<p>Set the maximum value of the palette applied to the gray scale image. THe value should be 0 - 255.
+</p>
+</td></tr>
+<tr>
+<td> <b>img.height</b>
+</td>
+<td> Read only,<br />numeric
+</td>
+<td>
+<p>Return the image width in pixel.
+</p>
+</td></tr>
+<tr>
+<td> <b>img.inc</b>
+</td>
+<td> Read only,<br />numeric
+</td>
+<td>
+<p>Get and set the frame increment when click &gt;&gt; or &lt;&lt; button. Default is 1.
+</p>
+</td></tr>
+<tr>
+<td> <b>img.info</b>
+</td>
+<td> Read only,<br />numeric
+</td>
+<td>
+<p>Show or Hide the Information Bar at the top of the iamge window. 1 = show, 0 = hide.
+</p>
+</td></tr>
+<tr>
+<td> <b>img.link</b>
+</td>
+<td> Read only,<br />numeric
+</td>
+<td>
+<p>Return the linked image type when insert to other window.
+</p>
+<dl><dd>0 = no link, </dd>
+<dd>1 = link as image object to a Graph/Worksheet/Matrix/Layout window, </dd>
+<dd>2 = link as background to a Graph window, </dd>
+<dd>3 = link to a worksheet cell, </dd>
+<dd>4 = link to a matrix object.</dd></dl>
+</td></tr>
+<tr>
+<td> <b>img.max</b>
+</td>
+<td> Read only,<br />numeric
+</td>
+<td>
+<p>For GeoTIFF image，return the Max values of the image.
+</p>
+</td></tr>
+<tr>
+<td> <b>img.mix</b>
+</td>
+<td> Read only,<br />numeric
+</td>
+<td>
+<p>For GeoTIFF image，return the Mix values of the image.
+</p>
+</td></tr>
+<tr>
+<td> <b>img.media</b>
+</td>
+<td> Read/Write,<br />numeric
+</td>
+<td>
+<p>Get or set the media type.
+</p>
+<dl><dd>1 = single-frame image;</dd>
+<dd>2 = multiple-frames image;</dd>
+<dd>3 = video. </dd></dl>
+<p>Note that when setting media type, you can only switch between single frame and multi-frames.
+</p>
+</td></tr>
+<tr>
+<td> <b>img.nav</b>
+</td>
+<td> Read/write,<br />numeric
+</td>
+<td>
+<p>Set or get image window stack navigation mode:
+</p>
+<dl><dd>0 = None</dd>
+<dd>1 = Thumbnails</dd>
+<dd>2 = Image</dd>
+<dd>3 = Slider</dd></dl>
+</td></tr>
+<tr>
+<td> <b>img.nancolor</b>
+</td>
+<td> Read/Write,<br />numeric
+</td>
+<td>
+<p>Get/Set color for missing values. See Color List <a href="../../LabTalk/LabTalk/List_of_Colors.html" title="LabTalk:List of Colors">here</a>.
+</p>
+</td></tr>
+<tr>
+<td> <b>img.palette$</b>
+</td>
+<td> Read/Write,<br />string
+</td>
+<td>
+<p>Set or get the color palette applied to a gray scale image. Use <code>img.palette$="";</code> to remove palette.
+</p><p>For example, <code>img.palette$="blue";</code> to apply built-in "blue" palette.
+</p>
+</td></tr>
+<tr>
+<td> <b>img.pause</b>
+</td>
+<td> Read/write,<br />numeric
+</td>
+<td>
+<p>Pause video on click in video/multi-frame stacked image.
+</p>
+<dl><dd>1 = Enable pausing video on mouse click.</dd>
+<dd>0 = Default. Disable pausing video on click. One must click [O] button to pause.</dd></dl>
+</td></tr>
+<tr>
+<td> <b>img.path$</b>
+</td>
+<td> Read/write,<br />string
+</td>
+<td>
+<p>Get and set the path of the image source file. After setting a new path using this property, you will need to refresh the image window to see the update. 
+</p>
+</td></tr>
+<tr>
+<td> <b>img.pixel</b>
+</td>
+<td> Read/write,<br />numeric
+</td>
+<td>
+<p>Wether to show image as actual size.
+</p>
+<dl><dd>1 = show image as actual size, showing pixels as 1 to 1. This is the default mode when an image window is created.</dd>
+<dd>0 = not show image as actual size. Image will always fit to the window size.</dd></dl>
+</td></tr>
+<tr>
+<td> <b>img.savedata</b>
+</td>
+<td> Read/write,<br />numeric
+</td>
+<td>
+<p>Wether to save the image to the image window.
+</p>
+<dl><dd>1 = Save the image to the image window. The window serves as image container.</dd>
+<dd>0 = Link the image to its source file. Only the connection is saved. The image will be excluded when saving the project.</dd></dl>
+<p>See details about "linked file" vs. "image container" <a class="external text" href="../../UserGuide/Category/Importing_Images_and_Videos.html#Save_and_Reload">here</a>.
+</p>
+</td></tr>
+<tr>
+<td> <b>img.unit$</b>
+</td>
+<td> Read/write,<br />string
+</td>
+<td>
+<p>Get/set the unit of the GeoTIFF image.
+</p>
+</td></tr>
+<tr>
+<td> <b>img.width</b>
+</td>
+<td> Read only,<br />numeric
+</td>
+<td>
+<p>Return the image width in pixel.
+</p>
+</td></tr>
+<tr>
+<td> <b>img.xy$</b>
+</td>
+<td> Read/Write,<br />string
+</td>
+<td>
+<p>Get and set the XY coordinates mapping to the image. The coordinate string should arrange in the series of <i>XFrom XTo YFrom YTo</i>. The default unit of the coordinates is pixel (which can be set by <b>img.xyunit$</b>). 
+</p>
+</td></tr>
+<tr>
+<td> <b>img.xyunit$</b>
+</td>
+<td> Read/write,<br />string
+</td>
+<td>
+<p>Get and set the unit of actual XY scale.
+</p>
+</td></tr>
+<tr>
+<td> <b>img.zunit$</b>
+</td>
+<td> Read/write,<br />string
+</td>
+<td>
+<p>Get and set the unit of image frames (Z dimension) in a multi-frame image. XYZ values of a single frame are the pixel values.
+</p>
+</td></tr>
+<tr>
+<td> <b>img.zname$</b>
+</td>
+<td> Read/write,<br />string
+</td>
+<td>
+<p>Get and set the Long Name of image frames (Z dimension) in a multi-frames image.
+</p>
+</td></tr></table>
+<h2><a name="Methods:"></a><span class="mw-headline"><font color="chocolate">Methods:</font></span></h2>
+<table class="simple">
+<tr>
+<th width="180">Method
+</th>
+<th> Description
+</th></tr>
+<tr>
+<td> <b>img.empty()</b>
+</td>
+<td> Clear the Image Window
+</td></tr>
+<tr>
+<td> <b>img.fit(<i>value</i>)</b>
+</td>
+<td> Use to fit window size to image.
+<p>0 = fit window to image<br />
+1 = image fit width of window<br />
+2 = image fit Height of Window
+</p>
+</td></tr>
+<tr>
+<td> <b>img.label(<i>frame</i>)$</b>
+</td>
+<td> Give a frame number and return the frame name
+</td></tr>
+<tr>
+<td> <b>img.revpal()</b>
+</td>
+<td> Reverse the color palette on a grayscale image.
+</td></tr>
+<tr>
+<td> <b>img.setup(<i>channels</i>,<i>multiframe</i>,<i>channelType</i>,<i>rows</i>,<i>cols</i>)</b>
+</td>
+<td> Initialize the image window by specifying the number of channels and whether it should be multiframe or not.
+</td></tr>
+<tr>
+<td> <b>img.transfer(<i>GraphName</i>)</b>
+</td>
+<td> Transfer the image inserted to a Graph window to a real Image window or inverse.
+<ul><li> <b>img.transfer()</b>: Extract the image object inserted in the Graph window to a real Image window. </li>
+<li> <b>img.transfer(<i>GraphName</i>)</b>: Embed the image window to <i>GraphName</i> window as an object. </li></ul>
+<p>Refer to <a class="external text" href="../../UserGuide/UserGuide/Copying_and_Pasting_Image_into_Graph.html#Insert_an_Image">"Insert an Image File" document</a> for details.
+</p>
+</td></tr>
+
+<tr>
+<td> <b>img.xymap(<i>type</i>,<i>img$</i>)</b>
+</td>
+<td> Rescale graph to image.
+<p>type: 2=apply img xy to linked graph,1=apply to layer.bixy$,0=from layer.bixy$
+<br />
+img is image object's RangeString
+</p>
+</td></tr></table>
+<h2><a name="Samples:"></a><span class="mw-headline"><font color="chocolate">Samples:</font></span></h2>
+<p><b>Example 1</b>
+</p>
+<pre class="lt" style="font-family:monospace;"><span style="color: #008000;">//Activate Image1 window. Get XY coordinates</span>
+string strxy<span style="color: #000080;">$</span><span style="color: #000080;">=</span>img.<span style="color: #000080;">xy</span><span style="color: #000080;">$</span>;
+<span style="color: #008000;">//Activate a Graph window you want to insert the image to</span>
+layer.<span style="color: #000080;">addImg</span><span style="color: #000000;">&#40;</span>image1, <span style="color: #0000dd;">8</span><span style="color: #000000;">&#41;</span>;</pre>
+
+
+
+
+
+

@@ -1,0 +1,286 @@
+﻿<h1 class="firstHeading">Layer.Axis.Label</h1><p class='urlname' style='display: none'>Layer-Axis-Label-obj</p>
+<p>labelオブジェクトは<a href="../../LabTalk/LabTalk/Axis_(command).html" title="LabTalk:Axis (command)">axis</a>オブジェクトのサブオブジェクトです。axisオブジェクトは<a href="../../LabTalk/LabTalk/Layer_(object).html" title="LabTalk:Layer (object)">layer</a>オブジェクトのサブオブジェクトです。範囲表記を使用して、レイヤオブジェクトを定義できます。
+</p>
+<dl><dd><font color="navy">range layerObject = [<i>pageName</i>]<i>layerName</i><b>!</b></font></dd></dl>
+<p>次に、次の方法でaxisオブジェクトにアクセスします。
+</p>
+<dl><dd><font color="navy">layerObject.<b>Axis</b>.label.<i>property</i></font></dd></dl>
+<p>ここで、<i><b>Axis</b></i>は軸の仕様、<b>X</b>は下X軸、<b>X2</b>は上X軸、<b>Y</b>は左Y軸、<b>Y2</b>は右Y軸、<b>Z</b>は正面Z軸、<b>Z2</b>は背面Z軸、<b>ZH</b>はZhX軸、<b>Zh2</b>は背面ZhY軸、<b>Zh3</b>は背面ZhZ軸です。
+</p><p><br />
+</p>
+<h2><a name="Properties"></a><span class="mw-headline">プロパティ</span></h2>
+<p><i>ここで、</i><b>axis</b> <i>は</i><b>x</b>, <b>y</b> <i>または</i> <b>z</b> <i>のプレースホルダであり、</i><b>axis2</b> <i>は</i> <b>x2</b>, <b>y2</b> <i>または</i> <b>z2</b><i>プレースホルダです。</i>
+</p>
+<table class="simple">
+<tr>
+<th width="165">プロパティ
+</th>
+<th width="70">アクセス
+</th>
+<th width="485">説明
+</th></tr>
+<tr>
+<td> layer.axis.label.align
+</td>
+<td> 読み/書き<br />数値
+</td>
+<td>
+<p>目盛ラベルを目盛マークに対して揃えます。 <i>1</i> = 中心（目盛上）、<i>2</i> = 目盛間の中心、<i>3</i> = 目盛の隣。
+</p>
+</td></tr>
+<tr>
+<td> layer.axis.label.bold
+</td>
+<td> 読み/書き<br />数値
+</td>
+<td>
+<p>目盛ラベルを太字にします。1=有効、0=無効。
+</p>
+</td></tr>
+<tr>
+<td> layer.axis.label.collabel<br /><font color="red">(Origin 2019b)</font>
+</td>
+<td> 読み/書き<br />数値
+</td>
+<td>
+<p>layer.axis.label.type = 7 (列名またはラベル) または 11 (レイヤバナー) の場合の目盛ラベルの表示形式を指定します。1 = 列ヘッダ、3 = 単位、 4 = コメント、 5 = サンプリング間隔、 6 = パラメータ、 7 = パラメータ2、 8 = パラメータ3、 9 = パラメータ4、10 = パラメータ5、32 = &lt;カスタム&gt;
+</p>
+</td></tr>
+<tr>
+<td> layer.axis.label.collabel$<br /><font color="red">(Origin 2019b)</font>
+</td>
+<td> 読み/書き<br />文字列
+</td>
+<td>
+<p>layer.axis.label.type=7(列名またはラベル)または11(レイヤバナー)で、layer.axis.label.collabel=32 (&lt;Custom&gt;)の場合、目盛ラベルの表示フォーマット文字列を指定します。
+</p>
+</td></tr>
+<tr>
+<td> layer.axis.label.color
+</td>
+<td> 読み/書き<br />数値
+</td>
+<td>
+<p>目盛ラベルの色。カラーリストの数値または透明(0)を取ります。<a href="../../LabTalk/LabTalk/Color_(function).html" title="LabTalk:Color (function)">color</a>関数は次のように使用されます。 <code>layer.x.color = color(blue);
+layer.y2.color = color(240,208,0);</code>
+</p>
+</td></tr>
+<tr>
+<td> layer.axis.label.dataset$
+</td>
+<td> 読み/書き<br />文字列
+</td>
+<td>
+<p>目盛ラベルがデータセットの場合のデータセット名。読み込むには、文字列変数に値を代入します。
+</p>
+</td></tr>
+<tr>
+<td> layer.axis.label.decPlaces
+</td>
+<td> 読み/書き<br />数値
+</td>
+<td>
+<p>表示する小数点の数。無効にするには、-1に設定します。
+</p>
+</td></tr>
+<tr>
+<td> layer.axis.label.dir<br /><font color="red">(Origin 2022)</font>
+</td>
+<td> 読み/書き<br />数値/文字列
+</td>
+<td>
+<p>軸ラベルの文字と数字の方向を制御します。1=水平、2=垂直、3=積み上げ、4=垂直テキストの水平文字と数字。詳細は<a class="external text" href="../../UserGuide/UserGuide/Tick_Labels_2.html#Direction"><b>方向</b>の制御</a>を参照してください。
+</p>
+</td></tr>
+<tr>
+<td> layer.axis.label.divideBy<br /><font color="red">(Origin 2021)</font>
+</td>
+<td> 読み/書き<br />数値/文字列
+</td>
+<td>
+<p>表示する前に、目盛ラベルをこの係数で割ります。
+</p>
+<pre class="lt" style="font-family:monospace;"><span style="color: #000080;">%</span><span style="color: #000000;">(</span>?X<span style="color: #000000;">)</span> <span style="color: #000080;">/</span> <span style="color: #000080;">%</span><span style="color: #000000;">(</span>layer.<span style="color: #000080;">x</span>.<span style="color: #000080;">label</span>.<span style="color: #000080;">divideBy</span><span style="color: #000080;">$</span><span style="color: #000000;">)</span></pre>
+</td></tr>
+<tr>
+<td> layer.axis.label.font
+</td>
+<td> 読み/書き<br />数値
+</td>
+<td>
+<p>Windowsで列挙されているフォント番号（1を除く）は、「環境設定：オプション：テキストフォント：標準フォント」設定を使用します。<a href="../../LabTalk/LabTalk/Font_(function).html" title="LabTalk:Font (function)">font( )</a>関数を次のように使用して、Arialフォントに設定します。 <code>layer1.x.label.font = font(arial);</code>
+</p>
+</td></tr>
+<tr>
+<td> layer.axis.label.formula$
+</td>
+<td> 読み/書き<br />文字列
+</td>
+<td> 指定した式で目盛ラベルを表示します。例えば、<code>layer.x.label.formula$=&quot;x*2&quot;;</code> を使用してx軸の目盛ラベルの値を2倍にします。（&quot;x&quot;はY軸とZ軸の式でも使用されます。）
+
+</td></tr>
+<tr>
+<td> layer.axis.label.numFormat
+</td>
+<td> 読み/書き<br />数値
+</td>
+<td>
+<p>数値表示形式。1=コンマなしの小数、2=科学、3=工学、4=コンマ付き小数（日付）。
+</p>
+</td></tr>
+<tr>
+<td> layer.axis.label.offsetH
+</td>
+<td> 読み/書き<br />数値
+</td>
+<td>
+<p>軸からの水平オフセット（&nbsp;現在のフォントの%）。
+</p>
+</td></tr>
+<tr>
+<td> layer.axis.label.offsetV
+</td>
+<td> 読み/書き<br />数値
+</td>
+<td>
+<p>軸からの垂直オフセット（&nbsp;現在のフォントの%）。
+</p>
+</td></tr>
+<tr>
+<td> layer.axis.label.pre$
+</td>
+<td> 読み/書き<br />文字列
+</td>
+<td>
+<p>各目盛ラベルの前に表示する文字列。  接頭辞を削除するには、 <code>.pre$ = &quot;&quot;</code>; を設定します。
+</p>
+</td></tr>
+<tr>
+<td> layer.axis.label<i>n</i>.pt<br /><font color="red">(Origin 2024b)</font>
+</td>
+<td> 読み/書き<br />数値
+</td>
+<td>
+<p>目盛ラベルのサイズ（ポイント単位）。複数行のテーブルの場合、<i>n</i>はテーブル内の<i>n</i>行目を指します。1行の軸ラベルの場合は<i>n</i>を省略できます。
+</p>
+</td></tr>
+<tr>
+<td> layer.axis.label.rotate
+</td>
+<td> 読み/書き<br />数値
+</td>
+<td>
+<p>ラベルの回転（度単位）。
+</p>
+</td></tr>
+<tr>
+<td> layer.axis.label.scientificnotationpower<br /><font color="red">(Origin 2022b)</font>
+</td>
+<td> 読み/書き<br />文字列
+</td>
+<td>
+<p>ラベルの単位として表示される目盛ラベルのパワー。
+</p>
+</td></tr>
+<tr>
+<td> layer.axis.label.scientificnotationpos<br /><font color="red">(Origin 2022b)</font>
+</td>
+<td> 読み/書き<br />文字列
+</td>
+<td>
+<p>軸目盛ラベルのパワー単位の位置を指定します。
+0=単位を非表示<br />
+1=軸の終点から開始 //デフォルト値<br />
+2=最後の目盛ラベル<br />
+3=軸の終点<br />
+4 =中心
+</p>
+</td></tr>
+<tr>
+<td> layer.axis.label.scientificnotationxoffset<br /><font color="red">(Origin 2022b)</font>
+</td>
+<td> 読み/書き<br />文字列
+</td>
+<td>
+<p>指定した位置からの単位ラベルの水平オフセットを指定します。オフセット単位は目盛ラベルのオフセットと同様です。
+</p>
+</td></tr>
+<tr>
+<td> layer.axis.label.scientificnotationyoffset<br /><font color="red">(Origin 2022b)</font>
+</td>
+<td> 読み/書き<br />文字列
+</td>
+<td>
+<p>指定した位置からの単位ラベルの垂直オフセットを指定します。オフセット単位は目盛ラベルのオフセットと同様です。
+</p>
+</td></tr>
+<tr>
+<td> layer.axis.label.string$
+</td>
+<td> 読み/書き<br />文字列
+</td>
+<td>
+<p>目盛ラベルタイプが目盛インデックス文字列の場合の目盛ラベル文字列。空白を使用して異なる文字列を区切ります。
+</p>
+</td></tr>
+<tr>
+<td> layer.axis.label.suf$
+</td>
+<td> 読み/書き<br />文字列
+</td>
+<td>
+<p>各目盛ラベルの後に表示する文字列。接尾辞を削除するには、<code>.suf$ = &quot;&quot;;</code> を設定します。
+</p>
+</td></tr>
+<tr>
+<td> layer.axis.label.timeFormat
+</td>
+<td> 読み/書き<br />数値
+</td>
+<td>
+<p>目盛ラベルの時刻と日付の書式。<br /><code>layer.axis.label.type = 4</code> の場合、1=日付形式ドロップダウンリストからの最初の選択(Windows Short Date format)、2=日付形式ドロップダウンリストからの2番目の選択 (Windows Long Date format)など。<code>layer.axis.label.type = 3</code><br /> の場合、1=時刻形式ドロップダウンリストからの最初の選択、2=時刻形式ドロップダウンリストからの2番目の選択など。
+</p>
+</td></tr>
+<tr>
+<td> layer.axis.label.type
+</td>
+<td> 読み/書き<br />数値
+</td>
+<td>
+<p>目盛ラベルタイプ。1=数値、2=データセットからのテキスト、3=時刻、4=日付、5=月、6=曜日、7=列見出し、8=目盛 # としてインデックス付けされたデータセット、9=カテゴリ、10=目盛インデックス文字列、11=レイヤバナー
+</p>
+</td></tr>
+<tr>
+<td> layer.axis.label.whiteout
+</td>
+<td> 読み/書き<br />数値
+</td>
+<td>
+<p>目盛ラベルの背景。0=透明な背景、1=白い背景。
+</p>
+</td></tr>
+<tr>
+<td> layer.axis.label.wrap<br /><font color="red">(Origin 2015 SR0)</font>
+</td>
+<td> 読み/書き<br />数値
+</td>
+<td>
+<p>軸目盛ラベルの折り返しを有効にします。0=無効、1=有効。
+</p>
+</td></tr></table>
+<p><br />
+</p>
+<h2><a name="Example"></a><span class="mw-headline">サンプル</span></h2>
+<p>次のスクリプトは、アクティブレイヤのxラベルを回転します。
+</p>
+<pre class="lt" style="font-family:monospace;">range ll <span style="color: #000080;">=</span> <span style="color: #000080;">!</span>;
+ll.<span style="color: #000080;">x</span>.<span style="color: #000080;">label</span>.<span style="color: #000080;">rotate</span> <span style="color: #000080;">=</span> <span style="color: #0000dd;">45</span>;</pre>
+<p><br />
+</p>
+
+
+
+
+
+
+    

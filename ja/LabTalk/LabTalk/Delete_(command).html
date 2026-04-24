@@ -1,0 +1,478 @@
+﻿<h1 class="firstHeading">Delete</h1><p class='urlname' style='display: none'>Delete-cmd</p>
+<p><br />
+指定したオブジェクトを削除します。
+</p>
+<table class="noborder"><tr>
+	<td style="vertical-align:top" width="60"><img src="../images/Delete_(command)/Tip_icon.png" width="57"  border="0" /></td><td><p>このコマンドは主にデータセットと変数に対して動作します。  
+</p>
+<ul><li> ページ全体(つまり、ワークブックやグラフウィンドウ)を削除したい場合は、<a href="../../LabTalk/LabTalk/Window_Options_to_Close.html#-c" title="LabTalk:Window Options to Close">Window -c</a>コマンドを参照してください。 </li>
+<li> アクティブなレイヤ(ブック内のワークシートまたはグラフ内のレイヤ)を削除したい場合は、<a href="../../LabTalk/LabTalk/Layer_Options_for_Layer.html#-d" title="LabTalk:Layer Options for Layer">Layer-d</a>コマンドを参照してください。 </li>
+<li> テキストラベルやグラフィックオブジェクトを削除したい場合は、<a href="../../LabTalk/LabTalk/Label_(command).html#-r.3B_Delete_the_specified_label_or_graph_object" title="LabTalk:Label （コマンド）">Label -r</a>コマンドを参照してください。 </li></ul>
+</td></tr></table>
+<div id="toc" class="toc"><div id="toctitle"><h2>目次</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Syntax"><span class="tocnumber">1</span> <span class="toctext">構文</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Options"><span class="tocnumber">2</span> <span class="toctext">オプション</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Examples"><span class="tocnumber">3</span> <span class="toctext">サンプル</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#.28no_option.29.3B_Delete_the_dataset_or_portion_thereof"><span class="tocnumber">3.1</span> <span class="toctext">（オプションなし）; データセットまたはその一部を削除</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#.40.3B_Delete_value_of_registry-stored_persistent_system_variable"><span class="tocnumber">3.2</span> <span class="toctext">@; レジストリに保存された永続システム変数の値を削除</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#-a.3B_Delete_all_the_temporary_datasets"><span class="tocnumber">3.3</span> <span class="toctext">-a; すべての一時データセットを削除</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="#-al.3B_Delete_a_local_variable_.28of_any_type.29"><span class="tocnumber">3.4</span> <span class="toctext">-al; 任意の型のローカル変数を削除</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="#-as.3B_Delete_the_hidden_datasets"><span class="tocnumber">3.5</span> <span class="toctext">-as; 非表示のデータセットを削除</span></a></li>
+<li class="toclevel-2 tocsection-9"><a href="#-cs.3B_Remove_cloud_setting_files"><span class="tocnumber">3.6</span> <span class="toctext">-cs; クラウド設定ファイルを削除</span></a></li>
+<li class="toclevel-2 tocsection-10"><a href="#-di.3B_Delete_all_imported_data"><span class="tocnumber">3.7</span> <span class="toctext">-di; インポートされた全てのデータを削除</span></a></li>
+<li class="toclevel-2 tocsection-11"><a href="#-f.3B_Delete_a_file_specified_by_filepath"><span class="tocnumber">3.8</span> <span class="toctext">-f; <i>filepath</i>で指定したファイルを削除</span></a></li>
+<li class="toclevel-2 tocsection-12"><a href="#-fc.3B_Reset_custom_format_list_to_factory_default"><span class="tocnumber">3.9</span> <span class="toctext">-fc; カスタムフォーマットリストを初期状態のデフォルトにリセット</span></a></li>
+<li class="toclevel-2 tocsection-13"><a href="#-fi.3B_Delete_File_Import_information"><span class="tocnumber">3.10</span> <span class="toctext">-fi; ファイルインポート情報を削除</span></a></li>
+<li class="toclevel-2 tocsection-14"><a href="#-i.3B_Clear_all_the_search_indexing"><span class="tocnumber">3.11</span> <span class="toctext">-i; すべての検索インデックスをクリア</span></a></li>
+<li class="toclevel-2 tocsection-15"><a href="#-jax.3B_Reset_LaTeX_JS_MathJax"><span class="tocnumber">3.12</span> <span class="toctext">-jax; LaTeX JS MathJaxをリセット</span></a></li>
+<li class="toclevel-2 tocsection-16"><a href="#-m.3B_Delete_the_specified_macro"><span class="tocnumber">3.13</span> <span class="toctext">-m; 指定したマクロを削除</span></a></li>
+<li class="toclevel-2 tocsection-17"><a href="#-oc.3B_Clean_OC_temp_folder"><span class="tocnumber">3.14</span> <span class="toctext">-oc; OC一時フォルダを消去</span></a></li>
+<li class="toclevel-2 tocsection-18"><a href="#-ocb.3B_Delete_OCB_file"><span class="tocnumber">3.15</span> <span class="toctext">-ocb; OCBファイルを削除</span></a></li>
+<li class="toclevel-2 tocsection-19"><a href="#-oct.3B_New_OC_Workspace"><span class="tocnumber">3.16</span> <span class="toctext">-oct; 新規のOCワークスペース</span></a></li>
+<li class="toclevel-2 tocsection-20"><a href="#-occlean.3B_Reset_OC_to_use_all_new_source_files"><span class="tocnumber">3.17</span> <span class="toctext">-occlean; すべての新しいソースファイルを使用するようにOCをリセット</span></a></li>
+<li class="toclevel-2 tocsection-21"><a href="#-op.3B_Delete_pending_recalculate_operations"><span class="tocnumber">3.18</span> <span class="toctext">-op; 保留中の再計算操作を削除</span></a></li>
+<li class="toclevel-2 tocsection-22"><a href="#-path.3B_Clear_the_User_Folder_path"><span class="tocnumber">3.19</span> <span class="toctext">-path; <i>User Folder</i>パスをクリア</span></a></li>
+<li class="toclevel-2 tocsection-23"><a href="#-r.3B_Remove_.28Delete.29_DataRange"><span class="tocnumber">3.20</span> <span class="toctext">-r; データ範囲を削除</span></a></li>
+<li class="toclevel-2 tocsection-24"><a href="#-ra.3B_Remove_.28Delete.29_local_variables"><span class="tocnumber">3.21</span> <span class="toctext">-ra; ローカル変数を削除</span></a></li>
+<li class="toclevel-2 tocsection-25"><a href="#-rn.3B_Remove_.28Delete.29_named_ranges"><span class="tocnumber">3.22</span> <span class="toctext">-rn; 名前付き範囲を削除</span></a></li>
+<li class="toclevel-2 tocsection-26"><a href="#-s.3B_Delete_the_given_dataset_or_function"><span class="tocnumber">3.23</span> <span class="toctext">-s; 指定されたデータセットまたは関数を削除</span></a></li>
+<li class="toclevel-2 tocsection-27"><a href="#-sd.3B_Delete_only_the_specified_dataset_and_reset_all_other_dependent_datasets"><span class="tocnumber">3.24</span> <span class="toctext">-sd; 指定されたデータセットのみを削除し、他のすべての依存データセットをリセット</span></a></li>
+<li class="toclevel-2 tocsection-28"><a href="#-si.3B_Delete_all_datasets_with_invalid_name"><span class="tocnumber">3.25</span> <span class="toctext">-si; 無効な名前を持つすべてのデータセットを削除</span></a></li>
+<li class="toclevel-2 tocsection-29"><a href="#-spk.3B_Delete_all_project_sparklines"><span class="tocnumber">3.26</span> <span class="toctext">-spk; すべてのプロジェクトスパークラインを削除</span></a></li>
+<li class="toclevel-2 tocsection-30"><a href="#-sw.3B_Delete_a_set_of_dataset_whose_name_includes_specified_characters"><span class="tocnumber">3.27</span> <span class="toctext">-sw; 名前に指定した文字が含まれるデータセットのセットを削除</span></a></li>
+<li class="toclevel-2 tocsection-31"><a href="#-v.3B_Delete_the_specified_numeric_variable"><span class="tocnumber">3.28</span> <span class="toctext">-v; 指定した数値変数を削除</span></a></li>
+<li class="toclevel-2 tocsection-32"><a href="#-vs.3B_Delete_the_specified_global.2Fproject_string_variable"><span class="tocnumber">3.29</span> <span class="toctext">-vs; 指定したグローバル/プロジェクト文字列変数を削除</span></a></li>
+<li class="toclevel-2 tocsection-33"><a href="#-web.3B_Clear_the_URL-to-File_cache_used_by_Web_Connectors_.28Data:_Connect_to_Web.29"><span class="tocnumber">3.30</span> <span class="toctext">-web; Webコネクタ（データ: Webに接続）で使用されるURL-to-Fileキャッシュをクリア</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+<h2><a name="Syntax"></a><span class="mw-headline"><font color="chocolate">構文</font></span></h2>
+<p><b>delete [<i>option</i>] &lt;<i>name</i>&gt;</b>
+</p><p>または
+</p><p><b>del [<i>option</i>] &lt;<i>name</i>&gt;</b>
+</p>
+<h2><a name="Options"></a><span class="mw-headline"><font color="chocolate">オプション</font></span></h2>
+<table class="simple">
+<tr>
+<th> オプション
+</th>
+<th> 削除/クリアされるもの
+</th></tr>
+<tr>
+<td> （なし）
+</td>
+<td> データセット、またはデータセットの一部
+</td></tr>
+<tr>
+<td> @
+</td>
+<td> レジストリに格納されているシステム変数の値を削除
+</td></tr>
+<tr>
+<td> a
+</td>
+<td> 一時データセット（すべて）
+</td></tr>
+<tr>
+<td> al
+</td>
+<td> ローカル変数
+</td></tr>
+<tr>
+<td> as
+</td>
+<td> 非表示のデータセット
+</td></tr>
+<tr>
+<td> f
+</td>
+<td> filepathで指定されたファイル
+</td></tr>
+<tr>
+<td> m
+</td>
+<td> マクロ
+</td></tr>
+<tr>
+<td> oc
+</td>
+<td> Origin C一時フォルダ（クリア）
+</td></tr>
+<tr>
+<td> ocb
+</td>
+<td> OCBファイル
+</td></tr>
+<tr>
+<td> oct
+</td>
+<td> Origin Cワークスペース（クリア）
+</td></tr>
+<tr>
+<td> occlean
+</td>
+<td> Origin Cソースファイル（リセット）
+</td></tr>
+<tr>
+<td> op
+</td>
+<td> 保留中の再計算操作
+</td></tr>
+<tr>
+<td> path
+</td>
+<td> レジストリ内のユーザーフォルダパスとアプリケーションデータフォルダの値（クリア）
+</td></tr>
+<tr>
+<td> r
+</td>
+<td> データ範囲
+</td></tr>
+<tr>
+<td> ra
+</td>
+<td> ローカル変数
+</td></tr>
+<tr>
+<td> rar
+</td>
+<td> 範囲変数
+</td></tr>
+<tr>
+<td> ras
+</td>
+<td> 文字列変数
+</td></tr>
+<tr>
+<td> rav
+</td>
+<td> 数値変数
+</td></tr>
+<tr>
+<td> rac
+</td>
+<td> 定数
+</td></tr>
+<tr>
+<td> rat
+</td>
+<td> ツリー変数
+</td></tr>
+<tr>
+<td> raa
+</td>
+<td> 文字列配列
+</td></tr>
+<tr>
+<td> rag
+</td>
+<td> グラフオブジェクト
+</td></tr>
+<tr>
+<td> raf
+</td>
+<td> ローカル関数 <font color="red">(8.1 Beta2)</font>
+</td></tr>
+<tr>
+<td> rn
+</td>
+<td> 名前付き範囲 <font color="red">(2025)</font>
+</td></tr>
+<tr>
+<td> s
+</td>
+<td> データセットまたは関数
+</td></tr>
+<tr>
+<td> sr
+</td>
+<td> すべての同じ（重複した）データセット <font color="red">(9.0 SR0)</font>
+</td></tr>
+<tr>
+<td> sd
+</td>
+<td> 指定されたデータセットを削除、すべての依存データセットをリセット
+</td></tr>
+<tr>
+<td> v
+</td>
+<td> グローバル/プロジェクト数値変数
+</td></tr>
+<tr>
+<td> vs
+</td>
+<td> グローバル/プロジェクト文字列変数
+</td></tr>
+<tr>
+<td> web
+</td>
+<td> WebコネクタのURL-to-Fileキャッシュ
+</td></tr></table>
+<h2><a name="Examples"></a><span class="mw-headline"><font color="chocolate">サンプル</font></span></h2>
+<h3><a name=".28no_option.29.3B_Delete_the_dataset_or_portion_thereof"></a><span class="mw-headline">（オプションなし）; データセットまたはその一部を削除</span></h3>
+<p>構文： del &lt;<i>name</i>&gt;
+</p><p>スクリプトサンプル：
+</p>
+<pre class="lt" style="font-family:monospace;">del Col<span style="color: #000000;">(</span>B<span style="color: #000000;">)</span>;         <span style="color: #008000;">// アクティブなワークシートの削除列Bを削除</span>
+
+range bb <span style="color: #000080;">=</span> <span style="color: #0000dd;">2</span>;
+del bb;             <span style="color: #008000;">// &apos;del Col(2)&apos;と同様</span>
+
+range bc <span style="color: #000080;">=</span> <span style="color: #0000dd;">2</span><span style="color: #000000;">[</span><span style="color: #0000dd;">1</span><span style="color: #000000;">:</span><span style="color: #0000dd;">2</span><span style="color: #000000;">]</span>;
+del bc;             <span style="color: #008000;">// 列2の1-2行目を削除し、セルを上に移動</span></pre>
+<h3><a name=".40.3B_Delete_value_of_registry-stored_persistent_system_variable"></a><span class="mw-headline">@; レジストリに保存された永続システム変数の値を削除</span></h3>
+<p>構文： del <b>@</b> 
+</p><p>このスイッチは他のスイッチとは異なり、スイッチの前にダッシュ（-）文字が付いていないことに注意してください。次のように単独で使用する場合、
+</p>
+<pre class="lt" style="font-family:monospace;">del @;</pre>
+<p>...HKEY_CURRENT_USER\SOFTWARE\OriginLab\SysVar に格納されているすべての永続変数が削除されます。レジストリから永続変数の値を選択的に削除するには、次の例のように、「@」記号に(a)特定の永続変数を指定するか、(b)アスタリスク(*)ワイルドカード文字と組み合わせて文字を使用します。
+</p>
+<pre class="lt" style="font-family:monospace;">del @AWC <span style="color: #008000;">// レジストリに保存されている@AWCの値を削除</span>
+del @A<span style="color: #000080;">*</span>  <span style="color: #008000;">// レジストリに保存されている&quot;A&quot;から始まる変数の値を全て削除</span></pre>
+<p><a href="../../LabTalk/LabTalk/List_(command).html#.40.3B_List_all_persistent_system_variables_at_HKEY_CURRENT_USER.5CSOFTWARE.5COriginLab.5CSysVar" title="LabTalk:List (コマンド)"><b>list @</b>コマンド</a>を参照してください。
+</p><p><br />
+</p>
+<h3><a name="-a.3B_Delete_all_the_temporary_datasets"></a><span class="mw-headline">-a; すべての一時データセットを削除</span></h3>
+<p>構文： del <b>-a</b> 
+</p><p>すべての軸データセットを含む、すべての<a href="../../LabTalk/LabTalk/Datasets_(object).html" title="LabTalk:Datasets (object)">一時データセット</a>を削除します。一時データセットの名前は、アンダースコア (&quot;_&quot;) 文字で始まります (例: _temp)。
+</p><p><br />
+</p>
+<h3><a name="-al.3B_Delete_a_local_variable_.28of_any_type.29"></a><span class="mw-headline">-al; 任意の型のローカル変数を削除</span></h3>
+<p>構文： del <b>-al</b> <i>varName</i>
+</p><p><i>varName</i>という名前のローカル変数を削除します。  <i>varName</i>が文字列型の場合は、末尾の$-記号を含めないでください。
+</p>
+<pre class="lt" style="font-family:monospace;">double aa<span style="color: #000080;">=</span>col<span style="color: #000000;">(</span><span style="color: #0000dd;">2</span><span style="color: #000000;">)</span><span style="color: #000000;">[</span><span style="color: #0000dd;">1</span><span style="color: #000000;">]</span>;
+string ss<span style="color: #000080;">$</span><span style="color: #000080;">=</span><span style="color: #ff00ff;">&quot;First cell of 2nd col is $(aa)&quot;</span>;
+type ss<span style="color: #000080;">$</span><span style="color: #000080;">+</span><span style="color: #ff00ff;">&quot;, and 3rd is $(col(2)[3])&quot;</span>;
+del <span style="color: #000080;">-</span>al aa;
+del <span style="color: #000080;">-</span>al ss;</pre>
+<p>上記のコードの後で、<b>list a</b>を実行して両方の変数がなくなっていることを確認できます。
+</p><p><br />
+</p>
+<h3><a name="-as.3B_Delete_the_hidden_datasets"></a><span class="mw-headline">-as; 非表示のデータセットを削除</span></h3>
+<p>構文： del <b>-as</b> 
+</p><p>ワークシートに含まれておらず、グラフで使用されていないデータセットをすべて削除します。
+</p>
+<pre class="lt" style="font-family:monospace;"><span style="color: #008000;">//すべてのorphanedルーズデータセットを削除。  &apos;&apos;list so&apos;&apos;を使用してチェックする</span>
+create cc <span style="color: #000080;">-</span>wdn <span style="color: #0000dd;">10</span> a,b,c;
+del <span style="color: #000080;">-</span>as;</pre>
+<p><br />
+</p>
+<h3><a name="-cs.3B_Remove_cloud_setting_files"></a><span class="mw-headline">-cs; クラウド設定ファイルを削除</span></h3>
+<p>構文： del <b>-cs</b> 
+</p><p>クリーンな状態に戻るためにクラウド設定情報を削除します（ラジオボタンでGoogle、OneDrive、SharePointを選択するダイアログがポップアップします）。
+</p><p><br />
+</p>
+<h3><a name="-di.3B_Delete_all_imported_data"></a><span class="mw-headline">-di; インポートされた全てのデータを削除</span></h3>
+<p>構文： del <b>-di</b> 
+</p><p>以前のセッション中にインポートおよび保存されたデータを含め、プロジェクトにインポートされたすべてのデータを削除します。
+</p><p><br />
+</p>
+<h3><a name="-f.3B_Delete_a_file_specified_by_filepath"></a><span class="mw-headline">-f; <i>filepath</i>で指定したファイルを削除</span></h3>
+<p>構文： del <b>-f</b>  <i>filepath</i>
+</p><p><i>filepath</i>で指定されたファイルを削除します。
+</p><p>以下は、ユーザーファイルフォルダにmacros.cnfが存在する場合、それを削除します。
+</p>
+<pre class="lt" style="font-family:monospace;">del <span style="color: #000080;">-</span>f <span style="color: #ff00ff;">&quot;%Ymacros.cnf&quot;</span>;</pre>
+<p>サイレント削除の場合は
+</p>
+<pre class="lt" style="font-family:monospace;">del <span style="color: #000080;">-</span>fs path</pre>
+<p>複数のファイルを削除するには、ワイルドカードを使用してファイル名のフルパスを指定します。
+末尾が&apos;\&apos;のフルパスを指定すると、ディレクトリとその中のすべてのファイルが削除されます。
+</p><p><br />
+</p>
+<h3><a name="-fc.3B_Reset_custom_format_list_to_factory_default"></a><span class="mw-headline">-fc; カスタムフォーマットリストを初期状態のデフォルトにリセット</span></h3>
+<p>構文： del <b>-fc</b>  
+</p><p>ユーザファイルフォルダに保存されているユーザのOrigin.iniファイルには、<b>列のカスタムフォーマットリスト</b>セクションが含まれています。このセクションは、時間の経過とともにダイアログボックスのカスタムフォーマットリストに入力されたすべてのカスタムフォーマットが蓄積されます（例:<a class="external text" href="../../UserGuide/UserGuide/The_(Column_Properties)_Properties_Tab.html#Display"><b>列プロパティ</b></a>）。リストが蓄積するにつれて、これらのダイアログボックスカスタムフォーマットリストは使いにくくなります。このコマンドを使用して、リストをクリアします。
+</p><p><br />
+</p>
+<h3><a name="-fi.3B_Delete_File_Import_information"></a><span class="mw-headline">-fi; ファイルインポート情報を削除</span></h3>
+<p>構文： del <b>-fi</b>  
+</p><p>ワークシートに保存されているファイルインポート情報を削除します。解析テンプレートが最初にインポートXファンクション使用してデータをインポートし、後でデータコネクタを使用してデータをインポートする場合に便利です。これは、テンプレートがOrigin 2019のような古いバージョンで作成され、Origin 2020bのような新しいバージョンで再利用された場合に該当します。ワークシートに保存されている古いインポート情報をクリアするには、まずこのコマンドを実行する必要があります。
+</p><p><br />
+</p>
+<h3><a name="-i.3B_Clear_all_the_search_indexing"></a><span class="mw-headline">-i; すべての検索インデックスをクリア</span></h3>
+<p>構文： del <b>-i</b>
+</p><p>Originのスタートボタンで正しいものが見つからない場合は、このオプションを使ってインデックスをリセットすることができます。次回スタートボタンをクリックすると、検索バーが無効になり、インデックスが完了するまで「インデックス作成...お待ちください」というテキストが表示されます。
+</p>
+<h3><a name="-jax.3B_Reset_LaTeX_JS_MathJax"></a><span class="mw-headline">-jax; LaTeX JS MathJaxをリセット</span></h3>
+<p>構文： del <b>-jax</b>
+</p><p>LaTeX JS MathJaxをリセットします。
+</p>
+<h3><a name="-m.3B_Delete_the_specified_macro"></a><span class="mw-headline">-m; 指定したマクロを削除</span></h3>
+<p>構文： del <b>-m</b> <i>macroName</i>
+</p><p>マクロの<i>macroName</i>を削除します。
+</p>
+<pre class="lt" style="font-family:monospace;">def double <span style="color: #000000;">{</span> type <span style="color: #ff00ff;">&quot;$(%1 * 2)&quot;</span>; <span style="color: #000000;">}</span>; <span style="color: #008000;">// マクロを定義</span>
+del <span style="color: #000080;">-</span>m double;</pre>
+<p>次のスクリプトは、AutoExecという名前のマクロを削除します。
+</p>
+<pre class="lt" style="font-family:monospace;">del <span style="color: #000080;">-</span>m AutoExec;</pre>
+<p><br />
+</p>
+<h3><a name="-oc.3B_Clean_OC_temp_folder"></a><span class="mw-headline">-oc; OC一時フォルダを消去</span></h3>
+<p>構文： del <b>-oc</b> 
+</p><p>OC 一時フォルダからすべてのOCBファイルを削除します。これは、ソースOCファイルが変更されたが日付が古く、それらのOCファイルを強制的に再コンパイルしたい場合に必要になることがあります。
+</p><p><br />
+</p>
+<h3><a name="-ocb.3B_Delete_OCB_file"></a><span class="mw-headline">-ocb; OCBファイルを削除</span></h3>
+<p>構文： del <b>-ocb</b> 
+</p>
+<pre class="lt" style="font-family:monospace;">del <span style="color: #000080;">-</span>ocb filepathname1.<span style="color: #000080;">c</span>
+del <span style="color: #000080;">-</span>ocb filepathname1.<span style="color: #000080;">ocw</span>
+del <span style="color: #000080;">-</span>ocb filepathname1.<span style="color: #000080;">c</span> filepathname2.<span style="color: #000080;">c</span> <span style="color: #008000;">//複数ファイルを削除</span>
+del <span style="color: #000080;">-</span>ocb <span style="color: #000080;">%</span>YOCTEMP\filename.<span style="color: #000080;">c</span> <span style="color: #008000;">// %Yを使用してユーザファイルフォルダにアクセス</span></pre>
+<p>使用方法の詳細については、<a href="../../LabTalk/LabTalk/Updating_an_Existing_Origin_C_File.html" title="LabTalk:Updating an Existing Origin C File">LabTalk.CHM: Programming in LabTalk: Updating an Existing Origin C File</a>を参照してください。
+</p><p><br />
+</p>
+<h3><a name="-oct.3B_New_OC_Workspace"></a><span class="mw-headline">-oct; 新規のOCワークスペース</span></h3>
+<p>構文： del <b>-oct</b> 
+</p><p>OCユーザーワークスペースを新しい空のワークスペースにリセットします。
+</p><p><br />
+</p>
+<h3><a name="-occlean.3B_Reset_OC_to_use_all_new_source_files"></a><span class="mw-headline">-occlean; すべての新しいソースファイルを使用するようにOCをリセット</span></h3>
+<p>構文： del <b>-occlean</b> 
+</p><p>このコマンドは、すべてのOCB、OP、OPHファイルを削除し、OCTempフォルダ全体を削除します。このコマンドの後、OriginシステムのOCファイルを適切にコンパイルするためには、すべてのオリジナルのOCソースコードが必要です。
+</p><p>このコマンドは-ocよりも強力なため、-ocが動作しない場合はこれを試してみてください。これはDevelopers Kitの時代にOrigin Cの開発者のために追加されました。
+</p>
+<h3><a name="-op.3B_Delete_pending_recalculate_operations"></a><span class="mw-headline">-op; 保留中の再計算操作を削除</span></h3>
+<p>構文： del <b>-op</b> <i>[UID]</i>
+</p>
+<p class="version" >必要なOriginのバージョン: 8.5.1以降</p>
+<p><i>UID</i>がない場合は、入力や出力のない保留中の再計算操作をすべてクリーンアップします。または、操作の出力を含め、<i>UID</i>を使用して保留中の再計算操作を削除します。<i>UID</i>を含む保留中の操作を確認するには、<a href="../../LabTalk/LabTalk/List_(command).html#Options" title="LabTalk:List (コマンド)">list opp</a>コマンドを使用します。
+</p>
+<pre class="lt" style="font-family:monospace;">delete <span style="color: #000080;">-</span>op;     <span style="color: #008000;">/// 空の入力または空の出力を持つ保留中の操作をクリーンアップ</span>
+delete <span style="color: #000080;">-</span>op <span style="color: #0000dd;">779</span>;  <span style="color: #008000;">/// UID 779とその出力の削除操作</span></pre>
+<h3><a name="-path.3B_Clear_the_User_Folder_path"></a><span class="mw-headline">-path; <i>User Folder</i>パスをクリア</span></h3>
+<p>構文： del <b>-path</b> [<b>UFF</b>]
+</p><p>このオプションは、<i>ユーザーフォルダ</i>のパスをリセットするために使用できます。
+</p>
+<pre class="lt" style="font-family:monospace;"><span style="color: #008000;">// 次回Originを起動したときにユーザーファイルフォルダをリセット：</span>
+del <span style="color: #000080;">-</span>path;
+<span style="color: #008000;">// 次回Originを起動したときにユーザーファイルフォルダをリセット：</span>
+del <span style="color: #000080;">-</span>path UFF;</pre>
+<h3><a name="-r.3B_Remove_.28Delete.29_DataRange"></a><span class="mw-headline">-r; データ範囲を削除</span></h3>
+<p>構文： del <b>-r</b> 
+</p>
+<pre class="lt" style="font-family:monospace;"><span style="color: #008000;">// オートフィルや操作範囲などを含む、すべてのデータ範囲を削除</span>
+del <span style="color: #000080;">-</span>r;</pre>
+<pre class="lt" style="font-family:monospace;"><span style="color: #008000;">// orphaned操作範囲をすべて削除：</span>
+del <span style="color: #000080;">-</span>r <span style="color: #0000dd;">16</span>;</pre>
+<pre class="lt" style="font-family:monospace;"><span style="color: #008000;">// すべてのオートフィル範囲を削除：</span>
+del <span style="color: #000080;">-</span>r <span style="color: #0000dd;">32</span>;</pre>
+<h3><a name="-ra.3B_Remove_.28Delete.29_local_variables"></a><span class="mw-headline">-ra; ローカル変数を削除</span></h3>
+<p>構文： del <b>-ra</b> <i>VarName</i> 
+</p><p><font color="red">（バージョン8.0 SR3以降で使用可能）</font>
+</p>
+<pre class="lt" style="font-family:monospace;"><span style="color: #008000;">// ローカル変数&apos;aa&apos;を削除：</span>
+del <span style="color: #000080;">-</span>ra aa;</pre>
+<pre class="lt" style="font-family:monospace;"><span style="color: #008000;">// 文字 &apos;a&apos;で始まる名前のローカル変数を削除</span>
+<span style="color: #008000;">// * はワイルドカード文字：</span>
+del <span style="color: #000080;">-</span>ra a<span style="color: #000080;">*</span>;</pre>
+<p><br />
+</p>
+<pre class="lt" style="font-family:monospace;"><span style="color: #008000;">// 現在のスコープ内のすべてのローカル変数を削除：</span>
+del <span style="color: #000080;">-</span>ra <span style="color: #000080;">*</span>;</pre>
+<p><br />
+</p><p><b>Note</b>: <b>del -ra *</b>は<a class="external text" href="../../LabTalk/LabTalk/Data_Types_and_Variables.html#Session_Variablesscope.2C_session">セッションレベル</a>の定数を削除しないため、例えばdel -ra *は<b>pi</b>を削除しません。ただし、セッションスコープ内で <b>del -rac *</b>と入力すると<b>pi</b>は削除されます。<a class="external text" href="../../LabTalk/LabTalk/Data_Types_and_Variables.html#Local_Variablesscope.2C_local">ローカルレベル</a>では、ローカルに定義された定数はdel -ra *によって削除されます。
+</p>
+<h3><a name="-rn.3B_Remove_.28Delete.29_named_ranges"></a><span class="mw-headline">-rn; 名前付き範囲を削除</span></h3>
+<p><font color="red">(2025)</font>
+構文： del <b>-rn</b> [name] [scope]
+</p><p>name ではワイルドカードを使用できます。scopeは0（シート）、1（ブック）、2（プロジェクト）のいずれかです。
+</p>
+<pre class="lt" style="font-family:monospace;"><span style="color: #008000;">//プロジェクト内の全ての名前付き範囲を削除</span>
+del <span style="color: #000080;">-</span>rn&nbsp;;
+
+<span style="color: #008000;">//プロジェクト内の全ての名前付き範囲を削除し、削除した名前付き範囲の個数を出力</span>
+del <span style="color: #000080;">-</span>rn <span style="color: #000080;">*</span>;
+
+<span style="color: #008000;">//ブックスコープ内のalphaで始まるすべての名前付き範囲を削除</span>
+del <span style="color: #000080;">-</span>rn alpha<span style="color: #000080;">*</span> <span style="color: #0000dd;">1</span>&nbsp;;</pre>
+<p><br />
+</p>
+<h3><a name="-s.3B_Delete_the_given_dataset_or_function"></a><span class="mw-headline">-s; 指定されたデータセットまたは関数を削除</span></h3>
+<p>構文： del <b>-s</b> <i>name</i> 
+</p><p>指定したデータセットまたは関数を削除します。  依存データセットもすべて削除されます。
+</p>
+<pre class="lt" style="font-family:monospace;">del <span style="color: #000080;">-</span>s col<span style="color: #000000;">(</span>C<span style="color: #000000;">)</span>;</pre>
+<p><br />
+</p>
+<h3><a name="-sd.3B_Delete_only_the_specified_dataset_and_reset_all_other_dependent_datasets"></a><span class="mw-headline">sd; 指定されたデータセットのみを削除し、他のすべての依存データセットをリセット</span></h3>
+<p>構文： del <b>-sd</b> <i>name</i>
+</p><p>指定されたデータセットのみを削除し、他のすべての依存データセットをリセットします。  
+</p>
+<pre class="lt" style="font-family:monospace;">create temp <span style="color: #000080;">-</span>wd <span style="color: #0000dd;">50</span> a b c;
+list s; <span style="color: #008000;">//temp_a, temp_b, temp_cを表示</span>
+del temp_c; 
+list s; <span style="color: #008000;">// temp_c のみが削除される</span>
+del temp_a; 
+list s;
+<span style="color: #008000;">// temp_bはtemp_aにX依存関係があるため削除される</span></pre>
+<p>次に、以下と比較します。
+</p>
+<pre class="lt" style="font-family:monospace;">create temp <span style="color: #000080;">-</span>wd <span style="color: #0000dd;">50</span> a b c;
+list s;
+del <span style="color: #000080;">-</span>sd temp_a;
+list s;
+<span style="color: #008000;">// temp_bとtemp_cが表示される</span></pre>
+<p><br />
+</p>
+<h3><a name="-si.3B_Delete_all_datasets_with_invalid_name"></a><span class="mw-headline">-si; 無効な名前を持つすべてのデータセットを削除</span></h3>
+<p>構文： del <b>-si</b>
+</p><p>無効な名前のデータセットをすべて削除します。
+</p><p><font color="red">Origin バージョン：2017</font>
+</p>
+<h3><a name="-spk.3B_Delete_all_project_sparklines"></a><span class="mw-headline">-spk; すべてのプロジェクトスパークラインを削除</span></h3>
+<p>構文： del <b>-spk</b>
+</p><p>システム変数<a href="../../LabTalk/LabTalk/System_Variable_List.html#S" title="LabTalk:システム変数リスト"><i>@SPK</i></a>も参照してください。
+</p><p><font color="red">Origin バージョン：2022b</font>
+</p>
+<h3><a name="-sw.3B_Delete_a_set_of_dataset_whose_name_includes_specified_characters"></a><span class="mw-headline">-sw; 名前に指定した文字が含まれるデータセットのセットを削除</span></h3>
+<p>構文： del <b>-sw</b> <i>name</i>
+</p><p><i>name</i>で指定された文字を含むデータセットのセットを削除します。ワイルドカードを使用できます。  
+</p><p><font color="red">Origin バージョン：2017</font>
+</p>
+<pre class="lt" style="font-family:monospace;">create temp <span style="color: #000080;">-</span>wd <span style="color: #0000dd;">50</span> aa ab c;
+list s; <span style="color: #008000;">//shows TEMP_AA, TEMP_AB, TEMP_C;</span>
+del <span style="color: #000080;">-</span>sw temp_a<span style="color: #000080;">*</span>; <span style="color: #008000;">//&quot;temp_a&quot;という文字を含むデータセットを削除</span>
+list s;
+<span style="color: #008000;">// TEMP_AA, TEMP_AB が削除される</span></pre>
+<h3><a name="-v.3B_Delete_the_specified_numeric_variable"></a><span class="mw-headline">-v; 指定した数値変数を削除</span></h3>
+<p>構文： del <b>-v</b> <i>varName</i>
+</p><p>このコマンドは、指定されたユーザ定義変数を削除するために使用されます。システム変数には触れません。
+</p>
+<pre class="lt" style="font-family:monospace;"><span style="color: #008000;">// ユーザ定義変数に数値変数&quot;ProNum&quot;を定義</span>
+ProNum <span style="color: #000080;">=</span> <span style="color: #0000dd;">100</span>;        
+list v;                 <span style="color: #008000;">// 変数リストをチェックして表示されているか確認</span>
+del <span style="color: #000080;">-</span>v ProNum;       <span style="color: #008000;">// &apos;globalNum&apos;という名前の変数を削除</span>
+list v;                 <span style="color: #008000;">// リストを再チェックして削除されたことを確認</span>
+del <span style="color: #000080;">-</span>v ex<span style="color: #000080;">*</span>;             <span style="color: #008000;">// &quot;ex&quot;で始まるユーザ定義変数をすべて削除</span></pre>
+<p><br />
+</p><p>なお、Origin 2020より前のバージョンでは、<code>delete -v *;</code> はシステム変数を含むすべての変数を削除します。<code>list v;</code> を実行して変数をチェックし、削除をより正確に実行する必要がある場合があります。
+</p>
+<h3><a name="-vs.3B_Delete_the_specified_global.2Fproject_string_variable"></a><span class="mw-headline">-vs; 指定したグローバル/プロジェクト文字列変数を削除</span></h3>
+<p>構文： del <b>-vs</b> <i>stringVarName</i>
+</p>
+<pre class="lt" style="font-family:monospace;"><span style="color: #008000;">// 文字列変数名の末尾の $ 記号を省略：</span>
+<span style="color: #008000;">// グローバル/プロジェクト変数 globalStr$ = &quot;Hello&quot;を定義</span>
+globalStr<span style="color: #000080;">$</span> <span style="color: #000080;">=</span> <span style="color: #ff00ff;">&quot;Hello&quot;</span>;    
+list vs;                 <span style="color: #008000;">// 変数リストをチェックして表示されているか確認</span>
+del <span style="color: #000080;">-</span>vs globalStr;       <span style="color: #008000;">// 変数を削除</span>
+list vs;                 <span style="color: #008000;">// リストを再チェックして削除されたことを確認</span></pre>
+<p><b><i>Note:</i></b> このコマンドは <font color="red">Origin 9.0</font>以降のバージョンでワイルドカードに対応しています。
+<br />
+</p>
+<h3><a name="-web.3B_Clear_the_URL-to-File_cache_used_by_Web_Connectors_.28Data:_Connect_to_Web.29"></a><span class="mw-headline">-web; Webコネクタ（データ: Webに接続）で使用されるURL-to-Fileキャッシュをクリア</span></h3>
+<p>構文： del <b>-web</b> <i>URL</i>
+</p>
+<pre class="lt" style="font-family:monospace;">delete <span style="color: #000080;">-</span>web <span style="color: #ff00ff;">&quot;http://www.sidc.be/silso/INFO/snmtotcsv.php&quot;</span>;</pre>
+<p>詳しくはLabTalkシステム変数<a href="../../LabTalk/LabTalk/System_Variable_List.html#C" title="LabTalk:システム変数リスト"><b>@CFDT</b></a>をご覧ください。
+</p>
+
+
+    

@@ -1,0 +1,788 @@
+﻿<h1 class="firstHeading">置換表記における@オプション</h1><p class='urlname' style='display: none'>Options-Substitution-Notation</p>
+<p><span class="OIndex" style="display:none">ラベルオプション</span>
+</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>目次</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#List_of_.40Options"><span class="tocnumber">1</span> <span class="toctext">@Optionsのリスト</span></a>
+<ul>
+<li class="toclevel-2 tocsection-2"><a href="#Column_Label_Rows"><span class="tocnumber">1.1</span> <span class="toctext">列ラベル行</span></a></li>
+<li class="toclevel-2 tocsection-3"><a href="#Workbook_Information"><span class="tocnumber">1.2</span> <span class="toctext">ワークブック情報</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="#Worksheet_Column_Information"><span class="tocnumber">1.3</span> <span class="toctext">ワークシート列情報</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Worksheet_Cell_Access"><span class="tocnumber">1.4</span> <span class="toctext">ワークシートセルへのアクセス</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Imported_File_Information"><span class="tocnumber">1.5</span> <span class="toctext">インポートしたファイルの情報</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="#Plot_Information"><span class="tocnumber">1.6</span> <span class="toctext">プロット情報</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="#Dataset.2FRange_Information"><span class="tocnumber">1.7</span> <span class="toctext">データセット/範囲情報</span></a></li>
+<li class="toclevel-2 tocsection-9"><a href="#Holder_Book_Information"><span class="tocnumber">1.8</span> <span class="toctext">ホルダーブック情報</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-10"><a href="#Examples"><span class="tocnumber">2</span> <span class="toctext">サンプル</span></a>
+<ul>
+<li class="toclevel-2 tocsection-11"><a href="#Show_Statistics_info._of_Plot_as_Tick_Labels"><span class="tocnumber">2.1</span> <span class="toctext">プロットの統計情報を目盛ラベルとして表示</span></a></li>
+<li class="toclevel-2 tocsection-12"><a href="#Preset_graph_name_in_the_template"><span class="tocnumber">2.2</span> <span class="toctext">テンプレートにグラフ名を事前設定</span></a></li>
+<li class="toclevel-2 tocsection-13"><a href="#Export_worksheet_as_PDF_with_Book_and_sheet_name_in_File_name"><span class="tocnumber">2.3</span> <span class="toctext">ファイル名にブックとシート名を指定してワークシートをPDFとしてエクスポート</span></a></li>
+<li class="toclevel-2 tocsection-14"><a href="#Export_embedded_graph_with_Book_and_sheet_name_in_File_name"><span class="tocnumber">2.4</span> <span class="toctext">ファイル名にブックとシート名を指定して埋め込みグラフをエクスポート</span></a></li>
+<li class="toclevel-2 tocsection-15"><a href="#Preset_X.2C_Y.2C_Z_axis_title_when_plotting_Heatmap"><span class="tocnumber">2.5</span> <span class="toctext">ヒートマップをプロットするときのX、Y、Z軸タイトルを事前設定</span></a></li>
+<li class="toclevel-2 tocsection-16"><a href="#Annotate_on_Graph"><span class="tocnumber">2.6</span> <span class="toctext">グラフの注釈</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+<p><br />
+このページは、<a href="../../LabTalk/LabTalk/String_Substitution.html" title="LabTalk:String Substitution"><b>%()文字列置換</b></a>で使用される<a href="#List_of_.40Options">すべての利用可能な@オプションの完全な一覧表</a>です。これは、プロット/ワークシートメタデータ、ワークブック、シート情報、事前定義された変数、および特別なセル値など、さまざまな情報ビットのリアルタイム置換を行うために使用されます。 
+</p><p>これらは軸のタイトル、凡例、テキストラベルおよび多くのダイアログを含む多くの場所で使用することができます。本ページ下部の<a href="#Examples"><b>サンプル</b></a>セクションには、グラフ上の典型的な凡例、軸タイトル、テキストラベル以外の場所での使用法が示されています。凡例、軸タイトル、テキストラベルでの使用方法については、次のページを参照してください。
+</p>
+<dl><dd><ul><li><a href="../../LabTalk/LabTalk/Legend_Substitution_Notation.html" title="LabTalk:凡例の置換表記">凡例の置換表記</a></li>
+<li><a href="../../LabTalk/LabTalk/String_Substitution.html#Legend_and_Axis_Title_SubstitutionLegend_Substitution_Axis_Title_Substitution" title="LabTalk:String Substitution">軸タイトル置換</a></li>
+<li><a class="external text" href="../../UserGuide/UserGuide/Linking_Text_Labels_to_Data_and_Variables.html#Substituting_Values_for_Data_and_Variables_in_Text_Labels">テキストラベル用のデータ値と範囲の置換</a></li></ul></dd></dl>
+<h2><a name="List_of_.40Options"></a><span class="mw-headline">@Optionsのリスト</span></h2>
+<p>次の表は&nbsp;%( )置換表記で使用可能な<span class="OIndex">@テキストラベルオプション</span>の一覧です。%(1)は多くの例でグラフの第1プロットを参照するために使用されます。この理由は、ほとんどの&nbsp;%()置換表記は、プロットの対応するデータのメタデータ、ワークシート、ワークブック情報にアクセスするために使用されるからです（下図参照）。Note: %(1Y)は1番目のプロットのYデータを示します。%(?)は現在のプロットを示します。%Hは現在のウィンドウを示します。
+</p><p><a  class="image"><img alt="Worksheet Properties Legend Option 01.png" src="../images/Text_Label_Options/Worksheet_Properties_Legend_Option_01.png" width="632"  /></a>
+</p>
+<h4><a name="Column_Label_Rows"></a><span class="mw-headline">列ラベル行</span></h4>
+<table class="simple">
+<tr>
+<th width="10%">@オプション
+</th>
+<th width="50%">参照元
+</th>
+<th width="40%">例
+</th></tr>
+<tr>
+<td>@LS / @C
+</td>
+<td>列ショートネーム
+</td>
+<td><i>%(1,@LS)</i> --&gt; <b>B</b><br /><i>%(1,@C)</i> --&gt; <b>B</b>
+</td></tr>
+<tr>
+<td>@LA
+</td>
+<td>利用可能ならロングネーム、そうでなければショートネーム
+</td>
+<td> <i>%(1,@LA)</i> --&gt; <b>Delta Temperature</b>
+</td></tr>
+<tr>
+<td>@L / @LL
+</td>
+<td>ロングネームを表示しますが、ロングネームがないときには欠損値を返します。@LLと同様です。
+</td>
+<td><i>%(1Y,@L)</i> --&gt; <b>Delta Temperature</b><br /> <i>%(1,@LL)</i> --&gt; <b>Delta Temperature</b>
+</td></tr>
+<tr>
+<td>@LG / @U
+</td>
+<td>ロングネーム（使用できなければショートネーム）と単位（あれば）@LGと同様です。
+</td>
+<td><i>%(1,@LG)</i> --&gt;<b>Delta Temperature (K)</b> <br /><i>%(1,@U)</i> --&gt;<b>Delta Temperature (K)</b>
+</td></tr>
+<tr>
+<td>@LC
+</td>
+<td>利用可能ならコメント、そうでなければロングネーム、それもできなければショートネームを参照
+</td>
+<td><i>%(1,@LC)</i> --&gt;<br /> <b>YBCO</b><br /><b>milled</b>
+</td></tr>
+<tr>
+<td>@LC[<i>n</i>]
+</td>
+<td>コメントラベル行セルの<i>n</i>番目の行<i>n</i>はオプションで@LC1=@LCです
+</td>
+<td><i>%(1,@LC2)</i> --&gt;<b>milled</b>
+</td></tr>
+<tr>
+<td>@LM
+</td>
+<td>利用可能ならコメントの1行目を、できなければロングネームを、それもできなければショートネームを参照
+</td>
+<td><i>%(1,@LM)</i> --&gt; <b>YBCO</b>
+</td></tr>
+<tr>
+<td>@LN
+</td>
+<td>コメントの1行目（利用できなければロングネームを、それもできなければショートネーム）を参照<i>@(@LM(@LU))</i>.と同じ
+</td>
+<td> <i>%(1,@LN)</i> --&gt; <b>YBCO(K)</b>
+</td></tr>
+<tr>
+<td>@LU
+</td>
+<td>単位
+</td>
+<td><i>%(1,@LU)</i>  --&gt; <b>K</b>
+</td></tr>
+<tr>
+<td>@LUP,@LUS,@LUA,@LUC
+</td>
+<td>単位に括弧を追加します。<b>P</b>は括弧 = (), <b>S</b>は角括弧 = [], <b>A</b>は山括弧 = &lt;&gt;, <b>C</b>は波括弧 = {}
+</td>
+<td><i>%(1,@LUA)</i>  --&gt; <b>&lt;K&gt;</b>
+</td></tr>
+<tr>
+<td>@LD
+</td>
+<td>第一ユーザ定義パラメータ
+</td>
+<td><i>%(1,@LD)</i> --&gt;&apos;<i>S21</i>
+</td></tr>
+<tr>
+<td>@LD[<i>n</i>]
+</td>
+<td><i>n</i>番目のユーザ定義パラメータ。<i>n</i>は必須ではなく、@LD1 = @LDであることに注意してください。
+<p><font color="red">(2025)</font><i>n = 0</i>は最後のユーザ定義パラメータです。
+</p>
+</td>
+<td><i>%(1,@LD2)</i> --&gt;<b>235</b>
+</td></tr>
+<tr>
+<td> @LD&quot;<i>name</i>&quot;
+</td>
+<td>	nameによって特定されるユーザ定義パラメータ。
+</td>
+<td><i>%(1,@LD&quot;RunNo&quot;)</i>--&gt;<b>07</b>
+</td></tr>
+<tr>
+<td>@LF[<i>n</i>]
+</td>
+<td>データプロットの<a class="external text" href="../../UserGuide/UserGuide/Data_Filter.html">フィルタ条件</a>。複数の条件がある場合には、オプションの<i>n</i>=が<i>n</i>行目のフィルタ条件であることを示します。（リストの順番はフィルタラベル行セルで表示されています）<a href="../../LabTalk/LabTalk/System_Variable_List.html#S" title="LabTalk:System Variable List">LatTalkシステム変数<b>@SFD</b></a>もご覧ください。
+</td>
+<td>Make = <i>%(1,@LF)</i>--&gt;<b>Buick</b>
+<p><a  class="image"><img alt="Text label options @LF.png" src="../images/Text_Label_Options/Text_label_options__40LF.png" width="439"  /></a>
+</p>
+</td></tr>
+<tr>
+<td>@LH
+</td>
+<td>1番目のユーザ定義パラメータ行の名前
+</td>
+<td><i>%(1,@LH)</i> --&gt;<b>UserDefined</b>
+</td></tr>
+<tr>
+<td>@LH[<i>n</i>]
+</td>
+<td><i>n</i>番目のユーザー定義パラメータの名前。  <i>n</i>は必須ではなく、@LH1 = @LHであることに注意してください。
+<p><font color="red">(2025)</font><i>n = 0</i>は最後のユーザ定義パラメータです。
+</p>
+</td>
+<td><i>%(1,@LH3)</i> --&gt;<b>RunNo</b>
+</td></tr>
+<tr>
+<td>@LP
+</td>
+<td> 1番目のシステムパラメータ
+</td>
+<td><i>%(1,@LP)</i> --&gt; <b>Version 2.1</b>
+</td></tr>
+<tr>
+<td>@LP[<i>n</i>]
+</td>
+<td><i>n</i>番目のシステムパラメータ。<i>n</i>は必須ではなく、@LP1 = @LPであることに注意してください。
+</td>
+<td><i>%(1,@LP2)</i> --&gt; <b>12/15/2004</b>
+</td></tr>
+<tr>
+<td>@LQ
+</td>
+<td>1番目のユーザ定義パラメータと単位（利用できれば）を参照
+</td>
+<td><i>%(1,@LQ)</i> --&gt; <b>S21(K)</b>
+</td></tr>
+<tr>
+<td>@LQ[<i>n</i>]
+</td>
+<td><i>n</i>番目のユーザ定義パラメータと単位（利用できれば）を参照単位が含まれているという点で@LHとは異なります。<i>n</i>はオプションで@LQ1=@LQです
+</td>
+<td><i>%(1,@LQ2)</i> --&gt; <b>235(K)</b>
+</td></tr>
+<tr>
+<td>@LQ&quot;<i>name</i>&quot;
+</td>
+<td>ユーザ定義パラメータ（<i>name</i>によって決定）と単位（利用できれば）を参照
+</td>
+<td><i>%(1,@LQ&quot;RunNo&quot;)</i> --&gt; <b>07(K)</b>
+</td></tr></table>
+<h4><a name="Workbook_Information"></a><span class="mw-headline">ワークブック情報</span></h4>
+<table class="simple">
+<tr>
+<th width="10%">@オプション
+</th>
+<th width="35%">参照元
+</th>
+<th width="50%">例
+</th></tr>
+<tr>
+<td>@WL / @PL
+</td>
+<td>ブックのロングネーム<br />（ワークブック、行列）
+</td>
+<td>
+<ul><li> <i>%(1, @WL)</i> --&gt;<b>S21-235-07</b>（プロットの場合）</li>
+<li> <i>%(1@W, @PL)</i> --&gt;<b>S21-235-07</b>（プロットデータを含むワークブックの場合）</li>
+<li> <i>%(Book1, @PL)</i> --&gt;<b>S21-235-07</b>（指定されたワークブックの場合）</li></ul>
+</td></tr>
+<tr>
+<td>@W / @PN
+</td>
+<td>ブックのショートネーム<br />（ワークブック、行列）
+</td>
+<td>
+<ul><li> <i>%(1,@W)</i> --&gt;<b>Book1</b>（プロットの場合）</li>
+<li> <i>%(1@W, @PL)</i> --&gt;<b>Book1</b>（プロットデータを含むワークブックの場合）</li></ul>
+</td></tr>
+<tr>
+<td>@PC[<i>n</i>]
+</td>
+<td>ワークブックコメントの<i>n</i>番目の行。
+<p>@WCでは、オプション<i>n</i>が指定されていない場合、最初の行のみが表示されます。
+@PCでは、オプション<i>n</i>が指定されていない場合、すべてのコメントが表示されます。
+</p>
+</td>
+<td>
+<ul><li> <i>%(1,@WC2)</i> --&gt;<b>&lt;Origin EXE フォルダ&gt;\Samples\Curve Fitting</b></li>
+<li> <i>%(1@W, @PC)</i> --&gt; </li></ul>
+<p><b>Originファイルの場所</b>
+<br /><b>&lt;Origin EXE フォルダ&gt;\Samples\Curve Fitting</b>
+</p>
+</td></tr>
+<tr>
+<td>@WS / @SN
+</td>
+<td>シートの名前<br />（ワークブック、行列）
+</td>
+<td>
+<ul><li> <i>%(1, @WS)</i> --&gt;<b>Trial Run 2</b>（プロットの場合）</li>
+<li> <i>%(1@W, @SN)</i> --&gt;<b>Trial Run 2</b>（プロットデータを含むワークシートの場合）</li>
+<li> <i>%([Book1]1, @SN)</i> --&gt;<b>Trial Run 2</b>（指定したワークシートの場合）</li></ul>
+</td></tr>
+<tr>
+<td>@WNL / @SNL
+</td>
+<td>シートのロングネーム<br />（ワークブック、行列）
+</td>
+<td>
+<ul><li> <i>%(1,@WNL)</i> -- <a href="../../LabTalk/LabTalk/System_Variable_List.html#S" title="LabTalk:System Variable List">LabTalkシステム変数<b>@SSL</b>を参照</a>（プロットの場合）</li>
+<li> <i>%(1@W, @SNL)</i>（プロットデータを含むワークシート用）</li>
+<li> <i>%([Book1]1, @SNL)</i>（指定したワークシートの場合）</li></ul>
+</td></tr>
+<tr>
+<td>@WNS
+</td>
+<td>シートのショートネーム<br />（ワークブック、行列）
+</td>
+<td><i>%(1,@WNS)</i> -- <a href="../../LabTalk/LabTalk/System_Variable_List.html#S" title="LabTalk:System Variable List">LabTalkシステム変数<b>@SSL</b>参照</a>
+</td></tr>
+<tr>
+<td>@WM[<i>n</i>]
+</td>
+<td>ワークシートコメントの<i>n</i>番目の行。<i>n</i>の指定がない場合には最初の行のみが表示されます。
+</td>
+<td><i>%(1,@WM)</i> --&gt;<b>Data imported from</b>
+</td></tr>
+<tr>
+<td>@WN
+</td>
+<td>セルノートの内容。
+</td>
+<td>
+<ul><li><i>%(1,@WN,1)</i> 
+<dl><dd>1番目のプロットのソース列の行[1]のノートの内容。</dd></dl></li>
+<li><i>%(1,@WN,B,3)</i> 
+<dl><dd>現在のプロットのデータシートの列Bの行[1]のノートの内容。</dd></dl></li>
+<li><i>%(1,@WN,C)</i> 
+<dl><dd>ソース列のコメントセル内のノートの内容。</dd></dl></li>
+<li><i>%(1,@WN,B,L)</i> 
+<dl><dd>現在のプロットのデータシート内の列BのLNセルノート</dd></dl></li>
+<li><i>%([book1]1,@WN,col(B)[L])</i> 
+<dl><dd>シート内の列BのLNセルノート</dd></dl></li></ul>
+</td></tr>
+<tr>
+<td> @WP
+</td>
+<td>プロジェクトエクスプローラー内でのブックのパス<br />（ワークブック、行列）
+</td>
+<td><i>%(1,@WP)</i> --&gt;<b>/Folder1/</b>
+</td></tr></table>
+<h4><a name="Worksheet_Column_Information"></a><span class="mw-headline">ワークシート列情報</span></h4>
+<table class="simple">
+<tr>
+<th width="10%">@オプション
+</th>
+<th width="35%">説明
+</th>
+<th width="50%">例
+</th></tr>
+<tr>
+<td> @#
+</td>
+<td> ワークシートの列の合計数を返します。
+</td>
+<td>
+<ul><li> <i>%(1@W, @#)</i> --&gt; <b>4</b></li></ul>
+<dl><dd> プロットデータを含むワークシートの列番号</dd></dl>
+<ul><li> <i>%([Book1]4!, @#)</i> --&gt; <b>2</b></li></ul>
+<dl><dd> 指定されたシートの列番号</dd></dl>
+</td></tr>
+<tr>
+<td> @CS
+</td>
+<td> <i>n</i>番目の列 (およびn番目の列を含む) の右側にある最初に選択された列の列インデックスを返します。見つからない場合は0を返します。
+</td>
+<td>
+<ul><li> <i>%(1@W, @CS, 1)</i> --&gt; <b>8</b></li></ul>
+<dl><dd> プロットデータを含むワークシートで選択した列の列インデックス</dd></dl>
+<ul><li> <i>%([Book1]1, @CS, 1)</i> --&gt; <b>2</b></li></ul>
+<dl><dd> 指定されたシート内の選択された列の列インデックス</dd></dl>
+</td></tr>
+<tr>
+<td> @E#
+</td>
+<td> <i>argument</i> = 1の場合、ワークシート内のYエラー列数を返します。  <i>argument</i> = 2の場合、現在の選択範囲内のYエラー列の数を返します。  <i>argument</i> が省略されている場合、1と見なされます。
+</td>
+<td>
+<ul><li> <i>%(1@W, @E#, 1)</i> --&gt; <b>1</b></li></ul>
+<dl><dd> プロットデータを含むワークシートのYエラー列の数</dd></dl>
+<ul><li> <i>%([Book1]1, @E#, 2)</i> --&gt; <b>0</b></li></ul>
+<dl><dd> 指定されたシートのYエラー列の数</dd></dl>
+</td></tr>
+<tr>
+<td> @H#
+</td>
+<td> <i>argument</i> = 1の場合、ワークシート内のXエラー列数を返します。  <i>argument</i> = 2の場合、現在選択されている領域内のXエラー列数を返します。  <i>argument</i> が省略されている場合、1と見なされます。
+</td>
+<td>
+<ul><li> <i>%(1@W, @H#, 1)</i> --&gt; <b>1</b></li></ul>
+<dl><dd> プロットデータを含むワークシート内のXエラー列の数</dd></dl>
+<ul><li> <i>%([Book1]1, @H#, 2)</i> --&gt; <b>0</b></li></ul>
+<dl><dd> 指定したシートの選択におけるXエラー列の数</dd></dl>
+</td></tr>
+<tr>
+<td> @OY / @OYY
+</td>
+<td> 選択された最初のY列から、選択範囲内でその右側にある<i>n</i>番目のY列までのオフセットを返します。<i>n</i>番目のYも選択範囲になければなりません。
+</td>
+<td>
+<ul><li> <i>%(1@W, @OY, 1)</i> --&gt; <b>2</b></li></ul>
+<dl><dd> Ctrlキーを押しながら、プロットデータを含むワークシートで2つのY列を選択すると、これら2つのY列のオフセットが返されます。</dd></dl>
+</td></tr>
+<tr>
+<td> @OYX
+</td>
+<td> 選択範囲内で左端のY列からその右にある<i>n+1</i>番目に選択されたX列までのオフセットを返します。<i>n</i>番目のXも選択範囲になければなりません。
+</td>
+<td>
+<ul><li> <i>%(1@W, @OYX, 0)</i> --&gt; <b>2</b></li></ul>
+<dl><dd> Ctrlキーを押しながら、プロットデータを含むワークシートで2組のXY列を選択し、2番目のX列と1番目のY列のオフセットを返します。</dd></dl>
+</td></tr>
+<tr>
+<td> @SC<i>n</i>
+</td>
+<td> ワークシートコメントのn番目の行を返します。nがスキップされた場合、コメントの最初の行です。
+</td>
+<td>
+</td></tr>
+<tr>
+<td> @X
+</td>
+<td> ワークシートの最初のX列の列インデックスを返します。
+</td>
+<td>
+<ul><li> <i>%(1@W, @X)</i> --&gt; &apos;<b>1</b></li>
+<li> <i>%([Book1]1, @X)</i> --&gt; &apos;<b>1</b></li></ul>
+</td></tr>
+<tr>
+<td> @Xn
+</td>
+<td> ワークシートの最初のX列の列ショートネームを返します。
+</td>
+<td>
+<ul><li> <i>%(1@W, @Xn)</i> --&gt; &apos;<b>A</b></li>
+<li> <i>%([Book1]1, @Xn)</i> --&gt; &apos;<b>A</b></li></ul>
+</td></tr>
+<tr>
+<td> @Y-
+</td>
+<td> <i>n</i>番目の列の左に最も近いY列の列インデックスを返します。  見つからない場合は0を返します。
+</td>
+<td>
+<ul><li> <i>%(1@W, @Y-, 2)</i> --&gt; <b>2</b></li>
+<li> <i>%([Book1]1, @Y-, 2)</i> --&gt; <b>2</b></li></ul>
+</td></tr>
+<tr>
+<td> @Y#
+</td>
+<td> <i>argument</i> = 1の場合、ワークシート内のY列数を返します。  <i>argument</i> = 2の場合、現在選択されている領域内のY列数を返します。  <i>argument</i> が省略されている場合、1と見なされます。
+</td>
+<td>
+<ul><li> <i>%(1@W, @Y#)</i> --&gt; <b>3</b></li></ul>
+<dl><dd> プロットデータを含むワークシート内のY列の数</dd></dl>
+<ul><li> <i>%(1@W, @Y#, 2)</i> --&gt; <b>1</b> </li></ul>
+<dl><dd> 選択範囲内のY列の数</dd></dl>
+<ul><li> <i>%([Book1]1, @Y#, 1)</i> --&gt; <b>3</b></li></ul>
+<dl><dd> 指定されたワークシートのY列の数</dd></dl>
+</td></tr>
+<tr>
+<td> @Y+
+</td>
+<td> <i>n</i>番目の列の右に最も近いY列の列インデックスを返します。見つからない場合は0を返します。
+</td>
+<td>
+<ul><li> <i>%(1@W, @Y+, 1)</i> --&gt; <b>2</b></li>
+<li> <i>%([Book1]1, @Y+, 2)</i> --&gt; <b>3</b></li></ul>
+</td></tr>
+<tr>
+<td> @YS
+</td>
+<td> <i>n</i>番目の列 (およびn番目の列を含む) の右側にある選択範囲の最初のY列の列インデックスを返します。
+</td>
+<td>
+<ul><li> <i>%(1@W, @YS, 1)</i> --&gt; <b>2</b></li>
+<li> <i>%([Book1]1, @YS, 1)</i> --&gt; <b>2</b></li></ul>
+</td></tr>
+<tr>
+<td> @Z#
+</td>
+<td> <i>argument</i> = 1の場合、ワークシート内のZ列数を返します。  <i>argument</i> = 2の場合、現在選択されている領域内のZ列数を返します。  <i>argument</i> が省略されている場合、1と見なされます。
+</td>
+<td>
+<ul><li> <i>%(1@W, @Z#)</i> --&gt; <b>0</b></li></ul>
+<dl><dd> プロットデータを含むワークシート内のZ列の数</dd></dl>
+<ul><li> <i>%(1@W, @Z#, 2)</i> --&gt; <b>0</b> </li></ul>
+<dl><dd> 選択範囲内のZ列の数</dd></dl>
+<ul><li> <i>%([Book1]1, @Z#, 1)</i> --&gt; <b>0</b></li></ul>
+<dl><dd> 指定されたワークシートのZ列の数</dd></dl>
+</td></tr></table>
+<h4><a name="Worksheet_Cell_Access"></a><span class="mw-headline">ワークシートセルへのアクセス</span></h4>
+<table class="simple">
+<tr>
+<th width="10%">@オプション
+</th>
+<th width="35%">参照元
+</th>
+<th width="50%">例
+</th></tr>
+<tr>
+<td>@L, n
+</td>
+<td>データプロット内にある<i>n</i>番目のポイントのX値
+</td>
+<td><i>%(1, @L, 2)</i>
+<ul><li><dl><dd>１つ目のデータプロット内にある2番目のポイントのX値を指します。</dd></dl></li></ul>
+</td></tr>
+<tr>
+<td>@V, n
+</td>
+<td>データプロット内にある<i>n</i>番目のポイントのY値
+</td>
+<td><i>&nbsp;%(1, @V, 2)</i>
+<ul><li><dl><dd>１つ目のデータプロット内にある2番目のポイントのY値を指します。</dd></dl></li></ul>
+</td></tr>
+<tr>
+<td>@WT, <i>ColIndex</i>/<i>ColName</i>, <i>RowIndex</i>[, <i>Format</i>]
+</td>
+<td>列番号（もしくはショートネームや行番号）で指定されたワークシートセルの値
+</td>
+<td><i>%(1, @WT, 2, 3)</i>
+<ul><li><dl><dd>1つ目のデータプロットのソースシート（ワークシート、行列）にある2列3行目のセルの値</dd></dl></li></ul>
+<p><i>$(&nbsp;%(1, @WT, 2, 3,.4 ) * 100, .2 )</i>
+</p>
+<ul><li><dl><dd> 数値なので、列2、行3の値を取得し、小数点以下4 桁を保持したまま100倍して、小数点以下2桁を表示するようにフォーマット</dd></dl></li></ul>
+<p><i>%(1, @WT, B, 3)</i> 
+</p>
+<ul><li><dl><dd>1つ目のデータプロットのソースワークシートにあるB列3行目のセルの値</dd></dl></li></ul>
+</td></tr>
+<tr>
+<td>@WT, <i>ColIndex</i>/<i>ColName</i>, <i>ColLabelRowCharacter</i>[, <i>Format</i>]
+</td>
+<td>列番号（もしくはショートネーム）と<a href="../../LabTalk/LabTalk/Column_Label_Row_Characters.html" title="LabTalk:列ラベル行の文字">列ラベルの行の文字</a>で指定されたワークシートセルの値
+</td>
+<td><i>%(1, @WT, B, C)</i>
+<ul><li><dl><dd><a href="../../LabTalk/LabTalk/Column_Label_Row_Characters.html#Examples" title="LabTalk:列ラベル行の文字">B[C]$</a>と同様に、これは1つ目のデータプロットのソースワークシートにある列Bのコメントを取得します。</dd></dl></li></ul>
+</td></tr></table>
+<h4><a name="Imported_File_Information"></a><span class="mw-headline">インポートされたファイル情報</span></h4>
+<table class="simple">
+<tr>
+<th width="35%">@オプション
+</th>
+<th width="40%">参照元
+</th>
+<th width="25%">例
+</th></tr>
+<tr>
+<td> @W, <i>UserVar</i>$
+</td>
+<td> インポートウィザードのワークブック中に抽出されたユーザ変数。<i>UserVar</i>はユーザ変数の名前です。
+</td>
+<td>
+<ul><li> <i>%(1, @W,SAMPLE$) </i> --&gt;<b>YBCO milled-squared </b></li>
+<li> <i>%(Book1, @W,SAMPLE$) </i> --&gt;<b>YBCO milled-squared </b>（指定されたワークブックの場合）</li></ul>
+<p><a  class="image"><img alt="Legend WKB USERVAR.png" src="../images/Text_Label_Options/Legend_WKB_USERVAR.png" width="606"  /></a>
+</p>
+</td></tr>
+<tr>
+<td> @W, <i>NodeName</i>$, [format]
+</td>
+<td> <a class="external text" href="../../UserGuide/UserGuide/The_Workbook_Organizer.html"><b>ワークブックオーガナイザ</b></a>の<b>page.info</b>または<b>ユーザツリー</b>の下の<i>NodeName</i>の情報を返します。
+</td>
+<td>
+<ul><li>&nbsp;%(1@W, @W,system.import.filedate, D0) --&gt;<b>11/1/2018</b></li>
+<li>&nbsp;%(1@W, @W,system.import.filename$)--&gt;<b>S32-014-04.dat </b></li>
+<li>&nbsp;%(Book1, @W,system.import.filename$)--&gt;<b>S32-014-04.dat </b>（指定されたワークブックの場合）</li></ul>
+<p><a  class="image"><img alt="Legend WKB SYSTEMIMPORT.png" src="../images/Text_Label_Options/500px-Legend_WKB_SYSTEMIMPORT.png" width="606"   /></a>
+</p>
+</td></tr>
+<tr>
+<td> @WF<i>n</i>, <i>NodeName</i>$, [format]
+</td>
+<td> <a class="external text" href="../../UserGuide/UserGuide/The_Workbook_Organizer.html"><b>ワークブックオーガナイザ</b></a>の<i>n</i>番目の<b>インポートされたファイル</b>の下の<i>vNodeName</i>の情報を返します。
+</td>
+<td>
+<ul><li>&nbsp;%(1@W, @WF3, Info.ImportDate, D0) --&gt;<b>1/9/2025</b></li>
+<li>&nbsp;%(1@W, @WF3, Info.FileName)--&gt;<b>S32-014-04.dat </b></li>
+<li>&nbsp;%(Book1, @WF3, Info.FileName)--&gt;<b>S32-014-04.dat </b>（指定されたワークブックの場合）</li></ul>
+<p><a  class="image"><img alt="Legend WF INFO.png" src="../images/Text_Label_Options/Legend_WF_INFO.png" width="606"  /></a>
+</p>
+</td></tr>
+<tr>
+<td> @WS, <i>NodeName</i>$, [format]
+</td>
+<td> <a class="external text" href="../../UserGuide/UserGuide/The_Workbook_Organizer.html"><b>ワークブックオーガナイザ</b></a>の<b>データシート</b>の下の<i>n</i>番目のシートの<i>NodeName</i>の情報を返します。<i>Column</i>を指定する必要はありません。
+</td>
+<td>
+<ul><li>&nbsp;%(1@W, @WS, TREE.INFO.UNIT$)</li>
+<li>&nbsp;%(Book1, @WS, TREE.INFO.UNIT$)（指定されたワークブックの場合）</li></ul>
+</td></tr>
+<tr>
+<td> @WC, <i>NodeName</i>$, [format]
+</td>
+<td> 列レベルのユーザツリーの<i>NodeName</i><i> </i>の情報を返します。これは<a class="external text" href="../../UserGuide/UserGuide/The_(Column_Properties)_User_Tree_Tab.html"><b>列プロパティ</b></a>ダイアログで確認できます。
+</td>
+<td>
+<ul><li>%(1Y, @WC, tree.ColumnInfo.ImportFile$)</li>
+<li>%([Book1]3!D, @WC, tree.ColumnInfo.ImportFile$)（指定されたワークブックの場合）</li></ul>
+</td></tr></table>
+<h4><a name="Plot_Information"></a><span class="mw-headline">プロット情報</span></h4>
+<table class="simple">
+<tr>
+<th width="10%">@オプション
+</th>
+<th width="45%">参照元
+</th>
+<th width="45%">例
+</th></tr>
+<tr>
+<td> @F
+</td>
+<td> 平均、最大、最小、合計、カウントなどのプロットの統計
+</td>
+<td> <i>%(1,@F&quot;mean(this)&quot;)</i> --&gt; <b>120.45643</b><br />
+<p><i>%(1,@F&quot;mean(this)&quot;, .2)</i>  --&gt; <b>120.46</b>
+</p>
+<dl><dd> 1番目のプロットの平均値。オプションの<b>, .2</b>を使用して、小数点以下2桁を表示しています。</dd></dl>
+</td></tr>
+<tr>
+<td> @GF
+</td>
+<td> グラフのフィルタ条件。
+<p>ページタイトルに<i>%(L</i>をサポートしています。例えば、<i>%(L[n],@GF)</i>でLは現在のレイヤ、L2はレイヤ2です。
+</p>
+</td>
+<td> <i>%(1,@GF)</i> --&gt; <b>&gt; 1996</b>
+</td></tr>
+<tr>
+<td> @GFN
+</td>
+<td> 列名を持つグラフのフィルタ条件。
+</td>
+<td> <i>%(1,@GFN)</i> --&gt; <b>Year &gt; 1996</b>
+</td></tr>
+<tr>
+<td>@GG
+</td>
+<td>グラフの現在のプロットのグループ名
+</td>
+<td><i>%(2, @GG)</i>
+<dl><dd> 現在のプロットのグループ名を表示します。デフォルトのグループ名<b>g<i>#</i></b>は空白を表示します。</dd></dl>
+</td></tr>
+<tr>
+<td>@GL
+</td>
+<td>グラフの現在のプロットのレイヤ名
+</td>
+<td> <i>%(2, @GL)</i>
+<dl><dd> 現在のプロットのレイヤ名を表示します。デフォルトのレイヤ名<b>Layer<i>#</i></b>は空白を表示します。</dd></dl>
+</td></tr>
+<tr>
+<td>@L[<i>n</i>]
+</td>
+<td>現プロットの情報<br />
+<p>@L1: プロットインデックス<br />
+@L2: グループ名 <br />
+@L3: レイヤ名
+</p>
+</td>
+<td><i>%(1,@L1)</i> --&gt; <b>1</b><br />
+<p><i>%(1,@L2)</i> --&gt; <b>g1</b><br />
+<i>%(1,@L3)</i> --&gt; <b>Layer1</b> 
+</p>
+</td></tr>
+<tr>
+<td>@LX
+</td>
+<td>列のXY属性インデックス<br />列A(X1)、B(Y1)、C(X2)、D(Y2)があり、一つのグラフにプロットした場合、@LXを使って列属性インデックスを取得し、凡例テキストに1, 2と表示できます。
+</td>
+<td><i>%(1,@LX)</i>  --&gt; <b>1</b>
+</td></tr>
+<tr>
+<td>@V&quot;above&quot;/@V&quot;below&quot;
+</td>
+<td>曲線グラフの下の塗りつぶし領域でのみ使用します。<b>次のデータプロットまで塗りつぶす-色の上下</b>が選択されている場合、この表記は、ベースカーブの上/下の塗りつぶされた色を示すラベルに使用されます。
+</td>
+<td>%(1, @V&quot;above&quot;)
+<p>%(1, @V&quot;below&quot;) 
+--&gt;<br /><b>Above B<br />Below B</b>
+</p>
+</td></tr></table>
+<h4><a name="Dataset.2FRange_Information"></a><span class="mw-headline">データセット/範囲情報</span></h4>
+<table class="simple">
+<tr>
+<th width="10%">@オプション
+</th>
+<th width="45%">参照元
+</th>
+<th width="45%">例
+</th></tr>
+<tr>
+<td>@D
+</td>
+<td>データセット名
+</td>
+<td><i>%(?Y,@D)</i> --&gt; <b>Book1_B</b>
+</td></tr>
+<tr>
+<td>@R
+</td>
+<td>データセットの範囲
+</td>
+<td><i>%(1,@R)</i> --&gt;
+<p><b>[Book1]&quot;Trial Run 2&quot;!Col(&quot;Delta Temperature&quot;)[1:32]</b>
+</p>
+</td></tr>
+<tr>
+<td>@R1
+</td>
+<td>行インデックスなしのデータセットの範囲
+</td>
+<td><i>%(1,@R1)</i> --&gt;
+<p><b>[Book1]&quot;Trial Run 2&quot;!Col(&quot;Delta Temperature&quot;)</b>
+</p>
+</td></tr>
+<tr>
+<td>@RB
+</td>
+<td>プロットデータの開始行インデックス
+</td>
+<td><i>%(1,@RB)</i> --&gt;
+<p><b>1</b>
+</p>
+</td></tr>
+<tr>
+<td>@RE
+</td>
+<td>プロットデータの終了行インデックス、@RBが1であれば@RNと同じ
+</td>
+<td><i>%(1,@RE)</i> --&gt;
+<p><b>32</b>
+</p>
+</td></tr>
+<tr>
+<td>@RN
+</td>
+<td>プロットデータの合計行数（欠損値やマスクされたデータ点は除く）
+</td>
+<td><i>%(1,@RN)</i> --&gt; <b>32</b>
+</td></tr></table>
+<h4><a name="Holder_Book_Information"></a><span class="mw-headline">ホルダーブック情報</span></h4>
+<table class="simple">
+<tr>
+<th width="10%">@オプション
+</th>
+<th width="45%">参照元
+</th>
+<th width="45%">例
+</th></tr>
+<tr>
+<td>@PLE
+</td>
+<td>ホルダーブックロングネーム。埋め込みグラフ、行列、メモ、またはHTMLレポートのコンテナワークブックのロングネームを返します。
+</td>
+<td><i>%(%H,@PLE)</i>
+</td></tr>
+<tr>
+<td>@SC
+</td>
+<td> ホルダーシートコメント。埋め込みグラフ、行列、メモ、またはHTMLレポートのシートのコメントを返します。
+</td>
+<td><i>%(%H,@SC)</i>
+</td></tr>
+<tr>
+<td>@SN
+</td>
+<td>ホルダーシート表示名; Labelが存在する場合は、Labelを使用します。埋め込みグラフ、行列、メモ、またはHTMLレポートのシートの表示名またはラベルを返します。
+</td>
+<td><i>%(%H,@SN)</i>
+</td></tr>
+<tr>
+<td>@SNL
+</td>
+<td>ホルダーシートラベル。埋め込みグラフ、行列、メモ、またはHTMLレポートのシートのラベルを返します。
+</td>
+<td> <i>%(%H,@SNL)</i>
+</td></tr>
+<tr>
+<td>@SNS
+</td>
+<td>ホルダーシート名。埋め込みグラフ、行列、メモ、またはHTMLレポートのシートの名前を返します。
+</td>
+<td> <i>%(%H,@SNS)</i>
+</td></tr></table>
+<p><b>Note:</b>単位が置換テキストで表示されている場合、英語と日本語版のOriginでは単位を括弧<b>()</b>で囲みますが、ドイツ語版では角括弧<b>[]</b>を使用します。
+</p>
+<h2><a name="Examples"></a><span class="mw-headline">サンプル</span></h2>
+<h4><a name="Show_Statistics_info._of_Plot_as_Tick_Labels"></a><span class="mw-headline">プロットの統計情報を目盛ラベルとして表示</span></h4>
+<p>ボックスチャートの場合、各プロットの最小値を小数点1桁で上軸の目盛ラベルとして %(?, @F&quot;min(this)&quot;, .1) で表示します。 
+</p>
+<dl><dd><a  class="image"><img alt="Ex2 tick label.png" src="../images/Text_Label_Options/Ex2_tick_label.png" width="836"  /></a></dd></dl>
+<p><br />
+</p>
+<h4><a name="Preset_graph_name_in_the_template"></a><span class="mw-headline">テンプレート内にグラフ名を事前設定</span></h4>
+<p>以下と同じ構造のワークブックがたくさんあるとします。既存のグラフからこれらのブックでバッチ作図し、グラフのロングネームを<i>&lt;ワークブックロングネーム&gt; - &lt;Sample&gt;</i>に設定して区別します。<a class="external text" href="../../UserGuide/UserGuide/Template_Files.html#Saving_a_customized_window_as_a_template">テンプレートを保存する</a>ときに、グラフ名を%()表記で事前設定できます。
+</p>
+<dl><dd><a  class="image"><img alt="Ex1 worksheet.png" src="../images/Text_Label_Options/Ex1_worksheet.png" width="850"  /></a></dd></dl>
+<ol><li>編集後、グラフウィンドウのタイトルを右クリックして<a class="external text" href="../../UserGuide/UserGuide/Template_Files.html#Saving_a_customized_window_as_a_template"><b>テンプレートの新規保存</b>ダイアログ</a>を開きます。<b>グラフロングネームの事前設定</b>ボックスに <pre class="lt" style="font-family:monospace;"><span style="color: #000080;">%</span><span style="color: #000000;">(</span><span style="color: #0000dd;">1</span>, @WL<span style="color: #000000;">)</span> <span style="color: #000080;">-</span> <span style="color: #000080;">%</span><span style="color: #000000;">(</span><span style="color: #0000dd;">1</span>, @W,SAMPLE<span style="color: #000080;">$</span><span style="color: #000000;">)</span></pre> と入力します。
+<dl><dd><a  class="image"><img alt="Template save as.png" src="../images/Text_Label_Options/Template_save_as.png" width="590"  /></a></dd></dl></li>
+<li>保存されたテンプレートからグラフを作成する際、グラフのロングネームは<i>ワークブックロングネーム &ndash; ユーザ定義パラメータ行の&quot;Sample&quot;の文字列</i>となります。</li></ol>
+<h4><a name="Export_worksheet_as_PDF_with_Book_and_sheet_name_in_File_name"></a><span class="mw-headline">ファイル名にブックとシート名を指定して、ワークシートをPDFとしてエクスポートする</span></h4>
+<p><b>ファイル：エクスポート：PDF形式で</b>を使用して、ファイル名を&lt;ロングネーム&gt;に設定してブック内の複数シートをエクスポートすると、PDFファイル名は<i>[&lt;ブックロングネーム&gt;]&lt;シート&gt;.PDF</i>形式になります。ファイル名を<i>%(%H, @PL) - &lt;シート名&gt;</i>と設定します。エクスポートされたPDFファイル名は<i>&lt;ブックロングネーム&gt;-シート名.pdf</i>形式になります。
+</p>
+<dl><dd><a  class="image"><img alt="Ex2 wks PDF.png" src="../images/Text_Label_Options/Ex2_wks_PDF.png" width="598"  /></a></dd></dl>
+<h4><a name="Export_embedded_graph_with_Book_and_sheet_name_in_File_name"></a><span class="mw-headline">ファイル名にブック名とシート名を含む埋め込みグラフをエクスポート</span></h4>
+<p>下図のように、解析に関連するデータとグラフを1つのワークブックにまとめたとします。埋め込みグラフをPowerPointにエクスポートし、ワークブック名とワークシート名をタイトル行として追加します。<b>PowerPointにグラフを送る</b>ダイアログで事前設定できます。
+</p><p><a  class="image"><img alt="Ex2 workbook.png" src="../images/Text_Label_Options/Ex2_workbook.png" width="884"  /></a>
+</p>
+<ol><li><b>標準</b>ツールバーの<a class="external text" href="https://www.originlab.com/FileExchange/Details.aspx?fid=374" target="_blank"><b>PowerPointにグラフを送る</b></a>ボタンをクリックします。開いたダイアログで、<b>タイトル</b>にカスタムを選択し、テキストボックスに <pre class="lt" style="font-family:monospace;"><span style="color: #000080;">%</span><span style="color: #000000;">(</span><span style="color: #000080;">%</span>H, @PLE<span style="color: #000000;">)</span> <span style="color: #000080;">-</span> <span style="color: #000080;">%</span><span style="color: #000000;">(</span><span style="color: #000080;">%</span>H,@SN<span style="color: #000000;">)</span></pre> と入力します。
+<dl><dd><a  class="image"><img alt="Ex2 Send Graphs to PPT.png" src="../images/Text_Label_Options/Ex2_Send_Graphs_to_PPT.png" width="863"  /></a></dd></dl></li>
+<li>パワーポイントに送信されるグラフには、上部に「<i>2D Binning 3-Fitted Curve</i>」のようなタイトルがつけられます。</li></ol>
+<h4><a name="Preset_X.2C_Y.2C_Z_axis_title_when_plotting_Heatmap"></a><span class="mw-headline">ヒートマップをプロットする際のX、Y、Z軸タイトルの事前設定</span></h4>
+<p>ワークシートのデータを仮想行列として使用してヒートマップまたは等高線図をプロットする場合、XY情報とワークシート名に基づいてXタイトル、Yタイトル、Zタイトル（カラースケールタイトルに使用）を設定できます。
+</p>
+<dl><dd><a  class="image"><img alt="Ex2 heatmap.png" src="../images/Text_Label_Options/Ex2_heatmap.png" width="887"  /></a></dd></dl>
+<h4><a name="Annotate_on_Graph"></a><span class="mw-headline">グラフに注釈を付ける</span></h4>
+<p><a class="external text" href="../../UserGuide/UserGuide/Creating_Annotation.html"><b>アノテーション</b></a>ツールを使用してデータポイントにラベルを付けると、自動生成されたラベルにはデフォルトでXY座標が表示されます。ラベルにワークシート名などの情報を追加するには、 
+</p>
+<pre class="lt" style="font-family:monospace;"><span style="color: #000080;">%</span><span style="color: #000000;">(</span>?, @WS<span style="color: #000000;">)</span></pre> 
+<p>とします。
+</p><p><a  class="image"><img alt="Ex4 Annotation.png" src="../images/Text_Label_Options/Ex4_Annotation.png" width="875"  /></a>
+</p>
+
+
+
+    

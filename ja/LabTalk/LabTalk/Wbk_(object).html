@@ -1,0 +1,139 @@
+﻿<h1 class="firstHeading">Wbk</h1><p class='urlname' style='display: none'>Wbk-obj</p>
+<p><br />
+</p><p><i>WBK</i>オブジェクトには、アクティブなOriginワークブックまたは行列ブックに関連するプロパティとメソッドがあります。オブジェクトプロパティとメソッドには、次の構文を使用してアクセスできます。
+</p><p><i><b>wbkObject.property</b></i><br />
+<i><b>wbkObject.method (argument)</b></i>
+</p>
+<table class="note">
+<tr>
+<td><b>Note:</b>
+<p><b>WBK</b>オブジェクトに加えて、ほとんどの属性は<a href="../../LabTalk/LabTalk/Page_(object).html" title="LabTalk:Page (object)"><b>Page</b></a>オブジェクトを使用してアクセスおよび変更できます。また、子ウィンドウに対する多くの操作は<a href="../../LabTalk/LabTalk/Window_(command)&amp;action=edit&amp;redlink=1.html" class="new" title="LabTalk:Window (command) (page does not exist)"><b>Window</b></a>コマンドで行うことができます。その他の操作と例については、<a href="../../LabTalk/Script/Basic_Workbook_Operation.html" title="Script:ワークブックの基本操作">ワークブックの基本操作</a>および<a href="../../LabTalk/Script/Basic_Matrix_Book_Operation.html" title="Script:Basic Matrix Book Operation">行列ブックの基本操作</a>を参照してください。
+</p>
+</td></tr></table>
+<p><br />
+</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>目次</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Properties"><span class="tocnumber">1</span> <span class="toctext">プロパティ</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Methods"><span class="tocnumber">2</span> <span class="toctext">メソッド</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Examples"><span class="tocnumber">3</span> <span class="toctext">サンプル</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#See_Also"><span class="tocnumber">4</span> <span class="toctext">関連項目</span></a></li>
+</ul>
+</div>
+
+<h2><a name="Properties"></a><span class="mw-headline">プロパティ</span></h2>
+<table class="simple">
+<tr>
+<th width="100">プロパティ
+</th>
+<th width="70">アクセス
+</th>
+<th width="550">説明
+</th></tr>
+<tr>
+<td> wbk.canAddDC
+</td>
+<td> 読み取り<br />bool
+</td>
+<td> ワークブックを使用してデータコネクタを追加できるかどうかを返します。1=ture,0=false
+</td></tr>
+<tr>
+<td> wbk.DC
+</td>
+<td> 読み/書き
+</td>
+<td> データコネクタ設定。<a href="../../LabTalk/LabTalk/Wbk.DC_(object).html" title="LabTalk:Wbk.DC (object)">Wbk.DC</a>オブジェクトプロパティを参照してください。
+</td></tr>
+<tr>
+<td> wbk.image
+</td>
+<td> 読み取り<br />bool
+</td>
+<td> データモード (=0) またはイメージモード (=1) を切り替えます。
+</td></tr>
+<tr>
+<td> wbk.Is4D
+</td>
+<td> 読み/書き<br />bool
+</td>
+<td> 行列ブックの場合、行列シートが4Dオブジェクトの深さ/レベルであることを示します。0= 4Dではない、1= 4D
+<p>たとえば、複数のレベル/深度を持つ4D NetCDFデータをインポートした後、行列ブックは4Dに設定され、将来のROIおよび強度プロファイルなどが行列シート全体で機能するようになります。
+</p>
+</td></tr>
+<tr>
+<td> wbk.LATEX
+</td>
+<td> 読み/書き<br />bool
+</td>
+<td> LaTeXを直接使用するかどうか。オンの場合、LaTeX方程式は、検出された場合は軸タイトルと凡例に表示され、リッチテキストがオンの場合は列ラベル行に表示されます。
+</td></tr>
+<tr>
+<td> wbk.organizer
+</td>
+<td> 読み/書き<br />bool
+</td>
+<td> ワークブックまたは行列ブック<a class="external text" href="../../UserGuide/UserGuide/The_Workbook_Organizer.html"><b>オーガナイザ</b></a>を表示または非表示にする。0 = 非表示、1 = 表示
+</td></tr>
+<tr>
+<td> wbk.pause
+</td>
+<td> 読み/書き<br />bool
+</td>
+<td> 「自動更新」を一時的に停止するかどうか。0=「自動更新を一時停止」のチェックを外す、1=「自動更新を一時停止」にチェックを入れる。
+</td></tr>
+<tr>
+<td> wbk.saveData
+</td>
+<td> 読み/書き<br />bool
+</td>
+<td> プロジェクト（.opju形式）またはワークブックウィンドウ（.ogwu形式）を保存するときに、インポートしたデータをワークブックに保存するかどうかを設定します。0=インポートしたデータを除外し他のデータ（入力、計算、またはその他の操作から）は保持、1=インポートしたデータを保存
+</td></tr>
+<tr>
+<td> wbk.selector
+</td>
+<td> 読み/書き<br />bool
+</td>
+<td> 行列ブックグリッドとウィンドウタイトルバーの間のサムネイル/選択領域を表示する。0 = 非表示、1 = 表示
+</td></tr>
+<tr>
+<td> wbk.showXY
+</td>
+<td> 読み/書き<br />bool
+</td>
+<td> 列/行 (=0) またはX/Y (=1) の表示を切り替える。
+</td></tr>
+<tr>
+<td> wbk.slider
+</td>
+<td> 読み/書き<br />bool
+</td>
+<td> 行列ブックグリッドとウィンドウタイトルバーの間の領域で、スライダまたは画像サムネイルの表示を切り替える。0=サムネイルを表示、1=スライダーを表示
+</td></tr></table>
+<h2><a name="Methods"></a><span class="mw-headline">メソッド</span></h2>
+<table class="simple">
+<tr>
+<th> メソッド
+</th>
+<th> 説明
+</th></tr>
+<tr>
+<td> wbk.open(<i>sheetName</i>)
+</td>
+<td> 埋め込み<i>sheetName</i>をウィンドウで開きます。<i>sheetName</i>はNotes、Graph、Matrixのいずれかです。たとえば、現在のワークシートタブを右クリックして、メニューから<b>グラフをシートとして追加</b>を選択し、ワークシートの名前を<i>MyGraph</i>に変更することで、グラフウィンドウを現在のワークブックのワークシートとして追加できます。コマンドは次の通りです。
+<pre class="lt" style="font-family:monospace;">wbk.<span style="color: #000080;">OPEN</span><span style="color: #000000;">(</span>MyGraph<span style="color: #000000;">)</span>;</pre> 
+<p>グラフは別々のウィンドウで開きます。
+</p>
+</td></tr></table>
+<h2><a name="Examples"></a><span class="mw-headline">サンプル</span></h2>
+<h2><a name="See_Also"></a><span class="mw-headline">関連情報</span></h2>
+<p><a href="../../LabTalk/LabTalk/Wks_(object).html" title="LabTalk:Wks (object)">Wks</a>
+<a href="../../LabTalk/LabTalk/Wbk.DC_(object).html" title="LabTalk:Wbk.DC (object)">Wbk.DC</a>
+<a href="../../LabTalk/LabTalk/Wks.DC_(object)&amp;action=edit&amp;redlink=1.html" class="new" title="LabTalk:Wks.DC (object) (page does not exist)">Wks.DC</a>
+</p>
+
+
+
+
+
+
+    

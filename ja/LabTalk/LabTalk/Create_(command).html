@@ -1,0 +1,297 @@
+﻿<h1 class="firstHeading">Create</h1><p class='urlname' style='display: none'>Create-cmd</p>
+<p>行数<i>numRows</i>を持つ名前のデータセットまたはワークシートを作成します。<i>NumRows</i>は、必要と予想される行の最大数にする必要があります。各データセットは値と属性に関連付けられています。データセットの値と属性を変更するには、<a href="../../LabTalk/LabTalk/Set_(command)&amp;action=edit&amp;redlink=1.html" class="new" title="LabTalk:Set (command) (page does not exist)">set</a>コマンドを使用します。データセットのワークシートを表示するには、<a href="../../LabTalk/LabTalk/Edit_(command).html" title="LabTalk:Edit (command)">edit</a> <i><b>dataset</b></i> コマンドを使用します。
+</p>
+<table class="noborder"><tr>
+	<td style="vertical-align:top" width="60"><img src="../images/Create_(command)/Tip_icon.png" width="57"  border="0" /></td><td><p>詳細は<a class="external text" href="../../XFunction/X-Function/Newbook.html"><b>newbook</b></a> Xファンクションを参照してください。
+</p></td></tr></table>
+<p><br />
+</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>目次</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Syntax:"><span class="tocnumber">1</span> <span class="toctext">構文</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Options:"><span class="tocnumber">2</span> <span class="toctext">オプション</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="#-c.3BCreate_a_Y_dataset_and_associated_X_dataset_containing_all_zero_values"><span class="tocnumber">2.1</span> <span class="toctext">-c; Yデータセット（値は全て0）とそれに関連するXデータセットを作成</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="#-cd.3BCreate_a_Y_dataset_and_associated_X_dataset_containing_all_zero_values_and_allow_destruction_of_dataset"><span class="tocnumber">2.2</span> <span class="toctext">-cd; Yデータセット（値は全て0）とそれに関連するXデータセットを作成し、データセットの破棄を許可</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#-d.3BCreate_a_dataset_and_an_associated_X_dataset_named_name_A"><span class="tocnumber">2.3</span> <span class="toctext">-d; <i>name_A</i>という名前のデータセットと関連するXデータセットを作成</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#-dd.3BCreate_a_dataset_and_an_associated_X_dataset_named_name_A_and_allow_destruction_of_dataset"><span class="tocnumber">2.4</span> <span class="toctext">-dd; <i>name_A</i>という名前のデータセットと関連するXデータセットを作成し、データセットの破棄を許可</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="#-f.3BCreate_a_function"><span class="tocnumber">2.5</span> <span class="toctext">-f; 関数を作成</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="#-fp.3BCreate_a_loose_dataset_for_2D_parametric_function_plot"><span class="tocnumber">2.6</span> <span class="toctext">-fp; 2Dパラメトリック関数グラフ用のルーズデータセットを作成</span></a></li>
+<li class="toclevel-2 tocsection-9"><a href="#-fp2.3BCreate_a_2D_loose_datasets_for_3D_parametric_function_plot"><span class="tocnumber">2.7</span> <span class="toctext">-fp2; 3Dパラメトリック関数グラフ用の2Dルーズデータセットを作成</span></a></li>
+<li class="toclevel-2 tocsection-10"><a href="#-m.3BCreate_a_dataset_associated_with_a_double-headed_vertical_arrow_as_the_data_point_symbol_type"><span class="tocnumber">2.8</span> <span class="toctext">-m; データポイントシンボルタイプとして縦方向の両矢印に関連付けられたデータセットを作成</span></a></li>
+<li class="toclevel-2 tocsection-11"><a href="#-mfp.3BCreate_matrices_from_2D_loose_datasets_for_3D_parametric_function_plot"><span class="tocnumber">2.9</span> <span class="toctext">-mfp; 3Dパラメトリック関数グラフ用の2Dルーズデータセットから行列を作成</span></a></li>
+<li class="toclevel-2 tocsection-12"><a href="#-mfph.3B_Create_a_hidden_matrix_from_2D_loose_datasets_for_3D_parametric_function_plots"><span class="tocnumber">2.10</span> <span class="toctext">-mfph; 3Dパラメトリック関数グラフ用の2Dルーズデータセットから非表示の行列を作成</span></a></li>
+<li class="toclevel-2 tocsection-13"><a href="#-n.3BCreate_an_empty_Y_dataset_with_no_associated_X_values"><span class="tocnumber">2.11</span> <span class="toctext">-n; 空のYデータセットを作成（関連するX値なし）</span></a></li>
+<li class="toclevel-2 tocsection-14"><a href="#-nd.3BCreate_an_empty_Y_dataset_with_no_associated_X_values_and_allow_destruction_of_dataset"><span class="tocnumber">2.12</span> <span class="toctext">-nd; 空のYデータセットを作成（関連するX値なし）し、データセットの破棄を許可</span></a></li>
+<li class="toclevel-2 tocsection-15"><a href="#-nrs.3BCreate_a_virtual_dataset_via_a_named_range"><span class="tocnumber">2.13</span> <span class="toctext">-nrs; 名前付き範囲を使用した仮想データセットを作成</span></a></li>
+<li class="toclevel-2 tocsection-16"><a href="#-s.3BCreate_a_string_dataset"><span class="tocnumber">2.14</span> <span class="toctext">-s; 文字列データセットを作成</span></a></li>
+<li class="toclevel-2 tocsection-17"><a href="#-t.3BCreate_a_dataset_that_is_not_associated_with_a_worksheet_and_that_cannot_be_plotted"><span class="tocnumber">2.15</span> <span class="toctext">-t; ワークシートに関連付けられておらず、プロットできないデータセットを作成</span></a></li>
+<li class="toclevel-2 tocsection-18"><a href="#-vsshdf.3BCreate_virtual_dataset_with_existing_ShDF"><span class="tocnumber">2.16</span> <span class="toctext">-vsshdf; 既存のShDFを使用して仮想データセットを作成</span></a></li>
+<li class="toclevel-2 tocsection-19"><a href="#-w.3BSpecify_column_names_after_numRows"><span class="tocnumber">2.17</span> <span class="toctext">-w; <i>numRows</i>の後に列名を指定</span></a></li>
+<li class="toclevel-2 tocsection-20"><a href="#-wd.3BCreate_Text_.26_Numeric_datasets_but_not_worksheet"><span class="tocnumber">2.18</span> <span class="toctext">-wd; テキストおよび数値データセットを作成（ワークシートの作成なし）</span></a></li>
+<li class="toclevel-2 tocsection-21"><a href="#-wdn.3BCreate_Numeric_datasets_but_not_worksheet"><span class="tocnumber">2.19</span> <span class="toctext">-wdn; 数値データセットを作成（ワークシートの作成なし）</span></a></li>
+<li class="toclevel-2 tocsection-22"><a href="#-wh.3BCreate_a_hidden_worksheet"><span class="tocnumber">2.20</span> <span class="toctext">-wh; 非表示のワークシートを作成</span></a></li>
+<li class="toclevel-2 tocsection-23"><a href="#-whn.3BCreate_a_hidden_worksheet_with_the_datasets_set_to_Numeric"><span class="tocnumber">2.21</span> <span class="toctext">-whn; 非表示のワークシートを作成（数値データセット）</span></a></li>
+<li class="toclevel-2 tocsection-24"><a href="#-wn.3BCreate_a_worksheet_with_the_datasets_set_to_Numeric"><span class="tocnumber">2.22</span> <span class="toctext">-wn; ワークシートを作成（数値データセット）</span></a></li>
+<li class="toclevel-2 tocsection-25"><a href="#-x.3BCreate_a_dataset_associated_with_a_vertical_line_as_the_data_point_symbol_type"><span class="tocnumber">2.23</span> <span class="toctext">-x; データポイントシンボルタイプとして垂直線に関連付けられたデータセットを作成</span></a></li>
+<li class="toclevel-2 tocsection-26"><a href="#-xd.3BCreate_a_dataset_associated_with_a_vertical_line_as_the_data_point_symbol_type_and_allow_destruction_of_dataset"><span class="tocnumber">2.24</span> <span class="toctext">-xd; データポイントシンボルタイプとして垂直線に関連付けられたデータセットを作成し、データセットの破棄を許可</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-27"><a href="#Examples:"><span class="tocnumber">3</span> <span class="toctext">サンプル:</span></a></li>
+</ul>
+</div>
+
+<h2><a name="Syntax:"></a><span class="mw-headline"><font color="chocolate">構文</font></span></h2>
+<pre class="lt" style="font-family:monospace;">creat  name <span style="color: #000000;">[</span>option<span style="color: #000000;">]</span> <span style="color: #000000;">[</span>numRows<span style="color: #000000;">]</span></pre>
+<h2><a name="Options:"></a><span class="mw-headline"><font color="chocolate">オプション：</font></span></h2>
+<h3><a name="-c.3BCreate_a_Y_dataset_and_associated_X_dataset_containing_all_zero_values"></a><span class="mw-headline">-c; Yデータセット（値は全て0）とそれに関連するXデータセットを作成</span></h3>
+<p><b>構文</b>: create <i>name</i> <b>-c</b> <i>numRows</i>
+</p><p>Yデータセット（値は全て0）とそれに関連するXデータセットを作成します。このデータをプロットするには、XとYの両方に値を指定する必要があります。Yデータセットは<i>name</i>と呼ばれます。Xデータセットは<i>name_A</i>と呼ばれます。注意: <i>name</i>にアンダースコア &quot; _ &quot;が含まれている場合、Xデータセットに名前を付けるときにそれ以降の文字は無視されます。  つまり、nameがdata1_testなら、Xはdata1_Aと呼ばれます。
+</p>
+<h3><a name="-cd.3BCreate_a_Y_dataset_and_associated_X_dataset_containing_all_zero_values_and_allow_destruction_of_dataset"></a><span class="mw-headline">-cd; Yデータセット（値は全て0）とそれに関連するXデータセットを作成し、データセットの破棄を許可</span></h3>
+<p><b>構文</b>: create <i>name</i> <b>-cd</b> <i>numRows</i>
+</p><p><b>-c</b>オプションと似ていますが、<b>-cd</b>はデータセットのすべての既存のプロットが破棄されるきにデータセットを破棄します。これは子ウィンドウの破棄、ページのOriginCの<a class="external text" href="../../OriginC/OriginC/Curve-Destroy.html"><b>Destroy()</b></a>メソッド、およびLabTalk<a href="../../LabTalk/LabTalk/Window_Options_to_Close.html#-c" title="LabTalk:Window Options to Close"><b>win -c</b></a>コマンドの使用時に適用されます。
+</p>
+<pre class="lt" style="font-family:monospace;">create test_b <span style="color: #000080;">-</span>cd <span style="color: #0000dd;">10</span>;
+test_a<span style="color: #000080;">=</span>data<span style="color: #000000;">(</span><span style="color: #0000dd;">1</span>,<span style="color: #0000dd;">1000</span><span style="color: #000000;">)</span>;
+test_b<span style="color: #000080;">=</span>normal<span style="color: #000000;">(</span><span style="color: #0000dd;">1000</span><span style="color: #000000;">)</span>;
+win <span style="color: #000080;">-</span>t plot;
+layer <span style="color: #000080;">-</span>i test_b;</pre>
+<p><a href="../../LabTalk/LabTalk/System_Variable_List.html#D" title="LabTalk:システム変数リスト"><b>@DLDG</b></a>の値を0に設定することで、ルーズデータセットの破棄を無効にできます。
+</p>
+<h3><a name="-d.3BCreate_a_dataset_and_an_associated_X_dataset_named_name_A"></a><span class="mw-headline">-d; name_Aという名前のデータセットと関連するXデータセットを作成</span></h3>
+<p><b>構文</b>: create <i>name</i> <b>-d</b> <i>numRows</i>
+</p><p>データセットと、<i>name_A</i>という名前の関連するXデータセットを作成します。データセットをアクティブなグラフレイヤに散布図としてプロットします。
+</p>
+<h3><a name="-dd.3BCreate_a_dataset_and_an_associated_X_dataset_named_name_A_and_allow_destruction_of_dataset"></a><span class="mw-headline">-dd; <i>name_A</i>という名前のデータセットと関連するXデータセットを作成し、データセットの破棄を許可</span></h3>
+<p><b>構文</b>: create <i>name</i> <b>-dd</b> <i>numRows</i>
+</p><p><b>-d</b>オプションと似ていますが、<b>-dd</b>はデータセットのすべての既存のプロットが破棄されるきにデータセットを破棄します。これは子ウィンドウの破棄、ページのOriginCの<a class="external text" href="../../OriginC/OriginC/Curve-Destroy.html"><b>Destroy()</b></a>メソッド、およびLabTalk<a href="../../LabTalk/LabTalk/Window_Options_to_Close.html#-c" title="LabTalk:ウィンドウを閉じるオプション"><b>win -c</b></a>コマンドの使用時に適用されます。
+</p><p><a href="../../LabTalk/LabTalk/System_Variable_List.html#D" title="LabTalk:システム変数リスト"><b>@DLDG</b></a>の値を0に設定することで、ルーズデータセットの破棄を無効にできます。
+</p>
+<h3><a name="-f.3BCreate_a_function"></a><span class="mw-headline">-f; 関数を作成</span></h3>
+<p><b>構文</b>: create <i>name</i> <b>-f</b> <i>npts</i> <i>formula</i>
+</p><p>関数を作成します。この表記法を使用して関数を作成することもできますが、より単純な方法は次の通りです。
+myFunc(x)=3+3*sin(x);
+</p><p>例えば、次のスクリプトを実行して、数式<img src="../images/Create_(command)/math-b4497d4d3ca9c7496c62657779ffc6c9.png" title="y = x^2" alt="y = x^2" class="tex"/>を使用してmyquadという関数を作成し、200個のデータポイントを生成し、関数を直線としてプロットします。
+</p>
+<pre class="lt" style="font-family:monospace;">create myquad <span style="color: #000080;">-</span>f <span style="color: #0000dd;">200</span> <span style="color: #ff00ff;">&quot;x^2&quot;</span>;
+plotxy myquad <span style="color: #0000dd;">200</span>;
+<span style="color: #008000;">//X軸とY軸を再スケール</span>
+sec <span style="color: #000080;">-</span>p <span style="color: #0000dd;">1</span>;
+layer <span style="color: #000080;">-</span>a;</pre>
+<p><b>Note:</b> <i>npts</i>はデータセットサイズとして100以上の入力整数値を取ります。
+</p>
+<h3><a name="-fp.3BCreate_a_loose_dataset_for_2D_parametric_function_plot"></a><span class="mw-headline">-fp; 2Dパラメトリック関数グラフ用のルーズデータセットを作成</span></h3>
+<p><b>構文</b>: create <i>name</i> <b>-fp</b> <i>npts formula min max</i>
+</p><p><i>npts</i>はルーズデータセットの点数であり、<i>formula</i>は変数<b>t</b>を独立変数として使用する必要があります。<i>min</i>と<i>max</i>はルーズデータセットの最小値と最大値です。ルーズデータセットを作成した後、Xファンクション関数<a class="external text" href="../../XFunction/X-Function/Plotxy.html">plotxy</a>を使用して2Dパラメトリック関数グラフを作成することができます。
+</p>
+<pre class="lt" style="font-family:monospace;">create mydata <span style="color: #000080;">-</span>fp <span style="color: #0000dd;">50</span> <span style="color: #ff00ff;">&quot;t*cos(t)&quot;</span> <span style="color: #0000dd;">0</span> <span style="color: #ff00ff;">&quot;2*pi&quot;</span>;
+plotxy mydata <span style="color: #0000dd;">201</span>;</pre>
+<h3><a name="-fp2.3BCreate_a_2D_loose_datasets_for_3D_parametric_function_plot"></a><span class="mw-headline">-fp2; 3Dパラメトリック関数グラフ用の2Dルーズデータセットを作成</span></h3>
+<p><b>構文</b>: create <i>name</i> <b>-fp2</b> <i>npts formula min max npts2 min2 max2</i>
+</p><p><i>npts</i>は第一次元の点数（列数、独立変数<b>u</b>）であり、<i>formula</i>は変数<b>u</b>と<b>v</b>を独立変数として使用する必要があります。<i>min</i>と<i>max</i>はそれぞれ第一次元の値の最小値と最大値です。<i>npts2</i>、<i>min2</i>、<i>max2</i>は（第一次元と同様に）第二次元の点数（行数、独立変数<b>v</b>）と最小値、最大値です。2Dルーズデータセットを作成した後、Xファンクション<a class="external text" href="../../XFunction/X-Function/Plotm.html">plotm</a>を使用して3Dパラメトリック関数グラフを作成することができます。 
+</p>
+<pre class="lt" style="font-family:monospace;">create myz <span style="color: #000080;">-</span>fp2 <span style="color: #0000dd;">20</span> <span style="color: #ff00ff;">&quot;(v*v*cos(u)*cos(u)+v*v*sin(u)*sin(u))/2&quot;</span> <span style="color: #0000dd;">0</span> <span style="color: #ff00ff;">&quot;2*pi&quot;</span> <span style="color: #0000dd;">50</span> <span style="color: #0000dd;">0</span> <span style="color: #0000dd;">5</span>;
+plotm myz <span style="color: #0000dd;">103</span>;</pre>
+<h3><a name="-m.3BCreate_a_dataset_associated_with_a_double-headed_vertical_arrow_as_the_data_point_symbol_type"></a><span class="mw-headline">-m; データポイントシンボルタイプとして縦方向の両矢印に関連付けられたデータセットを作成</span></h3>
+<p><b>構文</b>: create <i>name</i> <b>-m</b> <i>numRows</i>
+</p><p>データポイントシンボルタイプとして縦方向の両矢印に関連付けられたデータセットを作成します。それ以外の場合は、上記の<b>-c</b>と同じです。
+</p>
+<h3><a name="-mfp.3BCreate_matrices_from_2D_loose_datasets_for_3D_parametric_function_plot"></a><span class="mw-headline">-mfp; 3Dパラメトリック関数グラフ用の2Dルーズデータセットから行列を作成</span></h3>
+<p><b>構文</b>: create <i>name</i> <b>-mfp</b> <i>ZData</i> <i>XData</i> <i>YData</i> &quot;<i>XVar,YVar</i>&quot;
+</p><p>指定された<i>name</i>（存在する場合は列挙）の行列ブックが作成され、行列シートには3つの行列オブジェクトが含まれます。3つの行列オブジェクトは、指定された2Dルーズデータセット、<i>ZData</i>、<i>XData</i>、<i>YData</i>のデータを持ちます。2Dルーズデータセットは、<b>create-fp2</b>コマンドを使用して作成できます。<i>XVar</i>と<i>YVar</i>は2つの独立変数名として使用されます。Xファンクション<a class="external text" href="../../XFunction/X-Function/Plotm.html">plotm</a>を使用して、作成された行列から3Dパラメトリック関数グラフを作成できます。
+</p>
+<pre class="lt" style="font-family:monospace;">create myx <span style="color: #000080;">-</span>fp2 <span style="color: #0000dd;">20</span> v<span style="color: #000080;">*</span>cos<span style="color: #000000;">(</span>u<span style="color: #000000;">)</span> <span style="color: #0000dd;">0</span> <span style="color: #0000dd;">6.28</span> <span style="color: #0000dd;">50</span> <span style="color: #0000dd;">0</span> <span style="color: #0000dd;">5</span>;
+create myy <span style="color: #000080;">-</span>fp2 <span style="color: #0000dd;">20</span> v<span style="color: #000080;">*</span>sin<span style="color: #000000;">(</span>u<span style="color: #000000;">)</span> <span style="color: #0000dd;">0</span> <span style="color: #0000dd;">6.28</span> <span style="color: #0000dd;">50</span> <span style="color: #0000dd;">0</span> <span style="color: #0000dd;">5</span>;
+create myz <span style="color: #000080;">-</span>fp2 <span style="color: #0000dd;">20</span> <span style="color: #000000;">(</span>v<span style="color: #000080;">*</span>v<span style="color: #000080;">*</span>cos<span style="color: #000000;">(</span>u<span style="color: #000000;">)</span><span style="color: #000080;">*</span>cos<span style="color: #000000;">(</span>u<span style="color: #000000;">)</span><span style="color: #000080;">+</span>v<span style="color: #000080;">*</span>v<span style="color: #000080;">*</span>sin<span style="color: #000000;">(</span>u<span style="color: #000000;">)</span><span style="color: #000080;">*</span>sin<span style="color: #000000;">(</span>u<span style="color: #000000;">)</span><span style="color: #000000;">)</span><span style="color: #000080;">/</span><span style="color: #0000dd;">2</span> <span style="color: #0000dd;">0</span> <span style="color: #0000dd;">6.28</span> <span style="color: #0000dd;">50</span> <span style="color: #0000dd;">0</span> <span style="color: #0000dd;">5</span>;
+create Func <span style="color: #000080;">-</span>mfp myz myx myy <span style="color: #ff00ff;">&quot;u,v&quot;</span>;
+plotm im<span style="color: #000000;">:</span><span style="color: #000080;">=</span><span style="color: #000000;">[</span>Func<span style="color: #000000;">]</span><span style="color: #0000dd;">1</span><span style="color: #000080;">!</span><span style="color: #0000dd;">1</span> plot<span style="color: #000000;">:</span><span style="color: #000080;">=</span><span style="color: #0000dd;">103</span> x<span style="color: #000000;">:</span><span style="color: #000080;">=</span><span style="color: #0000dd;">2</span> y<span style="color: #000000;">:</span><span style="color: #000080;">=</span><span style="color: #0000dd;">3</span>;</pre>
+<h3><a name="-mfph.3B_Create_a_hidden_matrix_from_2D_loose_datasets_for_3D_parametric_function_plots"></a><span class="mw-headline">-mfph; 3Dパラメトリック関数グラフ用の2Dルーズデータセットから非表示の行列を作成</span></h3>
+<p><b>構文</b>: create <i>name</i> <b>-mfph</b> <i>ZData</i> <i>XData</i> <i>YData</i> &quot;<i>XVar,YVar</i>&quot;
+</p><p>指定された<i>name</i>（存在する場合は列挙）の行列ブックが作成されます。ウィンドウは非表示になります。行列シートには3つの行列オブジェクトが含まれ、それらのオブジェクトにはそれぞれ、指定された2Dルーズデータセット<i>ZData</i>、<i>XData</i>、<i>YData</i>のデータが含まれます。2Dルーズデータセットは、<b>create-fp2</b>コマンドを使用して作成できます。<i>XVar</i>と<i>YVar</i>は2つの独立変数名として使用されます。Xファンクション<a class="external text" href="../../XFunction/X-Function/Plotm.html">plotm</a>は、作成された行列から3Dパラメトリック関数グラフを作成するのに使用できます。
+</p><p>例については、<a href="../../LabTalk/LabTalk/Plotting.html#plot_3D_box_and_sphere_using_plotm" title="LabTalk:Plotting"><b>plot 3D box and sphere using plotm</b></a>を参照してください。
+</p>
+<h3><a name="-n.3BCreate_an_empty_Y_dataset_with_no_associated_X_values"></a><span class="mw-headline">-n; 空のYデータセットを作成（関連するX値なし）</span></h3>
+<p><b>構文</b>: create <i>name</i> <b>-n</b> <i>numRows</i>
+</p><p>空のYデータセットを作成します（関連するX値なし）。プロットするときは、Xの初期値を1、増分を1と仮定します。これらのX属性を変更するには、<a href="../../LabTalk/LabTalk/Set_(command)&amp;action=edit&amp;redlink=1.html" class="new" title="LabTalk:Set (command) (page does not exist)">set</a>コマンドを使用します。データセットを表示するには、<a href="../../LabTalk/LabTalk/Edit_(command).html" title="LabTalk:Edit (command)">edit</a>  <i><b>datasetname</b></i>コマンドを使用します。
+</p>
+<h3><a name="-nd.3BCreate_an_empty_Y_dataset_with_no_associated_X_values_and_allow_destruction_of_dataset"></a><span class="mw-headline">-nd; 空のYデータセットを作成（関連するX値なし）し、データセットの破棄を許可</span></h3>
+<p><b>構文</b>: create <i>name</i> <b>-nd</b> <i>numRows</i>
+</p><p><b>-n</b>オプションと似ていますが、<b>-nd</b>はデータセットのすべての既存のプロットが破棄されるきにデータセットを破棄します。これは子ウィンドウの破棄、ページのOriginCの<a class="external text" href="../../OriginC/OriginC/Curve-Destroy.html"><b>Destroy()</b></a>メソッド、およびLabTalk<a href="../../LabTalk/LabTalk/Window_Options_to_Close.html#-c" title="LabTalk:Window Options to Close"><b>win -c</b></a>コマンドの使用時に適用されます。
+</p><p><a href="../../LabTalk/LabTalk/System_Variable_List.html#D" title="LabTalk:System Variable List"><b>@DLDG</b></a>の値を0に設定することで、ルーズデータセットの破棄を無効にできます。
+</p>
+<h3><a name="-nrs.3BCreate_a_virtual_dataset_via_a_named_range"></a><span class="mw-headline">-nrs; 名前付き範囲を使用した仮想データセットを作成</span></h3>
+<p><font color="red">必要なOriginのバージョン: 9.1 SR0以降</font>
+</p><p><b>構文</b>: create <i>name</i> <b>-nrs</b> <i>extract_rule</i> [<i>range_string</i>, <i>designation</i>, <i>scope_range_string</i>]
+</p><p>このコマンドは、名前付き範囲を使用して仮想データセットを作成します。仮想データセットの値は、以下の抽出ルールによって決定されます。
+</p>
+<table class="simple">
+<tr>
+<th> 値
+</th>
+<th> 意味
+</th></tr>
+<tr>
+<td> 0
+</td>
+<td> 列で連結します。選択したセルブロック内の値を列方向で結合します。
+</td></tr>
+<tr>
+<td> 1
+</td>
+<td> 行で連結します。選択したセルブロック内の値を行方向に結合します。
+</td></tr>
+<tr>
+<td> 2
+</td>
+<td> 行の平均。選択範囲の各行の平均値を使用します。
+</td></tr>
+<tr>
+<td> 3
+</td>
+<td> 行の標準偏差。選択範囲の各行の標準偏差を使用します。
+</td></tr>
+<tr>
+<td> 4
+</td>
+<td> 偶数行。選択範囲の偶数行の値を使用します。
+</td></tr>
+<tr>
+<td> 5
+</td>
+<td> 奇数行。選択範囲の奇数行の値を使用します。
+</td></tr></table>
+<p>オプションで<i>range_string</i>を指定して、選択範囲を参照することもできます。指定しない場合は、現在の選択範囲が使用されます。<i>scope_range_string</i>を指定して、使用するワークシートを参照することもできます。指定しない場合、複数範囲の最初の範囲のワークシートが使用されます。
+</p><p>次の例では、Book1 Sheet1の最初の行をmyvsx、2行目をmyvsyとして作成し、これらの2つのデータセットをそれぞれXとYとして、作図に使用します。
+</p>
+<pre class="lt" style="font-family:monospace;">create myvsx <span style="color: #000080;">-</span>nrs <span style="color: #0000dd;">1</span> <span style="color: #ff00ff;">&quot;[Book1]Sheet1![1]:[1]&quot;</span>;
+create myvsy <span style="color: #000080;">-</span>nrs <span style="color: #0000dd;">1</span> <span style="color: #ff00ff;">&quot;[Book1]Sheet1![2]:[2]&quot;</span>;
+plotxy <span style="color: #000000;">(</span>myvsx, myvsy<span style="color: #000000;">)</span>;</pre>
+<p>もう1つの例では、列1行2のセルから列3行4のセルまでのセルブロックを持つmyvsboxを作成します。
+</p>
+<pre class="lt" style="font-family:monospace;">create myvsbox <span style="color: #000080;">-</span>nrs <span style="color: #0000dd;">1</span> <span style="color: #ff00ff;">&quot;[Book1]Sheet1!1[2]:3[4]&quot;</span>;
+win <span style="color: #000080;">-</span>t p box;
+layer <span style="color: #000080;">-</span>i206 myvsbox;</pre>
+<h3><a name="-s.3BCreate_a_string_dataset"></a><span class="mw-headline">-s; 文字列データセットを作成</span></h3>
+<p><b>構文</b>: create <i>name</i> <b>-s</b> <i>numRows</i>
+</p><p>文字列データセットを作成します。
+</p><p><i><b>関連項目：</b></i> <a href="../../LabTalk/LabTalk/Datasets_(object).html#Declaring_a_Dataset_and_the_Dataset_-a_option" title="LabTalk:Datasets (object)">dataset -a</a>
+</p>
+<h3><a name="-t.3BCreate_a_dataset_that_is_not_associated_with_a_worksheet_and_that_cannot_be_plotted"></a><span class="mw-headline">-t; ワークシートに関連付けられておらず、プロットできないデータセットを作成</span></h3>
+<p><b>構文</b>: create <i>name</i> <b>-t</b> <i>numRows</i>
+</p><p>ワークシートに関連付けられておらず、プロットできないデータセットを作成します。
+</p>
+<h3><a name="-vsshdf.3BCreate_virtual_dataset_with_existing_ShDF"></a><span class="mw-headline">-vsshdf; 既存のShDFを使用して仮想データセットを作成</span></h3>
+<p><b>構文</b>: create <i>name</i> <b>-vsshdf</b> <i>worksheetrange</i> <i>uidShDF</i>;
+</p><p>文字列<i>worksheetrange</i>は仮想データセット<i>name</i>のベースとなるワークシート列、<i>uidShD</i>は既存のShDF（共有データフィルタ）のUIDです。
+</p>
+<pre class="lt" style="font-family:monospace;">fname<span style="color: #000080;">$</span> <span style="color: #000080;">=</span> System.<span style="color: #000080;">path</span>.<span style="color: #000080;">program</span><span style="color: #000080;">$</span> <span style="color: #000080;">+</span> <span style="color: #ff00ff;">&quot;Samples\Statistics\automobile.dat&quot;</span>;
+newbook;
+impASC;
+worksheet <span style="color: #000080;">-</span>shdf uidShDF <span style="color: #000000;">[</span><span style="color: #000000;">[</span>D<span style="color: #000000;">:</span><span style="color: #0000dd;">3</span><span style="color: #000000;">:</span><span style="color: #ff00ff;">&quot;between(16,23)&quot;</span><span style="color: #000000;">]</span><span style="color: #000000;">]</span>; <span style="color: #008000;">//共有データフィルタを指定</span>
+create myshdfvsy <span style="color: #000080;">-</span>vsshdf col<span style="color: #000000;">(</span>F<span style="color: #000000;">)</span> uidShDF; <span style="color: #008000;">//既存のShDFを使用して仮想データセットを作成</span>
+plotxy iy<span style="color: #000000;">:</span><span style="color: #000080;">=</span><span style="color: #000000;">(</span>C,myshdfvsy<span style="color: #000000;">)</span> plot<span style="color: #000000;">:</span><span style="color: #000080;">=</span><span style="color: #0000dd;">202</span>;</pre>
+<h3><a name="-w.3BSpecify_column_names_after_numRows"></a><span class="mw-headline">-w; <i>numRows</i>の後に列名を指定</span></h3>
+<p><b>構文</b>: create <i>name</i> <b>-w</b> <i>numRows [colName(s)]</i>
+</p><p><i>numRows</i>の後に列名を指定できます。列名を指定する場合は、少なくとも2列を指定する必要があります。<a href="../../LabTalk/Category/Window_(command).html" title="Category:Window (command)">Window</a>コマンドを使用して、特定のテンプレートから作成されたワークシートを開きます。
+</p>
+<h3><a name="-wd.3BCreate_Text_.26_Numeric_datasets_but_not_worksheet"></a><span class="mw-headline">-wd; テキストおよび数値データセットを作成（ワークシートの作成なし）</span></h3>
+<p><b>構文</b>: create <i>name</i> <b>-wd</b> <i>numRows [colName(s)]</i>
+</p><p>データセットを作成しますが、ワークシートは作成しません。データセットを<b>テキストおよび数値</b>として書式設定します。
+</p>
+<h3><a name="-wdn.3BCreate_Numeric_datasets_but_not_worksheet"></a><span class="mw-headline">-wdn; 数値データセットを作成（ワークシートの作成なし）</span></h3>
+<p><b>構文</b>: create <i>name</i> <b>-wdn</b> <i>numRows [colNume(s)]</i>
+</p><p>データセットを作成しますが、ワークシートは作成しません。データセットを<b>数値</b>として書式設定します。
+</p><p>以下の例では、いくつかのルーズデータセットを作成し、Xファンクションを使ってアクティブなシートのcol(2)からヒストグラムを作成します。
+</p>
+<pre class="lt" style="font-family:monospace;">create histgm <span style="color: #000080;">-</span>wdn <span style="color: #0000dd;">10</span> bincenter counts;
+freqcounts irng<span style="color: #000000;">:</span><span style="color: #000080;">=</span>col<span style="color: #000000;">(</span><span style="color: #0000dd;">2</span><span style="color: #000000;">)</span> rd<span style="color: #000000;">:</span><span style="color: #000080;">=</span>tmptr;
+histgm_bincenter<span style="color: #000080;">=</span>tmptr.<span style="color: #000080;">FreqCount</span>.<span style="color: #000080;">BinCenter</span>;
+histgm_counts   <span style="color: #000080;">=</span>tmptr.<span style="color: #000080;">FreqCount</span>.<span style="color: #000080;">Counts</span>;
+plotxy <span style="color: #000000;">(</span>histgm_bincenter, histgm_counts<span style="color: #000000;">)</span> p<span style="color: #000000;">:</span><span style="color: #000080;">=</span><span style="color: #0000dd;">203</span>;</pre>
+<h3><a name="-wh.3BCreate_a_hidden_worksheet"></a><span class="mw-headline">-wh; 非表示のワークシートを作成</span></h3>
+<p><b>構文</b>: create <i>name</i> <b>-wh</b> <i>numRows[colNume(s)]</i>
+</p><p>非表示のワークシートを作成します。データセットを<b>テキストおよび数値</b>として書式設定します。ワークシートを表示するには、<a href="../../LabTalk/LabTalk/Edit_(command).html" title="LabTalk:Edit (command)">edit</a> <b>datasetname</b> コマンドを使用します。
+</p>
+<h3><a name="-whn.3BCreate_a_hidden_worksheet_with_the_datasets_set_to_Numeric"></a><span class="mw-headline">-whn; 非表示のワークシートを作成（数値データセット）</span></h3>
+<p><b>構文</b>: create <i>name</i> <b>-whn</b> <i>numRows[colName(s)]</i>
+</p><p>データセットを<b>数値</b>に設定して非表示のワークシートを作成します。ワークシートを表示するには、<a href="../../LabTalk/LabTalk/Edit_(command).html" title="LabTalk:Edit (command)">edit</a> <b>datasetname</b> コマンドを使用します。
+</p>
+<pre class="lt" style="font-family:monospace;">create tmpbook <span style="color: #000080;">-</span>whn <span style="color: #0000dd;">10</span> aa bb;</pre>
+<h3><a name="-wn.3BCreate_a_worksheet_with_the_datasets_set_to_Numeric"></a><span class="mw-headline">-wn; ワークシートを作成（数値データセット）</span></h3>
+<p><b>構文</b>: create <i>name</i> <b>-wn</b> <i>numRows[colName(s)]</i>
+</p><p>データセットを<b>数値</b>に設定してワークシートを作成します。
+</p>
+<h3><a name="-x.3BCreate_a_dataset_associated_with_a_vertical_line_as_the_data_point_symbol_type"></a><span class="mw-headline">-x; データポイントシンボルタイプとして垂直線に関連付けられたデータセットを作成</span></h3>
+<p><b>構文</b>: create <i>name</i> <b>-x</b> <i>numRows</i>
+</p><p>データポイントシンボルタイプとして垂直線に関連付けられたデータセットを作成します。それ以外の場合は、上記の<b>-c</b>と同様です。
+</p>
+<h3><a name="-xd.3BCreate_a_dataset_associated_with_a_vertical_line_as_the_data_point_symbol_type_and_allow_destruction_of_dataset"></a><span class="mw-headline">-xd; データポイントシンボルタイプとして垂直線に関連付けられたデータセットを作成し、データセットの破棄を許可</span></h3>
+<p><b>構文</b>: create <i>name</i> <b>-xd</b> <i>numRows</i>
+</p><p><b>-x</b>オプションと似ていますが、<b>-xd</b>はデータセットのすべての既存のプロットが破棄されるきにデータセットを破棄します。これは子ウィンドウの破棄、ページのOriginCの<a class="external text" href="../../OriginC/OriginC/Curve-Destroy.html"><b>Destroy()</b></a>メソッド、およびLabTalk<a href="../../LabTalk/LabTalk/Window_Options_to_Close.html#-c" title="LabTalk:Window Options to Close"><b>win -c</b></a>コマンドの使用時に適用されます。
+</p><p><a href="../../LabTalk/LabTalk/System_Variable_List.html#D" title="LabTalk:System Variable List"><b>@DLDG</b></a>の値を0に設定することで、ルーズデータセットの破棄を無効にできます。
+</p>
+<h2><a name="Examples:"></a><span class="mw-headline"><font color="chocolate">サンプル：</font></span></h2>
+<p>非表示のワークブックに100点のXYデータセットを作成します。ワークブック名​​とY列名が指定され、X列名はデフォルトでAになります。
+</p>
+<pre class="lt" style="font-family:monospace;"><span style="color: #008000;">// ワークブック名 = &apos;&apos;&apos;Exp1&apos;&apos;&apos;, Y列名 = &apos;&apos;&apos;mVolts&apos;&apos;&apos;</span>
+create Exp1_mVolts <span style="color: #000080;">-</span>c <span style="color: #0000dd;">100</span>;</pre>
+<p>さまざまワークシートを作成します。
+</p>
+<pre class="lt" style="font-family:monospace;"><span style="color: #008000;">//Miscという名前の4列のワークシート</span>
+create Misc <span style="color: #000080;">-</span>w <span style="color: #0000dd;">11</span> Alpha Beta Gamma Delta; 
+<span style="color: #008000;">// Hidden1という名前の2列の非表示ワークシート</span>
+<span style="color: #008000;">//（プロジェクトエクスプローラでも非表示）</span>
+create Hidden1 <span style="color: #000080;">-</span>wd <span style="color: #0000dd;">13</span> A1 A2; 
+<span style="color: #008000;">//Hidden2という名前の3列の非表示ワークシート</span>
+<span style="color: #008000;">//（プロジェクトエクスプローラには表示）</span>
+create Hidden2 <span style="color: #000080;">-</span>wh <span style="color: #0000dd;">23</span> AAA A2Z ZZZ; 
+<span style="color: #008000;">// Numbersという名前の数値形式の3列のワークシート</span>
+create Numbers <span style="color: #000080;">-</span>wn <span style="color: #0000dd;">31</span> PY1 PY2 PY3;</pre>
+<p>次のスクリプトは文字列データセットを作成し、データセットの書き込みと読み取りを行います。
+</p>
+<pre class="lt" style="font-family:monospace;">create mystrings <span style="color: #000080;">-</span>s <span style="color: #0000dd;">10</span>;
+MyStrings<span style="color: #000000;">[</span><span style="color: #0000dd;">1</span><span style="color: #000000;">]</span><span style="color: #000080;">$</span><span style="color: #000080;">=</span>Hello;
+MyStrings<span style="color: #000000;">[</span><span style="color: #0000dd;">10</span><span style="color: #000000;">]</span><span style="color: #000080;">$</span><span style="color: #000080;">=</span>Goodbye;
+for<span style="color: #000000;">(</span>ii <span style="color: #000080;">=</span> <span style="color: #0000dd;">1</span>;ii <span style="color: #000080;">&lt;=</span> <span style="color: #0000dd;">10</span>;ii<span style="color: #000080;">++</span><span style="color: #000000;">)</span> <span style="color: #000000;">{</span>
+      <span style="color: #000080;">%</span>A<span style="color: #000080;">=</span>MyStrings<span style="color: #000000;">[</span>ii<span style="color: #000000;">]</span><span style="color: #000080;">$</span>;
+      type <span style="color: #000080;">$</span><span style="color: #000000;">(</span>ii<span style="color: #000000;">)</span> \x3D <span style="color: #000080;">%</span>A;
+<span style="color: #000000;">}</span>;</pre>
+<p>アクティブなグラフレイヤに自身を追加するXYデータセットを作成します。より良いアプローチも示しました。
+</p>
+<pre class="lt" style="font-family:monospace;"><span style="color: #008000;">// 古い方法ではキューイング遅延が必要</span>
+win <span style="color: #000080;">-</span>t plot <span style="color: #0000dd;">201</span> Scatter; <span style="color: #008000;">// グラフを作成</span>
+create Plot_Me <span style="color: #000080;">-</span>d <span style="color: #0000dd;">50</span>;    <span style="color: #008000;">// ワークシートを作成</span>
+Plot_A <span style="color: #000080;">=</span> data<span style="color: #000000;">(</span><span style="color: #0000dd;">1</span>,<span style="color: #0000dd;">50</span><span style="color: #000000;">)</span>;     <span style="color: #008000;">// X列の値を設定</span>
+Plot_Me <span style="color: #000080;">=</span> uniform<span style="color: #000000;">(</span><span style="color: #0000dd;">50</span><span style="color: #000000;">)</span>;   <span style="color: #008000;">// Y列の値を設定</span>
+queue <span style="color: #000000;">{</span>
+   set <span style="color: #000080;">%</span>C <span style="color: #000080;">-</span>e <span style="color: #0000dd;">50</span>;
+   layer <span style="color: #000080;">-</span>a;
+<span style="color: #000000;">}</span>
+doc <span style="color: #000080;">-</span>uw;
+<span style="color: #008000;">// より簡単な、非表示ワークシートを使用する方法</span>
+win <span style="color: #000080;">-</span>t plot <span style="color: #0000dd;">201</span> Scatter;
+create Plot <span style="color: #000080;">-</span>wh <span style="color: #0000dd;">50</span>;
+Plot_A <span style="color: #000080;">=</span> data<span style="color: #000000;">(</span><span style="color: #0000dd;">1</span>,<span style="color: #0000dd;">50</span><span style="color: #000000;">)</span>;
+Plot_B <span style="color: #000080;">=</span> uniform<span style="color: #000000;">(</span><span style="color: #0000dd;">50</span><span style="color: #000000;">)</span>;
+layer <span style="color: #000080;">-</span>i Plot_B;
+layer <span style="color: #000080;">-</span>a;</pre>
+<p>Yデータを作成し、行インデックスに対してプロットします。
+</p>
+<pre class="lt" style="font-family:monospace;">create Singular <span style="color: #000080;">-</span>n <span style="color: #0000dd;">7</span>;
+singular <span style="color: #000080;">=</span> <span style="color: #000000;">{</span><span style="color: #0000dd;">1</span>,<span style="color: #0000dd;">6</span>,<span style="color: #0000dd;">2</span>,<span style="color: #0000dd;">5</span>,<span style="color: #0000dd;">3</span>,<span style="color: #0000dd;">0</span>,<span style="color: #0000dd;">7</span><span style="color: #000000;">}</span>;
+win <span style="color: #000080;">-</span>t plot linesymb;
+layer <span style="color: #000080;">-</span>i singular;
+layer <span style="color: #000080;">-</span>a;</pre>
+<p>プロット指定なしで一時データセットを作成します。
+</p>
+<pre class="lt" style="font-family:monospace;">create Lookup <span style="color: #000080;">-</span>t <span style="color: #0000dd;">7</span>;
+Lookup <span style="color: #000080;">=</span> <span style="color: #000000;">{</span><span style="color: #000080;">-</span><span style="color: #0000dd;">1</span>,<span style="color: #0000dd;">1</span>,<span style="color: #0000dd;">1</span>,<span style="color: #0000dd;">1</span>,<span style="color: #0000dd;">1</span>,<span style="color: #0000dd;">1</span>,<span style="color: #000080;">-</span><span style="color: #0000dd;">1</span><span style="color: #000000;">}</span>;
+loop<span style="color: #000000;">(</span>ii,<span style="color: #0000dd;">1</span>,<span style="color: #0000dd;">7</span><span style="color: #000000;">)</span> <span style="color: #000000;">{</span>
+    if<span style="color: #000000;">(</span>lookup<span style="color: #000000;">[</span>ii<span style="color: #000000;">]</span><span style="color: #000080;">==</span><span style="color: #0000dd;">1</span><span style="color: #000000;">)</span> type Today is a work day.; 
+    else type Take the day off.;
+<span style="color: #000000;">}</span></pre>
+
+
+
+    

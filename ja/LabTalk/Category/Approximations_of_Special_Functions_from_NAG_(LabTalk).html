@@ -1,0 +1,451 @@
+﻿<h1 class="firstHeading">特殊な関数</h1><p class='urlname' style='display: none'>Special-Functions</p>
+<p><br />
+</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>目次</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Airy"><span class="tocnumber">1</span> <span class="toctext">エアリー</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Bessel"><span class="tocnumber">2</span> <span class="toctext">ベッセル</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Beta"><span class="tocnumber">3</span> <span class="toctext">ベータ</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Error"><span class="tocnumber">4</span> <span class="toctext">誤差</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="#Gamma"><span class="tocnumber">5</span> <span class="toctext">ガンマ</span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="#Integral"><span class="tocnumber">6</span> <span class="toctext">積分</span></a></li>
+<li class="toclevel-1 tocsection-7"><a href="#Kelvin"><span class="tocnumber">7</span> <span class="toctext">ケルビン</span></a></li>
+<li class="toclevel-1 tocsection-8"><a href="#Miscellaneous"><span class="tocnumber">8</span> <span class="toctext">その他</span></a></li>
+</ul>
+</div>
+
+<h3><a name="Airy"></a><span class="mw-headline">エアリー</span></h3>
+<table class="simple">
+<tr>
+<th>名前
+</th>
+<th>簡単な説明
+</th></tr>
+<tr>
+<td> <a href="../../LabTalk/LabTalk/Airy_ai_(function).html" title="LabTalk:Airy ai (function)">airy_ai</a>
+</td>
+<td>Airy 関数Ai(x)の近似値を求めます。
+</td></tr>
+<tr>
+<td> <a href="../../LabTalk/LabTalk/Airy_ai_deriv_(function).html" title="LabTalk:Airy ai deriv (function)">airy_ai_deriv</a>
+</td>
+<td>Airy 関数Ai(x)の微分の近似値を求めます。
+</td></tr>
+<tr>
+<td> <a href="../../LabTalk/LabTalk/Airy_bi_(function).html" title="LabTalk:Airy bi (function)">airy_bi</a>
+</td>
+<td>Airy 関数Bi(x)の近似値を求めます。
+</td></tr>
+<tr>
+<td> <a href="../../LabTalk/LabTalk/Airy_bi_deriv_(function).html" title="LabTalk:Airy bi deriv (function)">airy_bi_deriv </a>
+</td>
+<td>Airy 関数Bi(x)の微分の近似値を求めます。
+</td></tr></table>
+<h3><a name="Bessel"></a><span class="mw-headline">ベッセル</span></h3>
+<table class="simple">
+<tr>
+<th>名前
+</th>
+<th>簡単な説明
+</th></tr>
+<tr>
+<td> <a href="../../LabTalk/LabTalk/Bessel_i_nu_(function).html" title="LabTalk:Bessel i nu (function)">Bessel_i_nu </a>
+</td>
+<td>第1種変形ベッセル関数 I<img src="../images/Approximations_of_Special_Functions_from_NAG_(LabTalk)/math-4fdefba26320686bb2bd0579a0df421c.png" title="\nu" alt="\nu" class="tex"/>/4 (x)の近似値を求めます。
+</td></tr>
+<tr>
+<td> <a href="../../LabTalk/LabTalk/Bessel_i_nu_scaled_(function).html" title="LabTalk:Bessel i nu scaled (function)">Bessel_i_nu_scaled </a>
+</td>
+<td>第1種変形ベッセル関数  <img src="../images/Approximations_of_Special_Functions_from_NAG_(LabTalk)/math-d47ff7d464b7eda422ec4833219fad68.png" title="e^{-x}I_{\frac \nu 4}(x)" alt="e^{-x}I_{\frac \nu 4}(x)" class="tex"/> の近似値を求めます。
+</td></tr>
+<tr>
+<td> <a href="../../LabTalk/LabTalk/Bessel_i0_(function).html" title="LabTalk:Bessel i0 (function)">Bessel_i0 </a>
+</td>
+<td>第1種変形ベッセル関数の近似値 I0(x)を求めます。
+</td></tr>
+<tr>
+<td> <a href="../../LabTalk/LabTalk/Bessel_i0_scaled_(function).html" title="LabTalk:Bessel i0 scaled (function)">Bessel_i0_scaled </a>
+</td>
+<td><img src="../images/Approximations_of_Special_Functions_from_NAG_(LabTalk)/math-b88e9c78c98f362fa286aa6b364fea68.png" title="e^{-|x|}I_0(x)" alt="e^{-|x|}I_0(x)" class="tex"/> の近似値を求めます。
+</td></tr>
+<tr>
+<td> <a href="../../LabTalk/LabTalk/Bessel_i1_(function).html" title="LabTalk:Bessel i1 (function)">Bessel_i1 </a>
+</td>
+<td>第1種変形ベッセル関数  <img src="../images/Approximations_of_Special_Functions_from_NAG_(LabTalk)/math-2f7828c97430a57b061a8d47864a43b2.png" title="I_1(x)" alt="I_1(x)" class="tex"/> の近似値を求めます。
+</td></tr>
+<tr>
+<td> <a href="../../LabTalk/LabTalk/Bessel_i1_scaled_(function).html" title="LabTalk:Bessel i1 scaled (function)">Bessel_i1_scaled </a>
+</td>
+<td><img src="../images/Approximations_of_Special_Functions_from_NAG_(LabTalk)/math-5fa388e83e85c24c432475d72d26837e.png" title="e^{-|x|}I_1(x)" alt="e^{-|x|}I_1(x)" class="tex"/> の近似値を求めます。
+</td></tr>
+<tr>
+<td> <a href="../../LabTalk/LabTalk/Bessel_j0_(function).html" title="LabTalk:Bessel j0 (function)">Bessel_j0 </a>
+</td>
+<td>第1種変形ベッセル関数  <img src="../images/Approximations_of_Special_Functions_from_NAG_(LabTalk)/math-33f1de5a9b0563fe0bda51fa6782c235.png" title="J_0(x)" alt="J_0(x)" class="tex"/> の近似値を求めます。
+</td></tr>
+<tr>
+<td> <a href="../../LabTalk/LabTalk/Bessel_j1_(function).html" title="LabTalk:Bessel j1 (function)">Bessel_j1 </a>
+</td>
+<td>第1種変形ベッセル関数  <img src="../images/Approximations_of_Special_Functions_from_NAG_(LabTalk)/math-c9f382d6ab39f9514fc4481cf8faad1b.png" title="J_1(x)" alt="J_1(x)" class="tex"/> の近似値を求めます。
+</td></tr>
+<tr>
+<td> <a href="../../LabTalk/LabTalk/Bessel_k_nu_(function).html" title="LabTalk:Bessel k nu (function)">Bessel_k_nu </a>
+</td>
+<td>第2種変形ベッセル関数  <img src="../images/Approximations_of_Special_Functions_from_NAG_(LabTalk)/math-f77c69b6412962600258514eda766aeb.png" title="K_{\upsilon /4}(x)" alt="K_{\upsilon /4}(x)" class="tex"/> の近似値を求めます。
+</td></tr>
+<tr>
+<td> <a href="../../LabTalk/LabTalk/Bessel_k_nu_scaled_(function).html" title="LabTalk:Bessel i nu scaled (function)">Bessel_k_nu_scaled </a>
+</td>
+<td>第2種変形ベッセル関数  <img src="../images/Approximations_of_Special_Functions_from_NAG_(LabTalk)/math-79770b377be91d9a854cfd872b05ce15.png" title="e^{-x}K_{\upsilon /4}(x)" alt="e^{-x}K_{\upsilon /4}(x)" class="tex"/> の近似値を求めます。
+</td></tr>
+<tr>
+<td> <a href="../../LabTalk/LabTalk/Bessel_k0_(function).html" title="LabTalk:Bessel k0 (function)">Bessel_k0 </a>
+</td>
+<td>第2種変形ベッセル関数 <img src="../images/Approximations_of_Special_Functions_from_NAG_(LabTalk)/math-26a694e462007bb777ecf1e00f490491.png" title="K_0\left( x\right)" alt="K_0\left( x\right)" class="tex"/> の近似値を求めます。
+</td></tr>
+<tr>
+<td> <a href="../../LabTalk/LabTalk/Bessel_k0_scaled_(function).html" title="LabTalk:Bessel k0 scaled (function)">Bessel_k0_scaled </a>
+</td>
+<td><img src="../images/Approximations_of_Special_Functions_from_NAG_(LabTalk)/math-688da9c55baae10b357eed9594da021e.png" title="e^xK_0\left( x\right)" alt="e^xK_0\left( x\right)" class="tex"/> の近似値を求めます。
+</td></tr>
+<tr>
+<td> <a href="../../LabTalk/LabTalk/Bessel_k1_(function).html" title="LabTalk:Bessel k1 (function)">Bessel_k1 </a>
+</td>
+<td>第2種変形ベッセル関数 <img src="../images/Approximations_of_Special_Functions_from_NAG_(LabTalk)/math-f8ab25b3eec50dbafe9cac1854fa554f.png" title="K_1\left( x\right) " alt="K_1\left( x\right) " class="tex"/> の近似値を求めます。
+</td></tr>
+<tr>
+<td> <a href="../../LabTalk/LabTalk/Bessel_k1_scaled_(function).html" title="LabTalk:Bessel k1 scaled (function)">Bessel_k1_scaled </a>
+</td>
+<td><img src="../images/Approximations_of_Special_Functions_from_NAG_(LabTalk)/math-c76385186519c4591d3863ad97077bb0.png" title="e^xK_1\left( x\right)" alt="e^xK_1\left( x\right)" class="tex"/> の近似値を求めます。
+</td></tr>
+<tr>
+<td> <a href="../../LabTalk/LabTalk/Bessel_y0_(function).html" title="LabTalk:Bessel y0 (function)">Bessel_y0</a>
+</td>
+<td>第二種ベッセル関数 <img src="../images/Approximations_of_Special_Functions_from_NAG_(LabTalk)/math-85e22683116ee1466ea1a9ec5036fc20.png" title="Y_0" alt="Y_0" class="tex"/> , x &gt; 0 を求めます。
+</td></tr>
+<tr>
+<td> <a href="../../LabTalk/LabTalk/Bessel_y1_(function).html" title="LabTalk:Bessel y1 (function)">Bessel_y1</a>
+</td>
+<td>第二種ベッセル関数 <img src="../images/Approximations_of_Special_Functions_from_NAG_(LabTalk)/math-c772000136f6d3ba6dec3c7c5a35458b.png" title="Y_1" alt="Y_1" class="tex"/> , x &gt; 0 を求めます。
+</td></tr>
+<tr>
+<td> <a href="../../LabTalk/LabTalk/Besseli_(function).html" title="LabTalk:Besseli (function)">besseli</a>
+</td>
+<td> 第1種変形ベッセル関数
+</td></tr>
+<tr>
+<td> <a href="../../LabTalk/LabTalk/Besselj_(function).html" title="LabTalk:Besselj (function)">besselj</a>
+</td>
+<td> 第一種ベッセル関数
+</td></tr>
+<tr>
+<td> <a href="../../LabTalk/LabTalk/Besselk_(function).html" title="LabTalk:Besselk (function)">besselk</a>
+</td>
+<td> 第2種変形ベッセル関数
+</td></tr>
+<tr>
+<td> <a href="../../LabTalk/LabTalk/Bessely_(function).html" title="LabTalk:Bessely (function)">bessely</a>
+</td>
+<td> 第二種ベッセル関数
+</td></tr>
+
+<tr>
+<td><a href="../../LabTalk/LabTalk/Jn_(function).html" title="LabTalk:Jn (function)">Jn(x, n)</a>
+</td>
+<td> 次数<i>n</i>のベッセル関数
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Yn_(function).html" title="LabTalk:Yn (function)">Yn(x, n)</a>
+</td>
+<td>第二種ベッセル関数
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/J1_(function).html" title="LabTalk:J1 (function)">J1(x)</a>
+</td>
+<td>一次のベッセル関数
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Y1_(function).html" title="LabTalk:Y1 (function)">Y1(x)</a>
+</td>
+<td>一次の第二種ベッセル関数は Y1(x) と表されます。
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/J0_(function).html" title="LabTalk:J0 (function)">J0(x)</a>
+</td>
+<td>ゼロ次のベッセル関数
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Y0_(function).html" title="LabTalk:Y0 (function)">Y0(x)</a>
+</td>
+<td>ゼロ次の第二種ベッセル関数
+</td></tr></table>
+<h3><a name="Beta"></a><span class="mw-headline">ベータ</span></h3>
+<table class="simple">
+<tr>
+<th>名前
+</th>
+<th>簡単な説明
+</th></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Beta_(function).html" title="LabTalk:Beta (function)">beta(a, b)</a>
+</td>
+<td>ベータ関数
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/IncBeta_(function).html" title="LabTalk:IncBeta (function)">incbeta(x, a, b)</a>
+</td>
+<td>不完全なベータ関数
+</td></tr></table>
+<h3><a name="Error"></a><span class="mw-headline">誤差</span></h3>
+<table class="simple">
+<tr>
+<th>名前
+</th>
+<th>簡単な説明
+</th></tr>
+<tr>
+<td> <a href="../../LabTalk/LabTalk/Erf_(function).html" title="LabTalk:Erf (function)">Erf</a>
+</td>
+<td>誤差関数は <img src="../images/Approximations_of_Special_Functions_from_NAG_(LabTalk)/math-3709b8a61e3475252f60a1c9d882bad0.png" title="\mathrm{erf}(x)=\frac{2}{\sqrt\pi}\int_{0}^{x}e^{-u^2}du" alt="\mathrm{erf}(x)=\frac{2}{\sqrt\pi}\int_{0}^{x}e^{-u^2}du" class="tex"/> により計算されます。
+</td></tr>
+<tr>
+<td> <a href="../../LabTalk/LabTalk/Erfc_(function).html" title="LabTalk:Erfc (function)">Erfc</a>
+</td>
+<td>誤差関数 <img src="../images/Approximations_of_Special_Functions_from_NAG_(LabTalk)/math-38569ddb37e6d2c84182388c28dc2fdc.png" title="erfc(x)=\frac 1{\sqrt{\pi }}\int_x^\infty e^{\frac{-u^2}2}du=1-{erf(x)}" alt="erfc(x)=\frac 1{\sqrt{\pi }}\int_x^\infty e^{\frac{-u^2}2}du=1-{erf(x)}" class="tex"/> の補数の近似値を計算します。
+</td></tr>
+<tr>
+<td> <a href="../../LabTalk/LabTalk/Erfcinv_(function).html" title="LabTalk:Erfcinv (function)">Erfcinv</a>
+</td>
+<td>指定されたyに対する逆相補誤差関数の値を計算します。
+</td></tr>
+<tr>
+<td> <a href="../../LabTalk/LabTalk/Erfcx_(function).html" title="LabTalk:Erfcx (function)">Erfcx</a>
+</td>
+<td>スケール補正された相補誤差関数は、 <img src="../images/Approximations_of_Special_Functions_from_NAG_(LabTalk)/math-3b83966994b3b8062401cae3ef2b4c0f.png" title="erfcx(x) = e^{x^2}\cdot erfc(x)" alt="erfcx(x) = e^{x^2}\cdot erfc(x)" class="tex"/> により計算されます。
+</td></tr>
+<tr>
+<td> <a href="../../LabTalk/LabTalk/Erfinv_(function).html" title="LabTalk:Erfinv (function)">Erfinv</a>
+</td>
+<td>誤差関数 <img src="../images/Approximations_of_Special_Functions_from_NAG_(LabTalk)/math-2aa3a5835854786d8310663cf445351c.png" title="erf" alt="erf" class="tex"/> の逆関数を計算します。
+</td></tr></table>
+<h3><a name="Gamma"></a><span class="mw-headline">ガンマ</span></h3>
+<table class="simple">
+<tr>
+<th>名前
+</th>
+<th>簡単な説明
+</th></tr>
+<tr>
+<td> <a href="../../LabTalk/LabTalk/Gamma_(function).html" title="LabTalk:Gamma (function)">Gamma</a>
+</td>
+<td><img src="../images/Approximations_of_Special_Functions_from_NAG_(LabTalk)/math-25b11d6b4d5c2ce55b2311298c9c8077.png" title="\Gamma (x)=\int_0^\infty t^{x-1}e^{-t}dt" alt="\Gamma (x)=\int_0^\infty t^{x-1}e^{-t}dt" class="tex"/> を求めます。
+</td></tr>
+<tr>
+<td> <a href="../../LabTalk/LabTalk/Incomplete_gamma_(function).html" title="LabTalk:Incomplete gamma (function)">Incomplete_gamma</a>
+</td>
+<td>正規化された形 <img src="../images/Approximations_of_Special_Functions_from_NAG_(LabTalk)/math-32db4e03bff7d6d8526e872801ad7d84.png" title="P(a,x)=\frac 1{\Gamma (a)}\int_0^xt^{a-1}e^{-t}dt" alt="P(a,x)=\frac 1{\Gamma (a)}\int_0^xt^{a-1}e^{-t}dt" class="tex"/> での不完全ガンマ関数を求めます。
+</td></tr>
+<tr>
+<td> <a href="../../LabTalk/LabTalk/Log_gamma_(function).html" title="LabTalk:Log gamma (function)">Log_gamma</a>
+</td>
+<td><img src="../images/Approximations_of_Special_Functions_from_NAG_(LabTalk)/math-2a31703dd90bf1938d4fbe3e3c317d2e.png" title="\ln \Gamma (x)" alt="\ln \Gamma (x)" class="tex"/>, x &gt; 0　を求めます。
+</td></tr>
+<tr>
+<td> <a href="../../LabTalk/LabTalk/Real_polygamma_(function).html" title="LabTalk:Real polygamma (function)">Real_polygamma</a>
+</td>
+<td>xが実数で x≠0, -1, -2, ... かつ k=0,1,......6 の場合、ψ関数 <img src="../images/Approximations_of_Special_Functions_from_NAG_(LabTalk)/math-698b57e05ac6f85e4fac6369b9c25672.png" title="\psi (x)" alt="\psi (x)" class="tex"/> のk階微分近似値を <img src="../images/Approximations_of_Special_Functions_from_NAG_(LabTalk)/math-a50db30d91c9948af543710a7ca4885e.png" title="\Psi ^k(x)=\frac{d^k}{dx^k}\Psi (x)=\frac{d^k}{dx^k}(\frac d{dx^k}\log _e\Gamma (x))" alt="\Psi ^k(x)=\frac{d^k}{dx^k}\Psi (x)=\frac{d^k}{dx^k}(\frac d{dx^k}\log _e\Gamma (x))" class="tex"/> で求めます。
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Incomplete_gamma_(function).html" title="LabTalk:Incomplete gamma (function)">incomplete_gamma(a, x)</a>
+</td>
+<td>不完全なガンマ関数
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Gammaln_(function).html" title="LabTalk:Gammaln (function)">gammaln(x)</a>
+</td>
+<td>ガンマ関数の自然対数
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Incgamma_(function).html" title="LabTalk:Incgamma (function)">Incgamma</a>
+</td>
+<td>不完全ガンマ関数を計算します。
+</td></tr></table>
+<h3><a name="Integral"></a><span class="mw-headline">積分</span></h3>
+<table class="simple">
+<tr>
+<th>名前
+</th>
+<th>簡単な説明
+</th></tr>
+<tr>
+<td> <a href="../../LabTalk/LabTalk/Cos_integral_(function).html" title="LabTalk:Cos integral (function)">Cos_integral</a>
+</td>
+<td><img src="../images/Approximations_of_Special_Functions_from_NAG_(LabTalk)/math-97074ff222cf3d9c9b4fe372a9f5a8a4.png" title="C_i\left( x\right) =y+\ln x+\int_0^x\frac{\cos u-1}udu" alt="C_i\left( x\right) =y+\ln x+\int_0^x\frac{\cos u-1}udu" class="tex"/> の近似値を求めます。
+</td></tr>
+<tr>
+<td> <a href="../../LabTalk/LabTalk/Cumul_normal_(function).html" title="LabTalk:Cumul normal (function)">Cumul_normal</a>
+</td>
+<td>累積正規分布関数<img src="../images/Approximations_of_Special_Functions_from_NAG_(LabTalk)/math-63b0905678617d28c7c800f185ebf795.png" title="P(x)=\frac 1{\sqrt{2\pi }}\int_{-\infty }^xe^{\frac{-u^2}2}du" alt="P(x)=\frac 1{\sqrt{2\pi }}\int_{-\infty }^xe^{\frac{-u^2}2}du" class="tex"/>を計算します。
+</td></tr>
+<tr>
+<td> <a href="../../LabTalk/LabTalk/Cumul_normal_complem_(function).html" title="LabTalk:Cumul normal complem (function)">Cumul_normal_complem</a>
+</td>
+<td>累積正規分布関数 <img src="../images/Approximations_of_Special_Functions_from_NAG_(LabTalk)/math-4c2aeefe93e2473192b76cbce936b0b2.png" title="Q(x)=\frac 1{\sqrt{2\pi }}\int_x^\infty e^{\frac{-u^2}2}du" alt="Q(x)=\frac 1{\sqrt{2\pi }}\int_x^\infty e^{\frac{-u^2}2}du" class="tex"/> の補数に対する近似値を計算します。
+</td></tr>
+<tr>
+<td> <a href="../../LabTalk/LabTalk/Elliptic_integral_rc_(function).html" title="LabTalk:Elliptic integral rc (function)">Elliptic_integral_rc</a>
+</td>
+<td>X≥0かつy≠0場合、積分 <img src="../images/Approximations_of_Special_Functions_from_NAG_(LabTalk)/math-537122b0f932add575cca4b538c4a028.png" title="R_c(x,y)=\frac 12\int_0^\infty \frac{dt}{\sqrt{t+x}(t+y)}" alt="R_c(x,y)=\frac 12\int_0^\infty \frac{dt}{\sqrt{t+x}(t+y)}" class="tex"/> の近似値を計算します。
+</td></tr>
+<tr>
+<td> <a href="../../LabTalk/LabTalk/Elliptic_integral_rd_(function).html" title="LabTalk:Elliptic integral rd (function)">Elliptic_integral_rd</a>
+</td>
+<td>積分 <img src="../images/Approximations_of_Special_Functions_from_NAG_(LabTalk)/math-fbb50213cde1400facfdc6270004d2f0.png" title="R_D(x,y,z)=\frac 32\int_0^\infty \frac{dt}{\sqrt{(t+z)(t+y)(t+z)^3}}" alt="R_D(x,y,z)=\frac 32\int_0^\infty \frac{dt}{\sqrt{(t+z)(t+y)(t+z)^3}}" class="tex"/> の近似値を計算します。
+</td></tr>
+<tr>
+<td> <a href="../../LabTalk/LabTalk/Elliptic_integral_rf_(function).html" title="LabTalk:Elliptic integral rf (function)">Elliptic_integral_rf</a>
+</td>
+<td>積分 <img src="../images/Approximations_of_Special_Functions_from_NAG_(LabTalk)/math-84f024a75b123a75a805abcb0cc7d08f.png" title="R_F(x,y,z)=\frac 12\int_0^\infty \frac{dt}{\sqrt{(t+x)(t+y)(t+z)}}" alt="R_F(x,y,z)=\frac 12\int_0^\infty \frac{dt}{\sqrt{(t+x)(t+y)(t+z)}}" class="tex"/> の近似を計算します。
+</td></tr>
+<tr>
+<td> <a href="../../LabTalk/LabTalk/Elliptic_integral_rj_(function).html" title="LabTalk:Elliptic integral rj (function)">Elliptic_integral_rj</a>
+</td>
+<td>積分 <img src="../images/Approximations_of_Special_Functions_from_NAG_(LabTalk)/math-6bdca9dcfa7c6b7182ae70584a3ddc97.png" title="R_J(x,y,z,\rho )=\frac 32\int_0^\infty \frac{dt}{(t+\rho )\sqrt{(t+x)(t+y)(t+z)}}" alt="R_J(x,y,z,\rho )=\frac 32\int_0^\infty \frac{dt}{(t+\rho )\sqrt{(t+x)(t+y)(t+z)}}" class="tex"/> の近似を計算します。
+</td></tr>
+<tr>
+<td> <a href="../../LabTalk/LabTalk/Exp_integral_(function).html" title="LabTalk:Exp integral (function)">Exp_integral</a>
+</td>
+<td><img src="../images/Approximations_of_Special_Functions_from_NAG_(LabTalk)/math-e40713ccc94f15788ba459982e34f8c0.png" title="E_1(x)=\int_x^\infty \frac{e^{-u}}udu " alt="E_1(x)=\int_x^\infty \frac{e^{-u}}udu " class="tex"/>, x&gt;0 を求めます。
+</td></tr>
+<tr>
+<td> <a href="../../LabTalk/LabTalk/Fresnel_c_(function).html" title="LabTalk:Fresnel c (function)">Fresnel_c</a>
+</td>
+<td>フレネル積分 <img src="../images/Approximations_of_Special_Functions_from_NAG_(LabTalk)/math-6f12c0f5b5e5cfe077d882ad362160bd.png" title="S(x)=\int_0^x\cos (\frac \pi 2t^2)dt" alt="S(x)=\int_0^x\cos (\frac \pi 2t^2)dt" class="tex"/> の近似を計算します。
+</td></tr>
+<tr>
+<td> <a href="../../LabTalk/LabTalk/Fresnel_s_(function).html" title="LabTalk:Fresnel s (function)">Fresnel_s</a>
+</td>
+<td>フレネル積分 <img src="../images/Approximations_of_Special_Functions_from_NAG_(LabTalk)/math-a0dee6a5e50c22f6c21ddc86392b6a0e.png" title="S(x)=\int_0^x\sin (\frac \pi 2t^2)dt" alt="S(x)=\int_0^x\sin (\frac \pi 2t^2)dt" class="tex"/> の近似を計算します。
+</td></tr>
+<tr>
+<td> <a href="../../LabTalk/LabTalk/Sin_integral_(function).html" title="LabTalk:Sin integral (function)">Sin_integral</a>
+</td>
+<td>式 <img src="../images/Approximations_of_Special_Functions_from_NAG_(LabTalk)/math-08c28011c6fde3452b7bcad0a3954c74.png" title="Si(x)=\int_0^x\frac{\sin u}udu" alt="Si(x)=\int_0^x\frac{\sin u}udu" class="tex"/> の近似を計算します。
+</td></tr></table>
+<h3><a name="Kelvin"></a><span class="mw-headline">ケルビン</span></h3>
+<table class="simple">
+<tr>
+<th>名前
+</th>
+<th>簡単な説明
+</th></tr>
+<tr>
+<td> <a href="../../LabTalk/LabTalk/Kelvin_bei_(function).html" title="LabTalk:Kelvin bei (function)">Kelvin_bei</a>
+</td>
+<td>ケルビン関数 bei x の近似を計算します。
+</td></tr>
+<tr>
+<td> <a href="../../LabTalk/LabTalk/Kelvin_ber_(function).html" title="LabTalk:Kelvin ber (function)">Kelvin_ber</a>
+</td>
+<td>ケルビン関数ber xの近似を計算します。
+</td></tr>
+<tr>
+<td> <a href="../../LabTalk/LabTalk/Kelvin_kei_(function).html" title="LabTalk:Kelvin kei (function)">Kelvin_kei</a>
+</td>
+<td>ケルビン関数kei xの近似を計算します。
+</td></tr>
+<tr>
+<td> <a href="../../LabTalk/LabTalk/Kelvin_ker_(function).html" title="LabTalk:Kelvin ker (function)">Kelvin_ker</a>
+</td>
+<td>ケルビン関数ker xの近似を計算します。
+</td></tr></table>
+<h3><a name="Miscellaneous"></a><span class="mw-headline">その他</span></h3>
+<table class="simple">
+<tr>
+<th>名前
+</th>
+<th>簡単な説明
+</th></tr>
+<tr>
+<td> <a href="../../LabTalk/LabTalk/Jacobian_theta_(function).html" title="LabTalk:Jacobian theta (function)">Jacobian_theta </a>
+</td>
+<td>ヤコビのシータ関数の近似を計算します。
+</td></tr>
+<tr>
+<td> <a href="../../LabTalk/LabTalk/LambertW_(function).html" title="LabTalk:LambertW (function)">LambertW</a>
+</td>
+<td>ランベルトのW関数の実数分岐に対する近似値を計算します。
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Boltzmann_(function).html" title="LabTalk:Boltzmann (function)">Boltzmann</a>
+</td>
+<td>ボルツマン関数
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Dhyperbl_(function).html" title="LabTalk:Dhyperbl (function)">Dhyperbl</a>
+</td>
+<td>二重矩形双曲線関数
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/ExpAssoc_(function).html" title="LabTalk:ExpAssoc (function)">ExpAssoc</a>
+</td>
+<td>指数アソシエート関数
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/ExpDecay2_(function).html" title="LabTalk:ExpDecay2 (function)">ExpDecay2</a>
+</td>
+<td>指数減衰2（オフセット関数付き）
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/ExpGrow2_(function).html" title="LabTalk:ExpGrow2 (function)">ExpGrow2</a>
+</td>
+<td>指数成長2（オフセット関数付き）
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Gauss_(function).html" title="LabTalk:Gauss (function)">Gauss</a>
+</td>
+<td>ガウス関数
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Hyperbl_(function).html" title="LabTalk:Hyperbl (function)">Hyperbl</a>
+</td>
+<td>双曲線関数
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Logistic_(function).html" title="LabTalk:Logistic (function)">Logistic</a>
+</td>
+<td>ロジスティック線量反応関数
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Lorentz_(function).html" title="LabTalk:Lorentz (function)">Lorentz</a>
+</td>
+<td>ローレンツ関数
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Poly_(function).html" title="LabTalk:Poly (function)">Poly</a>
+</td>
+<td>多項式関数
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Pulse_(function).html" title="LabTalk:Pulse (function)">Pulse</a>
+</td>
+<td>パルス関数
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/LambertW_(function).html" title="LabTalk:LambertW (function)">LambertW</a>
+</td>
+<td>ランベルトのW関数（「積対数」または「オメガ」関数とも呼ばれる）
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Erfcx_(function).html" title="LabTalk:Erfcx (function)">Erfcx</a>
+</td>
+<td>相補誤差関数
+</td></tr></table>
+
+
+
+
+
+
+
+    

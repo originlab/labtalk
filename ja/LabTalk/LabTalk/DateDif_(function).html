@@ -1,0 +1,46 @@
+﻿<h1 class="firstHeading">DateDif</h1>
+<p class='urlname' style='display: none'>DateDif-func</p>
+<p><br /></p>
+<div id="toc" class="toc">
+<div id="toctitle">
+<h2>目次</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#Description"><span class="tocnumber">1</span> <span class="toctext">概要</span></a></li>
+<li class="toclevel-1"><a href="#Syntax"><span class="tocnumber">2</span> <span class="toctext">構文</span></a></li>
+<li class="toclevel-1"><a href="#Parameters"><span class="tocnumber">3</span> <span class="toctext">パラメータ</span></a></li>
+<li class="toclevel-1"><a href="#Return"><span class="tocnumber">4</span> <span class="toctext">戻り値</span></a></li>
+<li class="toclevel-1"><a href="#Example"><span class="tocnumber">5</span> <span class="toctext">サンプル</span></a></li>
+<li class="toclevel-1"><a href="#See_Also"><span class="tocnumber">6</span> <span class="toctext">関連項目</span></a></li>
+</ul>
+</div>
+<h2 class="ref"><a name="Description" id="Description"></a><span class="mw-headline">概要</span></h2>
+<p>2つの日付の間の日数、月数、または年数を計算します。</p>
+<h2 class="ref"><a name="Syntax" id="Syntax"></a><span class="mw-headline">構文</span></h2>
+<pre class="lt" style="font-family:monospace;">
+double datedif<span style="color: #000000;">(</span>double start_date, double end_date, string unit<span style="color: #000000;">)</span>
+</pre>
+<h2 class="ref"><a name="Parameters" id="Parameters"></a><span class="mw-headline">パラメータ</span></h2>
+<p><b>start_date</b></p>
+<dl>
+<dd>特定の期間の最初の日付または開始日を表すユリウス暦の日付値。</dd>
+</dl>
+<p><b>end_date</b></p>
+<dl>
+<dd>特定の期間の最終日または終了日を表すユリウス暦の日付値。</dd>
+</dl>
+<p><b>unit</b></p>
+<dl>
+<dd>返される情報のタイプ。</dd>
+<dd>"Y"=年、"M"=月、"D"=日、</dd>
+<dd>"MD"= start_dateとend_dateの日数の差。日付の月と年は無視されます。</dd>
+<dd>"YM"= start_dateとend_dateの月の差。日付の日付と年は無視されます。</dd>
+</dl>
+<h2 class="ref"><a name="Return" id="Return"></a><span class="mw-headline">戻り値</span></h2>
+<p>2つの日付の間の日数、月数、年数を返します。</p>
+<h2 class="ref"><a name="Example" id="Example"></a><span class="mw-headline">サンプル</span></h2>
+<pre class="lt" style="font-family:monospace;">
+datedif<span style="color: #000000;">(</span>date<span style="color: #000000;">(</span><span style="color: #0000dd;">1</span><span style="color: #000080;">/</span><span style="color: #0000dd;">1</span><span style="color: #000080;">/</span><span style="color: #0000dd;">2001</span><span style="color: #000000;">)</span>,date<span style="color: #000000;">(</span><span style="color: #0000dd;">1</span><span style="color: #000080;">/</span><span style="color: #0000dd;">1</span><span style="color: #000080;">/</span><span style="color: #0000dd;">2003</span><span style="color: #000000;">)</span>,<span style="color: #ff00ff;">"Y"</span><span style="color: #000000;">)</span><span style="color: #000080;">=</span>;<span style="color: #008000;">//2</span>
+</pre>
+<h2 class="ref"><a name="See_Also" id="See_Also"></a><span class="mw-headline">関連情報</span></h2>
+<p><a href="../../LabTalk/LabTalk/Date_(function).html" title="LabTalk:Date (function)">Date</a></p>

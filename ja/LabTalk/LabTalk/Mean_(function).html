@@ -1,0 +1,74 @@
+﻿<h1 class="firstHeading">Mean/Average</h1><p class='urlname' style='display: none'>Mean-func</p>
+<p><br />
+</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>目次</h2></div>
+<ul>
+<li class="toclevel-1"><a href="#Description"><span class="tocnumber">1</span> <span class="toctext">概要</span></a></li>
+<li class="toclevel-1"><a href="#Syntax"><span class="tocnumber">2</span> <span class="toctext">構文</span></a></li>
+<li class="toclevel-1"><a href="#Parameters"><span class="tocnumber">3</span> <span class="toctext">パラメータ</span></a></li>
+<li class="toclevel-1"><a href="#Return"><span class="tocnumber">4</span> <span class="toctext">戻り値</span></a></li>
+<li class="toclevel-1"><a href="#Example"><span class="tocnumber">5</span> <span class="toctext">サンプル</span></a></li>
+<li class="toclevel-1"><a href="#See_Also"><span class="tocnumber">6</span> <span class="toctext">関連項目</span></a></li>
+</ul>
+</div>
+
+<h2 class="ref"><a name="Description"></a><span class="mw-headline">概要</span></h2>
+<p>ベクトルの平均を返します。
+</p>
+<table class="note">
+
+<tr>
+<td><b>Notes:</b>
+<ul><li> Mean()とAverage()は機能的に同一です。お好みの方をご利用ください。</li>
+<li> Mean()関数とAverage()関数は、列の平均を計算します。複数のデータセットの平均を行ごとに計算する場合は、構文<code>sum(vd)</code> を使用してデータセットを行ごとに合計し、関連する統計値の一時データセットを生成し、<code>_mean</code> を使用してmeanu値を取得します。詳細は <a href="../../LabTalk/LabTalk/Sum_(function).html" title="LabTalk:Sum (関数)"><b>sum()</b> 関数</a> を参照してください。</li></ul>
+</td></tr></table>
+<h2 class="ref"><a name="Syntax"></a><span class="mw-headline">構文</span></h2>
+<pre class="lt" style="font-family:monospace;">double Mean<span style="color: #000000;">(</span>dataset vd<span style="color: #000000;">)</span></pre>
+<pre class="lt" style="font-family:monospace;">double Average<span style="color: #000000;">(</span>dataset vd<span style="color: #000000;">)</span></pre>
+<h2 class="ref"><a name="Parameters"></a><span class="mw-headline">パラメータ</span></h2>
+<p><b>vd</b> 
+</p>
+<dl><dd>範囲、データセット、または列。 </dd></dl>
+<h2 class="ref"><a name="Return"></a><span class="mw-headline">戻り値</span></h2>
+<p>指定されたデータの平均を返します。
+</p>
+<h2 class="ref"><a name="Example"></a><span class="mw-headline">サンプル</span></h2>
+<p><b>EX1</b>
+</p>
+<pre class="lt" style="font-family:monospace;">double aa<span style="color: #000080;">=</span>mean<span style="color: #000000;">(</span>col<span style="color: #000000;">(</span>A<span style="color: #000000;">)</span><span style="color: #000000;">)</span>;
+aa<span style="color: #000080;">=</span>; <span style="color: #008000;">//指定した列の平均値を返す</span></pre>
+<p><b>EX2</b>
+</p>
+<pre class="lt" style="font-family:monospace;">mean<span style="color: #000000;">(</span>A1<span style="color: #000000;">:</span>B11<span style="color: #000000;">)</span></pre>
+<p><b>EX3</b>
+</p>
+<pre class="lt" style="font-family:monospace;">average<span style="color: #000000;">(</span>join<span style="color: #000000;">(</span>A1<span style="color: #000000;">:</span>A5, A11<span style="color: #000000;">:</span>A15<span style="color: #000000;">)</span><span style="color: #000000;">)</span></pre>
+<p><b>EX4</b>
+</p><p>列Aに信号データがあり、列BとCにインデックスが格納されているとします。列DのF(x)セルに次の数式を入力すると、
+</p>
+<pre class="lt" style="font-family:monospace;">average<span style="color: #000000;">(</span>A<span style="color: #000000;">[</span>B<span style="color: #000000;">:</span>C<span style="color: #000000;">]</span><span style="color: #000000;">)</span></pre> 
+<p>インデックス<code>col(B)[i]</code> と<code>col(C)[i]</code> の間の範囲である、列Aのサブレンジの平均値が列Dに入力されます。
+</p><p><b>EX5</b>
+</p>
+<pre class="lt" style="font-family:monospace;"><span style="color: #008000;">// 3列を持つ新規のワークブックを作成</span>
+newbook;
+wks.<span style="color: #000080;">nCols</span> <span style="color: #000080;">=</span> <span style="color: #0000dd;">3</span>;
+
+<span style="color: #008000;">// 最初の2列にデータを入れる</span>
+col<span style="color: #000000;">(</span>A<span style="color: #000000;">)</span> <span style="color: #000080;">=</span> <span style="color: #000000;">{</span><span style="color: #0000dd;">18</span>, <span style="color: #0000dd;">2</span>, <span style="color: #0000dd;">3</span>, <span style="color: #0000dd;">19</span>, <span style="color: #0000dd;">10</span>, <span style="color: #0000dd;">17</span>, <span style="color: #0000dd;">15</span>, <span style="color: #0000dd;">16</span>, <span style="color: #0000dd;">14</span>, <span style="color: #0000dd;">1</span>, <span style="color: #0000dd;">4</span>, <span style="color: #0000dd;">17</span>, <span style="color: #0000dd;">1</span>, <span style="color: #0000dd;">13</span>, <span style="color: #0000dd;">6</span>, <span style="color: #0000dd;">12</span>, <span style="color: #0000dd;">21</span>, <span style="color: #0000dd;">10</span>, <span style="color: #0000dd;">1</span>, <span style="color: #0000dd;">15</span><span style="color: #000000;">}</span>;
+col<span style="color: #000000;">(</span>B<span style="color: #000000;">)</span> <span style="color: #000080;">=</span> data<span style="color: #000000;">(</span><span style="color: #0000dd;">1</span>,<span style="color: #0000dd;">20</span><span style="color: #000000;">)</span>;
+
+<span style="color: #008000;">// 列Bで列Aの値を検索してインデックスを返す</span>
+<span style="color: #008000;">// 次に、列CをB1から返されたインデックスの前の行までの範囲の平均に設定する</span>
+csetvalue col<span style="color: #000000;">:</span><span style="color: #000080;">=</span>col<span style="color: #000000;">(</span>C<span style="color: #000000;">)</span> formula<span style="color: #000000;">:</span><span style="color: #000080;">=</span><span style="color: #ff00ff;">&quot;average(B[1:list(A[i],B)-1])&quot;</span>;
+<span style="color: #008000;">// 列Cのデータは次のようになる {9, 1, 1.5, 9.5, 5, 8.5, 7.5, 8, 7, 0/0, 2, 8.5, 0/0, 6.5, 3, 6, 0/0, 5, 0/0, 7.5}</span></pre>
+<h2 class="ref"><a name="See_Also"></a><span class="mw-headline">関連情報</span></h2>
+<p><a href="../../LabTalk/LabTalk/Median_(function).html" title="LabTalk:Median (function)">Median</a>,<a href="../../LabTalk/LabTalk/Min_(function).html" title="LabTalk:Min (function)">Min</a>,<a href="../../LabTalk/LabTalk/Max_(function).html" title="LabTalk:Max (function)">Max</a>,<a href="../../LabTalk/LabTalk/Total_(function).html" title="LabTalk:Total (function)">Total</a>
+</p>
+
+
+
+
+
+
+    

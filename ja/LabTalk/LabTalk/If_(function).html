@@ -1,0 +1,111 @@
+﻿<h1 class="firstHeading">If</h1><p class='urlname' style='display: none'>If-func</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>目次</h2></div>
+<ul>
+<li class="toclevel-1"><a href="#Description"><span class="tocnumber">1</span> <span class="toctext">概要</span></a></li>
+<li class="toclevel-1"><a href="#Syntax"><span class="tocnumber">2</span> <span class="toctext">構文</span></a></li>
+<li class="toclevel-1"><a href="#Parameters"><span class="tocnumber">3</span> <span class="toctext">パラメータ</span></a></li>
+<li class="toclevel-1"><a href="#Return"><span class="tocnumber">4</span> <span class="toctext">戻り値</span></a></li>
+<li class="toclevel-1"><a href="#Example"><span class="tocnumber">5</span> <span class="toctext">サンプル</span></a></li>
+<li class="toclevel-1"><a href="#See_Also"><span class="tocnumber">6</span> <span class="toctext">関連項目</span></a></li>
+</ul>
+</div>
+
+<h2 class="ref"><a name="Description"></a><span class="mw-headline">概要</span></h2>
+<p class="version" >必要なOriginのバージョン: Origin 2019 SR0以降</p>
+<p>MS Excelの If 関数と同様に、条件を評価し、条件がTrueかFalseかに応じて特定の値を返すために使用されます。値はテキストでも数値でも構いません。複数の条件で値の集合を比較するには、入れ込状のIF関数を使用します。
+</p><p><b>Notes</b>: 
+</p>
+<ul><li> IF関数は、<b>列値の設定</b>ダイアログまたはセルの数式でのみ使用できます。一般的なLabTalkスクリプトでは使用できません。</li>
+<li> 一般的なプログラミングルールとして、ゼロ以外の値は&quot;true&quot;として扱われ、ゼロは&quot;false&quot;として扱われます。従って、もしある&quot;条件付き&quot;パラメータ（通常は比較の形をとる（例外あり））がcon&gt;0と評価された場合、それは&quot;true&quot;として扱われます。そしてcon=0は&quot;false&quot;として扱われます。下のサンプル5を参照してください。</li></ul>
+<h2 class="ref"><a name="Syntax"></a><span class="mw-headline">構文</span></h2>
+<pre class="lt" style="font-family:monospace;">double If<span style="color: #000000;">(</span>string con, double val_true<span style="color: #000000;">[</span>, double val_false<span style="color: #000000;">]</span><span style="color: #000000;">)</span></pre>
+<pre class="lt" style="font-family:monospace;">string If<span style="color: #000000;">(</span>string con, string val_true<span style="color: #000080;">$</span><span style="color: #000000;">[</span>, string val_false<span style="color: #000080;">$</span><span style="color: #000000;">]</span><span style="color: #000000;">)</span><span style="color: #000080;">$</span></pre>
+<h2 class="ref"><a name="Parameters"></a><span class="mw-headline">パラメータ</span></h2>
+<p><b>con</b>
+</p>
+<dl><dd> 「true」または「false」として評価される条件式。上記の &quot;Notes&quot; を参照。</dd></dl>
+<p><b>val_true</b>
+</p>
+<dl><dd> 条件がTrueの場合の戻り値。数値またはテキストを指定できます。テキスト値の場合は、二重引用符(&quot;&quot;)で囲む必要があります。</dd></dl>
+<p><b>val_false</b>
+</p>
+<dl><dd> 条件がFalseの場合の戻り値。数値またはテキストを指定できます。テキスト値の場合は、二重引用符(&quot;&quot;)で囲む必要があります。</dd></dl>
+<h2 class="ref"><a name="Return"></a><span class="mw-headline">戻り値</span></h2>
+<p>比較の結果に応じて指定した値を返します。
+</p>
+<h2 class="ref"><a name="Example"></a><span class="mw-headline">サンプル</span></h2>
+<p><b>Ex1 - 2つの列の値を比較する</b>
+</p><p>列AとBの値を行ごとに比較します。A &gt; Bの場合は1を返し、それ以外の場合は0を返します。
+</p>
+<ol>
+<li>新しいワークブックを作成します。列Aと列Bに乱数を入力します。</li>
+<li>列Cを加し、F(x)=セルに次のように入力します。</li>
+<pre class="lt" style="font-family:monospace;">if<span style="color: #000000;">(</span>A <span style="color: #000080;">&gt;</span> B, <span style="color: #0000dd;">1</span>, <span style="color: #0000dd;">0</span><span style="color: #000000;">)</span></pre>
+</ol>
+<p><br />
+</p><p><b>Ex2 -セルの数式で値を比較する</b>
+</p><p>列Aのセルの値が列Aの平均を超えているかどうかをチェックし、それに応じてテキストを返します。
+</p>
+<ol>
+<li>新しいワークブックを作成します。列Aに乱数を入力します。</li>
+<li>セルB1に、次の式を入力します。</li>
+<pre class="lt" style="font-family:monospace;"><span style="color: #000080;">=</span>if<span style="color: #000000;">(</span>A1 <span style="color: #000080;">&gt;</span> mean<span style="color: #000000;">(</span>A<span style="color: #000000;">)</span>, <span style="color: #ff00ff;">&quot;Above Average&quot;</span>, <span style="color: #ff00ff;">&quot;Below Average&quot;</span><span style="color: #000000;">)</span></pre>
+<li>Enterを押して確定します。</li>
+<li>列の残りの部分を埋めるには、セルB1の右下隅からドラッグします。</li>
+</ol>
+<p><br />
+</p><p><b>Ex3 -入れ込状のIFで値を分類する</b>
+</p><p>値の範囲に基づいて&quot;Large&quot;、&quot;Small&quot;、または&quot;Median&quot;を返すには、入れ込状のIFを使用します。
+</p>
+<ol>
+<li>新しいワークブックを作成します。列Aに乱数を入力します。</li>
+<li>列BのF(x)=セルに次のように入力します。</li>
+<pre class="lt" style="font-family:monospace;">If<span style="color: #000000;">(</span>A <span style="color: #000080;">&gt;</span> <span style="color: #0000dd;">0.5</span>, <span style="color: #ff00ff;">&quot;Large&quot;</span>, If<span style="color: #000000;">(</span>A <span style="color: #000080;">&lt;</span> <span style="color: #0000dd;">0.3</span>, <span style="color: #ff00ff;">&quot;Small&quot;</span>, <span style="color: #ff00ff;">&quot;Median&quot;</span><span style="color: #000000;">)</span><span style="color: #000000;">)</span></pre>
+</ol>
+<p><br />
+</p><p><b>Ex4 -条件として関数Returnを使用</b>
+</p><p>A列には3つのグループがあります。各グループの開始時にのみ差分を示す条件としてdiff(A,2)を使用します。注意:値を条件として使用する場合、ゼロ以外の値はすべてtrueとして扱われます。
+</p>
+<ol>
+<li>新しいワークブックを作成します。</li>
+<li>次の番号をコピーします。 <tt>1 1 1 2 2 2 0.5 0.5 0.5</tt>. 列AのセルA1を右クリックし、<b>転置して貼り付け</b>を選択します。</li>
+<li>列BのF(x)=セルに次のように入力します。</li>
+<pre class="lt" style="font-family:monospace;">if<span style="color: #000000;">(</span>diff<span style="color: #000000;">(</span>A, <span style="color: #0000dd;">2</span><span style="color: #000000;">)</span>, diff<span style="color: #000000;">(</span>A, <span style="color: #0000dd;">2</span><span style="color: #000000;">)</span>, <span style="color: #000000;">)</span> <span style="color: #008000;">//  差がある場合は差を表示、それ以外の場合は欠損値を入力</span></pre>
+<li>列Cを追加します。列CのF(x)=セルで、次のように入力します。</li>
+<pre class="lt" style="font-family:monospace;">if<span style="color: #000000;">(</span>diff<span style="color: #000000;">(</span>A, <span style="color: #0000dd;">2</span><span style="color: #000000;">)</span>, diff<span style="color: #000000;">(</span>A, <span style="color: #0000dd;">2</span><span style="color: #000000;">)</span>, <span style="color: #ff00ff;">&quot;&quot;</span><span style="color: #000000;">)</span> <span style="color: #008000;">// 差がある場合は差を表示、それ以外の場合は空白のままにする</span></pre>
+</ol>
+<p><br />
+</p><p><b>Ex5 - 2列のテキストを比較する</b>
+</p><p>2つの文字列の列を比較し、一致ステータスを返します。列のショートネームの後に$を追加すると、その列は文字列として扱われます。
+</p>
+<ol>
+<li>新しいワークブックを作成します。列AとBを選択し、右クリックして<b>列値の一律設定：テキストと数値の任意のセット</b>を選択します。<b>繰り返すためのテキスト</b>に次のように入力します。 <tt>Alpha Beta Gamma</tt>.<b>モード</b>=<b>ランダム配置データ</b>に設定し、<b>OK</b>をクリックします。</li>
+<li>3番目の列を追加します。F(x)=セルに次のように入力します。</li>
+<pre class="lt" style="font-family:monospace;">if<span style="color: #000000;">(</span>A<span style="color: #000080;">$</span><span style="color: #000080;">==</span>B<span style="color: #000080;">$</span>, <span style="color: #0000dd;">1</span>, <span style="color: #0000dd;">0</span><span style="color: #000000;">)</span> <span style="color: #008000;">// AがBにマッチする場合は1、それ以外の場合は0</span></pre>
+<li>4番目の列を追加します。F(x)=セルに次のように入力します。</li>
+<pre class="lt" style="font-family:monospace;">if<span style="color: #000000;">(</span>A<span style="color: #000080;">$</span><span style="color: #000080;">==</span>B<span style="color: #000080;">$</span>, <span style="color: #ff00ff;">&quot;Match&quot;</span>, <span style="color: #ff00ff;">&quot;&quot;</span><span style="color: #000000;">)</span> <span style="color: #008000;">// ラベル一致文字列</span></pre>
+</ol>
+<p><br />
+</p><p><b>Ex6 - OR条件のある電子メールドメインを検出</b>
+</p><p>メールドメインに&quot;.org&quot;、&quot;.gov&quot;、&quot;.edu&quot;が含まれている場合は&quot;Non-Commercial&quot;を返します。
+</p>
+<ol>
+<li>新しいワークブックを作成します。</li>
+<li>次のメールアドレスをコピーします。　jane@nonprofit.org john@example.com smith@university.edu ccc@usda.gov</li>
+<li> A1セルを右クリックし、転置して貼り付けます。
+<li>列BのF(x)=セルに次の式を入力します。</li>
+<pre class="lt" style="font-family:monospace;">if<span style="color: #000000;">(</span>find<span style="color: #000000;">(</span>A<span style="color: #000080;">$</span>, <span style="color: #ff00ff;">&quot;.org&quot;</span><span style="color: #000000;">)</span> <span style="color: #000080;">!</span><span style="color: #000080;">=</span> <span style="color: #000080;">-</span><span style="color: #0000dd;">1</span> <span style="color: #000080;">||</span> find<span style="color: #000000;">(</span>A<span style="color: #000080;">$</span>, <span style="color: #ff00ff;">&quot;.gov&quot;</span><span style="color: #000000;">)</span> <span style="color: #000080;">!</span><span style="color: #000080;">=</span> <span style="color: #000080;">-</span><span style="color: #0000dd;">1</span><span style="color: #000080;">||</span> find<span style="color: #000000;">(</span>A<span style="color: #000080;">$</span>, <span style="color: #ff00ff;">&quot;.edu&quot;</span><span style="color: #000000;">)</span> <span style="color: #000080;">!</span><span style="color: #000080;">=</span> <span style="color: #000080;">-</span><span style="color: #0000dd;">1</span>, <span style="color: #ff00ff;">&quot;Non-Commercial&quot;</span>, <span style="color: #ff00ff;">&quot;&quot;</span><span style="color: #000000;">)</span></pre>
+</ol>
+<p><br />
+<br />
+</p>
+<h2 class="ref"><a name="See_Also"></a><span class="mw-headline">関連情報</span></h2>
+<p><a href="../../LabTalk/LabTalk/Ifs_(function).html" title="LabTalk:Ifs (function)">Ifs</a>, <a href="../../LabTalk/LabTalk/Switch_(function).html" title="LabTalk:Switch (function)">Switch</a>
+</p>
+
+
+
+
+
+
+    

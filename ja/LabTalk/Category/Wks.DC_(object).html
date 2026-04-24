@@ -1,0 +1,198 @@
+﻿<h1 class="firstHeading">Wks.DC</h1><p class='urlname' style='display: none'>wks-dc-object</p>
+<p>ワークシートに追加されたデータコネクタは、Originのオブジェクトとして扱われます。<span class="OIndex">列属性</span>には、次の表のプロパティを使用してアクセスおよび変更できます。
+</p>
+<table class="note">
+<tr>
+<td><b>Note:</b>
+<p>データコネクタのワークブックレベルの制御については、<a href="../../LabTalk/LabTalk/Wbk_(object).html" title="LabTalk:Wbk (object)">Wbk object</a>を参照してください。
+</p>
+</td></tr></table>
+<h2><a name="Properties"></a><span class="mw-headline">プロパティ</span></h2>
+<table class="simple">
+<tr>
+<th width="110">プロパティ
+</th>
+<th width="70">アクセス
+</th>
+<th width="540">説明
+</th></tr>
+<tr>
+<td> <a href="../../LabTalk/LabTalk/Wks.DC-auto.html" title="LabTalk:Wks.DC-auto">wks.DC.auto</a>
+</td>
+<td> 読み/書き<br />数値
+</td>
+<td> 自動インポートステータスを設定/取得する。
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Wks.DC-c1.html" title="LabTalk:Wks.DC-c1">wks.DC.c1<br />wks.DC.c2</a>
+</td>
+<td>読み/書き<br />数値
+</td>
+<td>インポートされた列の範囲。<b>c1</b>は先頭列、<b>c2</b>は終了列。
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Wks.DC-cntrl.html" title="LabTalk:Wks.DC-cntrl">wks.DC.cntrl</a>
+</td>
+<td>読み/書き<br />数値
+</td>
+<td><font color="red">Origin 2024b</font> インポートオプション
+</td></tr>
+<tr>
+<td> <a href="../../LabTalk/LabTalk/Wks.DC-Flags.html" title="LabTalk:Wks.DC-Flags">wks.DC.Flags</a>
+</td>
+<td>読み/書き<br />数値
+</td>
+<td>インポートしたファイルのデータ行をアクティブなワークシートに追加する。Origin 2021の時点で、データコネクタはText/CSVのみに対応しています。下のサンプルをご覧ください。
+</td></tr>
+<tr>
+<td> <a href="../../LabTalk/LabTalk/Wks.DC-Ignore.html" title="LabTalk:Wks.DC-Ignore">wks.DC.Ignore</a>
+</td>
+<td>読み/書き<br />数値
+</td>
+<td>データコネクタアイコンを無視する。0=データコネクタアイコンが使用可能、1=データコネクタアイコンは選択も使用も不可。
+</td></tr>
+<tr>
+<td> <a href="../../LabTalk/LabTalk/Wks.DC-optn.html" title="LabTalk:Wks.DC-optn">wks.DC.optn$</a>
+</td>
+<td> 読み/書き<br />文字列
+</td>
+<td> コネクタ設定を文字列として取得または設定する。独自のGetNダイアログを使用したCSV、Excelなどのコネクタタイプでのみサポートされています。
+</td></tr>
+<tr>
+<td> <a href="../../LabTalk/LabTalk/Wks.DC-Path.html" title="LabTalk:Wks.DC-Path">wks.DC.Path$</a>
+</td>
+<td>読み/書き<br />文字列
+</td>
+<td>ローカルファイルとWebデータの両方のコネクタデータソースの絶対パス（ローカルキャッシュが期限切れになっていないかクリアされていない場合に限る）。
+</td></tr>
+<tr>
+<td> <a href="../../LabTalk/LabTalk/Wks.DC-Script.html" title="LabTalk:Wks.DC-Script">wks.DC.Script$</a>
+</td>
+<td>読み/書き<br />文字列
+</td>
+<td><b>インポート後に実行するスクリプト</b>を取得または設定する。
+</td></tr>
+<tr>
+<td> <a href="../../LabTalk/LabTalk/Wks.DC-Sel.html" title="LabTalk:Wks.DC-Sel">wks.DC.Sel$</a>
+</td>
+<td>読み/書き<br />文字列
+</td>
+<td>データソース内のシート/テーブルの選択を指定する。NetCDFやTDMSなどのファイル形式に使用します。
+</td></tr>
+<tr>
+<td> <a href="../../LabTalk/LabTalk/Wks.DC-Source.html" title="LabTalk:Wks.DC-Source">wks.DC.Source$</a>
+</td>
+<td>読み/書き<br />文字列
+</td>
+<td>データソースの相対パス。
+</td></tr>
+<tr>
+<td> <a href="../../LabTalk/LabTalk/Wks.DC-Sstatus.html" title="LabTalk:Wks.DC-Sstatus">wks.DC.Sstatus</a>
+</td>
+<td>読み取り専用
+</td>
+<td>ソースステータス
+</td></tr>
+<tr>
+<td> <a href="../../LabTalk/LabTalk/Wks.DC-SType.html" title="LabTalk:Wks.DC-SType">wks.DC.SType</a>
+</td>
+<td> 読み/書き<br />数値
+</td>
+<td> データソースタイプ。
+</td></tr>
+<tr>
+<td> <a href="../../LabTalk/LabTalk/Wks.DC-Valid.html" title="LabTalk:Wks.DC-Valid">wks.DC.Valid</a>
+</td>
+<td> 読み/書き<br />数値
+</td>
+<td> ワークシートに追加されたデータコネクタのステータスを確認する。
+</td></tr></table>
+<h2><a name="Methods"></a><span class="mw-headline">メソッド</span></h2>
+<table class="simple">
+<tr>
+<th width="110">メソッド
+</th>
+<th width="70">アクセス
+</th>
+<th width="540">説明
+</th></tr>
+<tr>
+<td> <a href="../../LabTalk/LabTalk/Wks.DC-Add.html" title="LabTalk:Wks.DC-Add">wks.DC.Add(sel$)</a>
+</td>
+<td> 読み/書き<br />数値
+</td>
+<td> 選択したテーブル<i>sel$</i>をアクティブシートに追加する。
+</td></tr>
+<tr>
+<td> <a href="../../LabTalk/LabTalk/Wks.DC-Allow.html" title="LabTalk:Wks.DC-Allow">wks.DC.Allow()</a>
+</td>
+<td> 読み/書き<br />数値
+</td>
+<td> ワークシートがデータコネクタの接続先として使用されているか確認する。
+</td></tr>
+<tr>
+<td> <a href="../../LabTalk/LabTalk/Wks.DC-Import.html" title="LabTalk:Wks.DC-Import">wks.DC.Import()</a>
+</td>
+<td> 読み/書き<br />数値
+</td>
+<td> インポートオプションダイアログを開かずに、現在のシートにデータをインポートする。
+</td></tr>
+<tr>
+<td> <a href="../../LabTalk/LabTalk/Wks.DC-Reset.html" title="LabTalk:Wks.DC-Reset">wks.DC.Reset()</a>
+</td>
+<td> 読み/書き<br />数値
+</td>
+<td> インポートされたデータのクリア。接続は維持されます。
+</td></tr></table>
+<h2><a name="Examples"></a><span class="mw-headline"><font color="chocolate">サンプル</font></span></h2>
+<p><i><b>EX1</b></i>
+</p>
+<pre class="lt" style="font-family:monospace;"><span style="color: #008000;">// CSVファイルをデータコネクタを用いてインポートする例</span>
+newbook;
+wbook.<span style="color: #000080;">dc</span>.<span style="color: #000080;">add</span><span style="color: #000000;">(</span><span style="color: #ff00ff;">&quot;CSV&quot;</span><span style="color: #000000;">)</span>;
+wks.<span style="color: #000080;">dc</span>.<span style="color: #000080;">source</span><span style="color: #000080;">$</span><span style="color: #000080;">=</span>System.<span style="color: #000080;">path</span>.<span style="color: #000080;">program</span><span style="color: #000080;">$</span><span style="color: #000080;">+</span><span style="color: #ff00ff;">&quot;Samples\Batch Processing\T275K.csv&quot;</span>;
+wks.<span style="color: #000080;">dc</span>.<span style="color: #000080;">import</span><span style="color: #000000;">(</span><span style="color: #000000;">)</span>;</pre>
+<p><i><b>EX2</b></i>
+</p>
+<pre class="lt" style="font-family:monospace;"><span style="color: #008000;">// 複数のCSVファイルを1つのワークシートにインポートし、行単位で追加する例</span>
+newbook;
+string fname, path<span style="color: #000080;">$</span><span style="color: #000080;">=</span>system.<span style="color: #000080;">path</span>.<span style="color: #000080;">program</span><span style="color: #000080;">$</span> <span style="color: #000080;">+</span> <span style="color: #ff00ff;">&quot;Samples\Batch Processing\&quot;</span>; 
+findfiles fname<span style="color: #000000;">:</span><span style="color: #000080;">=</span>fname<span style="color: #000080;">$</span> ext<span style="color: #000000;">:</span><span style="color: #000080;">=</span><span style="color: #ff00ff;">&quot;*.csv&quot;</span>;
+
+int num <span style="color: #000080;">=</span> fname.<span style="color: #000080;">GetNumTokens</span><span style="color: #000000;">(</span>CRLF<span style="color: #000000;">)</span>;
+wbook.<span style="color: #000080;">dc</span>.<span style="color: #000080;">add</span><span style="color: #000000;">(</span><span style="color: #ff00ff;">&quot;CSV&quot;</span><span style="color: #000000;">)</span>;
+loop<span style="color: #000000;">(</span>ii,<span style="color: #0000dd;">1</span>,num<span style="color: #000000;">)</span>
+<span style="color: #000000;">{</span>
+next<span style="color: #000080;">$</span> <span style="color: #000080;">=</span> fname.<span style="color: #000080;">GetToken</span><span style="color: #000000;">(</span>ii, CRLF<span style="color: #000000;">)</span><span style="color: #000080;">$</span>;
+if <span style="color: #000000;">(</span>ii<span style="color: #000080;">==</span><span style="color: #0000dd;">1</span><span style="color: #000000;">)</span>
+<span style="color: #000000;">{</span>
+	wks.<span style="color: #000080;">dc</span>.<span style="color: #000080;">flags</span><span style="color: #000080;">=</span><span style="color: #0000dd;">256</span>;	<span style="color: #008000;">// 行方向への追加モードをオンに</span>
+<span style="color: #000000;">}</span>
+wks.<span style="color: #000080;">dc</span>.<span style="color: #000080;">source</span><span style="color: #000080;">$</span><span style="color: #000080;">=</span>next<span style="color: #000080;">$</span>;
+Tree tr1<span style="color: #000080;">=</span>wks.<span style="color: #000080;">dc</span>.<span style="color: #000080;">optn</span><span style="color: #000080;">$</span>;
+tr1.<span style="color: #000080;">settings</span>.<span style="color: #000080;">partial</span>.<span style="color: #000080;">SetAttribute</span><span style="color: #000000;">(</span><span style="color: #ff00ff;">&quot;Use&quot;</span>, <span style="color: #0000dd;">1</span><span style="color: #000000;">)</span>;
+tr1.<span style="color: #000080;">settings</span>.<span style="color: #000080;">partial</span>.<span style="color: #000080;">row</span><span style="color: #000080;">$</span><span style="color: #000080;">=</span><span style="color: #ff00ff;">&quot;2&quot;</span>; <span style="color: #008000;">// 各ファイルの2行目をインポート</span>
+tr1.<span style="color: #000080;">ToString</span><span style="color: #000000;">(</span>wks.<span style="color: #000080;">dc</span>.<span style="color: #000080;">optn</span><span style="color: #000080;">$</span><span style="color: #000000;">)</span>;
+wks.<span style="color: #000080;">dc</span>.<span style="color: #000080;">import</span><span style="color: #000000;">(</span><span style="color: #000000;">)</span>;
+<span style="color: #000000;">}</span></pre>
+<p><i><b>EX3</b></i>
+</p>
+<pre class="lt" style="font-family:monospace;"><span style="color: #008000;">//CSVコネクタは新規列の追加をサポート</span>
+string next, fname, path<span style="color: #000080;">$</span><span style="color: #000080;">=</span>system.<span style="color: #000080;">path</span>.<span style="color: #000080;">program</span><span style="color: #000080;">$</span> <span style="color: #000080;">+</span> <span style="color: #ff00ff;">&quot;Samples\Batch Processing\&quot;</span>; 
+findfiles fname<span style="color: #000000;">:</span><span style="color: #000080;">=</span>fname<span style="color: #000080;">$</span> ext<span style="color: #000000;">:</span><span style="color: #000080;">=</span><span style="color: #ff00ff;">&quot;*.csv&quot;</span>;
+wbook.<span style="color: #000080;">dc</span>.<span style="color: #000080;">add</span><span style="color: #000000;">(</span><span style="color: #ff00ff;">&quot;CSV&quot;</span><span style="color: #000000;">)</span>;
+wks.<span style="color: #000080;">dc</span>.<span style="color: #000080;">flags</span><span style="color: #000080;">=</span><span style="color: #0000dd;">128</span>;	<span style="color: #008000;">// 列方向への追加モードをオンに</span>
+loop<span style="color: #000000;">(</span>ii,<span style="color: #0000dd;">1</span>,<span style="color: #0000dd;">2</span><span style="color: #000000;">)</span>
+<span style="color: #000000;">{</span>
+	next<span style="color: #000080;">$</span> <span style="color: #000080;">=</span> fname.<span style="color: #000080;">GetToken</span><span style="color: #000000;">(</span>ii, CRLF<span style="color: #000000;">)</span><span style="color: #000080;">$</span>;
+	wks.<span style="color: #000080;">dc</span>.<span style="color: #000080;">source</span><span style="color: #000080;">$</span><span style="color: #000080;">=</span>next<span style="color: #000080;">$</span>;
+	wks.<span style="color: #000080;">dc</span>.<span style="color: #000080;">import</span><span style="color: #000000;">(</span><span style="color: #000000;">)</span>;
+<span style="color: #000000;">}</span></pre>
+
+
+
+
+
+
+
+    

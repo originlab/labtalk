@@ -1,0 +1,88 @@
+﻿<h1 class="firstHeading">レイヤのオプション</h1><p class='urlname' style='display: none'>Layer_Options_for_Layer</p>
+<p><br />
+</p>
+<h2><a name="-d"></a><span class="mw-headline">-d</span></h2>
+<p><b>構文：</b> layer <b>-d</b>
+</p><p>アクティブなレイヤを削除しますが、データは（ルーズデータセット内に）保持します。
+</p><p>これによりシートが削除されます。もし最後にシートが削除された場合、ブックも同様に削除されます。
+</p><p>このコマンドは次のように拡張できます。
+</p>
+<pre class="lt" style="font-family:monospace;">layer <span style="color: #000080;">-</span>d name; <span style="color: #008000;">// アクティブページ内のレイヤ/シートを削除</span>
+layer <span style="color: #000080;">-</span>d <span style="color: #000000;">[</span>book<span style="color: #000000;">]</span>sheet;<span style="color: #008000;">// 一般的な範囲表記</span></pre>
+<p>付属のd、k、uスイッチもサポートされています。  
+</p>
+<pre class="lt" style="font-family:monospace;">layer <span style="color: #000080;">-</span>dd;  <span style="color: #008000;">// アクティブレイヤとデータの削除</span>
+layer <span style="color: #000080;">-</span>du;  <span style="color: #008000;">// アクティブレイヤの削除（「元に戻す」を許可）</span>
+layer <span style="color: #000080;">-</span>dk;  <span style="color: #008000;">// アクティブレイヤの削除（最後のシートが削除された場合はブックを保持）</span>
+layer <span style="color: #000080;">-</span>duk; <span style="color: #008000;">// アクティブレイヤの削除（&apos;u&apos;オプションと&apos;k&apos;オプションの両方を使用）</span></pre>
+<p><b>Notes</b>: 
+</p>
+<ul><li> <i>-duk</i>と<i>-dku</i>は同義です。</li>
+<li> 非アクティブなブックで<i>u</i>スイッチが使用される場合、アクティブなブックのみが元に戻す操作をサポートしているため、del の前にまずアクティブ化されます。</li></ul>
+<p><br />
+現在のウィンドウ内の最後のシート/レイヤを削除するには、通常、<a href="../../LabTalk/LabTalk/Page_(object).html#Properties:Page_Property" title="LabTalk:Page (object)">page.nlayers</a>を使用して最後のレイヤ/シートのインデックスを取得します。
+</p>
+<pre class="lt" style="font-family:monospace;">layer <span style="color: #000080;">-</span>d <span style="color: #000080;">$</span><span style="color: #000000;">(</span>page.<span style="color: #000080;">nlayers</span><span style="color: #000000;">)</span>; <span style="color: #008000;">//page.nlayersは現在のページのシート/レイヤの数であり、最後のシート/レイヤのインデックスでもある</span></pre>
+<p>Origin 2021b以降、<i>0</i>を使用して最後のシート/レイヤを簡単に指定できます。 
+</p>
+<pre class="lt" style="font-family:monospace;">layer <span style="color: #000080;">-</span>d <span style="color: #0000dd;">0</span>;</pre>
+<h2><a name="-dk"></a><span class="mw-headline">-dk</span></h2>
+<p><b>構文：</b> layer <b>-dk</b>
+</p><p>アクティブレイヤを削除します。ブックは削除されずに保持されます。
+</p><p>これにより、アクティブなブックからアクティブなレイヤが削除され、すべてのシートが削除されてもブックが保持されます。
+</p>
+<h2><a name="-f"></a><span class="mw-headline">-f</span></h2>
+<p><b>構文：</b> layer <b>-f</b>
+</p><p>ワークシートまたは行列シートを複製します。
+</p>
+<h2><a name="-f1"></a><span class="mw-headline">-f1</span></h2>
+<p><b>構文：</b> layer <b>-f1</b>
+</p><p>アクティブレイヤのスケール係数を1に固定し、レイヤに接続されているグラフ要素(テキスト、線など)がレイヤサイズに合わせてサイズ変更されないようにします。次のLabTalkコマンドと実行することと同様ですが、メッセージログにメッセージを出力します。 
+</p>
+<pre class="lt" style="font-family:monospace;">layer.<span style="color: #000080;">fixed</span><span style="color: #000080;">=</span><span style="color: #0000dd;">1</span>;
+layer.<span style="color: #000080;">scale</span><span style="color: #000080;">=</span><span style="color: #0000dd;">1</span>;</pre>
+<h2><a name="-h"></a><span class="mw-headline">-h</span></h2>
+<p><b>構文：</b> layer <b>-h</b> <i>value</i>
+</p><p>レイヤを表示/非表示します。<i>value</i> = 1の場合、レイヤを非表示にします。<i>value</i> = 0の場合、レイヤを表示します。このコマンドはウィンドウ表示を自動的に更新しません。
+</p>
+<h2><a name="-m"></a><span class="mw-headline">-m</span></h2>
+<p><b>構文：</b> layer <b>-m</b>
+</p><p>アクティブなレイヤの「切り取るレイヤの領域」ダイアログボックスを開きます。
+</p>
+<h2><a name="-o"></a><span class="mw-headline">-o</span></h2>
+<p><b>構文：</b> layer <b>-o</b> <i>layerNumber / layerName {script}</i>
+</p><p>指定したレイヤに対して指定した<i>script</i>で操作をを実行します。
+</p>
+<pre class="lt" style="font-family:monospace;"><span style="color: #008000;">// graph1のレイヤ2に現在時刻を貼り付け</span>
+layer <span style="color: #000080;">-</span>o <span style="color: #000000;">[</span>graph1<span style="color: #000000;">]</span><span style="color: #0000dd;">2</span> <span style="color: #000000;">{</span>label <span style="color: #000080;">-</span>s <span style="color: #000080;">-</span>t <span style="color: #000080;">$</span><span style="color: #000000;">(</span>@D, D10<span style="color: #000000;">)</span><span style="color: #000000;">}</span>
+
+<span style="color: #008000;">// 指定したシートの列Bにデータを入れる</span>
+newbook sheet<span style="color: #000000;">:</span><span style="color: #000080;">=</span><span style="color: #0000dd;">3</span> result<span style="color: #000000;">:</span><span style="color: #000080;">=</span>bn<span style="color: #000080;">$</span>;
+layer <span style="color: #000080;">-</span>o <span style="color: #000000;">[</span>bn<span style="color: #000080;">$</span><span style="color: #000000;">]</span>Sheet2 <span style="color: #000000;">{</span>
+	col<span style="color: #000000;">(</span>b<span style="color: #000000;">)</span><span style="color: #000080;">=</span>data<span style="color: #000000;">(</span><span style="color: #0000dd;">1</span>, <span style="color: #0000dd;">10</span><span style="color: #000000;">)</span>;
+<span style="color: #000000;">}</span>;</pre>
+<h2><a name="-s"></a><span class="mw-headline">-s</span></h2>
+<p>構文：layer <b>-s</b> <i>n</i>
+</p><p>アクティブなウィンドウでアクティブなレイヤを選択します。  整数<i>n</i>ではレイヤ番号を指定します。  また、<b><a href="../../LabTalk/LabTalk/Page_(object).html" title="LabTalk:Page (object)">page.active</a></b>オブジェクトプロパティを使用して、アクティブなレイヤ番号を設定・取得することもできます。
+</p><p><b>サンプル：</b>
+</p><p>3つのレイヤがあるとき、次のスクリプトは各レイヤをページ幅の20%、ページ高さの80%にサイズ設定します。レイヤはページの上から10%の位置に配置され、左から8%の位置から始まり、ページ全体の12%ずつ区切られます。
+</p>
+<pre class="lt" style="font-family:monospace;">width <span style="color: #000080;">=</span> <span style="color: #0000dd;">20</span>;
+height <span style="color: #000080;">=</span> <span style="color: #0000dd;">80</span>;
+for <span style="color: #000000;">(</span>ii <span style="color: #000080;">=</span> <span style="color: #0000dd;">1</span>; ii <span style="color: #000080;">&lt;=</span> <span style="color: #0000dd;">3</span>; ii<span style="color: #000080;">++</span><span style="color: #000000;">)</span> 
+      <span style="color: #000000;">{</span>
+            layer <span style="color: #000080;">-</span>s ii;
+            layer width height <span style="color: #000000;">(</span><span style="color: #0000dd;">8</span><span style="color: #000080;">+</span><span style="color: #000000;">(</span>ii<span style="color: #000080;">-</span><span style="color: #0000dd;">1</span><span style="color: #000000;">)</span><span style="color: #000080;">*</span><span style="color: #000000;">(</span>width<span style="color: #000080;">+</span><span style="color: #0000dd;">12</span><span style="color: #000000;">)</span><span style="color: #000000;">)</span> <span style="color: #0000dd;">10</span>;
+      <span style="color: #000000;">}</span>;</pre>
+<h2><a name="-tm"></a><span class="mw-headline">-tm</span></h2>
+<p><b>構文：</b> layer <b>-tm <i>nrow</i> <i>ncol</i> bLabel</b>
+</p><p>統合されたセルの範囲を返します：<br />
+ 例えば<i><b>nrow</b></i><i><b>ncol</b></i>のセルが結合されたセルグループ内にある場合、セルの列と行の範囲を返します。（例：&quot;cell merged range c1=1 c2=2 r1=4 r2=6&quot;）。
+</p>
+
+
+
+
+
+
+    

@@ -1,0 +1,692 @@
+﻿<h1 class="firstHeading">List</h1><p class='urlname' style='display: none'>List-cmd</p>
+<p>スクリプトウィンドウに現在のプロジェクト内のオブジェクトを一覧表示します。
+</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>目次</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Syntax"><span class="tocnumber">1</span> <span class="toctext">構文</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Options"><span class="tocnumber">2</span> <span class="toctext">オプション</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Examples_and_Notes"><span class="tocnumber">3</span> <span class="toctext">例と注意事項</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#.40.3B_List_all_registry-stored_persistent_system_variables"><span class="tocnumber">3.1</span> <span class="toctext">@; レジストリに保存されているすべての永続システム変数を一覧表示</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#a.3B_List_all_session_variables"><span class="tocnumber">3.2</span> <span class="toctext">a; すべてのセッション変数を一覧表示</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#eg.3B_List_all_embeded_graphs_in_active_worksheet"><span class="tocnumber">3.3</span> <span class="toctext">eg; アクティブワークシート内の全ての埋め込みグラフを一覧表示</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="#f.3B_List_the_Origin_C_functions_that_can_be_called_from_LabTalk"><span class="tocnumber">3.4</span> <span class="toctext">f; LabTalkから呼び出すことができるOrigin C関数を一覧表示</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="#ff.3B_List_all_fitting_functions"><span class="tocnumber">3.5</span> <span class="toctext">ff; すべてのフィット関数を一覧表示</span></a></li>
+<li class="toclevel-2 tocsection-9"><a href="#lg.3B_List_the_GetN_tree_of_the_last_executed_X-Function"><span class="tocnumber">3.6</span> <span class="toctext">lg; 最後に実行されたXファンクションのGetNツリーを一覧表示</span></a></li>
+<li class="toclevel-2 tocsection-10"><a href="#o.3B_List_all_objects_and_labels_in_the_current_layer"><span class="tocnumber">3.7</span> <span class="toctext">o; 現在のレイヤ内のすべてのオブジェクトとラベルを一覧表示</span></a></li>
+<li class="toclevel-2 tocsection-11"><a href="#op_UID.3B_list_operations_in_the_whole_project"><span class="tocnumber">3.8</span> <span class="toctext">op <i>UID</i>; プロジェクト全体での操作を一覧表示</span></a></li>
+<li class="toclevel-2 tocsection-12"><a href="#opi.2Fopo.3B_list_operations_whose_input.2Foutput_is_in_active_sheet"><span class="tocnumber">3.9</span> <span class="toctext">opi/opo; 入出力がアクティブシートにある操作を一覧表示</span></a></li>
+<li class="toclevel-2 tocsection-13"><a href="#rc.3B_total_number_of_data_ranges_in_the_opened_project"><span class="tocnumber">3.10</span> <span class="toctext">rc; 開いているプロジェクトのデータ範囲の総数</span></a></li>
+<li class="toclevel-2 tocsection-14"><a href="#rn.3B_list_existing_named_ranges"><span class="tocnumber">3.11</span> <span class="toctext">rn; 既存の名前付き範囲を一覧表示</span></a></li>
+<li class="toclevel-2 tocsection-15"><a href="#rrvs_L.2FP.2FD.3Cmore_options.3E.3B_list_all_the_dataplots_using_virtual_datasets"><span class="tocnumber">3.12</span> <span class="toctext">rrvs L/P/D&lt;more options&gt;; 仮想データセットを使用しているすべてのデータプロットを一覧表示</span></a></li>
+<li class="toclevel-2 tocsection-16"><a href="#s.3B_List_all_datasets_.28previously_known_as_series.29"><span class="tocnumber">3.13</span> <span class="toctext">s; 全てのデータセットを一覧表示（以前は<b>シリーズ</b>と呼ばれていたもの）</span></a></li>
+<li class="toclevel-2 tocsection-17"><a href="#sl.3B_List_all_loose_datasets"><span class="tocnumber">3.14</span> <span class="toctext">sl; すべてのルーズデータセットを一覧表示</span></a></li>
+<li class="toclevel-2 tocsection-18"><a href="#so.3B_List_all_orphaned_datasets"><span class="tocnumber">3.15</span> <span class="toctext">so; 全てのorphanedデータセットを一覧表示</span></a></li>
+<li class="toclevel-2 tocsection-19"><a href="#soc.3B_dump_count_of_orphaned_datasets"><span class="tocnumber">3.16</span> <span class="toctext">soc; orphanedデータセットの数を出力</span></a></li>
+<li class="toclevel-2 tocsection-20"><a href="#st.3B_List_all_datasets_with_storage"><span class="tocnumber">3.17</span> <span class="toctext">st; すべてのデータセットとストレージを一覧表示</span></a></li>
+<li class="toclevel-2 tocsection-21"><a href="#svr.3B_List_all_persistent_system_variables_in_Origin"><span class="tocnumber">3.18</span> <span class="toctext">svr; Origin内のすべての永続システム変数を一覧表示</span></a></li>
+<li class="toclevel-2 tocsection-22"><a href="#v.3B_List_all_numeric_variables"><span class="tocnumber">3.19</span> <span class="toctext">v; すべての数値変数を一覧表示</span></a></li>
+<li class="toclevel-2 tocsection-23"><a href="#vs.3B_List_all_string_variables"><span class="tocnumber">3.20</span> <span class="toctext">vs; すべての文字列変数を一覧表示</span></a></li>
+<li class="toclevel-2 tocsection-24"><a href="#vsh.3B_Output_all_virtual_datasets_that_use_shared_data_filters.2C_together_with_the_definitions_of_shared_data_filters"><span class="tocnumber">3.21</span> <span class="toctext">vsh; 共有データフィルタを使用するすべての仮想データセットを、共有データフィルタの定義とともに出力</span></a></li>
+<li class="toclevel-2 tocsection-25"><a href="#vsha.3B_List_only_VSShDFs_used_in_the_active_graph_page"><span class="tocnumber">3.22</span> <span class="toctext">vsha; アクティブなグラフページで使用されているVSShDFのみを一覧表示</span></a></li>
+<li class="toclevel-2 tocsection-26"><a href="#vt.3B_List_all_tree_variables"><span class="tocnumber">3.23</span> <span class="toctext">vt; すべてのツリー変数を一覧表示</span></a></li>
+<li class="toclevel-2 tocsection-27"><a href="#xf.3B_List_X-Functions"><span class="tocnumber">3.24</span> <span class="toctext">xf; Xファンクションを一覧表示</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-28"><a href="#See_Also:"><span class="tocnumber">4</span> <span class="toctext">関連情報</span></a></li>
+</ul>
+</div>
+
+<h2><a name="Syntax"></a><span class="mw-headline"><font color="chocolate">構文</font></span></h2>
+<p><b>list  option [name]</b>
+</p><p>Notes:
+</p>
+<ul><li> 生成されるリストは、指定されたオプションに依存します。  </li>
+<li> オプションの最初の文字だけを提供する必要があります。 </li>
+<li> オプションを指定するときはダッシュを含めないでください。  </li>
+<li> データセット内の指定された値のインデックス番号を見つける<a href="../../LabTalk/LabTalk/List_(function).html" title="LabTalk:List (function)">List()関数</a>もあります。</li></ul>
+<p><br />
+</p>
+<h2><a name="Options"></a><span class="mw-headline"><font color="chocolate">オプション</font></span></h2>
+<table class="simple">
+<tr>
+<th> オプション
+</th>
+<th> Listで得られるもの
+</th>
+<th> ワイルドカードへの対応
+</th></tr>
+<tr>
+<td> オプションなし
+</td>
+<td> <a href="../../LabTalk/Script/Debugging_Tools.html#LabTalk_Variables_and_Functions_Dialog" title="Script:デバッグツール">LabTalk変数と関数のダイアログ</a>を開きます。<br /><a href="../../LabTalk/LabTalk/Edit_(command).html" title="LabTalk:Edit (command)">Editコマンド</a>も参照してください。
+</td>
+<td>
+</td></tr>
+<tr>
+<td> @
+</td>
+<td> レジストリに保存されているすべての永続システム変数
+</td>
+<td> Yes
+</td></tr>
+<tr>
+<td> a
+</td>
+<td> すべてのセッション変数
+</td>
+<td> Yes
+</td></tr>
+<tr>
+<td> aa
+</td>
+<td> 文字配列(セッション) <font color="red">(8.1 SR0)</font>
+</td>
+<td> Yes
+</td></tr>
+<tr>
+<td> ac
+</td>
+<td> 定数(セッション) <font color="red">(8.1 SR0)</font>
+</td>
+<td> Yes
+</td></tr>
+<tr>
+<td> af
+</td>
+<td> ローカル関数(セッション) <font color="red">(8.1 SR0)</font>
+</td>
+<td> Yes
+</td></tr>
+<tr>
+<td> afc
+</td>
+<td> 全てのコンテンツを含んだローカル関数(セッション) <font color="red">(8.1 SR0)</font>
+</td>
+<td> Yes
+</td></tr>
+<tr>
+<td> afp
+</td>
+<td> ローカル関数のプロトタイプ(セッション) <font color="red">(8.1 SR0)</font>
+</td>
+<td> Yes
+</td></tr>
+<tr>
+<td> ag
+</td>
+<td> グラフオブジェクト（セッション） <font color="red">(8.1 SR0)</font>
+</td>
+<td> Yes
+</td></tr>
+<tr>
+<td> ar
+</td>
+<td> 範囲変数（セッション） <font color="red">(8.1 SR0)</font>
+</td>
+<td> Yes
+</td></tr>
+<tr>
+<td> as
+</td>
+<td> 文字列変数（セッション） <font color="red">(8.1 SR0)</font>
+</td>
+<td> Yes
+</td></tr>
+<tr>
+<td> at
+</td>
+<td> ツリー変数（セッション） <font color="red">(8.1 SR0)</font>
+</td>
+<td> Yes
+</td></tr>
+<tr>
+<td> av
+</td>
+<td> 数値変数（セッション） <font color="red">(8.1 SR0)</font>
+</td>
+<td> Yes
+</td></tr>
+<tr>
+<td> c
+</td>
+<td> すべてのLabTalkコマンド
+</td>
+<td>
+</td></tr>
+<tr>
+<td> cf
+</td>
+<td> LabTalkからアクセス可能なすべてのOrigin C関数プロトタイプ
+</td>
+<td>
+</td></tr>
+<tr>
+<td> cfn
+</td>
+<td> 数値を返すOrigin C関数のプロトタイプ
+</td>
+<td>
+</td></tr>
+<tr>
+<td> cfo
+</td>
+<td> voidを返すOrigin C関数のプロトタイプ
+</td>
+<td>
+</td></tr>
+<tr>
+<td> cfs
+</td>
+<td> 文字列を返すOrigin C関数のプロトタイプ
+</td>
+<td>
+</td></tr>
+<tr>
+<td> cfv
+</td>
+<td> ベクトルを返すOrigin C関数のプロトタイプ
+</td>
+<td>
+</td></tr>
+<tr>
+<td> 例：
+</td>
+<td> アクティブなワークシートに埋め込まれたすべておグラフを一覧表示する
+</td>
+<td>
+</td></tr>
+<tr>
+<td> f
+</td>
+<td> LabTalkからアクセス可能なすべてのOrigin C関数
+</td>
+<td>
+</td></tr>
+<tr>
+<td> ff
+</td>
+<td> 全てのフィット関数
+</td>
+<td> Yes
+</td></tr>
+<tr>
+<td> fn
+</td>
+<td> 数値を返すOrigin C関数
+</td>
+<td>
+</td></tr>
+<tr>
+<td> fo
+</td>
+<td> voidを返すOrigin C関数
+</td>
+<td>
+</td></tr>
+<tr>
+<td> fs
+</td>
+<td> 文字列を返すOrigin C関数
+</td>
+<td>
+</td></tr>
+<tr>
+<td> fv
+</td>
+<td> ベクトルを返すOrigin C関数
+</td>
+<td>
+</td></tr>
+<tr>
+<td> lg
+</td>
+<td>最後に実行されたXファンクションのGetNツリー
+</td>
+<td>
+</td></tr>
+<tr>
+<td> macro
+</td>
+<td> すべてのマクロ
+</td>
+<td>
+</td></tr>
+<tr>
+<td> o
+</td>
+<td> 現在のレイヤ内のすべてのオブジェクトとラベル
+</td>
+<td>
+</td></tr>
+<tr>
+<td> op
+</td>
+<td> すべての操作を一覧表示
+</td>
+<td>
+</td></tr>
+<tr>
+<td> opi
+</td>
+<td> 入力がアクティブシートにあるすべての操作を一覧表示
+</td>
+<td>
+</td></tr>
+<tr>
+<td> opo
+</td>
+<td> 出力がアクティブシートにあるすべての操作を一覧表示
+</td>
+<td>
+</td></tr>
+<tr>
+<td> opp
+</td>
+<td> 保留中のすべての操作を一覧表示
+</td>
+<td>
+</td></tr>
+<tr>
+<td> rc
+</td>
+<td> 開いているプロジェクトのデータ範囲の総数
+</td>
+<td>
+</td></tr>
+<tr>
+<td> rn
+</td>
+<td> 既存の名前付き範囲を一覧表示 <font color="red">(2025)</font>
+</td>
+<td>
+</td></tr>
+<tr>
+<td> rng
+</td>
+<td> 解析操作やインポートなどで生成されたプロジェクト範囲をすべて一覧表示します。<a href="../../LabTalk/LabTalk/Doc_(object).html#Methods:" title="LabTalk:Doc (object)">doc.rangescount()</a>メソッドを使って数値のみを出力することができます。
+</td>
+<td>
+</td></tr>
+<tr>
+<td> rrvs
+</td>
+<td> 仮想データセットを使用しているすべてのデータプロットを一覧表示
+</td>
+<td>
+</td></tr>
+<tr>
+<td> s
+</td>
+<td> 全てのデータセット（以前は<b>シリーズ</b>と呼ばれていたもの）
+</td>
+<td>
+</td></tr>
+<tr>
+<td> sl
+</td>
+<td> 全てのルーズデータセット
+</td>
+<td>
+</td></tr>
+<tr>
+<td> so
+</td>
+<td> すべてのorphanedデータセット
+</td>
+<td>
+</td></tr>
+<tr>
+<td> soc
+</td>
+<td> orphanedデータセットの数
+</td>
+<td>
+</td></tr>
+<tr>
+<td> sr
+</td>
+<td> すべての同じ（重複した）データセット <font color="red">(9.0 SR0)</font>
+</td>
+<td>
+</td></tr>
+<tr>
+<td> st
+</td>
+<td> すべてのプロジェクトデータセットとストレージ
+</td>
+<td>
+</td></tr>
+<tr>
+<td> svr
+</td>
+<td> Origin内のすべての永続システム変数
+</td>
+<td>
+</td></tr>
+<tr>
+<td> v
+</td>
+<td> すべての数値変数（<b>データセット</b>を含まない）
+</td>
+<td>
+</td></tr>
+<tr>
+<td> vs
+</td>
+<td> すべての文字列変数
+</td>
+<td>
+</td></tr>
+<tr>
+<td> vt
+</td>
+<td> すべてのツリー変数
+</td>
+<td>
+</td></tr>
+<tr>
+<td> xf
+</td>
+<td> すべてのXファンクション
+</td>
+<td>
+</td></tr></table>
+<p><br />
+</p>
+<h2><a name="Examples_and_Notes"></a><span class="mw-headline"><font color="chocolate">例と注意事項</font></span></h2>
+<p><b>list</b>コマンドの使用例と注意事項を、コマンドオプションごとに説明します。
+</p>
+<h3><a name=".40.3B_List_all_registry-stored_persistent_system_variables"></a><span class="mw-headline">@; レジストリに保存されている永続システム変数をすべて一覧表示する</span></h3>
+<p>構文：list <b>a</b>
+</p><p>スイッチの前にダッシュ（-）文字を付けないでください。次のように単独で使用する場合、
+</p>
+<pre class="lt" style="font-family:monospace;">list @;</pre>
+<p>... HKEY_CURRENT_USER\SOFTWARE\OriginLab\SysVar に格納されているすべての永続変数が一覧表示されます。永続変数のリストをフィルタリングするには、次の例のように、アスタリスク（*）ワイルドカード文字と組み合わせて文字を使用します。
+</p>
+<pre class="lt" style="font-family:monospace;">list @A<span style="color: #000080;">*</span>  <span style="color: #008000;">// HKEY_CURRENT_USER\SOFTWARE\OriginLab\SysVar にある文字 &quot;A&quot;で始まるすべての永続なシステム変数を一覧表示</span></pre>
+<p><a href="../../LabTalk/LabTalk/Delete_(command).html#.40.3B_Delete_value_of_persistent_system_variable_at_HKEY_CURRENT_USER.5CSOFTWARE.5COriginLab.5CSysVar" title="LabTalk:Delete (command)"><b>delete@</b>コマンド</a>と下記の<b>list-svr</b>も参照してください。
+</p>
+<h3><a name="a.3B_List_all_session_variables"></a><span class="mw-headline">a; すべてのセッション変数を一覧表示</span></h3>
+<p>構文：list <b>a</b>
+<br /> <font color="red">8.1 SR0以上では、</font>オプションの引数<b>[name]</b>は特定の変数を見つけるために使用できます。例：
+</p>
+<pre class="lt" style="font-family:monospace;">list <span style="color: #000080;">-</span>as str<span style="color: #000080;">*</span>;</pre>
+<h3><a name="eg.3B_List_all_embeded_graphs_in_active_worksheet"></a><span class="mw-headline">eg; アクティブワークシート内の全ての埋め込みグラフを一覧表示</span></h3>
+<p>構文：list <b>eg</b>
+</p><p><br />
+</p>
+<h3><a name="f.3B_List_the_Origin_C_functions_that_can_be_called_from_LabTalk"></a><span class="mw-headline">f; LabTalkから呼び出すことができるOrigin C関数を一覧表示</span></h3>
+<p>構文：list <b>f</b>
+</p><p>Note:<a href="../../LabTalk/Script/Debugging_Tools.html#.40OC_.28system_variable.29" title="Script:Debugging Tools">@OC</a>システム変数は<b>list</b>コマンドのこのオプションに影響します。  デフォルト値は1で、これによりOrigin C関数を呼び出すことができます。  この値を0に設定すると、Origin C関数を呼び出す機能がオフになります。
+</p><p><br />
+</p>
+<h3><a name="ff.3B_List_all_fitting_functions"></a><span class="mw-headline">ff; すべてのフィット関数を一覧表示</span></h3>
+<p>構文：list <b>ff</b> [&lt;wildCardName&gt;]
+</p><p>wildCardNameが指定されていない場合は、すべてのフィット関数が一覧表示されます。wildCardNameが指定されている場合、出力は名前にワイルドカード文字列が含まれている関数に限定されます。例：
+</p>
+<pre class="lt" style="font-family:monospace;">list ff Gauss<span style="color: #000080;">*</span>;</pre>
+<h3><a name="lg.3B_List_the_GetN_tree_of_the_last_executed_X-Function"></a><span class="mw-headline">lg; 最後に実行されたXファンクションのGetNツリーを一覧表示</span></h3>
+<p>このコマンドは、最後に実行されたXファンクションのGetNツリーを返します。
+</p>
+<pre class="lt" style="font-family:monospace;"><span style="color: #008000;">//ワークシートをアクティブにして列Aにいくつかの値を入れる</span>
+colsplit irng<span style="color: #000000;">:</span><span style="color: #000080;">=</span>col<span style="color: #000000;">(</span>A<span style="color: #000000;">)</span> nrows<span style="color: #000000;">:</span><span style="color: #000080;">=</span><span style="color: #0000dd;">3</span>;
+list <span style="color: #000080;">-</span>lg; <span style="color: #008000;">// colsplit XファンクションのGUIツリーが一覧表示される</span></pre>  
+<p><br />
+</p>
+<h3><a name="o.3B_List_all_objects_and_labels_in_the_current_layer"></a><span class="mw-headline">o; 現在のレイヤ内のすべてのオブジェクトとラベルを一覧表示</span></h3>
+<p>構文：list <b>o</b>
+</p><p>このコマンドは、アクティブなグラフウィンドウレイヤにあるオブジェクトの3つの属性を返します。  
+</p>
+<ol><li> index</li>
+<li> type</li>
+<li> name</li></ol>
+<p>typeは以下の通りです。
+</p>
+<table class="simple">
+<tr>
+<td> Type=0
+</td>
+<td> テキストオブジェクト
+</td></tr>
+<tr>
+<td> Type=1
+</td>
+<td> 直角/円
+</td></tr>
+<tr>
+<td> Type=2
+</td>
+<td> 線/矢印
+</td></tr>
+<tr>
+<td> Type=3
+</td>
+<td> 多角形/折れ線
+</td></tr>
+<tr>
+<td> Type=7
+</td>
+<td> データプロットスタイルホルダー
+</td></tr></table>
+<p>出力値<i>Type</i>の横にアスタリスク文字（*）が表示されている場合は、<a class="external text" href="../../UserGuide/UserGuide/What_is_Saved_with_the_Graph_Template.html">スタイルホルダー</a>が使用されていることを示します。たとえば、次のコマンドを入力します。
+</p>
+<pre class="lt" style="font-family:monospace;">list o;  <span style="color: #008000;">// 最初にグラフを選択してアクティブウィンドウにする</span></pre>
+<p>次のような出力が表示されます。
+</p><p><code>
+1 0  YL,	0x0cfd2bd0<br />
+2 0  XB,	0x0d02eff0<br />
+3 3  __BCO2,	0x0d02f108<br />
+4 0  Legend,	0x0cb78fd8<br />
+5 7* _202,	0x0cfb90f0
+</code>
+</p><p><br />
+</p>
+<h3><a name="op_UID.3B_list_operations_in_the_whole_project"></a><span class="mw-headline">op <i>UID</i>; プロジェクト全体での操作を一覧表示</span></h3>
+<p>構文：list <b>op</b> <i>[UID]</i>
+<br /><br />
+プロジェクト内のすべての解析操作、または<i>UID</i>で指定した操作を一覧表示します。
+</p>
+<pre class="lt" style="font-family:monospace;">list op <span style="color: #0000dd;">812</span>; <span style="color: #008000;">//812はUID</span></pre>
+<h3><a name="opi.2Fopo.3B_list_operations_whose_input.2Foutput_is_in_active_sheet"></a><span class="mw-headline">opi/opo; 入出力がアクティブシートにある操作を一覧表示</span></h3>
+<p>構文：list <b>opi/opo</b>
+<br /><br />
+アクティブなワークシートに関連するリスト操作:
+</p>
+<pre class="lt" style="font-family:monospace;">list opi;  <span style="color: #008000;">// 入力がアクティブシートにあるUIDによるリスト操作</span>
+list opo;  <span style="color: #008000;">// 出力がアクティブシートにあるUIDによるリスト操作</span></pre>
+<pre class="lt" style="font-family:monospace;"><span style="color: #0000dd;">1</span><span style="color: #000000;">:</span>ClassName<span style="color: #000000;">:</span> XFOperation<span style="color: #000000;">(</span>rnormalize<span style="color: #000000;">)</span>, UID <span style="color: #000080;">=</span> <span style="color: #0000dd;">803</span>, GUID <span style="color: #000080;">=</span> , duration<span style="color: #000080;">=</span><span style="color: #0000dd;">0</span>
+  Input<span style="color: #000000;">:</span>
+    <span style="color: #000080;">&lt;</span>DataRange<span style="color: #000080;">&gt;</span>	UID <span style="color: #000080;">=</span> <span style="color: #0000dd;">804</span>	Plots<span style="color: #000000;">:</span>	<span style="color: #0000dd;">0</span>
+	<span style="color: #000000;">(</span><span style="color: #0000dd;">0</span><span style="color: #000000;">)</span> X<span style="color: #000000;">:</span> <span style="color: #000000;">[</span>Book1<span style="color: #000000;">]</span>Sheet1<span style="color: #000080;">!</span>A	c1 <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span>, c2 <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span>  r1 <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span>  r2 <span style="color: #000080;">=</span> <span style="color: #000080;">-</span><span style="color: #0000dd;">1</span>
+	<span style="color: #000000;">(</span><span style="color: #0000dd;">1</span><span style="color: #000000;">)</span> S<span style="color: #000000;">:</span> <span style="color: #000080;">&lt;</span>empty<span style="color: #000080;">&gt;</span>	c1 <span style="color: #000080;">=</span> <span style="color: #000080;">-</span><span style="color: #0000dd;">1000000001</span>, c2 <span style="color: #000080;">=</span> <span style="color: #000080;">-</span><span style="color: #0000dd;">1000000001</span>  r1 <span style="color: #000080;">=</span> <span style="color: #000080;">-</span><span style="color: #0000dd;">1000000001</span>  r2 <span style="color: #000080;">=</span> <span style="color: #000080;">-</span><span style="color: #0000dd;">1000000001</span>
+  Output<span style="color: #000000;">:</span>
+    <span style="color: #000080;">&lt;</span>DataRange<span style="color: #000080;">&gt;</span>	UID <span style="color: #000080;">=</span> <span style="color: #0000dd;">805</span>	Locked<span style="color: #000000;">:</span> 00000000000000000000000000000000	Plots<span style="color: #000000;">:</span>	<span style="color: #0000dd;">0</span>
+	<span style="color: #000000;">(</span><span style="color: #0000dd;">0</span><span style="color: #000000;">)</span> X<span style="color: #000000;">:</span> <span style="color: #000000;">[</span>Book1<span style="color: #000000;">]</span>Sheet1<span style="color: #000080;">!</span>C<span style="color: #ff00ff;">&quot;Normalized1&quot;</span>	c1 <span style="color: #000080;">=</span> <span style="color: #0000dd;">2</span>, c2 <span style="color: #000080;">=</span> <span style="color: #0000dd;">2</span>  r1 <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span>  r2 <span style="color: #000080;">=</span> <span style="color: #000080;">-</span><span style="color: #0000dd;">1</span>
+	<span style="color: #000000;">(</span><span style="color: #0000dd;">1</span><span style="color: #000000;">)</span> S<span style="color: #000000;">:</span> <span style="color: #000080;">&lt;</span>empty<span style="color: #000080;">&gt;</span>	c1 <span style="color: #000080;">=</span> <span style="color: #000080;">-</span><span style="color: #0000dd;">1000000001</span>, c2 <span style="color: #000080;">=</span> <span style="color: #000080;">-</span><span style="color: #0000dd;">1000000001</span>  r1 <span style="color: #000080;">=</span> <span style="color: #000080;">-</span><span style="color: #0000dd;">1000000001</span>  r2 <span style="color: #000080;">=</span> <span style="color: #000080;">-</span><span style="color: #0000dd;">1000000001</span></pre>
+<p>ここで取得した<b>UID</b>番号は、<a href="../../LabTalk/LabTalk/Run_(command).html#-auc_UID.3B_Open_dialog_to_change_parameters_for_a_specific_operation" title="LabTalk:Run (command)"><i>run -auc UID</i></a>を使用して対応するツールの<b>パラメータ</b>変更ダイアログを開くために使用できます。例：
+</p>
+<pre class="lt" style="font-family:monospace;">run <span style="color: #000080;">-</span>auc <span style="color: #0000dd;">803</span>; <span style="color: #008000;">// 列の正規化ダイアログを開く</span></pre>
+<h3><a name="rc.3B_total_number_of_data_ranges_in_the_opened_project"></a><span class="mw-headline">rc; 開いているプロジェクトのデータ範囲の総数</span></h3>
+<p>構文：list <b>-rc</b>
+</p>
+<pre class="lt" style="font-family:monospace;">list <span style="color: #000080;">-</span>rc;  <span style="color: #008000;">// 開いているプロジェクトのデータ範囲の総数</span></pre>
+<h3><a name="rn.3B_list_existing_named_ranges"></a><span class="mw-headline">rn; 既存の名前付き範囲を一覧表示</span></h3>
+<p><font color="red">(2025)</font>
+構文：list <b>-rn</b>
+</p>
+<h3><a name="rrvs_L.2FP.2FD.3Cmore_options.3E.3B_list_all_the_dataplots_using_virtual_datasets"></a><span class="mw-headline">rrvs L/P/D&lt;more options&gt;; 仮想データセットを使用しているすべてのデータプロットを一覧表示</span></h3>
+<p>構文：list <b>-rrvs</b> <b>L</b><i>&lt;more options&gt;</i>
+<br />
+アクティブグラフレイヤ内で仮想データセットを使用しているすべてのデータプロットを一覧表示
+<br /><br />
+構文：list <b>-rrvs</b> <b>P</b><i>&lt;more options&gt;</i>
+<br />
+アクティブグラフウィンドウ内で仮想データセットを使用しているすべてのデータプロットを一覧表示
+<br /><br />
+構文：list <b>-rrvs</b> <b>D</b><i>&lt;more options&gt;</i>
+<br />
+プロジェクト全体で仮想データセットを使用しているすべてのデータプロットを一覧表示
+<br /><br />
+<i>&lt;more options&gt;</i> は仮想データの情報をどのように出力するかを決定します。次の2文字が使用可能です。
+</p>
+<table class="simple">
+<tr>
+<td><b>R</b>
+</td>
+<td>範囲が見つかった場合、範囲情報（UIDを含む）を出力します。
+</td></tr>
+<tr>
+<td><b>N</b>
+</td>
+<td>範囲が見つからない場合、範囲情報（UIDを含む）を出力します。
+</td></tr></table>
+<p><br />
+たとえば、仮想データセットを使用するプロジェクト内のすべてのデータプロットを、対応する範囲が見つかるかどうかにかかわらず出力するには次のようにします。
+</p>
+<pre class="lt" style="font-family:monospace;">list <span style="color: #000080;">-</span>rrvs DRN;</pre>
+<p>出力は次のようになります。
+</p>
+<pre class="lt" style="font-family:monospace;">Page<span style="color: #000000;">:</span> Graph1
+	Frame Index <span style="color: #000080;">=</span> <span style="color: #0000dd;">1</span>
+<span style="color: #000000;">(</span><span style="color: #0000dd;">1</span><span style="color: #000000;">)</span><span style="color: #000000;">:</span>   bPlotType <span style="color: #000080;">=</span> <span style="color: #0000dd;">103</span>	UID <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span>	op <span style="color: #000080;">=</span> 0x0C53E298
+	<span style="color: #000080;">-</span><span style="color: #000080;">&gt;</span>s           	<span style="color: #000080;">=</span> 02B35FA4  VM1
+	Virtual Series uid <span style="color: #000080;">=</span> <span style="color: #0000dd;">1340</span> 	Range <span style="color: #000080;">=</span> 12CC9EC8
+	<span style="color: #000080;">-</span><span style="color: #000080;">&gt;</span>dependent   	<span style="color: #000080;">=</span> NULL
+	<span style="color: #000080;">-</span><span style="color: #000080;">&gt;</span>pXdependent 	<span style="color: #000080;">=</span> NULL
+	<span style="color: #000080;">-</span><span style="color: #000080;">&gt;</span>pDrawData 	<span style="color: #000080;">=</span> NULL
+Page<span style="color: #000000;">:</span> Graph2
+	Frame Index <span style="color: #000080;">=</span> <span style="color: #0000dd;">1</span>
+<span style="color: #000000;">(</span><span style="color: #0000dd;">1</span><span style="color: #000000;">)</span><span style="color: #000000;">:</span>   bPlotType <span style="color: #000080;">=</span> <span style="color: #0000dd;">103</span>	UID <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span>	op <span style="color: #000080;">=</span> 0x0C53EEA0
+	<span style="color: #000080;">-</span><span style="color: #000080;">&gt;</span>s           	<span style="color: #000080;">=</span> 02B360C4  VM2
+	Virtual Series uid <span style="color: #000080;">=</span> <span style="color: #0000dd;">1346</span> 	Range <span style="color: #000080;">=</span> 12CC9BA8
+	<span style="color: #000080;">-</span><span style="color: #000080;">&gt;</span>dependent   	<span style="color: #000080;">=</span> NULL
+	<span style="color: #000080;">-</span><span style="color: #000080;">&gt;</span>pXdependent 	<span style="color: #000080;">=</span> NULL
+	<span style="color: #000080;">-</span><span style="color: #000080;">&gt;</span>pDrawData 	<span style="color: #000080;">=</span> NULL</pre>
+<h3><a name="s.3B_List_all_datasets_.28previously_known_as_series.29"></a><span class="mw-headline">s; 全てのデータセットを一覧表示（以前は<b>シリーズ</b>と呼ばれていたもの）</span></h3>
+<p>構文：list <b>s</b>
+</p><p><br />
+</p>
+<h3><a name="sl.3B_List_all_loose_datasets"></a><span class="mw-headline">sl; すべてのルーズデータセットを一覧表示</span></h3>
+<p>構文：list <b>sl</b>
+</p><p>ルーズデータセットの詳細については、<a href="../../LabTalk/LabTalk/Datasets_(object).html" title="LabTalk:Datasets (object)"><b>Datasets</b></a>を参照してください。また<b>list so</b>も参考にしてください。
+</p><p><br />
+</p>
+<h3><a name="so.3B_List_all_orphaned_datasets"></a><span class="mw-headline">so; 全てのorphanedデータセットを一覧表示</span></h3>
+<p>構文：list <b>so</b>
+</p><p>このオプションは、古いバージョンのOriginで作成された可能性のある&quot;orphaned&quot;データセットをクリーンアップするために存在します。orphanedデータセットは、いくつかの方法で作成できます。通常、それらは内部使用のために作成された余剰データセットで、それを使用していた関連オブジェクトまたはプロセスが破棄されたときに何らかの理由で削除できなかったものです。 
+</p><p><b>Note</b>: <b>so</b>オプションは宣言なして作成されたルーズデータセットも返します（例：temp = {1,2,3,4,5}）。 
+<br />
+</p>
+<h3><a name="soc.3B_dump_count_of_orphaned_datasets"></a><span class="mw-headline">soc; orphanedデータセットの数を出力</span></h3>
+<p>構文：list <b>soc</b> [<i>var</i>]
+</p><p>ここで、[<i>var</i>]はorphanedデータセットの数を保持するためのオプション変数です。
+</p>
+<pre class="lt" style="font-family:monospace;">list soc v1; <span style="color: #008000;">// orphanedデータセットの数を変数v1に入れる</span></pre>
+<p><br />
+</p>
+<h3><a name="st.3B_List_all_datasets_with_storage"></a><span class="mw-headline">st; すべてのデータセットとストレージを一覧表示</span></h3>
+<p>構文：list <b>st</b>
+</p><p>Originデータセット（ワークシート列、行列オブジェクトなど）は、他のOriginオブジェクトと同様にメタデータを格納できます。ストレージを含むデータセットの<a href="../../LabTalk/LabTalk/LabTalk_Objects.html#Object_Name_and_Universal_Identifier_.28UID.29" title="LabTalk:LabTalk オブジェクト">名前とUID</a>を返すには、この<code>list</code> コマンドスイッチを使用します。
+</p><p><b>注意:</b>まれに、これにより、ファイルのサイズがプロジェクトの可視データに比べて不釣り合いに大きい膨張したプロジェクトファイルが作成され、プロジェクトファイルを開いたり、操作したり、保存したりする際に問題が発生することがあります。<code>-st</code> スイッチを使用して、関連するストレージとデータセットが存在するかどうかを確認します。
+</p><p>ストレージを持つデータセットが見つかった場合は、ストレージオブジェクトが保持する可能性のあるものをさらに調べることができます。スクリプトウィンドウまたはコマンドウィンドウを開き、データセットの名前を入力し、そのデータセット名の前に下記を追加します。
+</p>
+<pre class="lt" style="font-family:monospace;">dataset.</pre>
+<p>更に次を追加します。
+</p>
+<pre class="lt" style="font-family:monospace;">.<span style="color: #000080;">info</span>.</pre>
+<p>例：
+</p>
+<pre class="lt" style="font-family:monospace;">dataset.<span style="color: #000080;">Book1_B</span>.<span style="color: #000080;">info</span>.<span style="color: #000080;">=</span>;</pre>
+<p>この時点で、疑わしい名前付きオブジェクトが見つかった場合は、次のように問題のオブジェクトを削除します。
+</p>
+<pre class="lt" style="font-family:monospace;">dataset.<span style="color: #000080;">Book1_B</span>.<span style="color: #000080;">info</span>.<span style="color: #000080;">Remove</span><span style="color: #000000;">(</span>SYSTEM<span style="color: #000000;">)</span></pre>
+<p>ここでSYSTEMは疑わしいオブジェクトの名前です。
+</p><p><br />
+<a href="../../LabTalk/LabTalk/Datasets_(object).html#Accessing_Dataset_Storage" title="LabTalk:Datasets (object)">データセットストレージへのアクセス</a>も<i><b>参照してください</b></i>。
+</p>
+<h3><a name="svr.3B_List_all_persistent_system_variables_in_Origin"></a><span class="mw-headline">svr; Origin内のすべての永続システム変数を一覧表示</span></h3>
+<p>構文：list <b>svr</b>
+</p><p>これは永続的なシステム変数の包括的なリストであり、その値がユーザーによって変更され、レジストリに格納されているものを含みます。詳細については<a href="../../LabTalk/LabTalk/System_Variable_List.html" title="LabTalk:System Variable List">LabTalk<b>システム変数リスト</b></a>の「はじめに」を参照してください。
+</p>
+<h3><a name="v.3B_List_all_numeric_variables"></a><span class="mw-headline">v; すべての数値変数を一覧表示</span></h3>
+<p>構文：list <b>v</b>
+</p><p>出力は<i>Index   VariableName   Type   Value</i>の形です。
+</p><p>表示される3番目の列は、変数のタイプを示します。 
+</p>
+<table class="simple">
+<tr>
+<td>Type=1
+</td>
+<td>現行のOriginセッションで設定
+</td></tr>
+<tr>
+<td>Type=2
+</td>
+<td>Origin.INIファイルの[Document]セクションによって割り当てられたファイル（ユーザーフォルダ内）で定義されたSYSVAR変数
+</td></tr>
+<tr>
+<td>Type=3
+</td>
+<td>予約されたLabTalk変数
+</td></tr>
+<tr>
+<td>Type=5
+</td>
+<td>設定ファイルで設定
+</td></tr></table>
+<p>例：
+</p>
+<pre class="lt" style="font-family:monospace;">list v;   <span style="color: #008000;">// スクリプトウィンドウにすべての数値変数を表示</span></pre>
+<p>Project:<br />
+1             X  3  10<br />
+2             Y  3  7<br />
+3       FITNPTS  5  60
+</p><p>LabTalk変数を表示する別の方法については、変数エディタ、<a href="../../LabTalk/LabTalk/Ed_(object).html" title="LabTalk:Ed (object)">言語リファレンス：オブジェクトリファレンス：オブジェクトのアルファベット順のリスト： Ed (object)</a>も参照してください。
+</p><p><br />
+</p>
+<h3><a name="vs.3B_List_all_string_variables"></a><span class="mw-headline">vs; すべての文字列変数を一覧表示</span></h3>
+<p>構文：list <b>vs</b>
+</p><p>文字列レジスタを含みません。
+</p><p><br />
+</p>
+<h3><a name="vsh.3B_Output_all_virtual_datasets_that_use_shared_data_filters.2C_together_with_the_definitions_of_shared_data_filters"></a><span class="mw-headline">vsh; 共有データフィルタを使用するすべての仮想データセットを、共有データフィルタの定義とともに出力</span></h3>
+<p>構文：list <b>vsh</b>
+</p><p><i>doc -vsshdfd</i>と同様
+</p><p><br />
+</p>
+<h3><a name="vsha.3B_List_only_VSShDFs_used_in_the_active_graph_page"></a><span class="mw-headline">vsha; アクティブなグラフページで使用されているVSShDFのみを一覧表示</span></h3>
+<p>構文：list <b>vsha</b>
+</p><p><br />
+</p>
+<h3><a name="vt.3B_List_all_tree_variables"></a><span class="mw-headline">vt; すべてのツリー変数を一覧表示</span></h3>
+<p>構文：list <b>vt</b>
+</p><p><br />
+</p>
+<h3><a name="xf.3B_List_X-Functions"></a><span class="mw-headline">xf; Xファンクションを一覧表示</span></h3>
+<p>構文：list <b>xf</b> [<i>&lt;wildcardName&gt;</i>]
+</p><p><i>wildCardName</i>が指定されていない場合、すべてのXファンクションが一覧表示されます。  <i>wildCardName</i>が指定されている場合、出力はワイルドカード文字列を含む名前のXファンクションに限定されます。  例：
+</p>
+<pre class="lt" style="font-family:monospace;">list xf impi<span style="color: #000080;">*</span>;</pre>
+<p>次の出力が生成されます。
+</p><p><code>
+impIgorPro<br />
+impImage<br />
+impinfo
+</code>
+</p><p><br />
+</p>
+<table class="noborder"><tr>
+	<td style="vertical-align:top" width="60"><img src="../images/List_(command)/Tip_icon.png" width="57"  border="0" /></td><td><p>Xファンクション<a class="external text" href="../../XFunction/X-Function/Lx.html">lx</a>も同じことを行いますが、出力をより柔軟に制御することができます。
+</p></td></tr></table>
+<p><br />
+</p>
+<h2><a name="See_Also:"></a><span class="mw-headline"><font color="chocolate">関連情報：</font></span></h2>
+<p><a href="../../LabTalk/LabTalk/Ed_(object).html" title="LabTalk:Ed (object)">Ed (object)</a>：コードビルダーのスクリプトアクセスを提供します。
+</p><p><a href="../../LabTalk/LabTalk/Edit_(command).html" title="LabTalk:Edit (command)">Edit</a>：LabTalk変数と関数ダイアログを開きます。
+</p><p><a href="../../LabTalk/Category/Document_(command).html" title="Category:Document (command)">Document (command)</a>：オブジェクトをループします。
+</p><p><a href="../../LabTalk/LabTalk/Delete_(command).html" title="LabTalk:Delete (コマンド)">Delete (command)</a>：LabTalk変数を削除します。
+</p>
+
+
+    

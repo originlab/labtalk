@@ -1,0 +1,348 @@
+﻿<h1 class="firstHeading">DoToolbox</h1><p class='urlname' style='display: none'>DoToolbox-cmd</p>
+<p>このコマンドを使用して、「プロット操作・オブジェクト作成」ツールバーを管理します。  これらのオプションのほとんどは、現在選択されているツールに対して機能を実行するため、ツールのオプションを指定する前に、まずツールを選択する必要がある場合があります。
+</p><p><br />
+</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>目次</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Syntax:"><span class="tocnumber">1</span> <span class="toctext">構文</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Options:"><span class="tocnumber">2</span> <span class="toctext">オプション</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="#no_option_toolNumber_.5Bmessage1_message2_message3_....5D.3B_Select_the_tool"><span class="tocnumber">2.1</span> <span class="toctext">オプションなし<i>toolNumber [message1 message2 message3 ...]</i>; ツールを選択</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="#-a.3B_Equivalent_to_pressing_the_ALT_key"><span class="tocnumber">2.2</span> <span class="toctext">-a; Altキーを押すのと同様</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#-b_toolNumber.3B_Block_the_Tools_toolbar_tool_toolNumber"><span class="tocnumber">2.3</span> <span class="toctext">-b <i>toolNumber</i>; 「プロット操作・オブジェクト作成」ツールバーのツールをブロック<i>toolNumber</i></span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#-c.3B_Equivalent_to_pressing_the_CTRL_key"><span class="tocnumber">2.4</span> <span class="toctext">-c; CTRLキーを押すのと同様</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="#-d.3B_Make_a_single_mouse_click_equivalent_to_a_double-click"><span class="tocnumber">2.5</span> <span class="toctext">-d; マウスのシングルクリックをダブルクリックと同等にする</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="#-dh_toolNumber.3B_Open_the_toolNumber_tool_from_the_Tools_toolbar"><span class="tocnumber">2.6</span> <span class="toctext">-dh <i>toolNumber</i>; 「プロット操作・オブジェクト作成」ツールバーから <i>toolNumber</i> ツールを開く</span></a></li>
+<li class="toclevel-2 tocsection-9"><a href="#-h_message.3B_Append_message"><span class="tocnumber">2.7</span> <span class="toctext">-h <i>message</i>; メッセージを追加</span></a></li>
+<li class="toclevel-2 tocsection-10"><a href="#-i_str.3B_Call_the_specified_tool"><span class="tocnumber">2.8</span> <span class="toctext">-i <i>str</i>; 指定したツールを呼び出す</span></a></li>
+<li class="toclevel-2 tocsection-11"><a href="#-k.3B_Disables_movement_of_the_cursor_with_the_arrow_keys"><span class="tocnumber">2.9</span> <span class="toctext">-k; 矢印キーによるカーソルの移動を無効にする</span></a></li>
+<li class="toclevel-2 tocsection-12"><a href="#-l.3B_Restrict_use_of_a_Tools_toolbar_tool_to_the_active_layer"><span class="tocnumber">2.10</span> <span class="toctext">-l; 「プロット操作・オブジェクト作成」ツールバーの使用をアクティブレイヤに制限</span></a></li>
+<li class="toclevel-2 tocsection-13"><a href="#-n.3B_Advance_to_the_next_help_message_and_display_the_text"><span class="tocnumber">2.11</span> <span class="toctext">-n; 次のヘルプメッセージに進み、テキストを表示する</span></a></li>
+<li class="toclevel-2 tocsection-14"><a href="#-p_.5BWindowName.5D.3B_Select_a_graph_or_worksheet_window_to_be_pasted_to_the_layout_page"><span class="tocnumber">2.12</span> <span class="toctext">-p <i>[WindowName]</i>; レイアウトページに貼り付けるグラフまたはワークシートウィンドウを選択</span></a></li>
+<li class="toclevel-2 tocsection-15"><a href="#-pw_.5BWindowName.5D.3B_Select_a_worksheet_window_to_be_pasted_to_the_layout_page"><span class="tocnumber">2.13</span> <span class="toctext">-pw <b>[WindowName]</b>; レイアウトページに貼り付けるワークシートウィンドウを選択</span></a></li>
+<li class="toclevel-2 tocsection-16"><a href="#-pg_.5BWindowName.5D.3B_Select_a_graph_window_to_be_pasted_to_the_layout_page_window"><span class="tocnumber">2.14</span> <span class="toctext">-pg <i>[WindowName]</i>; レイアウトページウィンドウに貼り付けるグラフウィンドウを選択</span></a></li>
+<li class="toclevel-2 tocsection-17"><a href="#-q.3B_Quit_the_Tools_toolbar"><span class="tocnumber">2.15</span> <span class="toctext">-q; 「プロット操作・オブジェクト作成」ツールバーを終了</span></a></li>
+<li class="toclevel-2 tocsection-18"><a href="#-r_dataset_.5Bindex.5D.3B_Restrict_the_cursor_in_Data_Reader_or_Data_Selector_tools"><span class="tocnumber">2.16</span> <span class="toctext">-r <i>dataset [index]</i>; データリーダーツールまたはデータセレクタツールでカーソルを制限する</span></a></li>
+<li class="toclevel-2 tocsection-19"><a href="#-s.3B_Equivalent_to_pressing_the_SHIFT_key"><span class="tocnumber">2.17</span> <span class="toctext">-s; SHIFTキーを押すのと同様</span></a></li>
+<li class="toclevel-2 tocsection-20"><a href="#-t_show.3B_Show_or_hide_the_Tools_toolbar"><span class="tocnumber">2.18</span> <span class="toctext">-t <i>show</i>; 「プロット操作・オブジェクト作成」ツールバーの表示/非表示を切り替える</span></a></li>
+<li class="toclevel-2 tocsection-21"><a href="#-u_toolNumber.3B_Unblock_the_tool_toolnumber"><span class="tocnumber">2.19</span> <span class="toctext">-u <i>toolNumber</i>; <i>toolnumber</i>ツールのブロックを解除する</span></a></li>
+<li class="toclevel-2 tocsection-22"><a href="#-v.3B_Restricts_the_cursor_to_vertical-only_movement_at_the_current_X_value"><span class="tocnumber">2.20</span> <span class="toctext">-v; カーソルを現在のX値で垂直方向のみの移動に制限する</span></a></li>
+<li class="toclevel-2 tocsection-23"><a href="#-x.3B_Restricts_the_cursor_to_horizontal-only_movement_at_the_current_Y_value"><span class="tocnumber">2.21</span> <span class="toctext">-x; カーソルを現在のY値で水平方向のみの移動に制限する</span></a></li>
+<li class="toclevel-2 tocsection-24"><a href="#-y.3B_Restricts_the_cursor_to_vertical-only_movement_at_the_current_X_value"><span class="tocnumber">2.22</span> <span class="toctext">-y; カーソルを現在のX値で垂直方向のみの移動に制限する</span></a></li>
+<li class="toclevel-2 tocsection-25"><a href="#-z.3B_Activates_the_Zoom_tool"><span class="tocnumber">2.23</span> <span class="toctext">-z; ズームツールをアクティブにする</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-26"><a href="#Examples:"><span class="tocnumber">3</span> <span class="toctext">サンプル</span></a></li>
+</ul>
+</div>
+
+<h2><a name="Syntax:"></a><span class="mw-headline"><font color="chocolate">構文</font></span></h2>
+<pre class="lt" style="font-family:monospace;">dotoolbox   <span style="color: #000000;">[</span>option<span style="color: #000000;">]</span> <span style="color: #000080;">&lt;</span> toolNumber <span style="color: #000000;">[</span>message1 message2 ...<span style="color: #000000;">]</span> <span style="color: #000080;">&gt;</span></pre>
+<p>ここで、<i>toolNumber</i>は次を示します。
+</p>
+<table class="simple">
+<tr>
+<th width="5%">#
+</th>
+<th width="20%">ツール
+</th>
+<th width="5%">#
+</th>
+<th width="20%">ツール
+</th>
+<th width="5%">#
+</th>
+<th width="20%">ツール
+</th>
+<th width="5%">#
+</th>
+<th width="20%">ツール
+</th></tr>
+<tr>
+<td valign="middle" align="center">0
+</td>
+<td valign="middle" align="right">ポインタ(オブジェクトの選択) <a  class="image"><img alt="Tool Pointer.png" src="../images/DoToolbox_(command)/Tool_Pointer.png" width="19"  /></a>
+</td>
+<td valign="middle" align="center">1
+</td>
+<td valign="middle" align="right">拡大 <a  class="image"><img alt="Tool ZoomIn.png" src="../images/DoToolbox_(command)/Tool_ZoomIn.png" width="21"  /></a>
+</td>
+<td valign="middle" align="center">2
+</td>
+<td valign="middle" align="right">スクリーンリーダー<a  class="image"><img alt="Tool ScreenReader.png" src="../images/DoToolbox_(command)/Tool_ScreenReader.png" width="19"  /></a>
+</td>
+<td valign="middle" align="center">3
+</td>
+<td valign="middle" align="right">データリーダ<a  class="image"><img alt="Tool DataReader.png" src="../images/DoToolbox_(command)/Tool_DataReader.png" width="18"  /></a>
+</td></tr>
+<tr>
+<td valign="middle" align="center">4
+</td>
+<td valign="middle" align="right">データセレクタ <a  class="image"><img alt="Tool DataSelector.png" src="../images/DoToolbox_(command)/Tool_DataSelector.png" width="18"  /></a>
+</td>
+<td valign="middle" align="center">5
+</td>
+<td valign="middle" align="right">マウスで作図<a  class="image"><img alt="Draw Data.png" src="../images/DoToolbox_(command)/Draw_Data.png" width="23"  /></a>
+</td>
+<td valign="middle" align="center">6
+</td>
+<td valign="middle" align="right">テキストツール <a  class="image"><img alt="Tool Text.png" src="../images/DoToolbox_(command)/Tool_Text.png" width="21"  /></a>
+</td>
+<td valign="middle" align="center">7
+</td>
+<td valign="middle" align="right">矢印ツール <a  class="image"><img alt="Tool Arrow.png" src="../images/DoToolbox_(command)/Tool_Arrow.png" width="18"  /></a>
+</td></tr>
+<tr>
+<td valign="middle" align="center">8
+</td>
+<td valign="middle" align="right">曲線矢印ツール <a  class="image"><img alt="Tool CurvedArrow.png" src="../images/DoToolbox_(command)/Tool_CurvedArrow.png" width="19"  /></a>
+</td>
+<td valign="middle" align="center">9
+</td>
+<td valign="middle" align="right">直線ツール <a  class="image"><img alt="Tool Line.png" src="../images/DoToolbox_(command)/Tool_Line.png" width="17"  /></a>
+</td>
+<td valign="middle" align="center">10
+</td>
+<td valign="middle" align="right">四角形ツール <a  class="image"><img alt="Tool Rectangle.png" src="../images/DoToolbox_(command)/Tool_Rectangle.png" width="17"  /></a>
+</td>
+<td valign="middle" align="center">11
+</td>
+<td valign="middle" align="right">円ツール <a  class="image"><img alt="Tool Circle.png" src="../images/DoToolbox_(command)/Tool_Circle.png" width="18"  /></a>
+</td></tr>
+<tr>
+<td valign="middle" align="center">12
+</td>
+<td valign="middle" align="right">多角形ツール <a  class="image"><img alt="Tool Polygon.png" src="../images/DoToolbox_(command)/Tool_Polygon.png" width="17"  /></a>
+</td>
+<td valign="middle" align="center">13
+</td>
+<td valign="middle" align="right">折れ線ツール <a  class="image"><img alt="Tool Polyline.png" src="../images/DoToolbox_(command)/Tool_Polyline.png" width="17"  /></a>
+</td>
+<td valign="middle" align="center">14
+</td>
+<td valign="middle" align="right">自由閉曲線ツール <a  class="image"><img alt="Tool Region.png" src="../images/DoToolbox_(command)/Tool_Region.png" width="17"  /></a>
+</td>
+<td valign="middle" align="center">15
+</td>
+<td valign="middle" align="right">自由曲線ツール <a  class="image"><img alt="Tool Freehand.png" src="../images/DoToolbox_(command)/Tool_Freehand.png" width="18"  /></a>
+</td></tr>
+<tr>
+<td valign="middle" align="center">16
+</td>
+<td valign="middle" align="right">軸スケールの復元 <a  class="image"><img alt="Tool ZoomOut.png" src="../images/DoToolbox_(command)/Tool_ZoomOut.png" width="20"  /></a>
+</td>
+<td valign="middle" align="center">17
+</td>
+<td valign="middle" align="right">アクティブプロットから選択：レイヤ内でアクティブプロットまたはすべてのプロットのデータを選択（Tabキーを押してモードを切り替え） <a  class="image"><img alt="Tool RegionalSelActive.png" src="../images/DoToolbox_(command)/Tool_RegionalSelActive.png" width="16"  /></a>
+</td>
+<td valign="middle" align="center">18
+</td>
+<td valign="middle" align="right">現プロットのマスクポイント：レイヤ内でアクティブプロットまたはすべてのプロットでデータをマスクします（Tabキーを押してモードを切り替え）<a  class="image"><img alt="Tool MaskSelActive.png" src="../images/DoToolbox_(command)/Tool_MaskSelActive.png" width="18"  /></a>
+</td>
+<td valign="middle" align="center">19
+</td>
+<td valign="middle" align="right">ズームパンイングツール <a  class="image"><img alt="Tool Panning.png" src="../images/DoToolbox_(command)/Tool_Panning.png" width="20"  /></a> <br /><font color="red">(8.5.0)</font>
+</td></tr>
+<tr>
+<td valign="middle" align="center">20
+</td>
+<td valign="middle" align="right">数式を挿入 <a  class="image"><img alt="Tool Insert Equation.png" src="../images/DoToolbox_(command)/Tool_Insert_Equation.png" width="17"  /></a> <br /> <font color="red">(8.5.0)</font>
+</td>
+<td valign="middle" align="center">21
+</td>
+<td valign="middle" align="right">Wordオブジェクトを挿入 <a  class="image"><img alt="Tool Insert Word.png" src="../images/DoToolbox_(command)/Tool_Insert_Word.png" width="17"  /></a> <br /><font color="red">(8.5.0)</font>
+</td>
+<td valign="middle" align="center">22
+</td>
+<td valign="middle" align="right">Excelオブジェクトを挿入 <a  class="image"><img alt="Tool Insert Excel.png" src="../images/DoToolbox_(command)/Tool_Insert_Excel.png" width="18"  /></a> <br /><font color="red">(8.5.0)</font>
+</td>
+<td valign="middle" align="center">23
+</td>
+<td valign="middle" align="right">OLEオブジェクトを挿入<a  class="image"><img alt="Tool Insert OLE Object.png" src="../images/DoToolbox_(command)/Tool_Insert_OLE_Object.png" width="17"  /></a> <br /> <font color="red">(8.5.0)</font>
+</td></tr></table>
+<p><br />
+</p><p><b>スクリーンリーダーとデータリーダーツールに関する注意</b>
+</p><p>スクリーンリーダー<a  class="image"><img alt="DOtoolbox.png" src="../images/DoToolbox_(command)/DOtoolbox.png" width="30"  /></a>、データリーダー<a  class="image"><img alt="DOtoolbox1.png" src="../images/DoToolbox_(command)/DOtoolbox1.png" width="31"  /></a>、データセレク<a  class="image"><img alt="Tool DataSelector.png" src="../images/DoToolbox_(command)/Tool_DataSelector.png" width="18"  /></a>の各ツールはプログラム可能です。これらのツールのいずれかがアクティブなときにダブルクリックするかEnterキーを押すと、PointProcマクロが実行されます。このマクロを定義して任意のスクリプトを実行できます。
+</p><p>これらのツールのいずれかを選択すると、情報は次の変数に読み込まれます。
+</p>
+<dl><dd>X, Y --現在のカーソル位置のXおよびY座標値。  カーソルをクリックするたびに値が更新されます。</dd></dl>
+<dl><dd>px, py --ページ上のXとYの物理的な位置。ページの左上隅からドットで測定されます。物理的なページ幅はPAGE.WIDTHに格納され、物理的なページ高さはPAGE.HEIGHTに格納されます。値は、ダブルクリックするかEnterキーを押すと更新されます。</dd></dl>
+<dl><dd>%C -- データリーダーツールが現在読み込んでいるデータセットの名前(大文字と小文字を区別)。  値は、ダブルクリックするかEnterキーを押すと更新されます。スクリーンリーダーツールは&nbsp;%Cの値に影響しません。</dd></dl>
+<dl><dd>index -- データリーダ―ツールで現在選択されているデータポイントのインデックス番号。  値は、ダブルクリックするかEnterキーを押すと更新されます。スクリーンリーダーツールはインデックスの値には影響しません。</dd></dl>
+<p><b>データセレクタツールに関する注意</b>
+</p><p>データセレクタ<a  class="image"><img alt="DOtoolbox2.png" src="../images/DoToolbox_(command)/DOtoolbox2.png" width="32"  /></a>ツールを使用して開始データマーカーと終了データマーカーを設定すると、内部変数mks1とmks2が設定され、スクリプトで使用できるようになります。  プログラムでデータセレクタにアクセスする場合は、ダブルクリックするかEnterキーを押してマーカーを設定した後、PointProcマクロを再プログラムしてスクリプトを自動的に実行すると便利です。
+</p><p>このスクリプトは、行インデックスと各マーカーのXとYの値を報告します。
+</p>
+<pre class="lt" style="font-family:monospace;">dotool <span style="color: #0000dd;">4</span>;
+def pointproc <span style="color: #000000;">{</span>
+      py <span style="color: #000080;">=</span> <span style="color: #000080;">%</span>C<span style="color: #000000;">[</span>mks1<span style="color: #000000;">]</span>;
+      <span style="color: #000080;">%</span>A <span style="color: #000080;">=</span> xof<span style="color: #000000;">(</span><span style="color: #000080;">%</span>C<span style="color: #000000;">)</span>;
+      px <span style="color: #000080;">=</span> <span style="color: #000080;">%</span>A<span style="color: #000000;">[</span>mks1<span style="color: #000000;">]</span>;
+      type <span style="color: #000080;">-</span>a Left marker is at index <span style="color: #000080;">$</span><span style="color: #000000;">(</span>mks1<span style="color: #000000;">)</span>, X is <span style="color: #000080;">$</span><span style="color: #000000;">(</span>px<span style="color: #000000;">)</span>,Y is <span style="color: #000080;">$</span><span style="color: #000000;">(</span>py<span style="color: #000000;">)</span>;
+      py <span style="color: #000080;">=</span> <span style="color: #000080;">%</span>C<span style="color: #000000;">[</span>mks2<span style="color: #000000;">]</span>;
+      <span style="color: #000080;">%</span>A <span style="color: #000080;">=</span> xof<span style="color: #000000;">(</span><span style="color: #000080;">%</span>C<span style="color: #000000;">)</span>;
+      px <span style="color: #000080;">=</span> <span style="color: #000080;">%</span>A<span style="color: #000000;">[</span>mks2<span style="color: #000000;">]</span>;
+      type <span style="color: #000080;">-</span>a Right marker is at index <span style="color: #000080;">$</span><span style="color: #000000;">(</span>mks2<span style="color: #000000;">)</span>, X is <span style="color: #000080;">$</span><span style="color: #000000;">(</span>px<span style="color: #000000;">)</span>,Y is <span style="color: #000080;">$</span><span style="color: #000000;">(</span>py<span style="color: #000000;">)</span>;
+      dotool <span style="color: #0000dd;">0</span>;
+<span style="color: #000000;">}</span>;</pre>
+<h2><a name="Options:"></a><span class="mw-headline"><font color="chocolate">オプション：</font></span></h2>
+<h3><a name="no_option_toolNumber_.5Bmessage1_message2_message3_....5D.3B_Select_the_tool"></a><span class="mw-headline">オプションなし<i>toolNumber [message1 message2 message3 ...]</i>; ツールを選択</span></h3>
+<p><b>構文：</b> dotoolbox <b>no option</b> <i>toolNumber [message1 message2 message3 ...]</i>
+</p><p>「プロット操作・オブジェクト作成」ツールバーからツール<i>toolNumber</i>を選択します。<i>ToolNumber</i>は0（ポインタツール）～18（現プロットのマスクポイント）の値でなければなりません。各メッセージは、ステータスバーに表示できるツール<i>toolNumber</i>のヘルプテキスト行を定義します。<b>-n</b>オプションを参照してください。一部のツールは複数のメッセージを許可しません。また一部のツールは最初のメッセージを上書きします。
+</p>
+<h3><a name="-a.3B_Equivalent_to_pressing_the_ALT_key"></a><span class="mw-headline">-a; Altキーを押すのと同様</span></h3>
+<p><b>構文：</b> dotoolbox <b>-a</b>
+</p><p>Altキーを押すのと同様。このスイッチの機能は定義されていません。
+</p>
+<h3><a name="-b_toolNumber.3B_Block_the_Tools_toolbar_tool_toolNumber"></a><span class="mw-headline">-b <i>toolNumber</i>; 「プロット操作・オブジェクト作成」ツールバーをのツールをブロック<i>toolNumber</i></span></h3>
+<p><b>構文：</b> dotoolbox <b>-b</b> <i>toolNumber</i>
+</p><p>「プロット操作・オブジェクト作成」ツールバーをのツール <i>toolNumber</i>をブロックします。このオプションを選択すると、ツールは選択できなくなります。ブロックを解除するには<i><b>-u</b></i>オプションを参照してください。
+</p>
+<h3><a name="-c.3B_Equivalent_to_pressing_the_CTRL_key"></a><span class="mw-headline">-c; CTRLキーを押すのと同様</span></h3>
+<p><b>構文：</b> dotoolbox <b>-c</b>
+</p><p>Ctrlキーを押すのと同様です。クリック&amp;ドラッグしてデータポイントを移動できます（データは移動可能である必要があります。データは、「マウスで作図」ツールで描画するか、setコマンドで移動可能として設定します）。このオプションは、データリーダーツールがアクティブな場合にのみ有効です。
+</p>
+<h3><a name="-d.3B_Make_a_single_mouse_click_equivalent_to_a_double-click"></a><span class="mw-headline">-d; マウスのシングルクリックをダブルクリックと同等にする</span></h3>
+<p><b>構文</b> dotoolbox <b>-d</b>
+</p><p>マウスのシングルクリックをダブルクリックに相当するようにします。
+</p>
+<h3><a name="-dh_toolNumber.3B_Open_the_toolNumber_tool_from_the_Tools_toolbar"></a><span class="mw-headline">-dh <i>toolNumber</i>; 「プロット操作・オブジェクト作成」ツールバーから <i>toolNumber</i> ツールを開く</span></h3>
+<p><b>構文：</b> dotoolbox <b>-dh</b> <i>toolNumber</i>
+</p><p>「プロット操作・オブジェクト作成」ツールバーから <i>toolNumber</i> ツールを開きますが、データ表示ツールは開きません。<i>toolNumber</i>値は、スクリーンリーダー = 2、データリーダー = 3、データセレクタ = 4です。
+</p>
+<h3><a name="-h_message.3B_Append_message"></a><span class="mw-headline">-h <i>message</i>; メッセージを追加</span></h3>
+<p><b>構文：</b> dotoolbox <b>-h</b> <i>message</i>
+</p><p>選択したツールの「プロット操作・オブジェクト作成」ツールバーステータスバーのヘルプ <i>messages</i> のリストの最後にメッセージを追加します。リストは先入れ後出しです。注:dotool -h と dotool -n は、順番に使用することを目的としています (-h が最初)。
+</p>
+<h3><a name="-i_str.3B_Call_the_specified_tool"></a><span class="mw-headline">-i <i>str</i>; 指定したツールを呼び出す</span></h3>
+<p><b>構文：</b> dotoolbox <b>-i</b> <i>str</i>
+</p><p>指定したツールを呼び出します。<i>str</i>には2文字または名前全体を指定することができます：
+DR = データリーダー、SR = スクリーンリーダー、SI = 拡大、DS = データセレクタ
+</p>
+<pre class="lt" style="font-family:monospace;"><span style="color: #008000;">//どちらのスクリプトもデータリーダーを呼び出す</span>
+dotool <span style="color: #000080;">-</span>i dr;
+dotool <span style="color: #000080;">-</span>i DataReader;</pre>
+<h3><a name="-k.3B_Disables_movement_of_the_cursor_with_the_arrow_keys"></a><span class="mw-headline">-k; 矢印キーによるカーソルの移動を無効にする</span></h3>
+<p><b>構文：</b> dotoolbox <b>-k</b> 
+</p><p>データリーダーツールがアクティブな場合、<b>キーボード</b>の左右矢印キーを使用してカーソルの移動を無効にします。データリーダ―ツールを選択してdotool <b>-k</b>を実行した後、キーボードの左右矢印を使用しても、マウスカーソルが現在のデータポイントの選択と一緒に動きません。
+</p>
+<h3><a name="-l.3B_Restrict_use_of_a_Tools_toolbar_tool_to_the_active_layer"></a><span class="mw-headline">-l; 「プロット操作・オブジェクト作成」ツールバーの使用をアクティブレイヤに制限</span></h3>
+<p><b>構文：</b> dotoolbox <b>-l</b> 
+</p><p>「プロット操作・オブジェクト作成」ツールバーツールの使用をアクティブレイヤに制限します。
+</p>
+<h3><a name="-n.3B_Advance_to_the_next_help_message_and_display_the_text"></a><span class="mw-headline">-n; 次のヘルプメッセージに進み、テキストを表示する</span></h3>
+<p><b>構文：</b> dotoolbox <b>-n</b> 
+</p><p>定義されている次のヘルプメッセージに進み、ステータスバーにテキストを表示します。注意: dotool -hとdotool -nは連続して使用することを意図しています(-hが先)。
+</p>
+<h3><a name="-p_.5BWindowName.5D.3B_Select_a_graph_or_worksheet_window_to_be_pasted_to_the_layout_page"></a><span class="mw-headline">-p <i>[WindowName]</i>; レイアウトページに貼り付けるグラフまたはワークシートウィンドウを選択</span></h3>
+<p><b>構文：</b> dotoolbox <b>-p</b> <i>[WindowName]</i>
+</p><p>レイアウトページウィンドウに貼り付けるグラフまたはワークシートウィンドウを選択します。<i>WindowName</i>が指定されている場合は、そのウィンドウが使用されます。ウィンドウが指定されていない場合は、ワークシートオブジェクトを選択ダイアログボックスが開きます。ウィンドウを選択したら、レイアウトページウィンドウ内のオブジェクトの領域をクリックしてドラッグします。
+</p>
+<h3><a name="-pw_.5BWindowName.5D.3B_Select_a_worksheet_window_to_be_pasted_to_the_layout_page"></a><span class="mw-headline">-pw <b>[WindowName]</b>; レイアウトページに貼り付けるワークシートウィンドウを選択</span></h3>
+<p><b>構文：</b> dotoolbox <b>-pw</b> <i>[WindowName]</i>
+</p><p>レイアウトページウィンドウに貼り付けるワークシートウィンドウを選択します。<i>WindowName</i>が指定されている場合は、そのウィンドウが使用されます。ウィンドウが指定されていない場合は、ワークシートオブジェクトを選択ダイアログボックスが開きます。ウィンドウを選択したら、レイアウトページウィンドウ内のオブジェクトの領域をクリックしてドラッグします。
+</p>
+<h3><a name="-pg_.5BWindowName.5D.3B_Select_a_graph_window_to_be_pasted_to_the_layout_page_window"></a><span class="mw-headline">-pg <i>[WindowName]</i>; レイアウトページウィンドウに貼り付けるグラフウィンドウを選択</span></h3>
+<p><b>構文：</b> dotoolbox <b>-pg</b> <i>[WindowName]</i>
+</p><p>レイアウトページウィンドウに貼り付けるグラフウィンドウを選択します。<i>WindowName</i>が指定されている場合は、そのウィンドウが使用されます。  ウィンドウが指定されていない場合は、グラフオブジェクトを選択ダイアログボックスが開きます。ウィンドウを選択したら、レイアウトページウィンドウ内のオブジェクトの領域をクリックしてドラッグします。
+</p>
+<h3><a name="-q.3B_Quit_the_Tools_toolbar"></a><span class="mw-headline">-q; 「プロット操作・オブジェクト作成」ツールバーを終了</span></h3>
+<p><b>構文：</b> dotoolbox <b>-q</b> 
+</p><p>「プロット操作・オブジェクト作成」ツールバーを終了します。現行ツールの選択を解除し、ポインタツールを選択します。これはquittoolboxマクロが定義されている場合は実行<b>しません。</b>
+</p>
+<h3><a name="-r_dataset_.5Bindex.5D.3B_Restrict_the_cursor_in_Data_Reader_or_Data_Selector_tools"></a><span class="mw-headline">-r <i>dataset [index]</i>; データリーダーツールまたはデータセレクタツールでカーソルを制限する</span></h3>
+<p><b>構文：</b> dotoolbox <b>-r</b>
+</p><p>データリーダーツールを使用する場合、このオプションはカーソルが<i>dataset</i>内でのみ選択されるように制限します。<i>index</i>が含まれている場合、データセレクタまたはデータリーダーツールは<i>index + 1</i>位置に移動します。このコマンドは、データリーダーツールの起動後に実行する必要があります。
+</p>
+<h3><a name="-s.3B_Equivalent_to_pressing_the_SHIFT_key"></a><span class="mw-headline">-s; SHIFTキーを押すのと同様</span></h3>
+<p><b>構文：</b> dotoolbox <b>-s</b>
+</p><p>Shiftキーを押すのと同様です。カーソル移動速度に10を乗算します。
+</p>
+<h3><a name="-t_show.3B_Show_or_hide_the_Tools_toolbar"></a><span class="mw-headline">-t <i>show</i>; 「プロット操作・オブジェクト作成」ツールバーの表示/非表示を切り替える</span></h3>
+<p><b>構文：</b> dotoolbox <b>-t</b> <i>show</i>
+</p><p><span class="tb">プロット操作・オブジェクト作成</span>ツールバーを表示または非表示にします。<i>Show</i>には、1= <i>show</i>および0= hideの値を指定できます。
+</p>
+<h3><a name="-u_toolNumber.3B_Unblock_the_tool_toolnumber"></a><span class="mw-headline">-u <i>toolNumber</i>; <i>toolnumber</i>ツールのブロックを解除する</span></h3>
+<p><b>構文：</b> dotoolbox <b>-u</b> <i>toolNumber</i>
+</p><p>ツール <i>toolnumber</i>のブロックを解除します。<i>toolNumber</i>が指定されていない場合は、すべてのツールのブロックを解除します。
+</p>
+<h3><a name="-v.3B_Restricts_the_cursor_to_vertical-only_movement_at_the_current_X_value"></a><span class="mw-headline">-v; カーソルを現在のX値で垂直方向のみの移動に制限する</span></h3>
+<p><b>構文：</b> dotoolbox <b>-v</b>
+</p><p>スクリーンリーダーツールを使用する場合、このオプションはカーソルを現在のX値で垂直方向のみの移動に制限します。
+（<i>-y</i>オプションと同様）。
+</p>
+<h3><a name="-x.3B_Restricts_the_cursor_to_horizontal-only_movement_at_the_current_Y_value"></a><span class="mw-headline">-x; カーソルを現在のY値で水平方向のみの移動に制限する</span></h3>
+<p><b>構文：</b> dotoolbox <b>-x</b>
+</p><p>スクリーンリーダーツールを使用している場合、このオプションはカーソルを現在のY値で水平方向のみの移動に制限します。
+</p>
+<h3><a name="-y.3B_Restricts_the_cursor_to_vertical-only_movement_at_the_current_X_value"></a><span class="mw-headline">-y; カーソルを現在のX値で垂直方向のみの移動に制限する</span></h3>
+<p><b>構文：</b> dotoolbox <b>-y</b>
+</p><p>スクリーンリーダーツールを使用する場合、このオプションはカーソルを現在のX値で垂直方向のみの移動に制限します。
+（<b>-v</b>オプションと同様）。
+</p>
+<h3><a name="-z.3B_Activates_the_Zoom_tool"></a><span class="mw-headline">-z; ズームツールをアクティブにする</span></h3>
+<p><b>構文：</b> dotoolbox <b>-z</b>
+</p><p>現在のツールがアクティブな状態でズームツールをアクティブにします。
+</p>
+<h2><a name="Examples:"></a><span class="mw-headline"><font color="chocolate">サンプル：</font></span></h2>
+<p>次のスクリプトは、ステータスバーにメッセージを表示し、現在のレイヤに制限付きでスクリーンリーダーツールを使用します。
+</p>
+<pre class="lt" style="font-family:monospace;">dotool <span style="color: #0000dd;">2</span> <span style="color: #000000;">(</span>XとYの値を読み取る場所をクリック<span style="color: #000000;">)</span>;
+dotool <span style="color: #000080;">-</span>l;</pre>
+<p><br />
+次のスクリプトは、ステータスバーにメッセージを表示し、(シングル) クリックでダブルクリックとなるデータリーダーツールを使用します。  5秒後、別のメッセージが表示され、ツールはポインタツールに戻ります。  
+</p>
+<pre class="lt" style="font-family:monospace;">dotool <span style="color: #0000dd;">3</span> <span style="color: #000000;">(</span>ポイントをクリックして選択<span style="color: #000000;">)</span> <span style="color: #000000;">(</span>時間切れ<span style="color: #000000;">)</span>;
+dotool <span style="color: #000080;">-</span>d;
+sec <span style="color: #000080;">-</span>p <span style="color: #0000dd;">5</span>;
+dotool <span style="color: #000080;">-</span>n;
+dotool <span style="color: #0000dd;">0</span>;</pre>
+<p>このスクリプトはデータを生成してプロットします。データセレクタツールが実行され、ステータスバーに指示を入力します。2つの点をダブルクリック（または点をクリックしてEnterキーを2回押す）すると、2つの点に関する情報と接続線の勾配がスクリプトウィンドウに入力されます。
+</p>
+<pre class="lt" style="font-family:monospace;">newbook;
+col<span style="color: #000000;">(</span><span style="color: #0000dd;">1</span><span style="color: #000000;">)</span><span style="color: #000080;">=</span>data<span style="color: #000000;">(</span><span style="color: #0000dd;">1</span>,<span style="color: #0000dd;">30</span><span style="color: #000000;">)</span>;
+col<span style="color: #000000;">(</span><span style="color: #0000dd;">2</span><span style="color: #000000;">)</span><span style="color: #000080;">=</span>uniform<span style="color: #000000;">(</span><span style="color: #0000dd;">30</span><span style="color: #000000;">)</span>;
+col<span style="color: #000000;">(</span><span style="color: #0000dd;">3</span><span style="color: #000000;">)</span><span style="color: #000080;">=</span>normal<span style="color: #000000;">(</span><span style="color: #0000dd;">30</span><span style="color: #000000;">)</span>;
+range r1 <span style="color: #000080;">=</span> <span style="color: #000000;">[</span><span style="color: #000080;">%</span><span style="color: #000000;">(</span>page.<span style="color: #000080;">name</span><span style="color: #000080;">$</span><span style="color: #000000;">)</span><span style="color: #000000;">]</span><span style="color: #000080;">%</span><span style="color: #000000;">(</span>layer.<span style="color: #000080;">name</span><span style="color: #000080;">$</span><span style="color: #000000;">)</span><span style="color: #000080;">!</span><span style="color: #000000;">(</span><span style="color: #0000dd;">1</span>,<span style="color: #0000dd;">2</span><span style="color: #000000;">)</span>;
+range r2 <span style="color: #000080;">=</span> <span style="color: #000000;">[</span><span style="color: #000080;">%</span><span style="color: #000000;">(</span>page.<span style="color: #000080;">name</span><span style="color: #000080;">$</span><span style="color: #000000;">)</span><span style="color: #000000;">]</span><span style="color: #000080;">%</span><span style="color: #000000;">(</span>layer.<span style="color: #000080;">name</span><span style="color: #000080;">$</span><span style="color: #000000;">)</span><span style="color: #000080;">!</span><span style="color: #000000;">(</span><span style="color: #0000dd;">1</span>,<span style="color: #0000dd;">3</span><span style="color: #000000;">)</span>;
+win <span style="color: #000080;">-</span>t plot linesymb;
+plotxy iy<span style="color: #000000;">:</span><span style="color: #000080;">=</span>r1 ogl<span style="color: #000000;">:</span><span style="color: #000080;">=</span><span style="color: #0000dd;">1</span> color<span style="color: #000000;">:</span><span style="color: #000080;">=</span><span style="color: #0000dd;">2</span>;
+plotxy iy<span style="color: #000000;">:</span><span style="color: #000080;">=</span>r2 ogl<span style="color: #000000;">:</span><span style="color: #000080;">=</span><span style="color: #0000dd;">1</span> color<span style="color: #000000;">:</span><span style="color: #000080;">=</span><span style="color: #0000dd;">4</span>;
+dotool <span style="color: #0000dd;">3</span> <span style="color: #000000;">(</span>ignored<span style="color: #000000;">)</span>
+         <span style="color: #000000;">(</span>Double<span style="color: #000080;">-</span>click or Press Enter to pick first point<span style="color: #000000;">)</span>
+         <span style="color: #000000;">(</span>Double<span style="color: #000080;">-</span>click or Press Enter to pick second point<span style="color: #000000;">)</span>;
+count <span style="color: #000080;">=</span> <span style="color: #0000dd;">1</span>;
+dotool <span style="color: #000080;">-</span>n;
+def pointproc <span style="color: #000000;">{</span>
+    PX<span style="color: #000080;">$</span><span style="color: #000000;">(</span>count<span style="color: #000000;">)</span> <span style="color: #000080;">=</span> X;
+    PY<span style="color: #000080;">$</span><span style="color: #000000;">(</span>count<span style="color: #000000;">)</span> <span style="color: #000080;">=</span> Y;
+    count<span style="color: #000080;">++</span>;
+    dotool <span style="color: #000080;">-</span>n;
+    if<span style="color: #000000;">(</span>count <span style="color: #000080;">==</span> <span style="color: #0000dd;">3</span><span style="color: #000000;">)</span> <span style="color: #000000;">{</span>
+        type Slope of line connecting <span style="color: #000080;">$</span><span style="color: #000000;">(</span>PX1<span style="color: #000000;">)</span>,<span style="color: #000080;">$</span><span style="color: #000000;">(</span>PY1<span style="color: #000000;">)</span> to <span style="color: #000080;">$</span><span style="color: #000000;">(</span>PX2<span style="color: #000000;">)</span>,<span style="color: #000080;">$</span><span style="color: #000000;">(</span>PY2<span style="color: #000000;">)</span>; 
+        type is <span style="color: #000080;">$</span><span style="color: #000000;">(</span><span style="color: #000000;">(</span>PY2<span style="color: #000080;">-</span>PY1<span style="color: #000000;">)</span><span style="color: #000080;">/</span><span style="color: #000000;">(</span>PX2<span style="color: #000080;">-</span>PX1<span style="color: #000000;">)</span><span style="color: #000000;">)</span>;
+        dotool <span style="color: #0000dd;">0</span>;
+    <span style="color: #000000;">}</span>
+<span style="color: #000000;">}</span></pre>
+<p>描画データツールを使用するときにプロットスタイルを制御するために、BeforePointProcとAfterPointProcの2つのマクロがあります。 
+</p>
+<p class="version" >必要なOriginのバージョン: Origin 2015 SR0以降</p>
+<p>LabTalkスクリプトの例を以下に示します。
+</p>
+<pre class="lt" style="font-family:monospace;">def AfterPointProc
+<span style="color: #000000;">{</span>
+	if <span style="color: #000000;">(</span>getpts.<span style="color: #000080;">count</span> <span style="color: #000080;">&gt;=</span> <span style="color: #0000dd;">3</span><span style="color: #000000;">)</span>
+	<span style="color: #000000;">{</span>
+		set <span style="color: #000080;">%</span>B <span style="color: #000080;">-</span>l <span style="color: #0000dd;">9</span>; <span style="color: #008000;">// 線の接続方法をsplineに設定</span>
+	<span style="color: #000000;">}</span>
+<span style="color: #000000;">}</span>
+dotool <span style="color: #0000dd;">5</span>;</pre>
+<p>上記のLabTalkスクリプトでAfterPointProcをBeforePointProcに変更すると、同じスプライン結果が得られます。
+</p>
+
+
+
+
+
+
+    

@@ -1,0 +1,66 @@
+<h1 class="firstHeading">3.5.2.45 Sumproduct</h1><p class='urlname' style='display: none'>Sumproduct-func</p>
+<p><br />
+</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1"><a href="#Description"><span class="tocnumber">1</span> <span class="toctext">Description</span></a></li>
+<li class="toclevel-1"><a href="#Syntax"><span class="tocnumber">2</span> <span class="toctext">Syntax</span></a></li>
+<li class="toclevel-1"><a href="#Parameters"><span class="tocnumber">3</span> <span class="toctext">Parameters</span></a></li>
+<li class="toclevel-1"><a href="#Return"><span class="tocnumber">4</span> <span class="toctext">Return</span></a></li>
+<li class="toclevel-1"><a href="#Example"><span class="tocnumber">5</span> <span class="toctext">Example</span></a></li>
+</ul>
+</div>
+
+<h2 class="ref"><a name="Description"></a><span class="mw-headline">Description</span></h2>
+<p>This function multiplies the corresponding elements in the given datasets and returns the grand total. Non-numeric values are treated as 0.
+</p><p>By default the datasets/ranges are multiplied together and are listed comma-separated. You may replace the commas with another operator symbol (+, –, /, *) to add, subtract, divide or multiply. if you do, enclose the datasets in parentheses to clarify the order of operations.
+</p>
+<h2 class="ref"><a name="Syntax"></a><span class="mw-headline">Syntax</span></h2>
+<pre class="lt" style="font-family:monospace;">double sumproduct<span style="color: #000000;">&#40;</span>dataset vd1<span style="color: #000000;">&#91;</span>, dataset vd2,...<span style="color: #000000;">&#93;</span><span style="color: #000000;">&#41;</span></pre>
+<h2 class="ref"><a name="Parameters"></a><span class="mw-headline">Parameters</span></h2>
+<p><b>vd1</b>, <b>vd2</b>, ... 
+</p>
+<dl><dd>A dataset or a (range of) column. Eeach dataset should share the same number of items. Otherwise will return missing (--).</dd>
+<dd>The datasets are separated by comma "," by default, which means they will be multiplied together. You can also separate the datasets by other operation symbols, i.e. "+" to sum, "-" to subtract , or "/" to divide. In this case, dataset/range notation should be enclosed with parentheses to clarify the order of the operations.</dd></dl>
+<h2 class="ref"><a name="Return"></a><span class="mw-headline">Return</span></h2>
+<p>Returns the sum of all multiplied elements.
+</p>
+<h2 class="ref"><a name="Example"></a><span class="mw-headline">Example</span></h2>
+<p><b>Example 1:</b>
+</p><p>The following codes show you how “sumproduct” function works with mixed operations.
+</p>
+<pre class="lt" style="font-family:monospace;">newbook;
+wks.<span style="color: #000080;">ncols</span> <span style="color: #000080;">=</span> <span style="color: #0000dd;">4</span>;
+col<span style="color: #000000;">&#40;</span>A<span style="color: #000000;">&#41;</span> <span style="color: #000080;">=</span> <span style="color: #000000;">&#123;</span><span style="color: #0000dd;">1</span>, <span style="color: #0000dd;">1</span>, <span style="color: #0000dd;">2</span>, <span style="color: #0000dd;">2</span>, <span style="color: #0000dd;">3</span>, <span style="color: #0000dd;">3</span><span style="color: #000000;">&#125;</span>;
+col<span style="color: #000000;">&#40;</span>B<span style="color: #000000;">&#41;</span> <span style="color: #000080;">=</span> <span style="color: #000000;">&#123;</span><span style="color: #0000dd;">1</span>, <span style="color: #0000dd;">2</span>, <span style="color: #0000dd;">3</span>, <span style="color: #0000dd;">4</span>, <span style="color: #0000dd;">5</span>, <span style="color: #0000dd;">6</span><span style="color: #000000;">&#125;</span>;
+col<span style="color: #000000;">&#40;</span>C<span style="color: #000000;">&#41;</span> <span style="color: #000080;">=</span> <span style="color: #000000;">&#123;</span><span style="color: #0000dd;">3</span>, <span style="color: #0000dd;">4</span>, <span style="color: #0000dd;">5</span>, <span style="color: #0000dd;">7</span>, <span style="color: #0000dd;">9</span>, <span style="color: #0000dd;">11</span><span style="color: #000000;">&#125;</span>;
+col<span style="color: #000000;">&#40;</span>D<span style="color: #000000;">&#41;</span><span style="color: #000000;">&#91;</span><span style="color: #0000dd;">1</span><span style="color: #000000;">&#93;</span> <span style="color: #000080;">=</span> sumproduct<span style="color: #000000;">&#40;</span>col<span style="color: #000000;">&#40;</span>A<span style="color: #000000;">&#41;</span>, col<span style="color: #000000;">&#40;</span>B<span style="color: #000000;">&#41;</span>,col<span style="color: #000000;">&#40;</span>C<span style="color: #000000;">&#41;</span><span style="color: #000000;">&#41;</span>; <span style="color: #008000;">//should return 430 </span>
+<span style="color: #008000;">// In following scripts, SUMPRODUCT first evaluates the conditional test (TRUE=1, FALSE=0), </span>
+<span style="color: #008000;">// uses 1/0 flags to perform desired calculation with B&amp;C, and then sums the results.</span>
+col<span style="color: #000000;">&#40;</span>D<span style="color: #000000;">&#41;</span><span style="color: #000000;">&#91;</span><span style="color: #0000dd;">2</span><span style="color: #000000;">&#93;</span> <span style="color: #000080;">=</span> sumproduct<span style="color: #000000;">&#40;</span><span style="color: #000000;">&#40;</span>col<span style="color: #000000;">&#40;</span>A<span style="color: #000000;">&#41;</span><span style="color: #000080;">&lt;=</span><span style="color: #0000dd;">2</span><span style="color: #000000;">&#41;</span>, <span style="color: #000000;">&#40;</span>col<span style="color: #000000;">&#40;</span>B<span style="color: #000000;">&#41;</span><span style="color: #000080;">+</span>col<span style="color: #000000;">&#40;</span>C<span style="color: #000000;">&#41;</span><span style="color: #000000;">&#41;</span><span style="color: #000000;">&#41;</span>; <span style="color: #008000;">//should return 29 </span>
+col<span style="color: #000000;">&#40;</span>D<span style="color: #000000;">&#41;</span><span style="color: #000000;">&#91;</span><span style="color: #0000dd;">3</span><span style="color: #000000;">&#93;</span> <span style="color: #000080;">=</span> sumproduct<span style="color: #000000;">&#40;</span><span style="color: #000000;">&#40;</span>col<span style="color: #000000;">&#40;</span>A<span style="color: #000000;">&#41;</span><span style="color: #000080;">&lt;=</span><span style="color: #0000dd;">2</span><span style="color: #000000;">&#41;</span> <span style="color: #000080;">+</span> col<span style="color: #000000;">&#40;</span>B<span style="color: #000000;">&#41;</span><span style="color: #000080;">+</span>col<span style="color: #000000;">&#40;</span>C<span style="color: #000000;">&#41;</span><span style="color: #000000;">&#41;</span>; <span style="color: #008000;">////should return 64</span>
+col<span style="color: #000000;">&#40;</span>D<span style="color: #000000;">&#41;</span><span style="color: #000000;">&#91;</span><span style="color: #0000dd;">4</span><span style="color: #000000;">&#93;</span> <span style="color: #000080;">=</span> sumproduct<span style="color: #000000;">&#40;</span><span style="color: #000000;">&#40;</span>col<span style="color: #000000;">&#40;</span>A<span style="color: #000000;">&#41;</span><span style="color: #000080;">&lt;=</span><span style="color: #0000dd;">2</span><span style="color: #000000;">&#41;</span><span style="color: #000080;">*</span>col<span style="color: #000000;">&#40;</span>B<span style="color: #000000;">&#41;</span><span style="color: #000080;">+</span>col<span style="color: #000000;">&#40;</span>C<span style="color: #000000;">&#41;</span><span style="color: #000000;">&#41;</span>; <span style="color: #008000;">//should rerun 49</span></pre>
+<dl><dd><a  class="image"><img alt="Sumproduct Ex1.png" src="../images/Sumproduct_(function)/Sumproduct_Ex1.png?v=42213" width="612"  /></a></dd></dl>
+<p><b>Example 2:</b>
+</p><p>In the below table, we want to sum up the Product A from Sales department.
+</p><p>Enter <code>=sumproduct((A1:A7==A10$),(B1:B7==B10$),C1:C7)</code> in cell C10.
+</p>
+<dl><dd><a  class="image"><img alt="Sumproduct Ex2.png" src="../images/Sumproduct_(function)/Sumproduct_Ex2.png?v=42224" width="576"  /></a></dd></dl>
+<p><b>Example 3:</b>
+</p><p>The following codes first import a sample data of a medication intervention study, and then uses sumproduct to calculate the mean recovery time for different drugs.
+</p>
+<pre class="lt" style="font-family:monospace;">fname<span style="color: #000080;">$</span> <span style="color: #000080;">=</span> System.<span style="color: #000080;">path</span>.<span style="color: #000080;">program</span><span style="color: #000080;">$</span> <span style="color: #000080;">+</span> <span style="color: #ff00ff;">&quot;Samples\Graphing\Categorical Data.dat&quot;</span>;
+newbook;
+impASC;
+wks.<span style="color: #000080;">nCols</span> <span style="color: #000080;">=</span> <span style="color: #0000dd;">5</span>;
+col<span style="color: #000000;">&#40;</span>E<span style="color: #000000;">&#41;</span> <span style="color: #000080;">=</span> Unique<span style="color: #000000;">&#40;</span>col<span style="color: #000000;">&#40;</span>D<span style="color: #000000;">&#41;</span><span style="color: #000000;">&#41;</span><span style="color: #000080;">$</span>;
+col<span style="color: #000000;">&#40;</span>F<span style="color: #000000;">&#41;</span><span style="color: #000000;">&#91;</span><span style="color: #0000dd;">1</span><span style="color: #000000;">&#93;</span><span style="color: #000080;">$</span> <span style="color: #000080;">=</span> <span style="color: #ff00ff;">&quot;=sumproduct((D==E1$),B)/sumproduct((D1:D0==E1$))&quot;</span>;
+col<span style="color: #000000;">&#40;</span>F<span style="color: #000000;">&#41;</span><span style="color: #000000;">&#91;</span><span style="color: #0000dd;">2</span><span style="color: #000000;">&#93;</span><span style="color: #000080;">$</span> <span style="color: #000080;">=</span> <span style="color: #ff00ff;">&quot;=sumproduct((D==E2$),B)/sumproduct((D1:D0==E2$))&quot;</span>;
+col<span style="color: #000000;">&#40;</span>F<span style="color: #000000;">&#41;</span><span style="color: #000000;">&#91;</span><span style="color: #0000dd;">3</span><span style="color: #000000;">&#93;</span><span style="color: #000080;">$</span> <span style="color: #000080;">=</span> <span style="color: #ff00ff;">&quot;=sumproduct((D==E3$),B)/sumproduct((D1:D0==E3$))&quot;</span>;</pre>
+<dl><dd><a  class="image"><img alt="Sumproduct Ex3.png" src="../images/Sumproduct_(function)/Sumproduct_Ex3.png?v=42223" width="844"  /></a></dd></dl>
+
+
+
+
+
+

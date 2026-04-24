@@ -1,0 +1,181 @@
+﻿<h1 class="firstHeading">日付と時間</h1><p class='urlname' style='display: none'>Date-and-Time</p>
+<p><b>Note:</b> Origin 2019以降 <b></b>、Originには3つの日時システムがあります。古くからのデフォルトのシステムは、<a class="external text" href="../../UserGuide/UserGuide/Dates_and_Times_in_Origin.html">Originの日付と時間</a>で説明されているように、<a class="external text" href="../../UserGuide/UserGuide/Dates_and_Times_in_Origin.html#Origin.27s_Default_System:_Adjusted_Julian_Date"><b>調整済みのユリウス日システム</b></a>です。次の例は、長期的なデフォルトの日時スキームに依存しており、 ユリウス通日が表示されている場合、Originの調整日の値を参照します。これらの機能は、代替システムで動作するはずです...
+</p>
+<pre class="lt" style="font-family:monospace;">date2str<span style="color: #000000;">(</span>today<span style="color: #000000;">(</span><span style="color: #000000;">)</span>, <span style="color: #ff00ff;">&quot;MM/dd/yyyy&quot;</span><span style="color: #000000;">)</span><span style="color: #000080;">$</span> <span style="color: #000080;">=</span> 09<span style="color: #000080;">/</span><span style="color: #0000dd;">27</span><span style="color: #000080;">/</span><span style="color: #0000dd;">2018</span> <span style="color: #008000;">// デフォルトの日付と時間システム、 @DS=0</span>
+date2str<span style="color: #000000;">(</span>today<span style="color: #000000;">(</span><span style="color: #000000;">)</span>, <span style="color: #ff00ff;">&quot;MM/dd/yyyy&quot;</span><span style="color: #000000;">)</span><span style="color: #000080;">$</span> <span style="color: #000080;">=</span> 09<span style="color: #000080;">/</span><span style="color: #0000dd;">27</span><span style="color: #000080;">/</span><span style="color: #0000dd;">2018</span> <span style="color: #008000;">//  「2018」システム 、@DS=2018</span></pre>
+<p>...ただし、カレンダーの日付と同じ数値は、システムによって異なります。
+</p>
+<pre class="lt" style="font-family:monospace;">date<span style="color: #000000;">(</span><span style="color: #0000dd;">9</span><span style="color: #000080;">/</span><span style="color: #0000dd;">27</span><span style="color: #000080;">/</span><span style="color: #0000dd;">2018</span><span style="color: #000000;">)</span> <span style="color: #000080;">=</span> <span style="color: #0000dd;">2458388</span> <span style="color: #008000;">// デフォルトの日付と時間システム</span>
+date<span style="color: #000000;">(</span><span style="color: #0000dd;">9</span><span style="color: #000080;">/</span><span style="color: #0000dd;">27</span><span style="color: #000080;">/</span><span style="color: #0000dd;">2018</span><span style="color: #000000;">)</span> <span style="color: #000080;">=</span> <span style="color: #0000dd;">269</span> <span style="color: #008000;">//  「2018」システム @DSP=2018</span></pre>
+<p>Originの代替日時スキームについては、<a class="external text" href="../../UserGuide/UserGuide/Dates_and_Times_in_Origin.html#Alternate_Date-Time_Systems_in_Origin">Originの代替日時システム</a>を参照してください。
+</p>
+<table class="simple">
+<tr>
+<th>名前
+</th>
+<th>説明
+</th>
+<th>サンプル
+</th></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/AddDay_(function).html" title="LabTalk:AddDay (function)">AddDay</a>
+</td>
+<td>24時間を超えた場合に、追加された日の時刻データを返す。
+</td>
+<td><a href="../../LabTalk/LabTalk/AddDay_(function).html#Example" title="LabTalk:AddDay (function)">サンプル</a>
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Date_(function).html" title="LabTalk:Date (function)">Date</a>
+</td>
+<td>Originが日付を表すために内部的に使用しているユリウス通日を返す。
+</td>
+<td><a href="../../LabTalk/LabTalk/Date_(function).html#Example" title="LabTalk:Date (function)">サンプル</a>
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Date2str_(function).html" title="LabTalk:Date2str (function)">Date2str</a>
+</td>
+<td>入力されたユリウス日の値に対応する日付文字列を返す。
+</td>
+<td><a href="../../LabTalk/LabTalk/Date2str_(function).html#Example" title="LabTalk:Date2str (function)">サンプル</a>
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/DateDif_(function).html" title="LabTalk:DateDif (function)">DateDif</a>
+</td>
+<td>2つの日付の間の日数、月数、または年数を計算する。
+</td>
+<td><a href="../../LabTalk/LabTalk/DateDif_(function).html#Example" title="LabTalk:DateDif (function)">サンプル</a>
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Datepart_(function).html" title="LabTalk:Datepart (function)">DatePart</a>
+</td>
+<td>ユリウス日の値の特定の部分をdoubleとして返す。
+</td>
+<td><a href="../../LabTalk/LabTalk/Datepart_(function).html#Example" title="LabTalk:Datepart (function)">サンプル</a>
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Day_(function).html" title="LabTalk:Day (function)">Day</a>
+</td>
+<td>指定された日付の日付番号を返す。
+</td>
+<td><a href="../../LabTalk/LabTalk/Day_(function).html#Example" title="LabTalk:Day (function)">サンプル</a>
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Hour_(function).html" title="LabTalk:Hour (function)">Hour</a>
+</td>
+<td>0（12:00 A.M.）から23（11:00 P.M.）の範囲の整数で時間を返す。
+</td>
+<td><a href="../../LabTalk/LabTalk/Hour_(function).html#Example" title="LabTalk:Hour (function)">サンプル</a>
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Minute_(function).html" title="LabTalk:Minute (function)">Minute</a>
+</td>
+<td>0～59の範囲の整数で分を返す。
+</td>
+<td><a href="../../LabTalk/LabTalk/Minute_(function).html#Example" title="LabTalk:Minute (function)">サンプル</a>
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Month_(function).html" title="LabTalk:Month (function)">Month</a>
+</td>
+<td>月を1（1月）から12（12月）までの整数で返す。
+</td>
+<td><a href="../../LabTalk/LabTalk/Month_(function).html#Example" title="LabTalk:Month (function)">サンプル</a>
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/MonthName_(function).html" title="LabTalk:MonthName (function)">MonthName</a>
+</td>
+<td>指定した月の月名を1～12のインデックス、または日付値で返す。
+</td>
+<td><a href="../../LabTalk/LabTalk/MonthName_(function).html#Example" title="LabTalk:MonthName (function)">サンプル</a>
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Now_(function).html" title="LabTalk:Now (function)">Now</a>
+</td>
+<td>現在の日時を日付(ユリウス日)の値として返す。
+</td>
+<td><a href="../../LabTalk/LabTalk/Now_(function).html#Example" title="LabTalk:Now (function)">サンプル</a>
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Quarter_(function).html" title="LabTalk:Quarter (function)">Quarter</a>
+</td>
+<td>現在の四半期を返す。
+</td>
+<td><a href="../../LabTalk/LabTalk/Quarter_(function).html#Example" title="LabTalk:Quarter (function)">サンプル</a>
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Second_(function).html" title="LabTalk:Second (function)">Second</a>
+</td>
+<td>秒を0(ゼロ)から59.9999...の範囲の実数として返す。
+</td>
+<td><a href="../../LabTalk/LabTalk/Second_(function).html#Example" title="LabTalk:Second (function)">サンプル</a>
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Today_(function).html" title="LabTalk:Today (function)">Today</a>
+</td>
+<td>現在の日付を日付(ユリウス日)の値として返す。
+</td>
+<td><a href="../../LabTalk/LabTalk/Today_(function).html#Example" title="LabTalk:Today (function)">サンプル</a>
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Time_(function).html" title="LabTalk:Time (function)">Time</a>
+</td>
+<td>Originが日付を表すために内部的に使用している<b>ユリウス通日</b>を返す。
+</td>
+<td><a href="../../LabTalk/LabTalk/Time_(function).html#Example" title="LabTalk:Time (function)">サンプル</a>
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Time2str_(function).html" title="LabTalk:Time2str (function)">Time2str</a>
+</td>
+<td>入力されたユリウス日の値に対応する時刻文字列を返す。
+</td>
+<td><a href="../../LabTalk/LabTalk/Time2str_(function).html#Example" title="LabTalk:Time2str (function)">サンプル</a>
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/UnixTime_(function).html" title="LabTalk:UnixTime (function)">UnixTime</a>
+</td>
+<td>Unixタイムスタンプ値とユリウス日値の間で変換します。
+</td>
+<td><a href="../../LabTalk/LabTalk/UnixTime_(function).html#Example" title="LabTalk:UnixTime (function)">サンプル</a>
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/WeekDay_(function).html" title="LabTalk:WeekDay (function)">WeekDay</a>
+</td>
+<td>日付を計算して曜日を返す。デフォルトでは、日付の範囲は0（日曜日）～6（土曜日）。
+</td>
+<td><a href="../../LabTalk/LabTalk/WeekDay_(function).html#Example" title="LabTalk:WeekDay (function)">サンプル</a>
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/WeekDayName_(function).html" title="LabTalk:WeekDayName (function)">WeekDayName</a>
+</td>
+<td>曜日または日付のインデックスに基づいた曜日の名前をユリウス形式で返す。
+</td>
+<td><a href="../../LabTalk/LabTalk/WeekDayName_(function).html#Example" title="LabTalk:WeekDayName (function)">サンプル</a>
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/WeekNum_(function).html" title="LabTalk:WeekNum (function)">WeekNum</a>
+</td>
+<td>その年のカレンダー上の週番号を示す数値を返す。
+</td>
+<td><a href="../../LabTalk/LabTalk/WeekNum_(function).html#Example" title="LabTalk:WeekNum (function)">サンプル</a>
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Year_(function).html" title="LabTalk:Year (function)">Year</a>
+</td>
+<td>年を0100～9999の範囲の整数で返す。
+</td>
+<td><a href="../../LabTalk/LabTalk/Year_(function).html#Example" title="LabTalk:Year (function)">サンプル</a>
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/YearName_(function).html" title="LabTalk:YearName (function)">YearName</a>
+</td>
+<td>オプションnで指定した形式で入力した年または日付の年を返す。
+</td>
+<td><a href="../../LabTalk/LabTalk/YearName_(function).html#Example" title="LabTalk:YearName (function)">サンプル</a>
+</td></tr></table>
+
+
+
+
+
+
+
+    

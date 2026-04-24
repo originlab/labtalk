@@ -1,0 +1,58 @@
+﻿<h1 class="firstHeading">削除/閉じるオプション</h1><p class='urlname' style='display: none'>Window_Options_to_Close</p>
+<p><br />
+</p>
+<h2><a name="-c"></a><span class="mw-headline">-c</span></h2>
+<p><b>構文：</b> window <b>-c</b> &lt;<i>winName</i>&gt;
+</p><p><i>winName</i>という名前のウィンドウを削除します。
+</p><p>スクリプトのこの行では、<b>Graph1</b>ウィンドウが削除されます。ユーザへの通知は表示されません。
+</p>
+<pre class="lt" style="font-family:monospace;">window <span style="color: #000080;">-</span>c Graph1;</pre>
+<p>ウィンドウが削除されている間、データセットは<a href="../../LabTalk/LabTalk/Datasets_(object).html" title="LabTalk:Datasets (object)">ルーズデータセット</a>として残ることがあります。ウィンドウが破棄されたときにデータセットを破棄したい場合は、<a href="../../LabTalk/LabTalk/Create_(command).html" title="LabTalk:Create (command)"><b>create</b> <b>-cd</b>/<b>-dd</b>/<b>-nd</b>/<b>-xd</b></a>を使用します。
+</p><p><b>@WD</b> <a href="../../LabTalk/LabTalk/System_Variable_List.html#U.2CV.2CW" title="LabTalk:システム変数リスト">LabTalkシステム変数</a>もご参照ください。
+</p>
+<h2><a name="-cw"></a><span class="mw-headline">-cw</span></h2>
+<p><b>構文：</b> window <b>-cw</b> &lt;<i>winName</i>&gt;
+</p><p><i>winName</i>という名前のウィンドウを削除します。このコマンドはワイルドカードをサポートしています。例：
+</p>
+<pre class="lt" style="font-family:monospace;">window <span style="color: #000080;">-</span>cw Graph<span style="color: #000080;">*</span>;</pre>
+<h2><a name="-ca"></a><span class="mw-headline">-ca</span></h2>
+<p><b>構文：</b> window <b>-ca</b> <i>winName</i>
+</p><p><i>winName</i>という名前のウィンドウを閉じます。子ウィンドウのシステムメニューから<b>閉じる</b>メニューコマンドを選択した場合と同様です。
+<br />このオプションでは、ダイアログボックスが表示されます。
+</p>
+<h2><a name="-cwa"></a><span class="mw-headline">-cwa</span></h2>
+<p><b>構文：</b> window <b>-cwa</b> <i>&lt;winName&gt;</i>
+</p><p><i>winName</i>という名前のウィンドウを閉じます。子ウィンドウのシステムメニューから<b>閉じる</b>メニューコマンドを選択した場合と同様です。
+<br />このオプションでは、ダイアログボックスが表示されます。このコマンドはワイルドカードをサポートしています。例：
+</p>
+<pre class="lt" style="font-family:monospace;">win <span style="color: #000080;">-</span>cwa Book<span style="color: #000080;">*</span>;</pre>
+<h2><a name="-cd"></a><span class="mw-headline">-cd</span></h2>
+<p><b>構文：</b> window <b>-cd</b> <i>winName</i>
+</p><p>ワークブックを閉じて、すべてのデータを削除します。
+</p>
+<h2><a name="-cwd"></a><span class="mw-headline">-cwd</span></h2>
+<p><b>構文：</b> window <b>-cwd</b> <i>winName</i>
+</p><p>ワークブックを閉じて、すべてのデータを削除します。このコマンドはワイルドカードをサポートしています。例：
+</p>
+<pre class="lt" style="font-family:monospace;">win <span style="color: #000080;">-</span>cwd Book<span style="color: #000080;">*</span>;</pre>
+<h2><a name="-cn"></a><span class="mw-headline">-cn</span></h2>
+<p><b>構文：</b> window <b>-cn</b> <i>winName</i>
+</p><p>プロンプトを表示せずに<i>winName</i>メモウィンドウを閉じます。
+</p>
+<h2><a name="-cp"></a><span class="mw-headline">-cp</span></h2>
+<p><b>構文：</b> window <b>-cp</b> <i>winName</i>
+</p><p><i>winName</i>ウィンドウを閉じるメッセージを表示します。
+</p>
+<h2><a name="-cwn"></a><span class="mw-headline">-cwn</span></h2>
+<p><b>構文：</b> window <b>-cwn</b> <i>&lt;winName&gt;</i>
+</p><p>プロンプトを表示せずに<i>winName</i>メモウィンドウを閉じます。このコマンドはワイルドカードをサポートしています。例：
+</p>
+<pre class="lt" style="font-family:monospace;">win <span style="color: #000080;">-</span>cwn Notes<span style="color: #000080;">*</span>;</pre>
+
+
+
+
+
+
+
+    

@@ -1,0 +1,864 @@
+﻿<h1 class="firstHeading">Wks</h1><p class='urlname' style='display: none'>Wks-obj</p>
+<p><br />
+</p><p><i>WKS</i>オブジェクトは、Originシートに関連するプロパティとメソッドを持ちます（<b>Note: </b>シートはワークシート、行列シートのどちらも可）。<a href="../../LabTalk/LabTalk/Range_Notation.html" title="LabTalk:Range Notation">範囲表記</a>を使用して、<span class="OIndex">ワークシートオブジェクト</span>を定義できます。
+</p><p><b>range <i>wksオブジェクト</i> = [<i>ウィンドウ名</i>]<i>シート名</i>!</b>
+</p><p>範囲が指定されていない場合、Originはアクティブシートで動作します。一度ワークシート（または行列シート）オブジェクトが定義されると、オブジェクトプロパティとメソッドには、次の構文を使用してアクセスできます。
+</p><p><b><i>wksオブジェクト</i>.<i>プロパティ</i><br /><i>wksオブジェクト</i>.<i>メソッド</i>(<i>引数</i>)</b>
+</p><p>例：
+</p>
+<pre class="lt" style="font-family:monospace;">range rWa <span style="color: #000080;">=</span> <span style="color: #000000;">[</span>Book2<span style="color: #000000;">]</span>Sheet2<span style="color: #000080;">!</span>;     <span style="color: #008000;">// ワークシートオブジェクト範囲を定義</span>
+rWa.<span style="color: #000080;">colSel</span><span style="color: #000000;">(</span><span style="color: #0000dd;">2</span>,<span style="color: #0000dd;">1</span><span style="color: #000000;">)</span>;                <span style="color: #008000;">// シートの2番目の列を選択</span>
+rWa.<span style="color: #000080;">vGrids</span> <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span>;                 <span style="color: #008000;">// 垂直グリッド線を非表示</span>
+range rWb <span style="color: #000080;">=</span> <span style="color: #000080;">!</span>;                  <span style="color: #008000;">// アクティブワークシートを範囲として使用</span>
+page.<span style="color: #000080;">xlcolname</span> <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span>;            <span style="color: #008000;">// 最初にスプレッドシートセル表記をオフにする</span>
+rWb.<span style="color: #000080;">AddCol</span><span style="color: #000000;">(</span>NewColumn<span style="color: #000000;">)</span>;          <span style="color: #008000;">// 新規の列を追加</span>
+NumColumns <span style="color: #000080;">=</span> rWb.<span style="color: #000080;">ncols</span>;         <span style="color: #008000;">// 列数を確認</span></pre>
+<table class="noborder"><tr>
+	<td style="vertical-align:top" width="60"><img src="../images/Wks_(object)/Tip_icon.png" width="57"  border="0" /></td><td><p>ワークブックの<a class="external text" href="../../UserGuide/UserGuide/Column_Short_Name_Restriction.html">スプレッドシートセル表記</a>については、<a class="external text" href="../../QuickHelp/QuickHelp/Turn_off_spreadsheet_cell_notation.html"><b>FAQ-849</b></a> を参照してください。
+</p></td></tr></table>
+<table class="noborder"><tr>
+	<td style="vertical-align:top" width="60"><img src="../images/Wks_(object)/Tip_icon.png" width="57"  border="0" /></td><td><p>その他のワークシートプロパティへの読み/書きアクセスについては<a class="external text" href="../../XFunction/X-Function/Wproperties.html"><b>wproperties</b></a> Xファンクションを参照してください。さらに、<b>wks</b>オブジェクトと同じ事をするXファンクションがあります。詳細は、<a href="../../LabTalk/Script/LabTalk-Supported_X-Functions.html#Worksheet" title="Script:LabTalkがサポートするXファンクション">ワークシート操作Xファンクション</a>をご覧下さい。
+</p></td></tr></table>
+<div id="toc" class="toc"><div id="toctitle"><h2>目次</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#PropertiesWorksheet_Property"><span class="tocnumber">1</span> <span class="toctext">プロパティ<span class="OIndex" style="display:none">Worksheet Property</span></span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Methods"><span class="tocnumber">2</span> <span class="toctext">メソッド</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Examples"><span class="tocnumber">3</span> <span class="toctext">サンプル</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#Work_with_Worksheet_Columns_and_Rows"><span class="tocnumber">3.1</span> <span class="toctext">ワークシートの列と行の操作</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Display_Worksheet_Column_Labels"><span class="tocnumber">3.2</span> <span class="toctext">ワークシートの列ラベルを表示</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Get_the_unhidden_value_from_the_column_in_worksheet"><span class="tocnumber">3.3</span> <span class="toctext">ワークシートの列から非表示でない値を取得</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-7"><a href="#See_Also"><span class="tocnumber">4</span> <span class="toctext">関連項目</span></a></li>
+</ul>
+</div>
+
+<h2><a name="PropertiesWorksheet_Property"></a><span class="mw-headline">プロパティ<span class="OIndex" style="display:none">Worksheet Property</span></span></h2>
+<p>アクティブなワークシートまたは行列シートで操作する場合は、 <font color="navy"><i>wks</i>.<i>プロパティ</i></font> を使用してシートプロパティにアクセスできます。それ以外の場合は、範囲表記を使用する必要があります。
+</p>
+<table class="simple">
+<tr>
+<th width="100">プロパティ
+</th>
+<th width="70">アクセス
+</th>
+<th width="550">説明
+</th></tr>
+<tr>
+<td> wks.AutoAddRows
+</td>
+<td> 読み/書き<br />整数
+</td>
+<td> シートのサイズ変更時に行を自動追加。
+<p><i>例</i>：
+</p>
+<pre class="lt" style="font-family:monospace;">range aa<span style="color: #000080;">=</span><span style="color: #000000;">[</span>book1<span style="color: #000000;">]</span>sheet2<span style="color: #000080;">!</span>;
+<span style="color: #008000;">// 固定を維持するために行の自動追加を無効化</span>
+<span style="color: #008000;">// 列数と行数</span>
+aa.<span style="color: #000080;">AutoAddRows</span><span style="color: #000080;">=</span><span style="color: #0000dd;">0</span>; 
+<span style="color: #008000;">// 3x2のワークシートを作成</span>
+aa.<span style="color: #000080;">nCols</span> <span style="color: #000080;">=</span> <span style="color: #0000dd;">2</span>;aa.<span style="color: #000080;">nRows</span> <span style="color: #000080;">=</span> <span style="color: #0000dd;">3</span>;</pre>
+</td></tr>
+<tr>
+<td> wks.band
+<p align="right"><font color="red">(2023)</font></p>
+</td>
+<td> 読み/書き<br />整数
+</td>
+<td> 行の縞模様のオン/オフをの切り替え。0=行の縞模様オフ、1=行の縞模様オン。
+<p><a href="../../LabTalk/LabTalk/System_Variable_List.html#U.2CV.2CW" title="LabTalk:システム変数リスト">システム変数@WBC</a>を参照して縞模様の色を変更し、<a href="../../LabTalk/LabTalk/System_Variable_List.html#U.2CV.2CW" title="LabTalk:システム変数リスト">@WBE</a>を参照して塗りつぶす行を奇数と偶数の間で切り替えます。
+</p>
+</td></tr>
+<tr>
+<td> wks.c1, c2, r1, r2
+</td>
+<td> 読み取り<br />整数
+</td>
+<td> 選択範囲。最初と最後の列と行。
+</td></tr>
+<tr>
+<td> wks.catI
+</td>
+<td> 読み/書き<br />
+</td>
+<td> <a class="external text" href="../../QuickHelp/QuickHelp/How_to_show_category_indices.html">カテゴリインデックスまたはカテゴリ</a>の表示切り替え。0=カテゴリを表示、1=インデックスを表示。
+</td></tr>
+<tr>
+<td> wks.cName<i>n</i>$
+</td>
+<td> 読み取り<br />文字列
+</td>
+<td> <i>n</i>番目のワークシート列のショートネーム。特定の列型を操作するには<code>wks.cnamemode</code> を参照してください。（参考：<a class="external text" href="../../LabTalk/Category/Wks.Col_(object).html">Wks.Col （オブジェクト）</a>）
+</td></tr>
+<tr>
+<td> wks.cNameMode
+</td>
+<td> 読み/書き<br />整数
+</td>
+<td> その値によって<code>wks.cnamen$</code> が操作する列を決定。<code>wks.cnamemode</code> には次の値を設定できます。0=すべての列、1=数値列、2=テキスト列、4=テキストと数値(混合)列、64=選択範囲内の列。完全なデータセット名を<code>wks.cnamen$</code> に返すには<code>wks.cnamemode = 128</code> を設定します。
+</td></tr>
+<tr>
+<td> <a href="../../LabTalk/Category/Wks.Col_(object).html" title="Category:Wks.Col (object)">wks.col</a>
+</td>
+<td> 読み/書き<br />整数
+</td>
+<td> 現在の作業列（ワークシート、デフォルト1）またはアクティブオブジェクト（行列）。<a href="../../LabTalk/Category/Wks.Col_(object).html" title="Category:Wks.Col (object)">Wks.Col (Object)</a>プロパティも参照してください。
+</td></tr>
+<tr>
+<td> wks.colWidth
+</td>
+<td> 読み/書き<br />整数
+</td>
+<td>
+<p>アクティブなワークシートの列幅。 
+</p><p><a class="external text" href="../../XFunction/X-Function/Wcolwidth.html"><b>wcolwidth</b></a> Xファンクションや<a class="external text" href="../../LabTalk/Category/Wks.Col_(object).html#Properties_and_Methods.7B.7B.23Index:.7CColumn_Method.7D.7D">wks.col.width</a>も参照してください。これらは個々の列の幅を設定するのに使うことができます。
+</p>
+</td></tr>
+<tr>
+<td> wks.colxy$
+<p align="right"><font color="red">(2025)</font></p>
+</td>
+<td> 読み/書き<br />文字列
+</td>
+<td> 列の属性の設定/取得。列属性の記号については<a class="external text" href="../../UserGuide/UserGuide/Set_Column_Designation.html#Column_Designation_Symbols">このページ</a>を参照してください。反復パターン(かっこで囲まれたパターンが繰り返される)およびLading/Trailing指定シンボルに対応しています。例：
+<pre class="lt" style="font-family:monospace;"><span style="color: #008000;">//1番目の列をx,2番目の列をyに設定。これ以降の列属性は指定していないため、全てYになる</span>
+wks.<span style="color: #000080;">colxy</span><span style="color: #000080;">$</span><span style="color: #000080;">=</span>xy; 
+
+<span style="color: #008000;">// 1番目の列は無属性、残りの列はxyのペアを繰り返す</span>
+wks.<span style="color: #000080;">colxy</span><span style="color: #000080;">$</span><span style="color: #000080;">=</span>n<span style="color: #000000;">(</span>xy<span style="color: #000000;">)</span>; 
+
+<span style="color: #008000;">// 1番目の列を無属性、2番目列をラベル、最後の列をzに設定。</span>
+<span style="color: #008000;">// その間の列はxyのペアを繰り返す</span>
+wks.<span style="color: #000080;">colxy</span><span style="color: #000080;">$</span><span style="color: #000080;">=</span>nl<span style="color: #000000;">(</span>xy<span style="color: #000000;">)</span>z;</pre>
+</td></tr>
+<tr>
+<td> wks.DB
+<p align="right"><font color="red">(2023b)</font></p>
+</td>
+<td> 読み/書き<br />整数
+</td>
+<td> データベースのインポート。<a href="../../LabTalk/LabTalk/Wks.DB_(object).html" title="LabTalk:Wks.DB (object)">Wks.DB オブジェクト</a>プロパティも参照してください。
+</td></tr>
+<tr>
+<td> wks.DC
+<p align="right"><font color="red">(2019b SR0)</font></p>
+</td>
+<td> 読み/書き<br />整数
+</td>
+<td> データコネクタ。<a href="../../LabTalk/Category/Wks.DC_(object).html" title="Category:Wks.DC (object)">Wks.DC オブジェクト</a>プロパティも参照してください。
+</td></tr>
+<tr>
+<td> wks.epd
+</td>
+<td> 読み/書き<br />
+</td>
+<td> 「レイヤ内容」や「作図のセットアップ」などグラフ関連のダイアログでプロットを行うときに、現在のワークシートを除外するかどうかを指定します。1=このシートを作図ダイアログから除外するためにタグ付けする、0=除外タグを解除。
+<p><a href="../../LabTalk/LabTalk/System_Variable_List.html#T" title="LabTalk:System Variable List">システム変数@TCE</a>を使用して、@TCE=Color(255, 60, 60)のように任意の色でタグ付き（除外）シート名を指定できます。
+</p>
+</td></tr>
+<tr>
+<td> wks.export
+</td>
+<td> 読み/書き<br />
+</td>
+<td> ワークシートのエクスポート設定。サブメソッドは<b>wks.export.=</b>と入力します。
+</td></tr>
+<tr>
+<td> wks.font
+</td>
+<td> 読み/書き<br />整数
+</td>
+<td> シート内の標準名スタイルのフォント（インデックスによる）。<a href="../../LabTalk/LabTalk/Font_(function).html" title="LabTalk:Font (function)">font(name)</a>関数を使用して、<code>wks.font = font(Courier New);</code> のようにフォントのインデックスを取得することができます。
+</td></tr>
+<tr>
+<td> wks.frozen$
+</td>
+<td> 読み/書き<br />文字列
+</td>
+<td>固定された列および/または行の範囲を設定または読み取るか、列/行を固定解除します。
+<pre class="lt" style="font-family:monospace;"><span style="color: #008000;">// 以下はユーザーがセルD4を選択し、</span>
+<span style="color: #008000;">//ミニツールバーのウィンドウ枠の固定ボタンをクリックするのと同様</span>
+wks.<span style="color: #000080;">frozen</span><span style="color: #000080;">$</span><span style="color: #000080;">=</span><span style="color: #ff00ff;">&quot;C 3&quot;</span>; <span style="color: #008000;">// 列A~C、行1~3を固定</span>
+wks.<span style="color: #000080;">frozen</span><span style="color: #000080;">$</span><span style="color: #000080;">=</span><span style="color: #ff00ff;">&quot;&quot;</span>; <span style="color: #008000;">// 列A~C、行1~3の固定解除</span></pre>
+</td></tr>
+<tr>
+<td> wks.fSize
+</td>
+<td> 読み/書き<br />float
+</td>
+<td> シート内の標準名スタイルのフォントサイズ（<code> wks.fsize = 12;</code> など）。
+</td></tr>
+<tr>
+<td> wks.hasdc
+<p align="right"><font color="red">(2019b SR0)</font></p>
+</td>
+<td> 読み取り<br />bool
+</td>
+<td> ワークブック/ワークシートにデータコネクタがあるかどうかを返します。
+<p>0 =ワークブックにデータコネクタがない、<br />
+1 =ワークシートがデータコネクタによって出力(宛先シート)として使用されている、<br />
+2 =ワークシートがどのデータコネクタによっても出力として使用されていない。この場合、ワークシートにデータコネクタが含まれているが、有効な接続が構築されていません。ワークシートがデータコネクタによって出力として使用されているかどうかを確認するには、 &quot;wks.DC.Valid&quot;を使用します。
+</p>
+</td></tr>
+<tr>
+<td> wks.hGrids<br />wks.vGrids
+</td>
+<td> 読み/書き<br />整数
+</td>
+<td> 水平グリッドと垂直グリッドを表示：1=有効、0=無効。<b>&dagger;</b>
+</td></tr>
+<tr>
+<td> wks.hiddenRows
+<p align="right"><font color="red">(2019 SR0)</font></p>
+</td>
+<td> 読み取り<br />整数
+</td>
+<td> ワークシート内の非表示行の数を返す。wks.hiddenRows == wks.maxRows - wks.visibleRows
+</td></tr>
+<tr>
+<td> wks.hierarchical
+</td>
+<td> 読み取り<br />整数
+</td>
+<td> ワークシートが階層型であるかどうか（つまり、解析レポートシートのような折りたたみ可能なノードやテーブルが含まれているかどうか）を確認します。1=階層型、0=フラットシート。
+</td></tr>
+<tr>
+<td> wks.gap
+<p align="right"><font color="red">(2021b)</font></p>
+</td>
+<td> 読み/書き<br />整数
+</td>
+<td> ウィンドウのタイトルバーとシートの上部の間隔。この領域を使用して、スクリプトを実行するテキストオブジェクトやカスタムボタンの配置などを行えます。間隔はテキストのポイントサイズ単位で設定されます（例えば「20」を入力すると、20ポイントのテキストに対応する間隔が作成されます）。
+</td></tr>
+<tr>
+<td> wks.ignorehidden
+</td>
+<td> 読み/書き<br />
+</td>
+<td> プロットと解析操作での非表示行の扱い。
+<p>0 = プロットと解析に非表示行のデータを含める。<br />
+1 = （デフォルト）プロットと解析で非表示行を無視する。
+</p>
+</td></tr>
+<tr>
+<td> wks.image
+</td>
+<td> 読み/書き<br />
+</td>
+<td> 行ビュー設定。0=データモード、1=イメージモード。
+</td></tr>
+<tr>
+<td> wks.import
+</td>
+<td> 読み/書き<br />
+</td>
+<td> ワークシートのインポート設定。サブメソッドは<b>wks.import.=</b>と入力します。
+</td></tr>
+<tr>
+<td> wks.index
+</td>
+<td> 読み/書き<br />整数
+</td>
+<td> ワークブック内のワークシートインデックス（1, 2, 3など）。
+<p>このプロパティを使用してワークシートを並べ替えます。例：
+</p>
+<pre class="lt" style="font-family:monospace;">newbook sheet<span style="color: #000000;">:</span><span style="color: #000080;">=</span><span style="color: #0000dd;">4</span>; <span style="color: #008000;">// 4つのシートを持つワークブックを作成;</span>
+wks.<span style="color: #000080;">index</span> <span style="color: #000080;">=</span> <span style="color: #0000dd;">3</span>; <span style="color: #008000;">// &quot;Sheet1&quot;をワークシートの3番目に移動;</span></pre>
+<p><b>Note:</b> このプロパティは <font color="red">8.5.0 SR1</font>. 
+</p>
+</td></tr>
+<tr>
+<td> wks.isc
+</td>
+<td> 読み/書き<br />
+</td>
+<td> インポートウィザードとデータコネクタ両方のインポート時の列幅のシートレベル制御。
+<p>0=インポート時に列幅を調整しない。<br />
+1=（デフォルト）システム変数<a href="../../LabTalk/LabTalk/System_Variable_List.html#H.2CI.2CJ.2CK" title="LabTalk:System Variable List"><b>@ISC</b></a>の値に従う。
+</p>
+</td></tr>
+<tr>
+<td> wks.joinMode
+</td>
+<td> 読み/書き<br />整数
+</td>
+<td> ワークシートの統合モードを設定/取得。値は次のとおりです。
+<p>0=列名が一致する場合は列挙する。一致する行が見つからない場合は追加する。
+</p><p>1=列名が一致する場合は削除する。一致する行が見つからない場合は追加する。
+</p><p>2=列名が一致する場合は列挙する。一致する行が見つからない場合は削除する。<br />
+3=列名が一致する場合は削除する。一致する行が見つからない場合は削除する。<br />
+<code>wks.join()</code> メソッドを参照してください。 
+</p>
+</td></tr>
+<tr>
+<td> wks.khra
+<p align="right"><font color="red">(2018 SR0)</font></p>
+</td>
+<td> 読み/書き<br />bool
+</td>
+<td> 列/棒グラフのX列にテキストが含まれている場合、このテキストは行インデックスの順に主目盛のラベルとして使用されます。Origin 2018以前は、ワークシートデータフィルタを適用する場合、データポイントはプロットされていなくても、プロットはフィルタされたデータの空の目盛とラベルを登録していました。これはOrigin 2018で変更され、フィルタされたデータに関連する目盛が表示されなくなりました。これは、テキストを含み、<a class="external text" href="../../UserGuide/UserGuide/Displaying_Supporting_Data_in_Worksheet_Header_Rows.html#Categories">カテゴリとして設定されて</a>いないX列にのみ適用されます。0（デフォルト）=フィルタリングされたデータラベルを非表示。1 =データがフィルタリングされていてもデータラベルを表示（古い動作）。
+</td></tr>
+<tr>
+<td> wks.loadedgrid
+</td>
+<td> 読み/書き<br />整数
+</td>
+<td> グリッドが読み込まれていない場合は0、グリッドが読み込まれている場合は1。
+</td></tr>
+<tr>
+<td> wks.lock
+<p align="right"><font color="red">(2023)</font></p>
+</td>
+<td>読み/書き<br />整数
+</td>
+<td> ワークシートの保護/ロック。1=真、0=偽。
+<p>システム変数<a href="../../LabTalk/LabTalk/System_Variable_List.html#U.2CV.2CW" title="LabTalk:System Variable List">@WPO</a>で保護されたワークシートの例外を設定します。
+</p>
+</td></tr>
+<tr>
+<td> wks.longname$
+</td>
+<td> 読み/書き<br />文字列
+</td>
+<td> ワークシートのロングネーム。Origin 2020b以降、「ロングネーム」=「ラベル」です。
+</td></tr>
+<tr>
+<td> wks.maxRows
+</td>
+<td> 読み取り<br />整数
+</td>
+<td> すべての列をスキャンして、値を持つ最大の行インデックスを見つけます。<code>wks.nRows</code>を使用してワークシートを設定できますが、値を入力する前は<code>wks.maxRows</code> はゼロのままになります。ワークシートのサイズを小さくするには、wks.nRowsを使用します。このプロパティは最も長い列行サイズのみを取得します。
+</td></tr>
+<tr>
+<td> wks.multiX
+</td>
+<td> 読み取り<br />整数
+</td>
+<td> 複数X列 。1=有効、0=無効。
+</td></tr>
+<tr>
+<td> wks.name$
+</td>
+<td> 読み/書き<br />文字列
+</td>
+<td> ワークシート名。
+</td></tr>
+<tr>
+<td> wks.nancolor
+</td>
+<td> 読み/書き<br />整数
+</td>
+<td> 行列イメージビューの欠損値の色。
+</td></tr>
+<tr>
+<td> wks.nMats
+</td>
+<td> 読み/書き<br />整数
+</td>
+<td> 行列シート内の行列オブジェクトの数。
+</td></tr>
+<tr>
+<td> wks.nCols
+</td>
+<td> 読み/書き<br />整数
+</td>
+<td> ワークシート内の列の数。Origin 8以前は、このプロパティは読み取り専用です。
+</td></tr>
+<tr>
+<td> wks.nRows
+</td>
+<td> 読み/書き<br />整数
+</td>
+<td> ワークシート内の行の数。Origin 8以前は、このプロパティは読み取り専用です。<code>wks.maxRows</code>も参照してください。
+</td></tr>
+<tr>
+<td> wks.rhw
+</td>
+<td> 読み/書き<br />整数
+</td>
+<td> セルの高さの1/10単位での行ヘッダ幅。
+<p><i>例</i>：
+</p>
+<pre class="lt" style="font-family:monospace;"><span style="color: #008000;">// 約5文字分の高さに設定</span>
+range aa<span style="color: #000080;">=</span><span style="color: #0000dd;">2</span><span style="color: #000080;">!</span>; <span style="color: #008000;">// アクティブなブックの2番目のシート</span>
+aa.<span style="color: #000080;">rhw</span><span style="color: #000080;">=</span><span style="color: #0000dd;">50</span>;</pre>
+</td></tr>
+<tr>
+<td> wks.sel
+</td>
+<td> 読み取り<br />整数
+</td>
+<td> 選択フラグ。16進数の戻り値は、ワークシートで選択されている内容を示します。値は次のいずれか、またはこれらのビットの組み合わせです。0=なし、1=編集セル、2=列、4=行、8=範囲、16=1列。
+</td></tr>
+<tr>
+<td> wks.selmerged
+<p align="right"><font color="red">(2026)</font></p>
+</td>
+<td> 読み/書き<br />整数
+</td>
+<td> 選択されたセルを動的に結合します。 -1 = 動的結合に対する有効な選択がない（単一のセルが選択されている場合）。0 = セルを動的に結合しない。1 = セルを動的に結合する。
+</td></tr>
+<tr>
+<td> wks.showformula
+<p align="right"><font color="red">(2026)</font></p>
+</td>
+<td> 読み/書き<br />整数
+</td>
+<td> 現在のワークシートの<b>数式を表示する</b>のステータスを取得/設定します。0=[数式を表示する]をオフにする、1=[数式を表示する]をオンにする。
+</td></tr>
+<tr>
+<td> wks.timer
+<p align="right"><font color="red">(2026)</font></p>
+</td>
+<td> 読み/書き<br />整数
+</td>
+<td> データコネクタとデータベースコネクタの両方で「自動再インポート」機能をオンにするかどうかを決定します。
+<p>0 =自動再インポートを無効にする。<br />
+任意の正の整数<i>n</i> =自動再インポートを有効にする。再インポート期間<i>n</i>は5秒単位です。例）<code>wks.timer = 1</code> はコネクタが5秒ごとに更新されることを意味します。
+<br />例えば、次のコードはユーザファイルフォルダのデータベース&quot;Book1.sqlite&quot;に接続し、5秒ごとに更新します。
+</p>
+<pre class="lt" style="font-family:monospace;">doc <span style="color: #000080;">-</span>s;doc <span style="color: #000080;">-</span>n;
+strConn<span style="color: #000080;">$</span> <span style="color: #000080;">=</span> <span style="color: #ff00ff;">&quot;Driver={SQLite3 ODBC Driver};Database=%YBook1.sqlite;&quot;</span>;
+strSQL<span style="color: #000080;">$</span> <span style="color: #000080;">=</span> <span style="color: #ff00ff;">&quot;Select * from Sheet1&quot;</span>;
+dbEdit execute<span style="color: #000000;">:</span><span style="color: #000080;">=</span>change conn<span style="color: #000000;">:</span><span style="color: #000080;">=</span>strConn<span style="color: #000080;">$</span> sql<span style="color: #000000;">:</span><span style="color: #000080;">=</span>strSQL<span style="color: #000080;">$</span>;
+dbImport;
+wks.<span style="color: #000080;">timer</span> <span style="color: #000080;">=</span> <span style="color: #0000dd;">1</span>;</pre>
+</td></tr>
+<tr>
+<td> wks.upc
+</td>
+<td> 読み取り<br />整数
+</td>
+<td> ユーザパラメータの数。
+</td></tr>
+<tr>
+<td> wks.useFont
+</td>
+<td> 読み/書き<br />整数
+</td>
+<td> フォントの使用法。1=選択したフォントを使用、0=システムフォントを使用。
+</td></tr>
+<tr>
+<td> wks.userParam<i>n</i>
+</td>
+<td> 読み/書き<br />整数
+</td>
+<td> 指定したユーザーパラメーターの表示/非表示。例：
+<pre class="lt" style="font-family:monospace;">wks.<span style="color: #000080;">UserParam1</span><span style="color: #000080;">=</span><span style="color: #0000dd;">1</span>; <span style="color: #008000;">// 最初のユーザパラメータを表示</span></pre>
+</td></tr>
+<tr>
+<td> wks.userParam<i>n</i>$
+</td>
+<td> 読み/書き<br />文字列
+</td>
+<td> ユーザーパラメーターの名前にアクセスする。例：
+<pre class="lt" style="font-family:monospace;"><span style="color: #008000;">// パラメータ名を &quot;Site Index&quot;に設定</span>
+wks.<span style="color: #000080;">UserParam1</span><span style="color: #000080;">$</span><span style="color: #000080;">=</span><span style="color: #ff00ff;">&quot;Site Index&quot;</span>;</pre>
+</td></tr>
+<tr>
+<td> wks.View
+<p align="right"><font color="red">(2020b)</font></p>
+</td>
+<td> 読み/書き<br />整数
+</td>
+<td> ワークシートの<a class="external text" href="../../UserGuide/UserGuide/Column_List_View.html">列リストビュー</a>のオン/オフを切り替える。0=標準表示、1=列リストビュー。
+</td></tr>
+<tr>
+<td> wks.VisibleCols
+</td>
+<td> 読み取り<br />整数
+</td>
+<td> ワークシートに表示されている列の数(非表示の列は含まない)。
+</td></tr>
+<tr>
+<td> wks.VisibleRows
+</td>
+<td> 読み取り<br />整数
+</td>
+<td> ワークシートに表示されている行の数(非表示の行は含まない)。
+</td></tr>
+<tr>
+<td> wks.x(y).comments$
+</td>
+<td> 読み/書き<br />文字列
+</td>
+<td> 行列のX/Y座標のコメント。
+</td></tr>
+<tr>
+<td> wks.x(y).longname$
+</td>
+<td> 読み/書き<br />文字列
+</td>
+<td> 行列のX/Y座標のロングネーム。
+</td></tr>
+<tr>
+<td> wks.x(y).units$
+</td>
+<td> 読み/書き<br />文字列
+</td>
+<td> 行列のX/Y座標の単位。
+</td></tr></table>
+<table class="noborder"><tr>
+	<td style="vertical-align:top" width="60"><img src="../images/Wks_(object)/Tip_icon.png" width="57"  border="0" /></td><td><p><b>&dagger;</b>wks.merge()はラベル専用であり、選択したワークシートセルを統合するLabTalkプロパティやコマンドはありません。ただし<b>セルの統合</b>ツールバーボタンのメニューIDを取得して、<a href="../../LabTalk/LabTalk/Menu_(command).html#-e.3B_Execute_the_menu_command_with_the_specified_ID" title="LabTalk:Menu (command)"><b>menu-e</b></a>コマンドを使用することでこれを実現できます。
+</p></td></tr></table>
+<h2><a name="Methods"></a><span class="mw-headline">メソッド</span></h2>
+<p><span class="OIndex" style="display:none">ワークシートメソッド</span>
+</p>
+<table class="simple">
+<tr>
+<th width="350">メソッド
+</th>
+<th width="540">説明
+</th></tr>
+<tr>
+<td> wks.AddButton(<i>objname</i>, <i>label</i>)
+</td>
+<td> ワークシートの上部の隙間にボタンを追加。
+</td></tr>
+<tr>
+<td> wks.addCol(<i>name</i>)
+</td>
+<td> ワークシートの最後に名前付きの列を1列追加する。<i>name</i>が指定されていない場合は、一般的な名前が選択されます。
+<table class="noborder">
+	<tr>
+	<td style="vertical-align:top" width="60"><img src="../images/Wks_(object)/Alert_icon.png" width="57"  border="0" /></td><td><p>列名を指定した場合、かつワークブックで<a class="external text" href="../../UserGuide/UserGuide/Column_Short_Name_Restriction.html">スプレッドシートセル表記</a>がオフになっている場合、新しい列でこの名前が使用されます。詳細は、<a class="external text" href="../../QuickHelp/QuickHelp/Turn_off_spreadsheet_cell_notation.html"><b>FAQ-849</b></a>を参照してください。
+<p><font color="red">(2025b)</font>スプレッドシートセル表記がONの場合、指定した列名は新しい列のロングネームとなります。
+</p>
+</p>
+	</td>
+	</tr>
+	</table>
+</td></tr>
+<tr>
+<td> wks.addUD(<i>name</i>, <i>str</i>, <i>col</i>)
+</td>
+<td> ユーザパラメータを追加。<i>name</i>は追加するユーザパラメータ名、<i>col</i>は列範囲または単一列、<i>str</i>はユーザパラメータの内容です。
+<p>例：
+</p>
+<pre class="lt" style="font-family:monospace;"> <span style="color: #008000;">//列1と2にユーザパラメータ &quot;File Name&quot; を追加し、その内容を &quot;some file name&quot;とする</span>
+wks.<span style="color: #000080;">AddUD</span><span style="color: #000000;">(</span><span style="color: #ff00ff;">&quot;File Name&quot;</span>, <span style="color: #ff00ff;">&quot;some file name&quot;</span>, <span style="color: #0000dd;">1</span><span style="color: #000000;">:</span><span style="color: #0000dd;">2</span><span style="color: #000000;">)</span>;
+
+<span style="color: #008000;">//2列目にユーザパラメータ行 &quot;FileName&quot; を追加し、その内容を &quot;some file name&quot;とする</span>
+wks.<span style="color: #000080;">AddUD</span><span style="color: #000000;">(</span>FileName, <span style="color: #ff00ff;">&quot;some file name&quot;</span>, <span style="color: #0000dd;">2</span><span style="color: #000000;">)</span>; 
+
+<span style="color: #008000;">//2列目から最後の列にユーザパラメータ行 &quot;File&quot; を追加し、その内容を &quot;F1.dat&quot;とする</span>
+wks.<span style="color: #000080;">AddUD</span><span style="color: #000000;">(</span>FileName, <span style="color: #ff00ff;">&quot;F1.dat&quot;</span>, <span style="color: #0000dd;">2</span><span style="color: #000000;">:</span>end<span style="color: #000000;">)</span>;</pre>
+</td></tr>
+<tr>
+<td> wks.colSel(<i>colNum</i>, <i>n</i>)
+</td>
+<td> 列の選択。<i>n</i> = 1の場合、<i>colNum</i>列を選択します。<i>n</i> = 0の場合、<i>colNum</i>列の選択を解除します。
+</td></tr>
+<tr>
+<td> wks.copy(<i>strRegister</i>, <i>Col</i>, <i>Row</i>)
+</td>
+<td> Copy(<i>Z</i>): ワークシート全体を<a href="../../LabTalk/LabTalk/String_registers.html" title="LabTalk:文字列レジスタ">文字列レジスタ</a>&nbsp;%Zにコピーします。（最大6,290文字を保持できる%Zを使用することをお勧めします。これよりも文字数が多い場合はコピーされず、エラーは発生しません）。<code>wks.paste()</code>も参照してください。<br />Copy(<i>Z</i>, <i>n</i>): 列<i>n</i>の全行をコピーします。<br />Copy(<i>Z</i>, 0, <i>n</i>):  行<i>n</i>の全列をコピーします。<br />さらなるオプションについては<a class="external text" href="../../XFunction/X-Function/Colcopy.html">colcopy</a>、<a class="external text" href="../../XFunction/X-Function/Colcopy.html">colcopy</a>、<a class="external text" href="../../XFunction/X-Function/Wcopy.html">wcopy</a>、<a class="external text" href="../../XFunction/X-Function/Wrcopy.html">wrcopy</a> Xファンクションを参照してください。
+</td></tr>
+<tr>
+<td> wks.deleteRows(<i>rowBegin</i>[,<i>numRows</i>, <i>colBegin</i>, <i>colEnd</i>])<br />wks.deleteRows([<i>rowBegin</i>,<i>Undo</i>])
+</td>
+<td>
+<p>行の範囲の削除。<i>rowBegin</i>のみを指定すると、ワークシート内のすべての列の<i>rowBegin</i>が削除されます。<br /><i>numRows</i>オプションを追加すると、<i>rowBegin</i>,からすべての列の<i>numRows</i>が削除されます。<br /><i>colBegin</i>と<i>colEnd</i>を使用して、行の削除を指定された列に制限できます。 (a) <i>colBegin</i>からシートの最後の列まで（<i>colEnd</i>の指定なし）、または (b) <i>colBegin</i>から<i>colEnd</i>までです。 
+</p><p><i>rowBegin</i>が指定されていないか0に設定されている場合、選択された範囲は削除されます。この場合、<i>Undo</i>は「元に戻す」をサポートするかどうかを決定します。 undo: 0 = 元に戻すをサポートしない（デフォルト）、 1 = 元に戻すをサポートする。例えば、 
+</p>
+<pre class="lt" style="font-family:monospace;"><span style="color: #008000;">// 選択した行を削除（「元に戻す」不可）</span>
+wks.<span style="color: #000080;">DeleteRows</span><span style="color: #000000;">(</span><span style="color: #000000;">)</span>; 
+
+<span style="color: #008000;">// 列Bの値が5000未満の行、または欠損値の行を選択し削除</span>
+wxt test<span style="color: #000000;">:</span><span style="color: #000080;">=</span><span style="color: #ff00ff;">&quot;col(B)&lt;5000 or IsNA(col(B))&quot;</span> sel<span style="color: #000000;">:</span><span style="color: #000080;">=</span><span style="color: #0000dd;">1</span>;
+wks.<span style="color: #000080;">DeleteRows</span><span style="color: #000000;">(</span><span style="color: #0000dd;">0</span>,<span style="color: #0000dd;">1</span><span style="color: #000000;">)</span>;</pre> 
+<p>その他の例は<a href="../../LabTalk/Script/Basic_Worksheet_Column_Operation.html#Insert_or_Delete_Rows_in_Columns" title="Script:Basic Worksheet Column Operation">こちら</a>を参照してください。<br />また、下記の<b>wks.insertRows</b>も参照してください。
+</p>
+</td></tr>
+<tr>
+<td> wks.delHidden([<i>RowCol</i>, <i>Undo</i>])
+<p align="right"><font color="red">(2023b)</font></p>
+</td>
+<td> 現在のワークシートで非表示の行または列を削除。  <i>RowCol</i>は非表示の行または列を削除するかどうかを決定します。0=行(デフォルト)、1=列。一方、<i>Undo</i>は「元に戻す」をサポートするかどうかを決定します。0 = 元に戻すをサポートしない（デフォルト）、 1 = 元に戻すをサポートする。たとえば、次のコードは、現在のワークシートでcol(B)&lt; 5000の行を削除します。
+<pre class="lt" style="font-family:monospace;"><span style="color: #008000;">// col(B) &lt; 5000の行を非表示にするフィルタを追加</span>
+wks.<span style="color: #000080;">col2</span>.<span style="color: #000080;">filter</span> <span style="color: #000080;">=</span> <span style="color: #0000dd;">1</span>;
+wks.<span style="color: #000080;">col2</span>.<span style="color: #000080;">filter</span><span style="color: #000080;">$</span><span style="color: #000080;">=</span><span style="color: #ff00ff;">&quot;x&gt;5000&quot;</span>;
+wks.<span style="color: #000080;">runfilter</span><span style="color: #000000;">(</span><span style="color: #000000;">)</span>;
+<span style="color: #008000;">// 非表示行を削除</span>
+wks.<span style="color: #000080;">DelHidden</span><span style="color: #000000;">(</span><span style="color: #0000dd;">0</span>,<span style="color: #0000dd;">1</span><span style="color: #000000;">)</span>;
+wks.<span style="color: #000080;">col2</span>.<span style="color: #000080;">filter</span><span style="color: #000080;">=</span><span style="color: #0000dd;">0</span>;
+wks.<span style="color: #000080;">nrows</span><span style="color: #000080;">=</span>wks.<span style="color: #000080;">maxrows</span>;</pre> 
+<p><b>Note</b>: <a class="external text" href="../../UserGuide/UserGuide/Column_List_View.html">列リストビュー</a>では<code>wks.DelHidden()</code> が無効になっています。
+</p>
+</td></tr>
+<tr>
+<td> wks.findLabels(<i>ind</i>, <i>K</i>[,<i>n</i>])
+</td>
+<td> データの列でラベルを探す（データはOriginワークシートまたはExcelブック。Excelワークシートがアクティブな場合は、内部データが（layer -sと同様に）使用前に更新されていることを確認してください）。<br /><i>ind</i> =(必須)ラベルを検索する列のインデックス。<br /><i>K</i> =(必須)検出されたラベル文字列を格納するグローバル文字列変数文字列。<br /><i>n</i> =(任意) 0のときは選択を無視、1のときは列内の行の範囲のみが選択されている場合に列内の選択を考慮します（列内で何も選択されていない場合、または列全体が選択されている場合は0として扱われます）。デフォルト（つまりnが省略されている場合）は0です。
+</td></tr>
+<tr>
+<td> wks.findX(<i>col</i>)<br />wks.findX(<i>colIndex</i>,0)
+</td>
+<td> 指定したY列<i>col&apos;</i>に対応するX列を検索し、X列のインデックスを返す。<i>col</i>がX列の場合は0以下の値を返します。例えば、
+<pre class="lt" style="font-family:monospace;">i<span style="color: #000080;">=</span>wks.<span style="color: #000080;">findX</span><span style="color: #000000;">(</span>B<span style="color: #000000;">)</span>;
+i<span style="color: #000080;">=</span>;<span style="color: #008000;">// 1を返す</span>
+i<span style="color: #000080;">=</span>wks.<span style="color: #000080;">findX</span><span style="color: #000000;">(</span>A<span style="color: #000000;">)</span>;
+i<span style="color: #000080;">=</span>;<span style="color: #008000;">// Col(A) は X列のため-3を返す</span></pre>
+<p>任意の列(Y列か否かに関係なく)に対して、<b>wks.findX(<i>colInex</i>,0)</b>を使用して列の指定を無視し、対応するX列インデックスを取得できます。
+</p>
+</td></tr>
+<tr>
+<td> wks.hasfilter()
+</td>
+<td> ワークシートにフィルタが適用されているかどうかを確認する。yesの場合は1を返し、そうでない場合は0を返します。フィルタプロパティスクリプトの詳細は<a href="../../LabTalk/LabTalk/Wks.col-filter.html" title="LabTalk:Wks.col-filter">wks.col.filter</a>を参照してください。
+</td></tr>
+<tr>
+<td> wks.insert(<i>name list</i>)
+</td>
+<td> 列のリストを現在の位置に挿入。現在の列位置は<code>wks.col</code> で指定されます。リストは、スペースで区切られた1つ以上の任意の列名からなります。列名が既に使用されている場合は、自動的に列挙されます。
+<table class="noborder">
+	<tr>
+	<td style="vertical-align:top" width="60"><img src="../images/Wks_(object)/Alert_icon.png" width="57"  border="0" /></td><td><p>ワークブックで<a class="external text" href="../../UserGuide/UserGuide/Column_Short_Name_Restriction.html">スプレッドシートセル表記</a>が有効になっている場合、指定された列名が新しく追加された列に適用されないことがあります。そのため、指定した列名を列のショートネームに適用したい場合は、<b>wks.insert</b>コマンドを実行する前に<b>スプレッドシートセル表記</b>をオフにする必要があります。詳細は、<a class="external text" href="../../QuickHelp/QuickHelp/Turn_off_spreadsheet_cell_notation.html"><b>FAQ-849</b></a>を参照してください。
+</p>
+	</td>
+	</tr>
+	</table>
+</td></tr>
+<tr>
+<td> wks.insertRows(<i>rowBegin</i>[,<i>numRows</i>, <i>colBegin</i>, <i>colEnd</i>])
+</td>
+<td> 行の範囲を挿入。<i>rowBegin</i>のみを指定すると、ワークシートのすべての列で<i>rowBegin</i> の前に1行挿入されます。<br /><i>numRows</i>オプションを追加すると、<i>rowBegin</i>から<i>numRows</i>をすべての列に挿入します。<br /><i>colBegin</i>と<i>colEnd</i>を使用して、行の挿入を指定された列に制限できます。 (a) <i>colBegin</i>からシートの最後の列まで（<i>colEnd</i>の指定なし）、または (b) <i>colBegin</i>から<i>colEnd</i>までです。<br /><a href="../../LabTalk/Script/Basic_Worksheet_Column_Operation.html#Insert_or_Delete_Rows_in_Columns" title="Script:Basic Worksheet Column Operation">サンプル</a>をご覧ください。<br />また、上記の<b>wks.deleteRows</b>も参照してください。
+</td></tr>
+<tr>
+<td> wks.isColHidden(<i>colNum</i>)
+</td>
+<td> 列（列番号が <i>colNum</i>で指定されたもの）が非表示かどうかを確認。非表示の場合は1を返し、それ以外の場合は0を返します。
+</td></tr>
+<tr>
+<td> wks.isColSel([<i>colNum</i>])
+</td>
+<td> <i>colNum</i>が引数として含まれている場合、<i>colNum</i>の選択状態を返す。0=列が選択されていない。1 =列全体が選択されている。2=列の範囲が選択されている。<br /><i>colNum</i>が引数として含まれていない場合、このメソッドは選択された列の数(選択の一部と全体)を返します。
+</td></tr>
+<tr>
+<td> wks.isRowHidden(<i>rowNum</i>)
+</td>
+<td> 行（行番号<i>rowNum</i>で指定）が非表示かどうかを確認。非表示の場合は1を返し、それ以外の場合は0を返します。
+</td></tr>
+<tr>
+<td> [ToWks!]wks.join(FromWks)
+</td>
+<td> <i>FromWks</i>で指定したワークシートを<i>ToWks</i>で指定したワークシートに結合。このメソッドは<i>wks.joinmode</i>によって指定されたメソッドに従って<i>FromWks</i>の列を<i>ToWks</i>に追加します。
+<p><i>ToWks</i>が指定されていない場合は、現在アクティブなワークシートが使用されます。
+</p>
+</td></tr>
+<tr>
+<td> wks.labels(str)
+</td>
+<td> ワークシートの列ラベルの表示を制御。引数なし=ラベルを非表示。それ以外の場合は、<a href="../../LabTalk/LabTalk/Column_Label_Row_Characters.html" title="LabTalk:Column Label Row Characters">列ラベル行文字</a>を含む文字列。例：
+<pre class="lt" style="font-family:monospace;"><span style="color: #008000;">// ロングネームとコメントを表示（それらが空でない場合）</span>
+wks.<span style="color: #000080;">labels</span><span style="color: #000000;">(</span><span style="color: #000000;">)</span>;
+<span style="color: #008000;">// ラベル行を非表示</span>
+wks.<span style="color: #000080;">labels</span><span style="color: #000000;">(</span><span style="color: #0000dd;">0</span><span style="color: #000000;">)</span>;
+<span style="color: #008000;">// インポート時に単位を追加する場合は、単位をロングネームとコメントの間に移動して、F(x)=を一番下に移動</span>
+wks.<span style="color: #000080;">labels</span><span style="color: #000000;">(</span>@<span style="color: #000000;">)</span>;
+<span style="color: #008000;">// ロングネーム、単位、コメントの表示設定</span>
+wks.<span style="color: #000080;">labels</span><span style="color: #000000;">(</span>LUC<span style="color: #000000;">)</span>
+<span style="color: #008000;">// コメント、ユーザパラメータ1、ロングネームを表示</span>
+wks.<span style="color: #000080;">labels</span><span style="color: #000000;">(</span>CD1L<span style="color: #000000;">)</span></pre>
+<p>プレフィクス<b>+</b> 、<b>-</b>、<b>*</b>は以降のバージョンで使用できます。 <font color="red">Origin 8 SR2</font>.<br />
+プレフィクス<b>&lt;</b>、<b>&gt;</b>は以降のバージョンで使用できます。 <font color="red">Origin 2017</font>.<br />
+<code>wks.labels(@)</code> は以降のバージョンで使用できます。 <font color="red">Origin 2020b</font>以降で利用できます。<br />
+プレフィクス<b>#</b>は以降のバージョンで使用できます。 <font color="red">Origin 2024b</font>以降で利用できます。<br />
+</p>
+<pre class="lt" style="font-family:monospace;"><span style="color: #008000;">// 単位を削除</span>
+wks.<span style="color: #000080;">labels</span><span style="color: #000000;">(</span><span style="color: #000080;">-</span>U<span style="color: #000000;">)</span>;
+<span style="color: #008000;">// 上部にサンプリング間隔とスパークラインを追加</span>
+wks.<span style="color: #000080;">labels</span><span style="color: #000000;">(</span><span style="color: #000080;">+</span>ES<span style="color: #000000;">)</span>;
+<span style="color: #008000;">// 最後に単位を追加</span>
+wks.<span style="color: #000080;">labels</span><span style="color: #000000;">(</span><span style="color: #000080;">*</span>U<span style="color: #000000;">)</span>;
+<span style="color: #008000;">//  F(x)= to を最後に移動</span>
+wks.<span style="color: #000080;">labels</span><span style="color: #000000;">(</span><span style="color: #000080;">&gt;</span>O<span style="color: #000000;">)</span>;
+<span style="color: #008000;">//コメントを最初に移動</span>
+wks.<span style="color: #000080;">labels</span><span style="color: #000000;">(</span><span style="color: #000080;">&lt;</span>C<span style="color: #000000;">)</span>;
+<span style="color: #008000;">//User Parameter 1 ラベル行の内容をクリアして非表示</span>
+wks.<span style="color: #000080;">labels</span><span style="color: #000000;">(</span>#D1<span style="color: #000000;">)</span>;</pre>
+<p><b>+</b>と<b>*</b>を使用してラベル行を上または下に「移動」(追加)することもできます。ラベル行がまだ表示されていない場合、<b>&lt;</b>と<b>&gt;</b>の記号は何もしません。
+</p>
+次のコマンドを使用すると <pre class="lt" style="font-family:monospace;">wks.<span style="color: #000080;">labels</span><span style="color: #000000;">(</span>D<span style="color: #000080;">*</span><span style="color: #000000;">)</span>;</pre> すべてのユーザーパラメータ行を表示できます。以降のバージョンに対応しています。 <font color="red">Origin 2025</font>.
+</td></tr>
+<tr>
+<td> wks.merge(<i>Label</i>, <i>option</i>)
+</td>
+<td> 同じテキストを含む隣接するラベルセルを結合。
+<pre class="lt" style="font-family:monospace;">wks.<span style="color: #000080;">merge</span><span style="color: #000000;">(</span>L,<span style="color: #0000dd;">1</span><span style="color: #000000;">)</span>;<span style="color: #008000;">// LNを結合</span>
+wks.<span style="color: #000080;">merge</span><span style="color: #000000;">(</span>L,<span style="color: #0000dd;">0</span><span style="color: #000000;">)</span>;<span style="color: #008000;">//LNの結合解除</span>
+wks.<span style="color: #000080;">merge</span><span style="color: #000000;">(</span>L,<span style="color: #000080;">-</span><span style="color: #0000dd;">1</span><span style="color: #000000;">)</span><span style="color: #000080;">=</span>;<span style="color: #008000;">//LNが結合されたら1、そうでない場合は0を返す</span></pre>
+</td></tr>
+<tr>
+<td> wks.paste(<i>strRegister</i>, <i>Col</i>, <i>Row</i>)
+</td>
+<td> <a href="../../LabTalk/LabTalk/String_registers.html" title="LabTalk:文字列レジスタ">文字列レジスタ</a>の内容（&nbsp;%なしで指定）を (<i>Col</i>, <i>Row</i>) から始まるセルに貼り付け。
+</td></tr>
+<tr>
+<td> wks.readonly(<i>arg1</i>, [<i>arg2</i>])<p align="right"><font color="red">(2021b)</font></p>
+</td>
+<td> ラベルの読み取り専用ステータスを取得・設定。
+<p>arg1 = ラベル型、arg2 = 読み取り専用。
+</p>
+<pre class="lt" style="font-family:monospace;">wks.<span style="color: #000080;">readonly</span><span style="color: #000000;">(</span><span style="color: #ff00ff;">&quot;L&quot;</span><span style="color: #000000;">)</span><span style="color: #000080;">=</span>;<span style="color: #008000;">//ラベルが読み取り専用（編集不可）であるかどうかを取得</span>
+wks.<span style="color: #000080;">readonly</span><span style="color: #000000;">(</span><span style="color: #ff00ff;">&quot;L&quot;</span>, <span style="color: #0000dd;">1</span><span style="color: #000000;">)</span>;<span style="color: #008000;">//ロングネームを読み取り専用に設定</span>
+wks.<span style="color: #000080;">readonly</span><span style="color: #000000;">(</span><span style="color: #ff00ff;">&quot;P1&quot;</span>,<span style="color: #000080;">-</span><span style="color: #0000dd;">1</span><span style="color: #000000;">)</span>;<span style="color: #008000;">//読み取り専用プロパティを削除</span></pre>
+<p>readonly()は、ユーザ定義ラベルおよびパラメータラベルをサポートしています。以降のバージョンに対応しています。 <font color="red">Origin 2025</font>,
+読み取り専用プロパティの削除をサポートしています。以降のバージョンに対応しています。 <font color="red">Origin 2025</font>.
+</p>
+</td></tr>
+<tr>
+<td> wks.reorder(<i>arg1</i>, [<i>arg2</i>])
+</td>
+<td> 列の並べ替え。
+<p>arg1 =-1：現在の順序を逆にする。
+</p>
+<pre class="lt" style="font-family:monospace;">wks.<span style="color: #000080;">reorder</span><span style="color: #000000;">(</span><span style="color: #000080;">-</span><span style="color: #0000dd;">1</span><span style="color: #000000;">)</span>; <span style="color: #008000;">//逆順にする</span></pre>
+<p>arg1 =列インデックス、arg2は新しいインデックス。
+</p>
+<pre class="lt" style="font-family:monospace;">wks.<span style="color: #000080;">reorder</span><span style="color: #000000;">(</span><span style="color: #0000dd;">2</span>,<span style="color: #0000dd;">5</span><span style="color: #000000;">)</span> <span style="color: #008000;">//2番目の列を5番目に移動</span>
+wks.<span style="color: #000080;">reorder</span><span style="color: #000000;">(</span><span style="color: #0000dd;">2</span>, <span style="color: #0000dd;">0</span><span style="color: #000000;">)</span> <span style="color: #008000;">//2番目の列を最後に移動</span>
+wks.<span style="color: #000080;">reorder</span><span style="color: #000000;">(</span><span style="color: #0000dd;">2</span>,<span style="color: #000080;">-</span><span style="color: #0000dd;">1</span><span style="color: #000000;">)</span> <span style="color: #008000;">//2番目の列を最後から2番目に移動</span>
+wks.<span style="color: #000080;">reorder</span><span style="color: #000000;">(</span><span style="color: #0000dd;">0</span>, <span style="color: #000080;">-</span><span style="color: #0000dd;">1</span><span style="color: #000000;">)</span> <span style="color: #008000;">//最後の列を最後から2番目に移動</span>
+wks.<span style="color: #000080;">reorder</span><span style="color: #000000;">(</span><span style="color: #000080;">-</span><span style="color: #0000dd;">1</span>, <span style="color: #0000dd;">1</span><span style="color: #000000;">)</span> <span style="color: #008000;">//最後から2番目の列を最初に移動</span></pre>
+<p>arg1 = dataset：順序の指定。
+</p>
+<pre class="lt" style="font-family:monospace;">dataset vv <span style="color: #000080;">=</span> <span style="color: #000000;">{</span><span style="color: #0000dd;">1</span>,<span style="color: #0000dd;">4</span>,<span style="color: #0000dd;">3</span>,<span style="color: #0000dd;">2</span><span style="color: #000000;">}</span>;
+wks.<span style="color: #000080;">reorder</span><span style="color: #000000;">(</span>vv<span style="color: #000000;">)</span>;</pre>
+</td></tr>
+<tr>
+<td> wks.runfilter()
+</td>
+<td> filter. runfilter(2) を実行または再適用して、フィルタがない場合でも強制的に実行する。フィルタプロパティスクリプトの詳細については、<a href="../../LabTalk/LabTalk/Wks.col-filter.html" title="LabTalk:Wks.col-filter">wks.col.filter</a>を参照してください。
+</td></tr>
+<tr>
+<td>wks.setaslabel(<i>type</i>, <i>rowNum</i>, <i>label</i>, <i>append</i>)
+</td>
+<td>1行をロングネーム、単位、コメント等として設定または追加。
+<p><i>type</i>&nbsp;: ラベル型。L、C、U、Pなど。
+</p><p><i>rowNum</i>&nbsp;: ラベルとして設定する行の番号（この行は削除されません）。-1=ラベルとして設定したときにアクティブな行を削除する（※このスクリプトを実行する前に行を選択する必要があります）。 
+</p><p><i>label</i>&nbsp;：1=ラベル行を選択、0=データ行を選択。 
+</p><p><i>append</i>&nbsp;:  1=選択した行の内容をラベルに追加する（ロングネームとコメントの場合のみ有効）。 0=選択した行の内容を使用して元の内容を置き換える。
+</p>
+<pre class="lt" style="font-family:monospace;"><span style="color: #008000;">//2番目のラベル行をロングネームに設定</span>
+wks.<span style="color: #000080;">SetAsLabel</span><span style="color: #000000;">(</span>L,<span style="color: #0000dd;">2</span>,<span style="color: #0000dd;">1</span>,<span style="color: #0000dd;">0</span><span style="color: #000000;">)</span>;
+
+<span style="color: #008000;">//4 番目のデータ行をコメントに追加</span>
+wks.<span style="color: #000080;">SetAsLabel</span><span style="color: #000000;">(</span>C,<span style="color: #0000dd;">4</span>,<span style="color: #0000dd;">0</span>,<span style="color: #0000dd;">1</span><span style="color: #000000;">)</span>;
+
+<span style="color: #008000;">//最初のデータ行を単位に設定</span>
+<span style="color: #008000;">//（最初のデータ行がアクティブである必要がある。 </span>
+<span style="color: #008000;">// これはスクリプト実行後に削除される）</span>
+worksheet <span style="color: #000080;">-</span>s <span style="color: #0000dd;">0</span> <span style="color: #0000dd;">1</span> <span style="color: #0000dd;">0</span> <span style="color: #0000dd;">1</span>;  
+wks.<span style="color: #000080;">SetAsLabel</span><span style="color: #000000;">(</span>U,<span style="color: #000080;">-</span><span style="color: #0000dd;">1</span>,<span style="color: #0000dd;">0</span>,<span style="color: #0000dd;">0</span><span style="color: #000000;">)</span>;</pre>
+</td></tr>
+<tr>
+<td> wks.sortCols(<i>char</i> [, <i>order</i>, <i>c1</i>, <i>c2</i>, <i>skipHidden</i>])
+</td>
+<td> 1つ以上のの列ラベル行の文字列内容でワークシート列を並べ替える。成功した場合、メソッドは0を返します。
+<p><i>char</i>以外のすべての引数はオプションです。<br />
+</p><p><i>char</i> =1つ以上の<a href="../../LabTalk/LabTalk/Column_Label_Row_Characters.html#Column_Label_Row_Properties" title="LabTalk:Column Label Row Characters">列ラベル行文字</a>。複数の<i>char</i>が与えられた場合、ソートはネストされます。<br />
+<i>c1</i> =ソートの開始列。<i>c1</i>と<i>c2</i>が省略された場合、または<i>c1</i>=0 、<i>c2</i>=-1の場合、ワークシート全体がソートされます。<br />
+<i>c2</i> = ソートの終了列。<br />
+<i>order</i> = a （昇順）または d （降順）または c（カテゴリ順）。<i>order</i>が省略された場合、昇順でソートされます。<br />
+<i>skipHidden</i> = 数値。0以外の場合は、ソート中に非表示の列をスキップします。0または省略された場合は、非表示の列をスキップしません。 
+</p>
+<pre class="lt" style="font-family:monospace;"><span style="color: #008000;">// ワークシート列を列のロングネームで昇順にソート</span>
+wks.<span style="color: #000080;">sortCols</span><span style="color: #000000;">(</span>L<span style="color: #000000;">)</span>; 
+<span style="color: #008000;">// ワークシート列を列のロングネームでカテゴリ順にソート</span>
+wks.<span style="color: #000080;">sortCols</span><span style="color: #000000;">(</span>L,c<span style="color: #000000;">)</span>; 
+<span style="color: #008000;">// 入れ込状のソート：ユーザ定義パラメータ (a) &gt; ロングネーム (d), 全ての列、非表示列をスキップ</span>
+wks.<span style="color: #000080;">sortCols</span><span style="color: #000000;">(</span>D1L,ad,,,<span style="color: #0000dd;">1</span><span style="color: #000000;">)</span>;</pre>
+</td></tr>
+<tr>
+<td> wks.template( <i>FileName</i>[,[<i>WinName</i>],NumRows])
+</td>
+<td> <i>FileName</i>という名前のテンプレートを<i>WinName</i>ウィンドウの&lt;NumRows&gt;行に適用する。
+</td></tr>
+<tr>
+<td> wks.GetNextVisibleRow(<i>n</i>)
+</td>
+<td> 与えられた行<i>n</i>から始まる次の可視行（非表示でない行）を探します。GetNextVisibleRow(<i>n</i>) は行<i>n</i>の後の行を1つずつチェックし、可視行が見つかった場合は行インデックスを出力します。wks.GetNextVisibleRow(0) は最初の可視行を与えます。
+</td></tr>
+<tr>
+<td> wks.userparam(str)
+</td>
+<td> 指定されたユーザパラメータのインデックスを返します。見つからない場合は0を返します。例：
+<pre class="lt" style="font-family:monospace;">wks.<span style="color: #000080;">userparam</span><span style="color: #000000;">(</span>Location<span style="color: #000000;">)</span><span style="color: #000080;">=</span>;<span style="color: #008000;">// ユーザパラメータ&quot;Location&quot;のインデックスを返す</span></pre>
+<p>新しいユーザパラメータを追加する場合は<br />
+</p>
+<pre class="lt" style="font-family:monospace;">wks.<span style="color: #000080;">userparam</span><span style="color: #000000;">(</span><span style="color: #000080;">++</span>Factor<span style="color: #000000;">)</span> <span style="color: #008000;">// ユーザパラメータ&quot;Factor&quot;を追加</span></pre>
+</td></tr></table>
+<h2><a name="Examples"></a><span class="mw-headline">サンプル</span></h2>
+<h3><a name="Work_with_Worksheet_Columns_and_Rows"></a><span class="mw-headline">ワークシートの列と行の操作</span></h3>
+<p>新しいワークシートを<a class="external text" href="../../XFunction/X-Function/Newsheet.html">作成する</a>と、デフォルトで2列32行になります。ワークシートの列と行の数を読み取りまたは設定するには、<b>wks.ncols</b>プロパティと<b>wks.nrows</b>プロパティを使用します。
+</p>
+<pre class="lt" style="font-family:monospace;">newsheet; <span style="color: #008000;">// 新規のワークシートを追加</span>
+wks.<span style="color: #000080;">ncols</span> <span style="color: #000080;">=</span> <span style="color: #0000dd;">5</span>; <span style="color: #008000;">// 列数を5に設定</span>
+wks.<span style="color: #000080;">nrows</span> <span style="color: #000080;">=</span> <span style="color: #0000dd;">100</span>; <span style="color: #008000;">// 行数を100に設定</span></pre>
+<p>Originは指定した番号よりも後ろの(つまり右側の)列を削除することに注意してください。したがって、一般的には<b>wks.addCol()</b>メソッドを使用して列を追加する方が安全です。
+</p>
+<pre class="lt" style="font-family:monospace;">page.<span style="color: #000080;">xlcolname</span> <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span>; <span style="color: #008000;">// 最初にスプレッドシートセル表記をオフにする</span>
+wks.<span style="color: #000080;">addCol</span><span style="color: #000000;">(</span>Does<span style="color: #000000;">)</span>; <span style="color: #008000;">// &apos;Does&apos;というショートネームの列を追加</span></pre>
+<table class="noborder"><tr>
+	<td style="vertical-align:top" width="60"><img src="../images/Wks_(object)/Tip_icon.png" width="57"  border="0" /></td><td><p>ワークブックの<a class="external text" href="../../UserGuide/UserGuide/Column_Short_Name_Restriction.html">スプレッドシートセル表記</a>については、<a class="external text" href="../../QuickHelp/QuickHelp/Turn_off_spreadsheet_cell_notation.html"><b>FAQ-849</b></a> を参照してください。
+</p></td></tr></table>
+<p>ワークシートの行に関しては、<b>wks.maxRows</b>と<b>wks.nRows</b>の2つのプロパティは似ています。前者はワークシート内で値を持つ最大の行インデックスを検索し、後者はワークシート内の行数を設定または読み取ります。次のスクリプトは、これら2つのプロパティの使用方法を示しています。
+</p>
+<pre class="lt" style="font-family:monospace;">newbook; <span style="color: #008000;">// 新規のワークブックを作成</span>
+col<span style="color: #000000;">(</span>b<span style="color: #000000;">)</span> <span style="color: #000080;">=</span> <span style="color: #000000;">{</span><span style="color: #0000dd;">1</span><span style="color: #000000;">:</span><span style="color: #0000dd;">10</span><span style="color: #000000;">}</span>; <span style="color: #008000;">// 列Bに10個の値を入れる</span>
+wks.<span style="color: #000080;">maxRows</span> <span style="color: #000080;">=</span>&nbsp;; <span style="color: #008000;">// 10を返す</span>
+wks.<span style="color: #000080;">nRows</span> <span style="color: #000080;">=</span>&nbsp;; <span style="color: #008000;">// 32を返す</span></pre>
+<h3><a name="Display_Worksheet_Column_Labels"></a><span class="mw-headline">ワークシートの列ラベルを表示</span></h3>
+<p>このスクリプトは、異なる都市の平均気温の空の表を作成します。この例ではユーザー定義パラメータを作成し、ワークシートのロングネーム、単位、およびユーザー定義パラメータを表示します。
+</p>
+<pre class="lt" style="font-family:monospace;">range ww <span style="color: #000080;">=</span> <span style="color: #000080;">!</span>;  <span style="color: #008000;">// アクティブワークシートで範囲を定義</span>
+ww.<span style="color: #000080;">name</span><span style="color: #000080;">$</span> <span style="color: #000080;">=</span> <span style="color: #ff00ff;">&quot;Average Temperature&quot;</span>;  <span style="color: #008000;">// ワークシート名前変更</span>
+ww.<span style="color: #000080;">ncols</span> <span style="color: #000080;">=</span> <span style="color: #0000dd;">13</span>;  <span style="color: #008000;">// 列の数の合計を設定</span>
+ww.<span style="color: #000080;">userParam1</span><span style="color: #000080;">$</span> <span style="color: #000080;">=</span> Month;  <span style="color: #008000;">// 新しいユーザパラメータを定義</span>
+<span style="color: #008000;">// ワークシートロングネーム、単位、ユーザパラメータを表示</span>
+ww.<span style="color: #000080;">labels</span><span style="color: #000000;">(</span>LUD1<span style="color: #000000;">)</span>;  
+Col<span style="color: #000000;">(</span><span style="color: #0000dd;">1</span><span style="color: #000000;">)</span><span style="color: #000000;">[</span>L<span style="color: #000000;">]</span><span style="color: #000080;">$</span> <span style="color: #000080;">=</span> City;  <span style="color: #008000;">// 列ロングネームを表示</span>
+stringarray month <span style="color: #000080;">=</span> <span style="color: #000000;">{</span><span style="color: #ff00ff;">&quot;Jun.&quot;</span>, <span style="color: #ff00ff;">&quot;Feb.&quot;</span>, <span style="color: #ff00ff;">&quot;Mar.&quot;</span>, <span style="color: #ff00ff;">&quot;Apr.&quot;</span>, <span style="color: #ff00ff;">&quot;May.&quot;</span>, <span style="color: #ff00ff;">&quot;Jun.&quot;</span>, 
+                   <span style="color: #ff00ff;">&quot;July&quot;</span>, <span style="color: #ff00ff;">&quot;Aug.&quot;</span>, <span style="color: #ff00ff;">&quot;Sep.&quot;</span>, <span style="color: #ff00ff;">&quot;Oct.&quot;</span>, <span style="color: #ff00ff;">&quot;Nov.&quot;</span>, <span style="color: #ff00ff;">&quot;Dec.&quot;</span><span style="color: #000000;">}</span>;
+loop<span style="color: #000000;">(</span>ii, <span style="color: #0000dd;">2</span>, <span style="color: #0000dd;">13</span><span style="color: #000000;">)</span>
+<span style="color: #000000;">{</span>
+	Col<span style="color: #000000;">(</span><span style="color: #000080;">$</span><span style="color: #000000;">(</span>ii<span style="color: #000000;">)</span><span style="color: #000000;">)</span><span style="color: #000000;">[</span>L<span style="color: #000000;">]</span><span style="color: #000080;">$</span> <span style="color: #000080;">=</span> Temperature;  <span style="color: #008000;">// 列ロングネームを設定</span>
+	Col<span style="color: #000000;">(</span><span style="color: #000080;">$</span><span style="color: #000000;">(</span>ii<span style="color: #000000;">)</span><span style="color: #000000;">)</span><span style="color: #000000;">[</span>U<span style="color: #000000;">]</span><span style="color: #000080;">$</span> <span style="color: #000080;">=</span> \<span style="color: #000080;">+</span><span style="color: #000000;">(</span>o<span style="color: #000000;">)</span>F;  <span style="color: #008000;">// 列単位を設定</span>
+        <span style="color: #008000;">// 列ユーザパラメータを設定</span>
+	Col<span style="color: #000000;">(</span><span style="color: #000080;">$</span><span style="color: #000000;">(</span>ii<span style="color: #000000;">)</span><span style="color: #000000;">)</span><span style="color: #000000;">[</span>D1<span style="color: #000000;">]</span><span style="color: #000080;">$</span> <span style="color: #000080;">=</span> month.<span style="color: #000080;">getAt</span><span style="color: #000000;">(</span>ii<span style="color: #000080;">-</span><span style="color: #0000dd;">1</span><span style="color: #000000;">)</span><span style="color: #000080;">$</span>;  
+<span style="color: #000000;">}</span></pre>
+<h3><a name="Get_the_unhidden_value_from_the_column_in_worksheet"></a><span class="mw-headline">ワークシートの列から非表示でない値を取得</span></h3>
+<p>1.ワークシートのフィルタによって一部の値が非表示になっているとき、以下のスクリプトは非表示の値を列に一覧表示します。
+</p>
+<pre class="lt" style="font-family:monospace;"><span style="color: #008000;">//ワークシートがアクティブな状態で</span>
+for <span style="color: #000000;">(</span>int ii<span style="color: #000080;">=</span><span style="color: #0000dd;">1</span>; ii <span style="color: #000080;">&lt;=</span> wks.<span style="color: #000080;">nrows</span>; ii<span style="color: #000080;">++</span><span style="color: #000000;">)</span><span style="color: #000000;">{</span>
+if<span style="color: #000000;">(</span>wks.<span style="color: #000080;">isRowHidden</span><span style="color: #000000;">(</span>ii<span style="color: #000000;">)</span><span style="color: #000000;">)</span><span style="color: #000000;">{</span>       <span style="color: #008000;">//非表示の行がある場合は続行</span>
+  ii <span style="color: #000080;">=</span> wks.<span style="color: #000080;">GetNextVisibleRow</span><span style="color: #000000;">(</span>ii<span style="color: #000000;">)</span>;   <span style="color: #008000;">//この非表示行の後の非表示でない最初の行番号を取得</span>
+  col<span style="color: #000000;">(</span>A<span style="color: #000000;">)</span><span style="color: #000000;">[</span><span style="color: #000080;">$</span><span style="color: #000000;">(</span>ii<span style="color: #000000;">)</span><span style="color: #000000;">]</span><span style="color: #000080;">=</span>;  
+<span style="color: #000000;">}</span>
+<span style="color: #000000;">}</span>;</pre>
+<p>2.2番目の例では、関数GetNextVisibleRowがどのように機能するかを示しています。
+</p>
+<dl><dd><dl><dd><a  class="image"><img alt="Bookhide.png" src="../images/Wks_(object)/Bookhide.png" width="227"  /></a></dd></dl></dd></dl>
+<p>ワークシートがアクティブな状態でスクリプトを実行します。 
+</p>
+<pre class="lt" style="font-family:monospace;"><span style="color: #008000;">//ワークシートがアクティブな状態で</span>
+type <span style="color: #ff00ff;">&quot;The 1st visable row is $(wks.GetNextVisibleRow(0))&quot;</span>;
+loop<span style="color: #000000;">(</span>ii,<span style="color: #0000dd;">1</span>,<span style="color: #0000dd;">3</span><span style="color: #000000;">)</span><span style="color: #000000;">{</span>
+a<span style="color: #000080;">$</span><span style="color: #000000;">(</span>ii<span style="color: #000000;">)</span><span style="color: #000080;">=</span>wks.<span style="color: #000080;">GetNextVisibleRow</span><span style="color: #000000;">(</span>ii<span style="color: #000000;">)</span>;
+type <span style="color: #ff00ff;">&quot;The 1st visible row after row $(ii) is $(a$(ii))&quot;</span>;
+<span style="color: #000000;">}</span></pre>
+<p>次のような結果が出力されます。
+</p>
+<pre class="lt" style="font-family:monospace;">The 1st visible row is <span style="color: #0000dd;">1</span>
+The 1st visible row after row <span style="color: #0000dd;">1</span> is <span style="color: #0000dd;">3</span>
+The 1st visible row after row <span style="color: #0000dd;">2</span> is <span style="color: #0000dd;">3</span>
+The 1st visible row after row <span style="color: #0000dd;">3</span> is <span style="color: #0000dd;">5</span></pre>
+<h2><a name="See_Also"></a><span class="mw-headline">関連情報</span></h2>
+<p><a href="../../LabTalk/Script/LabTalk-Supported_X-Functions.html#Worksheet" title="Script:LabTalkがサポートするXファンクション">ワークシート操作のXファンクション</a>
+</p>
+
+
+    

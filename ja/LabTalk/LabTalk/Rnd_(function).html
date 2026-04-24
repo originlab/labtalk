@@ -1,0 +1,66 @@
+﻿<h1 class="firstHeading">Rnd/Ran/Rand</h1><p class='urlname' style='display: none'>Rnd-func</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>目次</h2></div>
+<ul>
+<li class="toclevel-1"><a href="#Description"><span class="tocnumber">1</span> <span class="toctext">概要</span></a></li>
+<li class="toclevel-1"><a href="#Syntax"><span class="tocnumber">2</span> <span class="toctext">構文</span></a></li>
+<li class="toclevel-1"><a href="#Parameter"><span class="tocnumber">3</span> <span class="toctext">パラメータ</span></a></li>
+<li class="toclevel-1"><a href="#Return"><span class="tocnumber">4</span> <span class="toctext">戻り値</span></a></li>
+<li class="toclevel-1"><a href="#Example"><span class="tocnumber">5</span> <span class="toctext">サンプル</span></a></li>
+</ul>
+</div>
+
+<h2 class="ref"><a name="Description"></a><span class="mw-headline">概要</span></h2>
+<p>rnd()、ran()およびrand()関数は、一様分布サンプルから0から1の間の値を返します。
+</p><p>乱数範囲の初期値は<b>シード</b>によって決定されます。<b>シード</b>は正の整数であり、<code>rnd(seed)</code> 、<code>ran(seed)</code> 、<code>rand(seed)</code> で設定できます。 
+</p>
+<table class="note">
+
+<tr>
+<td><b>Note:</b>
+<ul><li> rnd()、ran()、rand()は機能的に同一です。お好みのものをご利用ください。</li>
+<li> Originの乱数生成手法のシードアルゴリズムはバージョン2016で変更されました。詳細は、<a class="external text" href="../../LabTalk/LabTalk/System_Variable_List.html#R">システム変数@ran</a>を参照してください。</li></ul>
+</td></tr></table>
+<h2 class="ref"><a name="Syntax"></a><span class="mw-headline">構文</span></h2>
+<pre class="lt" style="font-family:monospace;">double rnd<span style="color: #000000;">(</span>int seed<span style="color: #000000;">)</span></pre>
+<pre class="lt" style="font-family:monospace;">double ran<span style="color: #000000;">(</span>int seed<span style="color: #000000;">)</span></pre>
+<pre class="lt" style="font-family:monospace;">double rand<span style="color: #000000;">(</span>int seed<span style="color: #000000;">)</span></pre>
+<h2 class="ref"><a name="Parameter"></a><span class="mw-headline">パラメータ</span></h2>
+<p><b>seed</b>
+</p>
+<dl><dd>返される擬似乱数データセットの初期化に使用される整数（省略可能）。</dd></dl>
+<ul>
+<dl><dd><li><b>seed</b>が正の整数の場合、この関数は<b>seed</b>をセットして0を返します。</dd>
+<dd><li><b>seed</b>が0 または負の整数の場合、または引数が指定されていない場合、この関数は乱数シーケンスの次の数値を返します。</dd></dl>
+</ul>
+<h2 class="ref"><a name="Return"></a><span class="mw-headline">戻り値</span></h2>
+<p>一様分布の標本から0から1の間の値を返します。
+</p>
+<h2 class="ref"><a name="Example"></a><span class="mw-headline">サンプル</span></h2>
+<p>このサンプルスクリプトは、シードの設定方法と乱数の生成方法を示します。
+</p>
+<pre class="lt" style="font-family:monospace;">int seed <span style="color: #000080;">=</span> <span style="color: #0000dd;">1</span>;
+ 
+ty <span style="color: #ff00ff;">&quot;This outputs the same random number:&quot;</span>;
+for<span style="color: #000000;">(</span>int i <span style="color: #000080;">=</span> <span style="color: #0000dd;">1</span>; i <span style="color: #000080;">&lt;=</span> <span style="color: #0000dd;">3</span>; i<span style="color: #000080;">++</span><span style="color: #000000;">)</span>
+<span style="color: #000000;">{</span>
+	if<span style="color: #000000;">(</span> rnd<span style="color: #000000;">(</span>seed<span style="color: #000000;">)</span> <span style="color: #000080;">==</span> <span style="color: #0000dd;">0</span> <span style="color: #000000;">)</span>
+		rnd<span style="color: #000000;">(</span><span style="color: #000000;">)</span> <span style="color: #000080;">=</span>&nbsp;;
+<span style="color: #000000;">}</span>
+ 
+ty <span style="color: #ff00ff;">&quot;This outputs a different random number each time:&quot;</span>;
+if<span style="color: #000000;">(</span> rnd<span style="color: #000000;">(</span>seed<span style="color: #000000;">)</span> <span style="color: #000080;">==</span> <span style="color: #0000dd;">0</span> <span style="color: #000000;">)</span>
+<span style="color: #000000;">{</span>
+	for<span style="color: #000000;">(</span>int i <span style="color: #000080;">=</span> <span style="color: #0000dd;">1</span>; i <span style="color: #000080;">&lt;=</span> <span style="color: #0000dd;">3</span>; i<span style="color: #000080;">++</span><span style="color: #000000;">)</span>
+	<span style="color: #000000;">{</span>
+		<span style="color: #008000;">// 初期値は上記ループと同じ</span>
+		rnd<span style="color: #000000;">(</span><span style="color: #000000;">)</span> <span style="color: #000080;">=</span>&nbsp;;
+	<span style="color: #000000;">}</span>
+<span style="color: #000000;">}</span></pre>
+
+
+
+
+
+
+
+    

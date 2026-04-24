@@ -1,0 +1,44 @@
+﻿<h1 class="firstHeading">NumBreak</h1>
+<p class='urlname' style='display: none'>NumBreak-func</p>
+<div id="toc" class="toc">
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#Description"><span class="tocnumber">1</span> <span class="toctext">Description</span></a></li>
+<li class="toclevel-1"><a href="#Syntax"><span class="tocnumber">2</span> <span class="toctext">Syntax</span></a></li>
+<li class="toclevel-1"><a href="#Parameters"><span class="tocnumber">3</span> <span class="toctext">Parameters</span></a></li>
+<li class="toclevel-1"><a href="#Return"><span class="tocnumber">4</span> <span class="toctext">Return</span></a></li>
+<li class="toclevel-1"><a href="#Example"><span class="tocnumber">5</span> <span class="toctext">Example</span></a></li>
+<li class="toclevel-1"><a href="#See_Also"><span class="tocnumber">6</span> <span class="toctext">See Also</span></a></li>
+</ul>
+</div>
+<h2 class="ref"><a name="Description" id="Description"></a><span class="mw-headline">Description</span></h2>
+<p>This function takes a mixed string "<i>str$</i>", looks the type of the first character, if it is a numeric character, the function will return the index of the first non-numeric character, and vice versa. The optional parameter "<i>offset</i>" specifies the index offset from where the function looks for the "break" position of the first numeric and text character change.</p>
+<h2 class="ref"><a name="Syntax" id="Syntax"></a><span class="mw-headline">Syntax</span></h2>
+<pre class="lt" style="font-family:monospace;">
+ int NumBreak<span style="color: #000000;">(</span>string str<span style="color: #000080;">$</span><span style="color: #000000;">[</span>, int offset<span style="color: #000000;">]</span><span style="color: #000000;">)</span>
+</pre>
+<h2 class="ref"><a name="Parameters" id="Parameters"></a><span class="mw-headline">Parameters</span></h2>
+<p><b>str$</b></p>
+<dl>
+<dd>is a string in which to look for the index of the first numeric and text character change.</dd>
+</dl>
+<p><b>offset</b></p>
+<dl>
+<dd>is an index offset starting from which to look for the beak position. Default is 1, which means find from the beginning of the string "<i>str$</i>".</dd>
+</dl>
+<h2 class="ref"><a name="Return" id="Return"></a><span class="mw-headline">Return</span></h2>
+<p>Returns the index at which the first number and non-number change is found in "<i>str$</i>", starting at "<i>offset</i>" (default 1).</p>
+<p>If a break, either number or non-number, is not found (i.e. the entire string has no number mixed), it returns 0.</p>
+<h2 class="ref"><a name="Example" id="Example"></a><span class="mw-headline">Example</span></h2>
+<pre class="lt" style="font-family:monospace;">
+Numbreak<span style="color: #000000;">(</span><span style="color: #ff00ff;">"Jan-12"</span><span style="color: #000000;">)</span><span style="color: #000080;">=</span>; <span style="color: #008000;">//should return 5</span>
+
+Numbreak<span style="color: #000000;">(</span><span style="color: #ff00ff;">"Club45North"</span><span style="color: #000000;">)</span><span style="color: #000080;">=</span>; <span style="color: #008000;">//should returns 5</span>
+Numbreak<span style="color: #000000;">(</span><span style="color: #ff00ff;">"Club45North"</span>, <span style="color: #0000dd;">5</span><span style="color: #000000;">)</span><span style="color: #000080;">=</span>; <span style="color: #008000;">//should returns 7 since find starting from "4"</span>
+Numbreak<span style="color: #000000;">(</span><span style="color: #ff00ff;">"Club45North"</span>, <span style="color: #0000dd;">3</span><span style="color: #000000;">)</span><span style="color: #000080;">=</span>; <span style="color: #008000;">//should returns 5 since find starting from "u"</span>
+Numbreak<span style="color: #000000;">(</span><span style="color: #ff00ff;">"Club45North"</span>, <span style="color: #0000dd;">7</span><span style="color: #000000;">)</span><span style="color: #000080;">=</span>; <span style="color: #008000;">//should returns 0, starting from "N" and thus no non-digit to digit change found to the end</span>
+</pre>
+<h2 class="ref"><a name="See_Also" id="See_Also"></a><span class="mw-headline">See Also</span></h2>
+<p><a href="../../LabTalk/LabTalk/NumExtract_(function).html" title="LabTalk:NumExtract (function)">NumExtract</a></p>

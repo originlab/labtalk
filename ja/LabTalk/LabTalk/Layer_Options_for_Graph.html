@@ -1,0 +1,119 @@
+﻿<h1 class="firstHeading">グラフのオプション</h1><p class='urlname' style='display: none'>Layer_Options_for_Graph</p>
+<p><br />
+</p>
+<h2><a name="no_option"></a><span class="mw-headline">オプションなし</span></h2>
+<p>レイヤの幅、高さ、およびページ上の水平および垂直位置を設定します。<i>Width</i>, <i>height</i>, <i>xOffset</i>, and <i>yOffset</i>は、ページ上のレイヤの幅、高さ、および水平位置と垂直位置(現在の単位で、ページの左上隅からレイヤの左上隅まで)を指定します。幅または高さにゼロの値を指定すると、現在の設定が保持されます。ゼロの引数を1つだけ指定すると (layer 0) 、アクティブなレイヤがページにフィットします。引数が指定されていない場合は、作図データの選択ダイアログボックスが開きます。
+</p><p><b>例：</b>
+</p><p>xOffsetおよびyOffsetを45に設定します。幅と高さの現在の値を保持します。
+</p>
+<pre class="lt" style="font-family:monospace;">lay <span style="color: #0000dd;">0</span> <span style="color: #0000dd;">0</span> <span style="color: #0000dd;">45</span> <span style="color: #0000dd;">45</span>;</pre>
+<p>3つのレイヤがあるとき、次のスクリプトは各レイヤをページ幅の20%、ページ高さの80%にサイズ設定します。レイヤはページの上から10%の位置に配置され、左から8%の位置から始まり、ページ全体の12%ずつ区切られます。
+</p>
+<pre class="lt" style="font-family:monospace;">width <span style="color: #000080;">=</span> <span style="color: #0000dd;">20</span>;
+height <span style="color: #000080;">=</span> <span style="color: #0000dd;">80</span>;
+for <span style="color: #000000;">(</span>ii <span style="color: #000080;">=</span> <span style="color: #0000dd;">1</span>; ii <span style="color: #000080;">&lt;=</span> <span style="color: #0000dd;">3</span>; ii<span style="color: #000080;">++</span><span style="color: #000000;">)</span> 
+      <span style="color: #000000;">{</span>
+            layer <span style="color: #000080;">-</span>s ii;
+            layer width height <span style="color: #000000;">(</span><span style="color: #0000dd;">8</span><span style="color: #000080;">+</span><span style="color: #000000;">(</span>ii<span style="color: #000080;">-</span><span style="color: #0000dd;">1</span><span style="color: #000000;">)</span><span style="color: #000080;">*</span><span style="color: #000000;">(</span>width<span style="color: #000080;">+</span><span style="color: #0000dd;">12</span><span style="color: #000000;">)</span><span style="color: #000000;">)</span> <span style="color: #0000dd;">10</span>;
+      <span style="color: #000000;">}</span>;</pre>
+<h2><a name="-a"></a><span class="mw-headline">-a</span></h2>
+<p><b>構文</b>: layer <b>-a</b>
+</p><p>アクティブレイヤのX軸とY軸を再スケールして、そのレイヤにプロットされたすべてのデータを表示します。X軸の範囲は、再スケールマージンを含み、最も近い主目盛または副目盛で開始および終了します。X軸またはY軸のみを再スケールするには、もう一方の軸を固定として設定します（例えば、 <b><a href="../../LabTalk/LabTalk/Layer.Axis_(object).html" title="LabTalk:Layer.Axis (object)">layer.axis.rescale</a> = 1</b> を使用します<b></b>)。その後グラフウィンドウをテンプレートとして保存します。
+</p><p><b>例:</b>
+次のスクリプトは、新しいグラフウィンドウを作成し、レイヤにデータを追加し、次に2番目のグラフウィンドウを作成して、そのレイヤにデータを追加します。
+</p>
+<pre class="lt" style="font-family:monospace;"><span style="color: #000080;">%</span>A <span style="color: #000080;">=</span> data1;  <span style="color: #008000;">//ワークシート名を%Aに代入</span>
+loop <span style="color: #000000;">(</span>ii, <span style="color: #0000dd;">2</span>, <span style="color: #0000dd;">3</span><span style="color: #000000;">)</span> 
+      <span style="color: #000000;">{</span>   
+            win <span style="color: #000080;">-</span>t plot line;  <span style="color: #008000;">//折れ線図のテンプレートからグラフを開く</span>
+            <span style="color: #000080;">%</span>B <span style="color: #000080;">=</span> data1<span style="color: #000080;">!</span>wks.<span style="color: #000080;">col</span><span style="color: #000080;">$</span><span style="color: #000000;">(</span>ii<span style="color: #000000;">)</span>.<span style="color: #000080;">name</span><span style="color: #000080;">$</span>;  <span style="color: #008000;">//列名を%Bに代入</span>
+            layer <span style="color: #000080;">-</span>i <span style="color: #000080;">%</span>A_<span style="color: #000080;">%</span>B;  <span style="color: #008000;">//データをレイヤに追加</span>
+            layer <span style="color: #000080;">-</span>a;  <span style="color: #008000;">//再スケールして全てのデータを表示</span>
+      <span style="color: #000000;">}</span></pre>
+<table class="note">
+
+<tr>
+<td><b>Note:</b>
+<p><b>-a</b> オプションにはバリエーションがあります。次のスケール識別子を使用して指定できます。<br />
+x = x スケール<br />
+y = y スケール<br />
+z = z スケール<br />
+m = カラーマップ<br />
+u = ユーザインターフェースの<b>編集</b>メニューで「元に戻す」を有効にする<br />
+e = 参照線
+</p>
+<ul><li> これらのスケール識別子の1つまたは複数を組み合わせることによって、データ変更時に再スケールされるものを制御します。再スケールは、リストされて<i>いない</i>ものに適用されます。例： 
+<ul><li> <code>layer -azm</code> はXY軸のみを再スケールします。Z軸とカラーマップは再スケールされません。 </li>
+<li> <code>layer -aryzm</code> はX軸のみを再スケールします。Y軸とZ軸およびカラーマップは再スケールされません。 </li>
+<li> <code>layer -arxzm</code> はY軸のみを再スケールします。X軸とZ軸およびカラーマップは再スケールされません。</li>
+<li> <code>layer -arxzme</code> はY軸の参照線を含むY軸のみを再スケールします。  </li></ul></li>
+<li> -uオプションを他のオプションと組み合わせて追加することで、編集メニューから「元に戻す」操作を有効にできます（例：<code>layer -axyz u;</code>は<b>編集</b>メニューからのカラーマップの再スケールを有効にします）。</li></ul>
+</td></tr></table>
+<h2><a name="-a_ma"></a><span class="mw-headline">-a ma</span></h2>
+<p><b>構文</b>: layer <b>-a ma</b>
+</p><p>すべてのデータを表示するために、1つのファミリー内のすべてのリンクされたレイヤのX軸とY軸を一緒に再スケールします。Note: <i>layer -a</i> は現在のレイヤを再スケールするためにのみ使用され、<i>layer -a ma</i>は現在のグラフウィンドウ内のリンクされたレイヤを再スケールするために使用されます。
+</p>
+<h2><a name="-at"></a><span class="mw-headline">-at</span></h2>
+<p><b>構文</b>: layer <b>-at</b>
+</p><p>アクティブレイヤのX軸とY軸を再スケーリングして、そのレイヤにプロットされたすべてのデータを表示します、目盛設定は無視します。X軸の範囲は、データ範囲と再スケーリングマージンを足したものとなります。
+</p><p><br />
+</p>
+<h2><a name="-b_3DB"></a><span class="mw-headline">-b 3DB</span></h2>
+<p><b>構文</b>: layer <b>-b 3DB</b> <i>value</i>
+</p><p>グラフ表示キャッシュをなし、ラスター、またはベクターに設定します。<i>Value</i>=0（キャッシュなし）。<i>Value</i>=1（ラスタキャッシュの場合）。<i>Value</i>=2（ベクターキャッシュの場合）。
+</p>
+<h2><a name="-cm_l"></a><span class="mw-headline">-cm l</span></h2>
+<p><b>構文</b>: layer <b>-cm l[r|p]</b> <i>fileName [index|name]</i>
+</p><p>保存したカラーマップをロードします。オプションのrスイッチはパレットインデックスをRGB値に変換します。オプションのpスイッチはRGB値をパレットインデックスに変換します。レイヤに複数のデータプロットが含まれている場合は、<i>index</i>または<i>name</i>を使用して、アクティブなデータプロット以外のデータプロットを指定します。文字列表記<b>%(<i>index</i>, @D)</b>はインデックスの番目のデータプロットの名前を返します。
+</p>
+<h2><a name="-cm_s"></a><span class="mw-headline">-cm s</span></h2>
+<p><b>構文</b>: layer <b>-cm s[r|p]</b> <i>fileName [index|name]</i>
+</p><p>カラーマップを保存します。オプションのrスイッチはパレットインデックスをRGB値に変換します。オプションのpスイッチはRGB値をパレットインデックスに変換します。レイヤに複数のデータプロットが含まれている場合は、<i>index</i>または<i>name</i>を使用して、アクティブなデータプロット以外のデータプロットを指定します。文字列表記<b>%(<i>index</i>, @D)</b>はインデックスの番目のデータプロットの名前を返します。
+</p>
+<h2><a name="-gru"></a><span class="mw-headline">-gru</span></h2>
+<p><b>構文：</b> layer <b>-gru</b>	
+</p><p>レイヤ内の既存のグラフオブジェクトの名前を一意にします。
+</p>
+<h2><a name="-k"></a><span class="mw-headline">-k</span></h2>
+<p><b>構文：</b> layer <b>-k</b> <i>value</i>
+</p><p>指定した値に応じて、作図の詳細（プロット属性）または作図の詳細（レイヤ属性）ダイアログボックスを開きます。<i>value</i> = pの場合は、アクティブレイヤのプ作図の詳細（プロット属性）ダイアログボックスを開きます。<i>value</i> = cの場合は、アクティブレイヤの作図の詳細（レイヤ属性）ダイアログボックスを開きます。<i>value</i> = dの場合、アクティブレイヤの作図の詳細（レイヤ属性）ダイアログボックスの軸スケール間のリンク対応タブを開きます。  （Note: このダイアログボックスを開くには、アクティブなレイヤがリンクされている必要があります。）
+</p>
+<h2><a name="-n"></a><span class="mw-headline">-n</span></h2>
+<p><b>構文：</b> layer <b>-n</b>
+</p><p>アクティブなグラフウィンドウにリンクされていないレイヤを追加し、下X軸と左Y軸を表示します。
+</p>
+<h2><a name="-n_Both"></a><span class="mw-headline">-n Both</span></h2>
+<p><b>構文：</b> layer <b>-n Both</b>
+</p><p>上X軸と右Y軸を表示するアクティブなグラフウィンドウにリンクレイヤを追加します。
+</p>
+<h2><a name="-n_X"></a><span class="mw-headline">-n X</span></h2>
+<p><b>構文：</b> layer <b>-n X</b>
+</p><p>上X軸を表示するアクティブなグラフウィンドウにリンクレイヤを追加します。
+</p>
+<h2><a name="-n_Y"></a><span class="mw-headline">-n Y</span></h2>
+<p><b>構文：</b> layer <b>-n Y</b>
+</p><p>右Y軸を表示するアクティブなグラフウィンドウにリンクレイヤを追加します。
+</p>
+<h2><a name="-p"></a><span class="mw-headline">-p</span></h2>
+<p><b>構文：</b> layer <b>-p</b> <i>axisScale</i>
+</p><p>アクティブなレイヤのXまたはYスケールを、アクティブなウィンドウ内の他のすべてのレイヤに適用します。
+<i>axisScale</i>をXに設定してXスケールを適用するか、Yに設定してYスケールを適用します。
+</p>
+<h2><a name="-u"></a><span class="mw-headline">-u</span></h2>
+<p><b>構文：</b> layer <b>-u</b> <i>unit</i>
+</p><p>レイヤのサイズと位置を測定する単位を変更します。
+<i>Unit#</i> は、作図の詳細（レイヤ属性）ダイアログボックスのレイヤ表示方法・描画スピードタブにリストされている順序で単位のタイプを指定します。1=&nbsp;ページに対する%、2=インチ、3=センチメートルなど 
+</p><p>例：
+</p>
+<pre class="lt" style="font-family:monospace;">lay <span style="color: #000080;">-</span>u <span style="color: #0000dd;">5</span>;<span style="color: #008000;">//単位をピクセルに変更</span></pre>
+<h2><a name="-x"></a><span class="mw-headline">-x</span></h2>
+<p><b>構文：</b> layer <b>-x</b>
+</p><p>レイヤ枠の寸法を変数v1（幅）、v2（高さ）、v3（左）、v4（右）に取得します。値はレイヤの現在の単位です。  レイヤ枠サイズを設定するには、オプションスイッチなしでlayerコマンドを使用します。
+</p>
+
+
+
+
+
+
+    

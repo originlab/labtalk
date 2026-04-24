@@ -1,0 +1,690 @@
+﻿<h1 class="firstHeading">Layer.Plotn</h1><p class='urlname' style='display: none'>Layer-Plotn-obj</p>
+<p><b>LabTalkのデータ型</b>
+</p>
+<dl><dd><a href="../../LabTalk/Category/Objects_(Labtalk).html" title="Category:オブジェクト(Labtalk)">Window</a> </dd></dl>
+<p>このページは、layer.plotオブジェクト、またはプロットの<a href="../../LabTalk/LabTalk/Layer_(object).html" title="LabTalk:Layer (オブジェクト)">layer</a>オブジェクトのサブオブジェクトのプロットプロパティについてです。
+</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>目次</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Properties"><span class="tocnumber">1</span> <span class="toctext">プロパティ</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Methods"><span class="tocnumber">2</span> <span class="toctext">メソッド</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Example"><span class="tocnumber">3</span> <span class="toctext">サンプル</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Sub_Objects"><span class="tocnumber">4</span> <span class="toctext">サブオブジェクト</span></a>
+<ul>
+<li class="toclevel-2 tocsection-5"><a href="#BoxChart"><span class="tocnumber">4.1</span> <span class="toctext">ボックスチャート</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Contour_Label"><span class="tocnumber">4.2</span> <span class="toctext">等高線ラベル</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="#Label"><span class="tocnumber">4.3</span> <span class="toctext">ラベル</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="#Numeric_Formats"><span class="tocnumber">4.4</span> <span class="toctext">数値フォーマット</span></a></li>
+<li class="toclevel-2 tocsection-9"><a href="#Symbol"><span class="tocnumber">4.5</span> <span class="toctext">シンボル</span></a></li>
+<li class="toclevel-2 tocsection-10"><a href="#Line"><span class="tocnumber">4.6</span> <span class="toctext">線</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+<h2><a name="Properties"></a><span class="mw-headline">プロパティ</span></h2>
+<table class="simple">
+<tr>
+<th> プロパティ
+</th>
+<th> アクセス
+</th>
+<th> 説明
+</th></tr>
+<tr>
+<td> <b>layer.plot0</b>
+<p align="right"></p>
+</td>
+<td> 読み/書き、<br />数値列
+</td>
+<td> アクティブなプロットにアクセスします。layer.plot はアクティブなプロットのグループヘッダを参照します。
+</td></tr>
+<tr>
+<td> <b>layer.plotn.aa</b>
+<p align="right"></p>
+</td>
+<td> 読み/書き、<br />数値列
+</td>
+<td> プロットレベルでアンチエイリアシングを無効または有効にします。0=無効、1=プロットで有効、16=ラベルで有効、17=プロットとラベルで有効。
+</td></tr>
+<tr>
+<td> <b>layer.plotn.color</b>
+<p align="right"></p>
+</td>
+<td> 読み/書き、<br />数値列
+</td>
+<td> プロットの色。<a href="../../LabTalk/LabTalk/Color_(function).html" title="LabTalk:Color (function)">color()</a>もご参照ください。
+</td></tr>
+<tr>
+<td> <b>layer.plotn.colorlist$</b>
+<p align="right"></p>
+</td>
+<td> 読み/書き、<br />文字列
+</td>
+<td> カラーリスト
+</td></tr>
+<tr>
+<td> <b>layer.plotn.contlines</b>
+<p align="right"></p>
+</td>
+<td> 読み/書き、<br />数値列
+</td>
+<td> 等高線を有効にするかどうか：1=有効、0=無効。
+</td></tr>
+<tr>
+<td> <b>layer.plotn.contmat</b>
+<p align="right"></p>
+</td>
+<td> 読み/書き、<br />数値列
+</td>
+<td> 等高線の行列オブジェクト
+</td></tr>
+<tr>
+<td> <b>layer.plot.delaunayTriangulation</b>
+</td>
+<td> 読み/書き、<br />数値列
+</td>
+<td> XYZ等高線図の作成に使用される三角分割アルゴリズムをコントロールします。<br />
+<p>0 = 2016より前のバージョンにおける挙動、平面内の任意の点の三角分割と補間<br />
+1 = Qhullアルゴリズム<br />
+2 = Qhull高速モード（同一線上のデータでは信頼できません）
+</p>
+</td></tr>
+<tr>
+<td> <b>layer.plotn.fit.show</b>
+<p align="right"></p>
+</td>
+<td> 読み/書き、<br />数値列
+</td>
+<td> 散布図/折れ線/散布図+折れ線グラフにフィット曲線を表示/非表示
+<p>0 =非表示<br />
+1 =線形フィット<br />
+2 =信頼区間<br />
+4 =予測区間<br />
+8 =信頼区間（平均）<br />
+16 =信頼区間（予測）
+</p>
+</td></tr>
+<tr>
+<td> <b>layer.plotn.index</b>
+<p align="right"></p>
+</td>
+<td> 読み取り、<br />数値
+</td>
+<td> プロットのインデックス
+</td></tr>
+<tr>
+<td> <b>layer.plot.name$</b>
+<p align="right"></p>
+</td>
+<td> 読み込み,<br />文字列
+</td>
+<td> メインのプロットオブジェクトのデータセット名を返します。
+</td></tr>
+<tr>
+<td> <b>layer.plot.parametricx</b>
+<p align="right"></p>
+</td>
+<td> 読み込み/書き込み, <br />数値/文字列
+</td>
+<td> パラメトリックX行列インデックスの数値、範囲構文の文字列
+</td></tr>
+<tr>
+<td> <b>layer.plot.parametricy</b>
+<p align="right"></p>
+</td>
+<td> 読み/書き、<br />数値列
+</td>
+<td> パラメトリックY行列インデックスの数値、範囲構文の文字列
+</td></tr>
+<tr>
+<td> <b>layer.plot.paraminterp</b> <p align="right"><font color="red">(2025 SR0)</font></p>
+<p align="right"></p>
+</td>
+<td> 読み/書き、<br />数値
+</td>
+<td> 行列データから作成された等高線グラフの単調座標として、XY座標マッピングデータを補間します。
+</td></tr>
+<tr>
+<td> <b>layer.plotn.parent</b>
+<p align="right"></p>
+</td>
+<td> 読み/書き、<br />数値列
+</td>
+<td> 近似曲線のソースプロットインデックス。
+<p>レイヤに複数の曲線があり、グラフ上に複数のフィットがある場合、フィット曲線の親データプロットのインデックスを取得することができます。 
+</p><p>ソース曲線の場合、layer.plotn.parent = 0です。
+</p>
+</td></tr>
+<tr>
+<td> <b>layer.plotn.pid</b>
+<p align="right"></p>
+</td>
+<td> 読み取り、<br />数値
+</td>
+<td> プロットタイプ
+</td></tr>
+<tr>
+<td> <b>layer.plot<i>n</i>.SDF</b><p align="right"><font color="red">(2025)</font></p>
+</td>
+<td> 読み取り<br />数値
+</td>
+<td> 共有データフィルタのUIDを返します。このデータプロットにSDFがない場合は0を返します。
+</td></tr>
+
+<tr>
+<td> <b>layer.plotn.shapelist$</b>
+<p align="right"></p>
+</td>
+<td> 書き込み, <br />文字列
+</td>
+<td> 形状リスト
+</td></tr>
+<tr>
+<td> <b>layer.plot<i>n</i>.show</b><p align="right"></p>
+</td>
+<td> 読み/書き、<br />数値列
+</td>
+<td> nplotを表示するかどうか設定します。
+</td></tr>
+<tr>
+<td> <b>layer.plot<i>n</i>.subgroupsize</b><p align="right"><font color="red">(9.1 SR0)</font></p>
+</td>
+<td> 読み/書き、<br />数値列
+</td>
+<td> サブグループサイズを設定します。<i>n</i>は、グループの最初のデータプロットのプロットインデックスである必要があります。
+</td></tr>
+<tr>
+<td> <b>layer.plot<i>n</i>.subgrouplabelrow</b><p align="right"><font color="red">(2016 SR0)</font></p>
+</td>
+<td> 読み/書き、<br />数値列
+</td>
+<td> サブグループの列ラベル行を設定します。<i>n</i>は、グループの最初のデータプロットのプロットインデックスである必要があります。1 = ロングネーム, 2 = 単位, 3 = コメント, 4 = サンプリング間隔, など。 このオプションを有効にすると、<b>layer.plot<i>n</i>.subgroupsize</b>が上書きされることに注意してください。
+</td></tr>
+<tr>
+<td> <b>layer.plotn.subsetcol$</b><p align="right"><font color="red">(2024 SR0)</font></p>
+<p align="right"></p>
+</td>
+<td> 読み/書き、<br />文字列
+</td>
+<td> 列によるサブセットを有効にする場合は、作図の詳細のサブセットタブの範囲文字列にアクセスします。<pre class="lt" style="font-family:monospace;">layer.<span style="color: #000080;">plot</span>.<span style="color: #000080;">subsetcol</span><span style="color: #000080;">$</span><span style="color: #000080;">=</span><span style="color: #000000;">[</span>Book1<span style="color: #000000;">]</span>Sheet1<span style="color: #000080;">!</span>C</pre>
+</td></tr>
+
+<tr>
+<td> <b>layer.plotn.subsetgap</b><p align="right"><font color="red">(2024 SR0)</font></p>
+<p align="right"></p>
+</td>
+<td> 読み/書き、<br />数値列
+</td>
+<td> サブセット間の間隔、縦棒/横棒の幅に対するパーセント値です。サブセットサイズが0でないときに使用できます。
+</td></tr>
+
+<tr>
+<td> <b>layer.plotn.subsetinc</b><p align="right"><font color="red">(2024 SR0)</font></p>
+<p align="right"></p>
+</td>
+<td> 読み/書き、<br />数値列
+</td>
+<td> 作図の詳細のサブセットの増分オプションにアクセスします。0 = なし、1 = サブセット内、2 = サブセット間
+</td></tr>
+<tr>
+<td> <b>layer.plotn.subsetsize</b><p align="right"><font color="red">(2024 SR0)</font></p>
+<p align="right"></p>
+</td>
+<td> 読み/書き、<br />数値列
+</td>
+<td> サブセットの数を指定して、縦棒を複数のサブセットに分類します。 <pre class="lt" style="font-family:monospace;">layer.<span style="color: #000080;">plot</span>.<span style="color: #000080;">subsetsize</span><span style="color: #000080;">=</span><span style="color: #0000dd;">4</span></pre>
+</td></tr>
+<tr>
+<td> <b>layer.plotn.transparency</b>
+<p align="right"></p>
+</td>
+<td> 読み/書き、<br />数値列
+</td>
+<td> これは、0から100まで、プロットをどれぐらいを透過させるか指定します。
+</td></tr>
+<tr>
+<td> <b>layer.plot<i>n</i>.usepropssubgroup</b><p align="right"><font color="red">(2016 SR0)</font></p>
+</td>
+<td> 読み/書き、<br />数値列
+</td>
+<td> 推移リストを、各サブグループで繰り返し使用するか、サブグループ間で繰り返し使用するかを指定します。0 =推移を使用しない、1 =各サブグループ内で推移リストを繰り返し使用、2 =サブグループ間で推移リストを繰り返し使用。<i> n</i>は、グループ内の最初のデータプロットのプロットインデックスにする必要があります。
+</td></tr>
+<tr>
+<td> <b>layer.plotn.Tag$</b>
+<p align="right"></p>
+</td>
+<td> 読み込み,<br />文字列
+</td>
+<td> 解析ツールがピークマーカーなどのデータプロットを追加する際に、タグを付けます。
+</td></tr></table>
+<h2><a name="Methods"></a><span class="mw-headline">メソッド</span></h2>
+<table class="simple" width="100%">
+<tr>
+<th width="25%">メソッド
+</th>
+<th width="75%">説明
+</th></tr>
+<tr>
+<td>layer.plotn.DF
+</td>
+<td>
+<p>DF(1): ワークシート内の現在のフィルタをコピーして共有データフィルタ(SDF)を作成し、データプロットで使用する。
+<br />
+DF(): 最初のSDFに接続する。存在しない場合は作成する。
+<br />
+SDFのuidを返す。このデータプロットにSDFがない場合は0を返す。
+</p>
+</td></tr></table>
+<h2><a name="Example"></a><span class="mw-headline">サンプル</span></h2>
+<pre class="lt" style="font-family:monospace;"><span style="color: #008000;">//Group.datをインポートし、col(B)を使用して散布図を作成</span>
+layer.<span style="color: #000080;">plot1</span>.<span style="color: #000080;">color</span> <span style="color: #000080;">=</span> color<span style="color: #000000;">(</span><span style="color: #0000dd;">1</span>,n<span style="color: #000000;">)</span>;<span style="color: #008000;">//プロットの色 = Index&nbsp;: col(C) </span>
+layer.<span style="color: #000080;">plot1</span>.<span style="color: #000080;">colorlist</span><span style="color: #000080;">$</span><span style="color: #000080;">=</span><span style="color: #ff00ff;">&quot;Fire&quot;</span>;</pre>
+<pre class="lt" style="font-family:monospace;"><span style="color: #008000;">//Group.datをインポートし、グループプロットを作成</span>
+layer.<span style="color: #000080;">plot</span>.<span style="color: #000080;">shapelist</span><span style="color: #000080;">$</span><span style="color: #000080;">=</span><span style="color: #ff00ff;">&quot;myShape&quot;</span>;<span style="color: #008000;">// &quot;myShape&quot; という名前のシンボルタイプの推移リスト</span>
+
+layer.<span style="color: #000080;">plot</span>.<span style="color: #000080;">shapelist</span><span style="color: #000080;">$</span><span style="color: #000080;">=</span><span style="color: #000000;">{</span><span style="color: #0000dd;">3</span>, <span style="color: #0000dd;">2</span>, <span style="color: #0000dd;">1</span><span style="color: #000000;">}</span>;<span style="color: #008000;">//一時データセットによる</span></pre>
+<p><br />
+</p>
+<h2><a name="Sub_Objects"></a><span class="mw-headline">サブオブジェクト</span></h2>
+<h3><a name="BoxChart"></a><span class="mw-headline">ボックスチャート</span></h3>
+<p><b>layer.plotn.boxchart</b>オブジェクトは<a href="../../LabTalk/LabTalk/Layer_(object).html" title="LabTalk:Layer (オブジェクト)">layer</a>オブジェクトのサブオブジェクトです。作図の詳細ダイアログボックスのボックスチャートオプションへのスクリプトでのアクセスを提供します。
+</p><p><b>Note</b>：nを、編集するボックスチャートのデータリストの番号に置き換えます。
+</p>
+<table class="simple">
+<tr>
+<th> プロパティ
+</th>
+<th> アクセス
+</th>
+<th> 説明
+</th></tr>
+<tr>
+<td> <b>layer.plotn.boxchart.binBegin</b>
+</td>
+<td> 読み/書き、<br />数値列
+</td>
+<td>
+<p>ビン範囲の最小値  
+</p>
+</td></tr>
+<tr>
+<td> <b>layer.plotn.boxchart.binEnd</b>
+</td>
+<td> 読み/書き、<br />数値列
+</td>
+<td>
+<p>ビン範囲の最大値 
+</p>
+</td></tr>
+<tr>
+<td> <b>layer.plotn.boxchart.binSize</b>
+</td>
+<td> 読み/書き、<br />数値列
+</td>
+<td>
+<p>ビンのサイズ
+</p>
+</td></tr>
+<tr>
+<td> <b>layer.plotn.boxchart.boxRange</b>
+</td>
+<td> 読み/書き、<br />数値列
+</td>
+<td>
+<p>ボックスなし、SE、SD、パーセンタイル 25, 75などのボックス範囲。1=ボックスなし、2 = SE、3 = SDなど。作図の詳細のボックスチャートタブの範囲ドロップダウンリストを参照してください。 
+</p>
+</td></tr>
+<tr>
+<td> <b>layer.plotn.boxchart.label</b>
+</td>
+<td> 読み/書き、<br />数値列
+</td>
+<td>
+<p>ボックスのラベルの設定、1 = 平均, 2 = 中央値, 3 = 両方
+</p>
+</td></tr>
+<tr>
+<td> <b>layer.plotn.boxchart.line</b>
+</td>
+<td> 読み/書き、<br />数値列
+</td>
+<td>
+<p>ボックスの線の設定、1 = 平均, 2 = 中央値, 3 = 両方
+</p>
+</td></tr>
+<tr>
+<td> <b>layer.plotn.boxchart.type</b>
+</td>
+<td> 読み/書き、<br />数値列
+</td>
+<td>
+<p>ボックス、点列、ボックス+点列などのボックスチャートのタイプ。1 = ボックス、2 = 点列、3 = 母ボックス+点列など。作図の詳細ボックスチャートタブの種類ドロップダウンリストを参照してください。
+</p>
+</td></tr>
+<tr>
+<td> <b>layer.plotn.boxchart.width</b>
+</td>
+<td> 読み/書き、<br />数値列
+</td>
+<td>
+<p>ボックスの幅（ポイント単位）  
+</p>
+</td></tr></table>
+<h3><a name="Contour_Label"></a><span class="mw-headline">等高線ラベル</span></h3>
+<p><b>layer.plotn.contourlabels</b>オブジェクトは<a href="../../LabTalk/LabTalk/Layer_(object).html" title="LabTalk:Layer (オブジェクト)">layer</a>オブジェクトのサブオブジェクトです。作図の詳細ダイアログボックスの等高線ラベルオプションへのスクリプトでのアクセスを提供します。
+</p><p><b>Note</b>：nを、編集する等高線図のデータリストの番号に置き換えます。
+</p>
+<table class="simple">
+<tr>
+<th> プロパティ
+</th>
+<th> アクセス
+</th>
+<th> 説明
+</th></tr>
+<tr>
+<td> <b>layer.plotn.contourlabels.bold</b>
+<p align="right"></p>
+</td>
+<td> 読み/書き、<br />数値列
+</td>
+<td> フォントを太字に設定するかどうか：1 =する、0 =しない。
+</td></tr>
+<tr>
+<td> <b>layer.plotn.contourlabels.color</b>
+<p align="right"></p>
+</td>
+<td> 読み/書き、<br />数値列
+</td>
+<td> 1 =黒、2 =赤、3 =緑、4 =青などのカラーインデックスを使用して、等高線ラベルの色を設定します。付録の<a href="../../LabTalk/LabTalk/List_of_Colors.html" title="LabTalk:List of Colors">カラーリスト</a>を参照してください。
+</td></tr>
+<tr>
+<td> <b>layer.plotn.contourlabels.font</b>
+<p align="right"></p>
+</td>
+<td> 読み/書き、<br />数値列
+</td>
+<td> 現在のフォントリストのインデックスで、等高線ラベルのフォントを設定します。
+</td></tr>
+<tr>
+<td> <b>layer.plotn.contourlabels.italic</b>
+<p align="right"></p>
+</td>
+<td> 読み/書き、<br />数値列
+</td>
+<td> フォントをイタリックに設定するかどうか：1 =する、0 =しない。
+</td></tr>
+<tr>
+<td> <b>layer.plotn.contourlabels.minarea</b>
+<p align="right"></p>
+</td>
+<td> 読み/書き、<br />数値列
+</td>
+<td> あるパーセント値を設置し、これより大きい値(領域全体に対する割合で)を持つ領域のみにラベルを表示することができます。
+</td></tr>
+<tr>
+<td> <b>layer.plotn.contourlabels.size</b>
+<p align="right"></p>
+</td>
+<td> 読み/書き、<br />数値列
+</td>
+<td> 等高線ラベルのフォントサイズを、ポイント単位で設定します。
+</td></tr>
+<tr>
+<td> <b>layer.plotn.contourlabels.underline</b>
+<p align="right"></p>
+</td>
+<td> 読み/書き、<br />数値列
+</td>
+<td> 等高線ラベルの下線を有効にするかどうか：1=有効、0=無効。
+</td></tr>
+<tr>
+<td> <b>layer.plotn.contourlabels.whiteout</b>
+<p align="right"></p>
+</td>
+<td> 読み/書き、<br />数値列
+</td>
+<td> 各データラベル値の後ろに白い背景を表示するかどうか、1 =はい、0 =いいえ。
+</td></tr></table>
+<h3><a name="Label"></a><span class="mw-headline">ラベル</span></h3>
+<table class="simple">
+<tr>
+<th> プロパティ
+</th>
+<th> アクセス
+</th>
+<th> 説明
+</th></tr>
+<tr>
+<td> <b>layer.plot.label.color</b>
+</td>
+<td> 読み/書き、<br />数値列
+</td>
+<td> アクティブなデータプロットのラベルの色
+<pre class="lt" style="font-family:monospace;">layer.<span style="color: #000080;">plot</span>.<span style="color: #000080;">label</span>.<span style="color: #000080;">color</span><span style="color: #000080;">=</span><span style="color: #0000dd;">2</span> <span style="color: #008000;">// LabTalkの色のリスト（1 =黒、2 =赤、3 =緑など）</span>
+layer.<span style="color: #000080;">plot</span>.<span style="color: #000080;">label</span>.<span style="color: #000080;">color</span><span style="color: #000080;">=</span>color<span style="color: #000000;">(</span>#FF0000<span style="color: #000000;">)</span>; <span style="color: #008000;">//HTML、RGB値でcolor関数を使用する</span></pre>
+</td></tr>
+<tr>
+<td> <b>layer.plot.label.datagap</b>
+</td>
+<td> 読み/書き、<br />数値列
+</td>
+<td> 引出し線とデータポイントの間隔(%)
+</td></tr>
+<tr>
+<td> <b>layer.plot.label.form$</b>
+</td>
+<td> 読み/書き、<br />文字列
+</td>
+<td> アクティブなデータプロットのラベル形式<b><b>ラベル形式</b></b>を<i><b>カスタム</b></i>に設定し、<b><b>フォーマット指定</b></b>を設定します。
+<pre class="lt" style="font-family:monospace;">layer.<span style="color: #000080;">plot</span>.<span style="color: #000080;">label</span>.<span style="color: #000080;">form</span><span style="color: #000080;">$</span><span style="color: #000080;">=</span><span style="color: #000080;">%</span><span style="color: #000000;">(</span>?,@LL<span style="color: #000000;">)</span>; <span style="color: #008000;">// ラベルにロングネームを使用する</span></pre>
+</td></tr>
+<tr>
+<td> <b>layer.plot.label.fsize</b>
+</td>
+<td> 読み/書き、<br />数値列
+</td>
+<td> アクティブなデータプロットのラベルのフォントの大きさ（ポイント単位）。
+</td></tr>
+<tr>
+<td> <b>layer.plot.label.labelgap</b>
+</td>
+<td> 読み/書き、<br />数値列
+</td>
+<td> 引出し線とテキストフレーム間隔(%)
+</td></tr>
+<tr>
+<td> <b>layer.plot.label.leader</b>
+</td>
+<td> 読み/書き、<br />数値列
+</td>
+<td> 引出し線を表示-1 = 非表示、2 = 2％のしきい値で表示
+</td></tr>
+<tr>
+<td> <b>layer.plot.label.spec$</b>
+</td>
+<td> 読み/書き、<br />文字列
+</td>
+<td>
+<ul><li> 指定されたポイントでのみデータラベルの表示を有効にします。</li></ul>
+<pre class="lt" style="font-family:monospace;">layer.<span style="color: #000080;">plot</span>.<span style="color: #000080;">label</span>.<span style="color: #000080;">spec</span><span style="color: #000080;">$</span><span style="color: #000080;">=</span><span style="color: #ff00ff;">&quot;end&quot;</span>; <span style="color: #008000;">//最後のデータポイントにおけるラベルの表示を有効にする</span>
+layer.<span style="color: #000080;">plot</span>.<span style="color: #000080;">label</span>.<span style="color: #000080;">spec</span><span style="color: #000080;">$</span><span style="color: #000080;">=</span><span style="color: #ff00ff;">&quot;1 10 20 30&quot;</span>; <span style="color: #008000;">// ポイントのインデックス1、10、20、30でのラベルの表示を有効にする</span>
+layer.<span style="color: #000080;">plot</span>.<span style="color: #000080;">label</span>.<span style="color: #000080;">spec</span><span style="color: #000080;">$</span><span style="color: #000080;">=</span><span style="color: #ff00ff;">&quot;&lt;subset end&gt;&quot;</span>;<span style="color: #008000;">//サブセット境界にプロットラベルを表示</span></pre>
+<p>ラベルが有効になっていない場合は、ラベルを有効にします。 
+</p>
+<ul><li> <b>指定した点のみを表示</b>ボックス（作図の詳細の<b>ラベル</b>タブ）をオフにするには、以下を使用します。 </li></ul>
+<pre class="lt" style="font-family:monospace;">layer.<span style="color: #000080;">plot</span>.<span style="color: #000080;">label</span>.<span style="color: #000080;">spec</span><span style="color: #000080;">$</span><span style="color: #000080;">=</span><span style="color: #ff00ff;">&quot;&quot;</span>; <span style="color: #008000;">//「指定した点のみを表示」チェックボックスをオフにする</span></pre> 
+<ul><li> ラベル表示を完全に無効にするには、<a href="../../LabTalk/LabTalk/Options_for_Data_Plot_Labels.html#-q" title="LabTalk: データプロットラベルについてのオプション"><b>set-q</b></a>を使用します。</li></ul>
+<pre class="lt" style="font-family:monospace;">set <span style="color: #000080;">%</span>C <span style="color: #000080;">-</span>q <span style="color: #0000dd;">0</span>; <span style="color: #008000;">//アクティブなプロットのラベルをオフにする</span></pre> 
+</td></tr></table>
+<h3><a name="Numeric_Formats"></a><span class="mw-headline">数値フォーマット</span></h3>
+<p><b>layer.plotn.numericformats</b>オブジェクトは<a href="../../LabTalk/LabTalk/Layer_(object).html" title="LabTalk:Layer (オブジェクト)">layer</a>オブジェクトのサブオブジェクトです。作図の詳細ダイアログボックスの数値フォーマットオプションへのスクリプトでのアクセスを提供します。
+</p><p><b>Note</b>：nを、編集する等高線図のデータリストの番号に置き換えます。
+</p>
+<table class="simple">
+<tr>
+<th> プロパティ
+</th>
+<th> アクセス
+</th>
+<th> 説明
+</th></tr>
+<tr>
+<td> <b>layer.plotn.numericformats.subformat</b>
+<p align="right"></p>
+</td>
+<td> 読み/書き、<br />数値列
+</td>
+<td> 1 = 十進数：1000、2 =指数：1E3、3 =工学：1K、4 = 十進数：1,000など、表示形式のインデックスを使用して、等高線ラベルの表示形式を設定します。
+</td></tr>
+<tr>
+<td> <b>layer.plotn.numericformats.divideby</b>
+<p align="right"></p>
+</td>
+<td> 読み/書き、<br />数値列
+</td>
+<td> カラーマップと等高線のレベルは、指定された値の刻みで設定されます。
+</td></tr>
+<tr>
+<td> <b>layer.plotn.numericformats.digimode</b>
+<p align="right"></p>
+</td>
+<td> 読み/書き、<br />数値列
+</td>
+<td> 数値表示の方法を設定します。0=小数点桁数、1 =有効桁数。
+</td></tr>
+<tr>
+<td> <b>layer.plotn.numericformats.digits</b>
+<p align="right"></p>
+</td>
+<td> 読み/書き、<br />数値列
+</td>
+<td> 表示する桁数を設定します。layer.plotn.numericformats.digimode = 0の場合、この値は小数点以下の桁数を設定します。layer.plotn.numericformats.digimode= 1の場合、この値は表示する桁数を設定します。
+</td></tr>
+<tr>
+<td> <b>layer.plotn.numericformats.prefix$</b>
+<p align="right"></p>
+</td>
+<td> 読み/書き、<br />文字列
+</td>
+<td> 等高線ラベルの接頭語を指定します。
+</td></tr>
+<tr>
+<td> <b>layer.plotn.numericformats.suffix$</b>
+<p align="right"></p>
+</td>
+<td> 読み/書き、<br />文字列
+</td>
+<td> 等高線ラベルの接尾語を指定します。
+</td></tr></table>
+<h3><a name="Symbol"></a><span class="mw-headline">シンボル</span></h3>
+<p><b>layer.plot<i>n</i>.symbol</b>オブジェクトは<a href="../../LabTalk/LabTalk/Layer_(object).html" title="LabTalk:Layer (オブジェクト)">layer</a>オブジェクトのサブオブジェクトです。作図の詳細ダイアログボックスのシンボルオプションへのスクリプトでのアクセスを提供します。プロットがアクティブな場合、プロット番号<i>n</i>は省略できます。
+</p>
+<table class="simple">
+<tr>
+<th> プロパティ
+</th>
+<th> アクセス
+</th>
+<th> 説明
+</th></tr>
+<tr>
+<td> <b>layer.plot.symbol.interior</b>
+</td>
+<td> 読み/書き、<br />数値列
+</td>
+<td> プロットのシンボルの内部
+</td></tr>
+<tr>
+<td> <b>layer.plot.symbol.kind</b>
+</td>
+<td> 読み/書き、<br />数値列
+</td>
+<td> プロットのシンボルの形状
+</td></tr>
+<tr>
+<td> <b>layer.plot.symbol.oct</b>
+</td>
+<td> 読み/書き、<br />数値列
+</td>
+<td> <b>重なったポイントのずらし</b>が有効になっている場合のシンボル<b>中心</b>。
+</td></tr>
+<tr>
+<td> <b>layer.plot.symbol.offset</b>
+</td>
+<td> 読み/書き、<br />数値列
+</td>
+<td> <b>重なったポイントのずらし</b>が有効になっている場合のシンボル<b>並べ替え</b>。1 = 水平, 2 = 垂直
+</td></tr>
+<tr>
+<td> <b>layer.plot.symbol.size</b>
+</td>
+<td> 読み/書き、<br />数値列
+</td>
+<td> シンボルのサイズ単位は、<b>サイズの単位</b>リストで設定されているものです。
+</td></tr>
+<tr>
+<td> <b>layer.plot.symbol.sizeFactor</b>
+</td>
+<td> 読み/書き、<br />数値列
+</td>
+<td> シンボルサイズの縮尺倍率
+</td></tr>
+<tr>
+<td> <b>layer.plot.symbol.transparency</b>
+</td>
+<td> 読み/書き、<br />数値列
+</td>
+<td> 透過率、パーセンテージ (%)
+</td></tr></table>
+<h3><a name="Line"></a><span class="mw-headline">線</span></h3>
+<p><b>layer.plot<i>n</i>.line</b>オブジェクトは<a href="../../LabTalk/LabTalk/Layer_(object).html" title="LabTalk:Layer (オブジェクト)">layer</a>オブジェクトのサブオブジェクトです。作図の詳細ダイアログボックスの線オプションへのスクリプトでのアクセスを提供します。プロットがアクティブな場合、プロット番号<i>n</i>は省略できます。
+</p>
+<table class="simple">
+<tr>
+<th> プロパティ
+</th>
+<th> アクセス
+</th>
+<th> 説明
+</th></tr>
+<tr>
+<td> <b>layer.plotn.line.connect</b>
+</td>
+<td> 読み/書き、<br />数値列
+</td>
+<td> 折れ線プロットの接続オプションは、作図の詳細ダイアログのグラフの線タブにある<a class="external text" href="../../UserGuide/UserGuide/The_(Plot_Details)_Line_Tab.html#Connect">接続線</a>ボックスと同じです。
+</td></tr>
+
+<tr>
+<td> <b>layer.plotn.line.type</b>
+</td>
+<td> 読み/書き、<br />数値列
+</td>
+<td> 指定した線種で曲線をプロットします。
+<p>線種の値は作図の詳細ダイアログのグラフの線タブにある<a class="external text" href="../../UserGuide/UserGuide/The_(Plot_Details)_Line_Tab.html#Style">線種ドロップダウンリスト</a>のインデックスに従います。1=実線 &apos; 2 = 破線 &apos; 3 = 点線などです。
+</p>
+</td></tr>
+<tr>
+<td> <b>layer.plotn.line.width</b>
+</td>
+<td> 読み/書き、<br />数値列
+</td>
+<td> 指定した幅で曲線線をプロットします。幅は、作図の詳細ダイアログのグラフの線タブにある<a class="external text" href="../../UserGuide/UserGuide/The_(Plot_Details)_Line_Tab.html#Width">太さ</a>ボックスと同じです。
+</td></tr>
+<tr>
+<td> <b>layer.plotn.sortx</b>
+</td>
+<td> 読み/書き、<br />数値列
+</td>
+<td> 列をX値でソートして線をプロットします。
+</td></tr></table>
+
+
+
+
+
+
+
+    

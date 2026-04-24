@@ -1,0 +1,587 @@
+﻿<h1 class="firstHeading">Page</h1><p class='urlname' style='display: none'>Page-cmd</p>
+<p><br />
+</p><p>現在のページでさまざまな操作を実行します。
+</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>目次</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Syntax:"><span class="tocnumber">1</span> <span class="toctext">構文</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Options:"><span class="tocnumber">2</span> <span class="toctext">オプション</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="#no_option.3B_Open_the_page_tabs_of_Plot_Details_dialog"><span class="tocnumber">2.1</span> <span class="toctext">オプションなし：作図の詳細ダイアログのページ属性タブを開く</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="#-ada.3B_Arrange_layers_in_cells_using_some_default_gap"><span class="tocnumber">2.2</span> <span class="toctext">-ada; デフォルトの間隔を使用してセル内のレイヤを整列</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#-add.3B_Dump_the_values_set_by_the_page_-ads"><span class="tocnumber">2.3</span> <span class="toctext">-add; page -adsによって設定された値をダンプ</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#-adr.3B_Reset_dividers_and_change_layer_sizes"><span class="tocnumber">2.4</span> <span class="toctext">-adr; 区切り線のリセットとレイヤサイズの変更</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="#-ads.3B_Create_a_grid_of_n_x_m_cells_on_the_graph_page"><span class="tocnumber">2.5</span> <span class="toctext">-ads; グラフページにn×mセルのグリッドを作成</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="#-af.3B_Change_Scale_Factor_of_all_layers_in_a_graph_page_to_a_specified_value"><span class="tocnumber">2.6</span> <span class="toctext">-af; グラフページ内のすべてのレイヤのスケール係数を指定した値に変更</span></a></li>
+<li class="toclevel-2 tocsection-9"><a href="#-afu.3B_Change_Scale_Factor_of_all_layers_in_a_graph_page_to_a_specified_value.2C_Undo_Supported"><span class="tocnumber">2.7</span> <span class="toctext">-afu; グラフページ内のすべてのレイヤのスケール係数を指定した値に変更（「元に戻す」利用可）</span></a></li>
+<li class="toclevel-2 tocsection-10"><a href="#-afu1.3B_Change_Scale_Factor_of_all_layers_in_a_graph_page_to_1"><span class="tocnumber">2.8</span> <span class="toctext">-afu1; グラフページ内のすべてのレイヤのスケール係数を1に変更</span></a></li>
+<li class="toclevel-2 tocsection-11"><a href="#-afua.3B_Change_Scale_Factor_of_all_layers_in_a_graph_page_to_a_specified_value"><span class="tocnumber">2.9</span> <span class="toctext">-afua; グラフページ内のすべてのレイヤのスケール係数を指定した値に変更</span></a></li>
+<li class="toclevel-2 tocsection-12"><a href="#-afum.3B_Change_Scale_Factor_of_all_layers_in_a_graph_page_to_1_and_dump_meassage"><span class="tocnumber">2.10</span> <span class="toctext">-afum; グラフページ内のすべてのレイヤのスケール係数を1に変更してメッセージを出力</span></a></li>
+<li class="toclevel-2 tocsection-13"><a href="#-c.3B_Open_the_Page_Color_dialog_box"><span class="tocnumber">2.11</span> <span class="toctext">-c; ページの色ダイアログボックスを開く</span></a></li>
+<li class="toclevel-2 tocsection-14"><a href="#-df.3B_Convert_graph_with_worksheet_data_filter_to_use_Shared_Data_Filter"><span class="tocnumber">2.12</span> <span class="toctext">-df; ワークシートデータフィルタを含むグラフを共有データ フィルタを使用するように変換</span></a></li>
+<li class="toclevel-2 tocsection-15"><a href="#-dfn.3B_Create_a_new_ShDF_for_the_dataplots_in_the_graph"><span class="tocnumber">2.13</span> <span class="toctext">-dfn; グラフ内のデータプロットに新しいShDFを作成</span></a></li>
+<li class="toclevel-2 tocsection-16"><a href="#-dfr.3B_Undoably_remove_all_ShDF_in_the_graph"><span class="tocnumber">2.14</span> <span class="toctext">-dfr; グラフ内のすべてのShDFを削除（「元に戻す」利用不可）</span></a></li>
+<li class="toclevel-2 tocsection-17"><a href="#-dfs.3B_Retrieve_the_state_of_data_filter_in_the_active_graph"><span class="tocnumber">2.15</span> <span class="toctext">-dfs; アクティブグラフ内のデータフィルタの状態を取得</span></a></li>
+<li class="toclevel-2 tocsection-18"><a href="#-f.3B_Adjust_the_page_dimensions_according_to_the_current_windows_aspect_ratio"><span class="tocnumber">2.16</span> <span class="toctext">-f; 現在のウィンドウの縦横比に応じてページサイズを調整</span></a></li>
+<li class="toclevel-2 tocsection-19"><a href="#-fls.3B_Fit_layers_to_page"><span class="tocnumber">2.17</span> <span class="toctext">-fls; レイヤをページに合わせる</span></a></li>
+<li class="toclevel-2 tocsection-20"><a href="#-fit.3B_Fit_Page_to_all_Objects"><span class="tocnumber">2.18</span> <span class="toctext">-fit; ページをすべてのオブジェクトに合わせる</span></a></li>
+<li class="toclevel-2 tocsection-21"><a href="#-j.3B_Convert_each_layer_of_a_multiple_layer_graph_into_a_graph_window"><span class="tocnumber">2.19</span> <span class="toctext">-j; 複数レイヤグラフの各レイヤをグラフウィンドウに変換</span></a></li>
+<li class="toclevel-2 tocsection-22"><a href="#-l.3B_Add_the_specified_template_to_the_active_graph_window"><span class="tocnumber">2.20</span> <span class="toctext">-l; 指定したテンプレートをアクティブなグラフウィンドウに追加</span></a></li>
+<li class="toclevel-2 tocsection-23"><a href="#-lt.3B_print_the_current_protection_bits"><span class="tocnumber">2.21</span> <span class="toctext">-lt; 現在の保護ビットを印刷</span></a></li>
+<li class="toclevel-2 tocsection-24"><a href="#-lw.3B_Turn_on_protection_on_workbook_level"><span class="tocnumber">2.22</span> <span class="toctext">-lw; ワークブックレベルで保護をオンにする</span></a></li>
+<li class="toclevel-2 tocsection-25"><a href="#-mg_Origin_modified_state.3B_Get_the_modified_state_of_the_active_window"><span class="tocnumber">2.23</span> <span class="toctext">-mg <i>Origin_modified_state</i>：アクティブウィンドウの変更状態を取得</span></a></li>
+<li class="toclevel-2 tocsection-26"><a href="#-ms.3B_clear_the_modified_state"><span class="tocnumber">2.24</span> <span class="toctext">-ms; 変更状態をクリア</span></a></li>
+<li class="toclevel-2 tocsection-27"><a href="#-o.3B_Set_the_page_to_portrait.2C_landscape.2C_or_rotate_the_page"><span class="tocnumber">2.25</span> <span class="toctext">-o; ページを縦、横、または回転に設定</span></a></li>
+<li class="toclevel-2 tocsection-28"><a href="#-pg.3B_Get_page_related_parameters"><span class="tocnumber">2.26</span> <span class="toctext">-pg; ページ関連のパラメータを取得</span></a></li>
+<li class="toclevel-2 tocsection-29"><a href="#-ps.3B_Set_page_related_parameters"><span class="tocnumber">2.27</span> <span class="toctext">-ps; ページ関連パラメータを設定</span></a></li>
+<li class="toclevel-2 tocsection-30"><a href="#-rc.3B_Convert_existing_graph_colors_to_Auto"><span class="tocnumber">2.28</span> <span class="toctext">-rc; 既存のグラフの色を自動に変換</span></a></li>
+<li class="toclevel-2 tocsection-31"><a href="#-rcp.3B_Make_Current_Dynamic_Color_Permanent"><span class="tocnumber">2.29</span> <span class="toctext">-rcp; 現在のダイナミックカラーを永続化</span></a></li>
+<li class="toclevel-2 tocsection-32"><a href="#-rrt.3B_Connect_the_table_objects_on_an_active_graph_page"><span class="tocnumber">2.30</span> <span class="toctext">-rrt; アクティブグラフページ上のテーブルオブジェクトを接続</span></a></li>
+<li class="toclevel-2 tocsection-33"><a href="#-s.3B_Select_the_specified_object_on_the_page"><span class="tocnumber">2.31</span> <span class="toctext">-s; ページ上で指定したオブジェクトを選択</span></a></li>
+<li class="toclevel-2 tocsection-34"><a href="#-sa.3B_Select_the_specified_object_on_the_page_and_preserve_the_status_of_all_current_objects"><span class="tocnumber">2.32</span> <span class="toctext">-sa; ページ上で指定したオブジェクトを選択し、現在のすべてのオブジェクトの状態を保持</span></a></li>
+<li class="toclevel-2 tocsection-35"><a href="#-sps.3B_Set_splitter_to_the_active_page"><span class="tocnumber">2.33</span> <span class="toctext">-sps; スプリッタをアクティブページに設定</span></a></li>
+<li class="toclevel-2 tocsection-36"><a href="#-t.3B_Open_the_specified_template_using_the_active_graph_window"><span class="tocnumber">2.34</span> <span class="toctext">-t; アクティブなグラフウィンドウを使用して指定したテンプレートを開く</span></a></li>
+<li class="toclevel-2 tocsection-37"><a href="#-tbb.3B_Add_Labtalk_Button_to_Window_Title_Bar"><span class="tocnumber">2.35</span> <span class="toctext">-tbb; LabTalkボタンをウィンドウのタイトルバーに追加</span></a></li>
+<li class="toclevel-2 tocsection-38"><a href="#-uo.3B_Update_Operations"><span class="tocnumber">2.36</span> <span class="toctext">-uo; 更新操作</span></a></li>
+<li class="toclevel-2 tocsection-39"><a href="#-us.3B_Update_active_Excel_book_to_recreate_all_hidden_Origin_sheets_with_all_the_Excel_data_copied_over"><span class="tocnumber">2.37</span> <span class="toctext">-us; アクティブなExcelブックを更新し、すべてのExcelデータをコピーしたすべて非表示のOriginシートを再作成</span></a></li>
+<li class="toclevel-2 tocsection-40"><a href="#-v.3B_Set_the_page_to_the_specified_view_mode"><span class="tocnumber">2.38</span> <span class="toctext">-v; ページを指定した表示モードに設定</span></a></li>
+<li class="toclevel-2 tocsection-41"><a href="#-vnw.3B_Set_the_page_to_the_new_Window_View_mode"><span class="tocnumber">2.39</span> <span class="toctext">-vnw; ページを新しいウィンドウビューモードに設定</span></a></li>
+<li class="toclevel-2 tocsection-42"><a href="#-vx.3B_Switch_the_view_mode_for_the_active_Excel_workbook"><span class="tocnumber">2.40</span> <span class="toctext">-vx; アクティブなExcelブックの表示モードを切り替え</span></a></li>
+<li class="toclevel-2 tocsection-43"><a href="#-w.3B_Plot_each_column_in_the_worksheet_to_separate_graph_layers"><span class="tocnumber">2.41</span> <span class="toctext">-w; ワークシートの各列をグラフレイヤ別にプロット</span></a></li>
+<li class="toclevel-2 tocsection-44"><a href="#-x.3B_Add_the_active_window_as_shortcut_to_Favorites_folder"><span class="tocnumber">2.42</span> <span class="toctext">-x; アクティブウィンドウをショートカットとしてお気に入りフォルダに追加</span></a></li>
+<li class="toclevel-2 tocsection-45"><a href="#-yt.3B_Draw_the_tight_rectangles_for_each_layer"><span class="tocnumber">2.43</span> <span class="toctext">-yt; 各レイヤに矩形を描画</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-46"><a href="#Examples:"><span class="tocnumber">3</span> <span class="toctext">サンプル:</span></a></li>
+</ul>
+</div>
+
+<h2><a name="Syntax:"></a><span class="mw-headline"><font color="chocolate">構文</font></span></h2>
+<pre class="lt" style="font-family:monospace;">page <span style="color: #000000;">[</span>option<span style="color: #000000;">]</span></pre>
+<h2><a name="Options:"></a><span class="mw-headline"><font color="chocolate">オプション：</font></span></h2>
+<h3><a name="no_option.3B_Open_the_page_tabs_of_Plot_Details_dialog"></a><span class="mw-headline">オプションなし：作図の詳細ダイアログのページ属性タブを開く</span></h3>
+<p>ページ属性タブがアクティブな状態で作図の詳細ダイアログボックスを開きます。
+</p>
+<h3><a name="-ada.3B_Arrange_layers_in_cells_using_some_default_gap"></a><span class="mw-headline">-ada; デフォルトの間隔を使用してセル内のレイヤを整列</span></h3>
+<p><b>構文：</b> page -ada
+</p><p>セル内に適切なレイヤ (サイズがページのパーセンテージではなく、別のレイヤにリンクされていないすべてのレイヤ) を配置します。配置されたレイヤ間には、デフォルトの間隔が設けられます。
+</p>
+<h3><a name="-add.3B_Dump_the_values_set_by_the_page_-ads"></a><span class="mw-headline">-add; page -adsによって設定された値をダンプ</span></h3>
+<p><b>構文：</b> page -add
+</p>
+<h3><a name="-adr.3B_Reset_dividers_and_change_layer_sizes"></a><span class="mw-headline">-adr; 区切り線のリセットとレイヤサイズの変更</span></h3>
+<p><b>構文：</b> page -adr
+</p><p>区切り線の位置をリセットするために使用でき、それに応じてレイヤのサイズも変更されます (ただし、レイヤの並べ替えは行われません)。
+</p>
+<h3><a name="-ads.3B_Create_a_grid_of_n_x_m_cells_on_the_graph_page"></a><span class="mw-headline">-ads; グラフページにn×mセルのグリッドを作成</span></h3>
+<p><b>構文：</b> page -ads [options] (firsthorizdiv|secondhorizdiv|etc) (firstvertdiv|secondvertdiv|etc)
+</p><p>グラフページに各次元の区切り線の位置を設定します。値はすべて、対応する方向のページ寸法のパーセンテージであると仮定されます。すべての値は0以上1以下で、昇順に与えられる必要があります。このコマンドは、ページビューと新規ウィンドウビューの両方で機能します。2つの次元のうちの1つに区切りが不要な場合は、その次元の括弧内に何も記入しません。
+</p>
+<table class="simple" style="width: 95%">
+
+<tr>
+<th style="width: 15%">オプション
+</th>
+<th style="width: 80%">説明
+</th></tr>
+<tr>
+<td> -b
+</td>
+<td> レイヤを下から上に配置します。
+</td></tr>
+<tr>
+<td> -c
+</td>
+<td> レイヤをcolumn-majorとして配置します（デフォルトはrow-major）。
+</td></tr>
+<tr>
+<td> -gh <i>value</i>
+</td>
+<td>  隣接するレイヤ間の水平（内側）の間隔の値をページ幅に対するパーセンテージとして設定します。これが設定されていない場合、デフォルト（0%）が使用されます。
+</td></tr>
+<tr>
+<td> -gv <i>value</i>
+</td>
+<td> 隣接するレイヤ間の垂直（内側）の間隔の値をページ高さに対するパーセンテージとして設定します。これが設定されていない場合、デフォルト（0%）が使用されます。
+</td></tr>
+<tr>
+<td> -mb <i>value</i>
+</td>
+<td> 下（外側）の余白の値をページ高さに対するパーセンテージとして設定します。これが設定されていない場合、デフォルト（0%）が使用されます。
+</td></tr>
+<tr>
+<td> -ml <i>value</i>
+</td>
+<td> 左（外側）の余白の値をページ幅に対するパーセンテージとして設定します。これが設定されていない場合、デフォルト（0%）が使用されます。
+</td></tr>
+<tr>
+<td> -mr <i>value</i>
+</td>
+<td> 右（外側）の余白の値をページ幅に対するパーセンテージとして設定します。これが設定されていない場合、デフォルト（0%）が使用されます。
+</td></tr>
+<tr>
+<td> -mt <i>value</i>
+</td>
+<td> 上（外側）の余白の値をページ高さに対するパーセンテージとして設定します。これが設定されていない場合、デフォルト（0%）が使用されます。
+</td></tr></table>
+<p><i><b>サンプル：</b></i>
+新しい空のグラフページを作成します。次に、以下のLabTalkスクリプトを実行します。最初にグラフページのレイヤ数を6に設定します。次に、各レイヤの単位を&quot;cm&quot;に設定し、背景色を変更してすべて異なるものにします。次に、ページ領域の区切り線を設定します。2つの水平方向（ページ上部からの高さ30%と高さ65%）と1つの垂直方向（ページの左端からの高さ60%）です。また、左余白をページ幅の15%、上余白をページ高さの12%、内側の水平余白をページ幅の10%、内側の垂直余白を0に設定します。次に、設定された区切り線の位置をダンプします。最後に、線で区切られたセル内のすべてのレイヤを並べ替えます。
+</p>
+<pre class="lt" style="font-family:monospace;">int nLayersToHave <span style="color: #000080;">=</span> <span style="color: #0000dd;">6</span>;
+int nLayersToAdd <span style="color: #000080;">=</span> nLayersToHave <span style="color: #000080;">-</span> page.<span style="color: #000080;">nlayers</span>;
+if <span style="color: #000000;">(</span> <span style="color: #0000dd;">0</span> <span style="color: #000080;">&lt;</span> nLayersToAdd <span style="color: #000000;">)</span>
+<span style="color: #000000;">{</span>
+	repeat nLayersToAdd <span style="color: #000000;">{</span> page <span style="color: #000080;">-</span>l Origin; <span style="color: #000000;">}</span>;
+<span style="color: #000000;">}</span>
+
+int ncolor <span style="color: #000080;">=</span> <span style="color: #0000dd;">2</span>;
+doc <span style="color: #000080;">-</span>e LW <span style="color: #000000;">{</span> layer <span style="color: #000080;">-</span>u <span style="color: #0000dd;">3</span>; layer.<span style="color: #000080;">color</span> <span style="color: #000080;">=</span> ncolor; ncolor<span style="color: #000080;">++</span>; <span style="color: #000000;">}</span>;
+
+page <span style="color: #000080;">-</span>ADS <span style="color: #000080;">-</span>B <span style="color: #000080;">-</span>GV <span style="color: #0000dd;">0</span> <span style="color: #000080;">-</span>GH <span style="color: #0000dd;">0.1</span> <span style="color: #000080;">-</span>ML .15 <span style="color: #000080;">-</span>MT .12 <span style="color: #000000;">(</span><span style="color: #0000dd;">0.3</span><span style="color: #000080;">|</span>.65<span style="color: #000000;">)</span> <span style="color: #000000;">(</span><span style="color: #0000dd;">0.6</span><span style="color: #000000;">)</span>;
+page <span style="color: #000080;">-</span>ADD;
+page <span style="color: #000080;">-</span>ADA;</pre>
+<h3><a name="-af.3B_Change_Scale_Factor_of_all_layers_in_a_graph_page_to_a_specified_value"></a><span class="mw-headline">-af; グラフページ内のすべてのレイヤのスケール係数を指定した値に変更</span></h3>
+<p><b>構文：</b> page <b>-af</b> <i>value</i>
+</p><p>グラフページ内のすべてのレイヤの<b>スケール倍率</b>を指定した<i>値</i>に変更します（まだ変更していない場合）。この変更は、レイヤの全てのオブジェクトに影響します。軸、軸ラベル、凡例、データプロット、および<b>レイヤ枠</b>または<b>レイヤとスケール</b>に関係する全てのオブジェクトに、スケール変更が適用されます。また、テキストフォントサイズ、線や矢印の線幅、矢印の頭や尾の寸法、長方形や折れ線などの描画オブジェクトの線幅などの要素に影響を与えます。
+</p>
+<h3><a name="-afu.3B_Change_Scale_Factor_of_all_layers_in_a_graph_page_to_a_specified_value.2C_Undo_Supported"></a><span class="mw-headline">-afu; グラフページ内のすべてのレイヤのスケール係数を指定した値に変更（「元に戻す」利用可）</span></h3>
+<p><b>構文：</b> page <b>-afu</b> <i>value</i>
+</p><p>グラフページ内のすべてのレイヤの<b>スケール倍率</b>を指定した<i>値</i>に変更します。<b>-af</b>と<b>-afuの</b>違いは、 <b>-afu</b>が「元に戻す」をサポートしていることです。
+</p>
+<h3><a name="-afu1.3B_Change_Scale_Factor_of_all_layers_in_a_graph_page_to_1"></a><span class="mw-headline">-afu1; グラフページ内のすべてのレイヤのスケール係数を1に変更</span></h3>
+<p><b>構文：</b> page <b>-afu1</b>
+</p><p>グラフ要素(テキスト、線など)がレイヤサイズに合わせてサイズ変更されないように、アクティブなグラフウィンドウ内のすべてのレイヤのスケール係数を1に固定します。メッセージログには何も出力されません。
+</p>
+<h3><a name="-afua.3B_Change_Scale_Factor_of_all_layers_in_a_graph_page_to_a_specified_value"></a><span class="mw-headline">-afua; グラフページ内のすべてのレイヤのスケール係数を指定した値に変更</span></h3>
+<p><b>構文：</b> page <b>-afua</b>
+</p><p>レイヤのサイズが変更されたときに、アクティブなグラフウィンドウ内のすべてのレイヤのグラフ要素 (テキスト、線など) が指定されたサイズ係数で固定されるように、係数を要求する<b>固定倍率</b>ダイアログをポップアップ表示します。完了すると、メッセージログにメッセージが出力されます。
+</p><p><br />
+</p>
+<h3><a name="-afum.3B_Change_Scale_Factor_of_all_layers_in_a_graph_page_to_1_and_dump_meassage"></a><span class="mw-headline">-afum; グラフページ内のすべてのレイヤのスケール係数を1に変更してメッセージを出力</span></h3>
+<p><b>構文：</b> page <b>-afum</b>
+</p><p>グラフ要素(テキスト、線など)がレイヤサイズに合わせてサイズ変更されないように、アクティブなグラフウィンドウ内のすべてのレイヤのスケール係数を1に固定します。完了すると、メッセージログにメッセージが出力されます。
+</p>
+<h3><a name="-c.3B_Open_the_Page_Color_dialog_box"></a><span class="mw-headline">-c; ページの色ダイアログボックスを開く</span></h3>
+<p><b>構文：</b> page <b>-c</b>
+</p><p>ページの色ダイアログボックスを開きます。
+</p>
+<h3><a name="-df.3B_Convert_graph_with_worksheet_data_filter_to_use_Shared_Data_Filter"></a><span class="mw-headline">-df; ワークシートデータフィルタを含むグラフを共有データフィルタを使用するように変換</span></h3>
+<p><b>構文：</b> page <b>-df</b> [<b>1</b>]
+</p><p>値1が指定されていない場合、グラフウィンドウでグラフデータスライサー（共有データフィルタ）がオンになりますが、元のワークシートのフィルタは保持され、行は非表示のままです。値1を指定すると、元のワークシート内のワークシートベースのフィルタがグラフベースのフィルタ（共有データフィルタ）に変換されます。元のワークシートのフィルタは削除され、行が非表示ではなくなります。
+</p>
+<pre class="lt" style="font-family:monospace;">page <span style="color: #000080;">-</span>df <span style="color: #0000dd;">1</span>;<span style="color: #008000;">//SDFに変換して元のワークシートからフィルタを削除</span></pre>
+<h3><a name="-dfn.3B_Create_a_new_ShDF_for_the_dataplots_in_the_graph"></a><span class="mw-headline">-dfn; グラフ内のデータプロットに新しいShDFを作成</span></h3>
+<p><b>構文：</b> page <b>-dfn</b> <i>colnameornumber</i>
+</p><p>データフィルタが検出されなかった場合（<code>page -dfs;</code> を実行すると0が返される）、コンテキストメニューがポップアップ表示され、<i>colnameornumber</i>で指定された列に共有データフィルタ (ShDF) が作成されます。新しいShDFが作成された後、同じワークシートのデータを現在使用しているグラフ内のすべてのデータプロットは、このShDFによってフィルタリングされます。
+</p>
+<pre class="lt" style="font-family:monospace;">page <span style="color: #000080;">-</span>dfn <span style="color: #0000dd;">2</span>; <span style="color: #008000;">//元のワークシートの2列目にShDFを追加</span></pre>
+<h3><a name="-dfr.3B_Undoably_remove_all_ShDF_in_the_graph"></a><span class="mw-headline">-dfr; グラフ内のすべてのShDFを削除（「元に戻す」利用不可）</span></h3>
+<p><b>構文：</b> page <b>-dfr</b>
+</p><p>グラフ内のすべてのShDF （およびSFhDFを使用した仮想データセット）を削除します。元に戻す（Undo）とやり直し（Redo）も同様に動作します。
+</p><p>変数を持つバージョンもあります。
+</p>
+<pre class="lt" style="font-family:monospace;">page <span style="color: #000080;">-</span>dfr nnn; nnn <span style="color: #000080;">=</span>&nbsp;;</pre>
+<p>これは何も削除しません。現在のグラフでShDFを使用している仮想データセットの数のみがLabTalk変数 <i>nnn</i>に返されます。
+</p>
+<h3><a name="-dfs.3B_Retrieve_the_state_of_data_filter_in_the_active_graph"></a><span class="mw-headline">-dfs; アクティブグラフ内のデータフィルタの状態を取得</span></h3>
+<p><b>構文：</b> page <b>-dfs</b> <b>nnn</b>
+</p><p><b>nnn</b>は状態を受け取る変数の名前です。使用可能な値：
+</p><p>0：データフィルタの検出なし
+</p><p>1：少なくとも1つのワークシートにデータフィルタが存在し、グラフ内の少なくとも1つのデータプロットのデータを提供している
+</p><p>2：グラフ内の少なくとも1つのデータプロットで使用される共有データフィルタ
+</p><p>-1：エラー
+</p><p><br />
+</p>
+<h3><a name="-f.3B_Adjust_the_page_dimensions_according_to_the_current_windows_aspect_ratio"></a><span class="mw-headline">f; 現在のウィンドウの縦横比に応じてページサイズを調整</span></h3>
+<p><b>構文：</b> page <b>-f</b>
+</p><p>現在のウィンドウの縦横比に合わせてページサイズを調整します。
+</p>
+<h3><a name="-fls.3B_Fit_layers_to_page"></a><span class="mw-headline">-fls; レイヤをページに合わせる</span></h3>
+<p>構文： page <b>-fls</b> [<b>-m</b> [<i>marginsvalue</i>]] [<b>-l</b> [<i>gapvalue</i>]] [<b>-a</b>] [<b>-u</b>]
+</p><p>次のオプションを使用して、ページサイズに合わせてレイヤサイズを調整します。
+</p>
+<table class="simple" style="width: 95%">
+
+<tr>
+<th style="width: 15%">オプション
+</th>
+<th style="width: 80%">説明
+</th></tr>
+<tr>
+<td> -m <i>marginsvalue</i>
+</td>
+<td> ページの端の余白を指定します。<i>marginsvalue</i>の値は、ページの短い方の寸法のパーセンテージではなく小数です（例：5ではなく0.05）。<i>marginsvalue</i>は省略可能であり、その場合は0とみなされます（つまりmargin = &quot;tight&quot;）。<br /><br />Origin 2023以降、各余白はLabTalkを使用して個別に指定できるようになりました。<b>-ml</b> <i>marginsvalue</i>（左）、<b>-mt</b> <i>marginsvalue</i>（上）、<b>-mr</b> <i>marginsvalue</i>（右）、<b>-mb</b> <i>marginsvalue</i>（下）。加えて、<i>marginsvalue</i>は負になることもあります。
+<p>サンプル：
+</p>
+<pre class="lt" style="font-family:monospace;">page <span style="color: #000080;">-</span>fls <span style="color: #000080;">-</span>u <span style="color: #000080;">-</span>c <span style="color: #0000dd;">3</span> <span style="color: #000080;">-</span>ml <span style="color: #000080;">-</span><span style="color: #0000dd;">0.005</span> <span style="color: #000080;">-</span>mt <span style="color: #0000dd;">0.001</span> <span style="color: #000080;">-</span>mb <span style="color: #000080;">-</span><span style="color: #0000dd;">0.005</span> <span style="color: #000080;">-</span>mr <span style="color: #0000dd;">0.001</span></pre>
+</td></tr>
+<tr>
+<td> -l <i>gapvalue</i>
+</td>
+<td> 凡例をグラフの右側、レイヤの外側に配置し、オプションの<i>gapvalue</i>で調整します。<i>gapvalueの</i>の値は、短い方の寸法のページサイズのパーセンテージではなく小数です（(例：5ではなく0.05）。<i>gapvalue</i>は省略可能であり、その場合は0とみなされます。<br />-lオプションを使用するには、次の条件を満たす必要があります。
+<dl><dd><ul><li> グラフには単一のレイヤが含まれている。</li>
+<li> 凡例オブジェクトが1つのみ存在する。</li>
+<li> スケール要素（<b>フォーマット：作図の詳細</b> &gt; <b>レイヤの大きさ</b>タブ）が<b>固定倍率</b>である。</li></ul></dd></dl>
+</td></tr>
+<tr>
+<td> -a
+</td>
+<td>  アスペクト比を保持するように指定します。存在しない場合、アスペクト比は保持されません。
+</td></tr>
+<tr>
+<td> -u
+</td>
+<td> レイヤの寸法を調整します（「元に戻す」利用不可）
+</td></tr></table>
+<h3><a name="-fit.3B_Fit_Page_to_all_Objects"></a><span class="mw-headline">-fit; ページをすべてのオブジェクトに合わせる</span></h3>
+<p>構文： page <b>-fit</b> [<b>-m</b> [<i>marginsvalue</i>]] [<b>-b</b> [<i>bordervalue</i>]] [<b>-u</b>] [<b>-d</b> [<i>directionvalue</i>]]
+</p><p>次のオプションを使用して、すべてのオブジェクトを囲むようにページサイズ（「グラフ」および「レイアウト」を含む）を調整します。
+</p>
+<table class="simple" style="width: 95%">
+
+<tr>
+<th style="width: 15%">オプション
+</th>
+<th style="width: 80%">説明
+</th></tr>
+<tr>
+<td> -m <i>marginsvalue</i>
+</td>
+<td> ページの端の余白を指定します。<i>marginsvalue</i>の値は、ページの短い方の寸法のパーセンテージではなく小数です（例：5ではなく0.05）。<i>marginsvalue</i>は省略可能であり、その場合は0とみなされます（つまり margin = &quot;tight&quot;）。
+</td></tr>
+<tr>
+<td> -b <i>bordervalue</i>
+</td>
+<td> ページに追加する枠線を指定します。Margin Control <b>-m</b>が1の場合にのみ使用できます。枠線の値はページサイズのパーセンテージであり、デフォルト設定は0です。
+</td></tr>
+<tr>
+<td> -u
+</td>
+<td> レイヤの寸法を調整します（「元に戻す」利用不可）
+</td></tr>
+<tr>
+<td> -d
+</td>
+<td>  ページサイズを調整する方向を指定します。0：両方向（デフォルト）、1：垂直方向のみ、2：水平方向のみ。
+</td></tr></table>
+<p><b>サンプル：</b>
+</p>
+<pre class="lt" style="font-family:monospace;">page <span style="color: #000080;">-</span>fit <span style="color: #000080;">-</span>u <span style="color: #000080;">-</span>m <span style="color: #0000dd;">1</span> <span style="color: #000080;">-</span>b <span style="color: #0000dd;">5</span> <span style="color: #000080;">-</span>d <span style="color: #0000dd;">2</span>; <span style="color: #008000;">///ページを水平方向にのみフィットし、「元に戻す」は使用不可、余白を5%に設定</span></pre>
+<p><b>Note:</b>このコマンドは、メニューの<b>フォーマット：レイヤにページサイズを合わせる/全てのオブジェクトにページサイズを合わせる</b>からアクセスできる<a class="external text" href="../../UserGuide/UserGuide/Fitting_Page_to_Layers_and_Fitting_Layer_to_Page.html"><b>ページをレイヤに合わせる</b></a> （Xファンクション <a class="external text" href="../../XFunction/X-Function/Pfit2l.html">&quot;pfit2l&quot;</a>）ツールと同様に機能します。
+</p>
+<h3><a name="-j.3B_Convert_each_layer_of_a_multiple_layer_graph_into_a_graph_window"></a><span class="mw-headline">-j; 複数レイヤグラフの各レイヤをグラフウィンドウに変換</span></h3>
+<p><b>構文：</b> page <b>-j</b>
+</p><p>複数レイヤグラフを複数のグラフウィンドウに変換し、各レイヤを独自のグラフウィンドウに表示します。
+</p>
+<h3><a name="-l.3B_Add_the_specified_template_to_the_active_graph_window"></a><span class="mw-headline">-l; 指定したテンプレートをアクティブなグラフウィンドウに追加</span></h3>
+<p><b>構文：</b> page <b>-l</b> <i>templateName</i>
+</p><p>指定したテンプレートファイルを読み込み、そのすべてのレイヤをアクティブなグラフウィンドウのページに追加します。
+</p>
+<h3><a name="-lt.3B_print_the_current_protection_bits"></a><span class="mw-headline">-lt; 現在の保護ビットを印刷</span></h3>
+<p><b>構文：</b> page <b>-lt</b>
+</p>
+<p class="version" >必要なOriginのバージョン: 9.1 SR0以降</p>
+<h3><a name="-lw.3B_Turn_on_protection_on_workbook_level"></a><span class="mw-headline">-lw; ワークブックレベルで保護をオンにする</span></h3>
+<p><b>構文：</b> page <b>-lw</b> <i>hex(hex value)</i>
+</p>
+<p class="version" >必要なOriginのバージョン: 9.1 SR0以降</p>
+<table class="simple">
+
+<tr>
+<th> 16進値
+</th>
+<th> 説明
+</th></tr>
+<tr>
+<td> --
+</td>
+<td> すべての保護ビットをオンにします。
+</td></tr>
+<tr>
+<td> 0
+</td>
+<td> アクティブなワークブックのすべての保護を削除します。
+</td></tr>
+<tr>
+<td> 2
+</td>
+<td> データ保護：ワークシート内のすべてのセル（データセルとラベルセル）を含みます。
+</td></tr>
+<tr>
+<td> 80
+</td>
+<td> 構造保護：シート内の列が変更されないようにします。列の挿入/削除または列の移動を禁止します。ただし、行の変更は許可します。ワークシートの挿入/削除またはワークシートの移動を禁止します。
+</td></tr>
+<tr>
+<td> 400
+</td>
+<td> 削除保護：ワークブックが削除されないようにします。ワークブックの非表示化か可能です。
+</td></tr></table>
+<table class="note">
+
+<tr>
+<td><b>Note</b>：複数の保護フラグを適用できます （値は加算されます）。
+<pre class="lt" style="font-family:monospace;">newbook;
+page <span style="color: #000080;">-</span>lw hex<span style="color: #000000;">(</span><span style="color: #0000dd;">482</span><span style="color: #000000;">)</span>; <span style="color: #008000;">//データの編集、構造の変更、またはアクティブなブックの削除を禁止</span></pre>
+</td></tr></table>
+<h3><a name="-mg_Origin_modified_state.3B_Get_the_modified_state_of_the_active_window"></a><span class="mw-headline">-mg <i>Origin_modified_state</i>：アクティブウィンドウの変更状態を取得</span></h3>
+<p><b>構文：</b> page <b>-mg</b> <i>Origin_modified_state</i>
+</p><p>アクティブウィンドウの変更状態を取得し、<i>Origin_modified_state</i>変数に出力します。変更された場合はOrigin_modified_state = 1、変更されていない場合は0となります。
+</p>
+<h3><a name="-ms.3B_clear_the_modified_state"></a><span class="mw-headline">-ms; 変更状態をクリア</span></h3>
+<p><b>構文：</b> page <b>-ms</b> 
+</p><p>アクティブウィンドウの変更状態をクリアします。
+</p>
+<h3><a name="-o.3B_Set_the_page_to_portrait.2C_landscape.2C_or_rotate_the_page"></a><span class="mw-headline">-o; ページを縦、横、または回転に設定</span></h3>
+<p><b>構文：</b> page <b>-o</b> <i>type</i>、ここで 
+</p>
+<dl><dd><ul><li> 縦：<i>type</i> = <b>p</b> </li>
+<li> 横：<i>type</i> = <b>l</b> </li>
+<li> ページ回転：<i>type</i> = <b>r</b></li></ul></dd></dl>
+<p>ページを縦、横、または回転に設定します。
+</p><p><b>Note:</b> <a href="../../LabTalk/LabTalk/Document_(command)&amp;action=edit&amp;redlink=1.html" class="new" title="LabTalk:Document (command) (page does not exist)">マスターテンプレート</a>の向きを変更するためにこのコマンドを使用すると、マスターテンプレートウィンドウのショートネームも変更されます（縦 = &quot;Portrait&quot;、横 = &quot;Master&quot;）。
+</p>
+<h3><a name="-pg.3B_Get_page_related_parameters"></a><span class="mw-headline">-pg; ページ関連のパラメータを取得</span></h3>
+<p><b>構文：</b> page <b>-pg</b> <i>type varName</i>
+</p><p>ページ関連のパラメータを<i>varname</i>に取得します。 
+</p>
+<table class="simple" style="width: 70%">
+
+<tr>
+<th style="width: 15%">type
+</th>
+<th style="width: 55%">説明
+</th></tr>
+<tr>
+<td> allow
+</td>
+<td>
+<p>読み取り保護されたデータの描画の許可をオンにします。
+</p>
+<pre class="lt" style="font-family:monospace;">page <span style="color: #000080;">-</span>p a <span style="color: #0000dd;">1</span>;<span style="color: #008000;">//読み取り保護されたデータの描画の許可をオンに</span>
+page <span style="color: #000080;">-</span>pg a v1;v1<span style="color: #000080;">=</span>;<span style="color: #008000;">//グラフの現在の状態を取得</span></pre>
+</td></tr>
+<tr>
+<td> raster
+</td>
+<td>
+<p><i>varName</i> = 1は、<b>編集：ページコピー</b>でアクティブグラフのラスター画像をクリップボードにコピーします。
+</p>
+<pre class="lt" style="font-family:monospace;">page <span style="color: #000080;">-</span>pg raster;v1<span style="color: #000080;">=</span>; 
+v1<span style="color: #000080;">=</span><span style="color: #0000dd;">1</span>; <span style="color: #008000;">// ラスター画像をクリップボードにコピー</span></pre>
+<p>グラフの種類が<a class="external text" href="../../UserGuide/UserGuide/Density_Dots.html">密度ドット</a>と<a class="external text" href="../../UserGuide/UserGuide/Color_Dots.html">色付きドット</a>の場合は、デフォルトでラスター画像がコピーされます。
+</p>
+</td></tr></table>
+<p><br />
+その他の種<i>type</i>については、次のオプション表を参照してください。
+</p>
+<h3><a name="-ps.3B_Set_page_related_parameters"></a><span class="mw-headline">-ps; ページ関連パラメータを設定</span></h3>
+<p><b>構文：</b> page <b>-ps</b> <i>type value</i>
+</p><p>ページ関連のパラメータを設定します。
+</p><p><b>typeに関する注意</b>
+</p>
+<table class="note">
+<tr>
+<td>
+<p>C --終了フラグ：0=正常、1=終了なし、2=警告なし
+</p><p>D --ドキュメントを閉じる方法。  値が1の場合、アクティブウィンドウをシステムウィンドウとして設定し、プロジェクトを閉じても開いたままにします。  また、このウィンドウはプロジェクトと共に保存されません。  page.syswinオブジェクトプロパティの関連情報については、ページオブジェクトを参照してください。
+</p><p>H --ページの高さ（ドット）。  グラフウィンドウの場合、この値はページの上から下までのドット数です。  ワークシートウィンドウの場合、この値は縦方向の画面解像度（ピクセル単位）です。 
+</p><p>P --最大表示ポイント：0 =すべてのデータポイントを表示します。
+</p><p>S --検索フラグ。  
+</p>
+<table class="simple">
+<tr>
+<th> bit(n)
+</th>
+<th> value(2^n)
+</th>
+<th> 検索を無効にする対象
+</th></tr>
+<tr align="center">
+<td> 0
+</td>
+<td> 1
+</td>
+<td> 軸
+</td></tr>
+<tr align="center">
+<td> 1
+</td>
+<td> 2
+</td>
+<td> データプロット
+</td></tr>
+<tr align="center">
+<td> 2
+</td>
+<td> 4
+</td>
+<td> ラベル
+</td></tr>
+<tr align="center">
+<td> 3
+</td>
+<td> 8
+</td>
+<td> グラフオブジェクト
+</td></tr>
+<tr align="center">
+<td> 4
+</td>
+<td> 6
+</td>
+<td> レイヤ枠
+</td></tr>
+<tr align="center">
+<td> 5
+</td>
+<td> 32
+</td>
+<td> 目盛ラベル
+</td></tr></table>
+<p>W --ページの幅（ドット）。  グラフウィンドウの場合、この値はページ全体のドット数です。  ワークシートウィンドウの場合、この値は水平画面の解像度（ピクセル単位）です。
+</p>
+</td></tr></table>
+<h3><a name="-rc.3B_Convert_existing_graph_colors_to_Auto"></a><span class="mw-headline">-rc; 既存のグラフの色を自動に変換</span></h3>
+<p><b>構文：</b> page <b>-rc</b> 1
+</p><p>既存のグラフの色を自動に変換します。この変換は、ページの仮想色が白ではなく、Originがダーク モードの場合にのみ行われます。ポリモーフィックポインタがある場合、色が黒であれば自動に変換します。スタイルホルダの場合、最初に線の色が黒である場合を処理し、後でその他の場合を考慮します。
+</p><p>例えば、凡例の場合、テキストの色と境界線の色の両方を変換します。
+</p>
+<h3><a name="-rcp.3B_Make_Current_Dynamic_Color_Permanent"></a><span class="mw-headline">-rcp; 現在のダイナミックカラーを永続化</span></h3>
+<p><b>構文：</b> page <b>-rcp[u]</b> 0
+</p><p>反転色を適用し、ページの背景色を現在のグローバル自動色に変更します。「元に戻す」を使用したい場合は&apos;u&apos; の文字を入れます。
+</p>
+<h3><a name="-rrt.3B_Connect_the_table_objects_on_an_active_graph_page"></a><span class="mw-headline">-rrt; アクティブグラフページ上のテーブルオブジェクトを接続</span></h3>
+<p><b>構文：</b> page <b>-rrt</b>
+</p><p>プロジェクトを読み込んだ後、アクティブなグラフページ上のテーブルオブジェクトを接続します。この後、テーブルオブジェクトを表示するには、手動でグラフを更新する必要があります。
+</p>
+<h3><a name="-s.3B_Select_the_specified_object_on_the_page"></a><span class="mw-headline">-s; ページ上で指定したオブジェクトを選択</span></h3>
+<p><b>構文：</b> page <b>-s</b> <i>object</i>
+</p><p>ページで指定したオブジェクトを選択します。オブジェクトが指定されていない場合、このコマンドは現在の選択をクリアします。
+</p>
+<h3><a name="-sa.3B_Select_the_specified_object_on_the_page_and_preserve_the_status_of_all_current_objects"></a><span class="mw-headline">-sa; ページ上で指定したオブジェクトを選択し、現在のすべてのオブジェクトの状態を保持</span></h3>
+<p><b>構文：</b> page <b>-sa</b> <i>object</i>
+</p><p>ページ上で指定したオブジェクトを選択し、他の現在のオブジェクトの状態はそのままにします。
+</p>
+<h3><a name="-sps.3B_Set_splitter_to_the_active_page"></a><span class="mw-headline">-sps; スプリッタをアクティブページに設定</span></h3>
+<p><b>構文：</b> page <b>-sps</b> <i>[script]</i>
+</p><p>スプリッタをアクティブなページに設定するか、現在のスプリッタを非表示にします。
+</p>
+<pre class="lt" style="font-family:monospace;">page <span style="color: #000080;">-</span>sps;<span style="color: #008000;">//現在のスプリッタを非表示にする</span></pre>
+<pre class="lt" style="font-family:monospace;">page <span style="color: #000080;">-</span>sps <span style="color: #ff00ff;">&quot;r[MatObjChooser]{10%}r&quot;</span>;<span style="color: #008000;">//ページ上部に画像スライダーを表示</span></pre>
+<pre class="lt" style="font-family:monospace;">page <span style="color: #000080;">-</span>sps <span style="color: #ff00ff;">&quot;r{50%}r[WkbookSplitter]&quot;</span>;<span style="color: #008000;">//ページ下部にワークブックオーガナイザーを表示</span></pre>
+<pre class="lt" style="font-family:monospace;">page <span style="color: #000080;">-</span>sps <span style="color: #ff00ff;">&quot;c{60%}c[ScriptPanel]&quot;</span>;<span style="color: #008000;">//ページの右側にスクリプトペインを表示</span></pre>
+<h3><a name="-t.3B_Open_the_specified_template_using_the_active_graph_window"></a><span class="mw-headline">アクティブなグラフウィンドウを使用して指定したテンプレートを開く</span></h3>
+<p><b>構文：</b> page <b>-t</b> <i>templateName</i>
+</p><p>アクティブなグラフウィンドウを閉じずに、アクティブなグラフウィンドウ内のページをテンプレート<i>templateName</i>に置き換えます。現在のレイヤはすべて削除されます。<a href="../../LabTalk/LabTalk/Document_Options_to_Append.html#-t" title="LabTalk:Document Options to Append">document -t</a>および<a href="../../LabTalk/LabTalk/Window_Options_to_Create.html#-t" title="LabTalk:Window Options to Create">window -t</a>コマンドと同様です（document -tでは完全なパスを指定できます）。
+</p>
+<h3><a name="-tbb.3B_Add_Labtalk_Button_to_Window_Title_Bar"></a><span class="mw-headline">-tbb; LabTalkボタンをウィンドウのタイトルバーに追加</span></h3>
+<p class="version" >必要なOriginのバージョン: 9.0 SR0以降</p>
+<p>このコマンドは、アクティブなウィンドウの最小化ボタンの前に小さなシステムボタンを追加します。これによりLabTalkスクリプトをウィンドウ/ページに追加できます。
+</p><p><b>構文：</b> page <b>-tbb</b> <i>n [script [tooltip]]</i>
+</p><p>nは0、1、2、3の値を取ります。
+</p>
+<table class="simple">
+<tr>
+<th> <i>n</i>
+</th>
+<th> 意味
+</th></tr>
+<tr>
+<td> 0
+</td>
+<td> ボタンを削除します。後続のスクリプトなどは無視されます。
+</td></tr>
+<tr>
+<td> 1.2
+</td>
+<td> 右矢印アイコンが付いたボタンを追加します。
+</td></tr>
+<tr>
+<td> 3
+</td>
+<td> ホームアイコンが付いたボタンを追加します。
+</td></tr></table>
+<p><i>script</i>と<i>tooltip</i>の両方を引用符で囲む必要があります。サンプル： 
+</p>
+<pre class="lt" style="font-family:monospace;">page <span style="color: #000080;">-</span>tbb <span style="color: #0000dd;">3</span> <span style="color: #ff00ff;">&quot;run.section(%XMyTest.ogs,Main)&quot;</span> <span style="color: #ff00ff;">&quot;Run my Labtalk code to do something&quot;</span>;</pre>
+<h3><a name="-uo.3B_Update_Operations"></a><span class="mw-headline">-uo; 更新操作</span></h3>
+<p><b>構文：</b> page <b>-uo</b>
+</p><p>(SR1) 入力がアクティブページと交差するすべての操作をダーティにします。
+</p>
+<h3><a name="-us.3B_Update_active_Excel_book_to_recreate_all_hidden_Origin_sheets_with_all_the_Excel_data_copied_over"></a><span class="mw-headline">us; アクティブなExcelブックを更新し、すべてのExcelデータをコピーしたすべて非表示のOriginシートを再作成</span></h3>
+<p><b>構文：</b> page <b>-us</b>
+</p><p>(SR1)アクティブなExcelブックを更新し、すべてのExcelデータをコピーしたすべて非表示のOriginシートを再作成します。これは<a href="../../LabTalk/LabTalk/Layer_Options_for_Worksheet.html#-s" title="LabTalk:Layer Options for Worksheet">layer -s</a>コマンドと似ており、アクティブなExcelシート上でのみ動作します。
+</p>
+<h3><a name="-v.3B_Set_the_page_to_the_specified_view_mode"></a><span class="mw-headline">-v; ページを指定した表示モードに設定</span></h3>
+<p><b>構文：</b> page <b>-v</b> <i>n</i>
+</p><p>ページを指定された表示モードに設定します。0=印刷表示、1=ページビュー、2=古いウィンドウ表示（下記のNoteを参照）、3=ドラフト表示。
+</p>
+<table class="note">
+
+<tr>
+<td><b>Note:</b>ページを新しいウィンドウビューに切り替えるには、代わりに<a href="../../LabTalk/LabTalk/Page_(object).html" title="LabTalk:Page (object)"><b>page.viewmode</b></a>プロパティを使用します。
+</td></tr></table>
+<h3><a name="-vnw.3B_Set_the_page_to_the_new_Window_View_mode"></a><span class="mw-headline">-vnw; ページを新しいウィンドウビューモードに設定</span></h3>
+<p><b>構文：</b> page <b>-vnw</b>
+</p><p>ページを新しい<b>ウィンドウビュー</b>モードに設定します（上記のNoteを参照）。
+</p><p>また、<b>-vnw</b>を使用して、アクティブなウィンドウが新しいウィンドウビューモードになっていることを確認することもできます。
+</p>
+<pre class="lt" style="font-family:monospace;">page <span style="color: #000080;">-</span>vnw varName; <span style="color: #008000;">//新しいウィンドウビューステータスをvarNameに取得</span>
+varName<span style="color: #000080;">=</span>; <span style="color: #008000;">// View Mode = new Window Viewの場合、1を出力</span></pre>
+<h3><a name="-vx.3B_Switch_the_view_mode_for_the_active_Excel_workbook"></a><span class="mw-headline">-vx; アクティブなExcelブックの表示モードを切り替え</span></h3>
+<p><b>構文：</b> page <b>-vx</b>
+</p><p>OriginでアクティブなExcelワークブックのワークブックビューと、非表示のOriginワークシートレイヤビューを切り替えます。
+</p>
+<h3><a name="-w.3B_Plot_each_column_in_the_worksheet_to_separate_graph_layers"></a><span class="mw-headline">-w; ワークシートの各列をグラフレイヤ別にプロット</span></h3>
+<p><b>構文:</b> <b>page-w</b> <i>wksName c1 R1 C2 R2 [ID]</i>
+</p><p>ワークシートの各列を別々のグラフレイヤにプロットします。<a href="../../LabTalk/LabTalk/Layer_Options_for_Worksheet.html#-w" title="LabTalk:Layer Options for Worksheet">layer-w</a>コマンドと同様ですが、各データセット（列）をページ内の別々のレイヤに配置します。最後のレイヤが渡されると、最初のレイヤに戻ります。Note: 正しい数のレイヤを持つアクティブなグラフウィンドウが既に存在していることが必要です。
+</p>
+<h3><a name="-x.3B_Add_the_active_window_as_shortcut_to_Favorites_folder"></a><span class="mw-headline">-x; アクティブウィンドウをショートカットとしてお気に入りフォルダに追加</span></h3>
+<p><b>構文：</b> page <b>-x</b>
+</p><p>ウィンドウへのショートカットをプロジェクトのお気に入りフォルダに追加します（以下の例を参照）。フォルダが存在しない場合は、作成します。
+</p>
+<h3><a name="-yt.3B_Draw_the_tight_rectangles_for_each_layer"></a><span class="mw-headline">-yt; 各レイヤに矩形を描画</span></h3>
+<p class="version" >必要なOriginのバージョン:2019以降</p>
+<p><b>構文：</b> page <b>-yt</b>
+</p><p>レイヤの配置時にこれらの矩形が使用されるため、各レイヤに矩形を描画します。スイッチ-dを追加して数値をダンプすることもできます。
+</p>
+<pre class="lt" style="font-family:monospace;">page <span style="color: #000080;">-</span>yt <span style="color: #000080;">-</span>d;</pre>
+<h2><a name="Examples:"></a><span class="mw-headline"><font color="chocolate">サンプル：</font></span></h2>
+<p>次のスクリプトは、ページの軸とラベルの検索を無効にします。
+</p>
+<pre class="lt" style="font-family:monospace;">page <span style="color: #000080;">-</span>ps search <span style="color: #0000dd;">1</span>;</pre>
+<p>Note:  次も使用可能です:  page.noclick = 5;
+</p><p>次のスクリプトは、ページの最大表示ポイントを2倍にします。 
+</p>
+<pre class="lt" style="font-family:monospace;">page <span style="color: #000080;">-</span>pg p npts; page <span style="color: #000080;">-</span>ps p <span style="color: #000000;">(</span>npts<span style="color: #000080;">*</span><span style="color: #0000dd;">2</span><span style="color: #000000;">)</span>;</pre>
+<p>Note:
+</p>
+<table class="note">
+<tr>
+<td>次のコマンドも使用できます： page.maxpts *= 2;
+</td></tr></table>
+<p>次のスクリプトでは、散布図テンプレートのレイヤをページに追加します。
+</p>
+<pre class="lt" style="font-family:monospace;">page <span style="color: #000080;">-</span>l Scatter;</pre>
+<p>次のスクリプトはgraph1をアクティブウィンドウにします。  graph1はシステムウィンドウとして保存され、プロジェクトを閉じても開いたままになります。  ただし、graph1はプロジェクトと共に保存されません。  
+</p>
+<pre class="lt" style="font-family:monospace;">win <span style="color: #000080;">-</span>a graph1;
+page <span style="color: #000080;">-</span>ps d <span style="color: #0000dd;">1</span>;</pre>
+<p>このスクリプトは、プロジェクト内のすべてのワークブックをループ処理し、名前に「CC」が含まれているブックを検索し、ショートカットとしてお気に入りフォルダに追加します。
+</p>
+<pre class="lt" style="font-family:monospace;">doc <span style="color: #000080;">-</span>e W <span style="color: #000000;">{</span>
+		if <span style="color: #000000;">(</span>search<span style="color: #000000;">(</span>page.<span style="color: #000080;">name</span><span style="color: #000080;">$</span>,<span style="color: #ff00ff;">&quot;CC&quot;</span><span style="color: #000000;">)</span><span style="color: #000080;">&gt;</span><span style="color: #0000dd;">0</span><span style="color: #000000;">)</span> 
+		<span style="color: #000000;">{</span>
+			page.<span style="color: #000080;">name</span><span style="color: #000080;">$</span><span style="color: #000080;">=</span>;
+			page <span style="color: #000080;">-</span>X;
+		<span style="color: #000000;">}</span>
+	<span style="color: #000000;">}</span></pre>
+
+
+
+
+
+
+
+    

@@ -1,0 +1,81 @@
+﻿<h1 class="firstHeading">Lookup</h1><p class='urlname' style='display: none'>Lookup-func</p>
+<p><br />
+</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>目次</h2></div>
+<ul>
+<li class="toclevel-1"><a href="#Description"><span class="tocnumber">1</span> <span class="toctext">概要</span></a></li>
+<li class="toclevel-1"><a href="#Syntax"><span class="tocnumber">2</span> <span class="toctext">構文</span></a></li>
+<li class="toclevel-1"><a href="#Parameters"><span class="tocnumber">3</span> <span class="toctext">パラメータ</span></a></li>
+<li class="toclevel-1"><a href="#Return"><span class="tocnumber">4</span> <span class="toctext">戻り値</span></a></li>
+<li class="toclevel-1"><a href="#Example"><span class="tocnumber">5</span> <span class="toctext">サンプル</span></a></li>
+</ul>
+</div>
+
+<h2 class="ref"><a name="Description"></a><span class="mw-headline">概要</span></h2>
+<p>この関数は、
+</p>
+<ul><li> ベクトル<b>vs</b>内の文字列パターン<b>str</b>を検索し、見つかった場合は、同じインデックスを持つベクトル<b>vref</b>から値を返します。ベクトル<b>vref</b>には数値または文字列値を含めることができます。  <b>vref</b>が指定されていない場合、<b>vs</b>で見つかった<b>str</b>のインデックスを返します。デフォルトでは、この関数は<b>vs</b>で文字列全体を検索するします (<b>option</b> = 2)。一致するものがなく、<b>vref</b>が数値の場合、関数は欠損値(&quot;--&quot;)を返します。<b>vref</b>に文字列が含まれている場合、空の文字列が返されます。</li>
+<li> この関数は、ベクトル<b>vd</b>内の数値<b>dd</b>も検索し、同じインデックスを持つベクトル<b>vref</b>から値を返します。<b>vref</b>が指定されていない場合、<b>vd</b>で見つかった<b>dd</b>のインデックスを返します。デフォルトでは、関数は<b>vd</b>に最も近い値を検索します (<b>option</b> = 2)。<b>option</b> = 0の場合、<b>dd</b>より小さい最も近い値を検索します。<b>option</b> = 1の場合、<b>dd</b>よりも大きい最も近い値を探します。 </li></ul>
+<p>この関数は<b>option</b> =0 または =1を使用して最も近い一致を返しますが、<b>Lookup()</b>はワイルドカード文字をサポートしていません。 
+</p>
+<h2 class="ref"><a name="Syntax"></a><span class="mw-headline">構文</span></h2>
+<p><b>vref</b>に数値が含まれている場合、
+</p>
+<pre class="lt" style="font-family:monospace;"> double Lookup<span style="color: #000000;">(</span>string str<span style="color: #000080;">$</span>, vector<span style="color: #000080;">&lt;</span>string<span style="color: #000080;">&gt;</span> vs<span style="color: #000000;">[</span>, vector vref, int option, int Case<span style="color: #000000;">]</span><span style="color: #000000;">)</span></pre>
+<p><b>vref</b>に文字列値が含まれている場合、
+</p>
+<pre class="lt" style="font-family:monospace;"> string Lookup<span style="color: #000000;">(</span>string str<span style="color: #000080;">$</span>, vector<span style="color: #000080;">&lt;</span>string<span style="color: #000080;">&gt;</span> vs<span style="color: #000000;">[</span>, vector<span style="color: #000080;">&lt;</span>string<span style="color: #000080;">&gt;</span> vref, int option, int Case<span style="color: #000000;">]</span><span style="color: #000000;">)</span><span style="color: #000080;">$</span></pre>
+<p>数値ベクトル<b>vd</b>を検索する場合、
+</p>
+<pre class="lt" style="font-family:monospace;"> double Lookup<span style="color: #000000;">(</span>double dd, vector vd<span style="color: #000000;">[</span>, vector vref, int option, int Case<span style="color: #000000;">]</span><span style="color: #000000;">)</span></pre>
+<h2 class="ref"><a name="Parameters"></a><span class="mw-headline">パラメータ</span></h2>
+<p><b>str</b>
+</p>
+<dl><dd>ベクトル<b>vs</b>で検索する文字列パターン。</dd></dl>
+<p><b>vs</b> 
+</p>
+<dl><dd>文字列パターン<b>str</b>が検索されるベクトル。 </dd></dl>
+<p><b>dd</b>
+</p>
+<dl><dd>ベクトル<b>vd</b>で検索する倍精度浮動小数点数型。</dd></dl>
+<p><b>vd</b>
+</p>
+<dl><dd>値<b>dd</b>が検索されるベクトル。</dd></dl>
+<p><b>vref</b>
+</p>
+<dl><dd>［オプション］<i>n</i>番目の値が返される参照ベクトル。<i>n</i>はベクトル<b>vs</b>/<b>vd</b>内の文字列<b>str</b>/<b>dd</b>のインデックス。<b>vref</b>が指定されていない場合は<b>n</b>を返します。</dd></dl>
+<p><b>option</b>
+</p>
+<dl><dd>（オプション）文字列の照合方法を指定する整数。
+<ul><li> option = 2 （デフォルト）：完全に一致する文字列を検索します（<b>Case</b>も参照）。 </li>
+<li> option = 0：ベクトル<b>vs</b>は昇順でソートされます。<b>str</b>が見つからない場合、関数は<b>str</b>より小さい最も近い値のインデックスを取得します。</li>
+<li> option = 1：ベクトル<b>vs</b>は降順でソートされます。<b>str</b>が見つからない場合、関数は<b>str</b>より大きい最も近い値のインデックスを取得します。</li></ul></dd></dl>
+<p><b>Case</b>
+</p>
+<dl><dd>（オプション）検索で大文字と小文字を区別するかどうかを指定する整数。 
+<ul><li> case = 0 （デフォルト）：検索で大文字と小文字を区別しません。</li>
+<li> case = 1：検索で大文字と小文字を区別します。</li></ul></dd></dl>
+<h2 class="ref"><a name="Return"></a><span class="mw-headline">戻り値</span></h2>
+<p><b>vs</b>に<b>str</b>が見つかった場合は、同じ行インデックスのベクトル<b>vref</b>に値を返します。
+</p><p><b>option</b> = 2で<b>str</b>が見つからなかった場合は、空の文字列または欠損値を返します。
+</p><p><b>option</b> = 0で<b>str</b>が見つからなかった場合は、<b>str</b>に最も近い小さい値に対応する値を返します。<b>str</b>より小さい値が存在しない場合は、欠損値（数値）または空の文字列（文字列）を返します。
+</p><p><b>option</b> = 1で<b>str</b>が見つからなかった場合は、<b>str</b>に最も近い大きい値に対応する値を返します。<b>str</b>より大きな値が存在しない場合は、欠損値（数値）または空の文字列（文字列）を返します。
+</p>
+<h2 class="ref"><a name="Example"></a><span class="mw-headline">例</span></h2>
+<p>周期表Book1で元素を検索し、対応する原子量を指定します。
+</p>
+<dl><dd><a  class="image"><img alt="Lookup ex1.png" src="../images/Lookup_(function)/Lookup_ex1.png" width="726"  /></a></dd></dl>
+<p>上記のBook1をアクティブにして、LabTalkスクリプトを使用してシンボルを検索し、対応する名前を出力します。
+</p>
+<pre class="lt" style="font-family:monospace;">range symbol<span style="color: #000080;">=</span>col<span style="color: #000000;">(</span>D<span style="color: #000000;">)</span>;
+range name<span style="color: #000080;">=</span><span style="color: #0000dd;">1</span><span style="color: #000080;">!</span>col<span style="color: #000000;">(</span>C<span style="color: #000000;">)</span>;
+string str1<span style="color: #000080;">$</span> <span style="color: #000080;">=</span> Lookup<span style="color: #000000;">(</span><span style="color: #ff00ff;">&quot;Li&quot;</span>, symbol, name<span style="color: #000000;">)</span><span style="color: #000080;">$</span>;
+str1<span style="color: #000080;">$</span><span style="color: #000080;">=</span>; <span style="color: #008000;">//リチウムが出力される</span></pre>
+
+
+
+
+
+
+
+    
