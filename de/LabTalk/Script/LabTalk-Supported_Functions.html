@@ -1,5 +1,5 @@
 ﻿<h1 class="firstHeading">Von LabTalk unterst&uuml;tzte Funktionen</h1><p class='urlname' style='display: none'>LT-Supported-Functions</p>
-<div class="toclimit-2"><div id="toc" class="toc"><div id="toctitle"><h2>Inhalt Kernel Smooth</h2></div>
+<div class="toclimit-2"><div id="toc" class="toc"><div id="toctitle"><h2>Inhalt</h2></div>
 <ul>
 <li class="toclevel-1 tocsection-1"><a href="#String_Functions"><span class="tocnumber">1</span> <span class="toctext">Zeichenkettenfunktionen</span></a><ul>
 <li class="toclevel-2 tocsection-2"><a href="#A_note_on_the_.22.24.22_notation_and_string_functions"><span class="tocnumber">1.1</span> <span class="toctext">Ein Hinweis zur Notation &quot;$&quot; und Zeichenkettenfunktionen</span></a></li>
@@ -48,7 +48,7 @@
 <li class="toclevel-2 tocsection-39"><a href="#Surface_Fitting"><span class="tocnumber">15.13</span> <span class="toctext">Oberfl&auml;chenanpassung</span></a></li>
 <li class="toclevel-2 tocsection-40"><a href="#PFW"><span class="tocnumber">15.14</span> <span class="toctext">PFW</span></a></li>
 <li class="toclevel-2 tocsection-41"><a href="#Baseline"><span class="tocnumber">15.15</span> <span class="toctext">Basislinie</span></a></li>
-<li class="toclevel-2 tocsection-42"><a href="#Chromatograph"><span class="tocnumber">15.16</span> <span class="toctext">Chromatograph</span></a></li>
+<li class="toclevel-2 tocsection-42"><a href="#Chromatography"><span class="tocnumber">15.16</span> <span class="toctext">Chromatografie</span></a></li>
 <li class="toclevel-2 tocsection-43"><a href="#Electrophysiology"><span class="tocnumber">15.17</span> <span class="toctext">Elektrophysiologie</span></a></li>
 <li class="toclevel-2 tocsection-44"><a href="#Pharmacology"><span class="tocnumber">15.18</span> <span class="toctext">Pharmakologie</span></a></li>
 <li class="toclevel-2 tocsection-45"><a href="#Rheology"><span class="tocnumber">15.19</span> <span class="toctext">Rheologie</span></a></li>
@@ -57,13 +57,21 @@
 <li class="toclevel-2 tocsection-48"><a href="#Statistics"><span class="tocnumber">15.22</span> <span class="toctext">Statistik</span></a></li>
 <li class="toclevel-2 tocsection-49"><a href="#Quick_Fit"><span class="tocnumber">15.23</span> <span class="toctext">Quick Fit</span></a></li>
 <li class="toclevel-2 tocsection-50"><a href="#Multiple_Variables"><span class="tocnumber">15.24</span> <span class="toctext">Mehrere Variablen</span></a></li>
+<li class="toclevel-2 tocsection-51"><a href="#Dose_Response"><span class="tocnumber">15.25</span> <span class="toctext">Dosis-Wirkung</span></a></li>
+<li class="toclevel-2 tocsection-52"><a href="#Binding"><span class="tocnumber">15.26</span> <span class="toctext">Binding</span></a></li>
+<li class="toclevel-2 tocsection-53"><a href="#Growth"><span class="tocnumber">15.27</span> <span class="toctext">Wachstum</span></a></li>
+<li class="toclevel-2 tocsection-54"><a href="#Expo"><span class="tocnumber">15.28</span> <span class="toctext">Expo</span></a></li>
+<li class="toclevel-2 tocsection-55"><a href="#Poly"><span class="tocnumber">15.29</span> <span class="toctext">Poly</span></a></li>
+<li class="toclevel-2 tocsection-56"><a href="#Periodic"><span class="tocnumber">15.30</span> <span class="toctext">Periodisch</span></a></li>
+<li class="toclevel-2 tocsection-57"><a href="#Line_Shapes"><span class="tocnumber">15.31</span> <span class="toctext">Linienformen</span></a></li>
+<li class="toclevel-2 tocsection-58"><a href="#Enzyme_Kinetics_2"><span class="tocnumber">15.32</span> <span class="toctext">Enzymkinetik 2</span></a></li>
 </ul>
 </li>
-<li class="toclevel-1 tocsection-51"><a href="#Miscellaneous_2"><span class="tocnumber">16</span> <span class="toctext">Sonstiges</span></a></li>
-<li class="toclevel-1 tocsection-52"><a href="#Engineering"><span class="tocnumber">17</span> <span class="toctext">Technik</span></a></li>
-<li class="toclevel-1 tocsection-53"><a href="#Complex"><span class="tocnumber">18</span> <span class="toctext">Komplex</span></a></li>
-<li class="toclevel-1 tocsection-54"><a href="#Financial"><span class="tocnumber">19</span> <span class="toctext">Finanzen</span></a></li>
-<li class="toclevel-1 tocsection-55"><a href="#Notes_on_Use"><span class="tocnumber">20</span> <span class="toctext">Hinweise zur Bedienung</span></a></li>
+<li class="toclevel-1 tocsection-59"><a href="#Miscellaneous_2"><span class="tocnumber">16</span> <span class="toctext">Sonstiges</span></a></li>
+<li class="toclevel-1 tocsection-60"><a href="#Engineering"><span class="tocnumber">17</span> <span class="toctext">Technik</span></a></li>
+<li class="toclevel-1 tocsection-61"><a href="#Complex"><span class="tocnumber">18</span> <span class="toctext">Komplex</span></a></li>
+<li class="toclevel-1 tocsection-62"><a href="#Financial"><span class="tocnumber">19</span> <span class="toctext">Finanzen</span></a></li>
+<li class="toclevel-1 tocsection-63"><a href="#Notes_on_Use"><span class="tocnumber">20</span> <span class="toctext">Hinweise zur Bedienung</span></a></li>
 </ul>
 </div>
 </div>
@@ -207,16 +215,18 @@
 <li><code>numbervalue(&quot;5.000,0&quot;, &quot;,&quot;, &quot;.&quot;)=; // returns 5000 (US regional settings)</code></li></ul>
 </td></tr>
 <tr>
-<td><a href="../../LabTalk/LabTalk/NumBreak_(function).html" title="LabTalk:NumBreak (function)">NumBreak(str$ [, offset])</a><p align="right"><font color="red">(2026)</font></p>
+<td><a href="../../LabTalk/LabTalk/NumBreak_(function).html" title="LabTalk:NumBreak (function)">NumBreak(str$ [, offset, decimal])</a><p align="right"><font color="red">(2026)</font></p>
 </td>
-<td>Sie scannt eine gemischte Zeichenkette <b>str$</b> aus dem gegebenen Index <b>offset</b> (optional) und gibt die Position aus, wobei der Zeichentyp zuerst zwischen Ziffer und Nicht-Ziffer wechselt. &nbsp; <b>Beispiele:</b><ul><li><code>numbreak(&quot;abc123&quot;)=; //returns 4</code></li>
-<li><code>numbreak(&quot;Club45North&quot;, 5)=; //returns 7 since it scan from &quot;4&quot;</code></li></ul>
+<td>Sie scannt eine gemischte Zeichenkette <b>str$</b> aus dem gegebenen Index <b>offset</b> (optional) und gibt die Position aus, wobei der Zeichentyp zuerst zwischen Ziffer und Nicht-Ziffer wechselt. Der optionale Parameter <b>decimal</b> bestimmt, ob das dezimale Trennzeichen in der Textzeichenkette entgegengesetzt zum aktuell verwendetem System benutzt werden soll. Fall der Text <b>str$</b> ein Komma &quot;,&quot; als das dezimale Trennzeichen verwendet und das aktuelle System einen Punkt &quot;.&quot;, setzen Sie <b>decimal</b> auf 1, um das Komma als dezimalen Trennzeichen zu verwenden. Und umgekehrt. &nbsp; <b>Beispiele:</b><ul><li><code>numbreak(&quot;abc123&quot;)=;</code> gibt 4 aus;</li>
+<li><code>numbreak(&quot;Club45North&quot;, 5)=;</code> gibt 7 aus, da es ab &quot;4&ldquo; gescannt wurde;</li>
+<li><code>numbreak(&quot;abcd12,343&quot;, 5, 1)=;</code> gibt -1 aus, da &quot;12,343&quot; als Zahl &quot;12,343&quot; behandelt wird und kein Ziffern- und Nicht-Ziffern-Wechsel von &quot;1&quot; erfolgt.</li></ul>
 </td></tr>
 <tr>
-<td><a href="../../LabTalk/LabTalk/NumExtract_(function).html" title="LabTalk:NumExtract (function)">NumExtract(str$ [, count])</a><p align="right"><font color="red">(2026)</font></p>
+<td><a href="../../LabTalk/LabTalk/NumExtract_(function).html" title="LabTalk:NumExtract (function)">NumExtract(str$ [, count, decimal])$</a><p align="right"><font color="red">(2026)</font></p>
 </td>
-<td>Sie nimmt eine gemischte Zeichenkette <b>str$</b> und gibt den <b>count</b>-ten aufeinanderfolgenden Ziffernblock aus. Wenn <b>count</b> ausgelassen wird, wird es auf 1 zur&uuml;ckgesetzt (d. H., der erste Block wird ausgegeben); <b>count</b> = 0 gibt den letzten Block aus. &nbsp; <b>Beispiele:</b><ul><li><code>numextract(&quot;1-413-586-2013&quot;,2)$=; //returns 413</code></li>
-<li><code>numextract(&quot;1-413-586-2013&quot;,0)$=; //returns 2013</code></li></ul>
+<td>Sie nimmt eine gemischte Zeichenkette <b>str$</b> und gibt den <b>count</b>-ten aufeinanderfolgenden Ziffernblock aus. Wenn <b>count</b> ausgelassen wird, wird es auf 1 zur&uuml;ckgesetzt (d. H., der erste Block wird ausgegeben); <b>count</b> = 0 gibt den letzten Block aus. <b>decimal</b> bestimmt, ob das dezimale Trennzeichen in der Textzeichenkette entgegengesetzt zum aktuell verwendetem System benutzt werden soll. Falls der Text <b>str$</b> ein Komma &quot;,&quot; als dezimales Trennzeichen verwendet und das aktuelle System einen Punkt &quot;.&quot;, setzen Sie <b>decimal</b> auf 1, um das Komma als dezimalen Trennzeichen zu verwenden. Und umgekehrt. &nbsp; <b>Beispiele:</b><ul><li><code>numextract(&quot;1-413-586-2013&quot;,2)$=;</code> gibt 413 aus;</li>
+<li><code>numextract(&quot;1-413-586-2013&quot;,0)$=;</code> gibt 2013 aus;</li>
+<li><code>numextract(&quot;abcd12,343&quot;, 1, 1)$=;</code> gibt 12.343 aus, da &quot;12.343&quot; als &quot;12,343&quot; und nicht als zwei Zahlen behandelt wird.</li></ul>
 </td></tr>
 <tr>
 <td><a href="../../LabTalk/LabTalk/Replace_(function).html" title="LabTalk:Replace (function)">Replace(within$, StartPos, n, replace$)$</a></td>
@@ -232,6 +242,11 @@
 <td><a href="../../LabTalk/LabTalk/Search_(function).html" title="LabTalk:Search (function)">Search(within$, find$[, StartPos])</a></td>
 <td>Gibt die Position der Zeichenkette <b>find$</b> innerhalb der Zeichenkette <b>within$</b> oder, falls diese nicht gefunden wird, -1 aus. &nbsp;Gro&szlig;- und Kleinschreibung nicht beachten. Keine Platzhalter. Die Option <b>StartPos</b> steuert, wo die Suche gestartet wird (Standard = 1). <b>Beispiele:</b><ul><li><code>within$ = &quot;abcde&quot;; find$ = &quot;BC&quot;; Search(within$,find$)</code> gibt <code>2</code> aus.</li>
 <li><code>search(col(c),&quot;sample&quot;)</code> gibt die Position des Worts &quot;sample&quot; in der Zeichenkette in col(c) aus.</li></ul>
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/StripLeading_(function).html" title="LabTalk:StripLeading (function)">StripLeading(str$)$</a><p align="right"><font color="red">(2026b)</font></p>
+</td>
+<td>Nimmt eine Zeichenkette <b>str$</b> und entfernt Listenmarker am Anfang (Zahl, Buchstabe oder Bullet) und den Wei&szlig;raum, der folgt. Die Listenmarker werden erkannt, wenn sie mit einem numerischen Wert/einzelnen Buchstaben, gefolgt von einem der folgenden Trennzeichen, beginnen: <i>space</i>, <code>)</code>, <code>.</code>, <code>:</code>. <b>Beispiele:</b><ul><li><code>StripLeading(&quot;1. this is a test&quot;)$</code> gibt &quot;this is a test&ldquo; aus.</li></ul>
 </td></tr>
 <tr>
 <td><a href="../../LabTalk/LabTalk/SpanExcluding_(function).html" title="LabTalk:SpanExcluding (function)">SpanExcluding(source$, strEx$)</a></td>
@@ -255,7 +270,7 @@
 </td></tr>
 <tr>
 <td><a href="../../LabTalk/LabTalk/Token_(function).html" title="LabTalk:Token (function)">Token(str$,iToken[, iDelimiter])$</a></td>
-<td>&quot;(ASCII 124) kann direkt als <b>iDelimiter</b> verwendet werden. <b>Beispiele:</b><ul><li><code>str1$=&quot;This is my string&quot;; Token(str1$,3)$</code> gibt <code>my</code> aus.</li>
+<td>Nimmt die Zeichenkette <b>str$</b>, gibt die Unterzeichenkette aus, die dem Index <b>iToken</b> entspricht.&nbsp; Die Option <b>iDelimiter</b> ist ein <b>ASCII-Wert</b> des Trennzeichens: 0 (Standard) = jeglicher Wei&szlig;raum; 32 = einzelnes Leerzeichen; 124 = &quot;|&quot;. Die meisten Symbolzeichen wie &quot;_&quot; (ASCII 95), &quot;|&quot;(ASCII 124) k&ouml;nnen direkt als <b>iDelimiter</b> verwendet werden. <b>Beispiele:</b><ul><li><code>str1$=&quot;This is my string&quot;; Token(str1$,3)$</code> gibt <code>my</code> aus.</li>
 <li><code>token(col(c),2)</code> gibt das zweite Token (getrennt durch Wei&szlig;raum) in der Zeichenkette in col(c) aus.</li>
 <li><code>token(col(b), 3, &quot;:&quot;)</code> gibt das dritte Token, mit Doppelpunkt getrennt, in der Zeichenkette in col(b) aus.</li></ul>
 <p>Hinweis: Einige Symbolzeichen k&ouml;nnen nicht direkt von <b>iDelimiter</b> verwendet werden, aber ihre ASCII-Werte gelten immer.</p>
@@ -271,9 +286,10 @@
 <li><code>upper(col(c))$</code> gibt die Zeichenkette in col(c) in Gro&szlig;buchstaben aus.</li></ul>
 </td></tr>
 <tr>
-<td><a href="../../LabTalk/LabTalk/Value_(function).html" title="LabTalk:Value (function)">Value(str$)</a></td>
-<td>Nimmt die Zeichenkette <b>str$</b>, gibt sie als Double aus.&nbsp; <b>Beispiele:</b><ul><li><code>str$ = &quot;+.50&quot;;</code> <code>Value(str$)</code> gibt <code>0.5</code> aus. <b>Hinweis:</b> Siehe die Funktion <a class="external text" href="../../OriginC/OriginC/Atof_(global_function).html">atof()</a>.</li>
-<li><code>value(col(e))</code> nimmt eine Zeichenkettenzahl in col(e) und gibt sie als ein numerisches Zeichen des Typs Double aus.</li></ul>
+<td><a href="../../LabTalk/LabTalk/Value_(function).html" title="LabTalk:Value (function)">Value(str$[, decimal])</a></td>
+<td>Nimmt die Zeichenkette <b>str$</b>, gibt sie als Double aus. Der optionale Parameter <b>decimal</b> bestimmt, ob das dezimale Trennzeichen in der Textzeichenkette ersetzt werden soll. Falls der Text <b>str$</b> ein Komma &quot;,&quot; als dezimales Trennzeichen verwendet und das aktuelle System einen Punkt &quot;.&quot;, setzen Sie <b>decimal</b> auf 1, um das Komma durch den Punkt zu ersetzen. Und umgekehrt. &nbsp; <b>Beispiele:</b><ul><li><code>str$ = &quot;+.50&quot;;</code> <code>Value(str$)</code> gibt <code>0.5</code> aus. <b>Hinweis:</b> Siehe die Funktion atof().</li>
+<li><code>value(col(e))</code> nimmt eine Zeichenkettenzahl in col(e) und gibt sie als ein numerisches Zeichen des Typs Double aus.</li>
+<li><code>value(&quot;12,3&quot;, 1)</code> nimmt eine Zeichenkette &quot;12,3&quot; und gibt sie als die Zahl &quot;12,3&ldquo; aus.</li></ul>
 </td></tr></table>
 <h4><a name="A_note_on_the_.22.24.22_notation_and_string_functions"></a><span class="mw-headline">Ein Hinweis zur Notation &quot;$&quot; und Zeichenkettenfunktionen</span></h4>
 <p><b>Hinweis:</b> Die Verwendung von &quot;$&quot;, wenn Sie mit Zeichenketten arbeiten, kann verwirrend sein:</p>
@@ -706,8 +722,8 @@
 <li><code>weekdayname(col(b),3,0)$</code> gibt den Namen des Wochentags, formatiert mit 3 Zeichen, 1. Buchstaben-Cap, aus.</li></ul>
 </td></tr>
 <tr>
-<td><a href="../../LabTalk/LabTalk/WeekNum_(function).html" title="LabTalk:WeekNum (function)">WeekNum(d[,n])</a></td>
-<td>Nimmt ein Julianisches Datum, gibt die Kalenderwochenzahl des Jahres (1 bis 53). &nbsp;Die Option zum Festlegen des Wochenanfangs (Sonntag vs. Montag). <b>Beispiele:</b><ul><li><code>weeknum(date(1/11/2009))</code> gibt <code>3</code> aus.</li>
+<td><a href="../../LabTalk/LabTalk/WeekNum_(function).html" title="LabTalk:WeekNum (function)">WeekNum(d[,n1,n2])</a></td>
+<td>Nimmt ein Julianisches Datum, gibt die Kalenderwochenzahl des Jahres (1 bis 53). &nbsp;Die Option <b>n1</b> legt den Wochenanfang fest (Sonntag vs. Montag) und <b>n2</b> die erste Woche des Jahres. <b>Beispiele:</b><ul><li><code>weeknum(date(1/11/2009))</code> gibt <code>3</code> aus.</li>
 <li><code>weeknum(date(col(c)))</code> nimmt eine Spalte der Datumsdaten, formatiert als &quot;MM/dd/yyyy&quot; (col(c)), interpretiert diese mit Hilfe der Funktion date() als ein Julianisches Datum und gibt dann mittels der Funktion weeknum() eine Wochenzahl aus.</li></ul>
 </td></tr>
 <tr>
@@ -731,6 +747,11 @@
 <td>Wertet den Bedingungsausdruck <b>con</b> aus und gibt <b>val_true</b> aus, wenn der Vergleich TRUE ist, <b>val_false</b>, wenn er FALSE ist. <b>Beispiel</b><ul><li><code>if(A&gt;B,1,0)</code> gibt 1 aus, wenn col(A) &gt; col(B), ansonsten gibt es 0 aus.</li>
 <li><code>if(A$==B$,1,0)</code> gibt 1 aus, falls die Zeichenkette in col(A) mit der Zeichenkette in col(B) &uuml;bereinstimmt, ansonsten gibt es 0 aus.</li>
 <li><code>if(A==1,100,&quot; &quot;)</code> gibt 100 aus, wenn col(A)[i]=1, ansonsten bleibt die Zelle leer.</li></ul>
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Iferror_(function).html" title="LabTalk:Iferror (function)">iferror(expression,err)</a><p align="right"><font color="red">(2026b)</font></p>
+</td>
+<td>Wertet den gegebenen <b>Ausdruck</b> aus und gibt den festgelegten <b>Fehler</b> aus (kann Zeichenkette oder numerisch sein), falls der Ausdruck einen Fehler oder fehlenden Wert erzeugt. Ansonsten wird das Ergebnis des <b>Ausdrucks</b> ausgegeben. <b>Beispiel</b><ul><li><code>iferror(A/B,&quot;Invalid&quot;)</code> gibt &quot;Invalid&quot; aus, falls col(A)/col(B) ein Fehler oder fehlend ist. Absonsten wird der Wert von A/B ausgegeben.</li></ul>
 </td></tr>
 <tr>
 <td><a href="../../LabTalk/LabTalk/Ifs_(function).html" title="LabTalk:Ifs (function)">ifs(con1,val1[,con2,val2,]...[,con40,val40])[$]</a><p align="right"><font color="red">(2019 SR0)</font></p>
@@ -1030,28 +1051,28 @@
 <td>Nimmt einen Vektor <b>vd</b>, eine ganze Zahl <b>n</b> = Zeitraum, und gibt einen Vektor der modifizierten gleitenden Durchschnitte aus. <b>Beispiel:</b><ul><li><code>for(ii=1;ii&lt;=30;ii++) col(1)[ii] = ii; col(2)=mmovavg(col(1),10);</code> f&uuml;llt Spalte <i>2</i> mit einem modifizierten Durchschnittswert bei jedem Punkt, angefangen mit Zeile 10.</li></ul>
 </td></tr>
 <tr>
-<td><a href="../../LabTalk/LabTalk/Movavg_(function).html" title="LabTalk:Movavg (function)">Movavg(vd,back,forward[,missing])</a></td>
-<td>Nimmt einen Vektor <b>vd</b> und gibt den gleitenden Durchschnitt der angrenzenden Bereiche [i-back, i+forward] f&uuml;r einen Punkt i (i = die aktuelle Zeilennummer) aus. Die Option <b>missing</b> bestimmt, ob fehlende Werte ausgelassen werden sollen. <b>Beispiel:</b><ul><li><code>for(ii=1;ii&lt;=10;ii++) col(1)[ii] = ii; col(2)=movavg(col(1),0, 2);</code> f&uuml;llt col(2) mit angrenzenden Durchschnittswerten bei jedem Punkt. (Beachten Sie, dass <code>col(2)[9] = (col(1)[9]+col(1)[10])/2 and col(1)[10] = col(2)[10]</code>).</li></ul>
+<td><a href="../../LabTalk/LabTalk/Movavg_(function).html" title="LabTalk:Movavg (function)">Movavg(vd,back,forward[,missing,method])</a></td>
+<td>Nimmt einen Vektor <b>vd</b> und gibt den gleitenden Durchschnitt der angrenzenden Bereiche [i-back, i+forward] f&uuml;r einen Punkt i (i = die aktuelle Zeilennummer) aus. Die Option <b>missing</b> bestimmt, ob die fehlenden Werte ausgelassen werden sollen, und <b>method</b> legt fest, welche Methode zu verwenden ist (die schnelle Methode oder die robuste Methode).<ul><li><code>for(ii=1;ii&lt;=10;ii++) col(1)[ii] = ii; col(2)=movavg(col(1),0, 2);</code> f&uuml;llt col(2) mit angrenzenden Durchschnittswerten bei jedem Punkt. (Beachten Sie, dass <code>col(2)[9] = (col(1)[9]+col(1)[10])/2 and col(1)[10] = col(2)[10]</code>).</li></ul>
 </td></tr>
 <tr>
 <td><a href="../../LabTalk/LabTalk/MovCoef_(function).html" title="LabTalk:MovCoef (function)">Movcoef(v1,v2,back,forward[,missing])</a></td>
 <td>Nimmt zwei Vektoren <b>v1</b> und <b>v2</b> und gibt einen Vektor der gleitenden Korrelationskoeffizienten der angrenzenden Bereiche [i-back, i+forward] f&uuml;r einen Punkt i (i = die aktuelle Zeilennummer) aus. Die Option <b>missing</b> bestimmt, ob fehlende Werte ausgelassen werden sollen. <b>Beispiel:</b><ul><li><code>wcol(4) = MovCoef(wcol(2), wcol(3), 20, 0); </code> <br />f&uuml;llt die 4. Spalte mit gleitenden Korrelationskoeffizienten von col(2) und col(3) innerhalb des Fensters [i-20]. i]</li></ul>
 </td></tr>
 <tr>
-<td><a href="../../LabTalk/LabTalk/Movrms_(function).html" title="LabTalk:Movrms (function)">Movrms(vd,back[,forward])</a></td>
-<td>Nimmt einen Vektor <b>vd</b> und gibt den quadratischen Mittelwert (RMS) der angrenzenden Bereiche [i-back, i+forward] f&uuml;r einen Punkt i (i = die aktuelle Zeilennummer) aus. <b>Beispiel:</b><ul><li><code>col(B)=movrms(col(A),0, 2);</code> f&uuml;llt col(B) mit RMS bei jedem Punkt f&uuml;r Daten innerhalb des Fensters [i, i+2]).</li></ul>
+<td><a href="../../LabTalk/LabTalk/Movrms_(function).html" title="LabTalk:Movrms (function)">Movrms(vd,back[,forward,missing,method])</a></td>
+<td>Nimmt einen Vektor <b>vd</b> und gibt den quadratischen Mittelwert (RMS) der angrenzenden Bereiche [i-back, i+forward] f&uuml;r einen Punkt i (i = die aktuelle Zeilennummer) aus. Die Option <b>missing</b> bestimmt, ob die fehlenden Werte ausgelassen werden sollen, und <b>method</b> legt fest, welche Methode zu verwenden ist (die schnelle Methode oder die robuste Methode). <b>Beispiel:</b><ul><li><code>col(B)=movrms(col(A),0, 2);</code> f&uuml;llt col(B) mit RMS bei jedem Punkt f&uuml;r Daten innerhalb des Fensters [i, i+2]).</li></ul>
 </td></tr>
 <tr>
 <td><a href="../../LabTalk/LabTalk/Movslope_(function).html" title="LabTalk:Movslope (function)">Movslope(vx,vy[,n])</a></td>
 <td>Nimmt zwei Vektoren, <b>vx</b> (unabh&auml;ngig) und <b>vy</b> (abh&auml;ngig), gibt einen Vektor der gleitenden Steigung bei jedem Punkt aus. Optional legt <b>n</b> die Fensterbreite fest (sollte &gt; 1 sein). Wenn <b>n</b> gerade ist, wird 1 addiert. Wenn n nicht festgelegt ist, gibt die Funktion einen Vektor von einem Wert aus, der die Steigung des linearen Fits der Eingabe ist. <b>Beispiel:</b><ul><li><code>col(C)=movslope(col(A),col(B),5);</code> f&uuml;llt col(C) mit der Steigung bei jedem Punkt (die ersten und letzten zwei Zellen sind fehlende Werte).</li></ul>
 </td></tr>
 <tr>
-<td><a href="../../LabTalk/LabTalk/Tmovavg_(function).html" title="LabTalk:Tmovavg (function)">Tmovavg(vd,n[,missing])</a></td>
-<td>Nimmt einen Vektor <b>vd</b> und eine ganze Zahl <b>n</b> = Zeitraum, gibt einen Vektor des dreieckigen gleitenden Durchschnitts aus. Die Option <b>missing</b> bestimmt, ob fehlende Werte ausgelassen werden sollen. <b>Beispiel:</b><ul><li><code>for(ii=1;ii&lt;=30;ii++) col(1)[ii] = ii; col(2)=tmovavg(col(1),9);</code> f&uuml;llt Spalte 2 mit dreieckigen gleitenden Durchschnittswerten bei jedem Punkt, angefangen bei Punkt = 9.</li></ul>
+<td><a href="../../LabTalk/LabTalk/Tmovavg_(function).html" title="LabTalk:Tmovavg (function)">Tmovavg(vd,n[,missing, method])</a></td>
+<td>Nimmt einen Vektor <b>vd</b> und eine ganze Zahl <b>n</b> = Zeitraum, gibt einen Vektor des dreieckigen gleitenden Durchschnitts aus. Die Option <b>missing</b> bestimmt, ob die fehlenden Werte ausgelassen werden sollen, und <b>method</b> legt fest, welche Methode zu verwenden ist (die schnelle Methode oder die robuste Methode). <b>Beispiel:</b><ul><li><code>for(ii=1;ii&lt;=30;ii++) col(1)[ii] = ii; col(2)=tmovavg(col(1),9);</code> f&uuml;llt Spalte 2 mit dreieckigen gleitenden Durchschnittswerten bei jedem Punkt, angefangen bei Punkt = 9.</li></ul>
 </td></tr>
 <tr>
-<td><a href="../../LabTalk/LabTalk/Wmovavg_(function).html" title="LabTalk:Wmovavg (function)">Wmovavg(vd,vw)</a></td>
-<td>Nimmt einen Vektor <b>vd</b> (zu gl&auml;ttende Daten) und einen Vektor <b>vw</b> (indizierter Gewichtungsfaktor), gibt einen Vektor der gewichteten gleitenden Durchschnitte aus. <b>Beispiel:</b><ul><li><code>for(ii=1;ii&lt;=30;ii++) col(1)[ii] = ii; //data vector<br />for(ii=1;ii&lt;=10;ii++) col(2)[ii] = ii/10; //weight vector<br />col(3)=wmovavg(col(1),col(2)); </code><br /> f&uuml;llt Spalte 3 mit dem gewichteten gleitenden Durchschnitt bei jedem Punkt, angefangen bei Punkt = 10.</li></ul>
+<td><a href="../../LabTalk/LabTalk/Wmovavg_(function).html" title="LabTalk:Wmovavg (function)">Wmovavg(vd,vw[,method])</a></td>
+<td>Nimmt einen Vektor <b>vd</b> (zu gl&auml;ttende Daten) und einen Vektor <b>vw</b> (indizierter Gewichtungsfaktor), gibt einen Vektor der gewichteten gleitenden Durchschnitte aus. Die Option <b>method</b> legt fest, welche Methode zu verwenden ist (die schnelle Methode oder die robuste Methode). <b>Beispiel:</b><ul><li><code>for(ii=1;ii&lt;=30;ii++) col(1)[ii] = ii; //data vector<br />for(ii=1;ii&lt;=10;ii++) col(2)[ii] = ii/10; //weight vector<br />col(3)=wmovavg(col(1),col(2)); </code><br /> f&uuml;llt Spalte 3 mit dem gewichteten gleitenden Durchschnitt bei jedem Punkt, angefangen bei Punkt = 10.</li></ul>
 </td></tr></table>
 <h2><a name="Distribution_Functions"></a><span class="mw-headline">Verteilungsfunktionen</span></h2>
 <h3><a name="Cumulative_Distribution_Functions_.28CDF.29"></a><span class="mw-headline">Kumulative Verteilungsfunktionen (CDF)</span></h3>
@@ -1281,7 +1302,7 @@
 </td></tr>
 <tr>
 <td><a href="../../LabTalk/LabTalk/Pattern_(function).html" title="LabTalk:Pattern (function)">pattern(vd, onerepeat, seqrepeat)</a> und <a href="../../LabTalk/LabTalk/Pattern_(function).html" title="LabTalk:Pattern (function)">pattern(x1,x2,inc,onerepeat,seqrepeat)</a></td>
-<td>Gibt die erzeugten numerischen oder Textdaten mit Muster aus. <i>pattern(vd, onerepeat, seqrepeat)</i> nimmt eine Reihe von Eingabezeichenketten <b>vd</b> und wiederholt jedes Element in <b>vd</b> <b>onerepeat</b>-mal und wiederholt dann die gesamte Zeichenkettenreihe <b>seqrepeat</b>-mal. <i>pattern(x1,x2,inc,onerepeat,seqrepeat)</i> erstellt einen Datensatzbereich von <b>x1</b> bis <b>x2</b> mit dem Inkrement <b>inc</b>. Jedes Element im Datensatz wird <b>onerepeat</b>-mal wiederholt. Dann wird der gesamte Datensatz <b>seqrepeat</b>-mal wiederholt. Beachten Sie, dass die Elemente in der Zeichenkettenreihe durch Hochstrich (|), Komma(,) oder Leerzeichen bzw. eine <a href="../../LabTalk/LabTalk/Range_Notation.html" title="LabTalk:Range Notation">Bereichsvariable</a> getrennt sein k&ouml;nnen. <b>Beispiel:</b><ul><li><code>col(a)=pattern(&quot;Origin Lab&quot;, 2, 2);</code> f&uuml;llt Spalte A mit &quot;Origin Origin Lab Lab Origin Origin Lab Lab&quot;.</li>
+<td>Gibt die erzeugten numerischen oder Textdaten mit Muster aus. <i>pattern(vd, onerepeat, seqrepeat)</i> nimmt eine Reihe von Eingabezeichenketten <b>vd</b> und wiederholt jedes Element in <b>vd</b> <b>onerepeat</b>-mal und wiederholt dann die gesamte Zeichenkettenreihe <b>seqrepeat</b>-mal. <i>pattern(x1,x2,inc,onerepeat,seqrepeat)</i> erstellt einen Datensatzbereich von <b>x1</b> bis <b>x2</b> mit dem Inkrement <b>inc</b>. Jedes Element im Datensatz wird <b>onerepeat</b>-mal wiederholt. Dann wird der gesamte Datensatz <b>seqrepeat</b>-mal wiederholt. Beachten Sie, dass die Elemente in der Zeichenkettenreihe durch Hochstrich (|), Komma(,) oder Leerzeichen bzw. eine Bereichsvariable getrennt sein k&ouml;nnen. <b>Beispiel:</b><ul><li><code>col(a)=pattern(&quot;Origin Lab&quot;, 2, 2);</code> f&uuml;llt Spalte A mit &quot;Origin Origin Lab Lab Origin Origin Lab Lab&quot;.</li>
 <li><code>col(b)=pattern(1,3,1,2,2);</code> f&uuml;llt Spalte B mit &quot;1 1 2 2 3 3 1 1 2 2 3 3&quot;.</li></ul>
 </td></tr>
 <tr>
@@ -1290,11 +1311,16 @@
 </td></tr>
 <tr>
 <td><a href="../../LabTalk/LabTalk/Ran_(function).html" title="LabTalk:Ran (function)">ran([seed])</a> und <a href="../../LabTalk/LabTalk/Rnd_(function).html" title="LabTalk:Rnd (function)">rnd([seed])</a></td>
-<td>Gibt einen Wert zwischen 0 und 1 aus einer gleichverteilten Stichprobe aus. Sie funktioniert genau wie <a href="../../LabTalk/LabTalk/Rnd_(function).html" title="LabTalk:Rnd (function)">rand</a>. Wenn die Option <b>seed</b> positiv ist, wird das &quot;Seed&quot; festgelegt und 0 ausgegeben. Wenn <b>seed</b> ≤ 0 ist oder wenn kein Argument bereitsteht, wird die n&auml;chste Zahl in der Sequenz der Zufallszahlen ausgegeben.</td></tr>
+<td>Gibt einen Wert zwischen 0 und 1 aus einer gleichverteilten Stichprobe aus. Sie funktionieren genau wie eine rand-Funktion. Wenn die Option <b>seed</b> positiv ist, wird das &quot;Seed&quot; festgelegt und 0 ausgegeben. Wenn <b>seed</b> ≤ 0 ist oder wenn kein Argument bereitsteht, wird die n&auml;chste Zahl in der Sequenz der Zufallszahlen ausgegeben.</td></tr>
 <tr>
 <td><a href="../../LabTalk/LabTalk/Rnd_(function).html" title="LabTalk:Rnd (function)">rand([seed])</a><p align="right"><font color="red">(2026)</font></p>
 </td>
-<td>Gibt einen Wert zwischen 0 und 1 aus einer gleichverteilten Stichprobe aus. Sie funktioniert genau wie <a href="../../LabTalk/LabTalk/Rnd_(function).html" title="LabTalk:Rnd (function)">ran/rnd</a>. Wenn die Option <b>seed</b> positiv ist, wird das &quot;Seed&quot; festgelegt und 0 ausgegeben. Wenn <b>seed</b> ≤ 0 ist oder wenn kein Argument bereitsteht, wird die n&auml;chste Zahl in der Sequenz der Zufallszahlen ausgegeben.</td></tr>
+<td>Gibt einen Wert zwischen 0 und 1 aus einer gleichverteilten Stichprobe aus. Sie funktioniert genau wie eine ran/rnd-Funktion. Wenn die Option <b>seed</b> positiv ist, wird das &quot;Seed&quot; festgelegt und 0 ausgegeben. Wenn <b>seed</b> ≤ 0 ist oder wenn kein Argument bereitsteht, wird die n&auml;chste Zahl in der Sequenz der Zufallszahlen ausgegeben.</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Randbetween_(function).html" title="LabTalk:Randbetween (function)">randbetween(n1, n2)</a><p align="right"><font color="red">(2026)</font></p>
+</td>
+<td>Gibt einen zuf&auml;lligen Wert zwischen den gegebenen Zahlen <b>n1</b> und <b>n2</b> aus. <b>Beispiel:</b><ul><li><code>col(b)[1]=randbetween(1,10)</code> f&uuml;llt die erste Zelle der Spalte B mit einer Zufallszahl zwischen 1 und 10.</li></ul>
+</td></tr>
 <tr>
 <td><a href="../../LabTalk/LabTalk/Uniform_(function).html" title="LabTalk:Uniform (function)">uniform(npts [,seed])</a> und <a href="../../LabTalk/LabTalk/Uniform_(function).html" title="LabTalk:Uniform (function)">uniform(npts, vd)</a></td>
 <td>Gibt einen Bereich von <b>npts</b> aus. Die Option <b>seed</b> kann ein Wert, ein Datenbereich, getrennte Zeichenketten (&quot;|&quot;, &quot;,&quot; oder Leerzeichen) oder eine Zeichenketten-Array sein. Wenn <b>seed</b> ein Wert ist, werden gleichverteilte Zufallszahlen ausgegeben. Wenn <b>seed</b> ein Datenbereich oder ein Zeichenketten-Array ist, werden die ausgegebenen Werte zuf&auml;llig aus dem Datenbereich oder den Zeichenketten gew&auml;hlt. Wenn <b>seed</b> ausgelassen wird, wird stattdessen bei jedem Aufruf der Funktion eine anderes &quot;Seed&quot; verwendet. Diese Funktion akzeptiert auch einen Vektor <b>vd</b> als Argument.</td></tr></table>
@@ -1353,9 +1379,10 @@
 <td>Nimmt einen Vektor <b>vd</b>, gibt die Indexnummer des Datensatzes f&uuml;r das erste Auftreten von <b>val</b> aus. Wenn <b>val</b> nicht gefunden wird, gibt die Funktion 0 aus. <b>Beispiel:</b><ul><li><code>list(3, col(A))</code> durchsucht Spalte A und gibt die Indexnummer (Zeile) aus, in dem der Wert 3 zuerst auftritt.</li></ul>
 </td></tr>
 <tr>
-<td><a href="../../LabTalk/LabTalk/Lookup_(function).html" title="LabTalk:Lookup (function)">lookup(str$,vs[,vref,option,Case])[$]</a><p align="right"><font color="red">(2015 SR0)</font></p>
+<td><a href="../../LabTalk/LabTalk/Lookup_(function).html" title="LabTalk:Lookup (function)">lookup(val,vd[,vref,option,Case])[$]</a><p align="right"><font color="red">(2015 SR0)</font></p>
 </td>
-<td>Sucht nach der Zeichenkette <b>str$</b> in Vektor <b>vs</b> und gibt den Wert in Vektor <b>vref</b> (numerisch oder Zeichenkette) mit dem gleichen Index aus. Wenn <b>vref</b> nicht bereitgestellt wird, gibt die Funktion den Index von <b>str</b>, der in <b>vs</b> gefunden wird, aus. Die Pr&auml;zision der &Uuml;bereinstimmung wird von der <b>option</b> bestimmt. Wenn <b>Case</b> = 0 (Standard), ber&uuml;cksichtigt die Funktion keine Gro&szlig;- und Kleinschreibung. <b>Beispiel:</b><ul><li><code>string str1$ = Lookup(&quot;FSA&quot;, col(A), col(B))$;</code> sucht nach der Zeichenkette <i>FSA</i> in Spalte A und weist den Wert in der Zelle in Spalte B, der die gleiche Indexnummer wie die Zeichenkette <i>FSA</i> hat, str1$ zu.</li></ul>
+<td>Sucht nach <b>val</b> (Zeichenkette oder Zahl) im Vektor <b>vd</b> und gibt den entsprechenden Wert aus dem Vektor <b>vref</b> oder Index von <b>vd</b> aus, falls <b>vref</b> ausgelassen wird. Der Ausgabewert kann numerisch oder eine Zeichenkette sein Die &Uuml;bereinstimmungspr&auml;zision wird durch <b>option</b> festgelegt; Case = 0 (Standard) ignoriert Case. <b>Beispiel:</b><ul><li><code>str1$ = Lookup(&quot;FSA&quot;, col(A), col(B))$;</code> sucht nach der Zeichenkette <i>FSA</i> in Spalte A und weist str1$ den entsprechenden Wert aus Spalte B zu.</li>
+<li><code>nn = lookup(0.5,B)</code> gibt den Index des Werts in Spalte B am nahesten an 0,5 aus.</li></ul>
 </td></tr>
 <tr>
 <td><a href="../../LabTalk/LabTalk/Table_(function).html" title="LabTalk:Table (function)">table(vd,vref,d[,option])[$]</a><p align="right"><font color="red">(2015 SR0)</font></p>
@@ -1411,8 +1438,8 @@
 <td>Nimmt zwei Datens&auml;tze <b>vx</b> und <b>vy</b>, eine Gr&ouml;&szlig;e der Zeitverschiebung <b>k</b> und gibt die Korrelation zwischen zwei Datens&auml;tzen aus. Die Option <b>n</b> ist die Anzahl der Punkte. Der Parameter der Zeitverschiebungsgr&ouml;&szlig;e <b>k</b> kann ein Skalar oder ein Vektor sein. Wenn k ein Vektor ist, gibt die Funktion einen Vektor aus; wenn es ein Skalar ist, wird ein Skalar ausgegeben. <b>Beispiel:</b><ul><li><code>corr(col(1),col(2),data(1,10),50)</code> gibt die Kreuzkorrelation der ersten 50 Punkte von col(1) mit col(2) aus, wobei eine Gr&ouml;&szlig;e der Zeitverschiebung von 1 bis 10 verwendet wird.</li></ul>
 </td></tr>
 <tr>
-<td><a href="../../LabTalk/LabTalk/DropNA_(function).html" title="LabTalk:DropNA (function)">dropNA(vd[, text])</a></td>
-<td>Nimmt einen Vektor <b>vd</b> und entfernt die fehlenden und maskierten Werte. Optionaler Parameter <b>text</b> bestimmt, wie mit dem Text umgegangen wird. <b>Beispiel:</b><p><code>col(b)=dropNA(col(a))</code></p>
+<td><a href="../../LabTalk/LabTalk/DropNA_(function).html" title="LabTalk:DropNA (function)">dropNA(vd[, text, end])</a></td>
+<td>Nimmt einen Vektor <b>vd</b> und entfernt die fehlenden und maskierten Werte. Optionaler Parameter <b>text</b> bestimmt, wie mit Text umgegangen wird, und <b>end</b> steuert, ob fehlende Werte nur am Anfang und Ende des Datensatzes oder insgesamt entfernt werden. <b>Beispiel:</b><p><code>col(b)=dropNA(col(a))</code></p>
 </td></tr>
 <tr>
 <td><a href="../../LabTalk/LabTalk/Join_(function).html" title="LabTalk:Join (function)">join(rA, rB, ...)</a></td>
@@ -1508,7 +1535,19 @@
 <td>Bessel y0. Wertet die Bessel-Funktion der zweiten Art aus, <img src="../images/LabTalk-Supported_Functions/math-85e22683116ee1466ea1a9ec5036fc20.png" title="Y_0" alt="Y_0" class="tex"/>, x &gt; 0. Die Approximation basiert auf Tschebyscheff-Erweiterungen.</td></tr>
 <tr>
 <td><a href="../../LabTalk/LabTalk/Bessel_y1_(function).html" title="LabTalk:Bessel y1 (function)">bessel_y1(x)</a></td>
-<td>Bessel y1. Wertet die Bessel-Funktion der zweiten Art aus, <img src="../images/LabTalk-Supported_Functions/math-c772000136f6d3ba6dec3c7c5a35458b.png" title="Y_1" alt="Y_1" class="tex"/>, x &gt; 0. Die Approximation basiert auf Tschebyscheff-Erweiterungen.</td></tr></table>
+<td>Bessel y1. Wertet die Bessel-Funktion der zweiten Art aus, <img src="../images/LabTalk-Supported_Functions/math-c772000136f6d3ba6dec3c7c5a35458b.png" title="Y_1" alt="Y_1" class="tex"/>, x &gt; 0. Die Approximation basiert auf Tschebyscheff-Erweiterungen.</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Besseli_(function).html" title="LabTalk:Besseli (function)">besseli(nu, z[, scale])</a></td>
+<td>Wertet die modifizierte Bessel-Funktion der ersten Art  aus..</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Besselj_(function).html" title="LabTalk:Besselj (function)">besselj(nu, z[, scale])</a></td>
+<td>Wertet die Bessel-Funktion der ersten Art  aus.</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Besselk_(function).html" title="LabTalk:Besselk (function)">besselk(nu, z[, scale])</a></td>
+<td>Wertet die modifizierte Bessel-Funktion der zweiten Art  aus.</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Bessely_(function).html" title="LabTalk:Bessely (function)">bessely(nu, z[, scale])</a></td>
+<td>Wertet die Bessel-Funktion der zweiten Art aus.</td></tr></table>
 <h3><a name="Error"></a><span class="mw-headline">Fehler</span></h3>
 <table class="simple-LTFunc">
 <tr>
@@ -1676,7 +1715,7 @@
 </td></tr>
 <tr>
 <td><a class="external text" href="../../UserGuide/UserGuide/Logistic.html">Logistic(x, A1, A2, x0, p)</a></td>
-<td>Logistische Dose-Response in Pharmakologie/Chemie. Auch als 4PL oder 4PLC bezeichnet.<br /><p><img src="../images/LabTalk-Supported_Functions/math-583e42a070de16fdf497d5619adeb39f.png" title="y=A_2+\frac{A_1-A_2}{1+{(\frac{x}{x_0}})^p}" alt="y=A_2+\frac{A_1-A_2}{1+{(\frac{x}{x_0}})^p}" class="tex"/></p>
+<td>Logistische Dosis-Wirkung in Pharmakologie/Chemie. Auch als 4PL oder 4PLC bezeichnet.<br /><p><img src="../images/LabTalk-Supported_Functions/math-583e42a070de16fdf497d5619adeb39f.png" title="y=A_2+\frac{A_1-A_2}{1+{(\frac{x}{x_0}})^p}" alt="y=A_2+\frac{A_1-A_2}{1+{(\frac{x}{x_0}})^p}" class="tex"/></p>
 </td></tr>
 <tr>
 <td><a class="external text" href="../../UserGuide/UserGuide/LogNormal.html">LogNormal(x,y0,xc,w,A)</a></td>
@@ -1982,7 +2021,7 @@
 </td></tr>
 <tr>
 <td><a class="external text" href="../../UserGuide/UserGuide/Logistic.html">Logistic(x, A1, A2, x0, p)</a></td>
-<td>Logistische Dose-Response in Pharmakologie/Chemie. Auch als 4PL oder 4PLC bezeichnet.<br /><p><img src="../images/LabTalk-Supported_Functions/math-583e42a070de16fdf497d5619adeb39f.png" title="y=A_2+\frac{A_1-A_2}{1+{(\frac{x}{x_0}})^p}" alt="y=A_2+\frac{A_1-A_2}{1+{(\frac{x}{x_0}})^p}" class="tex"/></p>
+<td>Logistische Dosis-Wirkung in Pharmakologie/Chemie. Auch als 4PL oder 4PLC bezeichnet.<br /><p><img src="../images/LabTalk-Supported_Functions/math-583e42a070de16fdf497d5619adeb39f.png" title="y=A_2+\frac{A_1-A_2}{1+{(\frac{x}{x_0}})^p}" alt="y=A_2+\frac{A_1-A_2}{1+{(\frac{x}{x_0}})^p}" class="tex"/></p>
 </td></tr>
 <tr>
 <td><a class="external text" href="../../UserGuide/UserGuide/Logistic5.html">Logistic5(x,Amin,Amax,x0,h,s)</a></td>
@@ -2221,7 +2260,7 @@
 <td><a class="external text" href="../../UserGuide/UserGuide/Poly5.html">Poly5(x,A0,A1,A2,A3,A4,A5)</a></td>
 <td>Polynomielle Funktion f&uuml;nfter Ordnung.<br /><p><img src="../images/LabTalk-Supported_Functions/math-179fade716326e5ac21534b7420a96e2.png" title="y = A_0+A_1x+A_2x^2+A_3x^3+A_4x^4+A_5x^5" alt="y = A_0+A_1x+A_2x^2+A_3x^3+A_4x^4+A_5x^5" class="tex"/></p>
 </td></tr></table>
-<h3><a name="Power"></a><span class="mw-headline">Trennsch&auml;rfe</span></h3>
+<h3><a name="Power"></a><span class="mw-headline">Power</span></h3>
 <table class="simple-FitFunc">
 <tr>
 <th>Name</th>
@@ -2673,7 +2712,7 @@
 <td><a class="external text" href="../../UserGuide/UserGuide/Step.html">Step(x,A,B,x1)</a></td>
 <td>St&uuml;ckweise konstante Funktion mit zwei Segmenten.<br /><p><img src="../images/LabTalk-Supported_Functions/math-d6407529c9780ea531fb7b1d397864e9.png" title="y= \begin{cases} A,\ \ \ \ x&lt;x_1 \\ B,\ \ \ \ x\ge x_1 \end{cases}" alt="y= \begin{cases} A,\ \ \ \ x&lt;x_1 \\ B,\ \ \ \ x\ge x_1 \end{cases}" class="tex"/></p>
 </td></tr></table>
-<h3><a name="Chromatograph"></a><span class="mw-headline">Chromatograph</span></h3>
+<h3><a name="Chromatography"></a><span class="mw-headline">Chromatografie</span></h3>
 <table class="simple-FitFunc">
 <tr>
 <th>Name</th>
@@ -2754,7 +2793,7 @@
 </td></tr>
 <tr>
 <td><a class="external text" href="../../UserGuide/UserGuide/Biphasic.html">Biphasic(x,Amin,Amax1,Amax2,x0_1,x0_2,h1,h2)</a></td>
-<td>Biphasische sigmoidale Dose-Response (logistische Gleichung mit 7 Parametern).<br /><p><img src="../images/LabTalk-Supported_Functions/math-1c41e3bbcf0441207945b956ac0aa6ca.png" title="y=A_{\min }+\frac{(A_{\max 1}-A_{\min })}{1+10^{(x-x0\_1)h_1}}+ \frac{(A_{\max 2}-A_{\min })}{1+10^{(x0\_2-x)h_2}}" alt="y=A_{\min }+\frac{(A_{\max 1}-A_{\min })}{1+10^{(x-x0\_1)h_1}}+ \frac{(A_{\max 2}-A_{\min })}{1+10^{(x0\_2-x)h_2}}" class="tex"/></p>
+<td>Biphasische sigmoidale Dosis-Wirkung (logistische Gleichung mit 7 Parametern).<br /><p><img src="../images/LabTalk-Supported_Functions/math-1c41e3bbcf0441207945b956ac0aa6ca.png" title="y=A_{\min }+\frac{(A_{\max 1}-A_{\min })}{1+10^{(x-x0\_1)h_1}}+ \frac{(A_{\max 2}-A_{\min })}{1+10^{(x0\_2-x)h_2}}" alt="y=A_{\min }+\frac{(A_{\max 1}-A_{\min })}{1+10^{(x-x0\_1)h_1}}+ \frac{(A_{\max 2}-A_{\min })}{1+10^{(x0\_2-x)h_2}}" class="tex"/></p>
 </td></tr>
 <tr>
 <td><a class="external text" href="../../UserGuide/UserGuide/DoseResp.html">DoseResp(x,A1,A2,LOGx0,p)</a></td>
@@ -2927,7 +2966,7 @@
 </td></tr>
 <tr>
 <td><a class="external text" href="../../UserGuide/UserGuide/Logistic.html">Logistic(x, A1, A2, x0, p)</a></td>
-<td>Logistische Dose-Response in Pharmakologie/Chemie. Auch als 4PL oder 4PLC bezeichnet.<br /><p><img src="../images/LabTalk-Supported_Functions/math-583e42a070de16fdf497d5619adeb39f.png" title="y=A_2+\frac{A_1-A_2}{1+{(\frac{x}{x_0}})^p}" alt="y=A_2+\frac{A_1-A_2}{1+{(\frac{x}{x_0}})^p}" class="tex"/></p>
+<td>Logistische Dosis-Wirkung in Pharmakologie/Chemie. Auch als 4PL oder 4PLC bezeichnet.<br /><p><img src="../images/LabTalk-Supported_Functions/math-583e42a070de16fdf497d5619adeb39f.png" title="y=A_2+\frac{A_1-A_2}{1+{(\frac{x}{x_0}})^p}" alt="y=A_2+\frac{A_1-A_2}{1+{(\frac{x}{x_0}})^p}" class="tex"/></p>
 </td></tr>
 <tr>
 <td><a class="external text" href="../../UserGuide/UserGuide/LogNormal.html">LogNormal(x,y0,xc,w,A)</a></td>
@@ -3010,7 +3049,7 @@
 </td></tr>
 <tr>
 <td><a class="external text" href="../../UserGuide/UserGuide/Logistic.html">Logistic(x, A1, A2, x0, p)</a></td>
-<td>Logistische Dose-Response in Pharmakologie/Chemie. Auch als 4PL oder 4PLC bezeichnet.<br /><p><img src="../images/LabTalk-Supported_Functions/math-2a9406fe1bedb14318160a532f507464.png" title="y=A_2+\frac{A_1-A_2}{1+\left(\frac{x}{x_0}\right)^p}" alt="y=A_2+\frac{A_1-A_2}{1+\left(\frac{x}{x_0}\right)^p}" class="tex"/></p>
+<td>Logistische Dosis-Wirkung in Pharmakologie/Chemie. Auch als 4PL oder 4PLC bezeichnet.<br /><p><img src="../images/LabTalk-Supported_Functions/math-2a9406fe1bedb14318160a532f507464.png" title="y=A_2+\frac{A_1-A_2}{1+\left(\frac{x}{x_0}\right)^p}" alt="y=A_2+\frac{A_1-A_2}{1+\left(\frac{x}{x_0}\right)^p}" class="tex"/></p>
 </td></tr>
 <tr>
 <td><a class="external text" href="../../UserGuide/UserGuide/Lorentz.html">Lorentz(x, y0, xc, w, A)</a></td>
@@ -3048,6 +3087,454 @@
 <tr>
 <td><a class="external text" href="../../UserGuide/UserGuide/LineExp.html">LineExp(x,Vmax,k,n)</a></td>
 <td>Kombination aus Linien- und Exponentialmodellen mit einer unabh&auml;ngigen und zwei abh&auml;ngigen Variablen.<br /><p><img src="../images/LabTalk-Supported_Functions/math-7dd8bb7f5a3145f740297f3c20b9bbbd.png" title="y_1 = a_1 + b_1x" alt="y_1 = a_1 + b_1x" class="tex"/></p><p><img src="../images/LabTalk-Supported_Functions/math-e4f29df319be1e868bd840286d96cba2.png" title="y_2 = a_2 + b_2e^{\frac{x}{c}}" alt="y_2 = a_2 + b_2e^{\frac{x}{c}}" class="tex"/></p>
+</td></tr></table>
+<h3><a name="Dose_Response"></a><span class="mw-headline">Dose Response</span></h3>
+<table class="simple-FitFunc">
+<tr>
+<th>Name</th>
+<th>Brief Description</th></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/BiDoseResp.html">BiDoseResp(x,A1,A2,LOGx01,LOGx02,h1,h2,p)</a></td>
+<td>Biphasische Dose-Response-Funktion.<br /><p><img src="../images/LabTalk-Supported_Functions/math-5a931673f336d3539f282df4fd1d9752.png" title="\begin{aligned}y=&amp;A_1+(A_2-A_1)\bigg[\frac{p}{1+10^{(LOGx01-x)h1}}+\\ &amp;\frac{1-p}{1+10^{(LOGx02-x)h2}}\bigg]\end{aligned}" alt="\begin{aligned}y=&amp;A_1+(A_2-A_1)\bigg[\frac{p}{1+10^{(LOGx01-x)h1}}+\\ &amp;\frac{1-p}{1+10^{(LOGx02-x)h2}}\bigg]\end{aligned}" class="tex"/></p>
+</td></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/Biphasic.html">Biphasic(x,Amin,Amax1,Amax2,x0_1,x0_2,h1,h2)</a></td>
+<td>Biphasische sigmoidale Dosis-Wirkung (logistische Gleichung mit 7 Parametern).<br /><p><img src="../images/LabTalk-Supported_Functions/math-1c41e3bbcf0441207945b956ac0aa6ca.png" title="y=A_{\min }+\frac{(A_{\max 1}-A_{\min })}{1+10^{(x-x0\_1)h_1}}+ \frac{(A_{\max 2}-A_{\min })}{1+10^{(x0\_2-x)h_2}}" alt="y=A_{\min }+\frac{(A_{\max 1}-A_{\min })}{1+10^{(x-x0\_1)h_1}}+ \frac{(A_{\max 2}-A_{\min })}{1+10^{(x0\_2-x)h_2}}" class="tex"/></p>
+</td></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/Boltzmann.html">Boltzmann(x, A1, A2, x0, dx)</a></td>
+<td>Boltzmann-Funktion - erzeugt eine sigmoidale Kurve.<br /><p><img src="../images/LabTalk-Supported_Functions/math-e9c8659f4be782671fbd76b167c78f36.png" title="y = A_2 + \frac{A_1-A_2}{1 + e^{(x-x_0)/dx}}" alt="y = A_2 + \frac{A_1-A_2}{1 + e^{(x-x_0)/dx}}" class="tex"/></p>
+</td></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/DoseResp.html">DoseResp(x,A1,A2,LOGx0,p)</a></td>
+<td>Dose-Response-Kurve mit variabler Hill-Steigung gegeben durch Parameter &apos;p&apos;.<br /><p><img src="../images/LabTalk-Supported_Functions/math-b7c2dc60c7a34ec1642f4e84bd10d909.png" title="y=A_1+\frac{A_2-A_1}{1+10^{\left( Logx0-x\right) p}}" alt="y=A_1+\frac{A_2-A_1}{1+10^{\left( Logx0-x\right) p}}" class="tex"/></p>
+</td></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/DoubleBoltzmann.html">DoubleBoltzmann(x,y0,A,frac,x01,x02,k1,k2)</a></td>
+<td>Doppelte Boltzmann-Funktion, Summe von zwei Boltzmann-Funktionen.<br /><p><img src="../images/LabTalk-Supported_Functions/math-649e5dcc558a3cbe663ecabcca96fc0e.png" title="y=y_0+A\left[\frac{p}{1+e^{\frac{x-x_{01}}{k_1}}}+\frac{1-p}{1+e^{\frac{x-x_{02}}{k_2}}}\right]" alt="y=y_0+A\left[\frac{p}{1+e^{\frac{x-x_{01}}{k_1}}}+\frac{1-p}{1+e^{\frac{x-x_{02}}{k_2}}}\right]" class="tex"/></p>
+</td></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/Hill.html">Hill(x,Vmax,k,n)</a></td>
+<td>Hill-Funktion zum Bestimmen der Ligandkonzentration und maximale Anzahl der Bindungsstellen.<br /><p><img src="../images/LabTalk-Supported_Functions/math-74504106bd7d8e1e37895f9c77be9865.png" title="y=V_{\max }\frac{x^n}{k^n+x^n}" alt="y=V_{\max }\frac{x^n}{k^n+x^n}" class="tex"/></p>
+</td></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/Hill.html">Hill1(x,START,END,k,n)</a></td>
+<td>Modifizierte Hill-Funktion mit Verschiebung.<br /><p><img src="../images/LabTalk-Supported_Functions/math-74504106bd7d8e1e37895f9c77be9865.png" title="y=V_{\max }\frac{x^n}{k^n+x^n}" alt="y=V_{\max }\frac{x^n}{k^n+x^n}" class="tex"/></p>
+</td></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/Logistic.html">Logistic(x, A1, A2, x0, p)</a></td>
+<td>Logistische Dosis-Wirkung in Pharmakologie/Chemie. Auch als 4PL oder 4PLC bezeichnet.<br /><p><img src="../images/LabTalk-Supported_Functions/math-583e42a070de16fdf497d5619adeb39f.png" title="y=A_2+\frac{A_1-A_2}{1+{(\frac{x}{x_0}})^p}" alt="y=A_2+\frac{A_1-A_2}{1+{(\frac{x}{x_0}})^p}" class="tex"/></p>
+</td></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/Logistic5.html">Logistic5(x,Amin,Amax,x0,h,s)</a></td>
+<td>Logistische Funktion mit f&uuml;nf Parametern. Auch als 5PL oder 5PLC bezeichnet.<br /><p><img src="../images/LabTalk-Supported_Functions/math-9194e39e6c0c7606a021dded357d97e2.png" title="y = A_{\min} + \frac{A_{\max} - A_{\min}}{\left(1 + \left(\frac{x}{x_0}\right)^{-h}\right)^s}" alt="y = A_{\min} + \frac{A_{\max} - A_{\min}}{\left(1 + \left(\frac{x}{x_0}\right)^{-h}\right)^s}" class="tex"/></p>
+</td></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/MichaelisMenten.html">MichaelisMenten(x,Vmax,Km)</a></td>
+<td>Michaelis-Menten-Funktion zum Beschreiben der Beziehung von der Konzentration des Substrats und der Enzymgeschwindigkeit.<br /><p><img src="../images/LabTalk-Supported_Functions/math-114b10be130d0b3de68f55506098f06e.png" title="y=\frac{V_{max}x}{K_m+x}" alt="y=\frac{V_{max}x}{K_m+x}" class="tex"/></p>
+</td></tr></table>
+<h3><a name="Binding"></a><span class="mw-headline">Binding</span></h3>
+<table class="simple-FitFunc">
+<tr>
+<th>Name</th>
+<th>Brief Description</th></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/ExpDec1.html">ExpDec1(x,y0,A1,t1)</a></td>
+<td>Exponentielle Zerfallsfunktion mit einer Phase und zeitkonstantem Parameter.<br /><p><img src="../images/LabTalk-Supported_Functions/math-974247a2296cfc3a2c93ad0e93168732.png" title="y=y_0+Ae^{-x/t}" alt="y=y_0+Ae^{-x/t}" class="tex"/></p>
+</td></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/OneSiteBind.html">OneSiteBind(x,Bmax,k1)</a></td>
+<td>Einseitige direkte Bindung. Rechteckige Hyperbel, verbindet mit Isothermen- oder S&auml;ttigungskurve.<br /><p><img src="../images/LabTalk-Supported_Functions/math-f126be18d7e322ae7f61fcf1c0b50b9b.png" title="y=\frac{B_{\max }x}{K_1+x}" alt="y=\frac{B_{\max }x}{K_1+x}" class="tex"/></p>
+</td></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/OneSiteComp.html">OneSiteComp(x,A1,A2,logx0)</a></td>
+<td>Einseitige Konkurrenzkurve. Dose-Response-Kurve mit Hill-Steigung gleich -1.<br /><p><img src="../images/LabTalk-Supported_Functions/math-91cc75520680016aec713c71beeca550.png" title="y=A_2+\frac{A_1-A_2}{1+10^{\left( x-\log x_0\right) }}" alt="y=A_2+\frac{A_1-A_2}{1+10^{\left( x-\log x_0\right) }}" class="tex"/></p>
+</td></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/TwoSiteBind.html">TwoSiteBind(x,Bmax1,Bmax2,k1,k2)</a></td>
+<td>Zweiseitige Bindungskurve.<br /><p><img src="../images/LabTalk-Supported_Functions/math-a5a10179ccc1a2948e1c65fdbcee0a12.png" title="y=\frac{B_{\max 1}x}{k_1+x}+\frac{B_{\max 2}x}{k_2+x}" alt="y=\frac{B_{\max 1}x}{k_1+x}+\frac{B_{\max 2}x}{k_2+x}" class="tex"/></p>
+</td></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/TwoSiteComp.html">TwoSiteComp(x,A1,A2,logx0_1,logx0_2,fraction)</a></td>
+<td>Zweiseitige Konkurrenzfunktion zum Beschreiben der Konkurrenz eines Liganden f&uuml;r zwei Rezeptortypen.<br /><p><img src="../images/LabTalk-Supported_Functions/math-d4d04163eb1cdfc5b9231d1653f9a2f5.png" title="y=A_2+\frac{\left( A_1-A_2\right) f}{1+10^{\left( x-\log x_{0\_1}\right) }}+\frac{\left( A_1-A_2\right) \left( 1-f\right) }{1+10^{\left( x-\log x_{0\_2}\right) }}" alt="y=A_2+\frac{\left( A_1-A_2\right) f}{1+10^{\left( x-\log x_{0\_1}\right) }}+\frac{\left( A_1-A_2\right) \left( 1-f\right) }{1+10^{\left( x-\log x_{0\_2}\right) }}" class="tex"/></p>
+</td></tr></table>
+<h3><a name="Growth"></a><span class="mw-headline">Wachstum</span></h3>
+<table class="simple-FitFunc">
+<tr>
+<th>Name</th>
+<th>Brief Description</th></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/Exp2PMod1.html">Exp2PMod1(x,a,b)</a>,</td>
+<td>Zweiparametrische Exponentialfunktion.<br /><p><img src="../images/LabTalk-Supported_Functions/math-3f575fcc75bc8ab7912e9befe40f95c3.png" title="y=ae^{bx}" alt="y=ae^{bx}" class="tex"/></p>
+</td></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/ExpDec1.html">ExpDec1(x,y0,A1,t1)</a></td>
+<td>Exponentielle Zerfallsfunktion mit einer Phase und zeitkonstantem Parameter.<br /><p><img src="../images/LabTalk-Supported_Functions/math-974247a2296cfc3a2c93ad0e93168732.png" title="y=y_0+Ae^{-x/t}" alt="y=y_0+Ae^{-x/t}" class="tex"/></p>
+</td></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/Line.html">Line(x,A,B)</a></td>
+<td>3D-Linienfunktion mit Steigungen und Schnittpunkten mit der Y-Achse.<br /><p><img src="../images/LabTalk-Supported_Functions/math-fdd5243db01cee1c18345ba138766931.png" title="y = A + Bx" alt="y = A + Bx" class="tex"/></p>
+</td></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/SGompertz.html">SGompertz(x,a,xc,k)</a></td>
+<td>Gompertz-Wachstumsmodell f&uuml;r Populationsuntersuchungen, Tierwachstum.<br /><p><img src="../images/LabTalk-Supported_Functions/math-3a1fd9459de9b59503e944b22cc70b2c.png" title="y=ae^{-\exp (-k(x-x_c))}" alt="y=ae^{-\exp (-k(x-x_c))}" class="tex"/></p>
+</td></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/SLogistic3.html">SLogistic3(x,a,b,k)</a></td>
+<td>Sigmoidale logistische Funktion, Typ 3.<br /><p><img src="../images/LabTalk-Supported_Functions/math-b0649f2d75ec059604397a483e220939.png" title="y=\frac a{1+be^{-kx}}" alt="y=\frac a{1+be^{-kx}}" class="tex"/></p>
+</td></tr></table>
+<h3><a name="Expo"></a><span class="mw-headline">Expo</span></h3>
+<table class="simple-FitFunc">
+<tr>
+<th>Name</th>
+<th>Brief Description</th></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/Exp2PMod1.html">Exp2PMod1(x,a,b)</a>,</td>
+<td>Zweiparametrische Exponentialfunktion.<br /><p><img src="../images/LabTalk-Supported_Functions/math-3f575fcc75bc8ab7912e9befe40f95c3.png" title="y=ae^{bx}" alt="y=ae^{bx}" class="tex"/></p>
+</td></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/ExpAssoc.html">ExpAssoc(x,y0,A1,t1,A2,t2)</a></td>
+<td>Exponentielle Verkn&uuml;pfungsgleichung mit zwei Phasen.<br /><p><img src="../images/LabTalk-Supported_Functions/math-24c7f85773289700d45d094b1f4f3df0.png" title="y = y_0 + A_1(1 - e^{-x/t_1}) + A_2(1 - e^{-x/t_2})" alt="y = y_0 + A_1(1 - e^{-x/t_1}) + A_2(1 - e^{-x/t_2})" class="tex"/></p>
+</td></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/ExpAssocDelay1.html">nlf_ExpAssocDelay1(x,TD,Yb,A,Tau)</a></td>
+<td>Exponentielle Assoziationsgleichung mit einer Phase und Plateau vor Beginn des Exponentials.<br /><p><img src="../images/LabTalk-Supported_Functions/math-b067d97e0fc1875f8c9efa9a1c2a24a5.png" title="y=\left\{\begin{matrix} Yb \qquad \qquad\qquad \qquad \quad \quad x&lt;TD\\ Yb+A\left ( 1-e^{-\frac {(x-TD)}{Tau}}\right ) \quad x\geq TD \end{matrix}\right." alt="y=\left\{\begin{matrix} Yb \qquad \qquad\qquad \qquad \quad \quad x&lt;TD\\ Yb+A\left ( 1-e^{-\frac {(x-TD)}{Tau}}\right ) \quad x\geq TD \end{matrix}\right." class="tex"/></p>
+</td></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/ExpDec1.html">ExpDec1(x,y0,A1,t1)</a></td>
+<td>Exponentielle Zerfallsfunktion mit einer Phase und zeitkonstantem Parameter.<br /><p><img src="../images/LabTalk-Supported_Functions/math-974247a2296cfc3a2c93ad0e93168732.png" title="y=y_0+Ae^{-x/t}" alt="y=y_0+Ae^{-x/t}" class="tex"/></p>
+</td></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/ExpDec2.html">ExpDec2(x,y0,A1,t1,A2,t2)</a></td>
+<td>Exponentielle Zerfallsfunktion mit zwei Phasen und zeitkonstantem Parameter.<br /><p><img src="../images/LabTalk-Supported_Functions/math-33b2c8f2412cc94ef324d8e9c6f808d9.png" title="y=y_0+A_1e^{-x/t_1}+A_2e^{-x/t_2}" alt="y=y_0+A_1e^{-x/t_1}+A_2e^{-x/t_2}" class="tex"/></p>
+</td></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/ExpDec3.html">ExpDec3(x,y0,A1,t1,A2,t2,A3,t3)</a></td>
+<td>Exponentielle Zerfallsfunktion mit drei Phasen und zeitkonstantem Parameter.<br /><p><img src="../images/LabTalk-Supported_Functions/math-de323aaa64e2f84ae683c7cd77c80414.png" title="y=y_0+A_1e^{-x/t_1}+A_2e^{-x/t_2}+A_3e^{-x/t_3}" alt="y=y_0+A_1e^{-x/t_1}+A_2e^{-x/t_2}+A_3e^{-x/t_3}" class="tex"/></p>
+</td></tr></table>
+<h3><a name="Poly"></a><span class="mw-headline">Poly</span></h3>
+<table class="simple-FitFunc">
+<tr>
+<th>Name</th>
+<th>Brief Description</th></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/Constant.html">Constant(x,y0)</a></td>
+<td>Funktion mit konstanter Basislinie.<br /><p><img src="../images/LabTalk-Supported_Functions/math-9a184449412a0cc77a57b75cff7fb117.png" title="y=y_0" alt="y=y_0" class="tex"/></p>
+</td></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/Cubic.html">Cubic(x,A,B,C,D)</a></td>
+<td>Polynomial dritter Ordnung<br /><p><img src="../images/LabTalk-Supported_Functions/math-1abfb12dfb75a70ef9ad8a7b2c943e10.png" title="y = A + Bx + Cx^2 + Dx^3" alt="y = A + Bx + Cx^2 + Dx^3" class="tex"/></p>
+</td></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/Line.html">Line(x,A,B)</a></td>
+<td>3D-Linienfunktion mit Steigungen und Schnittpunkten mit der Y-Achse.<br /><p><img src="../images/LabTalk-Supported_Functions/math-fdd5243db01cee1c18345ba138766931.png" title="y = A + Bx" alt="y = A + Bx" class="tex"/></p>
+</td></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/Parabola.html">Parabola(x,A,B,C)</a></td>
+<td>Polynomial zweiter Ordnung<br /><p><img src="../images/LabTalk-Supported_Functions/math-3eb6b70817ddd481604e4ce5a8d0f267.png" title="y = A + Bx + Cx^2" alt="y = A + Bx + Cx^2" class="tex"/></p>
+</td></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/Poly4.html">Poly4(x,A0,A1,A2,A3,A4)</a></td>
+<td>Polynomielle Funktion vierter Ordnung.<br /><p><img src="../images/LabTalk-Supported_Functions/math-379ad9ee7493aa011a4accec3a2c4cd1.png" title="y = A_0+A_1x+A_2x^2+A_3x^3+A_4x^4" alt="y = A_0+A_1x+A_2x^2+A_3x^3+A_4x^4" class="tex"/></p>
+</td></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/Poly5.html">Poly5(x,A0,A1,A2,A3,A4,A5)</a></td>
+<td>Polynomielle Funktion f&uuml;nfter Ordnung.<br /><p><img src="../images/LabTalk-Supported_Functions/math-179fade716326e5ac21534b7420a96e2.png" title="y = A_0+A_1x+A_2x^2+A_3x^3+A_4x^4+A_5x^5" alt="y = A_0+A_1x+A_2x^2+A_3x^3+A_4x^4+A_5x^5" class="tex"/></p>
+</td></tr></table>
+<h3><a name="Periodic"></a><span class="mw-headline">Periodisch</span></h3>
+<table class="simple-FitFunc">
+<tr>
+<th>Name</th>
+<th>Brief Description</th></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/Sine.html">Sine(x,y0,xc,w,A)</a></td>
+<td>Die Sinusiodfunktion schwingt um einen festgelegten Wert.<br /><p><img src="../images/LabTalk-Supported_Functions/math-ef7f3938083ccf67217dcd62e620153b.png" title="y=y_0+A\sin \left( \pi \frac{x-x_c}w\right)" alt="y=y_0+A\sin \left( \pi \frac{x-x_c}w\right)" class="tex"/></p>
+</td></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/SineDamp.html">SineDamp(x,y0,xc,w,t0,A)</a></td>
+<td>Ged&auml;mpfte Sinusoid, eine Sinusfunktion, deren Amplitude mit der Zeit zerf&auml;llt.<br /><p><img src="../images/LabTalk-Supported_Functions/math-d299205f55ea392f20e23ec46f5478fd.png" title="\begin{aligned}&amp;y=y_0+Ae^{\frac{-x}{t_0}}\sin \left( \pi \frac{x-x_c}w\right) \\ &amp;A&gt;0,~ t_0&gt;0,~ w&gt;0\end{aligned}" alt="\begin{aligned}&amp;y=y_0+Ae^{\frac{-x}{t_0}}\sin \left( \pi \frac{x-x_c}w\right) \\ &amp;A&gt;0,~ t_0&gt;0,~ w&gt;0\end{aligned}" class="tex"/></p>
+</td></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/SineSqr.html">SineSqr(x,y0,xc,w,A)</a></td>
+<td>Sinus-Quadrat-Funktion.<br /><p><img src="../images/LabTalk-Supported_Functions/math-99d675f585814517ce6865e944a57bab.png" title="y=y_0+A\sin ^2\left( \pi \frac{x-x_c}w\right)" alt="y=y_0+A\sin ^2\left( \pi \frac{x-x_c}w\right)" class="tex"/></p>
+</td></tr></table>
+<h3><a name="Line_Shapes"></a><span class="mw-headline">Linienformen</span></h3>
+<table class="simple-FitFunc">
+<tr>
+<th>Name</th>
+<th>Brief Description</th></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/Bigaussian.html">Bigaussian(x,y0,xc,H,w1,w2)</a></td>
+<td>Bi-Gaussian-Peakfunktion verwendet zum Anpassen asymmetrischer Peaks.<br /><p><img src="../images/LabTalk-Supported_Functions/math-e4e756ee05c1328ebd7a1db6af1e1f26.png" title="\begin{aligned}y&amp;=y_0+He^{-0.5\left(\frac{x-x_c}{w_1}\right)^2}~~~~~~(x &lt; x_c ) \,\\ y&amp;=y_0+He^{-0.5\left(\frac{x-x_c}{w_2}\right)^2}~~~~~~(x \geq x_c)\end{aligned}" alt="\begin{aligned}y&amp;=y_0+He^{-0.5\left(\frac{x-x_c}{w_1}\right)^2}~~~~~~(x &lt; x_c ) \,\\ y&amp;=y_0+He^{-0.5\left(\frac{x-x_c}{w_2}\right)^2}~~~~~~(x \geq x_c)\end{aligned}" class="tex"/></p>
+</td></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/LogNormal.html">LogNormal(x,y0,xc,w,A)</a></td>
+<td>Wahrscheinlichkeitsdichtefunktion der Zufallsvariable, deren Logarithmus normalverteilt ist.<br /><p><img src="../images/LabTalk-Supported_Functions/math-3220dc36e6a1075cbff267293aa3febe.png" title="y=y_0+\frac A{\sqrt{2\pi }wx}e^{\frac{-\left[ \ln \frac x{x_c}\right] ^2}{2w^2}}" alt="y=y_0+\frac A{\sqrt{2\pi }wx}e^{\frac{-\left[ \ln \frac x{x_c}\right] ^2}{2w^2}}" class="tex"/></p>
+</td></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/Lorentz.html">Lorentz(x, y0, xc, w, A)</a></td>
+<td>Lorentz-Peakfunktion mit Glockenform und viel breiteren Enden als die Gaussian-Funktion.<br /><p>(y0 = Verschiebung, xc = Zentrum, w = FWHM, A = Fl&auml;che)<br /> <img src="../images/LabTalk-Supported_Functions/math-f00981e6d70e22c0201cc23c9976a8b8.png" title="y = y_0 + \frac{2A}{\pi}\left (\frac{w}{4(x-xc)^2 + w^2}\right)" alt="y = y_0 + \frac{2A}{\pi}\left (\frac{w}{4(x-xc)^2 + w^2}\right)" class="tex"/></p>
+</td></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/Gaussian_Function.html">Gaussian(x,y0,xc,A,w)</a></td>
+<td>FWHM-Version der Gaussian-Funktion.<br /><p>(y0 = Basis, xc = Zentrum, A = Fl&auml;che, w = FWHM)<br /> <img src="../images/LabTalk-Supported_Functions/math-53bef33a2ed527ce69b5c0799c9410f7.png" title="y = y_0 + \frac {Ae^{\frac {-4ln(2)(x-x_c)^2}{w^2}}}{w \sqrt{\frac{\pi}{4ln(2)}}}" alt="y = y_0 + \frac {Ae^{\frac {-4ln(2)(x-x_c)^2}{w^2}}}{w \sqrt{\frac{\pi}{4ln(2)}}}" class="tex"/></p>
+</td></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/GaussAmp.html">GaussAmp(x,y0,xc,w,A)</a></td>
+<td>Amplitudenversion der Gaussian-Peakfunktion.<br /><p>(y0 = Verschiebung, xc = Zentrum, w = Breite, A = Amplitude)<br /> <img src="../images/LabTalk-Supported_Functions/math-60fe3bc73a2f591487eaa0078c5de58c.png" title="y=y_0+Ae^{-\frac{\left( x-x_c\right) ^2}{2w^2}}" alt="y=y_0+Ae^{-\frac{\left( x-x_c\right) ^2}{2w^2}}" class="tex"/></p>
+</td></tr></table>
+<h3><a name="Enzyme_Kinetics_2"></a><span class="mw-headline">Enzymkinetik 2</span></h3>
+<table class="simple-FitFunc">
+<tr>
+<th>Name</th>
+<th>Brief Description</th></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/CompInhib.html">CompInhib(x,Vmax,Km,Ki,Ic)</a></td>
+<td>Kompetitives Hemmungsmodell f&uuml;r einzelne Substrate und einzelne Inhibitoren.<br /><p><img src="../images/LabTalk-Supported_Functions/math-06eaf5dd6b94967d2401a81ee3eab609.png" title="y=\frac{V_{\text{max}}x}{K_\text{m}(1+\frac{I_\text{c}}{K_\text{i}})+x}" alt="y=\frac{V_{\text{max}}x}{K_\text{m}(1+\frac{I_\text{c}}{K_\text{i}})+x}" class="tex"/> <br /> Beachten Sie, dass diese Funktion normalerweise in der globalen Anpassung verwendet wird, Vmax, Km und Kia geteilt werden sollten und Ic f&uuml;r jeden Datensatz fest sein sollte. Der Anfangswert von Ki kann der Mittelwert von Ic sein.</p>
+</td></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/NoncompInhib.html">NoncompInhib(x,Vmax,Km,Ki,Ic)</a></td>
+<td>Nichtkompetitives Inhibitionsmodell f&uuml;r einzelne Substrate und einzelne Inhibitoren.<br /><p><img src="../images/LabTalk-Supported_Functions/math-a8e2c585eabc446982e3575797113583.png" title="y=\frac{V_{\text{max}}x}{(1+\frac{I_\text{c}}{K_\text{i}})(K_\text{m}+x)}" alt="y=\frac{V_{\text{max}}x}{(1+\frac{I_\text{c}}{K_\text{i}})(K_\text{m}+x)}" class="tex"/> <br /> Beachten Sie, dass diese Funktion normalerweise in der globalen Anpassung verwendet wird, Vmax, Km und Kia geteilt werden sollten und Ic f&uuml;r jeden Datensatz fest sein sollte. Der Anfangswert von Ki kann der Mittelwert von Ic sein.</p>
+</td></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/UncompInhib.html">UncompInhib(x,Vmax,Km,Kia,Ic)</a></td>
+<td>Unkompetitives Inhibitionsmodell f&uuml;r einzelne Substrate und einzelne Inhibitoren.<br /><p><img src="../images/LabTalk-Supported_Functions/math-5f730cd6a33607b830cfde4522071d72.png" title="y=\frac{V_{\text{max}}x}{(1+\frac{I_\text{c}}{K_\text{ia}})(\frac{K_\text{m}}{1+\frac{I_\text{c}}{K_\text{ia}}}+x)}" alt="y=\frac{V_{\text{max}}x}{(1+\frac{I_\text{c}}{K_\text{ia}})(\frac{K_\text{m}}{1+\frac{I_\text{c}}{K_\text{ia}}}+x)}" class="tex"/> <br /> Beachten Sie, dass diese Funktion normalerweise in der globalen Anpassung verwendet wird, Vmax, Km und Kia geteilt werden sollten und Ic f&uuml;r jeden Datensatz fest sein sollte. Der Anfangswert von Kia kann der Mittelwert von Ic sein.</p>
+</td></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/MixedModelInhib.html">MixedModelInhib(x,Vmax,Km,Ki,Alpha,Ic)</a></td>
+<td>Eine allgemeine Gleichung, einschlie&szlig;lich kompetitiver, unkompetitiver und nichtkompetitiver Inhibition als Spezialf&auml;lle.<br /><p><img src="../images/LabTalk-Supported_Functions/math-55743ffd6b46120321bbefd35cd040ea.png" title="y=\frac{\frac{V_{\text{max}}x}{1+I_c/(Alpha \cdot K_i)}}{x+\frac{K_m(1+I_c/K_i)}{1+I_c/(Alpha \cdot K_i)}}" alt="y=\frac{\frac{V_{\text{max}}x}{1+I_c/(Alpha \cdot K_i)}}{x+\frac{K_m(1+I_c/K_i)}{1+I_c/(Alpha \cdot K_i)}}" class="tex"/> <br /> Diese Anpassungsfunktion ist f&uuml;r die globale Anpassung. Bei ihrer Verwendung werden Vmax, Km, Ki und Alpha geteilt, w&auml;hrend Ic eine feste Konstante ist. Der Anfangswert von Ki kann der Mittelwert von Ic sein.</p>
+</td></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/SubstrateInhib.html">SubstrateInhib(x,Vmax,Km,Ki)</a></td>
+<td>Substrathemmungsmodell bei hohen Konzentrationen.<br /><p><img src="../images/LabTalk-Supported_Functions/math-da39145794f8fe96f2a49b4951703036.png" title="y=\frac{V_{max}x}{K_m+x(1+x/K_i)}" alt="y=\frac{V_{max}x}{K_m+x(1+x/K_i)}" class="tex"/></p>
+</td></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/MichaelisMenten.html">MichaelisMenten(x,Vmax,Km)</a></td>
+<td>Michaelis-Menten-Funktion zum Beschreiben der Beziehung von der Konzentration des Substrats und der Enzymgeschwindigkeit.<br /><p><img src="../images/LabTalk-Supported_Functions/math-114b10be130d0b3de68f55506098f06e.png" title="y=\frac{V_{max}x}{K_m+x}" alt="y=\frac{V_{max}x}{K_m+x}" class="tex"/></p>
+</td></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/Hill.html">Hill(x,Vmax,k,n)</a></td>
+<td>Hill-Funktion zum Bestimmen der Ligandkonzentration und maximale Anzahl der Bindungsstellen.<br /><p><img src="../images/LabTalk-Supported_Functions/math-74504106bd7d8e1e37895f9c77be9865.png" title="y=V_{\max }\frac{x^n}{k^n+x^n}" alt="y=V_{\max }\frac{x^n}{k^n+x^n}" class="tex"/></p>
+</td></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/BellPlateau.html">BellPlateau(x,Vmaxlim,pKa,pKb,pKc,alpha)</a></td>
+<td>Zweiphasiges, glockenf&ouml;rmiges Modell mit anpassbarem Plateau.<p><img src="../images/LabTalk-Supported_Functions/math-59fbe567d3b539a22442e1020b37e23e.png" title="y=\frac{V_{\text{max}^{lim}} \left(\alpha+10^{pK_b-x}\right)}{1+10^{pK_a+pK_b-2x}+10^{pK_b-x}+10^{x-pK_c}}" alt="y=\frac{V_{\text{max}^{lim}} \left(\alpha+10^{pK_b-x}\right)}{1+10^{pK_a+pK_b-2x}+10^{pK_b-x}+10^{x-pK_c}}" class="tex"/></p>
+</td></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/BellShaped.html">BellShaped(x,Vmaxlim,pKa,pKb)</a></td>
+<td>Glockenf&ouml;rmiges Modell f&uuml;r die pH-abh&auml;ngige Aktivit&auml;t.<p><img src="../images/LabTalk-Supported_Functions/math-0ab308e26d2c8052d5f92040583185eb.png" title="y=\frac{V_{\text{max}^{lim}} }{1+10^{pK_a-x}+10^{x-pK_b}}" alt="y=\frac{V_{\text{max}^{lim}} }{1+10^{pK_a-x}+10^{x-pK_b}}" class="tex"/></p>
+</td></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/Catalytic.html">Catalytic(x,Vmax,Km,Ka,A)</a></td>
+<td>Ein substrat- und aktivatorabh&auml;ngiges katalytisches Modell, das auf der Michaelis-Menten-Kinetik mit einer obligatorischen Aktivierungskonstante basiert.<p><img src="../images/LabTalk-Supported_Functions/math-a2dbf2a1aa9c1e06f74ab154772210e8.png" title="y=\frac{\frac{V_{max} x}{K_m}} {1+\frac{K_a}{A}+\frac{x}{K_m}\left(1+\frac{K_m}{A}\right)}" alt="y=\frac{\frac{V_{max} x}{K_m}} {1+\frac{K_a}{A}+\frac{x}{K_m}\left(1+\frac{K_m}{A}\right)}" class="tex"/></p>
+</td></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/Catalytic2.html">Catalytic2(x,Vmax,Km,Ka,A)</a></td>
+<td>Katalytisches Modell f&uuml;r ein einzelnes Substrat und einen essentiellen Aktivator mit wechselseitig abh&auml;ngiger Michaelis-Menten-Kinetik.<p><img src="../images/LabTalk-Supported_Functions/math-fb9d37e07bb94dfbb48bd3ad2370bbb6.png" title="y=\frac{\frac{V_{max} S}{K_m}} {1+\frac{K_a}{x}+\frac{S}{K_m}\left(1+\frac{K_a}{x}\right)}" alt="y=\frac{\frac{V_{max} S}{K_m}} {1+\frac{K_a}{x}+\frac{S}{K_m}\left(1+\frac{K_a}{x}\right)}" class="tex"/></p>
+</td></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/ChemDena.html">ChemDena(x,ui,us,li,ls,m,g)</a></td>
+<td>Funktion der chemischen Denaturierung.<p>Obere Basislinie:&nbsp; <img src="../images/LabTalk-Supported_Functions/math-5f27cc554b05a6e6a286b11c6745998a.png" title="u_b=u_i+u_sx" alt="u_b=u_i+u_sx" class="tex"/> &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;Untere Basislinie:&nbsp; <img src="../images/LabTalk-Supported_Functions/math-4745e38fd1cd3dab17a0e9d157e2ea37.png" title="l_b=l_i+l_sx" alt="l_b=l_i+l_sx" class="tex"/> <br /><img src="../images/LabTalk-Supported_Functions/math-f7510e4877885757c619582e81dd9aa3.png" title="K=e^{\frac{mx+\Delta G^o}{1.98T}}" alt="K=e^{\frac{mx+\Delta G^o}{1.98T}}" class="tex"/> <br /><img src="../images/LabTalk-Supported_Functions/math-2bdfbab6970ad47a2666769717a0e8cd.png" title="y=\frac{K}{1+K}\left(u_b-l_b \right) + l_b" alt="y=\frac{K}{1+K}\left(u_b-l_b \right) + l_b" class="tex"/></p>
+</td></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/CompetitiveFull.html">CompetitiveFull(x,Vmax,Km,Ki,I)</a></td>
+<td>Vollst&auml;ndiges Modell der kompetitiven Hemmung, das den Zusammenhang zwischen der Substratkonzentration und einem einzelnen Inhibitor beschreibt.<p><img src="../images/LabTalk-Supported_Functions/math-34ffabaa67311ecf32d48438e5dd6672.png" title="y = \frac{V_{max}}{1+ \frac{K_m}{x} \left( 1+ \frac{I}{K_i} \right)}" alt="y = \frac{V_{max}}{1+ \frac{K_m}{x} \left( 1+ \frac{I}{K_i} \right)}" class="tex"/></p>
+</td></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/CompetitiveFull2.html">CompetitiveFull2(x,Vmax,Km,Ki,S)</a></td>
+<td>Vollst&auml;ndiges Modell der kompetitiven Hemmung, das die kinetische Reaktion auf die Inhibitor-Konzentration f&uuml;r ein Ein-Substrat-System beschreibt.<p><img src="../images/LabTalk-Supported_Functions/math-ab446b122bfcf0a920d129f81da22ec8.png" title="y = \frac{V_{max}}{1+ \frac{K_m}{S} \left( 1+ \frac{x}{K_i} \right)}" alt="y = \frac{V_{max}}{1+ \frac{K_m}{S} \left( 1+ \frac{x}{K_i} \right)}" class="tex"/></p>
+</td></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/CompetitivePartial.html">CompetitivePartial(x,Vmax,Km,Ki,I,alpha)</a></td>
+<td>Modell der partiellen kompetitiven Hemmung.<p><img src="../images/LabTalk-Supported_Functions/math-0234e656fdefd09817cf1c2c87e6281e.png" title="y = \frac{V_{max}}{1+ \frac{ \frac{K_m}{x} \left( 1+ \frac{I}{K_i} \right)} { 1+ \frac{I}{ \alpha K_i} }}" alt="y = \frac{V_{max}}{1+ \frac{ \frac{K_m}{x} \left( 1+ \frac{I}{K_i} \right)} { 1+ \frac{I}{ \alpha K_i} }}" class="tex"/></p>
+</td></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/CompetitivePartial2.html">CompetitivePartial2(x,Vmax,Km,Ki,S,alpha)</a></td>
+<td>Modell der partiellen kompetitiven Hemmung f&uuml;r ein einzelnes Substrat, bei dem die Inhibitor-Konzentration als prim&auml;re unabh&auml;ngige Variable dient.<p><img src="../images/LabTalk-Supported_Functions/math-1489ef187365439dab629bc2e6c9e145.png" title="y = \frac{V_{max}}{1+ \frac{ \frac{K_m}{S} \left( 1+ \frac{x}{K_i} \right)} { 1+ \frac{x}{ \alpha K_i} }}" alt="y = \frac{V_{max}}{1+ \frac{ \frac{K_m}{S} \left( 1+ \frac{x}{K_i} \right)} { 1+ \frac{x}{ \alpha K_i} }}" class="tex"/></p>
+</td></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/CompetitiveInhibition.html">CompetitiveInhibition(x,Vmax,Km,Ki,E,S)</a></td>
+<td>Modell der kompetitiven Hemmung durch starke Bindung f&uuml;r hochaffine Inhibitoren.<p><img src="../images/LabTalk-Supported_Functions/math-e783f22a26b10562c9d32b3870741f19.png" title="V_0= \frac{V_{max}}{\frac {K_m}{S}+1}" alt="V_0= \frac{V_{max}}{\frac {K_m}{S}+1}" class="tex"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img src="../images/LabTalk-Supported_Functions/math-7a216e2c78b20af288bd9cbf3d10008d.png" title="K_ap = K_i \left( \frac{S}{K_m} + 1 \right)" alt="K_ap = K_i \left( \frac{S}{K_m} + 1 \right)" class="tex"/> <br /> <img src="../images/LabTalk-Supported_Functions/math-57fcb992f54fe1e4e6e63daf944aede3.png" title="y = \frac{V_0}{2E} \left( E- x- K_{ap} + \sqrt{(E-x-K_{ap})^2+4EK_{ap}} \right)" alt="y = \frac{V_0}{2E} \left( E- x- K_{ap} + \sqrt{(E-x-K_{ap})^2+4EK_{ap}} \right)" class="tex"/></p>
+</td></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/CompetitiveInhibition2.html">CompetitiveInhibition2(x,Vmax,Km,Ki,E,I)</a></td>
+<td>Modell der kompetitiven Hemmung nach dem Tight-Binding-Ansatz f&uuml;r hochaffine Inhibitoren, wobei die Substratkonzentration als prim&auml;re unabh&auml;ngige Variable dient.<p><img src="../images/LabTalk-Supported_Functions/math-78ffec98cc2041494fba60e0735b6e1a.png" title="V_0= \frac{V_{max}}{\frac {K_m}{x}+1}" alt="V_0= \frac{V_{max}}{\frac {K_m}{x}+1}" class="tex"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img src="../images/LabTalk-Supported_Functions/math-464a4de01a803095f7f4f8d47e4c6efb.png" title="K_ap = K_i \left( \frac{x}{K_m} + 1 \right)" alt="K_ap = K_i \left( \frac{x}{K_m} + 1 \right)" class="tex"/><br /> <img src="../images/LabTalk-Supported_Functions/math-f05f3716ab751dcedecbcdaf16c4345c.png" title="y = \frac{V_0}{2E} \left( E- I- K_{ap} + \sqrt{(E-I-K_{ap})^2+4EK_{ap}} \right)" alt="y = \frac{V_0}{2E} \left( E- I- K_{ap} + \sqrt{(E-I-K_{ap})^2+4EK_{ap}} \right)" class="tex"/></p>
+</td></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/DoubleExp.html">DoubleExp(x,ymax1,k1,ymax2,k2)</a></td>
+<td>Exponentielles Zerfallsmodell mit zwei Phasen.<p><img src="../images/LabTalk-Supported_Functions/math-8c28bf85ab69056a51d23d3b5e26a512.png" title="y = y_{max1} e^{-k_1x} + y_{max2} e^{-k_2x}" alt="y = y_{max1} e^{-k_1x} + y_{max2} e^{-k_2x}" class="tex"/></p>
+</td></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/DoubleExpOffset.html">DoubleExpOffset(x,y0,ymax1,ymax2,k1,k2)</a></td>
+<td>Exponentielles Zerfallsmodell mit zwei Phasen und Versatz.<p><img src="../images/LabTalk-Supported_Functions/math-215d97856fd66fbff6103553393a0a5a.png" title="y = y_0 + y_{max1} e^{-k_1x} + y_{max2} e^{-k_2x}" alt="y = y_0 + y_{max1} e^{-k_1x} + y_{max2} e^{-k_2x}" class="tex"/></p>
+</td></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/FirstOrder.html">FirstOrder(x,lmt,k)</a></td>
+<td>Kinetikmodus erster Ordnung.<p><img src="../images/LabTalk-Supported_Functions/math-1d03a36fd7ab420508dc2b2649a3d0ac.png" title="y = lmt \left( 1 - e^{-kx} \right)" alt="y = lmt \left( 1 - e^{-kx} \right)" class="tex"/></p>
+</td></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/FirstOrderOffset.html">FirstOrderOffset(x,lmt,k,offset)</a></td>
+<td>Kinetikmodus erster Ordnung mit Versatz.<p><img src="../images/LabTalk-Supported_Functions/math-eccd9d774e58184dd469b68a9989ef29.png" title="y = lmt \cdot \left( 1 - e^{-k \cdot x} \right) + offset" alt="y = lmt \cdot \left( 1 - e^{-k \cdot x} \right) + offset" class="tex"/></p>
+</td></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/Isoenzyme.html">Isoenzyme(x,Vmax1,Vmax2,Km1,Km2)</a></td>
+<td>Kinetisches Modell f&uuml;r zwei Isoenzyme, dargestellt als Summe zweier unabh&auml;ngiger Michaelis-Menten-Terme.<p><img src="../images/LabTalk-Supported_Functions/math-7414fe854db31b700f77619d963b3c0e.png" title="y = \frac {V_{max1} \cdot \frac{x}{K_{m1}}} {1+ \frac {x}{K_{m1}}} + \frac {V_{max2} \cdot \frac{x}{K_{m2}}} {1 + \frac{x}{K_{m2}}}" alt="y = \frac {V_{max1} \cdot \frac{x}{K_{m1}}} {1+ \frac {x}{K_{m1}}} + \frac {V_{max2} \cdot \frac{x}{K_{m2}}} {1 + \frac{x}{K_{m2}}}" class="tex"/></p>
+</td></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/Mixed.html">Mixed(x,Vmax,Km,Kas,Kac,A)</a></td>
+<td>Aktivierungsmodell mit gemischten Typen.<p><img src="../images/LabTalk-Supported_Functions/math-8b859d58a21a36c4b2d0b0de858683ba.png" title="y = \frac {V_{max} \cdot x} {K_m \cdot \left( 1+ \frac {K_{as}}{A} + \frac{x}{K_m} \cdot \left( 1 + \frac{K_{ac}}{A} \right) \right)}" alt="y = \frac {V_{max} \cdot x} {K_m \cdot \left( 1+ \frac {K_{as}}{A} + \frac{x}{K_m} \cdot \left( 1 + \frac{K_{ac}}{A} \right) \right)}" class="tex"/></p>
+</td></tr>
+<tr>
+<td>Mixed2(x,Vmax,Km,Kas,Kac,S)</td>
+<td>Ein Aktivierungsmodell gemischter Art, das die kinetische Reaktion auf die Aktivatorkonzentration in einem Ein-Substrat-System beschreibt.<p><a  class="image"><img alt="Mixed2 Funcion formula.png" src="../images/LabTalk-Supported_Functions/Mixed2_Funcion_formula.png" width="163"  /></a></p>
+</td></tr>
+<tr>
+<td>MixedFull(x,Vmax,Km,Ki,l,alpha)</td>
+<td>Vollst&auml;ndige Hemmung nach dem Mixed-Model-Ansatz, die die gleichzeitige Wirkung eines Inhibitors sowohl auf die Substrataffinit&auml;t als auch auf die maximale Geschwindigkeit beschreibt.<p><a  class="image"><img alt="MixedFull Funcion formula.png" src="../images/LabTalk-Supported_Functions/MixedFull_Funcion_formula.png" width="201"  /></a></p>
+</td></tr>
+<tr>
+<td>MixedFull2(x,Vmax,Km,Ki,S,alpha)</td>
+<td>Vollst&auml;ndige Hemmung nach dem Mixed-Model-Ansatz zur Beschreibung der kinetischen Reaktion auf die Inhibitor-Konzentration in einem System, in dem sowohl die Bindung als auch die Katalyse beeinflusst werden.<p><a  class="image"><img alt="MixedFull2 Funcion formula.png" src="../images/LabTalk-Supported_Functions/MixedFull2_Funcion_formula.png" width="203"  /></a></p>
+</td></tr>
+<tr>
+<td>MixedInhibition(x,Vmax,Km,Ki,alpha,E,S)</td>
+<td>Tight-Binding-Hemmungsmodell mit gemischten Modellen f&uuml;r hochaffine Inhibitoren.<p><a  class="image"><img alt="MixedInhibition Funcion formula.png" src="../images/LabTalk-Supported_Functions/MixedInhibition_Funcion_formula.png" width="370"  /></a></p>
+</td></tr>
+<tr>
+<td>MixedInhibition2(x,Vmax,Km,Ki,alpha,E,I)</td>
+<td>Ein durch ein gemischtes Modell mit starker Bindung beschriebene Hemmung, die die kinetische Reaktion auf die Substratkonzentration beschreibt.<p><a  class="image"><img alt="MixedInhibition2 Funcion formula.png" src="../images/LabTalk-Supported_Functions/MixedInhibition2_Funcion_formula.png" width="373"  /></a></p>
+</td></tr>
+<tr>
+<td>MixedPartial(x,Vmax,Km,Ki,l,beta,alpha)</td>
+<td>Teilweise Hemmung im gemischten Modell.<p><a  class="image"><img alt="MixedPartial Funcion formula.png" src="../images/LabTalk-Supported_Functions/MixedPartial_Funcion_formula.png" width="240"  /></a></p>
+</td></tr>
+<tr>
+<td>MixedPartial2(x,Vmax,Km,Ki,S,beta,alpha)</td>
+<td>Partielle Hemmung nach dem gemischten Modell zur Beschreibung der kinetischen Reaktion auf die Inhibitorkonzentration.<p><a  class="image"><img alt="MixedPartial2 Funcion formula.png" src="../images/LabTalk-Supported_Functions/MixedPartial2_Funcion_formula.png" width="234"  /></a></p>
+</td></tr>
+<tr>
+<td>NoncompetitiveFull(x,Vmax,Ki,Km,l)</td>
+<td>Modell der vollst&auml;ndigen nicht-kompetitiven Hemmung.<p><a  class="image"><img alt="NoncompetitiveFull Funcion formula.png" src="../images/LabTalk-Supported_Functions/NoncompetitiveFull_Funcion_formula.png" width="172"  /></a></p>
+</td></tr>
+<tr>
+<td>NoncompetitiveFull2(x,Vmax,Ki,Km,S)</td>
+<td>Vollst&auml;ndiges Modell der nicht-kompetitiven Hemmung, das die kinetische Reaktion auf die Inhibitor-Konzentration beschreibt.<p><a  class="image"><img alt="NoncompetitiveFull2 Funcion formula.png" src="../images/LabTalk-Supported_Functions/NoncompetitiveFull2_Funcion_formula.png" width="197"  /></a></p>
+</td></tr>
+<tr>
+<td>NoncompetitiveInhibition(x,Vmax,Km,Ki,E,S)</td>
+<td>Modell der nichtkompetitiven Hemmung durch starke Bindung f&uuml;r hochaffine Inhibitoren.<p><a  class="image"><img alt="NoncompetitiveInhibition Funcion formula.png" src="../images/LabTalk-Supported_Functions/NoncompetitiveInhibition_Funcion_formula.png" width="366"  /></a></p>
+</td></tr>
+<tr>
+<td>NoncompetitiveInhibition2(x,Vmax,Km,Ki,E,l)</td>
+<td>Ein Modell der nichtkompetitiven Hemmung durch starke Bindung, das die kinetische Reaktion auf die Substratkonzentration beschreibt.<p><a  class="image"><img alt="NoncompetitiveInhibition2 Funcion formula.png" src="../images/LabTalk-Supported_Functions/NoncompetitiveInhibition2_Funcion_formula.png" width="300"  /></a></p>
+</td></tr>
+<tr>
+<td>NoncompetitivePartial(x,Vmax,Km,Ki,l,beta)</td>
+<td>Modell der partiellen nicht-kompetitiven Hemmung.<p><a  class="image"><img alt="NoncompetitivePartial Funcion formula.png" src="../images/LabTalk-Supported_Functions/NoncompetitivePartial_Funcion_formula.png" width="146"  /></a></p>
+</td></tr>
+<tr>
+<td>NoncompetitivePartial2(x,Vmax,Km,Ki,S,beta)</td>
+<td>Modell der partiellen nicht-kompetitiven Hemmung, das die kinetische Reaktion auf die Inhibitorkonzentration beschreibt.<p><a  class="image"><img alt="NoncompetitivePartial2 Funcion formula.png" src="../images/LabTalk-Supported_Functions/NoncompetitivePartial2_Funcion_formula.png" width="155"  /></a></p>
+</td></tr>
+<tr>
+<td>Nonessencial(x,Vmax,Km,Ka,alpha,beta,A)</td>
+<td>Modell der nicht-essenziellen Aktivierung.<p><a  class="image"><img alt="Nonessencial Funcion formula.png" src="../images/LabTalk-Supported_Functions/Nonessencial_Funcion_formula.png" width="220"  /></a></p>
+</td></tr>
+<tr>
+<td>Nonessencial2(x,Vmax,Km,Ka,alpha,beta,S)</td>
+<td>Nicht-essenzielles Aktivierungsmodell, das die kinetische Reaktion auf die Aktivatorkonzentration beschreibt.<p><a  class="image"><img alt="Nonessencial2 Funcion formula.png" src="../images/LabTalk-Supported_Functions/Nonessencial2_Funcion_formula.png" width="225"  /></a></p>
+</td></tr>
+<tr>
+<td>OrderedBiBiSequential(x,Vmax,B,Ka,Kb)</td>
+<td>Geordneter Bi-Bi-Sequenzmechanismus, der die kinetische Reaktion auf ein Substrat beschreibt.<p><a  class="image"><img alt="OrderedBiBiSequential Funcion formula.png" src="../images/LabTalk-Supported_Functions/OrderedBiBiSequential_Funcion_formula.png" width="173"  /></a></p>
+</td></tr>
+<tr>
+<td>OrderedBiBiSequential2(x,Vmax,A,Ka,Kb)</td>
+<td>Geordneter Bi-Bi-Sequenzmechanismus, der die kinetische Reaktion auf die Konzentration des zweiten Substrats beschreibt.<p><a  class="image"><img alt="OrderedBiBiSequential2 Funcion formula.png" src="../images/LabTalk-Supported_Functions/OrderedBiBiSequential2_Funcion_formula.png" width="190"  /></a></p>
+</td></tr>
+<tr>
+<td>PingPongBiBiSequential(A,B,Kb,Ka,Vmax)</td>
+<td>Der &bdquo;Ping-Pung-Bi-Bi&ldquo;-Sequenzmechanismus, der eine Doppelverdr&auml;ngungsreaktion beschreibt.<p><a  class="image"><img alt="PingPongBiBiSequential Funcion formula.png" src="../images/LabTalk-Supported_Functions/PingPongBiBiSequential_Funcion_formula.png" width="228"  /></a></p>
+</td></tr>
+<tr>
+<td>PingPongBiBiSequential2(B,A,Ka,Kb,Vmax)</td>
+<td>Ping-Pong-Bi-Bi-Sequenzmechanismus zur Beschreibung der kinetischen Reaktion auf ein Substrat in einer Doppelverdr&auml;ngungsreaktion.<p><a  class="image"><img alt="PingPongBiBiSequential2 Funcion formula.png" src="../images/LabTalk-Supported_Functions/PingPongBiBiSequential2_Funcion_formula.png" width="225"  /></a></p>
+</td></tr>
+<tr>
+<td>PlateauShaped(x,Vmaxpla,Vmaxlim,pKa,pKb)</td>
+<td>Modell eines pH-Profils mit Plateau.<p><a  class="image"><img alt="PlateauShaped Funcion formula.png" src="../images/LabTalk-Supported_Functions/PlateauShaped_Funcion_formula.png" width="180"  /></a></p>
+</td></tr>
+<tr>
+<td>RandomBiBiSequential(x,Vmax,B,Ka,Kb,alpha)</td>
+<td>Zuf&auml;lliger Bi-Bi-Sequenzmechanismus.<p><a  class="image"><img alt="RandomBiBiSequential Funcion formula.png" src="../images/LabTalk-Supported_Functions/RandomBiBiSequential_Funcion_formula.png" width="286"  /></a></p>
+</td></tr>
+<tr>
+<td>RandomBiBiSequential2(x,Vmax,A,Ka,Kb,alpha)</td>
+<td>Ein zuf&auml;lliger Bi-Bi-Sequenzmechanismus, der die kinetische Reaktion auf die Konzentration des zweiten Substrats beschreibt.<p><a  class="image"><img alt="RandomBiBiSequential2 Funcion formula.png" src="../images/LabTalk-Supported_Functions/RandomBiBiSequential2_Funcion_formula.png" width="315"  /></a></p>
+</td></tr>
+<tr>
+<td>SingleExp(x,ymax,k)</td>
+<td>Einzelnes exponentielles Zerfallsmodell <p><a  class="image"><img alt="SingleExp Funcion formula.png" src="../images/LabTalk-Supported_Functions/SingleExp_Funcion_formula.png" width="164"  /></a></p>
+</td></tr>
+<tr>
+<td>SingleExpOffset(x,ymax,y0,k)</td>
+<td>Einzelnes exponentielles Zerfallsmodell mit Versatz.<p><a  class="image"><img alt="SingleExpOffset Funcion formula.png" src="../images/LabTalk-Supported_Functions/SingleExpOffset_Funcion_formula.png" width="208"  /></a></p>
+</td></tr>
+<tr>
+<td>SinglepKaFalling(x,Vmaxlim,pKa)</td>
+<td>Modell eines pH-Profils mit sinkendem pH-Wert und einem einzigen pKa-Wert.<p><a  class="image"><img alt="SinglepKaFalling Funcion formula.png" src="../images/LabTalk-Supported_Functions/SinglepKaFalling_Funcion_formula.png" width="88"  /></a></p>
+</td></tr>
+<tr>
+<td>SinglepKaOffset(x,Vlim1,Vlim2,pKa)</td>
+<td>Modell mit einzelnem pKa-Versatz<p><a  class="image"><img alt="SinglepKaOffset Funcion formula.png" src="../images/LabTalk-Supported_Functions/SinglepKaOffset_Funcion_formula.png" width="162"  /></a></p>
+</td></tr>
+<tr>
+<td>SinglepKaRising(x,Vmaxlim,pKa)</td>
+<td>Modell eines pH-Profils mit steigendem pH-Wert und einem einzigen pKa-Wert.<p><a  class="image"><img alt="SinglepKaRising Funcion formula.png" src="../images/LabTalk-Supported_Functions/SinglepKaRising_Funcion_formula.png" width="104"  /></a></p>
+</td></tr>
+<tr>
+<td>Specific(x,Vmax,Km,Ka,A)</td>
+<td>Spezifischer Mechanismus f&uuml;r eine Zwei-Substrat-Reaktion.<p><a  class="image"><img alt="Specific Funcion formula.png" src="../images/LabTalk-Supported_Functions/Specific_Funcion_formula.png" width="102"  /></a></p>
+</td></tr>
+<tr>
+<td>Specific2(x,Vmax,Km,Ka,S)</td>
+<td>Spezifischer Mechanismus f&uuml;r eine Zwei-Substrat-Reaktion, die die kinetische Reaktion auf die Konzentration des zweiten Substrats beschreibt.<p><a  class="image"><img alt="Specific2 Funcion formula.png" src="../images/LabTalk-Supported_Functions/Specific2_Funcion_formula.png" width="107"  /></a></p>
+</td></tr>
+<tr>
+<td>SubstrateActivationOrdered(x,Vmax,Ks,alpha)</td>
+<td>Geordnetes Substrataktivierungsmodell<p><a  class="image"><img alt="SubstrateActivationOrdered Funcion formula.png" src="../images/LabTalk-Supported_Functions/SubstrateActivationOrdered_Funcion_formula.png" width="88"  /></a></p>
+</td></tr>
+<tr>
+<td>SubstrateActivationRandom(x,Vmax,Ks,alpha)</td>
+<td>Zuf&auml;lliges Substrataktivierungsmodell<p><a  class="image"><img alt="SubstrateActivationRandom Funcion formula.png" src="../images/LabTalk-Supported_Functions/SubstrateActivationRandom_Funcion_formula.png" width="125"  /></a></p>
+</td></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/ThermDena.html">ThermDena(x,ri,rs,li,ls,Tm,dh,dcp)</a></td>
+<td>Thermale Denaturierungsfunktion.<p>Obere Basislinie:&nbsp; <img src="../images/LabTalk-Supported_Functions/math-5dd37e4b37c98d0315a89d5f525a535f.png" title="r_b=r_i+r_sx" alt="r_b=r_i+r_sx" class="tex"/> &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;Untere Basislinie:&nbsp; <img src="../images/LabTalk-Supported_Functions/math-4745e38fd1cd3dab17a0e9d157e2ea37.png" title="l_b=l_i+l_sx" alt="l_b=l_i+l_sx" class="tex"/> <br /><img src="../images/LabTalk-Supported_Functions/math-064966c74a3d9c36450655d4f6a71036.png" title="\Delta G = \Delta H \left( \frac{T_m-x}{T_m+273}\right)- \Delta C_p(T_m-x)+(x+273) \Delta C_p ln \left(\frac{T_m+273}{x+273} \right)" alt="\Delta G = \Delta H \left( \frac{T_m-x}{T_m+273}\right)- \Delta C_p(T_m-x)+(x+273) \Delta C_p ln \left(\frac{T_m+273}{x+273} \right)" class="tex"/><br /> <img src="../images/LabTalk-Supported_Functions/math-05952e416978207d18633d6bd8ecc33a.png" title="K=e^{\frac{\Delta G}{RT}}" alt="K=e^{\frac{\Delta G}{RT}}" class="tex"/><br /> <img src="../images/LabTalk-Supported_Functions/math-2bdfbab6970ad47a2666769717a0e8cd.png" title="y=\frac{K}{1+K}\left(u_b-l_b \right) + l_b" alt="y=\frac{K}{1+K}\left(u_b-l_b \right) + l_b" class="tex"/></p>
+</td></tr>
+<tr>
+<td>UncompetitiveFull(x,Vmax,Km,Ki,l)</td>
+<td>Modell der vollst&auml;ndigen nicht-kompetitiven Hemmung.<p><a  class="image"><img alt="UncompetitiveFull Funcion formula.png" src="../images/LabTalk-Supported_Functions/UncompetitiveFull_Funcion_formula.png" width="109"  /></a></p>
+</td></tr>
+<tr>
+<td>UncompetitiveFull2(x,Vmax,Km,Ki,S)</td>
+<td>Vollst&auml;ndiges Modell der nicht-kompetitiven Hemmung, das die kinetische Reaktion auf die Inhibitor-Konzentration beschreibt.<p><a  class="image"><img alt="UncompetitiveFull2 Funcion formula.png" src="../images/LabTalk-Supported_Functions/UncompetitiveFull2_Funcion_formula.png" width="101"  /></a></p>
+</td></tr>
+<tr>
+<td>UncompetitiveInhibition(x,Vmax,Km,Ki,E,S)</td>
+<td>Modell der nicht-kompetitiven Hemmung durch starke Bindung.<p><a  class="image"><img alt="UncompetitiveInhibition Funcion formula.png" src="../images/LabTalk-Supported_Functions/UncompetitiveInhibition_Funcion_formula.png" width="324"  /></a></p>
+</td></tr>
+<tr>
+<td>UncompetitiveInhibition2(x,Vmax,Km,Ki,E,l)</td>
+<td>Ein Modell der nichtkompetitiven Hemmung durch starke Bindung, das die kinetische Reaktion auf die Substratkonzentration beschreibt.<p><a  class="image"><img alt="UncompetitiveInhibition2 Funcion formula.png" src="../images/LabTalk-Supported_Functions/UncompetitiveInhibition2_Funcion_formula.png" width="280"  /></a></p>
+</td></tr>
+<tr>
+<td>UncompetitivePartial(x,Vmax,Km,Ki,l,beta)</td>
+<td>Modell der partiellen nicht-kompetitiven Hemmung.<p><a  class="image"><img alt="UncompetitivePartial Funcion formula.png" src="../images/LabTalk-Supported_Functions/UncompetitivePartial_Funcion_formula.png" width="92"  /></a></p>
+</td></tr>
+<tr>
+<td>UncompetitivePartial2(x,Vmax,Km,Ki,S,beta)</td>
+<td>Modell der partiellen nicht-kompetitiven Hemmung, das die kinetische Reaktion auf die Inhibitorkonzentration beschreibt.<p><a  class="image"><img alt="UncompetitivePartial2 Funcion formula.png" src="../images/LabTalk-Supported_Functions/UncompetitivePartial2_Funcion_formula.png" width="97"  /></a></p>
 </td></tr></table>
 <h2><a name="Miscellaneous_2"></a><span class="mw-headline">Sonstiges</span></h2>
 <table class="simple-LTFunc">
