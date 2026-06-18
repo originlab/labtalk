@@ -14,11 +14,9 @@ page.<span style="color: #000080;">xlcolname</span> <span style="color: #000080;
 rWb.<span style="color: #000080;">AddCol</span><span style="color: #000000;">&#40;</span>NewColumn<span style="color: #000000;">&#41;</span>;          <span style="color: #008000;">// Add a new column</span>
 NumColumns <span style="color: #000080;">=</span> rWb.<span style="color: #000080;">ncols</span>;         <span style="color: #008000;">// Find out how many columns</span></pre>
 <table class="noborder"><tr>
-	<td style="vertical-align:top" width="60"><img src="../images/Wks_(object)/Tip_icon.png?v=0" width="57"  border="0" /></td><td><p>For the <a class="external text" href="../../UserGuide/UserGuide/Column_Short_Name_Restriction.html">Spreadsheet Cell Notation</a> in the workbook, please see <a class="external text" href="../../QuickHelp/QuickHelp/Turn_off_spreadsheet_cell_notation.html"><b>FAQ-849</b></a> for more information.
-</p></td></tr></table>
-<table class="noborder"><tr>
-	<td style="vertical-align:top" width="60"><img src="../images/Wks_(object)/Tip_icon.png?v=0" width="57"  border="0" /></td><td><p>Please see the <a class="external text" href="../../XFunction/X-Function/Wproperties.html"><b>wproperties</b></a> X-Function for Read/Write access to additional Worksheet properties. What's more, there are some X-Function can do the same things as <b>wks</b> object. For more information, please refer to <a href="../../LabTalk/Script/LabTalk-Supported_X-Functions.html#Worksheet" title="Script:LabTalk-Supported X-Functions">worksheet manipulation X-Functions</a>.
-</p></td></tr></table>
+	<td style="vertical-align:top" width="60"><img src="../images/Wks_(object)/Tip_icon.png?v=0" width="57"  border="0" /></td><td><ul><li> For the <a class="external text" href="../../UserGuide/UserGuide/Column_Short_Name_Restriction.html">Spreadsheet Cell Notation</a> in the workbook, please see <a class="external text" href="../../QuickHelp/QuickHelp/Turn_off_spreadsheet_cell_notation.html"><b>FAQ-849</b></a> for more information.</li>
+<li> Refer to the <a class="external text" href="../../XFunction/X-Function/Wproperties.html"><b>wproperties</b></a> X-Function for Read/Write access to additional Worksheet properties. What's more, there are some X-Functions can do the same things as <b>wks</b> object. For more information, please refer to <a href="../../LabTalk/Script/LabTalk-Supported_X-Functions.html#Worksheet" title="Script:LabTalk-Supported X-Functions">worksheet manipulation X-Functions</a>.</li></ul>
+</td></tr></table>
 <div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
 <ul>
 <li class="toclevel-1 tocsection-1"><a href="#PropertiesWorksheet_Property"><span class="tocnumber">1</span> <span class="toctext">Properties<span class="OIndex" style="display:none">Worksheet Property</span></span></a></li>
@@ -188,6 +186,14 @@ wks.<span style="color: #000080;">frozen</span><span style="color: #000080;">$</
 <td> Read/write<br />float
 </td>
 <td> Font size of the Standard name style in the sheet, like <code> wks.fsize = 12;</code>
+</td></tr>
+<tr>
+<td> wks.groups
+<p align="right"><font color="red">(2026b)</font></p>
+</td>
+<td> Read Only<br />integer
+</td>
+<td> Get the number of groups for a <a class="external text" href="../../UserGuide/UserGuide/Life_Science_Mode.html#Data_Table">data table</a>.
 </td></tr>
 <tr>
 <td> wks.hasDC
@@ -363,7 +369,8 @@ See the <code>wks.join()</code> method.
 </td>
 <td> Read/write<br />integer
 </td>
-<td> Number of columns in the worksheet. Before Origin 8, this property was Read-Only
+<td> Number of columns in the worksheet. Before Origin 8, this property was Read-Only. If User-defined Parameter of the existing columns contains cell formula, the new added columns will copy the formula of the last column by default (Use @ALFN to change this behavior).
+<ul><li> If User-defined Parameter of the existing columns is calculated by cell formula and the formula contains <code>This</code> or <code>j</code>, the new added columns will copy the formula of the last column by default.  </li></ul>
 </td></tr>
 <tr>
 <td> wks.nRows
@@ -426,6 +433,14 @@ dbImport;
 wks.<span style="color: #000080;">timer</span> <span style="color: #000080;">=</span> <span style="color: #0000dd;">1</span>;</pre>
 </td></tr>
 <tr>
+<td> wks.type
+<p align="right"><font color="red">(2026b)</font></p>
+</td>
+<td> Read Only<br />integer
+</td>
+<td> Get and set the type of a <a class="external text" href="../../UserGuide/UserGuide/Life_Science_Mode.html#Data_Table">data table</a>: 0 = Origin classic worksheet, 1 = XY, 2 = Column (One-Way), 3 = Grouped (Two-Way), 4 = Contingency, 5 = Survival.
+</td></tr>
+<tr>
 <td> wks.upc
 </td>
 <td> Read only<br />integer
@@ -455,6 +470,14 @@ wks.<span style="color: #000080;">timer</span> <span style="color: #000080;">=</
 <td> Access the User Parameter's name. For example:
 <pre class="lt" style="font-family:monospace;"><span style="color: #008000;">// Set parameter name as &quot;Site Index&quot;</span>
 wks.<span style="color: #000080;">UserParam1</span><span style="color: #000080;">$</span><span style="color: #000080;">=</span><span style="color: #ff00ff;">&quot;Site Index&quot;</span>;</pre>
+</td></tr>
+<tr>
+<td> wks.values
+<p align="right"><font color="red">(2026b)</font></p>
+</td>
+<td> Read Only<br />integer
+</td>
+<td> Get and set the number of replicates in a <a class="external text" href="../../UserGuide/UserGuide/Life_Science_Mode.html#Data_Table">data table</a>.
 </td></tr>
 <tr>
 <td> wks.View
@@ -499,9 +522,6 @@ wks.<span style="color: #000080;">UserParam1</span><span style="color: #000080;"
 </td>
 <td> The Units for X/Y coordinates of the matrix.
 </td></tr></table>
-<table class="noborder"><tr>
-	<td style="vertical-align:top" width="60"><img src="../images/Wks_(object)/Tip_icon.png?v=0" width="57"  border="0" /></td><td><p><b>&#8224;</b>wks.merge() is for label only , and there is no LabTalk property or command for merging selected worksheet cells but you can accomplish this by capturing the menu id of the <b>Merge cells</b> toolbar button and using it with the <a href="../../LabTalk/LabTalk/Menu_(command).html#-e.3B_Execute_the_menu_command_with_the_specified_ID" title="LabTalk:Menu (command)"><b>menu -e</b></a> command.
-</p></td></tr></table>
 <h2><a name="Methods"></a><span class="mw-headline">Methods</span></h2>
 <p><span class="OIndex" style="display:none">Worksheet Method</span>
 </p>
@@ -519,16 +539,9 @@ wks.<span style="color: #000080;">UserParam1</span><span style="color: #000080;"
 <tr>
 <td> wks.addCol(<i>name</i>)
 </td>
-<td> Add a single named column to the end of the worksheet. If <i>name</i> is not specified, a generic name is chosen.
-<table class="noborder">
-	<tr>
-	<td style="vertical-align:top" width="60"><img src="../images/Wks_(object)/Alert_icon.png?v=0" width="57"  border="0" /></td><td><p>If you have specified the column name, the new column will use this name if <a class="external text" href="../../UserGuide/UserGuide/Column_Short_Name_Restriction.html">Spreadsheet Cell Notation</a> is off in the workbook. See <a class="external text" href="../../QuickHelp/QuickHelp/Turn_off_spreadsheet_cell_notation.html"><b>FAQ-849</b></a> for more information.
-<p><font color="red">(2025b)</font>If Spreadsheet Cell Notation is on, the specified column name will be the new column's long name.
-</p>
-</p>
-	</td>
-	</tr>
-	</table>
+<td> Add a single named column to the end of the worksheet.
+<ul><li> <a class="external text" href="../../UserGuide/UserGuide/Column_Short_Name_Restriction.html">Spreadsheet Cell Notation</a> is on in the workbook by default. So the specified <i>name</i> will be used as Long Name. <br />If <a class="external text" href="../../QuickHelp/QuickHelp/Turn_off_spreadsheet_cell_notation.html">Spreadsheet Cell Notation is off</a> and <i>name</i> is specified, it will be used as the Short Name of the new column. If <i>name</i> is omitted, a generic name is chosen. </li>
+<li> If User-defined Parameter of the existing columns is calculated by cell formula and the formula contains <code>This</code> or <code>j</code>, the new added columns will copy the formula of the last column by default (Use <a href="../../LabTalk/LabTalk/System_Variable_List.html#A" title="LabTalk:System Variable List">@ALFN</a> to change this behavior).  </li></ul>
 </td></tr>
 <tr>
 <td> wks.addUD(<i>name</i>, <i>str</i>, <i>col</i>)
@@ -612,13 +625,8 @@ i<span style="color: #000080;">=</span>;<span style="color: #008000;">//return -
 <td> wks.insert(<i>name list</i>)
 </td>
 <td> Insert the list of columns at the current location. The current column position is specified by <code>wks.col</code>. The list consists of one or more desired column names separated by spaces. If a column name is already used, it is automatically enumerated.
-<table class="noborder">
-	<tr>
-	<td style="vertical-align:top" width="60"><img src="../images/Wks_(object)/Alert_icon.png?v=0" width="57"  border="0" /></td><td><p>The specified column names might not able to be applied to the newly-added columns if <a class="external text" href="../../UserGuide/UserGuide/Column_Short_Name_Restriction.html">Spreadsheet Cell Notation</a> is enabled in the workbook. So if you want to apply the specified column names to columns' short name, you need turn off the <b>Spreadsheet Cell Notation</b> before running the <b>wks.insert</b> command. See <a class="external text" href="../../QuickHelp/QuickHelp/Turn_off_spreadsheet_cell_notation.html"><b>FAQ-849</b></a> for more information.
-</p>
-	</td>
-	</tr>
-	</table>
+<ul><li> The specified column names might not able to be applied to the newly-added columns if <a class="external text" href="../../UserGuide/UserGuide/Column_Short_Name_Restriction.html">Spreadsheet Cell Notation (SCN)</a> is enabled in the workbook. So if you want to apply the specified column names to columns' short name, you need turn off the <b>SCN</b> before running the <b>wks.insert</b> command. See <a class="external text" href="../../QuickHelp/QuickHelp/Turn_off_spreadsheet_cell_notation.html"><b>FAQ-849</b></a> for more information.</li>
+<li> If User-defined Parameter of the existing columns is calculated by cell formula and the formula contains <code>This</code> or <code>j</code>, the inserted columns will copy the formula of the previous column by default (Use <a href="../../LabTalk/LabTalk/System_Variable_List.html#A" title="LabTalk:System Variable List">@ALFN</a> to change this behavior). </li></ul>
 </td></tr>
 <tr>
 <td> wks.insertRows(<i>rowBegin</i>[,<i>numRows</i>, <i>colBegin</i>, <i>colEnd</i>])
@@ -689,6 +697,9 @@ Use <pre class="lt" style="font-family:monospace;">wks.<span style="color: #0000
 <pre class="lt" style="font-family:monospace;">wks.<span style="color: #000080;">merge</span><span style="color: #000000;">&#40;</span>L,<span style="color: #0000dd;">1</span><span style="color: #000000;">&#41;</span>;<span style="color: #008000;">//merge LN</span>
 wks.<span style="color: #000080;">merge</span><span style="color: #000000;">&#40;</span>L,<span style="color: #0000dd;">0</span><span style="color: #000000;">&#41;</span>;<span style="color: #008000;">//unmerge LN</span>
 wks.<span style="color: #000080;">merge</span><span style="color: #000000;">&#40;</span>L,<span style="color: #000080;">-</span><span style="color: #0000dd;">1</span><span style="color: #000000;">&#41;</span><span style="color: #000080;">=</span>;<span style="color: #008000;">//return 1 if LN merged, 0 if not.</span></pre>
+<p><b>Note:</b><br />
+wks.merge() is for label only , and there is no LabTalk property or command for merging selected worksheet cells but you can accomplish this by capturing the menu id of the <b>Merge cells</b> toolbar button and using it with the <a href="../../LabTalk/LabTalk/Menu_(command).html#-e.3B_Execute_the_menu_command_with_the_specified_ID" title="LabTalk:Menu (command)"><b>menu -e</b></a> command.
+</p>
 </td></tr>
 <tr>
 <td> wks.paste(<i>strRegister</i>, <i>Col</i>, <i>Row</i>)

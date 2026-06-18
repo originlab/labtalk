@@ -255,6 +255,18 @@ for @PC, if optional <i>n</i> is not specified, all the comments will be shown.
 <li> <i>%([Book1]1, @SN)</i> --&gt;<b>Trial Run 2</b> (for given worksheet)</li></ul>
 </td></tr>
 <tr>
+<td>@WSS
+</td>
+<td>If the plotted data comes from a mirror column, use "@WSS" to refer to the name of the source worksheet. "@WS" refers to the sheet of the mirror column itself.
+<p>For more info, refer to <a class="external text" href="../../UserGuide/UserGuide/Mirror_Column.html">mirror columns document</a>.
+</p>
+</td>
+<td>Suppose a plot's Y column (column B in Sheet1) is mirroring to column B in sheet "275K":
+<ul><li> <i>%(1, @WSS)</i> --&gt;<b>275K</b> </li></ul>
+<dl><dd><i>vs</i> </dd></dl>
+<ul><li> <i>%(1, @WS)</i> --&gt;<b>Sheet1</b> </li></ul>
+</td></tr>
+<tr>
 <td>@WNL / @SNL
 </td>
 <td>Long Name of sheet<br />(workbook, matrix)

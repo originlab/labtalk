@@ -1,0 +1,44 @@
+<h1 class="firstHeading">3.5.10.5 Iferror</h1><p class='urlname' style='display: none'>Iferror-func</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1"><a href="#Description"><span class="tocnumber">1</span> <span class="toctext">Description</span></a></li>
+<li class="toclevel-1"><a href="#Syntax"><span class="tocnumber">2</span> <span class="toctext">Syntax</span></a></li>
+<li class="toclevel-1"><a href="#Parameters"><span class="tocnumber">3</span> <span class="toctext">Parameters</span></a></li>
+<li class="toclevel-1"><a href="#Return"><span class="tocnumber">4</span> <span class="toctext">Return</span></a></li>
+<li class="toclevel-1"><a href="#Example"><span class="tocnumber">5</span> <span class="toctext">Example</span></a></li>
+</ul>
+</div>
+
+<h2 class="ref"><a name="Description"></a><span class="mw-headline">Description</span></h2>
+<p class="version" >Minimum Origin Version Required: 2026b</p>
+<p>Evaluate the given <b>expression</b> and return the specified <b>err</b> (can be string or numeric) if the <b>expression</b> produces an error or missing value, otherwise return the result of the <b>expression</b>. 
+</p><p><b>Note:</b>
+</p>
+<ol><li> Refer to <a class="external text" href="../../UserGuide/UserGuide/Working_with_Microsoft_Excel.html#Edit_Bad_Cell_Formula">this page</a> for error types supported in Origin.</li>
+<li>This function is available for <a class="external text" href="../../UserGuide/UserGuide/Quick_Start_SetColumnValues.html">Set Column Values</a> only.</li></ol>
+<h2 class="ref"><a name="Syntax"></a><span class="mw-headline">Syntax</span></h2>
+<pre class="lt" style="font-family:monospace;">string<span style="color: #000080;">/</span>double Iferror<span style="color: #000000;">&#40;</span>string expression, string<span style="color: #000080;">/</span>double err<span style="color: #000000;">&#41;</span></pre>
+<pre class="lt" style="font-family:monospace;">double iferror<span style="color: #000000;">&#40;</span>double val, string<span style="color: #000080;">/</span>double err<span style="color: #000000;">&#41;</span></pre>
+<h2 class="ref"><a name="Parameters"></a><span class="mw-headline">Parameters</span></h2>
+<p><b>expression</b>
+</p>
+<dl><dd> The formula expression or value to evaluate. If the result is an error or missing value, <b>err</b> will be returned. Refer to <a class="external text" href="../../UserGuide/UserGuide/Working_with_Microsoft_Excel.html#Edit_Bad_Cell_Formula">this page</a> for error types supported in Origin.</dd></dl>
+<p><b>err</b>
+</p>
+<dl><dd> String or numeric value to return when the <b>expression</b> evaluates to be an error or missing.</dd></dl>
+<h2 class="ref"><a name="Return"></a><span class="mw-headline">Return</span></h2>
+<p>Return the specified <b>err</b> if the result of the given <b>expression</b> produces an error or missing, otherwise return the value of <b>expression</b>.
+</p>
+<h2 class="ref"><a name="Example"></a><span class="mw-headline">Example</span></h2>
+<p><b>Example 1</b>
+</p>
+<pre class="lt" style="font-family:monospace;">iferror<span style="color: #000000;">&#40;</span>A<span style="color: #000080;">/</span>B, <span style="color: #ff00ff;">&quot;invalid&quot;</span><span style="color: #000000;">&#41;</span></pre>
+<p>In the <b>F(x)</b> header row. fill column C with value from col(A)/col(B). If the result is missing or error, fill that row with "invalid"
+</p>
+<dl><dd><a  class="image"><img alt="Iferror example1.png" src="../images/Iferror_(function)/Iferror_example1.png?v=42328" width="610"  /></a></dd></dl>
+
+
+
+
+
+

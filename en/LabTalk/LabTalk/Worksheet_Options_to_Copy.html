@@ -18,11 +18,32 @@ This is equivalent to clicking the Mini Toolbar button <b>Copy for Plotting</b> 
 </p><p>Duplicate the active workbook into a new workbook name <i>wksName</i> (original workbook remains active).
 </p><p>If <i>wksName</i> is not specified, an enumerating name of the original workbook is used.
 </p>
+<h2><a name="-dos"></a><span class="mw-headline">-dos</span></h2>
+<p><b>Syntax:</b> worksheet <b>-dos</b>
+</p><p>Open the <a class="external text" href="../../UserGuide/UserGuide/Recalculating_Analysis_Results.html#Context_Menu_for_Locked_Operations"><b>Duplicate Operation</b> dialog</a> to duplicate this report for special sheets
+</p>
 <h2><a name="-dr"></a><span class="mw-headline">-dr</span></h2>
 <p><b>Syntax:</b> worksheet <b>-dr</b> <i>wksName</i>
 </p><p>Duplicate the active workbook into a new workbook name <i>wksName</i> and execute the Worksheet Script of the active worksheet.
 </p><p>If <i>wksName</i> is not specified, an enumerating name of the original workbook is used.
 </p>
+<h2><a name="-lk"></a><span class="mw-headline">-lk</span></h2>
+<p><b>Syntax:</b> worksheet <b>-lk</b> <i>n</i> <i>count</i> <i>colName</i> 
+</p><p>Copy <i>count</i> column(s) from <i>colName</i> and paste it as <a class="external text" href="../../UserGuide/UserGuide/Mirror_Column.html">mirror column(s)</a> to the <i>n</i>th columnin the active worksheet. 
+</p><p><i>colName</i> is the source column path, <i>n</i> is the column index to insert and <i>count</i> is the number of columns to be mirrored starting at the specified source column. <i>n</i> = 0 to add mirror as new column. 
+</p><p>Use <b>-lku</b> to support undo.
+</p>
+<pre class="lt" style="font-family:monospace;"><span style="color: #008000;">//paste [book1]sheet2!col(B) and col(C) as mirror column to active sheet, [Book2]Sheet1!, start from col(A)</span>
+work <span style="color: #000080;">-</span>lki <span style="color: #0000dd;">1</span> <span style="color: #0000dd;">2</span> <span style="color: #000000;">&#91;</span>book1<span style="color: #000000;">&#93;</span>sheet2<span style="color: #000080;">!</span>col<span style="color: #000000;">&#40;</span>B<span style="color: #000000;">&#41;</span>; <span style="color: #008000;">//a new column is inserted and col(B) and col(C) are pasted as mirrors</span>
+work <span style="color: #000080;">-</span>lk <span style="color: #0000dd;">1</span> <span style="color: #0000dd;">2</span> <span style="color: #000000;">&#91;</span>book1<span style="color: #000000;">&#93;</span>sheet2<span style="color: #000080;">!</span>col<span style="color: #000000;">&#40;</span>B<span style="color: #000000;">&#41;</span>; <span style="color: #008000;">//no new column is added, col(B) and col(C) are pasted as mirrors to existed columns</span></pre>
+<h2><a name="-lki"></a><span class="mw-headline">-lki</span></h2>
+<p><b>Syntax:</b> worksheet <b>-lki</b> <i>n</i> <i>count</i> <i>colName</i>
+</p><p>Copy <i>count</i> column(s) from <i>colName</i> and insert it as <a class="external text" href="../../UserGuide/UserGuide/Mirror_Column.html">mirror column(s)</a> to the <i>n</i>th columnin the active worksheet. 
+</p><p><i>colName</i> is the source column path, <i>n</i> is the column index to insert and <i>count</i> is the number of columns to be mirrored starting at the specified source column.
+</p><p>Use <b>-lkui</b> to support undo.
+</p>
+<pre class="lt" style="font-family:monospace;"><span style="color: #008000;">//to paste [book1]sheet2!col(B) as mirror column to col(B) in active sheet, [Book2]Sheet1!,</span>
+work <span style="color: #000080;">-</span>lki <span style="color: #0000dd;">2</span> <span style="color: #0000dd;">1</span> <span style="color: #000000;">&#91;</span>book1<span style="color: #000000;">&#93;</span>sheet2<span style="color: #000080;">!</span>col<span style="color: #000000;">&#40;</span>B<span style="color: #000000;">&#41;</span></pre>
 <h2><a name="-qa"></a><span class="mw-headline">-qa</span></h2>
 <p><b>Syntax:</b> worksheet <b>-qa</b> <b>Select</b> <i>QueryString</i>
 </p><p>Extract columns satisfied with specified SELECT SQL query and then put them to the active book. Note that it will overwrite the existing column if it is not emtyp. 

@@ -212,6 +212,17 @@
 <td> Column label access for versions before 8.0. Still supporte to control long name, units and comments in a single call.
 </td></tr>
 <tr>
+<td> <a href="../../LabTalk/LabTalk/Wks.col-label.html" title="LabTalk:Wks.col-label">wks.col.link$</a>
+</td>
+<td> string
+</td>
+<td> Read/write
+</td>
+<td> Set and get the source column to which the current mirror is pointing. e.g.,
+<pre class="lt" style="font-family:monospace;"><span style="color: #008000;">//link the 2nd column in active sheet to [book1]1!col(B)</span>
+wks.<span style="color: #000080;">col2</span>.<span style="color: #000080;">link</span><span style="color: #000080;">$</span><span style="color: #000080;">=</span><span style="color: #000000;">&#91;</span>book1<span style="color: #000000;">&#93;</span><span style="color: #0000dd;">1</span><span style="color: #000080;">!</span>col<span style="color: #000000;">&#40;</span>B<span style="color: #000000;">&#41;</span></pre>
+</td></tr>
+<tr>
 <td> <a href="../../LabTalk/LabTalk/Wks.col-lname.html" title="LabTalk:Wks.col-lname">wks.col.lname$</a>
 </td>
 <td> string

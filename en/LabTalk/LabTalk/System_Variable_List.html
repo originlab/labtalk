@@ -578,6 +578,21 @@ Note: @AGO is a combination of these controlling bits which produces cumulative 
 </p>
 </td></tr>
 <tr>
+<td> @ALBT
+</td>
+<td> int
+</td>
+<td> RW
+</td>
+<td> 1
+</td>
+<td> 0,1
+</td>
+<td> 2026b
+</td>
+<td> if @ALBT = 1, Axis Line will not break when there is gap between subset or subgroup
+</td></tr>
+<tr>
 <td> @ALD
 </td>
 <td> bool
@@ -592,6 +607,25 @@ Note: @AGO is a combination of these controlling bits which produces cumulative 
 </td>
 <td> It controls whether show dialog when click the Attach to Plots button. @ALD = 0 means no dialog
 <p><br /><br /><span class='persistTag'>Persistent</span>
+</p>
+</td></tr>
+<tr>
+<td> @ALFN
+</td>
+<td> int
+</td>
+<td> RW
+</td>
+<td> 1
+</td>
+<td> 0,1,2
+</td>
+<td> 2026b
+</td>
+<td> Auto label-row cell formula when adding new columns.
+<p>0 = Disable.<br />
+1= If cell formula in User-defined Parameter row of the last column contains keyword "<code>This</code>" or "<code>j</code>", copy the formula to the new columns automatically.<br />
+2 = Always copy the cell formula in User-defined Parameter row of the last column to the new columns automatically, no matter it has keywords or not.
 </p>
 </td></tr>
 <tr>
@@ -2103,8 +2137,40 @@ between 0 and 100 = show strong blink after this time<br />
 </td>
 <td> 2019b
 </td>
-<td> If the digit of the import number is more than @BID, the number will be imported as Text instead of Numeric. This way the long digits ID will not be truncated.
+<td> If the digit of a big number is more than @BID, the number will be imported/pasted as Text instead of Numeric. This way the long digits ID will not be truncated.
 <p><br /><span class='persistTag'>Persistent</span>
+</p>
+</td></tr>
+<tr>
+<td> @BIO
+</td>
+<td> int
+</td>
+<td> R
+</td>
+<td> 0
+</td>
+<td> 0,1
+</td>
+<td> 2026b
+</td>
+<td> get Biostats Mode
+</td></tr>
+<tr>
+<td> @BIOG
+</td>
+<td> int
+</td>
+<td> RW
+</td>
+<td> 0
+</td>
+<td> 0,1
+</td>
+<td> 2026b
+</td>
+<td> By default @BIOG = 0 and after install with biostats, you have no access to other fitting functions in Origin. Set @BIOG = 1 if you want Default Mode to use regular Origin fitting functions.
+<p><br /><br /><span class='persistTag'>Persistent</span>
 </p>
 </td></tr>
 <tr>
@@ -2657,6 +2723,21 @@ other = break width will be adjust to break width * @BW
 </p>
 </td></tr>
 <tr>
+<td> @CBXC
+</td>
+<td> bool
+</td>
+<td> RW
+</td>
+<td> 1
+</td>
+<td> 0,1
+</td>
+<td> 2026b
+</td>
+<td> Code Builder search the *.xfc file when @cbxc=1 and search *.oxf file when @cbxc=0
+</td></tr>
+<tr>
 <td> @CCF
 </td>
 <td> bool
@@ -2894,6 +2975,21 @@ other = break width will be adjust to break width * @BW
 @CET&gt;=30 is user defined size in pixels, scale by DPI scale factor<br />
 </p><p>Note that the preview will only show when CET &gt; smallest cell dimension.
 </p>
+</td></tr>
+<tr>
+<td> @CFC
+</td>
+<td> bool
+</td>
+<td> RW
+</td>
+<td> 1
+</td>
+<td> 0,1
+</td>
+<td> 2026
+</td>
+<td> Cell Formula Comment, set @CFC = 0 to disable cell formular comment out by single quote
 </td></tr>
 <tr>
 <td> @CFCQ
@@ -3375,6 +3471,24 @@ Note: If <b>Clip Data to Frame</b> box is unchecked, @CLP can function as the sw
 <td> 2021b
 </td>
 <td> MSG_QUEUE_SIZE_TO_DO_CLEAN
+</td></tr>
+<tr>
+<td> @CMWW
+</td>
+<td> int
+</td>
+<td> RW
+</td>
+<td> 2
+</td>
+<td> 1,2
+</td>
+<td> 2026b
+</td>
+<td> it controls how cell note wrap width:
+<p>1 = wrap width<br />
+2 = wrap width and extent height by context
+</p>
 </td></tr>
 <tr>
 <td> @CNB
@@ -3889,6 +4003,21 @@ Note: when @CPL=0 (old behavior), double click on <b>Labels</b> tab under <b>Plo
 <p><i>N</i> = Threshold number of messages to trigger attention message.  Default is 30000 entries.<br />
 0 = suppress the attention message.
 </p>
+</td></tr>
+<tr>
+<td> @CRTF
+</td>
+<td> bool
+</td>
+<td> RW
+</td>
+<td> 1
+</td>
+<td> 0,1
+</td>
+<td> 2026b
+</td>
+<td> Some SPC distribution functions, log1p and expm1, @CRTF = 1 to call functions in C runtime library instead of Origin built-in codes
 </td></tr>
 <tr>
 <td> @CS
@@ -4432,8 +4561,27 @@ Two additional time formats are supported:
 </td>
 <td> It specifies the default recalculate mode when open a dialog by setting the default value in <b>Recalculate</b> dropdown list:
 <p>0 = None
-<br />                                                                                                                           1 = Auto
-<br />                                                                                                                            2 = Manual
+<br />1 = Auto
+<br /> 
+2 = Manual
+</p>
+</td></tr>
+<tr>
+<td> @DAP
+</td>
+<td> int
+</td>
+<td> RW
+</td>
+<td> 1
+</td>
+<td> 0,1
+</td>
+<td> 2026b
+</td>
+<td> it controls how to set the axis position by dragging:
+<p>0 = absolute position so the axis will move as the scale changes <br />
+1 = keep the percent setting if axis position was&#160;% From Left, Top ..etc so the axis will keep the position 
 </p>
 </td></tr>
 
@@ -4581,6 +4729,66 @@ Two additional time formats are supported:
 <td> Dock Bar Auto Adjust Width, to reset toolbar when it become too narrow
 <p><br /><br /><span class='persistTag'>Persistent</span>  
 </p>
+</td></tr>
+<tr>
+<td> @DBGP
+</td>
+<td> bool
+</td>
+<td> RW
+</td>
+<td> 1
+</td>
+<td> 0,1
+</td>
+<td> 2026b
+</td>
+<td> when @DBGP = 1, OC class Profiler will also show statements next to relative codes
+</td></tr>
+<tr>
+<td> @DBGR
+</td>
+<td> bool
+</td>
+<td> RW
+</td>
+<td> 1
+</td>
+<td> 0,1
+</td>
+<td> 2026b
+</td>
+<td> When run Origin C code and it meets some critical error during runtime, if @DBGR = 0 it simply stops the running and dumps an error. If @DBGR = 1 it will break at the location where the error occurs to debug runtime error
+</td></tr>
+<tr>
+<td> @DBGRO
+</td>
+<td> registry
+</td>
+<td> RW
+</td>
+<td> 2
+</td>
+<td> 0,1,2
+</td>
+<td> 2026b
+</td>
+<td> When run Origin C code and it meets some critical error during runtime, if there're some error message, @DBGRO = 2 will open Runtime Error message dialog to ask whether to debug; @DBGRO = 0 means never debug; @DBGRO = 1 means it will go to debug
+</td></tr>
+<tr>
+<td> @DBGRV
+</td>
+<td> bool
+</td>
+<td> RW
+</td>
+<td> 1
+</td>
+<td> 0,1
+</td>
+<td> 2026b
+</td>
+<td> if @DBGRV = 1 Origin Builder will show the returned value of function
 </td></tr>
 <tr>
 <td> @DBIMG
@@ -5662,7 +5870,7 @@ Note:this value is read and written to ini file, section Database, key DialogMod
 </td>
 <td> 2022b
 </td>
-<td> digitizer may not support some image type(emf, pcx,tga,psd, wmf) after use new opencv image, set @DIDI = 1 will use old bmp image instead
+<td> digitizer may not support some image type(emf, pcx,tga,psd, wmf) after use new opencv image, set @DIGI = 1 will use old bmp image instead
 </td></tr>
 <tr>
 <td> @DIL
@@ -5988,15 +6196,14 @@ Note: @DLB=0,
 </td>
 <td> 0
 </td>
-<td> 0,1,2
+<td> 0,1
 </td>
-<td> 2019b, <br />updated 2020
+<td> 2019b
 </td>
 <td> Determines whether to save the Data Connector-imported data upon saving the workbook/project.<br />
 <p>0 = For data files, check @FSE; for web data check @FSEW<br />
 1 = Always save imported data with the project<br />
-2 = For data files, check @FSE; for web data always save with project<br /><br />
-See system variables <a href="../../LabTalk/LabTalk/System_Variable_List.html#F.2CG" title="LabTalk:System Variable List"><b>@FSE</b></a> and <a href="../../LabTalk/LabTalk/System_Variable_List.html#F.2CG" title="LabTalk:System Variable List"><b>@FSEW</b></a>.
+See also system variables <a href="../../LabTalk/LabTalk/System_Variable_List.html#F" title="LabTalk:System Variable List"><b>@FSE</b></a> and <a href="../../LabTalk/LabTalk/System_Variable_List.html#F" title="LabTalk:System Variable List"><b>@FSEW</b></a>.
 <br /><br /><span class='persistTag'>Persistent</span>  
 </p>
 </td></tr>
@@ -7569,6 +7776,23 @@ Note: For instance, create a scatter plot, hold Ctrl+Shift keys and use mouse to
 <td> 2024
 </td>
 <td> Errorbar follow line color, default @eflc=0, error bar auto color follow symbol color.
+</td></tr>
+<tr>
+<td> @EFR
+</td>
+<td> int
+</td>
+<td> RW
+</td>
+<td> 0
+</td>
+<td> 0,1
+</td>
+<td> 2026b
+</td>
+<td> when open Find and Replace Dialog from Ctrl+H, if @EFR =  1 it will use the new VC dialog
+<p><br /><span class='persistTag'>Persistent</span>
+</p>
 </td></tr>
 <tr>
 <td> @EGDCD
@@ -9321,7 +9545,10 @@ Notes:
 </td>
 <td> 2026
 </td>
-<td> @GCD = 1 will auto detect decimal comma in EOS. Set it to 0 to prevent this detection and paste as text(old behavior)
+<td> Guess Comma as Decimal when copy-paste digits.
+<p>1 = auto detect comma as decimal in EOS. The detaction checks that comma is followed by digits and number of them is not 3 (i.e. not a thousand separator). This guess is available only for system decimal is period (i.e. EOS).<br />
+0 = prevent this detection and paste as text (old behavior)
+</p>
 </td></tr>
 <tr>
 <td> @GCL
@@ -10504,24 +10731,6 @@ Refer to <a class="external text" href="../../LabTalk/LabTalk/Plot_Type_IDs.html
 </p>
 </td></tr>
 <tr>
-<td> @HBAS
-</td>
-<td> int
-</td>
-<td> RW
-</td>
-<td> 10
-</td>
-<td> Natural number
-</td>
-<td> 2025
-</td>
-<td> It controls Histogram Auto Binning improvement for arithmetic sequences:
-<p>&lt;=1 = disable this improvement<br />
-&gt;=2 = @HBAS set the number of data to check if they are arithmetic sequences. If they are arithmetic sequences, assume the difference between consecutive terms is delta, bin size=delta, bin begin should be min-delta/2, bin end is max+delta/2.
-</p>
-</td></tr>
-<tr>
 <td> @HBC
 </td>
 <td> int
@@ -10777,6 +10986,21 @@ Note: @HBS=-1 means this global variable is not being used and default auto bin 
 <td> It specifies the Heatmap label margin in the percentage of layer size when font size is set to &lt;Auto&gt;.
 </td></tr>
 <tr>
+<td> @HPO
+</td>
+<td> bool
+</td>
+<td> RW
+</td>
+<td> 1
+</td>
+<td> 0,1
+</td>
+<td> 2026b
+</td>
+<td> @HPO = 1 will use a new method to handle hit test for plot elements outside graph page
+</td></tr>
+<tr>
 <td> @HPT
 </td>
 <td> bool
@@ -10839,6 +11063,21 @@ non-zero value = enable dropping file onto HTML dialog to open it
 <td> 2026
 </td>
 <td> report sheet footer default width
+</td></tr>
+<tr>
+<td> @HTFWL
+</td>
+<td> bool
+</td>
+<td> RW
+</td>
+<td> 1
+</td>
+<td> 0,1
+</td>
+<td> 2026b
+</td>
+<td> @HTFWL = 1 to fix hierarchy report sheet with long foot note opens too slow issue
 </td></tr>
 <tr>
 <td> @HTM
@@ -13114,6 +13353,23 @@ Note: if use LaTeX directly, LaTeX equation will show in axis title and legend, 
 </p>
 </td></tr>
 <tr>
+<td> @LCH
+</td>
+<td> double
+</td>
+<td> RW
+</td>
+<td> 55
+</td>
+<td> 0 - 1000
+</td>
+<td> 2026b
+</td>
+<td> If a column is <a class="external text" href="../../UserGuide/UserGuide/Mirror_Column.html">mirroring another column</a>, its header is colored by a light-green color. The color varies from the original light gray to fluorescent green. Use this system variable @LCH to adjust the color shift amount. The unit is in 1/1000. So the default 55 means to shift color by 5.5% from the light gray.
+<p><br /><span class='persistTag'>Persistent</span>
+</p>
+</td></tr>
+<tr>
 <td> @LCP
 </td>
 <td> int
@@ -13455,6 +13711,28 @@ Note: @LF(default 2500)/1000 is 2.5 pixels. Set @LF to be smaller will allow mor
 <td> @LIDB = 1 to make Lock icon draw better,  0 = old behavior
 </td></tr>
 <tr>
+<td> @LIF
+</td>
+<td> int
+</td>
+<td> RW
+</td>
+<td> 2
+</td>
+<td> 0,1,2
+</td>
+<td> 2026b
+</td>
+<td> it controls the layer icon font:
+<p>0 = the first 9 layers use system and the others use true type font(old behavior)
+<br />
+1 = system font
+<br />
+2 = true type font
+<br /><br /><span class='persistTag'>Persistent</span> 
+</p>
+</td></tr>
+<tr>
 <td> @LIP
 </td>
 <td> bool
@@ -13564,6 +13842,21 @@ Note: @LL is calculated by divide the overlap area with total data area in perce
 <p><br />
 Note: it is defined similarly to @LL but only for NLSF to add data.
 </p>
+</td></tr>
+<tr>
+<td> @LLP
+</td>
+<td> int
+</td>
+<td> RW
+</td>
+<td> 100
+</td>
+<td> positive integer
+</td>
+<td> 2026b
+</td>
+<td> for none gdiplus line plot, when data points&gt;50000 @LP will use the value of @LLP to speed up
 </td></tr>
 <tr>
 <td> @LMC
@@ -13889,61 +14182,6 @@ Note: @LPS overrides the @LP when make a semitransparent line plot.
 <br />
 1 = legend symbol need to start a new section for alignment( insert ^() before symbol )
 </p>
-</td></tr>
-<tr>
-<td> @LSFH
-</td>
-<td> double
-</td>
-<td> RW
-</td>
-<td> 3.5
-</td>
-<td> Positive double
-</td>
-<td> 2026
-</td>
-<td> a smooth factor to calculate Scale Factor
-</td></tr>
-<tr>
-<td> @LSFM
-</td>
-<td> int
-</td>
-<td> RW
-</td>
-<td> 0
-</td>
-<td> 0,1,2,3,4
-</td>
-<td> 2026
-</td>
-<td> it controls the new graph's scale factor mode, if @LSFM &gt; 0, it set page.LSFM:
-<p>0 = follow system settings
-<br />
-1 = old behavior in 2025b
-<br />
-2 = limit layer minimum scale factor
-<br />
-3 = new method to calculate scale factor
-<br />
-4 = share same scale factor amoung layers 
-</p>
-</td></tr>
-<tr>
-<td> @LSFW
-</td>
-<td> double
-</td>
-<td> RW
-</td>
-<td> 1
-</td>
-<td> Positive double
-</td>
-<td> 2026
-</td>
-<td> a factor to provide more weight for bigger layer ratio, like single column/row arrangement, to calculate Scale Factor
 </td></tr>
 
 <tr>
@@ -15037,6 +15275,21 @@ Note: this system variable must not be changed while there are any graphs with c
 <td> max second to find te newly created window for Insert menu
 </td></tr>
 <tr>
+<td> @MMD
+</td>
+<td> bool
+</td>
+<td> RW
+</td>
+<td> 0
+</td>
+<td> 0,1
+</td>
+<td> 2026b
+</td>
+<td> @MMD = 1 will dump mirror message
+</td></tr>
+<tr>
 <td> @MMS
 </td>
 <td> int
@@ -15698,6 +15951,23 @@ Note: X-Function use switch -sa to silent all messages, see <a class="external t
 </p>
 </td></tr>
 <tr>
+<td> @MSI
+</td>
+<td> int
+</td>
+<td> RW
+</td>
+<td> 0
+</td>
+<td> 0,1
+</td>
+<td> 2026b
+</td>
+<td> if @MSI = 1, column will show Mirror Sheet Icon
+<p><br /><span class='persistTag'>Persistent</span>
+</p>
+</td></tr>
+<tr>
 <td> @MSL
 </td>
 <td> int
@@ -16000,6 +16270,23 @@ Note: @MV=1 (default), vector arithmetic such as assign value for a vector col(B
 </td>
 <td> variation in determine isometric. If data has 20% variation, so can set @MXY=210 to let it pass.
 <p><br /><span class='persistTag'>Persistent</span>
+</p>
+</td></tr>
+<tr>
+<td> @MYC
+</td>
+<td> int
+</td>
+<td> RW
+</td>
+<td> 12
+</td>
+<td> 1 to 65500
+</td>
+<td> 2026b
+</td>
+<td> It controls whether the Y column index shows on the column header. When the Y column number equal or larger than this variable value, the Y column index will show on the column header next to <b>Y</b>.
+<p>(This system variable is not registry based but it will remember as it is saving the value to <i>Origin.ini</i> ) 
 </p>
 </td></tr>
 <tr>
@@ -16414,6 +16701,23 @@ These controlling bits can be combined to produce cumulative effects
 <td> It specifies the threshold modifier for Gaussian model that depicts how the noised data fits the Gaussian model.
 </td></tr>
 <tr>
+<td> @NHL
+</td>
+<td> int
+</td>
+<td> RW
+</td>
+<td> 0
+</td>
+<td> Natural Number
+</td>
+<td> 2026b
+</td>
+<td> It controls whether to hide analysis locks in graphs. Set @NHL = 1 to always hide. Set @NHL = 3 to hide if more than or equals to 3 locks
+<p><br /><span class='persistTag'>Persistent</span>
+</p>
+</td></tr>
+<tr>
 <td> @NI
 </td>
 <td> int
@@ -16665,13 +16969,15 @@ Note: @NLI is a combination of both controlling bits, so @NLI=3 (default) is to 
 </td>
 <td> RW
 </td>
-<td> 50
+<td> 60
 </td>
 <td> Positive integer
 </td>
 <td> 2018b
 </td>
-<td> Maximum number of panels in trellis and cluster plot, over which dialog preview will be disable.
+<td> Maximum number of panels allowed in <b>Trellis</b> and <b>Cluster</b> plots. Exceeding this limit also disables the preview in the graph dialog.
+<p>Note that this restriction does not apply when panels are set to overlap.
+</p>
 </td></tr>
 <tr>
 <td> @NOR
@@ -17400,6 +17706,23 @@ Note: @OCB will be automatically set to 1 from 0 when open <b>Code Builder</b>.
 <td> 2024b
 </td>
 <td> @OCM=0 to hide "Open from Cloud" main menu
+</td></tr>
+<tr>
+<td> @OCQ
+</td>
+<td> bool
+</td>
+<td> RW
+</td>
+<td> 0
+</td>
+<td> 0,1
+</td>
+<td> 2026b
+</td>
+<td> set @OCQ = 1 and restart Origin, Origin will start without waiting Origin C startup compile
+<p><span class='persistTag'>Persistent</span>
+</p>
 </td></tr>
 <tr>
 <td> @OCS
@@ -19837,6 +20160,23 @@ Notes:
 </p>
 </td></tr>
 <tr>
+<td> @PIF
+</td>
+<td> int
+</td>
+<td> RW
+</td>
+<td> 0
+</td>
+<td> 0,1
+</td>
+<td> 2026b
+</td>
+<td> when import Prism Notes, set @PIF = 1 to import floating notes as notes window
+<p><br /><span class='persistTag'>Persistent</span>
+</p>
+</td></tr>
+<tr>
 <td> @PIMG
 </td>
 <td> int
@@ -19908,6 +20248,24 @@ Notes:
 <p>0 = Automatically reconstruct legend in above cases
 <br />
 1 = Do not update legend in above cases
+</p>
+</td></tr>
+<tr>
+<td> @PLS
+</td>
+<td> bool
+</td>
+<td> RW
+</td>
+<td> 1
+</td>
+<td> 0,1
+</td>
+<td> 2026b
+</td>
+<td> Whether to allow <a class="external text" href="../../UserGuide/UserGuide/Mirror_Column.html">mirroring a column</a> in the same worksheet.
+<p>1 = Allow mirroring a column in the same sheet. <br />
+0 = Reject to mirroring same sheet columns. 
 </p>
 </td></tr>
 <tr>
@@ -20286,6 +20644,29 @@ Note: @PP is a combination of both controlling bits, @PP=3 (default) means maste
 <td> When you click on a click on a line/symbol/line&amp;symbol/column or bar plot, corresponding worksheet data are highlighted. This system variable turns data highlighting in the worksheet ON or OFF.<br />
 <p>0 = disable worksheet data highlighting<br />
 1 = (default) enable worksheet data highlighting
+</p>
+</td></tr>
+<tr>
+<td> @PSCL
+</td>
+<td> bool
+</td>
+<td> RW
+</td>
+<td> 1
+</td>
+<td> 0,1
+</td>
+<td> 2026b
+</td>
+<td> Set to 0 to create a partial series that breaks the link to the source when calculating with a column formula. Default 1 creates the series by copying the values.
+<p>Use this system variable when formula contains predefined range variable "This". For example, run following scripts to sort a sub-dataset where the last value is calculated by "sum(This)": 
+</p>
+<pre class="lt" style="font-family:monospace;">newbook;
+col<span style="color: #000000;">&#40;</span>A<span style="color: #000000;">&#41;</span> <span style="color: #000080;">=</span> <span style="color: #000000;">&#123;</span><span style="color: #0000dd;">1</span>, <span style="color: #000080;">-</span><span style="color: #0000dd;">2</span>, <span style="color: #000080;">-</span><span style="color: #0000dd;">4</span>, <span style="color: #0000dd;">5</span><span style="color: #000000;">&#125;</span>;
+col<span style="color: #000000;">&#40;</span>A<span style="color: #000000;">&#41;</span><span style="color: #000000;">&#91;</span><span style="color: #0000dd;">5</span><span style="color: #000000;">&#93;</span><span style="color: #000080;">$</span> <span style="color: #000080;">=</span> <span style="color: #ff00ff;">&quot;=sum(This)&quot;</span>;
+csetvalue col<span style="color: #000000;">:</span><span style="color: #000080;">=</span>col<span style="color: #000000;">&#40;</span>B<span style="color: #000000;">&#41;</span> formula<span style="color: #000000;">:</span><span style="color: #000080;">=</span><span style="color: #ff00ff;">&quot; Sort(A[3:5])&quot;</span>;</pre>
+<p>When @PSCL=1, the result is unexpected - the 2nd item is 1, which does not exist in column A. Set @PSCL = 0 to get a reasonable result.
 </p>
 </td></tr>
 <tr>
@@ -21478,6 +21859,25 @@ Note: automatically switch to reverse axis will not work from script.
 </p>
 </td></tr>
 <tr>
+<td> @RFS
+</td>
+<td> int
+</td>
+<td> RW
+</td>
+<td> 0
+</td>
+<td> 0,1
+</td>
+<td> 2026
+</td>
+<td> Controls the behavior of axis rescaling when the axis scale is fixed (i.e., when <a class="external text" href="../../UserGuide/UserGuide/Scale_2.html#Rescale"><b>Rescale</b> is set to <b>Fixed</b>/<b>Fixed From</b>/<b>Fixed To</b></a>).
+<p>0 = Fixed scale range is preserved when rescaling the axes.<br />
+1 = Rescaling will override the fixed scale to display all data points.
+<br /><br /><span class='persistTag'>Persistent</span>
+</p>
+</td></tr>
+<tr>
 <td> @RGBS
 </td>
 <td> bool
@@ -21965,6 +22365,21 @@ Note: for version after 6, resizing options can be enabled by checking the check
 <td> 2025b
 </td>
 <td> return the project's reload mode( @ROR &gt; 0 )
+</td></tr>
+<tr>
+<td> @ROWXH
+</td>
+<td> bool
+</td>
+<td> RW
+</td>
+<td> 1
+</td>
+<td> 0,1
+</td>
+<td> 2026b
+</td>
+<td> if @ROWXH = 1, the plot with Auto X will Ignore hidden Row in X scale
 </td></tr>
 <tr>
 <td> @RP
@@ -23168,6 +23583,21 @@ You can set @SEC to 1 when you run Japanese version Origin in English language O
 </p>
 </td></tr>
 <tr>
+<td> @SELC
+</td>
+<td> int
+</td>
+<td> R
+</td>
+<td> 0
+</td>
+<td>
+</td>
+<td> 2026b
+</td>
+<td> it return the number of selected range blocks on worksheet
+</td></tr>
+<tr>
 <td> @SETDYNACONTROLTTDELAY
 </td>
 <td> int
@@ -23548,6 +23978,21 @@ Note: labels will shift along the Reposition Direction specified on the <b>Label
 <td> 2025
 </td>
 <td> If @SLF=1 , when making new plot using Origin EXE template, or using extended (downloaded) template, all layers will be changed to fixed factor = 1.
+</td></tr>
+<tr>
+<td> @SLMT
+</td>
+<td> int
+</td>
+<td> RW
+</td>
+<td> 1
+</td>
+<td> 0,1
+</td>
+<td> 2026b
+</td>
+<td> if @SLMT = 1, Lowess Smooth use multi-thread to speed up
 </td></tr>
 <tr>
 <td> @SLN
@@ -23942,6 +24387,36 @@ Note: current @SMT=0, which means it is very sensitive to difference in data, yo
 1 = Save whole source workbook's data when saving OGG(U) or OLE.<br />
 2 = Save data only related to current plot.
 </p>
+</td></tr>
+<tr>
+<td> @SOWA
+</td>
+<td> bool
+</td>
+<td> RW
+</td>
+<td> 0
+</td>
+<td> 0,1
+</td>
+<td> 2026b
+</td>
+<td> @SOWA = 0 to save OGG / OLE file with worksheet minimal data to make file size smaller
+</td></tr>
+<tr>
+<td> @SOWO
+</td>
+<td> bool
+</td>
+<td> RW
+</td>
+<td> 1
+</td>
+<td> 0,1
+</td>
+<td> 2026b
+</td>
+<td> when saving the graph as an OGG(U) or OLE object, @SOWO = 1 to check operation to save the relative worksheet. If @SOWO = 0, no worksheet will be saved
 </td></tr>
 <tr>
 <td> @SPC
@@ -25440,6 +25915,25 @@ Note: the first string and last string are always shown (ignore @TFL) and the to
 </p>
 </td></tr>
 <tr>
+<td> @TGN
+</td>
+<td> int
+</td>
+<td> RW
+</td>
+<td> 1
+</td>
+<td> 0,1,2
+</td>
+<td> 2026b
+</td>
+<td> Determine whether to translate localized Excel function names to English when copying Excel d formulas and paste into Origin. Some Excel function names are localized (e.g., <code>AVERAGE</code> becomes <code>MITTELWERT</code> in German). When you paste such a function from Excel and paste to Origin by using <b>Paste (Keep Excel Formula)</b>, Origin automatically translates the name back to English by default.
+<p>0 = Disable translation. <br />
+1 = Only translate German function names back to English. <br /> 
+2 = Auto-translate for all supported languages. 
+</p>
+</td></tr>
+<tr>
 <td> @TGP
 </td>
 <td> bool
@@ -25913,6 +26407,21 @@ Note: by default, source book, sheet, column info will be saved into graph templ
 <p>0 = disable the Bezier curves generation for text object (in polygon). <br />
 1 = force Bezier curves generation in drawing Origin text (in polygon)
 </p>
+</td></tr>
+<tr>
+<td> @TOGGN
+</td>
+<td> bool
+</td>
+<td> RW
+</td>
+<td> 1
+</td>
+<td> 0,1
+</td>
+<td> 2026b
+</td>
+<td> When saving the graph as an OGG(U) or OLE object and @SOW = 1, @TOGGN=1 will try to not translate cell tree links. This can fix the issue: Linked table turns to static text when opening to edit from Copy page pasting
 </td></tr>
 <tr>
 <td>@TOML
@@ -26637,6 +27146,21 @@ Note:@UDN=1, run script “type $(0.000123456, .0);” will be 0 whereas @UDN=0 
 <p>0 = use the old connector<br />
 1 = use follow reference point connector<br />
 </p>
+</td></tr>
+<tr>
+<td> @USAL
+</td>
+<td> bool
+</td>
+<td> RW
+</td>
+<td> 1
+</td>
+<td> 0,1
+</td>
+<td> 2026b
+</td>
+<td> @USAL = 1 to update layer scale after loading to make Peak Analysis' Fitting Results Table fit the Graph's width
 </td></tr>
 <tr>
 <td>@USKT
@@ -27561,6 +28085,26 @@ Set @WDCPA=1 and @LOADA=1 before loading project, it will allow convert on loadi
 1 = Cursor will move out the editing cell to its adjacent cell when cursor reaches the end of cell
 <br />
 Note: @WE is not no longer for use after version 7.5.
+</p>
+</td></tr>
+<tr>
+<td> @WED
+</td>
+<td> bool
+</td>
+<td> RW
+</td>
+<td> 0
+</td>
+<td> 0,1,2,3
+</td>
+<td> 2026b
+</td>
+<td> it controls whether to override Enter key actioin in sheet:
+<p>0 = not to change worksheet<br />
+1 = move down<br />
+2 = move right <br />
+3 = do not move
 </p>
 </td></tr>
 <tr>

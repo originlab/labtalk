@@ -52,7 +52,7 @@
 <li class="toclevel-2 tocsection-39"><a href="#Surface_Fitting"><span class="tocnumber">15.13</span> <span class="toctext">Surface Fitting</span></a></li>
 <li class="toclevel-2 tocsection-40"><a href="#PFW"><span class="tocnumber">15.14</span> <span class="toctext">PFW</span></a></li>
 <li class="toclevel-2 tocsection-41"><a href="#Baseline"><span class="tocnumber">15.15</span> <span class="toctext">Baseline</span></a></li>
-<li class="toclevel-2 tocsection-42"><a href="#Chromatograph"><span class="tocnumber">15.16</span> <span class="toctext">Chromatograph</span></a></li>
+<li class="toclevel-2 tocsection-42"><a href="#Chromatography"><span class="tocnumber">15.16</span> <span class="toctext">Chromatography</span></a></li>
 <li class="toclevel-2 tocsection-43"><a href="#Electrophysiology"><span class="tocnumber">15.17</span> <span class="toctext">Electrophysiology</span></a></li>
 <li class="toclevel-2 tocsection-44"><a href="#Pharmacology"><span class="tocnumber">15.18</span> <span class="toctext">Pharmacology</span></a></li>
 <li class="toclevel-2 tocsection-45"><a href="#Rheology"><span class="tocnumber">15.19</span> <span class="toctext">Rheology</span></a></li>
@@ -61,13 +61,21 @@
 <li class="toclevel-2 tocsection-48"><a href="#Statistics"><span class="tocnumber">15.22</span> <span class="toctext">Statistics</span></a></li>
 <li class="toclevel-2 tocsection-49"><a href="#Quick_Fit"><span class="tocnumber">15.23</span> <span class="toctext">Quick Fit</span></a></li>
 <li class="toclevel-2 tocsection-50"><a href="#Multiple_Variables"><span class="tocnumber">15.24</span> <span class="toctext">Multiple Variables</span></a></li>
+<li class="toclevel-2 tocsection-51"><a href="#Dose_Response"><span class="tocnumber">15.25</span> <span class="toctext">Dose Response</span></a></li>
+<li class="toclevel-2 tocsection-52"><a href="#Binding"><span class="tocnumber">15.26</span> <span class="toctext">Binding</span></a></li>
+<li class="toclevel-2 tocsection-53"><a href="#Growth"><span class="tocnumber">15.27</span> <span class="toctext">Growth</span></a></li>
+<li class="toclevel-2 tocsection-54"><a href="#Expo"><span class="tocnumber">15.28</span> <span class="toctext">Expo</span></a></li>
+<li class="toclevel-2 tocsection-55"><a href="#Poly"><span class="tocnumber">15.29</span> <span class="toctext">Poly</span></a></li>
+<li class="toclevel-2 tocsection-56"><a href="#Periodic"><span class="tocnumber">15.30</span> <span class="toctext">Periodic</span></a></li>
+<li class="toclevel-2 tocsection-57"><a href="#Line_Shapes"><span class="tocnumber">15.31</span> <span class="toctext">Line Shapes</span></a></li>
+<li class="toclevel-2 tocsection-58"><a href="#Enzyme_Kinetics_2"><span class="tocnumber">15.32</span> <span class="toctext">Enzyme Kinetics 2</span></a></li>
 </ul>
 </li>
-<li class="toclevel-1 tocsection-51"><a href="#Miscellaneous_2"><span class="tocnumber">16</span> <span class="toctext">Miscellaneous</span></a></li>
-<li class="toclevel-1 tocsection-52"><a href="#Engineering"><span class="tocnumber">17</span> <span class="toctext">Engineering</span></a></li>
-<li class="toclevel-1 tocsection-53"><a href="#Complex"><span class="tocnumber">18</span> <span class="toctext">Complex</span></a></li>
-<li class="toclevel-1 tocsection-54"><a href="#Financial"><span class="tocnumber">19</span> <span class="toctext">Financial</span></a></li>
-<li class="toclevel-1 tocsection-55"><a href="#Notes_on_Use"><span class="tocnumber">20</span> <span class="toctext">Notes on Use</span></a></li>
+<li class="toclevel-1 tocsection-59"><a href="#Miscellaneous_2"><span class="tocnumber">16</span> <span class="toctext">Miscellaneous</span></a></li>
+<li class="toclevel-1 tocsection-60"><a href="#Engineering"><span class="tocnumber">17</span> <span class="toctext">Engineering</span></a></li>
+<li class="toclevel-1 tocsection-61"><a href="#Complex"><span class="tocnumber">18</span> <span class="toctext">Complex</span></a></li>
+<li class="toclevel-1 tocsection-62"><a href="#Financial"><span class="tocnumber">19</span> <span class="toctext">Financial</span></a></li>
+<li class="toclevel-1 tocsection-63"><a href="#Notes_on_Use"><span class="tocnumber">20</span> <span class="toctext">Notes on Use</span></a></li>
 </ul>
 </div>
 </div>
@@ -308,6 +316,13 @@
 <td>Returns position of string <b>find$</b> within string <b>within$</b>, or if not found returns -1. &#160;Not case sensitive. No wildcards. Option <b>StartPos</b> controls where to start search (default = 1). <b>examples:</b>
 <ul><li> <code>within$ = "abcde"; find$ = "BC"; Search(within$,find$)</code> returns <code>2</code>.</li>
 <li> <code>search(col(c),"sample")</code> returns the position of the word "sample" in the string in col(c).</li></ul>
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/StripLeading_(function).html" title="LabTalk:StripLeading (function)">StripLeading(str$)$</a>
+<p align="right"><font color="red">(2026b)</font></p>
+</td>
+<td>Takes a string <b>str$</b> and removes any leading list marker (number, letter, or bullet) and the whitespace(s) that follows it. The list marker are recognized when they begin with a Numeric Value/Single Letter followed by one of following separator: <i>space</i>, <code>)</code>, <code>.</code>, <code>:</code>. <b>examples:</b>
+<ul><li> <code>StripLeading("1. this is a test")$</code> returns "this is a test".</li></ul>
 </td></tr>
 <tr>
 <td><a href="../../LabTalk/LabTalk/SpanExcluding_(function).html" title="LabTalk:SpanExcluding (function)">SpanExcluding(source$, strEx$)</a>
@@ -1068,6 +1083,13 @@ date<span style="color: #000000;">&#40;</span><span style="color: #0000dd;">9</s
 <ul><li> <code>if(A&gt;B,1,0)</code> will return 1 if col(A)&gt;col(B), otherwise return 0.</li>
 <li> <code>if(A$==B$,1,0)</code> will return 1 if string in col(A) matches string in col(B), otherwise returns 0.</li>
 <li> <code>if(A==1,100," ")</code> will return 100 if col(A)[i]=1, otherwise leave cell blank.</li></ul>
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Iferror_(function).html" title="LabTalk:Iferror (function)">iferror(expression,err)</a>
+<p align="right"><font color="red">(2026b)</font></p>
+</td>
+<td>Evaluate the given <b>expression</b> and return the specified <b>err</b> (can be string or numeric) if the expression produces an error or missing value, otherwise return the result of the <b>expression</b>. <b>Example</b>
+<ul><li> <code>iferror(A/B,"Invalid")</code> will return "Invalid" if col(A)/col(B) is error or missing, otherwise return the value of A/B.</li></ul>
 </td></tr>
 <tr>
 <td><a href="../../LabTalk/LabTalk/Ifs_(function).html" title="LabTalk:Ifs (function)">ifs(con1,val1[,con2,val2,]...[,con40,val40])[$]</a>
@@ -2042,10 +2064,10 @@ with
 <ul><li> <code>list(3, col(A))</code> searches column A and returns the (row) index number where the value 3 first occurs.</li></ul>
 </td></tr>
 <tr>
-<td><a href="../../LabTalk/LabTalk/Lookup_(function).html" title="LabTalk:Lookup (function)">lookup(val,vs[,vref,option,Case])[$]</a>
+<td><a href="../../LabTalk/LabTalk/Lookup_(function).html" title="LabTalk:Lookup (function)">lookup(val,vd[,vref,option,Case])[$]</a>
 <p align="right"><font color="red">(2015 SR0)</font></p>
 </td>
-<td>Searches for <b>val</b> (string or number) in vector <b>vs</b> and returns the corresponding value from vector <b>vref</b>, or index of <b>vs</b> if <b>vref</b> is omitted. The returned value can be numeric or string. Match precision is set by <b>option</b>; Case = 0 (default) ignores case.  <b>example:</b>
+<td>Searches for <b>val</b> (string or number) in vector <b>vd</b> and returns the corresponding value from vector <b>vref</b>, or index of <b>vd</b> if <b>vref</b> is omitted. The returned value can be numeric or string. Match precision is set by <b>option</b>; Case = 0 (default) ignores case.  <b>example:</b>
 <ul><li> <code>str1$ = Lookup("FSA", col(A), col(B))$;</code> searches for string <i>FSA</i> in column A and assigns the corresponding value from column B to str1$.</li>
 <li> <code>nn = lookup(0.5,B)</code> returns the index of the value in column B closest to 0.5.</li></ul>
 </td></tr>
@@ -4318,7 +4340,7 @@ with
 <p><img src="../images/LabTalk-Supported_Functions/math-d6407529c9780ea531fb7b1d397864e9.png?v=0" title="y=&#10;\begin{cases}&#10;A,\ \ \ \ x&lt;x_1 \\ &#10;B,\ \ \ \ x\ge x_1&#10;\end{cases}" alt="y=&#10;\begin{cases}&#10;A,\ \ \ \ x&lt;x_1 \\ &#10;B,\ \ \ \ x\ge x_1&#10;\end{cases}" class="tex"/>
 </p>
 </td></tr></table>
-<h3><a name="Chromatograph"></a><span class="mw-headline">Chromatograph</span></h3>
+<h3><a name="Chromatography"></a><span class="mw-headline">Chromatography</span></h3>
 <table class="simple-FitFunc">
 <tr>
 <th>Name
@@ -4973,6 +4995,794 @@ This fitting function is for global fitting. When using it, Vmax, Km, Ki, and Al
 <td>Combination of Line and Exponential models with one independent and two dependent variables.<br />
 <p><img src="../images/LabTalk-Supported_Functions/math-7dd8bb7f5a3145f740297f3c20b9bbbd.png?v=0" title="y_1 = a_1 + b_1x" alt="y_1 = a_1 + b_1x" class="tex"/>
 </p><p><img src="../images/LabTalk-Supported_Functions/math-e4f29df319be1e868bd840286d96cba2.png?v=0" title="y_2 = a_2 + b_2e^{\frac{x}{c}}" alt="y_2 = a_2 + b_2e^{\frac{x}{c}}" class="tex"/>
+</p>
+</td></tr></table>
+<h3><a name="Dose_Response"></a><span class="mw-headline">Dose Response</span></h3>
+<table class="simple-FitFunc">
+<tr>
+<th>Name
+</th>
+<th>Brief Description
+</th></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/BiDoseResp.html">BiDoseResp(x,A1,A2,LOGx01,LOGx02,h1,h2,p)</a>
+</td>
+<td>Biphasic Dose Response Function.<br />
+<p><img src="../images/LabTalk-Supported_Functions/math-5a931673f336d3539f282df4fd1d9752.png?v=0" title="\begin{aligned}y=&amp;A_1+(A_2-A_1)\bigg[\frac{p}{1+10^{(LOGx01-x)h1}}+\\&#10;&amp;\frac{1-p}{1+10^{(LOGx02-x)h2}}\bigg]\end{aligned}" alt="\begin{aligned}y=&amp;A_1+(A_2-A_1)\bigg[\frac{p}{1+10^{(LOGx01-x)h1}}+\\&#10;&amp;\frac{1-p}{1+10^{(LOGx02-x)h2}}\bigg]\end{aligned}" class="tex"/>
+</p>
+</td></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/Biphasic.html">Biphasic(x,Amin,Amax1,Amax2,x0_1,x0_2,h1,h2)</a>
+</td>
+<td> Biphasic sigmoidal dose response (7 parameters logistic equation).<br />
+<p><img src="../images/LabTalk-Supported_Functions/math-1c41e3bbcf0441207945b956ac0aa6ca.png?v=0" title="y=A_{\min }+\frac{(A_{\max 1}-A_{\min })}{1+10^{(x-x0\_1)h_1}}+&#10;\frac{(A_{\max 2}-A_{\min })}{1+10^{(x0\_2-x)h_2}}" alt="y=A_{\min }+\frac{(A_{\max 1}-A_{\min })}{1+10^{(x-x0\_1)h_1}}+&#10;\frac{(A_{\max 2}-A_{\min })}{1+10^{(x0\_2-x)h_2}}" class="tex"/>
+</p>
+</td></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/Boltzmann.html">Boltzmann(x, A1, A2, x0, dx)</a>
+</td>
+<td>Boltzmann Function - produce a sigmoidal curve.<br />
+<p><img src="../images/LabTalk-Supported_Functions/math-e9c8659f4be782671fbd76b167c78f36.png?v=0" title="y = A_2 + \frac{A_1-A_2}{1 + e^{(x-x_0)/dx}}" alt="y = A_2 + \frac{A_1-A_2}{1 + e^{(x-x_0)/dx}}" class="tex"/>
+</p>
+</td></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/DoseResp.html">DoseResp(x,A1,A2,LOGx0,p)</a>
+</td>
+<td>Dose-response curve with variable Hill slope given by parameter 'p'.<br />
+<p><img src="../images/LabTalk-Supported_Functions/math-b7c2dc60c7a34ec1642f4e84bd10d909.png?v=0" title="y=A_1+\frac{A_2-A_1}{1+10^{\left( Logx0-x\right) p}}" alt="y=A_1+\frac{A_2-A_1}{1+10^{\left( Logx0-x\right) p}}" class="tex"/>
+</p>
+</td></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/DoubleBoltzmann.html">DoubleBoltzmann(x,y0,A,frac,x01,x02,k1,k2)</a>
+</td>
+<td>Double Boltzmann Function, sum of two Boltzmann functions.<br />
+<p><img src="../images/LabTalk-Supported_Functions/math-649e5dcc558a3cbe663ecabcca96fc0e.png?v=0" title="y=y_0+A\left[\frac{p}{1+e^{\frac{x-x_{01}}{k_1}}}+\frac{1-p}{1+e^{\frac{x-x_{02}}{k_2}}}\right]" alt="y=y_0+A\left[\frac{p}{1+e^{\frac{x-x_{01}}{k_1}}}+\frac{1-p}{1+e^{\frac{x-x_{02}}{k_2}}}\right]" class="tex"/>
+</p>
+</td></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/Hill.html">Hill(x,Vmax,k,n)</a>
+</td>
+<td>Hill function to determine ligand concentration and maximum number of binding sites.<br />
+<p><img src="../images/LabTalk-Supported_Functions/math-74504106bd7d8e1e37895f9c77be9865.png?v=0" title="y=V_{\max }\frac{x^n}{k^n+x^n}" alt="y=V_{\max }\frac{x^n}{k^n+x^n}" class="tex"/>
+</p>
+</td></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/Hill.html">Hill1(x,START,END,k,n)</a>
+</td>
+<td>Modified Hill function with offset.<br />
+<p><img src="../images/LabTalk-Supported_Functions/math-74504106bd7d8e1e37895f9c77be9865.png?v=0" title="y=V_{\max }\frac{x^n}{k^n+x^n}" alt="y=V_{\max }\frac{x^n}{k^n+x^n}" class="tex"/>
+</p>
+</td></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/Logistic.html">Logistic(x, A1, A2, x0, p)</a>
+</td>
+<td>Logistic dose response in Pharmacology/Chemistry. Also known as 4PL or 4PLC.<br />
+<p><img src="../images/LabTalk-Supported_Functions/math-583e42a070de16fdf497d5619adeb39f.png?v=0" title="y=A_2+\frac{A_1-A_2}{1+{(\frac{x}{x_0}})^p}" alt="y=A_2+\frac{A_1-A_2}{1+{(\frac{x}{x_0}})^p}" class="tex"/>
+</p>
+</td></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/Logistic5.html">Logistic5(x,Amin,Amax,x0,h,s)</a>
+</td>
+<td>Five parameters logistic function. Also known as 5PL or 5PLC.<br />
+<p><img src="../images/LabTalk-Supported_Functions/math-9194e39e6c0c7606a021dded357d97e2.png?v=0" title="y = A_{\min} + \frac{A_{\max} - A_{\min}}{\left(1 + \left(\frac{x}{x_0}\right)^{-h}\right)^s}" alt="y = A_{\min} + \frac{A_{\max} - A_{\min}}{\left(1 + \left(\frac{x}{x_0}\right)^{-h}\right)^s}" class="tex"/>
+</p>
+</td></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/MichaelisMenten.html">MichaelisMenten(x,Vmax,Km)</a>
+</td>
+<td>Michaelis Menten function to describe relation of concentration of substrate and enzyme velocity.<br />
+<p><img src="../images/LabTalk-Supported_Functions/math-114b10be130d0b3de68f55506098f06e.png?v=0" title="y=\frac{V_{max}x}{K_m+x}" alt="y=\frac{V_{max}x}{K_m+x}" class="tex"/>
+</p>
+</td></tr></table>
+<h3><a name="Binding"></a><span class="mw-headline">Binding</span></h3>
+<table class="simple-FitFunc">
+<tr>
+<th>Name
+</th>
+<th>Brief Description
+</th></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/ExpDec1.html">ExpDec1(x,y0,A1,t1)</a>
+</td>
+<td>One-phase exponential decay function with time constant parameter.<br />
+<p><img src="../images/LabTalk-Supported_Functions/math-974247a2296cfc3a2c93ad0e93168732.png?v=0" title="y=y_0+Ae^{-x/t}" alt="y=y_0+Ae^{-x/t}" class="tex"/>
+</p>
+</td></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/OneSiteBind.html">OneSiteBind(x,Bmax,k1)</a>
+</td>
+<td>One site direct binding. Rectangular hyperbola, connects to isotherm or saturation curve.<br />
+<p><img src="../images/LabTalk-Supported_Functions/math-f126be18d7e322ae7f61fcf1c0b50b9b.png?v=0" title="y=\frac{B_{\max }x}{K_1+x}" alt="y=\frac{B_{\max }x}{K_1+x}" class="tex"/>
+</p>
+</td></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/OneSiteComp.html">OneSiteComp(x,A1,A2,logx0)</a>
+</td>
+<td>One Site Competition curve. Dose-response curve with Hill slope equal to -1.<br />
+<p><img src="../images/LabTalk-Supported_Functions/math-91cc75520680016aec713c71beeca550.png?v=0" title="y=A_2+\frac{A_1-A_2}{1+10^{\left( x-\log x_0\right) }}" alt="y=A_2+\frac{A_1-A_2}{1+10^{\left( x-\log x_0\right) }}" class="tex"/>
+</p>
+</td></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/TwoSiteBind.html">TwoSiteBind(x,Bmax1,Bmax2,k1,k2)</a>
+</td>
+<td>Two sites binding function.<br />
+<p><img src="../images/LabTalk-Supported_Functions/math-a5a10179ccc1a2948e1c65fdbcee0a12.png?v=0" title=" y=\frac{B_{\max 1}x}{k_1+x}+\frac{B_{\max 2}x}{k_2+x}" alt=" y=\frac{B_{\max 1}x}{k_1+x}+\frac{B_{\max 2}x}{k_2+x}" class="tex"/>
+</p>
+</td></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/TwoSiteComp.html">TwoSiteComp(x,A1,A2,logx0_1,logx0_2,fraction)</a>
+</td>
+<td>Two sites competition function to describe the competition of a ligand for two types of receptors.<br />
+<p><img src="../images/LabTalk-Supported_Functions/math-d4d04163eb1cdfc5b9231d1653f9a2f5.png?v=0" title=" y=A_2+\frac{\left( A_1-A_2\right) f}{1+10^{\left( x-\log x_{0\_1}\right) }}+\frac{\left( A_1-A_2\right) \left( 1-f\right) }{1+10^{\left( x-\log x_{0\_2}\right) }}" alt=" y=A_2+\frac{\left( A_1-A_2\right) f}{1+10^{\left( x-\log x_{0\_1}\right) }}+\frac{\left( A_1-A_2\right) \left( 1-f\right) }{1+10^{\left( x-\log x_{0\_2}\right) }}" class="tex"/>
+</p>
+</td></tr></table>
+<h3><a name="Growth"></a><span class="mw-headline">Growth</span></h3>
+<table class="simple-FitFunc">
+<tr>
+<th>Name
+</th>
+<th>Brief Description
+</th></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/Exp2PMod1.html">Exp2PMod1(x,a,b)</a>,
+</td>
+<td>Two-Parameter Exponential Function.<br />
+<p><img src="../images/LabTalk-Supported_Functions/math-3f575fcc75bc8ab7912e9befe40f95c3.png?v=0" title="y=ae^{bx}" alt="y=ae^{bx}" class="tex"/>
+</p>
+</td></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/ExpDec1.html">ExpDec1(x,y0,A1,t1)</a>
+</td>
+<td>One-phase exponential decay function with time constant parameter.<br />
+<p><img src="../images/LabTalk-Supported_Functions/math-974247a2296cfc3a2c93ad0e93168732.png?v=0" title="y=y_0+Ae^{-x/t}" alt="y=y_0+Ae^{-x/t}" class="tex"/>
+</p>
+</td></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/Line.html">Line(x,A,B)</a>
+</td>
+<td>Line function with slope and intercept.<br />
+<p><img src="../images/LabTalk-Supported_Functions/math-fdd5243db01cee1c18345ba138766931.png?v=0" title="y = A + Bx" alt="y = A + Bx" class="tex"/>
+</p>
+</td></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/SGompertz.html">SGompertz(x,a,xc,k)</a>
+</td>
+<td>Gompertz Growth Model for Popuplation Studies, Animal Growth.<br />
+<p><img src="../images/LabTalk-Supported_Functions/math-3a1fd9459de9b59503e944b22cc70b2c.png?v=0" title="y=ae^{-\exp (-k(x-x_c))}" alt="y=ae^{-\exp (-k(x-x_c))}" class="tex"/>
+</p>
+</td></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/SLogistic3.html">SLogistic3(x,a,b,k)</a>
+</td>
+<td>Sigmoidal Logistic function, type 3.<br />
+<p><img src="../images/LabTalk-Supported_Functions/math-b0649f2d75ec059604397a483e220939.png?v=0" title=" y=\frac a{1+be^{-kx}}" alt=" y=\frac a{1+be^{-kx}}" class="tex"/>
+</p>
+</td></tr></table>
+<h3><a name="Expo"></a><span class="mw-headline">Expo</span></h3>
+<table class="simple-FitFunc">
+<tr>
+<th>Name
+</th>
+<th>Brief Description
+</th></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/Exp2PMod1.html">Exp2PMod1(x,a,b)</a>,
+</td>
+<td>Two-Parameter Exponential Function.<br />
+<p><img src="../images/LabTalk-Supported_Functions/math-3f575fcc75bc8ab7912e9befe40f95c3.png?v=0" title="y=ae^{bx}" alt="y=ae^{bx}" class="tex"/>
+</p>
+</td></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/ExpAssoc.html">ExpAssoc(x,y0,A1,t1,A2,t2)</a>
+</td>
+<td>Two-phase exponential association equation.<br />
+<p><img src="../images/LabTalk-Supported_Functions/math-24c7f85773289700d45d094b1f4f3df0.png?v=0" title="y = y_0 + A_1(1 - e^{-x/t_1}) + A_2(1 - e^{-x/t_2})" alt="y = y_0 + A_1(1 - e^{-x/t_1}) + A_2(1 - e^{-x/t_2})" class="tex"/>
+</p>
+</td></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/ExpAssocDelay1.html">ExpAssocDelay1(x,TD,Yb,A,Tau)</a>
+</td>
+<td>One-phase exponential association equation with plateau before exponential begins.<br />
+<p><img src="../images/LabTalk-Supported_Functions/math-b067d97e0fc1875f8c9efa9a1c2a24a5.png?v=0" title="y=\left\{\begin{matrix}&#10;Yb \qquad \qquad\qquad \qquad  \quad \quad x&lt;TD\\ &#10;Yb+A\left ( 1-e^{-\frac {(x-TD)}{Tau}}\right ) \quad x\geq TD&#10;\end{matrix}\right." alt="y=\left\{\begin{matrix}&#10;Yb \qquad \qquad\qquad \qquad  \quad \quad x&lt;TD\\ &#10;Yb+A\left ( 1-e^{-\frac {(x-TD)}{Tau}}\right ) \quad x\geq TD&#10;\end{matrix}\right." class="tex"/>
+</p>
+</td></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/ExpDec1.html">ExpDec1(x,y0,A1,t1)</a>
+</td>
+<td>One-phase exponential decay function with time constant parameter.<br />
+<p><img src="../images/LabTalk-Supported_Functions/math-974247a2296cfc3a2c93ad0e93168732.png?v=0" title="y=y_0+Ae^{-x/t}" alt="y=y_0+Ae^{-x/t}" class="tex"/>
+</p>
+</td></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/ExpDec2.html">ExpDec2(x,y0,A1,t1,A2,t2)</a>
+</td>
+<td>Two-phase exponential decay function with time constant parameters.<br />
+<p><img src="../images/LabTalk-Supported_Functions/math-33b2c8f2412cc94ef324d8e9c6f808d9.png?v=0" title="y=y_0+A_1e^{-x/t_1}+A_2e^{-x/t_2}" alt="y=y_0+A_1e^{-x/t_1}+A_2e^{-x/t_2}" class="tex"/>
+</p>
+</td></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/ExpDec3.html">ExpDec3(x,y0,A1,t1,A2,t2,A3,t3)</a>
+</td>
+<td>Three-phase exponential decay function with time constant parameters.<br />
+<p><img src="../images/LabTalk-Supported_Functions/math-de323aaa64e2f84ae683c7cd77c80414.png?v=0" title="y=y_0+A_1e^{-x/t_1}+A_2e^{-x/t_2}+A_3e^{-x/t_3}" alt="y=y_0+A_1e^{-x/t_1}+A_2e^{-x/t_2}+A_3e^{-x/t_3}" class="tex"/>
+</p>
+</td></tr></table>
+<h3><a name="Poly"></a><span class="mw-headline">Poly</span></h3>
+<table class="simple-FitFunc">
+<tr>
+<th>Name
+</th>
+<th>Brief Description
+</th></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/Constant.html">Constant(x,y0)</a>
+</td>
+<td>Constant base line function.<br />
+<p><img src="../images/LabTalk-Supported_Functions/math-9a184449412a0cc77a57b75cff7fb117.png?v=0" title="y=y_0" alt="y=y_0" class="tex"/>
+</p>
+</td></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/Cubic.html">Cubic(x,A,B,C,D)</a>
+</td>
+<td>Third order polynomial.<br />
+<p><img src="../images/LabTalk-Supported_Functions/math-1abfb12dfb75a70ef9ad8a7b2c943e10.png?v=0" title="y = A + Bx + Cx^2 + Dx^3" alt="y = A + Bx + Cx^2 + Dx^3" class="tex"/>
+</p>
+</td></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/Line.html">Line(x,A,B)</a>
+</td>
+<td>Line function with slope and intercept.<br />
+<p><img src="../images/LabTalk-Supported_Functions/math-fdd5243db01cee1c18345ba138766931.png?v=0" title="y = A + Bx" alt="y = A + Bx" class="tex"/>
+</p>
+</td></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/Parabola.html">Parabola(x,A,B,C)</a>
+</td>
+<td>Second order polynomial.<br />
+<p><img src="../images/LabTalk-Supported_Functions/math-3eb6b70817ddd481604e4ce5a8d0f267.png?v=0" title="y = A + Bx + Cx^2" alt="y = A + Bx + Cx^2" class="tex"/>
+</p>
+</td></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/Poly4.html">Poly4(x,A0,A1,A2,A3,A4)</a>
+</td>
+<td>4th order Polynomial function.<br />
+<p><img src="../images/LabTalk-Supported_Functions/math-379ad9ee7493aa011a4accec3a2c4cd1.png?v=0" title="y = A_0+A_1x+A_2x^2+A_3x^3+A_4x^4" alt="y = A_0+A_1x+A_2x^2+A_3x^3+A_4x^4" class="tex"/>
+</p>
+</td></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/Poly5.html">Poly5(x,A0,A1,A2,A3,A4,A5)</a>
+</td>
+<td>5th order polynomial function.<br />
+<p><img src="../images/LabTalk-Supported_Functions/math-179fade716326e5ac21534b7420a96e2.png?v=0" title="y = A_0+A_1x+A_2x^2+A_3x^3+A_4x^4+A_5x^5" alt="y = A_0+A_1x+A_2x^2+A_3x^3+A_4x^4+A_5x^5" class="tex"/>
+</p>
+</td></tr></table>
+<h3><a name="Periodic"></a><span class="mw-headline">Periodic</span></h3>
+<table class="simple-FitFunc">
+<tr>
+<th>Name
+</th>
+<th>Brief Description
+</th></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/Sine.html">Sine(x,y0,xc,w,A)</a>
+</td>
+<td>Sine wave function oscillates around a specified value.<br />
+<p><img src="../images/LabTalk-Supported_Functions/math-ef7f3938083ccf67217dcd62e620153b.png?v=0" title="y=y_0+A\sin \left( \pi \frac{x-x_c}w\right) " alt="y=y_0+A\sin \left( \pi \frac{x-x_c}w\right) " class="tex"/>
+</p>
+</td></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/SineDamp.html">SineDamp(x,y0,xc,w,t0,A)</a>
+</td>
+<td>Damped sine wave, a sinusoidal function whose amplitude decays as time increases.<br />
+<p><img src="../images/LabTalk-Supported_Functions/math-d299205f55ea392f20e23ec46f5478fd.png?v=0" title="\begin{aligned}&amp;y=y_0+Ae^{\frac{-x}{t_0}}\sin \left( \pi \frac{x-x_c}w\right) \\&#10;&amp;A&gt;0,~ t_0&gt;0,~ w&gt;0\end{aligned}" alt="\begin{aligned}&amp;y=y_0+Ae^{\frac{-x}{t_0}}\sin \left( \pi \frac{x-x_c}w\right) \\&#10;&amp;A&gt;0,~ t_0&gt;0,~ w&gt;0\end{aligned}" class="tex"/>
+</p>
+</td></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/SineSqr.html">SineSqr(x,y0,xc,w,A)</a>
+</td>
+<td>sine square function.<br />
+<p><img src="../images/LabTalk-Supported_Functions/math-99d675f585814517ce6865e944a57bab.png?v=0" title="y=y_0+A\sin ^2\left( \pi \frac{x-x_c}w\right) " alt="y=y_0+A\sin ^2\left( \pi \frac{x-x_c}w\right) " class="tex"/>
+</p>
+</td></tr></table>
+<h3><a name="Line_Shapes"></a><span class="mw-headline">Line Shapes</span></h3>
+<table class="simple-FitFunc">
+<tr>
+<th>Name
+</th>
+<th>Brief Description
+</th></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/Bigaussian.html">Bigaussian(x,y0,xc,H,w1,w2)</a>
+</td>
+<td>Bi-Gaussian peak function used to fit asymmetric peak.<br />
+<p><img src="../images/LabTalk-Supported_Functions/math-e4e756ee05c1328ebd7a1db6af1e1f26.png?v=0" title="\begin{aligned}y&amp;=y_0+He^{-0.5\left(\frac{x-x_c}{w_1}\right)^2}~~~~~~(x &lt; x_c ) \,\\&#10;y&amp;=y_0+He^{-0.5\left(\frac{x-x_c}{w_2}\right)^2}~~~~~~(x \geq x_c)\end{aligned}" alt="\begin{aligned}y&amp;=y_0+He^{-0.5\left(\frac{x-x_c}{w_1}\right)^2}~~~~~~(x &lt; x_c ) \,\\&#10;y&amp;=y_0+He^{-0.5\left(\frac{x-x_c}{w_2}\right)^2}~~~~~~(x \geq x_c)\end{aligned}" class="tex"/>
+</p>
+</td></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/LogNormal.html">LogNormal(x,y0,xc,w,A)</a>
+</td>
+<td>Probability density function of random variable whose logarithm is normally distributed.<br />
+<p><img src="../images/LabTalk-Supported_Functions/math-3220dc36e6a1075cbff267293aa3febe.png?v=0" title="y=y_0+\frac A{\sqrt{2\pi }wx}e^{\frac{-\left[ \ln \frac x{x_c}\right] ^2}{2w^2}}" alt="y=y_0+\frac A{\sqrt{2\pi }wx}e^{\frac{-\left[ \ln \frac x{x_c}\right] ^2}{2w^2}}" class="tex"/>
+</p>
+</td></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/Lorentz.html">Lorentz(x, y0, xc, w, A)</a>
+</td>
+<td>Lorentzian peak function with bell shape and much wider tails than Gaussian function.<br />
+<p>(y0 = offset, xc = center, w = FWHM, A = area)<br />
+<img src="../images/LabTalk-Supported_Functions/math-f00981e6d70e22c0201cc23c9976a8b8.png?v=0" title="y = y_0 + \frac{2A}{\pi}\left (\frac{w}{4(x-xc)^2 + w^2}\right)" alt="y = y_0 + \frac{2A}{\pi}\left (\frac{w}{4(x-xc)^2 + w^2}\right)" class="tex"/>
+</p>
+</td></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/Gaussian_Function.html">Gaussian(x,y0,xc,A,w)</a>
+</td>
+<td>FWHM version of Gaussian Function.<br />
+<p>(y0 = base, xc = center, A = area, w = FWHM)<br />
+<img src="../images/LabTalk-Supported_Functions/math-53bef33a2ed527ce69b5c0799c9410f7.png?v=0" title="y = y_0 + \frac {Ae^{\frac {-4ln(2)(x-x_c)^2}{w^2}}}{w \sqrt{\frac{\pi}{4ln(2)}}}" alt="y = y_0 + \frac {Ae^{\frac {-4ln(2)(x-x_c)^2}{w^2}}}{w \sqrt{\frac{\pi}{4ln(2)}}}" class="tex"/>
+</p>
+</td></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/GaussAmp.html">GaussAmp(x,y0,xc,w,A)</a>
+</td>
+<td>Amplitude version of Gaussian peak function.<br />
+<p>(y0 = offset, xc = center, w = width, A = amplitude)<br />
+<img src="../images/LabTalk-Supported_Functions/math-60fe3bc73a2f591487eaa0078c5de58c.png?v=0" title="y=y_0+Ae^{-\frac{\left( x-x_c\right) ^2}{2w^2}}" alt="y=y_0+Ae^{-\frac{\left( x-x_c\right) ^2}{2w^2}}" class="tex"/>
+</p>
+</td></tr></table>
+<h3><a name="Enzyme_Kinetics_2"></a><span class="mw-headline">Enzyme Kinetics 2</span></h3>
+<table class="simple-FitFunc">
+<tr>
+<th>Name
+</th>
+<th>Brief Description
+</th></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/CompInhib.html">CompInhib(x,Vmax,Km,Ki,Ic)</a>
+</td>
+<td>Competitive inhibition model for single substrate and single inhibitor.<br />
+<p><img src="../images/LabTalk-Supported_Functions/math-06eaf5dd6b94967d2401a81ee3eab609.png?v=0" title="y=\frac{V_{\text{max}}x}{K_\text{m}(1+\frac{I_\text{c}}{K_\text{i}})+x}" alt="y=\frac{V_{\text{max}}x}{K_\text{m}(1+\frac{I_\text{c}}{K_\text{i}})+x}" class="tex"/>
+<br />
+Note that this function is usually used in global fit, Vmax, Km and Ki should be shared, and Ic should be fixed for each dataset. The initial value of Ki can be the mean of Ic.
+</p>
+</td></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/NoncompInhib.html">NoncompInhib(x,Vmax,Km,Ki,Ic)</a>
+</td>
+<td>Noncompetitive inhibition model for single substrate and single inhibitor.<br />
+<p><img src="../images/LabTalk-Supported_Functions/math-a8e2c585eabc446982e3575797113583.png?v=0" title="y=\frac{V_{\text{max}}x}{(1+\frac{I_\text{c}}{K_\text{i}})(K_\text{m}+x)}" alt="y=\frac{V_{\text{max}}x}{(1+\frac{I_\text{c}}{K_\text{i}})(K_\text{m}+x)}" class="tex"/>
+<br />
+Note that this function is usually used in global fit, Vmax, Km and Ki should be shared, and Ic should be fixed for each dataset. The initial value of Ki can be the mean of Ic.
+</p>
+</td></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/UncompInhib.html">UncompInhib(x,Vmax,Km,Kia,Ic)</a>
+</td>
+<td>Uncompetitive inhibition model for single substrate and single inhibitor.<br />
+<p><img src="../images/LabTalk-Supported_Functions/math-5f730cd6a33607b830cfde4522071d72.png?v=0" title="y=\frac{V_{\text{max}}x}{(1+\frac{I_\text{c}}{K_\text{ia}})(\frac{K_\text{m}}{1+\frac{I_\text{c}}{K_\text{ia}}}+x)}" alt="y=\frac{V_{\text{max}}x}{(1+\frac{I_\text{c}}{K_\text{ia}})(\frac{K_\text{m}}{1+\frac{I_\text{c}}{K_\text{ia}}}+x)}" class="tex"/>
+<br />
+Note that this function is usually used in global fit, Vmax, Km and Kia should be shared, and Ic should be fixed for each dataset. The initial value of Kia can be the mean of Ic.
+</p>
+</td></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/MixedModelInhib.html">MixedModelInhib(x,Vmax,Km,Ki,Alpha,Ic)</a>
+</td>
+<td>A general equation including competitive, uncompetitive and noncompetitive inhibition as special cases.<br />
+<p><img src="../images/LabTalk-Supported_Functions/math-55743ffd6b46120321bbefd35cd040ea.png?v=0" title="y=\frac{\frac{V_{\text{max}}x}{1+I_c/(Alpha \cdot K_i)}}{x+\frac{K_m(1+I_c/K_i)}{1+I_c/(Alpha \cdot K_i)}}" alt="y=\frac{\frac{V_{\text{max}}x}{1+I_c/(Alpha \cdot K_i)}}{x+\frac{K_m(1+I_c/K_i)}{1+I_c/(Alpha \cdot K_i)}}" class="tex"/>
+<br />
+This fitting function is for global fitting. When using it, Vmax, Km, Ki, and Alpha are shared, while Ic is a fixed constant. The initial value of Ki can be the mean of Ic.
+</p>
+</td></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/SubstrateInhib.html">SubstrateInhib(x,Vmax,Km,Ki)</a>
+</td>
+<td>Substrate inhibition model at high concentrations.<br />
+<p><img src="../images/LabTalk-Supported_Functions/math-da39145794f8fe96f2a49b4951703036.png?v=0" title="y=\frac{V_{max}x}{K_m+x(1+x/K_i)}" alt="y=\frac{V_{max}x}{K_m+x(1+x/K_i)}" class="tex"/>
+</p>
+</td></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/MichaelisMenten.html">MichaelisMenten(x,Vmax,Km)</a>
+</td>
+<td>Michaelis Menten function to describe relation of concentration of substrate and enzyme velocity.<br />
+<p><img src="../images/LabTalk-Supported_Functions/math-114b10be130d0b3de68f55506098f06e.png?v=0" title="y=\frac{V_{max}x}{K_m+x}" alt="y=\frac{V_{max}x}{K_m+x}" class="tex"/>
+</p>
+</td></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/Hill.html">Hill(x,Vmax,k,n)</a>
+</td>
+<td>Hill function to determine ligand concentration and maximum number of binding sites.<br />
+<p><img src="../images/LabTalk-Supported_Functions/math-74504106bd7d8e1e37895f9c77be9865.png?v=0" title="y=V_{\max }\frac{x^n}{k^n+x^n}" alt="y=V_{\max }\frac{x^n}{k^n+x^n}" class="tex"/>
+</p>
+</td></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/BellPlateau.html">BellPlateau(x,Vmaxlim,pKa,pKb,pKc,alpha)</a>
+</td>
+<td>Biphasic bell-shaped model with an adjustable plateau.
+<p><img src="../images/LabTalk-Supported_Functions/math-59fbe567d3b539a22442e1020b37e23e.png?v=0" title="y=\frac{V_{\text{max}^{lim}} \left(\alpha+10^{pK_b-x}\right)}{1+10^{pK_a+pK_b-2x}+10^{pK_b-x}+10^{x-pK_c}}" alt="y=\frac{V_{\text{max}^{lim}} \left(\alpha+10^{pK_b-x}\right)}{1+10^{pK_a+pK_b-2x}+10^{pK_b-x}+10^{x-pK_c}}" class="tex"/>
+</p>
+</td></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/BellShaped.html">BellShaped(x,Vmaxlim,pKa,pKb)</a>
+</td>
+<td>Bell-shaped model for pH-dependent activity.
+<p><img src="../images/LabTalk-Supported_Functions/math-0ab308e26d2c8052d5f92040583185eb.png?v=0" title="y=\frac{V_{\text{max}^{lim}} }{1+10^{pK_a-x}+10^{x-pK_b}}" alt="y=\frac{V_{\text{max}^{lim}} }{1+10^{pK_a-x}+10^{x-pK_b}}" class="tex"/>
+</p>
+</td></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/Catalytic.html">Catalytic(x,Vmax,Km,Ka,A)</a>
+</td>
+<td>Substrate and activator-dependent catalytic model featuring Michaelis-Menten kinetics with an obligatory activation constant.
+<p><img src="../images/LabTalk-Supported_Functions/math-a2dbf2a1aa9c1e06f74ab154772210e8.png?v=0" title="y=\frac{\frac{V_{max} x}{K_m}} {1+\frac{K_a}{A}+\frac{x}{K_m}\left(1+\frac{K_m}{A}\right)}" alt="y=\frac{\frac{V_{max} x}{K_m}} {1+\frac{K_a}{A}+\frac{x}{K_m}\left(1+\frac{K_m}{A}\right)}" class="tex"/>
+</p>
+</td></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/Catalytic2.html">Catalytic2(x,Vmax,Km,Ka,A)</a>
+</td>
+<td>Catalytic model for single substrate and essential activator featuring interdependent Michaelis-Menten kinetics.
+<p><img src="../images/LabTalk-Supported_Functions/math-fb9d37e07bb94dfbb48bd3ad2370bbb6.png?v=0" title="y=\frac{\frac{V_{max} S}{K_m}} {1+\frac{K_a}{x}+\frac{S}{K_m}\left(1+\frac{K_a}{x}\right)}" alt="y=\frac{\frac{V_{max} S}{K_m}} {1+\frac{K_a}{x}+\frac{S}{K_m}\left(1+\frac{K_a}{x}\right)}" class="tex"/>
+</p>
+</td></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/ChemDena.html">ChemDena(x,ui,us,li,ls,m,g)</a>
+</td>
+<td>Chemical denaturation function.
+<p>Upper baseline:&#160; <img src="../images/LabTalk-Supported_Functions/math-5f27cc554b05a6e6a286b11c6745998a.png?v=0" title="u_b=u_i+u_sx" alt="u_b=u_i+u_sx" class="tex"/> &#160;&#160;&#160;&#160; &#160;&#160;&#160;Lower baseline:&#160; <img src="../images/LabTalk-Supported_Functions/math-4745e38fd1cd3dab17a0e9d157e2ea37.png?v=0" title="l_b=l_i+l_sx" alt="l_b=l_i+l_sx" class="tex"/>
+<br /><img src="../images/LabTalk-Supported_Functions/math-f7510e4877885757c619582e81dd9aa3.png?v=0" title="K=e^{\frac{mx+\Delta G^o}{1.98T}}" alt="K=e^{\frac{mx+\Delta G^o}{1.98T}}" class="tex"/>
+<br /><img src="../images/LabTalk-Supported_Functions/math-2bdfbab6970ad47a2666769717a0e8cd.png?v=0" title="y=\frac{K}{1+K}\left(u_b-l_b \right) + l_b" alt="y=\frac{K}{1+K}\left(u_b-l_b \right) + l_b" class="tex"/>
+</p>
+</td></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/CompetitiveFull.html">CompetitiveFull(x,Vmax,Km,Ki,I)</a>
+</td>
+<td>Full competitive inhibition model describing the relationship between substrate concentration and a single inhibitor.
+<p><img src="../images/LabTalk-Supported_Functions/math-34ffabaa67311ecf32d48438e5dd6672.png?v=0" title="y = \frac{V_{max}}{1+ \frac{K_m}{x} \left( 1+ \frac{I}{K_i} \right)}" alt="y = \frac{V_{max}}{1+ \frac{K_m}{x} \left( 1+ \frac{I}{K_i} \right)}" class="tex"/>
+</p>
+</td></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/CompetitiveFull2.html">CompetitiveFull2(x,Vmax,Km,Ki,S)</a>
+</td>
+<td>Full competitive inhibition model defining the kinetic response to inhibitor concentration for a single substrate system.
+<p><img src="../images/LabTalk-Supported_Functions/math-ab446b122bfcf0a920d129f81da22ec8.png?v=0" title="y = \frac{V_{max}}{1+ \frac{K_m}{S} \left( 1+ \frac{x}{K_i} \right)}" alt="y = \frac{V_{max}}{1+ \frac{K_m}{S} \left( 1+ \frac{x}{K_i} \right)}" class="tex"/>
+</p>
+</td></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/CompetitivePartial.html">CompetitivePartial(x,Vmax,Km,Ki,I,alpha)</a>
+</td>
+<td>Partial competitive inhibition model.
+<p><img src="../images/LabTalk-Supported_Functions/math-0234e656fdefd09817cf1c2c87e6281e.png?v=0" title="y = \frac{V_{max}}{1+ \frac{ \frac{K_m}{x} \left( 1+ \frac{I}{K_i} \right)} { 1+ \frac{I}{ \alpha K_i} }}" alt="y = \frac{V_{max}}{1+ \frac{ \frac{K_m}{x} \left( 1+ \frac{I}{K_i} \right)} { 1+ \frac{I}{ \alpha K_i} }}" class="tex"/>
+</p>
+</td></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/CompetitivePartial2.html">CompetitivePartial2(x,Vmax,Km,Ki,S,alpha)</a>
+</td>
+<td>Partial competitive inhibition model for a single substrate where the inhibitor concentration serves as the primary independent variable.
+<p><img src="../images/LabTalk-Supported_Functions/math-1489ef187365439dab629bc2e6c9e145.png?v=0" title="y = \frac{V_{max}}{1+ \frac{ \frac{K_m}{S} \left( 1+ \frac{x}{K_i} \right)} { 1+ \frac{x}{ \alpha K_i} }}" alt="y = \frac{V_{max}}{1+ \frac{ \frac{K_m}{S} \left( 1+ \frac{x}{K_i} \right)} { 1+ \frac{x}{ \alpha K_i} }}" class="tex"/>
+</p>
+</td></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/CompetitiveInhibition.html">CompetitiveInhibition(x,Vmax,Km,Ki,E,S)</a>
+</td>
+<td>Tight-binding competitive inhibition model for high-affinity inhibitors.
+<p><img src="../images/LabTalk-Supported_Functions/math-e783f22a26b10562c9d32b3870741f19.png?v=0" title="V_0= \frac{V_{max}}{\frac {K_m}{S}+1} " alt="V_0= \frac{V_{max}}{\frac {K_m}{S}+1} " class="tex"/>&#160;&#160;&#160;&#160;&#160; <img src="../images/LabTalk-Supported_Functions/math-7a216e2c78b20af288bd9cbf3d10008d.png?v=0" title="K_ap = K_i \left( \frac{S}{K_m} + 1 \right)" alt="K_ap = K_i \left( \frac{S}{K_m} + 1 \right)" class="tex"/> <br />
+<img src="../images/LabTalk-Supported_Functions/math-57fcb992f54fe1e4e6e63daf944aede3.png?v=0" title="y = \frac{V_0}{2E} \left( E- x- K_{ap} + \sqrt{(E-x-K_{ap})^2+4EK_{ap}} \right)" alt="y = \frac{V_0}{2E} \left( E- x- K_{ap} + \sqrt{(E-x-K_{ap})^2+4EK_{ap}} \right)" class="tex"/>
+</p>
+</td></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/CompetitiveInhibition2.html">CompetitiveInhibition2(x,Vmax,Km,Ki,E,I)</a>
+</td>
+<td>Tight-binding competitive inhibition model for high-affinity inhibitors with the substrate concentration as the primary independent variable.
+<p><img src="../images/LabTalk-Supported_Functions/math-78ffec98cc2041494fba60e0735b6e1a.png?v=0" title="V_0= \frac{V_{max}}{\frac {K_m}{x}+1} " alt="V_0= \frac{V_{max}}{\frac {K_m}{x}+1} " class="tex"/>&#160;&#160;&#160;&#160;&#160; <img src="../images/LabTalk-Supported_Functions/math-464a4de01a803095f7f4f8d47e4c6efb.png?v=0" title="K_ap = K_i \left( \frac{x}{K_m} + 1 \right)" alt="K_ap = K_i \left( \frac{x}{K_m} + 1 \right)" class="tex"/><br />
+<img src="../images/LabTalk-Supported_Functions/math-f05f3716ab751dcedecbcdaf16c4345c.png?v=0" title="y = \frac{V_0}{2E} \left( E- I- K_{ap} + \sqrt{(E-I-K_{ap})^2+4EK_{ap}} \right)" alt="y = \frac{V_0}{2E} \left( E- I- K_{ap} + \sqrt{(E-I-K_{ap})^2+4EK_{ap}} \right)" class="tex"/>
+</p>
+</td></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/DoubleExp.html">DoubleExp(x,ymax1,k1,ymax2,k2)</a>
+</td>
+<td>Two-phase exponential decay model.
+<p><img src="../images/LabTalk-Supported_Functions/math-8c28bf85ab69056a51d23d3b5e26a512.png?v=0" title="y = y_{max1} e^{-k_1x} + y_{max2} e^{-k_2x} " alt="y = y_{max1} e^{-k_1x} + y_{max2} e^{-k_2x} " class="tex"/>
+</p>
+</td></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/DoubleExpOffset.html">DoubleExpOffset(x,y0,ymax1,ymax2,k1,k2)</a>
+</td>
+<td>Two-phase exponential decay model with offset.
+<p><img src="../images/LabTalk-Supported_Functions/math-215d97856fd66fbff6103553393a0a5a.png?v=0" title="y = y_0 + y_{max1} e^{-k_1x} + y_{max2} e^{-k_2x} " alt="y = y_0 + y_{max1} e^{-k_1x} + y_{max2} e^{-k_2x} " class="tex"/>
+</p>
+</td></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/FirstOrder.html">FirstOrder(x,lmt,k)</a>
+</td>
+<td>First-order kinetic mode.
+<p><img src="../images/LabTalk-Supported_Functions/math-1d03a36fd7ab420508dc2b2649a3d0ac.png?v=0" title="y = lmt \left( 1 - e^{-kx} \right)  " alt="y = lmt \left( 1 - e^{-kx} \right)  " class="tex"/>
+</p>
+</td></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/FirstOrderOffset.html">FirstOrderOffset(x,lmt,k,offset)</a>
+</td>
+<td>First-order kinetic model with offset.
+<p><img src="../images/LabTalk-Supported_Functions/math-eccd9d774e58184dd469b68a9989ef29.png?v=0" title="y = lmt \cdot \left( 1 - e^{-k \cdot x} \right) + offset " alt="y = lmt \cdot \left( 1 - e^{-k \cdot x} \right) + offset " class="tex"/>
+</p>
+</td></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/Isoenzyme.html">Isoenzyme(x,Vmax1,Vmax2,Km1,Km2)</a>
+</td>
+<td>Kinetic model for two isoenzymes, represented by the sum of two independent Michaelis-Menten terms.
+<p><img src="../images/LabTalk-Supported_Functions/math-7414fe854db31b700f77619d963b3c0e.png?v=0" title="y = \frac {V_{max1} \cdot \frac{x}{K_{m1}}} {1+ \frac {x}{K_{m1}}} + \frac {V_{max2} \cdot \frac{x}{K_{m2}}} {1 + \frac{x}{K_{m2}}} " alt="y = \frac {V_{max1} \cdot \frac{x}{K_{m1}}} {1+ \frac {x}{K_{m1}}} + \frac {V_{max2} \cdot \frac{x}{K_{m2}}} {1 + \frac{x}{K_{m2}}} " class="tex"/>
+</p>
+</td></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/Mixed.html">Mixed(x,Vmax,Km,Kas,Kac,A)</a>
+</td>
+<td>Mixed-type activation model.
+<p><img src="../images/LabTalk-Supported_Functions/math-8b859d58a21a36c4b2d0b0de858683ba.png?v=0" title="y = \frac {V_{max} \cdot x} {K_m \cdot \left( 1+ \frac {K_{as}}{A} + \frac{x}{K_m} \cdot \left( 1 + \frac{K_{ac}}{A} \right) \right)}" alt="y = \frac {V_{max} \cdot x} {K_m \cdot \left( 1+ \frac {K_{as}}{A} + \frac{x}{K_m} \cdot \left( 1 + \frac{K_{ac}}{A} \right) \right)}" class="tex"/>
+</p>
+</td></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/Mixed2.html">Mixed2(x,Vmax,Km,Kas,Kac,S)</a>
+</td>
+<td>Mixed-type activation model describing the kinetic response to activator concentration for a single substrate system.
+<p><img src="../images/LabTalk-Supported_Functions/math-3b25e5a90050a61708dd84648ef04b62.png?v=0" title="y = \frac {V_{max} \cdot S} {K_m \cdot \left( 1+ \frac {K_{as}}{x} + \frac{S}{K_m} \cdot \left( 1 + \frac{K_{ac}}{x} \right) \right)}" alt="y = \frac {V_{max} \cdot S} {K_m \cdot \left( 1+ \frac {K_{as}}{x} + \frac{S}{K_m} \cdot \left( 1 + \frac{K_{ac}}{x} \right) \right)}" class="tex"/>
+</p>
+</td></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/MixedFull.html">MixedFull(x,Vmax,Km,Ki,I,alpha)</a>
+</td>
+<td>Full mixed-model inhibition describing the simultaneous effect of an inhibitor on both substrate affinity and maximum velocity.
+<p><img src="../images/LabTalk-Supported_Functions/math-c0a25090ae01febebfc3d41a86131e06.png?v=0" title="y = \frac {V_{max}} { \frac {K_m}{x} \left( 1+ \frac {I}{K_i} \right) + \left( 1 + \frac{I}{\alpha K_i} \right) }" alt="y = \frac {V_{max}} { \frac {K_m}{x} \left( 1+ \frac {I}{K_i} \right) + \left( 1 + \frac{I}{\alpha K_i} \right) }" class="tex"/>
+</p>
+</td></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/MixedFull2.html">MixedFull2(x,Vmax,Km,Ki,S,alpha)</a>
+</td>
+<td>Full mixed-model inhibition describing the kinetic response to inhibitor concentration for a system where both binding and catalysis are affected.
+<p><a  class="image"><img alt="MixedFull2 Funcion formula.png" src="../images/LabTalk-Supported_Functions/MixedFull2_Funcion_formula.png?v=42363" width="203"  /></a>
+</p>
+</td></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/MixedInhibition.html">MixedInhibition(x,Vmax,Km,Ki,alpha,E,S)</a>
+</td>
+<td>Tight-binding mixed-model inhibition for high-affinity inhibitors.
+<p><a  class="image"><img alt="MixedInhibition Funcion formula.png" src="../images/LabTalk-Supported_Functions/MixedInhibition_Funcion_formula.png?v=42364" width="370"  /></a>
+</p>
+</td></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/MixedInhibition2.html">MixedInhibition2(x,Vmax,Km,Ki,alpha,E,I)</a>
+</td>
+<td>Tight-binding mixed-model inhibition describing the kinetic response to substrate concentration.
+<p><a  class="image"><img alt="MixedInhibition2 Funcion formula.png" src="../images/LabTalk-Supported_Functions/MixedInhibition2_Funcion_formula.png?v=42365" width="373"  /></a>
+</p>
+</td></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/MixedPartial.html">MixedPartial(x,Vmax,Km,Ki,I,beta,alpha)</a>
+</td>
+<td>Partial mixed-model inhibition.
+<p><a  class="image"><img alt="MixedPartial Funcion formula.png" src="../images/LabTalk-Supported_Functions/MixedPartial_Funcion_formula.png?v=42366" width="240"  /></a>
+</p>
+</td></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/MixedPartial2.html">MixedPartial2(x,Vmax,Km,Ki,S,beta,alpha)</a>
+</td>
+<td>Partial mixed-model inhibition describing the kinetic response to inhibitor concentration.
+<p><a  class="image"><img alt="MixedPartial2 Funcion formula.png" src="../images/LabTalk-Supported_Functions/MixedPartial2_Funcion_formula.png?v=42368" width="234"  /></a>
+</p>
+</td></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/NoncompetitiveFull.html">NoncompetitiveFull(x,Vmax,Ki,Km,I)</a>
+</td>
+<td>Full noncompetitive inhibition model.
+<p><a  class="image"><img alt="NoncompetitiveFull Funcion formula.png" src="../images/LabTalk-Supported_Functions/NoncompetitiveFull_Funcion_formula.png?v=42369" width="172"  /></a>
+</p>
+</td></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/NoncompetitiveFull2.html">NoncompetitiveFull2(x,Vmax,Ki,Km,S)</a>
+</td>
+<td>Full noncompetitive inhibition model describing the kinetic response to inhibitor concentration.
+<p><a  class="image"><img alt="NoncompetitiveFull2 Funcion formula.png" src="../images/LabTalk-Supported_Functions/NoncompetitiveFull2_Funcion_formula.png?v=42370" width="197"  /></a>
+</p>
+</td></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/NoncompetitiveInhibition.html">NoncompetitiveInhibition(x,Vmax,Km,Ki,E,S)</a>
+</td>
+<td>Tight-binding noncompetitive inhibition model for high-affinity inhibitors.
+<p><a  class="image"><img alt="NoncompetitiveInhibition Funcion formula.png" src="../images/LabTalk-Supported_Functions/NoncompetitiveInhibition_Funcion_formula.png?v=42371" width="366"  /></a>
+</p>
+</td></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/NoncompetitiveInhibition2.html">NoncompetitiveInhibition2(x,Vmax,Km,Ki,E,I)</a>
+</td>
+<td>Tight-binding noncompetitive inhibition model describing the kinetic response to substrate concentration.
+<p><a  class="image"><img alt="NoncompetitiveInhibition2 Funcion formula.png" src="../images/LabTalk-Supported_Functions/NoncompetitiveInhibition2_Funcion_formula.png?v=42372" width="300"  /></a>
+</p>
+</td></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/NoncompetitivePartial.html">NoncompetitivePartial(x,Vmax,Km,Ki,I,beta)</a>
+</td>
+<td>Partial noncompetitive inhibition model.
+<p><a  class="image"><img alt="NoncompetitivePartial Funcion formula.png" src="../images/LabTalk-Supported_Functions/NoncompetitivePartial_Funcion_formula.png?v=42374" width="146"  /></a>
+</p>
+</td></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/NoncompetitivePartial2.html">NoncompetitivePartial2(x,Vmax,Km,Ki,S,beta)</a>
+</td>
+<td>Partial noncompetitive inhibition model describing the kinetic response to inhibitor concentration.
+<p><a  class="image"><img alt="NoncompetitivePartial2 Funcion formula.png" src="../images/LabTalk-Supported_Functions/NoncompetitivePartial2_Funcion_formula.png?v=42375" width="155"  /></a>
+</p>
+</td></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/Nonessencial.html">Nonessencial(x,Vmax,Km,Ka,alpha,beta,A)</a>
+</td>
+<td>Non-essential activation model.
+<p><a  class="image"><img alt="Nonessencial Funcion formula.png" src="../images/LabTalk-Supported_Functions/Nonessencial_Funcion_formula.png?v=42376" width="220"  /></a>
+</p>
+</td></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/Nonessencial2.html">Nonessencial2(x,Vmax,Km,Ka,alpha,beta,S)</a>
+</td>
+<td>Non-essential activation model describing the kinetic response to activator concentration.
+<p><a  class="image"><img alt="Nonessencial2 Funcion formula.png" src="../images/LabTalk-Supported_Functions/Nonessencial2_Funcion_formula.png?v=42377" width="225"  /></a>
+</p>
+</td></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/OrderedBiBiSequential.html">OrderedBiBiSequential(x,Vmax,B,Ka,Kb)</a>
+</td>
+<td>Ordered Bi-Bi sequential mechanism describing the kinetic response to a substrate.
+<p><a  class="image"><img alt="OrderedBiBiSequential Funcion formula.png" src="../images/LabTalk-Supported_Functions/OrderedBiBiSequential_Funcion_formula.png?v=42378" width="173"  /></a>
+</p>
+</td></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/OrderedBiBiSequential2.html">OrderedBiBiSequential2(x,Vmax,A,Ka,Kb)</a>
+</td>
+<td>Ordered Bi-Bi sequential mechanism describing the kinetic response to the second substrate's concentration.
+<p><a  class="image"><img alt="OrderedBiBiSequential2 Funcion formula.png" src="../images/LabTalk-Supported_Functions/OrderedBiBiSequential2_Funcion_formula.png?v=42379" width="190"  /></a>
+</p>
+</td></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/PingPongBiBiSequential.html">PingPongBiBiSequential(A,B,Kb,Ka,Vmax)</a>
+</td>
+<td>Ping-Pung Bi-Bi sequential mechanism describing a double-displacement reaction.
+<p><a  class="image"><img alt="PingPongBiBiSequential Funcion formula.png" src="../images/LabTalk-Supported_Functions/PingPongBiBiSequential_Funcion_formula.png?v=42380" width="228"  /></a>
+</p>
+</td></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/PingPongBiBiSequential2.html">PingPongBiBiSequential2(B,A,Ka,Kb,Vmax)</a>
+</td>
+<td>Ping-Pong Bi-Bi sequential mechanism describing the kinetic response to a substrate in a double-displacement reaction.
+<p><a  class="image"><img alt="PingPongBiBiSequential2 Funcion formula.png" src="../images/LabTalk-Supported_Functions/PingPongBiBiSequential2_Funcion_formula.png?v=42381" width="225"  /></a>
+</p>
+</td></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/PlateauShaped.html">PlateauShaped(x,Vmaxpla,Vmaxlim,pKa,pKb)</a>
+</td>
+<td>Plateau-shaped pH-profile model.
+<p><a  class="image"><img alt="PlateauShaped Funcion formula.png" src="../images/LabTalk-Supported_Functions/PlateauShaped_Funcion_formula.png?v=42382" width="180"  /></a>
+</p>
+</td></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/RandomBiBiSequential.html">RandomBiBiSequential(x,Vmax,B,Ka,Kb,alpha)</a>
+</td>
+<td>Random Bi-Bi sequential mechanism.
+<p><a  class="image"><img alt="RandomBiBiSequential Funcion formula.png" src="../images/LabTalk-Supported_Functions/RandomBiBiSequential_Funcion_formula.png?v=42405" width="286"  /></a>
+</p>
+</td></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/RandomBiBiSequential2.html">RandomBiBiSequential2(x,Vmax,A,Ka,Kb,alpha)</a>
+</td>
+<td>Random Bi-Bi sequential mechanism describing the kinetic response to the second substrate's concentration.
+<p><a  class="image"><img alt="RandomBiBiSequential2 Funcion formula.png" src="../images/LabTalk-Supported_Functions/RandomBiBiSequential2_Funcion_formula.png?v=42406" width="315"  /></a>
+</p>
+</td></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/SingleExp.html">SingleExp(x,ymax,k)</a>
+</td>
+<td>Single exponential decay model.
+<p><a  class="image"><img alt="SingleExp Funcion formula.png" src="../images/LabTalk-Supported_Functions/SingleExp_Funcion_formula.png?v=42385" width="164"  /></a>
+</p>
+</td></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/SingleExpOffset.html">SingleExpOffset(x,ymax,y0,k)</a>
+</td>
+<td>Single exponential decay model with offset.
+<p><a  class="image"><img alt="SingleExpOffset Funcion formula.png" src="../images/LabTalk-Supported_Functions/SingleExpOffset_Funcion_formula.png?v=42386" width="208"  /></a>
+</p>
+</td></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/SinglepKaFalling.html">SinglepKaFalling(x,Vmaxlim,pKa)</a>
+</td>
+<td>Single pKa falling pH-profile model.
+<p><a  class="image"><img alt="SinglepKaFalling Funcion formula.png" src="../images/LabTalk-Supported_Functions/SinglepKaFalling_Funcion_formula.png?v=42387" width="88"  /></a>
+</p>
+</td></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/SinglepKaOffset.html">SinglepKaOffset(x,Vlim1,Vlim2,pKa)</a>
+</td>
+<td>Single pKa offset model.
+<p><a  class="image"><img alt="SinglepKaOffset Funcion formula.png" src="../images/LabTalk-Supported_Functions/SinglepKaOffset_Funcion_formula.png?v=42388" width="162"  /></a>
+</p>
+</td></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/SinglepKaRising.html">SinglepKaRising(x,Vmaxlim,pKa)</a>
+</td>
+<td>Single pKa rising pH-profile model.
+<p><a  class="image"><img alt="SinglepKaRising Funcion formula.png" src="../images/LabTalk-Supported_Functions/SinglepKaRising_Funcion_formula.png?v=42389" width="104"  /></a>
+</p>
+</td></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/Specific.html">Specific(x,Vmax,Km,Ka,A)</a>
+</td>
+<td>Specific mechanism for a two-substrate reaction.
+<p><a  class="image"><img alt="Specific Funcion formula.png" src="../images/LabTalk-Supported_Functions/Specific_Funcion_formula.png?v=42390" width="102"  /></a>
+</p>
+</td></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/Specific2.html">Specific2(x,Vmax,Km,Ka,S)</a>
+</td>
+<td>Specific mechanism for a two-substrate reaction describing the kinetic response to the second substrate's concentration.
+<p><a  class="image"><img alt="Specific2 Funcion formula.png" src="../images/LabTalk-Supported_Functions/Specific2_Funcion_formula.png?v=42391" width="107"  /></a>
+</p>
+</td></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/SubstrateActivationOrdered.html">SubstrateActivationOrdered(x,Vmax,Ks,alpha)</a>
+</td>
+<td>Ordered substrate activation model.
+<p><a  class="image"><img alt="SubstrateActivationOrdered Funcion formula.png" src="../images/LabTalk-Supported_Functions/SubstrateActivationOrdered_Funcion_formula.png?v=42392" width="88"  /></a>
+</p>
+</td></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/SubstrateActivationRandom.html">SubstrateActivationRandom(x,Vmax,Ks,alpha)</a>
+</td>
+<td>Random substrate activation model.
+<p><a  class="image"><img alt="SubstrateActivationRandom Funcion formula.png" src="../images/LabTalk-Supported_Functions/SubstrateActivationRandom_Funcion_formula.png?v=42393" width="125"  /></a>
+</p>
+</td></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/ThermDena.html">ThermDena(x,ri,rs,li,ls,Tm,dh,dcp)</a>
+</td>
+<td>Thermal denaturation function.
+<p>Upper baseline: <img src="../images/LabTalk-Supported_Functions/math-5dd37e4b37c98d0315a89d5f525a535f.png?v=0" title="r_b=r_i+r_sx" alt="r_b=r_i+r_sx" class="tex"/>  &#160;&#160;&#160;&#160; &#160;&#160;&#160; Lower baseline: <img src="../images/LabTalk-Supported_Functions/math-4745e38fd1cd3dab17a0e9d157e2ea37.png?v=0" title="l_b=l_i+l_sx" alt="l_b=l_i+l_sx" class="tex"/>
+<br /><img src="../images/LabTalk-Supported_Functions/math-064966c74a3d9c36450655d4f6a71036.png?v=0" title="\Delta G = \Delta H \left( \frac{T_m-x}{T_m+273}\right)- \Delta C_p(T_m-x)+(x+273) \Delta C_p ln \left(\frac{T_m+273}{x+273} \right)" alt="\Delta G = \Delta H \left( \frac{T_m-x}{T_m+273}\right)- \Delta C_p(T_m-x)+(x+273) \Delta C_p ln \left(\frac{T_m+273}{x+273} \right)" class="tex"/><br />
+<img src="../images/LabTalk-Supported_Functions/math-05952e416978207d18633d6bd8ecc33a.png?v=0" title="K=e^{\frac{\Delta G}{RT}}" alt="K=e^{\frac{\Delta G}{RT}}" class="tex"/><br />
+<img src="../images/LabTalk-Supported_Functions/math-2bdfbab6970ad47a2666769717a0e8cd.png?v=0" title="y=\frac{K}{1+K}\left(u_b-l_b \right) + l_b" alt="y=\frac{K}{1+K}\left(u_b-l_b \right) + l_b" class="tex"/>
+</p>
+</td></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/UncompetitiveFull.html">UncompetitiveFull(x,Vmax,Km,Ki,I)</a>
+</td>
+<td>Full uncompetitive inhibition model.
+<p><a  class="image"><img alt="UncompetitiveFull Funcion formula.png" src="../images/LabTalk-Supported_Functions/UncompetitiveFull_Funcion_formula.png?v=42395" width="109"  /></a>
+</p>
+</td></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/UncompetitiveFull2.html">UncompetitiveFull2(x,Vmax,Km,Ki,S)</a>
+</td>
+<td>Full uncompetitive inhibition model describing the kinetic response to inhibitor concentration.
+<p><a  class="image"><img alt="UncompetitiveFull2 Funcion formula.png" src="../images/LabTalk-Supported_Functions/UncompetitiveFull2_Funcion_formula.png?v=42396" width="101"  /></a>
+</p>
+</td></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/UncompetitiveInhibition.html">UncompetitiveInhibition(x,Vmax,Km,Ki,E,S)</a>
+</td>
+<td>Tight-binding uncompetitive inhibition model.
+<p><a  class="image"><img alt="UncompetitiveInhibition Funcion formula.png" src="../images/LabTalk-Supported_Functions/UncompetitiveInhibition_Funcion_formula.png?v=42397" width="324"  /></a>
+</p>
+</td></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/UncompetitiveInhibition2.html">UncompetitiveInhibition2(x,Vmax,Km,Ki,E,I)</a>
+</td>
+<td>Tight-binding uncompetitive inhibition model describing the response to substrate concentration.
+<p><a  class="image"><img alt="UncompetitiveInhibition2 Funcion formula.png" src="../images/LabTalk-Supported_Functions/UncompetitiveInhibition2_Funcion_formula.png?v=42398" width="280"  /></a>
+</p>
+</td></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/UncompetitivePartial.html">UncompetitivePartial(x,Vmax,Km,Ki,I,beta)</a>
+</td>
+<td>Partial uncompetitive inhibition model.
+<p><a  class="image"><img alt="UncompetitivePartial Funcion formula.png" src="../images/LabTalk-Supported_Functions/UncompetitivePartial_Funcion_formula.png?v=42399" width="92"  /></a>
+</p>
+</td></tr>
+<tr>
+<td><a class="external text" href="../../UserGuide/UserGuide/UncompetitivePartial2.html">UncompetitivePartial2(x,Vmax,Km,Ki,S,beta)</a>
+</td>
+<td>Partial uncompetitive inhibition model describing the kinetic response to inhibitor concentration.
+<p><a  class="image"><img alt="UncompetitivePartial2 Funcion formula.png" src="../images/LabTalk-Supported_Functions/UncompetitivePartial2_Funcion_formula.png?v=42400" width="97"  /></a>
 </p>
 </td></tr></table>
 <h2><a name="Miscellaneous_2"></a><span class="mw-headline">Miscellaneous</span></h2>

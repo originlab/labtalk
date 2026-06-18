@@ -27,13 +27,20 @@
 <p>Return a complex number.
 </p>
 <h2 class="ref"><a name="Example"></a><span class="mw-headline">Example</span></h2>
+<p><b>EX1</b>
+</p>
 <pre class="lt" style="font-family:monospace;">complex c <span style="color: #000080;">=</span> real2complex<span style="color: #000000;">&#40;</span><span style="color: #0000dd;">1</span>, <span style="color: #0000dd;">2</span><span style="color: #000000;">&#41;</span>;
 c <span style="color: #000080;">=</span>&#160;;  <span style="color: #008000;">// c=1+2i</span></pre>
+<p><b>EX2</b>
+</p>
 <pre class="lt" style="font-family:monospace;"><span style="color: #008000;">// Set data type of column C to complex 16 in advance</span>
 wks.<span style="color: #000080;">col3</span>.<span style="color: #000080;">numerictype</span> <span style="color: #000080;">=</span> <span style="color: #0000dd;">11</span>;
 
 <span style="color: #008000;">// Generate a set of complex numbers and put to column C</span>
 col<span style="color: #000000;">&#40;</span>C<span style="color: #000000;">&#41;</span> <span style="color: #000080;">=</span> real2complex<span style="color: #000000;">&#40;</span>col<span style="color: #000000;">&#40;</span>A<span style="color: #000000;">&#41;</span>, col<span style="color: #000000;">&#40;</span>B<span style="color: #000000;">&#41;</span><span style="color: #000000;">&#41;</span>;</pre>
+<p><b>EX3</b>: Set col(C) values by following formula in <b>F(x)</b>
+</p>
+<pre class="lt" style="font-family:monospace;"><span style="color: #000080;">=</span> real2complex<span style="color: #000000;">&#40;</span>A,B<span style="color: #000000;">&#91;</span>i<span style="color: #000000;">&#93;</span><span style="color: #000000;">&#41;</span></pre>
 <h2 class="ref"><a name="See_Also"></a><span class="mw-headline">See Also</span></h2>
 <p><a href="../../LabTalk/LabTalk/ImReal_(function).html" title="LabTalk:ImReal (function)">ImReal</a>, <a href="../../LabTalk/LabTalk/Imaginary_(function).html" title="LabTalk:Imaginary (function)">Imaginary</a>
 </p>

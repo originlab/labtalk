@@ -3727,6 +3727,12 @@
     <toc_src>LabTalk:SpanIncluding_(function)</toc_src>
   </toc>
   <toc>
+    <toc_name>LabTalk Programming &gt; Language Reference &gt; Function Reference &gt; Text &gt; StripLeading</toc_name>
+    <toc_link>LabTalk/StripLeading_(function).html</toc_link>
+    <toc_url>LabTalk/ref/StripLeading-func</toc_url>
+    <toc_src>LabTalk:StripLeading_(function)</toc_src>
+  </toc>
+  <toc>
     <toc_name>LabTalk Programming &gt; Language Reference &gt; Function Reference &gt; Text &gt; Substitute</toc_name>
     <toc_link>LabTalk/Substitute_(function).html</toc_link>
     <toc_url>LabTalk/ref/Substitute-func</toc_url>
@@ -4091,6 +4097,12 @@
     <toc_link>LabTalk/If_(function).html</toc_link>
     <toc_url>LabTalk/ref/If-func</toc_url>
     <toc_src>LabTalk:If_(function)</toc_src>
+  </toc>
+  <toc>
+    <toc_name>LabTalk Programming &gt; Language Reference &gt; Function Reference &gt; Logical &gt; Iferror</toc_name>
+    <toc_link>LabTalk/Iferror_(function).html</toc_link>
+    <toc_url>LabTalk/ref/Iferror-func</toc_url>
+    <toc_src>LabTalk:Iferror_(function)</toc_src>
   </toc>
   <toc>
     <toc_name>LabTalk Programming &gt; Language Reference &gt; Function Reference &gt; Logical &gt; IfNA</toc_name>
@@ -6023,6 +6035,12 @@
     <toc_link>LabTalk/Tutorial_Get_Started.html</toc_link>
     <toc_url>LabTalk/Tutorials/Tutorial-Get-Started</toc_url>
     <toc_src>LabTalk:Tutorial_Get_Started</toc_src>
+  </toc>
+  <toc>
+    <toc_name>LabTalk Programming &gt; Tutorials &gt; Introduction to LabTalk</toc_name>
+    <toc_link>LabTalk/Introduction_to_LabTalk.html</toc_link>
+    <toc_url>LabTalk/Tutorials/Tutorial-LT-intro</toc_url>
+    <toc_src>LabTalk:Introduction_to_LabTalk</toc_src>
   </toc>
   <toc>
     <toc_name>LabTalk Programming &gt; Tutorials &gt; LabTalk Language Fundamentals</toc_name>

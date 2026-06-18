@@ -91,6 +91,17 @@ Must first set worksheet to view page breaks from the <b>View</b> menu, or using
 wo <span style="color: #000080;">-</span>gd pb <span style="color: #000080;">-</span>ir <span style="color: #0000dd;">12</span>;<span style="color: #008000;">//insert at row 12</span>
 <span style="color: #008000;">//to move a break at known location</span>
 wo <span style="color: #000080;">-</span>gd pb <span style="color: #000080;">-</span>mr <span style="color: #0000dd;">12</span> <span style="color: #0000dd;">14</span>;<span style="color: #008000;">//move from row 12 to row 14</span></pre>
+<h2><a name="-gs.3B_Activate_the_source_column_of_the_selected_mirror_column"></a><span class="mw-headline">-gs; Activate the source column of the selected mirror column</span></h2>
+<p><b>Syntax:</b> worksheet <b>-gs</b> 
+</p><p>With a mirror column active, run this command to activate its source column. 
+</p>
+<pre class="lt" style="font-family:monospace;">range rWM <span style="color: #000080;">=</span> <span style="color: #000000;">&#91;</span>Book5<span style="color: #000000;">&#93;</span>Sheet1<span style="color: #000080;">!</span>;     <span style="color: #008000;">// Define a worksheet range for mirror</span>
+rWM.<span style="color: #000080;">colSel</span><span style="color: #000000;">&#40;</span><span style="color: #0000dd;">2</span>,<span style="color: #0000dd;">1</span><span style="color: #000000;">&#41;</span>;  <span style="color: #008000;">// select 2nd column </span>
+wWM.<span style="color: #000080;">col2</span>.<span style="color: #000080;">link</span><span style="color: #000080;">$</span><span style="color: #000080;">=</span><span style="color: #000000;">&#91;</span>book1<span style="color: #000000;">&#93;</span><span style="color: #0000dd;">1</span><span style="color: #000080;">!</span>col<span style="color: #000000;">&#40;</span>B<span style="color: #000000;">&#41;</span>;  <span style="color: #008000;">//mirror [Book5]Sheet1!col(B) to [book1]1!col(B)</span>
+win <span style="color: #000080;">-</span>a Book5;  <span style="color: #008000;">// activate mirror workbook</span>
+worksheet <span style="color: #000080;">-</span>gs; <span style="color: #008000;">// jump to [book1]1! with col(B) highlighted</span></pre>
+<p>See <a class="external text" href="../../UserGuide/UserGuide/Mirror_Column.html">this page</a> for more about mirror column.
+</p>
 <h2><a name="-q"></a><span class="mw-headline">-q</span></h2>
 <p><b>Syntax:</b> worksheet <b>-q</b> <i>n</i>
 </p><p>Turn on/off view page breaks for the current worksheet.
