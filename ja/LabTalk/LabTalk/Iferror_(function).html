@@ -1,0 +1,46 @@
+﻿<h1 class="firstHeading">Iferror</h1><p class='urlname' style='display: none'>Iferror-func</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>目次</h2></div>
+<ul>
+<li class="toclevel-1"><a href="#Description"><span class="tocnumber">1</span> <span class="toctext">概要</span></a></li>
+<li class="toclevel-1"><a href="#Syntax"><span class="tocnumber">2</span> <span class="toctext">構文</span></a></li>
+<li class="toclevel-1"><a href="#Parameters"><span class="tocnumber">3</span> <span class="toctext">パラメータ</span></a></li>
+<li class="toclevel-1"><a href="#Return"><span class="tocnumber">4</span> <span class="toctext">戻り値</span></a></li>
+<li class="toclevel-1"><a href="#Example"><span class="tocnumber">5</span> <span class="toctext">サンプル</span></a></li>
+</ul>
+</div>
+
+<h2 class="ref"><a name="Description"></a><span class="mw-headline">概要</span></h2>
+<p class="version" >必要なOriginのバージョン: 2026b以降</p>
+<p>指定された<b>expression</b>を計算し、式がエラーまたは欠損値を生成する場合は、指定された <b>err</b>（文字列または数値）を返し、そうでない場合は<b>expression</b>の結果を返します。 
+</p><p><b>Note:</b>
+</p>
+<ol><li> Originでサポートされているエラータイプについては、<a class="external text" href="../../UserGuide/UserGuide/Working_with_Microsoft_Excel.html#Edit_Bad_Cell_Formula">このページ</a>を参照してください。</li>
+<li>この機能は、<a class="external text" href="../../UserGuide/UserGuide/Quick_Start_SetColumnValues.html">列値の設定</a>でのみ使用できます。</li></ol>
+<h2 class="ref"><a name="Syntax"></a><span class="mw-headline">構文</span></h2>
+<pre class="lt" style="font-family:monospace;">string<span style="color: #000080;">/</span>double Iferror<span style="color: #000000;">(</span>string expression, string<span style="color: #000080;">/</span>double err<span style="color: #000000;">)</span></pre>
+<pre class="lt" style="font-family:monospace;">double iferror<span style="color: #000000;">(</span>double val, string<span style="color: #000080;">/</span>double err<span style="color: #000000;">)</span></pre>
+<h2 class="ref"><a name="Parameters"></a><span class="mw-headline">パラメータ</span></h2>
+<p><b>式</b>
+</p>
+<dl><dd> 計算する数式または値。結果がエラーまたは欠損値の場合は、<b>err</b>を返します。Originでサポートされているエラータイプについては、<a class="external text" href="../../UserGuide/UserGuide/Working_with_Microsoft_Excel.html#Edit_Bad_Cell_Formula">このページ</a>を参照してください。</dd></dl>
+<p><b>err</b>
+</p>
+<dl><dd> <b>expression</b>がエラーまたは欠損していると評価されたときに返す文字列または数値。</dd></dl>
+<h2 class="ref"><a name="Return"></a><span class="mw-headline">戻り値</span></h2>
+<p>与えられた<b>expression</b>の結果がエラーまたは欠損している場合は指定された<b>err</b>を返します。そうでない場合は<b>expression</b>の値を返します。
+</p>
+<h2 class="ref"><a name="Example"></a><span class="mw-headline">サンプル</span></h2>
+<p><b>サンプル 1</b>
+</p>
+<pre class="lt" style="font-family:monospace;">iferror<span style="color: #000000;">(</span>A<span style="color: #000080;">/</span>B, <span style="color: #ff00ff;">&quot;invalid&quot;</span><span style="color: #000000;">)</span></pre>
+<p><b>F(x)</b> ヘッダー行で使用します。列Cにcol(A)/col(B)の値が入力されます。結果が欠損値またはエラーの場合は、その行に「invalid」と入力されます。
+</p>
+<dl><dd><a  class="image"><img alt="Iferror example1.png" src="../images/Iferror_(function)/Iferror_example1.png" width="610"  /></a></dd></dl>
+
+
+
+
+
+
+
+    

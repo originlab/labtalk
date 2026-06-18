@@ -27,7 +27,7 @@ worksheet <span style="color: #000080;">-</span>b AA; <span style="color: #00800
 <h2><a name="-crr"></a><span class="mw-headline">-crr</span></h2>
 <p><b>構文：</b> worksheet <b>-crr</b>
 </p><p>テーブル（グラフウィンドウに挿入されたワークシートテーブルまたは中間テーブル）で、セルの背景色を塗りつぶすことにより、古い帯付き行フォーマットをクリアします。
-</p><p><b>Note: </b>クリア後に中間テーブルのフォーマットが乱れた場合、<a href="../../LabTalk/LabTalk/System_Variable_List.html#U.2CV.2CW" title="LabTalk:システム変数リスト">@WEF = 1</a>を設定して<b>フォーマット編集</b>ダイアログ（テーブルウィンドウのタイトルバーを右クリック）を開いてリセットすることができます。
+</p><p><b>Note: </b>クリア後に中間テーブルのフォーマットが乱れた場合、<a href="../../LabTalk/LabTalk/System_Variable_List.html#U.2CV.2CW" title="LabTalk:System Variable List">@WEF = 1</a>を設定して<b>フォーマット編集</b>ダイアログ（テーブルウィンドウのタイトルバーを右クリック）を開いてリセットすることができます。
 </p>
 <h2><a name="-e"></a><span class="mw-headline">-e</span></h2>
 <p><b>構文：</b> worksheet <b>-e</b> <i>dialogbox</i>
@@ -58,6 +58,18 @@ worksheet <span style="color: #000080;">-</span>dr Test; <span style="color: #00
 完全に理解されていない理由で、ワークシート内の範囲選択が無効になることがあります。列ヘッダをダブルクリックしての列選択や、ワークシート内のセル範囲の選択ができない場合があります。スクリプトウィンドウ（メニューの「ウィンドウ：スクリプトウィンドウ」）を開き、問題のあるワークシートをアクティブにして次のコマンドを実行すると、問題が修正され、正しい選択動作が復元されます。
 </p><p>Origin 2018b以降では、このコマンドは以前に保存したウィンドウやプロジェクトを読み込むときに実行され、問題の発生を防ぐ必要があります。
 </p>
+<h2><a name="-fm"></a><span class="mw-headline">-fm</span></h2>
+<p>レポートシートのフッター幅の設定
+</p><p><b>構文：</b> worksheet <b>-fm -s</b><i>mode</i>
+<br />フッターの幅の<i>mode</i>を設定します。0=折り返しなし、1=折り返しあり、2=折り返し幅はすべてのテーブルの最大幅。
+</p><p><b>構文：</b> worksheet <b>-fm -g</b> <i>nn</i>
+<br />フッターの幅のモードを<i>nn</i>に取得します。
+</p><p><b>構文：</b> worksheet <b>-FM -sw</b> <i>nn</i>
+<br />フッターの最小ページ幅<i>nn</i>をポイント単位で設定します。
+</p><p><b>構文：</b> worksheet <b>-fm -gw</b> <i>nn</i>
+<br />フッターの最小ページ幅をポイント単位で<i>nn</i>に取得します。
+</p><p><br />
+</p>
 <h2><a name="-fp"></a><span class="mw-headline">-fp</span></h2>
 <p><b>構文：</b> worksheet <b>-fp</b>
 </p><p><a class="external text" href="../../GettingStarted/OriginLab/Workbooks_Worksheets_Columns.html#Freeze_rows_or_columns_in_the_worksheet">GUI</a>または<a href="../../LabTalk/LabTalk/Wks_(object).html#PropertiesWorksheet_Property" title="LabTalk:Wks (object)"><b>wks.frozen$</b></a>で設定されたフリーズペインを切り替えます。
@@ -79,6 +91,17 @@ work <span style="color: #000080;">-</span>fp <span style="color: #0000dd;">0</s
 wo <span style="color: #000080;">-</span>gd pb <span style="color: #000080;">-</span>ir <span style="color: #0000dd;">12</span>;<span style="color: #008000;">//12行目に挿入</span>
 <span style="color: #008000;">//既知の場所へ改ページを移動</span>
 wo <span style="color: #000080;">-</span>gd pb <span style="color: #000080;">-</span>mr <span style="color: #0000dd;">12</span> <span style="color: #0000dd;">14</span>;<span style="color: #008000;">//12行目から14行目へ移動</span></pre>
+<h2><a name="-gs.3B_Activate_the_source_column_of_the_selected_mirror_column"></a><span class="mw-headline">-gs; 選択したミラー列のソース列をアクティブにする</span></h2>
+<p><b>構文：</b> worksheet <b>-gs</b> 
+</p><p>ミラー列がアクティブな状態で、このコマンドを実行してソース列をアクティブにします。 
+</p>
+<pre class="lt" style="font-family:monospace;">range rWM <span style="color: #000080;">=</span> <span style="color: #000000;">[</span>Book5<span style="color: #000000;">]</span>Sheet1<span style="color: #000080;">!</span>;     <span style="color: #008000;">// ミラー対象のワークシート範囲を定義</span>
+rWM.<span style="color: #000080;">colSel</span><span style="color: #000000;">(</span><span style="color: #0000dd;">2</span>,<span style="color: #0000dd;">1</span><span style="color: #000000;">)</span>;  <span style="color: #008000;">// 第2列を選択</span>
+wWM.<span style="color: #000080;">col2</span>.<span style="color: #000080;">link</span><span style="color: #000080;">$</span><span style="color: #000080;">=</span><span style="color: #000000;">[</span>book1<span style="color: #000000;">]</span><span style="color: #0000dd;">1</span><span style="color: #000080;">!</span>col<span style="color: #000000;">(</span>B<span style="color: #000000;">)</span>;  <span style="color: #008000;">// [Book5]Sheet1!col(B) を [book1]1!col(B)にミラーする</span>
+win <span style="color: #000080;">-</span>a Book5;  <span style="color: #008000;">// ミラーワークブックをアクティブ化</span>
+worksheet <span style="color: #000080;">-</span>gs; <span style="color: #008000;">//  [book1]1! にジャンプして col(B) をハイライト表示</span></pre>
+<p>ミラー列の詳細については、<a class="external text" href="../../UserGuide/UserGuide/Mirror_Column.html">こちらのページ</a>を参照してください。
+</p>
 <h2><a name="-q"></a><span class="mw-headline">-q</span></h2>
 <p><b>構文：</b> worksheet <b>-q</b> <i>n</i>
 </p><p>現在のワークシートの改ページ表示のオン/オフを切り替えます。

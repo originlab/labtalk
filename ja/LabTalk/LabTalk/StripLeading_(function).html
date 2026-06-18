@@ -1,0 +1,41 @@
+﻿<h1 class="firstHeading">StripLeading</h1><p class='urlname' style='display: none'>StripLeading-func</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>目次</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Description"><span class="tocnumber">1</span> <span class="toctext">概要</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Syntax"><span class="tocnumber">2</span> <span class="toctext">構文</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Parameters"><span class="tocnumber">3</span> <span class="toctext">パラメータ</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Return"><span class="tocnumber">4</span> <span class="toctext">戻り値</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="#Example"><span class="tocnumber">5</span> <span class="toctext">サンプル</span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="#See_Also"><span class="tocnumber">6</span> <span class="toctext">関連項目</span></a></li>
+</ul>
+</div>
+
+<h2><a name="Description"></a><span class="mw-headline"><font color="chocolate">概要</font></span></h2>
+<p>この関数は文字列str$を受け取り、先頭のリストマーカー（数字、文字、または箇条書き記号）とそれに続く空白文字を削除します。リストマーカーは、数値または1文字で始まり、その後に以下のいずれかの区切り文字が続く場合に認識されます：スペース, <code>)</code>（右括弧）、<code>.</code>（ドット）、<code>:</code>（コロン）。詳細についてはEx2を参照してください。 
+</p>
+<h2><a name="Syntax"></a><span class="mw-headline"><font color="chocolate">構文</font></span></h2>
+<pre class="lt" style="font-family:monospace;">string StripLeading<span style="color: #000000;">(</span>string str<span style="color: #000080;">$</span><span style="color: #000000;">)</span><span style="color: #000080;">$</span></pre>
+<h2><a name="Parameters"></a><span class="mw-headline"><font color="chocolate">パラメータ</font></span></h2>
+<p><b>str</b> 
+</p>
+<dl><dd>先頭のリストマーカーをトリミングする文字列。</dd></dl>
+<h2><a name="Return"></a><span class="mw-headline"><font color="chocolate">戻り値</font></span></h2>
+<p><b>str$</b>内の先頭のリストマーカーと後続の空白を削除します。 
+</p>
+<h2><a name="Example"></a><span class="mw-headline"><font color="chocolate">サンプル</font></span></h2>
+<p><i><b>Ex1</b></i>
+</p>
+<pre class="lt" style="font-family:monospace;">StripLeading<span style="color: #000000;">(</span><span style="color: #ff00ff;">&quot;1. this is a test&quot;</span><span style="color: #000000;">)</span><span style="color: #000080;">$</span><span style="color: #000080;">=</span>; <span style="color: #008000;">// &quot;this is a test&quot;を返す</span></pre>
+<p><i><b>Ex2</b></i>
+</p>
+<dl><dd><a  class="image"><img alt="StripLeading Ex.png" src="../images/StripLeading_(function)/StripLeading_Ex.png" width="626"  /></a></dd></dl>
+<h2><a name="See_Also"></a><span class="mw-headline"><font color="chocolate">関連情報</font></span></h2>
+<p><a href="../../LabTalk/LabTalk/Trim_(function).html" title="LabTalk:Trim (関数)">Trim</a>
+</p>
+
+
+
+
+
+
+    

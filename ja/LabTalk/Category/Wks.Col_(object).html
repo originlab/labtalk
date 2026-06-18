@@ -1,571 +1,504 @@
-﻿<h1 class="firstheading">Wks.Col</h1>
-
-  <p class='urlname' style='display: none'>Wks-Col-obj</p>
-
-  <p><br>
-  <b>wks.col</b><span class="OIndex" style="display:none">Object, Column</span> objects refer to columns in a worksheet or matrix objects in a matrix sheet. These objects contain properties that read or write <span class="OIndex">column attribute</span>s such as names, units, types, etc. and methods that set the filter, formula, etc.</p>
-
-  <p>There are two syntaxes to refer to this object.</p>
-
-  <dl>
-    <dd>
-      <ul>
-        <li><b>wks.col</b> -- active column (E.g. wks.col=2 set 2nd column to be active column. wks.col.lname$="Data" set 2nd column's long name.)</li>
-
-        <li><b>wks.col<i>N</i></b> -- <i>N</i>th column (E.g. wks.col2.lname$="Data" set 2nd column's long name.)</li>
-      </ul>
-    </dd>
-  </dl>
-
-  <p>&#160;</p>
-
-  <div id="toc" class="toc">
-    <div id="toctitle">
-      <h2>Contents</h2>
-    </div>
-
-    <ul>
-      <li class="toclevel-1 tocsection-1"><a href="#PropertiesColumn_Property"><span class="tocnumber">1</span> <span class="toctext">Properties<span class="OIndex" style="display:none">Column Property</span></span></a></li>
-
-      <li class="toclevel-1 tocsection-2"><a href="#MethodsColumn_Method"><span class="tocnumber">2</span> <span class="toctext">Methods<span class="OIndex" style="display:none">Column Method</span></span></a></li>
-
-      <li class="toclevel-1 tocsection-3">
-        <a href="#Examples"><span class="tocnumber">3</span> <span class="toctext">Examples</span></a>
-
-        <ul>
-          <li class="toclevel-2 tocsection-4"><a href="#Edit_Column_Attributes"><span class="tocnumber">3.1</span> <span class="toctext">Edit Column Attributes</span></a></li>
-
-          <li class="toclevel-2 tocsection-5"><a href="#Set_Custom_Date_Format"><span class="tocnumber">3.2</span> <span class="toctext">Set Custom Date Format</span></a></li>
-
-          <li class="toclevel-2 tocsection-6"><a href="#Loop_through_columns_and_set_column_attributes"><span class="tocnumber">3.3</span> <span class="toctext">Loop through columns and set column attributes</span></a></li>
-        </ul>
-      </li>
-    </ul>
-  </div>
-
-  <h2><a name="PropertiesColumn_Property"></a><span class="mw-headline">Properties<span class="OIndex" style="display:none">Column Property</span></span></h2>
-
-  <table class="simple">
-    <tr>
-      <th width="110">Property</th>
-
-      <th width="50">Type</th>
-
-      <th width="50">Access</th>
-
-      <th width="540">Description</th>
-    </tr>
-
-    <tr>
-      <td><a href="../../LabTalk/LabTalk/Wks.col-comment.html" title="LabTalk:Wks.col-comment">wks.col.comment$</a></td>
-
-      <td>string</td>
-
-      <td>Read/write</td>
-
-      <td>Column Comment row header string value.</td>
-    </tr>
-
-    <tr>
-      <td><a href="../../LabTalk/LabTalk/Wks.col-categorical.sort.html" title="LabTalk:Wks.col-categorical.sort">wks.col.categorical.sort</a></td>
-
-      <td>numeric</td>
-
-      <td>Read/Write</td>
-
-      <td>Read or set the sort method for column <i>n</i>: 0 = unsorted, 1 = ascending, 2 = descending and 3 = customizable (arbitrary).</td>
-    </tr>
-
-    <tr>
-      <td><a href="../../LabTalk/LabTalk/Wks.col-categorical.type.html" title="LabTalk:Wks.col-categorical.type">wks.col.categorical.type</a></td>
-
-      <td>numeric</td>
-
-      <td>Read/Write</td>
-
-      <td>Read or set the type for column <i>n</i></td>
-    </tr>
-
-    <tr>
-      <td><a href="../../LabTalk/LabTalk/Wks.col-cmap.palette.html" title="LabTalk:Wks.col-cmap.palette">wks.col.cmap.palette$</a></td>
-
-      <td>string</td>
-
-      <td>Read/Write</td>
-
-      <td>Read or set the color palette for the matrix object.</td>
-    </tr>
-
-    <tr>
-      <td><a href="../../LabTalk/LabTalk/Wks.col-digitMode.html" title="LabTalk:Wks.col-digitMode">wks.col.digitMode</a></td>
-
-      <td>numeric</td>
-
-      <td>Read/write</td>
-
-      <td>Set the digit display mode: 0 = display all, 1 = set the decimal places, and 2 = set the significant digits.</td>
-    </tr>
-
-    <tr>
-      <td><a href="../../LabTalk/LabTalk/Wks.col-digits.html" title="LabTalk:Wks.col-digits">wks.col.digits</a></td>
-
-      <td>numeric</td>
-
-      <td>Read/write</td>
-
-      <td>Number of decimal places when <code>wks.col.digitMode = 1</code>, number of significant digits when <code>wks.col.digitmode = 2</code>: 0 = display all, <i>n</i> = display <i>n</i>.</td>
-    </tr>
-
-    <tr>
-      <td><a href="../../LabTalk/LabTalk/Wks.col-edit.html" title="LabTalk:Wks.col-edit">wks.col.edit</a></td>
-
-      <td>numeric</td>
-
-      <td>Read/write</td>
-
-      <td>Adds one of the following controls to each cell in the column: check box, list box, combobox</td>
-    </tr>
-
-    <tr>
-      <td><a href="../../LabTalk/LabTalk/Wks.col-evenx.html" title="LabTalk:Wks.col-evenx">wks.col.evenx</a></td>
-
-      <td>numeric</td>
-
-      <td>Read/write</td>
-
-      <td>Read or set column <i>n</i> to be using Sample Interval: 0 = not using Sample Interval, 1 = using Sample Interval with Internal X Initial value = 0 and Increment value = 1.</td>
-    </tr>
-
-    <tr>
-      <td><a href="../../LabTalk/LabTalk/Wks.col-filter.html" title="LabTalk:Wks.col-filter">wks.col.filter<br>
-      wks.col.filter$</a></td>
-
-      <td>numeric/string</td>
-
-      <td>Read/write</td>
-
-      <td>Add or remove a filter.<br>
-      Set or get filter query string. It must set the filter type to advance.</td>
-    </tr>
-
-    <tr>
-      <td><a href="../../LabTalk/LabTalk/Wks.col-filterenabled.html" title="LabTalk:Wks.col-filterenabled">wks.col.filterenabled</a></td>
-
-      <td>numeric</td>
-
-      <td>Read/write</td>
-
-      <td>Enable or disable a filter. 1 = enable filter, and 0 = disable filter.</td>
-    </tr>
-
-    <tr>
-      <td><a href="../../LabTalk/LabTalk/Wks.col-filterprescript.html" title="LabTalk:Wks.col-filterprescript">wks.col.filterprescript$</a></td>
-
-      <td>string</td>
-
-      <td>Read/write</td>
-
-      <td>Set or get before query script.</td>
-    </tr>
-
-    <tr>
-      <td><a href="../../LabTalk/LabTalk/Wks.col-filterx.html" title="LabTalk:Wks.col-filterx">wks.col.filterx$</a></td>
-
-      <td>string</td>
-
-      <td>Read/write</td>
-
-      <td>Set and get the variable used to represent the column.</td>
-    </tr>
-
-    <tr>
-      <td><a href="../../LabTalk/LabTalk/Wks.col-format.html" title="LabTalk:Wks.col-format">wks.col.format</a></td>
-
-      <td>numeric</td>
-
-      <td>Read/write</td>
-
-      <td>Column format: 1 = Numeric, 2 = Text, 3 = Time, 4 = Date, 5 = Month, 6 = Day of Week, 7 = Text and Numeric, 8 = Color and 9 = Binary as listed in the Format drop-down list in the Worksheet Column Format dialog box.</td>
-    </tr>
-
-    <tr>
-      <td><a href="../../LabTalk/LabTalk/Wks.col-formula.html" title="LabTalk:Wks.col-formula">wks.col.formula$</a></td>
-
-      <td>string</td>
-
-      <td>Read/write</td>
-
-      <td>Column formula as in <b>Set (Column) Values</b> or in <b>F(x)=</b> label row (see also <a href="../../LabTalk/LabTalk/Column_Label_Row_Characters.html" title="LabTalk:Column Label Row Characters">Column Label Row Characters</a>).</td>
-    </tr>
-
-    <tr>
-      <td><a href="../../LabTalk/LabTalk/Wks.col-formularange.html" title="LabTalk:Wks.col-formularange">wks.col.formularange$</a></td>
-
-      <td>string</td>
-
-      <td>Read</td>
-
-      <td>Column formula range as in <b>Set (Column) Values</b>.</td>
-    </tr>
-
-    <tr>
-      <td><a href="../../LabTalk/LabTalk/Wks.col-image.html" title="LabTalk:Wks.col-image">wks.col.image</a></td>
-
-      <td>numeric</td>
-
-      <td>Read</td>
-
-      <td>
-        Get matrix object info:
-
-        <p>0 = no image<br>
-        1 = has image<br>
-        2 = gray scale image<br>
-        3 = image view</p>
-      </td>
-    </tr>
-
-    <tr>
-      <td><a href="../../LabTalk/LabTalk/Wks.col-index.html" title="LabTalk:Wks.col-index">wks.col.index</a></td>
-
-      <td>numeric</td>
-
-      <td>Read/write</td>
-
-      <td>Column index counting from left to right. Use this property to reorder worksheet column.</td>
-    </tr>
-
-    <tr>
-      <td><a href="../../LabTalk/LabTalk/Wks.col-iscat.html" title="LabTalk:Wks.col-iscat">wks.col.iscat</a></td>
-
-      <td>numeric</td>
-
-      <td>Read/write</td>
-
-      <td>Read or set column is Categorical or not. 0 = Column type is not Categorical, 1 = Column type is Categorical.</td>
-    </tr>
-
-    <tr>
-      <td><a href="../../LabTalk/LabTalk/Wks.col-label.html" title="LabTalk:Wks.col-label">wks.col.label$</a></td>
-
-      <td>string</td>
-
-      <td>Read/write</td>
-
-      <td>Column label access for versions before 8.0. Still supporte to control long name, units and comments in a single call.</td>
-    </tr>
-
-    <tr>
-      <td><a href="../../LabTalk/LabTalk/Wks.col-lname.html" title="LabTalk:Wks.col-lname">wks.col.lname$</a></td>
-
-      <td>string</td>
-
-      <td>Read/write</td>
-
-      <td>String value for the long name of column or matrix object.</td>
-    </tr>
-
-    <tr>
-      <td><a href="../../LabTalk/LabTalk/Wks.col-missing.html" title="LabTalk:Wks.col-missing">wks.col.missing</a></td>
-
-      <td>numeric</td>
-
-      <td>Read/write</td>
-
-      <td>Custom missing value. This property allow setting custom missing value such that non-double columns can have missing value support.</td>
-    </tr>
-
-    <tr>
-      <td><a href="../../LabTalk/LabTalk/Wks.col-name.html" title="LabTalk:Wks.col-name">wks.col.name$</a></td>
-
-      <td>string</td>
-
-      <td>Read/write</td>
-
-      <td>Column short name</td>
-    </tr>
-
-    <tr>
-      <td><a href="../../LabTalk/LabTalk/Wks.col-nCols.html" title="LabTalk:Wks.col-nCols">wks.col.nCols</a></td>
-
-      <td>numeric</td>
-
-      <td>Read/write</td>
-
-      <td>Number of columns for Matrix Object; for worksheet column, always 1.</td>
-    </tr>
-
-    <tr>
-      <td><a href="../../LabTalk/LabTalk/Wks.col-nRows.html" title="LabTalk:Wks.col-nRows">wks.col.nRows</a></td>
-
-      <td>numeric</td>
-
-      <td>Read/write</td>
-
-      <td>Number of rows</td>
-    </tr>
-
-    <tr>
-      <td><a href="../../LabTalk/LabTalk/Wks.col-numerictype.html" title="LabTalk:Wks.col-numerictype">wks.col.numerictype</a></td>
-
-      <td>numeric</td>
-
-      <td>Read/write</td>
-
-      <td>Column numeric type</td>
-    </tr>
-
-    <tr>
-      <td><a href="../../LabTalk/LabTalk/Wks.col-py.html" title="LabTalk:Wks.col-py">wks.col.py$</a></td>
-
-      <td>string</td>
-
-      <td>Read/write</td>
-
-      <td>Contents of Python Formula tab in <b>Set (Column) Values</b></td>
-    </tr>
-
-    <tr>
-      <td><a href="../../LabTalk/LabTalk/Wks.col-script.html" title="LabTalk:Wks.col-script">wks.col.script$</a></td>
-
-      <td>string</td>
-
-      <td>Read/write</td>
-
-      <td>Contents of Before Formula Script tab in <b>Set (Column) Values</b></td>
-    </tr>
-
-    <tr>
-      <td><a href="../../LabTalk/LabTalk/Wks.col-subformat.html" title="LabTalk:Wks.col-subformat">wks.col.subformat</a></td>
-
-      <td>numeric</td>
-
-      <td>Read/write</td>
-
-      <td>Subformat options as listed in the <b>Display</b> drop-down list of the Worksheet Column Format dialog box (select from main menu <b>Format: Column ...</b> to open this dialog).</td>
-    </tr>
-
-    <tr>
-      <td><a href="../../LabTalk/LabTalk/Wks.col-svrm.html" title="LabTalk:Wks.col-svrm">wks.col.svrm</a></td>
-
-      <td>numeric</td>
-
-      <td>Read/write</td>
-
-      <td>Set Value Recalculate Mode for the column formula (in any) of the column. 0=none,1=auto,2=manual.</td>
-    </tr>
-
-    <tr>
-      <td><a href="../../LabTalk/LabTalk/Wks.col-tWidth.html" title="LabTalk:Wks.col-tWidth">wks.col.tWidth</a></td>
-
-      <td>numeric</td>
-
-      <td>Read/write</td>
-
-      <td>The number of characters that can be entered in a Text column.</td>
-    </tr>
-
-    <tr>
-      <td><a href="../../LabTalk/LabTalk/Wks.col-type.html" title="LabTalk:Wks.col-type">wks.col.type</a></td>
-
-      <td>numeric</td>
-
-      <td>Read/write</td>
-
-      <td>Column type: 1 = Y, 2 = disregard, 3 = Y Error, 4 = X, 5 = Label, 6 = Z, and 7 = X Error.</td>
-    </tr>
-
-    <tr>
-      <td><a href="../../LabTalk/LabTalk/Wks.col-unit.html" title="LabTalk:Wks.col-unit">wks.col.unit$</a></td>
-
-      <td>string</td>
-
-      <td>Read/write</td>
-
-      <td>Units row header</td>
-    </tr>
-
-    <tr>
-      <td><a href="../../LabTalk/LabTalk/Wks.col-width.html" title="LabTalk:Wks.col-width">wks.col.width</a></td>
-
-      <td>numeric</td>
-
-      <td>Read/write</td>
-
-      <td>Width of a single worksheet column (e.g. "col1"), in units of characters.</td>
-    </tr>
-
-    <tr>
-      <td><a href="../../LabTalk/LabTalk/Wks.col-x1.html" title="LabTalk:Wks.col-x1">wks.col.x1</a></td>
-
-      <td>numeric</td>
-
-      <td>Read/write</td>
-
-      <td>Get/Set matrix object 1st column mapping coordinates</td>
-    </tr>
-
-    <tr>
-      <td><a href="../../LabTalk/LabTalk/Wks.col-x2.html" title="LabTalk:Wks.col-x2">wks.col.x2</a></td>
-
-      <td>numeric</td>
-
-      <td>Read/write</td>
-
-      <td>Get/Set matrix object last column mapping coordinates</td>
-    </tr>
-
-    <tr>
-      <td><a href="../../LabTalk/LabTalk/Wks.col-xinit.html" title="LabTalk:Wks.col-xinit">wks.col.xinit</a></td>
-
-      <td>numeric</td>
-
-      <td>Read/write</td>
-
-      <td>Internal X Initial value for column. The XINIT, XINC and XUNITS appear in the Sampling Interval row header if displayed.</td>
-    </tr>
-
-    <tr>
-      <td><a href="../../LabTalk/LabTalk/Wks.col-xinc.html" title="LabTalk:Wks.col-xinc">wks.col.xinc</a></td>
-
-      <td>numeric</td>
-
-      <td>Read/write</td>
-
-      <td>Internal X Increment value for column.</td>
-    </tr>
-
-    <tr>
-      <td><a href="../../LabTalk/LabTalk/Wks.col-xuints.html" title="LabTalk:Wks.col-xuints">wks.col.xuints$</a></td>
-
-      <td>string</td>
-
-      <td>Read/write</td>
-
-      <td>Internal X Units string for column.</td>
-    </tr>
-
-    <tr>
-      <td><a href="../../LabTalk/LabTalk/Wks.col-xname.html" title="LabTalk:Wks.col-xname">wks.col.xname$</a></td>
-
-      <td>string</td>
-
-      <td>Read/write</td>
-
-      <td>Internal X Name string for column. The XNAME and XUNITS appear as the X Axis Title on plots of this column.</td>
-    </tr>
-
-    <tr>
-      <td><a href="../../LabTalk/LabTalk/Wks.col-y1.html" title="LabTalk:Wks.col-y1">wks.col.y1</a></td>
-
-      <td>numeric</td>
-
-      <td>Read/write</td>
-
-      <td>Get/Set matrix object 1st row mapping coordinates</td>
-    </tr>
-
-    <tr>
-      <td><a href="../../LabTalk/LabTalk/Wks.col-y2.html" title="LabTalk:Wks.col-y2">wks.col.y2</a></td>
-
-      <td>numeric</td>
-
-      <td>Read/write</td>
-
-      <td>Get/Set matrix object last row mapping coordinates</td>
-    </tr>
-  </table>
-
-  <h2><a name="MethodsColumn_Method"></a><span class="mw-headline">Methods<span class="OIndex" style="display:none">Column Method</span></span></h2>
-
-  <p><span class="OIndex" style="display:none">Layer method</span></p>
-
-  <table class="simple" width="100%">
-    <tr>
-      <th width="25%">Method</th>
-
-      <th width="75%">Description</th>
-    </tr>
-
-    <tr>
-      <td><a href="../../LabTalk/LabTalk/Wks.col-filter(method).html" title="LabTalk:Wks.col-filter(method)">wks.col.filter</a></td>
-
-      <td>Open the filter dialog</td>
-    </tr>
-
-    <tr>
-      <td><a href="../../LabTalk/LabTalk/Wks.col-setbinary.html" title="LabTalk:Wks.col-setbinary">wks.col.setbinary</a></td>
-
-      <td>Set binary auto convert.</td>
-    </tr>
-
-    <tr>
-      <td><a href="../../LabTalk/LabTalk/Wks.col-setformat.html" title="LabTalk:Wks.col-setformat">wks.col.setformat</a></td>
-
-      <td>Setformat method combines functionalities of the format and subformat methods, additionally allowing custom formats to be specified.</td>
-    </tr>
-
-    <tr>
-      <td><a href="../../LabTalk/LabTalk/Wks.col-setformula.html" title="LabTalk:Wks.col-setformula">wks.col.setformula</a></td>
-
-      <td>Set the column formula.</td>
-    </tr>
-
-    <tr>
-      <td><a href="../../LabTalk/LabTalk/Wks.col-findX.html" title="LabTalk:Wks.col-findX">wks.col.findX</a></td>
-
-      <td>Returns corresponding X column index</td>
-    </tr>
-  </table>
-
-  <h2><a name="Examples"></a><span class="mw-headline"><font color="chocolate">Examples</font></span></h2>
-
-  <h3><a name="Edit_Column_Attributes"></a><span class="mw-headline">Edit Column Attributes</span></h3>
-
-  <p>Set active column <b>wks.col</b> and then edit the attributes of it.</p>
-  <pre class="lt" style="font-family:monospace;">
-<span style="color: #008000;">// Set the active column to 2.</span>
+﻿<h1 class="firstHeading">Wks.Col</h1><p class='urlname' style='display: none'>Wks-Col-obj</p>
+<p><br />
+<b>wks.col</b><span class="OIndex" style="display:none">オブジェクト、列</span>オブジェクトは、ワークシート内の列、または行列シート内の行列オブジェクトを参照します。これらのオブジェクトには、名前、単位、型などの<span class="OIndex">列属性</span>を読み書きするプロパティと、フィルタ、式などを設定するメソッドが含まれています。<br />
+</p><p>このオブジェクトを参照するための構文は2つあります。
+</p>
+<dl><dd><ul><li> <b>wks.col</b> --現在の作業列(例: wks.col=2は第2列をアクティブな列に設定します)。wks.col.lname$=&quot;Data&quot;は2列目のロングネームを設定します。 </li>
+<li> <b>wks.col<i>N</i></b>  -- <i>N</i>番目の列(例: wks.col2.lname$=&quot;Data&quot;は2番目の列のロングネームを設定します)。</li></ul></dd></dl>
+<p><br />
+</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>目次</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#PropertiesColumn_Property"><span class="tocnumber">1</span> <span class="toctext">プロパティ<span class="OIndex" style="display:none">列プロパティ</span></span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#MethodsColumn_Method"><span class="tocnumber">2</span> <span class="toctext">メソッド<span class="OIndex" style="display:none">列メソッド</span></span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Examples"><span class="tocnumber">3</span> <span class="toctext">サンプル</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#Edit_Column_Attributes"><span class="tocnumber">3.1</span> <span class="toctext">列属性の編集</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Set_Custom_Date_Format"><span class="tocnumber">3.2</span> <span class="toctext">カスタム日付形式の設定</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Loop_through_columns_and_set_column_attributes"><span class="tocnumber">3.3</span> <span class="toctext">列をループして列属性を設定する</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+<h2><a name="PropertiesColumn_Property"></a><span class="mw-headline">プロパティ<span class="OIndex" style="display:none">列プロパティ</span></span></h2>
+<table class="simple">
+<tr>
+<th width="110">プロパティ
+</th>
+<th width="50">タイプ
+</th>
+<th width="50">アクセス
+</th>
+<th width="540">説明
+</th></tr>
+<tr>
+<td> <a href="../../LabTalk/LabTalk/Wks.col-comment.html" title="LabTalk:Wks.col-comment">wks.col.comment$</a>
+</td>
+<td> 文字列
+</td>
+<td> 読み/書き
+</td>
+<td> 列コメント行ヘッダー文字列値。
+</td></tr>
+<tr>
+<td> <a href="../../LabTalk/LabTalk/Wks.col-categorical.sort.html" title="LabTalk:Wks.col-categorical.sort">wks.col.categorical.sort</a>
+</td>
+<td> 数値
+</td>
+<td> 読み/書き
+</td>
+<td> 列<i>n</i>のソート方法を読み込んだり設定したりします。 0=ソートなし、1=昇順、2=降順、3=カスタム(任意)。
+</td></tr>
+<tr>
+<td> <a href="../../LabTalk/LabTalk/Wks.col-categorical.type.html" title="LabTalk:Wks.col-categorical.type">wks.col.categorical.type</a>
+</td>
+<td> 数値
+</td>
+<td> 読み/書き
+</td>
+<td> 列<i>n</i>の型の読み取りまたは設定。
+</td></tr>
+<tr>
+<td> <a href="../../LabTalk/LabTalk/Wks.col-cmap.palette.html" title="LabTalk:Wks.col-cmap.palette">wks.col.cmap.palette$</a>
+</td>
+<td> 文字列
+</td>
+<td> 読み/書き
+</td>
+<td> 行列オブジェクトのカラーパレットの読み取りまたは設定。
+</td></tr>
+<tr>
+<td> <a href="../../LabTalk/LabTalk/Wks.col-digitMode.html" title="LabTalk:Wks.col-digitMode">wks.col.digitMode</a>
+</td>
+<td> 数値
+</td>
+<td> 読み/書き
+</td>
+<td> 数字表示モードを設定します。0=すべて表示、1=小数点以下を設定、2=有効桁数を設定。
+</td></tr>
+<tr>
+<td> <a href="../../LabTalk/LabTalk/Wks.col-digits.html" title="LabTalk:Wks.col-digits">wks.col.digits</a>
+</td>
+<td> 数値
+</td>
+<td> 読み/書き
+</td>
+<td> <code>wks.col.digitMode = 1</code> のとき小数点以下の桁数、<code>wks.col.digitmode = 2</code> のとき有効桁数：0 =すべて表示、<i>n</i> =<i>n</i>を表示。
+</td></tr>
+<tr>
+<td> <a href="../../LabTalk/LabTalk/Wks.col-edit.html" title="LabTalk:Wks.col-edit">wks.col.edit</a>
+</td>
+<td> 数値
+</td>
+<td> 読み/書き
+</td>
+<td> 列の各セルに、チェックボックス、リストボックス、コンボボックスのいずれかの機能を追加。
+</td></tr>
+<tr>
+<td> <a href="../../LabTalk/LabTalk/Wks.col-evenx.html" title="LabTalk:Wks.col-evenx">wks.col.evenx</a>
+</td>
+<td> 数値
+</td>
+<td> 読み/書き
+</td>
+<td> 列<i>n</i>を読み取るか、サンプル間隔を使用するように設定します。0= サンプル間隔を使用しない、1=サンプル間隔を使用し、内部 X の初期値は 0、増分値=1。
+</td></tr>
+<tr>
+<td> <a href="../../LabTalk/LabTalk/Wks.col-filter.html" title="LabTalk:Wks.col-filter">wks.col.filter<br />wks.col.filter$</a>
+</td>
+<td> 数値/文字列
+</td>
+<td> 読み/書き
+</td>
+<td> フィルタを追加または削除します。<br />フィルタクエリ文字列を設定または取得します。フィルタタイプをadvanceに設定する必要があります。
+</td></tr>
+<tr>
+<td> <a href="../../LabTalk/LabTalk/Wks.col-filterenabled.html" title="LabTalk:Wks.col-filterenabled">wks.col.filterenabled</a>
+</td>
+<td> 数値
+</td>
+<td> 読み/書き
+</td>
+<td> フィルタを有効化または無効化します。1=フィルタ有効、0=フィルタ無効。
+</td></tr>
+<tr>
+<td> <a href="../../LabTalk/LabTalk/Wks.col-filterprescript.html" title="LabTalk:Wks.col-filterprescript">wks.col.filterprescript$</a>
+</td>
+<td> 文字列
+</td>
+<td> 読み/書き
+</td>
+<td> クエリスクリプトの前に設定または取得します。
+</td></tr>
+<tr>
+<td> <a href="../../LabTalk/LabTalk/Wks.col-filterx.html" title="LabTalk:Wks.col-filterx">wks.col.filterx$</a>
+</td>
+<td> 文字列
+</td>
+<td> 読み/書き
+</td>
+<td> 列を表すために使用される変数を設定して取得します。
+</td></tr>
+<tr>
+<td> <a href="../../LabTalk/LabTalk/Wks.col-format.html" title="LabTalk:Wks.col-format">wks.col.format</a>
+</td>
+<td> 数値
+</td>
+<td> 読み/書き
+</td>
+<td> 列のフォーマット：1=数値、2=テキスト、3=時間、4=日付、5=月、6=曜日、7=文字と数値、8=色、9=バイナリ（ワークシートの列のプロパティダイアログボックス内の「フォーマット」ドロップダウンリストに表示される通り）
+</td></tr>
+<tr>
+<td> <a href="../../LabTalk/LabTalk/Wks.col-formula.html" title="LabTalk:Wks.col-formula">wks.col.formula$</a>
+</td>
+<td> 文字列
+</td>
+<td> 読み/書き
+</td>
+<td> <b>（列）値の設定</b>または<b>F(x)=</b>ラベル行（ <a href="../../LabTalk/LabTalk/Column_Label_Row_Characters.html" title="LabTalk:Column Label Row Characters">列ラベル行文字列</a>を参照）のような列式。
+</td></tr>
+<tr>
+<td> <a href="../../LabTalk/LabTalk/Wks.col-formularange.html" title="LabTalk:Wks.col-formularange">wks.col.formularange$</a>
+</td>
+<td> 文字列
+</td>
+<td> 読み取り
+</td>
+<td> <b>（列）値の設定</b>の列数式の範囲。
+</td></tr>
+<tr>
+<td> <a href="../../LabTalk/LabTalk/Wks.col-image.html" title="LabTalk:Wks.col-image">wks.col.image</a>
+</td>
+<td> 数値
+</td>
+<td> 読み取り
+</td>
+<td> 行列オブジェクト情報を取得します：
+<p>0 =画像なし
+<br />
+1 =画像あり
+<br />
+2 =グレースケール画像
+<br />
+3 =画像表示
+</p>
+</td></tr>
+<tr>
+<td> <a href="../../LabTalk/LabTalk/Wks.col-index.html" title="LabTalk:Wks.col-index">wks.col.index</a>
+</td>
+<td> 数値
+</td>
+<td> 読み/書き
+</td>
+<td> 列インデックスを左から右にカウントします。このプロパティを使用してワークシート列を並べ替えます。
+</td></tr>
+<tr>
+<td> <a href="../../LabTalk/LabTalk/Wks.col-iscat.html" title="LabTalk:Wks.col-iscat">wks.col.iscat</a>
+</td>
+<td> 数値
+</td>
+<td> 読み/書き
+</td>
+<td> 列がカテゴリであるかどうかを読み取りまたは設定します。0=列タイプがカテゴリでない、1=列タイプがカテゴリである。
+</td></tr>
+<tr>
+<td> <a href="../../LabTalk/LabTalk/Wks.col-label.html" title="LabTalk:Wks.col-label">wks.col.label$</a>
+</td>
+<td> 文字列
+</td>
+<td> 読み/書き
+</td>
+<td> 8.0より前のバージョンの列ラベルアクセス。単一の呼び出しでロングネーム、単位、コメントを制御することができます。
+</td></tr>
+<tr>
+<td> <a href="../../LabTalk/LabTalk/Wks.col-label.html" title="LabTalk:Wks.col-label">wks.col.link$</a>
+</td>
+<td> 文字列
+</td>
+<td> 読み/書き
+</td>
+<td> 現在のミラー列が参照しているソース列を設定および取得します。例：
+<pre class="lt" style="font-family:monospace;"><span style="color: #008000;">//アクティブシートの2列目を[book1]1!col(B)にリンク</span>
+wks.<span style="color: #000080;">col2</span>.<span style="color: #000080;">link</span><span style="color: #000080;">$</span><span style="color: #000080;">=</span><span style="color: #000000;">[</span>book1<span style="color: #000000;">]</span><span style="color: #0000dd;">1</span><span style="color: #000080;">!</span>col<span style="color: #000000;">(</span>B<span style="color: #000000;">)</span></pre>
+</td></tr>
+<tr>
+<td> <a href="../../LabTalk/LabTalk/Wks.col-lname.html" title="LabTalk:Wks.col-lname">wks.col.lname$</a>
+</td>
+<td> 文字列
+</td>
+<td> 読み/書き
+</td>
+<td>列または行列オブジェクトのロングネームの文字列値。
+</td></tr>
+<tr>
+<td> <a href="../../LabTalk/LabTalk/Wks.col-missing.html" title="LabTalk:Wks.col-missing">wks.col.missing</a>
+</td>
+<td> 数値
+</td>
+<td> 読み/書き
+</td>
+<td> カスタム欠損値。このプロパティは、数値形式がdoubleでない列が欠損値をサポートできるように、カスタムの欠損値を設定できます。
+</td></tr>
+<tr>
+<td> <a href="../../LabTalk/LabTalk/Wks.col-name.html" title="LabTalk:Wks.col-name">wks.col.name$</a>
+</td>
+<td> 文字列
+</td>
+<td> 読み/書き
+</td>
+<td> 列ショートネーム
+</td></tr>
+<tr>
+<td> <a href="../../LabTalk/LabTalk/Wks.col-nCols.html" title="LabTalk:Wks.col-nCols">wks.col.nCols</a>
+</td>
+<td> 数値
+</td>
+<td> 読み/書き
+</td>
+<td> 行列オブジェクトの列数。ワークシートの列の場合は常に1となります。
+</td></tr>
+<tr>
+<td> <a href="../../LabTalk/LabTalk/Wks.col-nRows.html" title="LabTalk:Wks.col-nRows">wks.col.nRows</a>
+</td>
+<td> 数値
+</td>
+<td> 読み/書き
+</td>
+<td> 行数
+</td></tr>
+<tr>
+<td> <a href="../../LabTalk/LabTalk/Wks.col-numerictype.html" title="LabTalk:Wks.col-numerictype">wks.col.numerictype</a>
+</td>
+<td> 数値
+</td>
+<td> 読み/書き
+</td>
+<td> 列の数値型
+</td></tr>
+<tr>
+<td> <a href="../../LabTalk/LabTalk/Wks.col-py.html" title="LabTalk:Wks.col-py">wks.col.py$</a>
+</td>
+<td> 文字列
+</td>
+<td> 読み/書き
+</td>
+<td> <b>(列）値の設定</b>のPython関数タブの内容
+</td></tr>
+<tr>
+<td> <a href="../../LabTalk/LabTalk/Wks.col-script.html" title="LabTalk:Wks.col-py">wks.col.script$</a>
+</td>
+<td> 文字列
+</td>
+<td> 読み/書き
+</td>
+<td> <b>(列）値の設定</b>の「実行前の処理スクリプト」タブの内容
+</td></tr>
+<tr>
+<td> <a href="../../LabTalk/LabTalk/Wks.col-subformat.html" title="LabTalk:Wks.col-subformat">wks.col.subformat</a>
+</td>
+<td> 数値
+</td>
+<td> 読み/書き
+</td>
+<td> ワークシートの列フォーマットダイアログボックスの<b>表示</b>ドロップダウンリストにリストされているサブフォーマットオプション（メインメニューの<b>フォーマット：列フォーマット</b>を選択してこのダイアログを開きます）)。
+</td></tr>
+<tr>
+<td> <a href="../../LabTalk/LabTalk/Wks.col-svrm.html" title="LabTalk:Wks.col-svrm">wks.col.svrm</a>
+</td>
+<td> 数値
+</td>
+<td> 読み/書き
+</td>
+<td> （任意の）列の数式の再計算モードを設定します。0=なし、1=自動、2=手動。
+</td></tr>
+<tr>
+<td> <a href="../../LabTalk/LabTalk/Wks.col-tWidth.html" title="LabTalk:Wks.col-tWidth">wks.col.tWidth</a>
+</td>
+<td> 数値
+</td>
+<td> 読み/書き
+</td>
+<td> テキスト列に入力できる文字数。
+</td></tr>
+<tr>
+<td> <a href="../../LabTalk/LabTalk/Wks.col-type.html" title="LabTalk:Wks.col-type">wks.col.type</a>
+</td>
+<td> 数値
+</td>
+<td> 読み/書き
+</td>
+<td> 列の属性：1 = Y、2 = 無属性、3 = Yエラー、4 = X、5 = ラベル、6 = Z、7 = Xエラー。
+</td></tr>
+<tr>
+<td> <a href="../../LabTalk/LabTalk/Wks.col-unit.html" title="LabTalk:Wks.col-unit">wks.col.unit$</a>
+</td>
+<td> 文字列
+</td>
+<td> 読み/書き
+</td>
+<td> 単位の行ヘッダ
+</td></tr>
+<tr>
+<td> <a href="../../LabTalk/LabTalk/Wks.col-width.html" title="LabTalk:Wks.col-width">wks.col.width</a>
+</td>
+<td> 数値
+</td>
+<td> 読み/書き
+</td>
+<td> 単一のワークシート列（例：&quot;col1&quot;）の幅(文字単位)。
+</td></tr>
+<tr>
+<td> <a href="../../LabTalk/LabTalk/Wks.col-x1.html" title="LabTalk:Wks.col-x1">wks.col.x1</a>
+</td>
+<td> 数値
+</td>
+<td> 読み/書き
+</td>
+<td> 行列オブジェクトの1列目のマッピング座標を取得/設定
+</td></tr>
+<tr>
+<td> <a href="../../LabTalk/LabTalk/Wks.col-x2.html" title="LabTalk:Wks.col-x2">wks.col.x2</a>
+</td>
+<td> 数値
+</td>
+<td> 読み/書き
+</td>
+<td> 行列オブジェクトの最後の列のマッピング座標を取得/設定
+</td></tr>
+<tr>
+<td> <a href="../../LabTalk/LabTalk/Wks.col-xinit.html" title="LabTalk:Wks.col-xinit">wks.col.xinit</a>
+</td>
+<td> 数値
+</td>
+<td> 読み/書き
+</td>
+<td> 列の内部Xの初期値。XINIT、XINC、およびXUNITSは、表示されている場合、サンプリング間隔の行ヘッダに表示されます。
+</td></tr>
+<tr>
+<td> <a href="../../LabTalk/LabTalk/Wks.col-xinc.html" title="LabTalk:Wks.col-xinc">wks.col.xinc</a>
+</td>
+<td> 数値
+</td>
+<td> 読み/書き
+</td>
+<td> 列の内部X増分値。
+</td></tr>
+<tr>
+<td> <a href="../../LabTalk/LabTalk/Wks.col-xuints.html" title="LabTalk:Wks.col-xuints">wks.col.xuints$</a>
+</td>
+<td> 文字列
+</td>
+<td> 読み/書き
+</td>
+<td> 列の内部X単位文字列。
+</td></tr>
+<tr>
+<td> <a href="../../LabTalk/LabTalk/Wks.col-xname.html" title="LabTalk:Wks.col-xname">wks.col.xname$</a>
+</td>
+<td> 文字列
+</td>
+<td> 読み/書き
+</td>
+<td> 列の内部X名文字列。XNAMEとXUNITSは、この列のプロット上のX軸タイトルとして表示されます。
+</td></tr>
+<tr>
+<td> <a href="../../LabTalk/LabTalk/Wks.col-y1.html" title="LabTalk:Wks.col-y1">wks.col.y1</a>
+</td>
+<td> 数値
+</td>
+<td> 読み/書き
+</td>
+<td> 行列オブジェクトの1行目のマッピング座標を取得/設定
+</td></tr>
+<tr>
+<td> <a href="../../LabTalk/LabTalk/Wks.col-y2.html" title="LabTalk:Wks.col-y2">wks.col.y2</a>
+</td>
+<td> 数値
+</td>
+<td> 読み/書き
+</td>
+<td> 行列オブジェクトの最終行のマッピング座標を取得/設定
+</td></tr></table>
+<h2><a name="MethodsColumn_Method"></a><span class="mw-headline">メソッド<span class="OIndex" style="display:none">列メソッド</span></span></h2>
+<p><span class="OIndex" style="display:none">レイヤメソッド</span>
+</p>
+<table class="simple" width="100%">
+<tr>
+<th width="25%">メソッド
+</th>
+<th width="75%">説明
+</th></tr>
+<tr>
+<td> <a href="../../LabTalk/LabTalk/Wks.col-filter(method).html" title="LabTalk:Wks.col-filter(method)">wks.col.filter</a>
+</td>
+<td> フィルタダイアログを開く
+</td></tr>
+<tr>
+<td> <a href="../../LabTalk/LabTalk/Wks.col-setbinary.html" title="LabTalk:Wks.col-setbinary">wks.col.setbinary</a>
+</td>
+<td> バイナリ自動変換を設定
+</td></tr>
+<tr>
+<td> <a href="../../LabTalk/LabTalk/Wks.col-setformat.html" title="LabTalk:Wks.col-setformat">wks.col.setformat</a>
+</td>
+<td> setformatメソッドはformatメソッドとsubformatメソッドの機能を組み合わせ、さらにカスタムフォーマットを指定できるようにします。
+</td></tr>
+<tr>
+<td> <a href="../../LabTalk/LabTalk/Wks.col-setformula.html" title="LabTalk:Wks.col-setformula">wks.col.setformula</a>
+</td>
+<td> 列の式を設定
+</td></tr>
+<tr>
+<td> <a href="../../LabTalk/LabTalk/Wks.col-findX.html" title="LabTalk:Wks.col-findX">wks.col.findX</a>
+</td>
+<td> 対応するX列のインデックスを返す
+</td></tr></table>
+<h2><a name="Examples"></a><span class="mw-headline"><font color="chocolate">サンプル</font></span></h2>
+<h3><a name="Edit_Column_Attributes"></a><span class="mw-headline">列の属性を編集</span></h3>
+<p>アクティブな列 <b>wks.col</b> を設定し、その属性を編集します。
+</p>
+<pre class="lt" style="font-family:monospace;"><span style="color: #008000;">// アクティブな列を2に設定</span>
 wks.<span style="color: #000080;">col</span> <span style="color: #000080;">=</span> <span style="color: #0000dd;">1</span>;
 
-<span style="color: #008000;">// Set the active column's(col2) long name as Time.</span>
-wks.<span style="color: #000080;">col</span>.<span style="color: #000080;">LNAME</span><span style="color: #000080;">$</span><span style="color: #000080;">=</span> <span style="color: #ff00ff;">"Time"</span>;
-</pre>
-
-  <p>Alternatively, add index after wks.col to change the column attributes.</p>
-  <pre class="lt" style="font-family:monospace;">
-<span style="color: #008000;">//Set column 1's long name as Time</span>
+<span style="color: #008000;">// アクティブな列(col2)のロングネームをTimeに設定</span>
+wks.<span style="color: #000080;">col</span>.<span style="color: #000080;">LNAME</span><span style="color: #000080;">$</span><span style="color: #000080;">=</span> <span style="color: #ff00ff;">&quot;Time&quot;</span>;</pre>
+<p>または、wks.colの後にインデックスを追加して、列属性を変更します。
+</p>
+<pre class="lt" style="font-family:monospace;"><span style="color: #008000;">//列1のロングネームをTimeに設定</span>
 wks.<span style="color: #000080;">col1</span>.<span style="color: #000080;">LNAME</span><span style="color: #000080;">$</span> <span style="color: #000080;">=</span> Time;
 
-<span style="color: #008000;">// You can reference another book, but the target sheet must still be active</span>
-<span style="color: #008000;">// Set column 5 in the active sheet of Book5 to be an X column</span>
+<span style="color: #008000;">// 別のワークブックの参照も可能だが、ターゲットシートはアクティブである必要がある</span>
+<span style="color: #008000;">// Book5内のアクティブなシートの列5をX列に設定</span>
 Book5<span style="color: #000080;">!</span>wks.<span style="color: #000080;">col5</span>.<span style="color: #000080;">type</span> <span style="color: #000080;">=</span> <span style="color: #0000dd;">4</span>;
 
-<span style="color: #008000;">// col0 to refer to last column</span>
-<span style="color: #008000;">//set last column formula</span>
-wks.<span style="color: #000080;">col0</span>.<span style="color: #000080;">formula</span><span style="color: #000080;">$</span><span style="color: #000080;">=</span><span style="color: #ff00ff;">"A"</span>;
-</pre>
-
-  <h3><a name="Set_Custom_Date_Format"></a><span class="mw-headline">Set Custom Date Format</span></h3>
-
-  <p>This script sets the format of column 2 of the active worksheet to a custom date format.</p>
-  <pre class="lt" style="font-family:monospace;">
-<span style="color: #008000;">// Surround non-date characters in specifier by single quotes:</span>
-wks.<span style="color: #000080;">col2</span>.<span style="color: #000080;">SetFormat</span><span style="color: #000000;">(</span><span style="color: #0000dd;">4</span>, <span style="color: #0000dd;">22</span>, yyyy<span style="color: #ff00ff;">'.'</span>MM<span style="color: #ff00ff;">'.'</span>dd<span style="color: #000000;">)</span>;
-</pre>
-
-  <h3><a name="Loop_through_columns_and_set_column_attributes"></a><span class="mw-headline">Loop through columns and set column attributes</span></h3>
-
-  <p>This script will loop through columns 2 to 10 and set each column long name.</p>
-  <pre class="lt" style="font-family:monospace;">
-<span style="color: #008000;">// Set the number of columns to 10</span>
+<span style="color: #008000;">// col0は最後の列を参照</span>
+<span style="color: #008000;">//最後の列の式を設定</span>
+wks.<span style="color: #000080;">col0</span>.<span style="color: #000080;">formula</span><span style="color: #000080;">$</span><span style="color: #000080;">=</span><span style="color: #ff00ff;">&quot;A&quot;</span>;</pre>
+<h3><a name="Set_Custom_Date_Format"></a><span class="mw-headline">カスタム日付形式の設定</span></h3>
+<p>このスクリプトは、アクティブなワークシートの列2の書式をカスタム日付書式に設定します。
+</p>
+<pre class="lt" style="font-family:monospace;"><span style="color: #008000;">// 指定子の日付以外の文字を一重引用符で囲む：</span>
+wks.<span style="color: #000080;">col2</span>.<span style="color: #000080;">SetFormat</span><span style="color: #000000;">(</span><span style="color: #0000dd;">4</span>, <span style="color: #0000dd;">22</span>, yyyy<span style="color: #ff00ff;">&apos;.&apos;</span>MM<span style="color: #ff00ff;">&apos;.&apos;</span>dd<span style="color: #000000;">)</span>;</pre>
+<h3><a name="Loop_through_columns_and_set_column_attributes"></a><span class="mw-headline">列をループして列属性を設定する</span></h3>
+<p>このスクリプトは2から10までの列をループし、各列のロングネームを設定します。
+</p>
+<pre class="lt" style="font-family:monospace;"><span style="color: #008000;">// 列数を10に設定します。</span>
 wks.<span style="color: #000080;">ncols</span><span style="color: #000080;">=</span><span style="color: #0000dd;">10</span>;
 
 for <span style="color: #000000;">(</span>i<span style="color: #000080;">=</span><span style="color: #0000dd;">2</span>; i<span style="color: #000080;">&lt;=</span>wks.<span style="color: #000080;">ncols</span>; i<span style="color: #000080;">++</span><span style="color: #000000;">)</span>
 <span style="color: #000000;">{</span>
 
-   wks.<span style="color: #000080;">col</span><span style="color: #000080;">=</span>i;  <span style="color: #008000;">//set active column</span>
-   wks.<span style="color: #000080;">col</span>.<span style="color: #000080;">lname</span><span style="color: #000080;">$</span><span style="color: #000080;">=</span><span style="color: #ff00ff;">"Data$(i-1)"</span>;   <span style="color: #008000;">//set active column's long name as</span>
+   wks.<span style="color: #000080;">col</span><span style="color: #000080;">=</span>i;  <span style="color: #008000;">//アクティブ列を設定</span>
+   wks.<span style="color: #000080;">col</span>.<span style="color: #000080;">lname</span><span style="color: #000080;">$</span><span style="color: #000080;">=</span><span style="color: #ff00ff;">&quot;Data$(i-1)&quot;</span>;   <span style="color: #008000;">//アクティブな列のロングネームを設定</span>
 
-  <span style="color: #008000;">//wks.col$(i).lname$="Data$(i-1) will also work</span>
-<span style="color: #000000;">}</span>
-</pre>
+  <span style="color: #008000;">//wks.col$(i).lname$=&quot;Data$(i-1) も同様に動作</span>
+<span style="color: #000000;">}</span></pre>
+
+
+
+
+
+
+
+    

@@ -27,16 +27,17 @@
 </li>
 </ul>
 </div>
+
 <p><br />
 このページは、<a href="../../LabTalk/LabTalk/String_Substitution.html" title="LabTalk:String Substitution"><b>%()文字列置換</b></a>で使用される<a href="#List_of_.40Options">すべての利用可能な@オプションの完全な一覧表</a>です。これは、プロット/ワークシートメタデータ、ワークブック、シート情報、事前定義された変数、および特別なセル値など、さまざまな情報ビットのリアルタイム置換を行うために使用されます。 
 </p><p>これらは軸のタイトル、凡例、テキストラベルおよび多くのダイアログを含む多くの場所で使用することができます。本ページ下部の<a href="#Examples"><b>サンプル</b></a>セクションには、グラフ上の典型的な凡例、軸タイトル、テキストラベル以外の場所での使用法が示されています。凡例、軸タイトル、テキストラベルでの使用方法については、次のページを参照してください。
 </p>
 <dl><dd><ul><li><a href="../../LabTalk/LabTalk/Legend_Substitution_Notation.html" title="LabTalk:凡例の置換表記">凡例の置換表記</a></li>
 <li><a href="../../LabTalk/LabTalk/String_Substitution.html#Legend_and_Axis_Title_SubstitutionLegend_Substitution_Axis_Title_Substitution" title="LabTalk:String Substitution">軸タイトル置換</a></li>
-<li><a class="external text" href="../../UserGuide/UserGuide/Linking_Text_Labels_to_Data_and_Variables.html#Substituting_Values_for_Data_and_Variables_in_Text_Labels">テキストラベル用のデータ値と範囲の置換</a></li></ul></dd></dl>
+<li><a class="external text" href="../../UserGuide/UserGuide/Linking_Text_Labels_to_Data_and_Variables.html#Substituting_Values_for_Data_and_Variables_in_Text_Labels">データと変数の値をテキストラベルに置換する</a></li></ul></dd></dl>
 <h2><a name="List_of_.40Options"></a><span class="mw-headline">@Optionsのリスト</span></h2>
 <p>次の表は&nbsp;%( )置換表記で使用可能な<span class="OIndex">@テキストラベルオプション</span>の一覧です。%(1)は多くの例でグラフの第1プロットを参照するために使用されます。この理由は、ほとんどの&nbsp;%()置換表記は、プロットの対応するデータのメタデータ、ワークシート、ワークブック情報にアクセスするために使用されるからです（下図参照）。Note: %(1Y)は1番目のプロットのYデータを示します。%(?)は現在のプロットを示します。%Hは現在のウィンドウを示します。
-</p><p><a  class="image"><img alt="Worksheet Properties Legend Option 01.png" src="../images/Text_Label_Options/Worksheet_Properties_Legend_Option_01.png" width="632"  /></a>
+</p><p><a  class="image"><img alt="Worksheet Properties Legend Option 01.png" src="../images/Text_Label_Options/Worksheet_Properties_Legend_Option_01.png" width="580"  /></a>
 </p>
 <h4><a name="Column_Label_Rows"></a><span class="mw-headline">列ラベル行</span></h4>
 <table class="simple">
@@ -254,6 +255,18 @@
 <li> <i>%([Book1]1, @SN)</i> --&gt;<b>Trial Run 2</b>（指定したワークシートの場合）</li></ul>
 </td></tr>
 <tr>
+<td>@WSS
+</td>
+<td>プロットされたデータがミラー列に由来する場合は、 &quot;@WSS&quot; を使用してソースワークシートの名前を参照します。&quot;@WS&quot; はミラー列自体のシートを参照します。
+<p>詳しくは<a class="external text" href="../../UserGuide/UserGuide/Mirror_Column.html">ミラー列のドキュメント</a>を参照してください。
+</p>
+</td>
+<td>プロットのY列（Sheet1の列B）がシート&quot;275K&quot;の列Bにミラーリングされているとします。
+<ul><li> <i>%(1, @WSS)</i> --&gt;<b>275K</b> </li></ul>
+<dl><dd><i>vs</i> </dd></dl>
+<ul><li> <i>%(1, @WS)</i> --&gt;<b>Sheet1</b> </li></ul>
+</td></tr>
+<tr>
 <td>@WNL / @SNL
 </td>
 <td>シートのロングネーム<br />（ワークブック、行列）
@@ -310,6 +323,7 @@
 </th>
 <th width="50%">例
 </th></tr>
+
 <tr>
 <td> @#
 </td>
@@ -492,17 +506,17 @@
 <tr>
 <td>@WT, <i>ColIndex</i>/<i>ColName</i>, <i>ColLabelRowCharacter</i>[, <i>Format</i>]
 </td>
-<td>列番号（もしくはショートネーム）と<a href="../../LabTalk/LabTalk/Column_Label_Row_Characters.html" title="LabTalk:列ラベル行の文字">列ラベルの行の文字</a>で指定されたワークシートセルの値
+<td>列番号（もしくはショートネーム）と<a href="../../LabTalk/LabTalk/Column_Label_Row_Characters.html" title="LabTalk:Column Label Row Characters">列ラベルの行の文字</a>で指定されたワークシートセルの値
 </td>
 <td><i>%(1, @WT, B, C)</i>
-<ul><li><dl><dd><a href="../../LabTalk/LabTalk/Column_Label_Row_Characters.html#Examples" title="LabTalk:列ラベル行の文字">B[C]$</a>と同様に、これは1つ目のデータプロットのソースワークシートにある列Bのコメントを取得します。</dd></dl></li></ul>
+<ul><li><dl><dd><a href="../../LabTalk/LabTalk/Column_Label_Row_Characters.html#Examples" title="LabTalk:Column Label Row Characters">B[C]$</a>と同様に、これは1つ目のデータプロットのソースワークシートにある列Bのコメントを取得します。</dd></dl></li></ul>
 </td></tr></table>
 <h4><a name="Imported_File_Information"></a><span class="mw-headline">インポートされたファイル情報</span></h4>
 <table class="simple">
 <tr>
 <th width="35%">@オプション
 </th>
-<th width="40%">参照元
+<th width="40%">参照先
 </th>
 <th width="25%">例
 </th></tr>
@@ -514,7 +528,7 @@
 <td>
 <ul><li> <i>%(1, @W,SAMPLE$) </i> --&gt;<b>YBCO milled-squared </b></li>
 <li> <i>%(Book1, @W,SAMPLE$) </i> --&gt;<b>YBCO milled-squared </b>（指定されたワークブックの場合）</li></ul>
-<p><a  class="image"><img alt="Legend WKB USERVAR.png" src="../images/Text_Label_Options/Legend_WKB_USERVAR.png" width="606"  /></a>
+<p><a  class="image"><img alt="Legend WKB USERVAR.png" src="../images/Text_Label_Options/Legend_WKB_USERVAR.png" width="500"  /></a>
 </p>
 </td></tr>
 <tr>
@@ -526,7 +540,7 @@
 <ul><li>&nbsp;%(1@W, @W,system.import.filedate, D0) --&gt;<b>11/1/2018</b></li>
 <li>&nbsp;%(1@W, @W,system.import.filename$)--&gt;<b>S32-014-04.dat </b></li>
 <li>&nbsp;%(Book1, @W,system.import.filename$)--&gt;<b>S32-014-04.dat </b>（指定されたワークブックの場合）</li></ul>
-<p><a  class="image"><img alt="Legend WKB SYSTEMIMPORT.png" src="../images/Text_Label_Options/500px-Legend_WKB_SYSTEMIMPORT.png" width="606"   /></a>
+<p><a  class="image"><img alt="Legend WKB SYSTEMIMPORT.png" src="../images/Text_Label_Options/500px-Legend_WKB_SYSTEMIMPORT.png" width="500"   /></a>
 </p>
 </td></tr>
 <tr>
@@ -538,7 +552,7 @@
 <ul><li>&nbsp;%(1@W, @WF3, Info.ImportDate, D0) --&gt;<b>1/9/2025</b></li>
 <li>&nbsp;%(1@W, @WF3, Info.FileName)--&gt;<b>S32-014-04.dat </b></li>
 <li>&nbsp;%(Book1, @WF3, Info.FileName)--&gt;<b>S32-014-04.dat </b>（指定されたワークブックの場合）</li></ul>
-<p><a  class="image"><img alt="Legend WF INFO.png" src="../images/Text_Label_Options/Legend_WF_INFO.png" width="606"  /></a>
+<p><a  class="image"><img alt="Legend WF INFO.png" src="../images/Text_Label_Options/Legend_WF_INFO.png" width="500"  /></a>
 </p>
 </td></tr>
 <tr>
@@ -709,10 +723,11 @@
 </th>
 <th width="45%">例
 </th></tr>
+
 <tr>
 <td>@PLE
 </td>
-<td>ホルダーブックロングネーム。埋め込みグラフ、行列、メモ、またはHTMLレポートのコンテナワークブックのロングネームを返します。
+<td>ホルダーブックロングネーム。埋め込みグラフ、行列、ノート、HTMLレポートのコンテナワークブックのロングネームを返します。
 </td>
 <td><i>%(%H,@PLE)</i>
 </td></tr>
@@ -758,18 +773,18 @@
 </p>
 <dl><dd><a  class="image"><img alt="Ex1 worksheet.png" src="../images/Text_Label_Options/Ex1_worksheet.png" width="850"  /></a></dd></dl>
 <ol><li>編集後、グラフウィンドウのタイトルを右クリックして<a class="external text" href="../../UserGuide/UserGuide/Template_Files.html#Saving_a_customized_window_as_a_template"><b>テンプレートの新規保存</b>ダイアログ</a>を開きます。<b>グラフロングネームの事前設定</b>ボックスに <pre class="lt" style="font-family:monospace;"><span style="color: #000080;">%</span><span style="color: #000000;">(</span><span style="color: #0000dd;">1</span>, @WL<span style="color: #000000;">)</span> <span style="color: #000080;">-</span> <span style="color: #000080;">%</span><span style="color: #000000;">(</span><span style="color: #0000dd;">1</span>, @W,SAMPLE<span style="color: #000080;">$</span><span style="color: #000000;">)</span></pre> と入力します。
-<dl><dd><a  class="image"><img alt="Template save as.png" src="../images/Text_Label_Options/Template_save_as.png" width="590"  /></a></dd></dl></li>
+<dl><dd><a  class="image"><img alt="Template save as.png" src="../images/Text_Label_Options/Template_save_as.png" width="474"  /></a></dd></dl></li>
 <li>保存されたテンプレートからグラフを作成する際、グラフのロングネームは<i>ワークブックロングネーム &ndash; ユーザ定義パラメータ行の&quot;Sample&quot;の文字列</i>となります。</li></ol>
 <h4><a name="Export_worksheet_as_PDF_with_Book_and_sheet_name_in_File_name"></a><span class="mw-headline">ファイル名にブックとシート名を指定して、ワークシートをPDFとしてエクスポートする</span></h4>
 <p><b>ファイル：エクスポート：PDF形式で</b>を使用して、ファイル名を&lt;ロングネーム&gt;に設定してブック内の複数シートをエクスポートすると、PDFファイル名は<i>[&lt;ブックロングネーム&gt;]&lt;シート&gt;.PDF</i>形式になります。ファイル名を<i>%(%H, @PL) - &lt;シート名&gt;</i>と設定します。エクスポートされたPDFファイル名は<i>&lt;ブックロングネーム&gt;-シート名.pdf</i>形式になります。
 </p>
-<dl><dd><a  class="image"><img alt="Ex2 wks PDF.png" src="../images/Text_Label_Options/Ex2_wks_PDF.png" width="598"  /></a></dd></dl>
+<dl><dd><a  class="image"><img alt="Ex2 wks PDF.png" src="../images/Text_Label_Options/Ex2_wks_PDF.png" width="606"  /></a></dd></dl>
 <h4><a name="Export_embedded_graph_with_Book_and_sheet_name_in_File_name"></a><span class="mw-headline">ファイル名にブック名とシート名を含む埋め込みグラフをエクスポート</span></h4>
 <p>下図のように、解析に関連するデータとグラフを1つのワークブックにまとめたとします。埋め込みグラフをPowerPointにエクスポートし、ワークブック名とワークシート名をタイトル行として追加します。<b>PowerPointにグラフを送る</b>ダイアログで事前設定できます。
 </p><p><a  class="image"><img alt="Ex2 workbook.png" src="../images/Text_Label_Options/Ex2_workbook.png" width="884"  /></a>
 </p>
 <ol><li><b>標準</b>ツールバーの<a class="external text" href="https://www.originlab.com/FileExchange/Details.aspx?fid=374" target="_blank"><b>PowerPointにグラフを送る</b></a>ボタンをクリックします。開いたダイアログで、<b>タイトル</b>にカスタムを選択し、テキストボックスに <pre class="lt" style="font-family:monospace;"><span style="color: #000080;">%</span><span style="color: #000000;">(</span><span style="color: #000080;">%</span>H, @PLE<span style="color: #000000;">)</span> <span style="color: #000080;">-</span> <span style="color: #000080;">%</span><span style="color: #000000;">(</span><span style="color: #000080;">%</span>H,@SN<span style="color: #000000;">)</span></pre> と入力します。
-<dl><dd><a  class="image"><img alt="Ex2 Send Graphs to PPT.png" src="../images/Text_Label_Options/Ex2_Send_Graphs_to_PPT.png" width="863"  /></a></dd></dl></li>
+<dl><dd><a  class="image"><img alt="Ex2 Send Graphs to PPT.png" src="../images/Text_Label_Options/Ex2_Send_Graphs_to_PPT.png" width="515"  /></a></dd></dl></li>
 <li>パワーポイントに送信されるグラフには、上部に「<i>2D Binning 3-Fitted Curve</i>」のようなタイトルがつけられます。</li></ol>
 <h4><a name="Preset_X.2C_Y.2C_Z_axis_title_when_plotting_Heatmap"></a><span class="mw-headline">ヒートマップをプロットする際のX、Y、Z軸タイトルの事前設定</span></h4>
 <p>ワークシートのデータを仮想行列として使用してヒートマップまたは等高線図をプロットする場合、XY情報とワークシート名に基づいてXタイトル、Yタイトル、Zタイトル（カラースケールタイトルに使用）を設定できます。
@@ -782,6 +797,9 @@
 <p>とします。
 </p><p><a  class="image"><img alt="Ex4 Annotation.png" src="../images/Text_Label_Options/Ex4_Annotation.png" width="875"  /></a>
 </p>
+
+
+
 
 
 

@@ -14,11 +14,9 @@ page.<span style="color: #000080;">xlcolname</span> <span style="color: #000080;
 rWb.<span style="color: #000080;">AddCol</span><span style="color: #000000;">(</span>NewColumn<span style="color: #000000;">)</span>;          <span style="color: #008000;">// 新規の列を追加</span>
 NumColumns <span style="color: #000080;">=</span> rWb.<span style="color: #000080;">ncols</span>;         <span style="color: #008000;">// 列数を確認</span></pre>
 <table class="noborder"><tr>
-	<td style="vertical-align:top" width="60"><img src="../images/Wks_(object)/Tip_icon.png" width="57"  border="0" /></td><td><p>ワークブックの<a class="external text" href="../../UserGuide/UserGuide/Column_Short_Name_Restriction.html">スプレッドシートセル表記</a>については、<a class="external text" href="../../QuickHelp/QuickHelp/Turn_off_spreadsheet_cell_notation.html"><b>FAQ-849</b></a> を参照してください。
-</p></td></tr></table>
-<table class="noborder"><tr>
-	<td style="vertical-align:top" width="60"><img src="../images/Wks_(object)/Tip_icon.png" width="57"  border="0" /></td><td><p>その他のワークシートプロパティへの読み/書きアクセスについては<a class="external text" href="../../XFunction/X-Function/Wproperties.html"><b>wproperties</b></a> Xファンクションを参照してください。さらに、<b>wks</b>オブジェクトと同じ事をするXファンクションがあります。詳細は、<a href="../../LabTalk/Script/LabTalk-Supported_X-Functions.html#Worksheet" title="Script:LabTalkがサポートするXファンクション">ワークシート操作Xファンクション</a>をご覧下さい。
-</p></td></tr></table>
+	<td style="vertical-align:top" width="60"><img src="../images/Wks_(object)/Tip_icon.png" width="57"  border="0" /></td><td><ul><li> ワークブックの<a class="external text" href="../../UserGuide/UserGuide/Column_Short_Name_Restriction.html">スプレッドシートセル表記</a>については<a class="external text" href="../../QuickHelp/QuickHelp/Turn_off_spreadsheet_cell_notation.html"><b>FAQ-849</b></a>を参照してください。</li>
+<li> その他のワークシートプロパティへの読み/書きアクセスについては<a class="external text" href="../../XFunction/X-Function/Wproperties.html"><b>wproperties</b></a> Xファンクションを参照してください。さらに、<b>wks</b>オブジェクトと同じ事をするXファンクションがあります。詳細は、<a href="../../LabTalk/Script/LabTalk-Supported_X-Functions.html#Worksheet" title="Script:LabTalkがサポートするXファンクション">ワークシート操作Xファンクション</a>をご覧下さい。</li></ul>
+</td></tr></table>
 <div id="toc" class="toc"><div id="toctitle"><h2>目次</h2></div>
 <ul>
 <li class="toclevel-1 tocsection-1"><a href="#PropertiesWorksheet_Property"><span class="tocnumber">1</span> <span class="toctext">プロパティ<span class="OIndex" style="display:none">Worksheet Property</span></span></a></li>
@@ -188,6 +186,14 @@ wks.<span style="color: #000080;">frozen</span><span style="color: #000080;">$</
 <td> 読み/書き<br />float
 </td>
 <td> シート内の標準名スタイルのフォントサイズ（<code> wks.fsize = 12;</code> など）。
+</td></tr>
+<tr>
+<td> wks.groups
+<p align="right"><font color="red">(2026b)</font></p>
+</td>
+<td> 読み取り<br />整数
+</td>
+<td> <a class="external text" href="../../UserGuide/UserGuide/Life_Science_Mode.html#Data_Table">データテーブル</a>内のグループ数を取得します。
 </td></tr>
 <tr>
 <td> wks.hasdc
@@ -363,7 +369,8 @@ wks.<span style="color: #000080;">index</span> <span style="color: #000080;">=</
 </td>
 <td> 読み/書き<br />整数
 </td>
-<td> ワークシート内の列の数。Origin 8以前は、このプロパティは読み取り専用です。
+<td> ワークシート内の列の数。Origin 8以前は、このプロパティは読み取り専用です。既存の列のユーザ定義パラメータにセル式が含まれている場合、新しく追加された列はデフォルトで最後の列の式をコピーします(この動作を変更するには@ALFNを使用します)。
+<ul><li> 既存の列のユーザ定義パラメータがセル式で計算され、その式に<code>This</code> または<code>j</code> が含まれている場合、新しく追加された列はデフォルトで最後の列の式をコピーします。 &emsp;</li></ul>
 </td></tr>
 <tr>
 <td> wks.nRows
@@ -426,6 +433,14 @@ dbImport;
 wks.<span style="color: #000080;">timer</span> <span style="color: #000080;">=</span> <span style="color: #0000dd;">1</span>;</pre>
 </td></tr>
 <tr>
+<td> wks.type
+<p align="right"><font color="red">(2026b)</font></p>
+</td>
+<td> 読み取り<br />整数
+</td>
+<td> <a class="external text" href="../../UserGuide/UserGuide/Life_Science_Mode.html#Data_Table">データテーブル</a>の型を取得および設定します。0=元のクラシックワークシート、1=XY、2=列(一方向)、3=グループ(二方向)、4=分割表、5=生存表。
+</td></tr>
+<tr>
 <td> wks.upc
 </td>
 <td> 読み取り<br />整数
@@ -455,6 +470,14 @@ wks.<span style="color: #000080;">timer</span> <span style="color: #000080;">=</
 <td> ユーザーパラメーターの名前にアクセスする。例：
 <pre class="lt" style="font-family:monospace;"><span style="color: #008000;">// パラメータ名を &quot;Site Index&quot;に設定</span>
 wks.<span style="color: #000080;">UserParam1</span><span style="color: #000080;">$</span><span style="color: #000080;">=</span><span style="color: #ff00ff;">&quot;Site Index&quot;</span>;</pre>
+</td></tr>
+<tr>
+<td> wks.values
+<p align="right"><font color="red">(2026b)</font></p>
+</td>
+<td> 読み取り<br />整数
+</td>
+<td> <a class="external text" href="../../UserGuide/UserGuide/Life_Science_Mode.html#Data_Table">データテーブル</a>内の複製数を取得および設定します。
 </td></tr>
 <tr>
 <td> wks.View
@@ -499,9 +522,6 @@ wks.<span style="color: #000080;">UserParam1</span><span style="color: #000080;"
 </td>
 <td> 行列のX/Y座標の単位。
 </td></tr></table>
-<table class="noborder"><tr>
-	<td style="vertical-align:top" width="60"><img src="../images/Wks_(object)/Tip_icon.png" width="57"  border="0" /></td><td><p><b>&dagger;</b>wks.merge()はラベル専用であり、選択したワークシートセルを統合するLabTalkプロパティやコマンドはありません。ただし<b>セルの統合</b>ツールバーボタンのメニューIDを取得して、<a href="../../LabTalk/LabTalk/Menu_(command).html#-e.3B_Execute_the_menu_command_with_the_specified_ID" title="LabTalk:Menu (command)"><b>menu-e</b></a>コマンドを使用することでこれを実現できます。
-</p></td></tr></table>
 <h2><a name="Methods"></a><span class="mw-headline">メソッド</span></h2>
 <p><span class="OIndex" style="display:none">ワークシートメソッド</span>
 </p>
@@ -519,16 +539,9 @@ wks.<span style="color: #000080;">UserParam1</span><span style="color: #000080;"
 <tr>
 <td> wks.addCol(<i>name</i>)
 </td>
-<td> ワークシートの最後に名前付きの列を1列追加する。<i>name</i>が指定されていない場合は、一般的な名前が選択されます。
-<table class="noborder">
-	<tr>
-	<td style="vertical-align:top" width="60"><img src="../images/Wks_(object)/Alert_icon.png" width="57"  border="0" /></td><td><p>列名を指定した場合、かつワークブックで<a class="external text" href="../../UserGuide/UserGuide/Column_Short_Name_Restriction.html">スプレッドシートセル表記</a>がオフになっている場合、新しい列でこの名前が使用されます。詳細は、<a class="external text" href="../../QuickHelp/QuickHelp/Turn_off_spreadsheet_cell_notation.html"><b>FAQ-849</b></a>を参照してください。
-<p><font color="red">(2025b)</font>スプレッドシートセル表記がONの場合、指定した列名は新しい列のロングネームとなります。
-</p>
-</p>
-	</td>
-	</tr>
-	</table>
+<td> ワークシートの最後に名前付きの列を1列追加する。
+<ul><li> ワークブックでは<a class="external text" href="../../UserGuide/UserGuide/Column_Short_Name_Restriction.html">スプレッドシートセル表記</a>がデフォルトでオンになっています。そのため、指定された <i>name</i> はロングネームとして使用されます。<br /><a class="external text" href="../../QuickHelp/QuickHelp/Turn_off_spreadsheet_cell_notation.html">スプレッドシートセル表記がオフ</a>で<i>name</i>が指定されている場合、新しい列のショートネームとして使用されます。<i>name</i>が指定されていない場合は、一般的な名前が選択されます。 </li>
+<li> 既存の列のユーザ定義パラメータがセルの数式で計算され、数式に<code>This</code> または<code>j</code> が含まれている場合、新しく追加された列はデフォルトで最後の列の数式をコピーします(この動作を変更するには<a href="../../LabTalk/LabTalk/System_Variable_List.html#A" title="LabTalk:System Variable List">@ALFN</a>を使用します)。 &emsp;</li></ul>
 </td></tr>
 <tr>
 <td> wks.addUD(<i>name</i>, <i>str</i>, <i>col</i>)
@@ -553,7 +566,7 @@ wks.<span style="color: #000080;">AddUD</span><span style="color: #000000;">(</s
 <tr>
 <td> wks.copy(<i>strRegister</i>, <i>Col</i>, <i>Row</i>)
 </td>
-<td> Copy(<i>Z</i>): ワークシート全体を<a href="../../LabTalk/LabTalk/String_registers.html" title="LabTalk:文字列レジスタ">文字列レジスタ</a>&nbsp;%Zにコピーします。（最大6,290文字を保持できる%Zを使用することをお勧めします。これよりも文字数が多い場合はコピーされず、エラーは発生しません）。<code>wks.paste()</code>も参照してください。<br />Copy(<i>Z</i>, <i>n</i>): 列<i>n</i>の全行をコピーします。<br />Copy(<i>Z</i>, 0, <i>n</i>):  行<i>n</i>の全列をコピーします。<br />さらなるオプションについては<a class="external text" href="../../XFunction/X-Function/Colcopy.html">colcopy</a>、<a class="external text" href="../../XFunction/X-Function/Colcopy.html">colcopy</a>、<a class="external text" href="../../XFunction/X-Function/Wcopy.html">wcopy</a>、<a class="external text" href="../../XFunction/X-Function/Wrcopy.html">wrcopy</a> Xファンクションを参照してください。
+<td> Copy(<i>Z</i>): ワークシート全体を<a href="../../LabTalk/LabTalk/String_registers.html" title="LabTalk:String registers">文字列レジスタ</a>&nbsp;%Zにコピーします。（最大6,290文字を保持できる%Zを使用することをお勧めします。これよりも文字数が多い場合はコピーされず、エラーは発生しません）。<code>wks.paste()</code>も参照してください。<br />Copy(<i>Z</i>, <i>n</i>): 列<i>n</i>の全行をコピーします。<br />Copy(<i>Z</i>, 0, <i>n</i>):  行<i>n</i>の全列をコピーします。<br />さらなるオプションについては<a class="external text" href="../../XFunction/X-Function/Colcopy.html">colcopy</a>、<a class="external text" href="../../XFunction/X-Function/Colcopy.html">colcopy</a>、<a class="external text" href="../../XFunction/X-Function/Wcopy.html">wcopy</a>、<a class="external text" href="../../XFunction/X-Function/Wrcopy.html">wrcopy</a> Xファンクションを参照してください。
 </td></tr>
 <tr>
 <td> wks.deleteRows(<i>rowBegin</i>[,<i>numRows</i>, <i>colBegin</i>, <i>colEnd</i>])<br />wks.deleteRows([<i>rowBegin</i>,<i>Undo</i>])
@@ -612,13 +625,8 @@ i<span style="color: #000080;">=</span>;<span style="color: #008000;">// Col(A) 
 <td> wks.insert(<i>name list</i>)
 </td>
 <td> 列のリストを現在の位置に挿入。現在の列位置は<code>wks.col</code> で指定されます。リストは、スペースで区切られた1つ以上の任意の列名からなります。列名が既に使用されている場合は、自動的に列挙されます。
-<table class="noborder">
-	<tr>
-	<td style="vertical-align:top" width="60"><img src="../images/Wks_(object)/Alert_icon.png" width="57"  border="0" /></td><td><p>ワークブックで<a class="external text" href="../../UserGuide/UserGuide/Column_Short_Name_Restriction.html">スプレッドシートセル表記</a>が有効になっている場合、指定された列名が新しく追加された列に適用されないことがあります。そのため、指定した列名を列のショートネームに適用したい場合は、<b>wks.insert</b>コマンドを実行する前に<b>スプレッドシートセル表記</b>をオフにする必要があります。詳細は、<a class="external text" href="../../QuickHelp/QuickHelp/Turn_off_spreadsheet_cell_notation.html"><b>FAQ-849</b></a>を参照してください。
-</p>
-	</td>
-	</tr>
-	</table>
+<ul><li> ワークブックで<a class="external text" href="../../UserGuide/UserGuide/Column_Short_Name_Restriction.html">スプレッドシートセル表記</a>が有効になっている場合、指定された列名が新しく追加された列に適用されないことがあります。そのため、指定した列名を列のショートネームに適用したい場合は、<b>wks.insert</b>コマンドを実行する前に<b>スプレッドシートセル表記</b>をオフにする必要があります。詳細は<a class="external text" href="../../QuickHelp/QuickHelp/Turn_off_spreadsheet_cell_notation.html"><b>FAQ-849</b></a>を参照してください。</li>
+<li> 既存の列のユーザ定義パラメータがセルの数式で計算され、数式に<code>This</code> または<code>j</code> が含まれている場合、挿入された列はデフォルトで前の列の数式をコピーします(この動作を変更するには<a href="../../LabTalk/LabTalk/System_Variable_List.html#A" title="LabTalk:System Variable List">@ALFNを</a>使用してください)。 </li></ul>
 </td></tr>
 <tr>
 <td> wks.insertRows(<i>rowBegin</i>[,<i>numRows</i>, <i>colBegin</i>, <i>colEnd</i>])
@@ -689,11 +697,14 @@ wks.<span style="color: #000080;">labels</span><span style="color: #000000;">(</
 <pre class="lt" style="font-family:monospace;">wks.<span style="color: #000080;">merge</span><span style="color: #000000;">(</span>L,<span style="color: #0000dd;">1</span><span style="color: #000000;">)</span>;<span style="color: #008000;">// LNを結合</span>
 wks.<span style="color: #000080;">merge</span><span style="color: #000000;">(</span>L,<span style="color: #0000dd;">0</span><span style="color: #000000;">)</span>;<span style="color: #008000;">//LNの結合解除</span>
 wks.<span style="color: #000080;">merge</span><span style="color: #000000;">(</span>L,<span style="color: #000080;">-</span><span style="color: #0000dd;">1</span><span style="color: #000000;">)</span><span style="color: #000080;">=</span>;<span style="color: #008000;">//LNが結合されたら1、そうでない場合は0を返す</span></pre>
+<p><b>Note:</b><br />
+wks.merge()はラベル専用であり、選択したワークシートセルを統合するLabTalkプロパティやコマンドはありません。ただし<b>セルの統合</b>ツールバーボタンのメニューIDを取得して、<a href="../../LabTalk/LabTalk/Menu_(command).html#-e.3B_Execute_the_menu_command_with_the_specified_ID" title="LabTalk:Menu (command)"><b>menu-e</b></a>コマンドを使用することでこれを実現できます。
+</p>
 </td></tr>
 <tr>
 <td> wks.paste(<i>strRegister</i>, <i>Col</i>, <i>Row</i>)
 </td>
-<td> <a href="../../LabTalk/LabTalk/String_registers.html" title="LabTalk:文字列レジスタ">文字列レジスタ</a>の内容（&nbsp;%なしで指定）を (<i>Col</i>, <i>Row</i>) から始まるセルに貼り付け。
+<td> <a href="../../LabTalk/LabTalk/String_registers.html" title="LabTalk:String registers">文字列レジスタ</a>の内容（&nbsp;%なしで指定）を (<i>Col</i>, <i>Row</i>) から始まるセルに貼り付け。
 </td></tr>
 <tr>
 <td> wks.readonly(<i>arg1</i>, [<i>arg2</i>])<p align="right"><font color="red">(2021b)</font></p>
@@ -802,7 +813,7 @@ wks.<span style="color: #000080;">nrows</span> <span style="color: #000080;">=</
 <pre class="lt" style="font-family:monospace;">page.<span style="color: #000080;">xlcolname</span> <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span>; <span style="color: #008000;">// 最初にスプレッドシートセル表記をオフにする</span>
 wks.<span style="color: #000080;">addCol</span><span style="color: #000000;">(</span>Does<span style="color: #000000;">)</span>; <span style="color: #008000;">// &apos;Does&apos;というショートネームの列を追加</span></pre>
 <table class="noborder"><tr>
-	<td style="vertical-align:top" width="60"><img src="../images/Wks_(object)/Tip_icon.png" width="57"  border="0" /></td><td><p>ワークブックの<a class="external text" href="../../UserGuide/UserGuide/Column_Short_Name_Restriction.html">スプレッドシートセル表記</a>については、<a class="external text" href="../../QuickHelp/QuickHelp/Turn_off_spreadsheet_cell_notation.html"><b>FAQ-849</b></a> を参照してください。
+	<td style="vertical-align:top" width="60"><img src="../images/Wks_(object)/Tip_icon.png" width="57"  border="0" /></td><td><p>ワークブックの<a class="external text" href="../../UserGuide/UserGuide/Column_Short_Name_Restriction.html">スプレッドシートセル表記</a>については<a class="external text" href="../../QuickHelp/QuickHelp/Turn_off_spreadsheet_cell_notation.html"><b>FAQ-849</b></a>を参照してください。
 </p></td></tr></table>
 <p>ワークシートの行に関しては、<b>wks.maxRows</b>と<b>wks.nRows</b>の2つのプロパティは似ています。前者はワークシート内で値を持つ最大の行インデックスを検索し、後者はワークシート内の行数を設定または読み取ります。次のスクリプトは、これら2つのプロパティの使用方法を示しています。
 </p>
@@ -814,19 +825,19 @@ wks.<span style="color: #000080;">nRows</span> <span style="color: #000080;">=</
 <p>このスクリプトは、異なる都市の平均気温の空の表を作成します。この例ではユーザー定義パラメータを作成し、ワークシートのロングネーム、単位、およびユーザー定義パラメータを表示します。
 </p>
 <pre class="lt" style="font-family:monospace;">range ww <span style="color: #000080;">=</span> <span style="color: #000080;">!</span>;  <span style="color: #008000;">// アクティブワークシートで範囲を定義</span>
-ww.<span style="color: #000080;">name</span><span style="color: #000080;">$</span> <span style="color: #000080;">=</span> <span style="color: #ff00ff;">&quot;Average Temperature&quot;</span>;  <span style="color: #008000;">// ワークシート名前変更</span>
-ww.<span style="color: #000080;">ncols</span> <span style="color: #000080;">=</span> <span style="color: #0000dd;">13</span>;  <span style="color: #008000;">// 列の数の合計を設定</span>
-ww.<span style="color: #000080;">userParam1</span><span style="color: #000080;">$</span> <span style="color: #000080;">=</span> Month;  <span style="color: #008000;">// 新しいユーザパラメータを定義</span>
+ww.<span style="color: #000080;">name</span><span style="color: #000080;">$</span> <span style="color: #000080;">=</span> <span style="color: #ff00ff;">&quot;Average Temperature&quot;</span>;  <span style="color: #008000;">// ワークシート名を変更</span>
+ww.<span style="color: #000080;">ncols</span> <span style="color: #000080;">=</span> <span style="color: #0000dd;">13</span>;  <span style="color: #008000;">// 列数を設定</span>
+ww.<span style="color: #000080;">userParam1</span><span style="color: #000080;">$</span> <span style="color: #000080;">=</span> Month;  <span style="color: #008000;">// 新しいユーザパラメータラベルを定義</span>
 <span style="color: #008000;">// ワークシートロングネーム、単位、ユーザパラメータを表示</span>
 ww.<span style="color: #000080;">labels</span><span style="color: #000000;">(</span>LUD1<span style="color: #000000;">)</span>;  
-Col<span style="color: #000000;">(</span><span style="color: #0000dd;">1</span><span style="color: #000000;">)</span><span style="color: #000000;">[</span>L<span style="color: #000000;">]</span><span style="color: #000080;">$</span> <span style="color: #000080;">=</span> City;  <span style="color: #008000;">// 列ロングネームを表示</span>
+Col<span style="color: #000000;">(</span><span style="color: #0000dd;">1</span><span style="color: #000000;">)</span><span style="color: #000000;">[</span>L<span style="color: #000000;">]</span><span style="color: #000080;">$</span> <span style="color: #000080;">=</span> City;  <span style="color: #008000;">// 列のロングネームを設定</span>
 stringarray month <span style="color: #000080;">=</span> <span style="color: #000000;">{</span><span style="color: #ff00ff;">&quot;Jun.&quot;</span>, <span style="color: #ff00ff;">&quot;Feb.&quot;</span>, <span style="color: #ff00ff;">&quot;Mar.&quot;</span>, <span style="color: #ff00ff;">&quot;Apr.&quot;</span>, <span style="color: #ff00ff;">&quot;May.&quot;</span>, <span style="color: #ff00ff;">&quot;Jun.&quot;</span>, 
                    <span style="color: #ff00ff;">&quot;July&quot;</span>, <span style="color: #ff00ff;">&quot;Aug.&quot;</span>, <span style="color: #ff00ff;">&quot;Sep.&quot;</span>, <span style="color: #ff00ff;">&quot;Oct.&quot;</span>, <span style="color: #ff00ff;">&quot;Nov.&quot;</span>, <span style="color: #ff00ff;">&quot;Dec.&quot;</span><span style="color: #000000;">}</span>;
 loop<span style="color: #000000;">(</span>ii, <span style="color: #0000dd;">2</span>, <span style="color: #0000dd;">13</span><span style="color: #000000;">)</span>
 <span style="color: #000000;">{</span>
-	Col<span style="color: #000000;">(</span><span style="color: #000080;">$</span><span style="color: #000000;">(</span>ii<span style="color: #000000;">)</span><span style="color: #000000;">)</span><span style="color: #000000;">[</span>L<span style="color: #000000;">]</span><span style="color: #000080;">$</span> <span style="color: #000080;">=</span> Temperature;  <span style="color: #008000;">// 列ロングネームを設定</span>
-	Col<span style="color: #000000;">(</span><span style="color: #000080;">$</span><span style="color: #000000;">(</span>ii<span style="color: #000000;">)</span><span style="color: #000000;">)</span><span style="color: #000000;">[</span>U<span style="color: #000000;">]</span><span style="color: #000080;">$</span> <span style="color: #000080;">=</span> \<span style="color: #000080;">+</span><span style="color: #000000;">(</span>o<span style="color: #000000;">)</span>F;  <span style="color: #008000;">// 列単位を設定</span>
-        <span style="color: #008000;">// 列ユーザパラメータを設定</span>
+	Col<span style="color: #000000;">(</span><span style="color: #000080;">$</span><span style="color: #000000;">(</span>ii<span style="color: #000000;">)</span><span style="color: #000000;">)</span><span style="color: #000000;">[</span>L<span style="color: #000000;">]</span><span style="color: #000080;">$</span> <span style="color: #000080;">=</span> Temperature;  <span style="color: #008000;">// 列のロングネームを設定</span>
+	Col<span style="color: #000000;">(</span><span style="color: #000080;">$</span><span style="color: #000000;">(</span>ii<span style="color: #000000;">)</span><span style="color: #000000;">)</span><span style="color: #000000;">[</span>U<span style="color: #000000;">]</span><span style="color: #000080;">$</span> <span style="color: #000080;">=</span> \<span style="color: #000080;">+</span><span style="color: #000000;">(</span>o<span style="color: #000000;">)</span>F;  <span style="color: #008000;">// 列の単位を設定</span>
+        <span style="color: #008000;">// 列のユーザパラメータを設定</span>
 	Col<span style="color: #000000;">(</span><span style="color: #000080;">$</span><span style="color: #000000;">(</span>ii<span style="color: #000000;">)</span><span style="color: #000000;">)</span><span style="color: #000000;">[</span>D1<span style="color: #000000;">]</span><span style="color: #000080;">$</span> <span style="color: #000080;">=</span> month.<span style="color: #000080;">getAt</span><span style="color: #000000;">(</span>ii<span style="color: #000080;">-</span><span style="color: #0000dd;">1</span><span style="color: #000000;">)</span><span style="color: #000080;">$</span>;  
 <span style="color: #000000;">}</span></pre>
 <h3><a name="Get_the_unhidden_value_from_the_column_in_worksheet"></a><span class="mw-headline">ワークシートの列から非表示でない値を取得</span></h3>
