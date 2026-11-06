@@ -43,11 +43,12 @@ Delete the specified object.
 <li class="toclevel-2 tocsection-29"><a href="#-s.3B_Delete_the_given_dataset_or_function"><span class="tocnumber">3.26</span> <span class="toctext">-s; Delete the given dataset or function</span></a></li>
 <li class="toclevel-2 tocsection-30"><a href="#-sd.3B_Delete_only_the_specified_dataset_and_reset_all_other_dependent_datasets"><span class="tocnumber">3.27</span> <span class="toctext">-sd; Delete only the specified dataset and reset all other dependent datasets</span></a></li>
 <li class="toclevel-2 tocsection-31"><a href="#-si.3B_Delete_all_datasets_with_invalid_name"><span class="tocnumber">3.28</span> <span class="toctext">-si; Delete all datasets with invalid name</span></a></li>
-<li class="toclevel-2 tocsection-32"><a href="#-spk.3B_Delete_all_project_sparklines"><span class="tocnumber">3.29</span> <span class="toctext">-spk; Delete all project sparklines</span></a></li>
-<li class="toclevel-2 tocsection-33"><a href="#-sw.3B_Delete_a_set_of_dataset_whose_name_includes_specified_characters"><span class="tocnumber">3.30</span> <span class="toctext">-sw; Delete a set of dataset whose name includes specified characters</span></a></li>
-<li class="toclevel-2 tocsection-34"><a href="#-v.3B_Delete_the_specified_numeric_variable"><span class="tocnumber">3.31</span> <span class="toctext">-v; Delete the specified numeric variable</span></a></li>
-<li class="toclevel-2 tocsection-35"><a href="#-vs.3B_Delete_the_specified_global.2Fproject_string_variable"><span class="tocnumber">3.32</span> <span class="toctext">-vs; Delete the specified global/project string variable</span></a></li>
-<li class="toclevel-2 tocsection-36"><a href="#-web.3B_Clear_the_URL-to-File_cache_used_by_Web_Connectors_.28Data:_Connect_to_Web.29"><span class="tocnumber">3.33</span> <span class="toctext">-web; Clear the URL-to-File cache used by Web Connectors (Data: Connect to Web)</span></a></li>
+<li class="toclevel-2 tocsection-32"><a href="#-sn.3B_Delete_sticky_notes"><span class="tocnumber">3.29</span> <span class="toctext">-sn; Delete sticky notes</span></a></li>
+<li class="toclevel-2 tocsection-33"><a href="#-spk.3B_Delete_all_project_sparklines"><span class="tocnumber">3.30</span> <span class="toctext">-spk; Delete all project sparklines</span></a></li>
+<li class="toclevel-2 tocsection-34"><a href="#-sw.3B_Delete_a_set_of_dataset_whose_name_includes_specified_characters"><span class="tocnumber">3.31</span> <span class="toctext">-sw; Delete a set of dataset whose name includes specified characters</span></a></li>
+<li class="toclevel-2 tocsection-35"><a href="#-v.3B_Delete_the_specified_numeric_variable"><span class="tocnumber">3.32</span> <span class="toctext">-v; Delete the specified numeric variable</span></a></li>
+<li class="toclevel-2 tocsection-36"><a href="#-vs.3B_Delete_the_specified_global.2Fproject_string_variable"><span class="tocnumber">3.33</span> <span class="toctext">-vs; Delete the specified global/project string variable</span></a></li>
+<li class="toclevel-2 tocsection-37"><a href="#-web.3B_Clear_the_URL-to-File_cache_used_by_Web_Connectors_.28Data:_Connect_to_Web.29"><span class="tocnumber">3.34</span> <span class="toctext">-web; Clear the URL-to-File cache used by Web Connectors (Data: Connect to Web)</span></a></li>
 </ul>
 </li>
 </ul>
@@ -441,6 +442,40 @@ list s;
 <p>Syntax: del <b>-si</b>
 </p><p>Delete all dataset with invalid name
 </p><p><font color="red">Origin Version: 2017</font>
+</p>
+<h3><a name="-sn.3B_Delete_sticky_notes"></a><span class="mw-headline">-sn; Delete sticky notes</span></h3>
+<p>Syntax: del <b>-sn[u]</b> <i>[scope]</i>
+</p><p>Delete sticky notes
+</p>
+<ul><li> u = undoable</li></ul>
+<table class="simple">
+
+<tr>
+<th>value
+</th>
+<th>scope
+</th></tr>
+<tr>
+<td> default
+</td>
+<td>entire project
+</td></tr>
+<tr>
+<td> 1
+</td>
+<td>current folder and sub-folders
+</td></tr>
+<tr>
+<td> 2
+</td>
+<td>current folder
+</td></tr>
+<tr>
+<td> 3
+</td>
+<td>active window (or book and all sheets)
+</td></tr></table>
+<p><font color="red">Origin Version: 2027</font>
 </p>
 <h3><a name="-spk.3B_Delete_all_project_sparklines"></a><span class="mw-headline">-spk; Delete all project sparklines</span></h3>
 <p>Syntax: del <b>-spk</b>

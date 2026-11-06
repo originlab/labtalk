@@ -37,7 +37,11 @@
 </p>
 <ul><li> Links like range://, http:// etc. will return 0 since their values can be directly accessed.</li>
 <li> To return the raw reference string, use <code>cell(rowNum, colNum, 1)$</code>:</li></ul>
-<pre class="lt" style="font-family:monospace;">cell<span style="color: #000000;">&#40;</span><span style="color: #0000dd;">1</span>,<span style="color: #0000dd;">2</span>,<span style="color: #0000dd;">1</span><span style="color: #000000;">&#41;</span><span style="color: #000080;">$</span><span style="color: #000080;">=</span>; <span style="color: #008000;">// for example, returns the raw reference at row 1, column 2, as a string</span></pre>
+<pre class="lt" style="font-family:monospace;">cell<span style="color: #000000;">&#40;</span><span style="color: #0000dd;">1</span>,<span style="color: #0000dd;">2</span>,<span style="color: #0000dd;">1</span><span style="color: #000000;">&#41;</span><span style="color: #000080;">$</span><span style="color: #000080;">=</span>; <span style="color: #008000;">// for example, returns the raw reference at row 1, column 2, as a string </span>
+
+<span style="color: #008000;">//for cell embedded a HTML note window</span>
+cell<span style="color: #000000;">&#40;</span><span style="color: #0000dd;">1</span>,<span style="color: #0000dd;">1</span>,<span style="color: #0000dd;">1</span><span style="color: #000000;">&#41;</span><span style="color: #000080;">$</span><span style="color: #000080;">=</span>; <span style="color: #008000;">// embedded notes actual string</span>
+cell<span style="color: #000000;">&#40;</span><span style="color: #0000dd;">1</span>,<span style="color: #0000dd;">1</span><span style="color: #000000;">&#41;</span><span style="color: #000080;">$</span><span style="color: #000080;">=</span>; <span style="color: #008000;">// embedded notes display string</span></pre>
 <h2><a name="Examples:"></a><span class="mw-headline"><font color="chocolate">Examples:</font></span></h2>
 <p><b>Example 1</b>
 </p><p>In the following example, the variable&#160;%W is assigned the value in row 50 of the third column in the active worksheet (or matrix).

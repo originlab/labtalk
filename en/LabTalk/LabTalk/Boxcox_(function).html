@@ -1,0 +1,55 @@
+<h1 class="firstHeading">3.5.2.3 boxcox</h1><p class='urlname' style='display: none'>Boxcox-func</p>
+<p><br />
+</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Description"><span class="tocnumber">1</span> <span class="toctext">Description</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Syntax"><span class="tocnumber">2</span> <span class="toctext">Syntax</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Parameter"><span class="tocnumber">3</span> <span class="toctext">Parameter</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Return"><span class="tocnumber">4</span> <span class="toctext">Return</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="#Example"><span class="tocnumber">5</span> <span class="toctext">Example</span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="#See_Also"><span class="tocnumber">6</span> <span class="toctext">See Also</span></a></li>
+</ul>
+</div>
+
+<h2><a name="Description"></a><span class="mw-headline"><font color="chocolate">Description</font></span></h2>
+<p>This function takes a positive vector and transforms it into approximately normal distributed one by using Box-Cox power transformation method. 
+The Box-Cox transform is formulated as following:
+</p><p><img src="../images/Boxcox_(function)/math-fcc3c0413cb0b2b80231a6db5e541258.png?v=0" title="&#10;Y&#39;=\left\{&#10;    \begin{array}{ll}&#10;    Y^\lambda&amp;\lambda \neq 0\cr&#10;    \ln(Y)&amp;\lambda = 0&#10;    \end{array}&#10;\right.&#10;" alt="&#10;Y&#39;=\left\{&#10;    \begin{array}{ll}&#10;    Y^\lambda&amp;\lambda \neq 0\cr&#10;    \ln(Y)&amp;\lambda = 0&#10;    \end{array}&#10;\right.&#10;" class="tex"/>
+</p>
+<h2><a name="Syntax"></a><span class="mw-headline"><font color="chocolate">Syntax</font></span></h2>
+<pre class="lt" style="font-family:monospace;">vector boxcox<span style="color: #000000;">&#40;</span>vector vd<span style="color: #000000;">&#91;</span>, double lambda, int options, int period<span style="color: #000000;">&#93;</span><span style="color: #000000;">&#41;</span></pre>
+<h2><a name="Parameter"></a><span class="mw-headline"><font color="chocolate">Parameter</font></span></h2>
+<p><b>vd</b>
+</p>
+<dl><dd>The input vector (column) to be transformed. vd must be positive dataset.</dd></dl>
+<p><b>lambda</b>
+</p>
+<dl><dd>Optional. If specify a number, perform the Box-Cox transformation with the specified lambda. Default lambda is not a number (NANUM, i.e. “0/0”). In this case, the function will estimate the optimal lambda that maximizes the log-likelihood function before transformation, and lambda will be restricted in the range of [-5, 5].</dd></dl>
+<p><b>options</b>
+</p>
+<dl><dd>Optinal. Specify the Box-Cox transformation method to use.
+<ul><li>options = 0 (Default): use method similar to SciPy’s boxcox function;</li>
+<li>options = 1: use the method in <a class="external text" href="../../App/App/Algorithm_DT.html#Box-Cox_Transformation">Statistical Process Control</a>;</li>
+<li>options =2: use the method in <a class="external text" href="../../App/App/Algorithm_BoxCox.html">Time Series Analysis</a>. </li></ul></dd></dl>
+<p><b>period</b>
+</p>
+<dl><dd>If options = 2, when Time Series Analysis method is used, specify <b>period</b> that determines the seasonal period of the original time series. <b>period</b> must be an integer not smaller than 2.</dd></dl>
+<h2><a name="Return"></a><span class="mw-headline"><font color="chocolate">Return</font></span></h2>
+<p>Box-Cox power transformed vector (column).
+</p>
+<h2><a name="Example"></a><span class="mw-headline"><font color="chocolate">Example</font></span></h2>
+<p><i><b>EX1</b></i>
+</p>
+<pre class="lt" style="font-family:monospace;">newbook;
+col<span style="color: #000000;">&#40;</span>A<span style="color: #000000;">&#41;</span> <span style="color: #000080;">=</span> data<span style="color: #000000;">&#40;</span><span style="color: #0000dd;">0.1</span>, <span style="color: #0000dd;">1.1</span>, <span style="color: #0000dd;">0.002</span><span style="color: #000000;">&#41;</span>;
+col<span style="color: #000000;">&#40;</span>B<span style="color: #000000;">&#41;</span> <span style="color: #000080;">=</span> boxcox<span style="color: #000000;">&#40;</span>col<span style="color: #000000;">&#40;</span>A<span style="color: #000000;">&#41;</span><span style="color: #000000;">&#41;</span>; <span style="color: #008000;">//output results similar to SciPy, with optimal lambda estimated by Origin</span>
+col<span style="color: #000000;">&#40;</span>C<span style="color: #000000;">&#41;</span> <span style="color: #000080;">=</span> boxcox<span style="color: #000000;">&#40;</span>col<span style="color: #000000;">&#40;</span>A<span style="color: #000000;">&#41;</span>,<span style="color: #0000dd;">0</span><span style="color: #000080;">/</span><span style="color: #0000dd;">0</span>,<span style="color: #0000dd;">1</span><span style="color: #000000;">&#41;</span>; <span style="color: #008000;">//use SPC method; lambda CANNOT be omitted, default &quot;0/0&quot; means estimating optimal lambda</span></pre>
+<h2><a name="See_Also"></a><span class="mw-headline"><font color="chocolate">See Also</font></span></h2>
+<p><a href="../../LabTalk/LabTalk/Yeojohnson_(function).html" title="LabTalk:Yeojohnson (function)">yeojohnson</a> <a href="../../LabTalk/LabTalk/Jtrans_(function).html" title="LabTalk:Jtrans (function)">jtrans</a>
+</p>
+
+
+
+
+

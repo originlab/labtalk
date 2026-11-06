@@ -1,4 +1,4 @@
-<h1 class="firstHeading">3.5.2.6 Countif</h1><p class='urlname' style='display: none'>Countif-func</p>
+<h1 class="firstHeading">3.5.2.7 Countif</h1><p class='urlname' style='display: none'>Countif-func</p>
 <div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
 <ul>
 <li class="toclevel-1"><a href="#Description"><span class="tocnumber">1</span> <span class="toctext">Description</span></a></li>
@@ -33,8 +33,18 @@ countif<span style="color: #000000;">&#40;</span>col<span style="color: #000000;
 countif<span style="color: #000000;">&#40;</span>col<span style="color: #000000;">&#40;</span>A<span style="color: #000000;">&#41;</span>, <span style="color: #ff00ff;">&quot;boston&quot;</span><span style="color: #000000;">&#41;</span><span style="color: #000080;">=</span>;
 countif<span style="color: #000000;">&#40;</span>A, <span style="color: #0000dd;">2</span><span style="color: #000000;">&#41;</span><span style="color: #000080;">=</span>;
 countif<span style="color: #000000;">&#40;</span>A, <span style="color: #ff00ff;">&quot;!=2&quot;</span><span style="color: #000000;">&#41;</span><span style="color: #000080;">=</span>;</pre>
-<p><br />
-</p>
+<pre class="lt" style="font-family:monospace;"><span style="color: #008000;">//simple expression like Excel</span>
+
+<span style="color: #008000;">//compare with column F</span>
+COUNTIF<span style="color: #000000;">&#40;</span>C,<span style="color: #ff00ff;">&quot;=F&quot;</span><span style="color: #000000;">&#41;</span>
+COUNTIF<span style="color: #000000;">&#40;</span>C,<span style="color: #ff00ff;">&quot;==F&quot;</span><span style="color: #000000;">&#41;</span>
+
+<span style="color: #008000;">//compare with string &quot;F&quot;  </span>
+COUNTIF<span style="color: #000000;">&#40;</span>C,<span style="color: #ff00ff;">&quot;F&quot;</span><span style="color: #000000;">&#41;</span>  
+COUNTIF<span style="color: #000000;">&#40;</span>C,<span style="color: #ff00ff;">&quot;==&quot;</span>F<span style="color: #ff00ff;">&quot;&quot;</span><span style="color: #000000;">&#41;</span>
+COUNTIF<span style="color: #000000;">&#40;</span>C,<span style="color: #ff00ff;">&quot;=&quot;</span>F<span style="color: #ff00ff;">&quot;&quot;</span><span style="color: #000000;">&#41;</span></pre>
+<pre class="lt" style="font-family:monospace;"><span style="color: #008000;">//Support Excel’s Not Equal to Sign in Set Column Values and Cell Formula only</span>
+COUNTIF<span style="color: #000000;">&#40;</span>D,<span style="color: #ff00ff;">&quot;&lt;&gt;146&quot;</span><span style="color: #000000;">&#41;</span></pre>
 <h2 class="ref"><a name="See_Also"></a><span class="mw-headline">See Also</span></h2>
 <p><a href="../../LabTalk/LabTalk/Sumif_(function).html" title="LabTalk:Sumif (function)">Sumif</a>, <a href="../../LabTalk/LabTalk/Averageif_(function).html" title="LabTalk:Averageif (function)">Averageif</a>
 </p>

@@ -1,4 +1,4 @@
-<h1 class="firstHeading">3.3.2.65.1 Options for Column</h1><p class='urlname' style='display: none'>Worksheet_Options_for_Column</p>
+<h1 class="firstHeading">3.3.2.66.1 Options for Column</h1><p class='urlname' style='display: none'>Worksheet_Options_for_Column</p>
 <p><br />
 </p>
 <h2><a name="-a"></a><span class="mw-headline">-a</span></h2>
@@ -90,6 +90,20 @@ worksheet <span style="color: #000080;">-</span>fd <span style="color: #0000dd;"
 <p><b>Syntax:</b> worksheet <b>-sou Y</b> X/Y/Z, etc.
 </p><p>Set the column designation of a single, selected column to X, Y, Z, etc. For designations, <a class="external text" href="../../UserGuide/UserGuide/Set_Column_Designation.html#Column_Designation_Symbols"><b>List Control Symbols</b> in this table</a>.
 </p>
+<h2><a name="-sy"></a><span class="mw-headline">-sy</span></h2>
+<p><b>Syntax:</b> worksheet <b>-sy[s]</b> <i>[y1 [nys]]</i>
+</p><p>Select Columns. 
+</p>
+<ul><li>s = it will first check if having column selected and do nothing except internally do <code>work -sy reset</code></li></ul>
+<p><i>y1</i> is the offset from the 1st Y column, default = 0. <i>nys</i> is the number of columns to select, default = 1. use 0 to select to the end.
+</p>
+<pre class="lt" style="font-family:monospace;">work <span style="color: #000080;">-</span>sys <span style="color: #0000dd;">0</span> <span style="color: #0000dd;">0</span>; <span style="color: #008000;">// select all Y columns if no column selection</span>
+
+work <span style="color: #000080;">-</span>sy<span style="color: #000000;">&#91;</span>s<span style="color: #000000;">&#93;</span> all; <span style="color: #008000;">// select all columns in worksheet</span>
+
+work <span style="color: #000080;">-</span>sy reset; <span style="color: #008000;">// reset internal cache so restore will do nothing</span>
+
+work <span style="color: #000080;">-</span>sy restore; <span style="color: #008000;">// restore column selection from internal cache</span></pre>
 <h2><a name="-t"></a><span class="mw-headline">-t</span></h2>
 <p><b>Syntax:</b> worksheet <b>-t</b> <i>colRef colType</i>
 </p><p>Set the <i>colRef</i> column as the given column type. <i>ColRef</i> must be the column number. 

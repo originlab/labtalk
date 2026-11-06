@@ -63,12 +63,11 @@
 <td> Read/write,<br />numeric
 </td>
 <td>
-<p>Switch to different syntax types. 
+<p>Switch to colored HTML syntax. 
 </p>
-<ul><li> 0 = plain text, </li>
+<ul><li> 0 = plain text (default), </li>
 <li> 1 = colored HTML syntax</li>
-<li> 2 = Markdown syntax</li>
-<li> 3 = Origin Rich Text (default)</li></ul>
+<li> 2 = Markdown syntax</li></ul>
 </td></tr>
 <tr>
 <td> <b>note.text$</b>
@@ -88,7 +87,7 @@
 <p>Switch between Text Mode and Render Mode. 
 </p>
 <ul><li> 0 = text editor (default), </li>
-<li> 1 =  Render the Origin Rich Text/ HTML/ Markdown syntax.</li></ul>
+<li> 1 = render with HTML browser.</li></ul>
 </td></tr>
 <tr>
 <td> <b>note.width</b>
@@ -120,7 +119,7 @@
 <tr>
 <td> <b>note.ExportHTML()</b>
 </td>
-<td> Export the active Notes window to an HTML page. If the function returns before the files are completely written, you can add <pre class="lt" style="font-family:monospace;">sec <span style="color: #000080;">-</span>wa <span style="color: #000000;">&#91;</span>n<span style="color: #000000;">&#93;</span></pre> to wait for asynchronous functions, if needed.
+<td> Export the active Notes window to an HTML page. It will return before the files are completely written, you can add <pre class="lt" style="font-family:monospace;">sec <span style="color: #000080;">-</span>wa <span style="color: #000000;">&#91;</span>n<span style="color: #000000;">&#93;</span></pre> to wait for async functions if needed. <br />If you need to wait for the report to be ready, use <pre class="lt" style="font-family:monospace;">sec <span style="color: #000080;">-</span>pi <span style="color: #000000;">&#91;</span>n<span style="color: #000000;">&#93;</span></pre>
 </td></tr>
 <tr>
 <td> <b>note.Load()</b>

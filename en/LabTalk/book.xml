@@ -221,6 +221,7 @@
           <page title="Edit" file="LabTalk/Edit_(command).html" url="LabTalk/ref/Edit-cmd" src="LabTalk:Edit_(command)"/>
           <page title="Exit" file="LabTalk/Exit_(command).html" url="LabTalk/ref/Exit-cmd" src="LabTalk:Exit_(command)"/>
           <page title="File" file="LabTalk/File_(command).html" url="LabTalk/ref/File-cmd" src="LabTalk:File_(command)"/>
+          <page title="Folder" file="LabTalk/Folder_(command).html" url="LabTalk/ref/Folder-cmd" src="LabTalk:Folder_(command)"/>
           <page title="For" file="LabTalk/For_(command).html" url="LabTalk/ref/For-cmd" src="LabTalk:For_(command)"/>
           <page title="Get" file="Category/Get_(command).html" url="LabTalk/ref/Get-cmd" src="Category:Get_(command)">
             <page title="Options for Columns" file="LabTalk/Get_Options_for_Columns.html" url="LabTalk/ref/Get_Options_for_Columns" src="LabTalk:Get_Options_for_Columns"/>
@@ -481,6 +482,7 @@
         <page title="Statistics" file="Category/General_Stat_(Labtalk).html" url="LabTalk/ref/General-Stat" src="Category:General_Stat_(Labtalk)">
           <page title="ave" file="LabTalk/Ave_(function).html" url="LabTalk/ref/Ave-func" src="LabTalk:Ave_(function)"/>
           <page title="Averageif" file="LabTalk/Averageif_(function).html" url="LabTalk/ref/Averageif-func" src="LabTalk:Averageif_(function)"/>
+          <page title="boxcox" file="LabTalk/Boxcox_(function).html" url="LabTalk/ref/Boxcox-func" src="LabTalk:Boxcox_(function)"/>
           <page title="Count" file="LabTalk/Count_(function).html" url="LabTalk/ref/Count-func" src="LabTalk:Count_(function)"/>
           <page title="Confidence" file="LabTalk/Confidence_(function).html" url="LabTalk/ref/Confidence-func" src="LabTalk:Confidence_(function)"/>
           <page title="Correl" file="LabTalk/Correl_(function).html" url="LabTalk/ref/Correl-func" src="LabTalk:Correl_(function)"/>
@@ -495,6 +497,7 @@
           <page title="Harmean" file="LabTalk/Harmean_(function).html" url="LabTalk/ref/Harmean-func" src="LabTalk:Harmean_(function)"/>
           <page title="Histogram" file="LabTalk/Histogram_(function).html" url="LabTalk/ref/Histogram-func" src="LabTalk:Histogram_(function)"/>
           <page title="Intercept" file="LabTalk/Intercept_(function).html" url="LabTalk/ref/Intercept-func" src="LabTalk:Intercept_(function)"/>
+          <page title="jtrans" file="LabTalk/Jtrans_(function).html" url="LabTalk/ref/Jtrans-func" src="LabTalk:Jtrans_(function)"/>
           <page title="Kernel2width" file="LabTalk/Kernel2width_(function).html" url="LabTalk/ref/Kernel2width-func" src="LabTalk:Kernel2width_(function)"/>
           <page title="Kernelwidth" file="LabTalk/Kernelwidth_(function).html" url="LabTalk/ref/Kernelwidth-func" src="LabTalk:Kernelwidth_(function)"/>
           <page title="Kurt" file="LabTalk/Kurt_(function).html" url="LabTalk/ref/Kurt-func" src="LabTalk:Kurt_(function)"/>
@@ -529,12 +532,14 @@
           <page title="Ss" file="LabTalk/Ss_(function).html" url="LabTalk/ref/Ss-func" src="LabTalk:Ss_(function)"/>
           <page title="Sum" file="LabTalk/Sum_(function).html" url="LabTalk/ref/Sum-func" src="LabTalk:Sum_(function)"/>
           <page title="Sumif" file="LabTalk/Sumif_(function).html" url="LabTalk/ref/Sumif-func" src="LabTalk:Sumif_(function)"/>
+          <page title="SumSq" file="LabTalk/SumSq_(function).html" url="LabTalk/ref/SumSq-func" src="LabTalk:SumSq_(function)"/>
           <page title="Tmovavg" file="LabTalk/Tmovavg_(function).html" url="LabTalk/ref/Tmovavg-func" src="LabTalk:Tmovavg_(function)"/>
           <page title="Total" file="LabTalk/Total_(function).html" url="LabTalk/ref/Total-func" src="LabTalk:Total_(function)"/>
           <page title="ucl" file="LabTalk/Ucl_(function).html" url="LabTalk/ref/ucl-func" src="LabTalk:Ucl_(function)"/>
           <page title="MovCoef" file="LabTalk/MovCoef_(function).html" url="LabTalk/ref/MovCoef-func" src="LabTalk:MovCoef_(function)"/>
           <page title="Wmovavg" file="LabTalk/Wmovavg_(function).html" url="LabTalk/ref/Wmovavg-func" src="LabTalk:Wmovavg_(function)"/>
           <page title="Wblfit" file="LabTalk/Wblfit_(function).html" url="LabTalk/ref/Wblfit-func" src="LabTalk:Wblfit_(function)"/>
+          <page title="yeojohnson" file="LabTalk/Yeojohnson_(function).html" url="LabTalk/ref/Yeojohnson-func" src="LabTalk:Yeojohnson_(function)"/>
         </page>
         <page title="Distribution" file="Category/Statistical_Functions_(Labtalk).html" url="LabTalk/ref/Statistical-Functions" src="Category:Statistical_Functions_(Labtalk)">
           <page title="Cumulative Distribution Functions (CDF)" file="Category/Cumulative_Distribution_Functions_(LabTalk).html" url="LabTalk/ref/Cumulative-Distribution-Functions" src="Category:Cumulative_Distribution_Functions_(LabTalk)">
@@ -549,11 +554,14 @@
             <page title="Erfcinv" file="LabTalk/Erfcinv_(function).html" url="LabTalk/ref/Erfcinv-func" src="LabTalk:Erfcinv_(function)"/>
             <page title="Erfi" file="LabTalk/Erfi_(function).html" url="LabTalk/ref/Erfi-func" src="LabTalk:Erfi_(function)"/>
             <page title="Erfinv" file="LabTalk/Erfinv_(function).html" url="LabTalk/ref/Erfinv-func" src="LabTalk:Erfinv_(function)"/>
+            <page title="Expcdf" file="LabTalk/Expcdf_(function).html" url="LabTalk/ref/expcdf-func" src="LabTalk:Expcdf_(function)"/>
             <page title="Fcdf" file="LabTalk/Fcdf_(function).html" url="LabTalk/ref/Fcdf-func" src="LabTalk:Fcdf_(function)"/>
             <page title="Foldnormcdf" file="LabTalk/Foldnormcdf_(function).html" url="LabTalk/ref/Foldnormcdf-func" src="LabTalk:Foldnormcdf_(function)"/>
             <page title="Gamcdf" file="LabTalk/Gamcdf_(function).html" url="LabTalk/ref/Gamcdf-func" src="LabTalk:Gamcdf_(function)"/>
             <page title="Hygecdf" file="LabTalk/Hygecdf_(function).html" url="LabTalk/ref/Hygecdf-func" src="LabTalk:Hygecdf_(function)"/>
             <page title="Landaucdf" file="LabTalk/Landaucdf_(function).html" url="LabTalk/ref/Landaucdf-func" src="LabTalk:Landaucdf_(function)"/>
+            <page title="Levcdf" file="LabTalk/Levcdf_(function).html" url="LabTalk/ref/levcdf-func" src="LabTalk:Levcdf_(function)"/>
+            <page title="Logisticcdf" file="LabTalk/Logisticcdf_(function).html" url="LabTalk/ref/logisticcdf-func" src="LabTalk:Logisticcdf_(function)"/>
             <page title="Logncdf" file="LabTalk/Logncdf_(function).html" url="LabTalk/ref/Logncdf-func" src="LabTalk:Logncdf_(function)"/>
             <page title="Ncbetacdf" file="LabTalk/Ncbetacdf_(function).html" url="LabTalk/ref/Ncbetacdf-func" src="LabTalk:Ncbetacdf_(function)"/>
             <page title="Ncchi2cdf" file="LabTalk/Ncchi2cdf_(function).html" url="LabTalk/ref/Ncchi2cdf-func" src="LabTalk:Ncchi2cdf_(function)"/>
@@ -562,6 +570,8 @@
             <page title="Normcdf" file="LabTalk/Normcdf_(function).html" url="LabTalk/ref/Normcdf-func" src="LabTalk:Normcdf_(function)"/>
             <page title="Poisscdf" file="LabTalk/Poisscdf_(function).html" url="LabTalk/ref/Poisscdf-func" src="LabTalk:Poisscdf_(function)"/>
             <page title="Prob" file="LabTalk/Prob_(function).html" url="LabTalk/ref/Prob-func" src="LabTalk:Prob_(function)"/>
+            <page title="Raylcdf" file="LabTalk/Raylcdf_(function).html" url="LabTalk/ref/raylcdf-func" src="LabTalk:Raylcdf_(function)"/>
+            <page title="Sevcdf" file="LabTalk/Sevcdf_(function).html" url="LabTalk/ref/sevcdf-func" src="LabTalk:Sevcdf_(function)"/>
             <page title="Srangecdf" file="LabTalk/Srangecdf_(function).html" url="LabTalk/ref/Srangecdf-func" src="LabTalk:Srangecdf_(function)"/>
             <page title="Tcdf" file="LabTalk/Tcdf_(function).html" url="LabTalk/ref/Tcdf-func" src="LabTalk:Tcdf_(function)"/>
             <page title="Wblcdf" file="LabTalk/Wblcdf_(function).html" url="LabTalk/ref/Wblcdf-func" src="LabTalk:Wblcdf_(function)"/>
@@ -578,14 +588,20 @@
             <page title="Ksdensity" file="LabTalk/Ksdensity_(function).html" url="LabTalk/ref/ksdensity-func" src="LabTalk:Ksdensity_(function)"/>
             <page title="Landaupdf" file="LabTalk/Landaupdf_(function).html" url="LabTalk/ref/Landaupdf-func" src="LabTalk:Landaupdf_(function)"/>
             <page title="Lappdf" file="LabTalk/Lappdf_(function).html" url="LabTalk/ref/Lappdf-func" src="LabTalk:Lappdf_(function)"/>
+            <page title="Levpdf" file="LabTalk/Levpdf_(function).html" url="LabTalk/ref/levpdf-func" src="LabTalk:Levpdf_(function)"/>
+            <page title="Logisticpdf" file="LabTalk/Logisticpdf_(function).html" url="LabTalk/ref/logisticpdf-func" src="LabTalk:Logisticpdf_(function)"/>
+            <page title="Loglogisticpdf" file="LabTalk/Loglogisticpdf_(function).html" url="LabTalk/ref/loglogisticpdf-func" src="LabTalk:Loglogisticpdf_(function)"/>
             <page title="Lognpdf" file="LabTalk/Lognpdf_(function).html" url="LabTalk/ref/Lognpdf-func" src="LabTalk:Lognpdf_(function)"/>
             <page title="Normpdf" file="LabTalk/Normpdf_(function).html" url="LabTalk/ref/Normpdf-func" src="LabTalk:Normpdf_(function)"/>
             <page title="Poisspdf" file="LabTalk/Poisspdf_(function).html" url="LabTalk/ref/Poisspdf-func" src="LabTalk:Poisspdf_(function)"/>
+            <page title="Raylpdf" file="LabTalk/Raylpdf_(function).html" url="LabTalk/ref/raylpdf-func" src="LabTalk:Raylpdf_(function)"/>
+            <page title="Sevpdf" file="LabTalk/Sevpdf_(function).html" url="LabTalk/ref/sevpdf-func" src="LabTalk:Sevpdf_(function)"/>
             <page title="Wblpdf" file="LabTalk/Wblpdf_(function).html" url="LabTalk/ref/Wblpdf-func" src="LabTalk:Wblpdf_(function)"/>
           </page>
           <page title="Inverse of Cumulative Distribution Functions (INV)" file="Category/Inverse_of_Cumulative_Distribution_Functions_(LabTalk).html" url="LabTalk/ref/Inverse-of-Cumulative-Distribution-Functions" src="Category:Inverse_of_Cumulative_Distribution_Functions_(LabTalk)">
             <page title="Betainv" file="LabTalk/Betainv_(function).html" url="LabTalk/ref/Betainv-func" src="LabTalk:Betainv_(function)"/>
             <page title="Chi2inv" file="LabTalk/Chi2inv_(function).html" url="LabTalk/ref/Chi2inv-func" src="LabTalk:Chi2inv_(function)"/>
+            <page title="Expinv" file="LabTalk/Expinv_(function).html" url="LabTalk/ref/expinv-func" src="LabTalk:Expinv_(function)"/>
             <page title="Ftable" file="LabTalk/Ftable_(function).html" url="LabTalk/ref/Ftable-func" src="LabTalk:Ftable_(function)"/>
             <page title="Finv" file="LabTalk/Finv_(function).html" url="LabTalk/ref/Finv-func" src="LabTalk:Finv_(function)"/>
             <page title="Foldnorminv" file="LabTalk/Foldnorminv_(function).html" url="LabTalk/ref/Foldnorminv-func" src="LabTalk:Foldnorminv_(function)"/>
@@ -596,8 +612,12 @@
             <page title="Invprob" file="LabTalk/Invprob_(function).html" url="LabTalk/ref/Invprob-func" src="LabTalk:Invprob_(function)"/>
             <page title="Invt" file="LabTalk/Invt_(function).html" url="LabTalk/ref/Invt-func" src="LabTalk:Invt_(function)"/>
             <page title="Landauinv" file="LabTalk/Landauinv_(function).html" url="LabTalk/ref/Landauinv-func" src="LabTalk:Landauinv_(function)"/>
+            <page title="Levinv" file="LabTalk/Levinv_(function).html" url="LabTalk/ref/levinv-func" src="LabTalk:Levinv_(function)"/>
+            <page title="Logisticinv" file="LabTalk/Logisticinv_(function).html" url="LabTalk/ref/logisticinv-func" src="LabTalk:Logisticinv_(function)"/>
             <page title="Logninv" file="LabTalk/Logninv_(function).html" url="LabTalk/ref/Logninv-func" src="LabTalk:Logninv_(function)"/>
             <page title="Norminv" file="LabTalk/Norminv_(function).html" url="LabTalk/ref/Norminv-func" src="LabTalk:Norminv_(function)"/>
+            <page title="Raylinv" file="LabTalk/Raylinv_(function).html" url="LabTalk/ref/raylinv-func" src="LabTalk:Raylinv_(function)"/>
+            <page title="Sevinv" file="LabTalk/Sevinv_(function).html" url="LabTalk/ref/sevinv-func" src="LabTalk:Sevinv_(function)"/>
             <page title="Srangeinv" file="LabTalk/Srangeinv_(function).html" url="LabTalk/ref/Srangeinv-func" src="LabTalk:Srangeinv_(function)"/>
             <page title="Ttable" file="LabTalk/Ttable_(function).html" url="LabTalk/ref/Ttable-func" src="LabTalk:Ttable_(function)"/>
             <page title="Tinv" file="LabTalk/Tinv_(function).html" url="LabTalk/ref/Tinv-func" src="LabTalk:Tinv_(function)"/>
@@ -656,6 +676,7 @@
           <page title="GetFilePath" file="LabTalk/GetFilePath_(function).html" url="LabTalk/ref/GetFilePath-func" src="LabTalk:GetFilePath_(function)"/>
           <page title="GetLength" file="LabTalk/GetLength_(function).html" url="LabTalk/ref/GetLength-func" src="LabTalk:GetLength_(function)"/>
           <page title="GetToken" file="LabTalk/GetToken_(function).html" url="LabTalk/ref/GetToken-func" src="LabTalk:GetToken_(function)"/>
+          <page title="InSide" file="LabTalk/InSide_(function).html" url="LabTalk/ref/InSide-func" src="LabTalk:InSide_(function)"/>
           <page title="IsEmpty" file="LabTalk/IsEmpty_(function).html" url="LabTalk/ref/IsEmpty-func" src="LabTalk:IsEmpty_(function)"/>
           <page title="IsFile" file="LabTalk/IsFile_(function).html" url="LabTalk/ref/IsFile-func" src="LabTalk:IsFile_(function)"/>
           <page title="IsFormula" file="LabTalk/IsFormula_(function).html" url="LabTalk/ref/IsFormula-func" src="LabTalk:IsFormula_(function)"/>
@@ -760,6 +781,7 @@
           <page title="Hex2Dec" file="LabTalk/Hex2Dec_(function).html" url="LabTalk/ref/Hex2Dec-func" src="LabTalk:Hex2Dec_(function)"/>
         </page>
         <page title="Miscellaneous" file="Category/Miscellaneous_Functions_(Labtalk).html" url="LabTalk/ref/Miscellaneous-Functions" src="Category:Miscellaneous_Functions_(Labtalk)">
+          <page title="BookNames" file="LabTalk/BookNames_(function).html" url="LabTalk/ref/BookNames-func" src="LabTalk:BookNames_(function)"/>
           <page title="Color" file="LabTalk/Color_(function).html" url="LabTalk/ref/Color-func" src="LabTalk:Color_(function)"/>
           <page title="eval" file="LabTalk/Eval_(function).html" url="LabTalk/ref/eval-func" src="LabTalk:Eval_(function)"/>
           <page title="Exist" file="LabTalk/Exist_(function).html" url="LabTalk/ref/Exist-func" src="LabTalk:Exist_(function)"/>
@@ -774,6 +796,7 @@
           <page title="ocolor2rgb" file="LabTalk/Ocolor2rgb_(function).html" url="LabTalk/ref/ocolor2rgb-func" src="LabTalk:Ocolor2rgb_(function)"/>
           <page title="Range2uid" file="LabTalk/Range2uid_(function).html" url="LabTalk/ref/Range2uid-func" src="LabTalk:Range2uid_(function)"/>
           <page title="rgb" file="LabTalk/Rgb_(function).html" url="LabTalk/ref/rgb-func" src="LabTalk:Rgb_(function)"/>
+          <page title="SheetNames" file="LabTalk/SheetNames_(function).html" url="LabTalk/ref/SheetNames-func" src="LabTalk:SheetNames_(function)"/>
           <page title="Uid2name" file="LabTalk/Uid2name_(function).html" url="LabTalk/ref/Uid2name-func" src="LabTalk:Uid2name_(function)"/>
           <page title="Uid2range" file="LabTalk/Uid2range_(function).html" url="LabTalk/ref/Uid2range-func" src="LabTalk:Uid2range_(function)"/>
           <page title="xf_get_last_error_code" file="LabTalk/Xf_get_last_error_code_(function).html" url="LabTalk/ref/Xf-get-last-error-code-func" src="LabTalk:Xf_get_last_error_code_(function)"/>

@@ -1,4 +1,4 @@
-<h1 class="firstHeading">3.3.2.65.2 Options to Copy/Duplicate/Extract</h1><p class='urlname' style='display: none'>Worksheet_Options_to_Copy</p>
+<h1 class="firstHeading">3.3.2.66.2 Options to Copy/Duplicate/Extract</h1><p class='urlname' style='display: none'>Worksheet_Options_to_Copy</p>
 <p><br />
 </p>
 <h2><a name="-cp"></a><span class="mw-headline">-cp</span></h2>
@@ -28,25 +28,23 @@ This is equivalent to clicking the Mini Toolbar button <b>Copy for Plotting</b> 
 </p><p>If <i>wksName</i> is not specified, an enumerating name of the original workbook is used.
 </p>
 <h2><a name="-lk"></a><span class="mw-headline">-lk</span></h2>
-<p><b>Syntax:</b> worksheet <b>-lk</b> <i>n</i> <i>count</i> <i>colName</i> 
-</p><p>Copy <i>count</i> column(s) from <i>colName</i> and paste it as <a class="external text" href="../../UserGuide/UserGuide/Mirror_Column.html">mirror column(s)</a> to the <i>n</i>th columnin the active worksheet. 
+<p><b>Syntax:</b> worksheet <b>-lk[iul]</b> <i>n</i> <i>count</i> <i>colName</i> 
+</p><p>Copy <i>count</i> column(s) from <i>colName</i> and paste it as <a class="external text" href="../../UserGuide/UserGuide/Mirror_Column.html">mirror column(s)</a> to the <i>n</i>th column in the active worksheet. 
 </p><p><i>colName</i> is the source column path, <i>n</i> is the column index to insert and <i>count</i> is the number of columns to be mirrored starting at the specified source column. <i>n</i> = 0 to add mirror as new column. 
-</p><p>Use <b>-lku</b> to support undo.
 </p>
+<ul><li> i = insert as mirror column(s) in the active worksheet. </li>
+<li> u = support undo.</li>
+<li> l = mirror column with label row</li></ul>
 <pre class="lt" style="font-family:monospace;"><span style="color: #008000;">//paste [book1]sheet2!col(B) and col(C) as mirror column to active sheet, [Book2]Sheet1!, start from col(A)</span>
 work <span style="color: #000080;">-</span>lki <span style="color: #0000dd;">1</span> <span style="color: #0000dd;">2</span> <span style="color: #000000;">&#91;</span>book1<span style="color: #000000;">&#93;</span>sheet2<span style="color: #000080;">!</span>col<span style="color: #000000;">&#40;</span>B<span style="color: #000000;">&#41;</span>; <span style="color: #008000;">//a new column is inserted and col(B) and col(C) are pasted as mirrors</span>
-work <span style="color: #000080;">-</span>lk <span style="color: #0000dd;">1</span> <span style="color: #0000dd;">2</span> <span style="color: #000000;">&#91;</span>book1<span style="color: #000000;">&#93;</span>sheet2<span style="color: #000080;">!</span>col<span style="color: #000000;">&#40;</span>B<span style="color: #000000;">&#41;</span>; <span style="color: #008000;">//no new column is added, col(B) and col(C) are pasted as mirrors to existed columns</span></pre>
-<h2><a name="-lki"></a><span class="mw-headline">-lki</span></h2>
-<p><b>Syntax:</b> worksheet <b>-lki</b> <i>n</i> <i>count</i> <i>colName</i>
-</p><p>Copy <i>count</i> column(s) from <i>colName</i> and insert it as <a class="external text" href="../../UserGuide/UserGuide/Mirror_Column.html">mirror column(s)</a> to the <i>n</i>th columnin the active worksheet. 
-</p><p><i>colName</i> is the source column path, <i>n</i> is the column index to insert and <i>count</i> is the number of columns to be mirrored starting at the specified source column.
-</p><p>Use <b>-lkui</b> to support undo.
+work <span style="color: #000080;">-</span>lk <span style="color: #0000dd;">1</span> <span style="color: #0000dd;">2</span> <span style="color: #000000;">&#91;</span>book1<span style="color: #000000;">&#93;</span>sheet2<span style="color: #000080;">!</span>col<span style="color: #000000;">&#40;</span>B<span style="color: #000000;">&#41;</span>; <span style="color: #008000;">//no new column is added, col(B) and col(C) are pasted as mirrors to existed columns</span>
+
+work <span style="color: #000080;">-</span>lkl <span style="color: #0000dd;">0</span> <span style="color: #0000dd;">1</span> <span style="color: #000000;">&#91;</span>book1<span style="color: #000000;">&#93;</span><span style="color: #0000dd;">1</span><span style="color: #000080;">!</span>col<span style="color: #000000;">&#40;</span>A<span style="color: #000000;">&#41;</span>; <span style="color: #008000;">//to append 1 column with label row also mirror</span></pre>
+<p><br />
 </p>
-<pre class="lt" style="font-family:monospace;"><span style="color: #008000;">//to paste [book1]sheet2!col(B) as mirror column to col(B) in active sheet, [Book2]Sheet1!,</span>
-work <span style="color: #000080;">-</span>lki <span style="color: #0000dd;">2</span> <span style="color: #0000dd;">1</span> <span style="color: #000000;">&#91;</span>book1<span style="color: #000000;">&#93;</span>sheet2<span style="color: #000080;">!</span>col<span style="color: #000000;">&#40;</span>B<span style="color: #000000;">&#41;</span></pre>
 <h2><a name="-qa"></a><span class="mw-headline">-qa</span></h2>
 <p><b>Syntax:</b> worksheet <b>-qa</b> <b>Select</b> <i>QueryString</i>
-</p><p>Extract columns satisfied with specified SELECT SQL query and then put them to the active book. Note that it will overwrite the existing column if it is not emtyp. 
+</p><p>Extract columns satisfied with specified SELECT SQL query and then put them to the active book. Note that it will overwrite the existing column if it is not empty. 
 </p><p>Refer to <a class="external text" href="../../UserGuide/UserGuide/Examples_of_using_SQL_query_condition_in_Origin_Connector.html">this page</a> for details of SELECT query.
 </p>
 <pre class="lt" style="font-family:monospace;"><span style="color: #008000;">//extract Y columns with LN containing &quot;Value&quot; from Sheet1 of Book1</span>
@@ -57,11 +55,11 @@ wo <span style="color: #000080;">-</span>qa SELECT Column FROM <span style="colo
 </p>
 <pre class="lt" style="font-family:monospace;"><span style="color: #008000;">//extract all columns from current project</span>
 wo <span style="color: #000080;">-</span>qn SELECT Column From Project;
-<span style="color: #008000;">//extract columns from current folder whose LoneNmae includes string &quot;type&quot;</span>
+<span style="color: #008000;">//extract columns from current folder whose LongName includes string &quot;type&quot;</span>
 wo <span style="color: #000080;">-</span>qn SELECT Column FROM ACTIVEFOLDER WHERE Column_LName LIKE <span style="color: #ff00ff;">&quot;*type*&quot;</span>;</pre>
 <h2><a name="-tc"></a><span class="mw-headline">-tc</span></h2>
 <p><b>Syntax:</b> worksheet <b>-tc</b>
-</p><p>Copy the activa worksheet as HTML/EMF table. See also <a class="external text" href="../../UserGuide/UserGuide/Copying_and_pasting_Worksheet_Data.html#Copy_worksheet_as_HTML.2FEMF_table">this page</a>.
+</p><p>Copy the active worksheet as HTML/EMF table. See also <a class="external text" href="../../UserGuide/UserGuide/Copying_and_pasting_Worksheet_Data.html#Copy_worksheet_as_HTML.2FEMF_table">this page</a>.
 </p>
 
 

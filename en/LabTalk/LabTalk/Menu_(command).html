@@ -1,4 +1,4 @@
-<h1 class="firstHeading">3.3.2.42 Menu</h1><p class='urlname' style='display: none'>Menu-cmd</p>
+<h1 class="firstHeading">3.3.2.43 Menu</h1><p class='urlname' style='display: none'>Menu-cmd</p>
 <p>Add, remove, and edit menus, submenus, and menu commands.  For more information on <a href="../../LabTalk/LabTalk/Menu_(object).html" title="LabTalk:Menu (object)">menu</a> manipulation, see the menu object.
 </p>
 <table class="note">
@@ -29,11 +29,12 @@
 <li class="toclevel-2 tocsection-12"><a href="#-p.3B_Select_the_layout_page_window_menu_bar_for_menu_manipulation"><span class="tocnumber">2.10</span> <span class="toctext">-p; Select the layout page window menu bar for menu manipulation</span></a></li>
 <li class="toclevel-2 tocsection-13"><a href="#-q.3B_Execute_the_menu_command_with_the_specified_ID_by_queuing_its_script"><span class="tocnumber">2.11</span> <span class="toctext">-q; Execute the menu command with the specified ID by queuing its script</span></a></li>
 <li class="toclevel-2 tocsection-14"><a href="#-r.3B_Remove_the_entire_menu_located_at_position_position"><span class="tocnumber">2.12</span> <span class="toctext">-r; Remove the entire menu located at position <i>position</i></span></a></li>
-<li class="toclevel-2 tocsection-15"><a href="#-w.3B_Select_the_worksheet_menu_bar_for_menu_manipulation"><span class="tocnumber">2.13</span> <span class="toctext">-w; Select the worksheet menu bar for menu manipulation</span></a></li>
-<li class="toclevel-2 tocsection-16"><a href="#-v.3B_Select_main_menu_bar_for_menu_manipulation_if_no_window_is_active"><span class="tocnumber">2.14</span> <span class="toctext">-v; Select main menu bar for menu manipulation if no window is active</span></a></li>
+<li class="toclevel-2 tocsection-15"><a href="#-sns.3B_Save_sticky_color_list"><span class="tocnumber">2.13</span> <span class="toctext">-sns; Save sticky color list</span></a></li>
+<li class="toclevel-2 tocsection-16"><a href="#-w.3B_Select_the_worksheet_menu_bar_for_menu_manipulation"><span class="tocnumber">2.14</span> <span class="toctext">-w; Select the worksheet menu bar for menu manipulation</span></a></li>
+<li class="toclevel-2 tocsection-17"><a href="#-v.3B_Select_main_menu_bar_for_menu_manipulation_if_no_window_is_active"><span class="tocnumber">2.15</span> <span class="toctext">-v; Select main menu bar for menu manipulation if no window is active</span></a></li>
 </ul>
 </li>
-<li class="toclevel-1 tocsection-17"><a href="#Examples:"><span class="tocnumber">3</span> <span class="toctext">Examples:</span></a></li>
+<li class="toclevel-1 tocsection-18"><a href="#Examples:"><span class="tocnumber">3</span> <span class="toctext">Examples:</span></a></li>
 </ul>
 </div>
 
@@ -292,6 +293,10 @@ menu <span style="color: #000080;">-</span>l;
 </p><p>Remove the entire menu located at position <i>position</i>. This will remove top-level menus and cannot be used with sub-menu notation like 3.6. You can also refer to the tag as in
 </p>
 <pre class="lt" style="font-family:monospace;">menu <span style="color: #000080;">-</span>r&#160;?He;   <span style="color: #008000;">// Remove the Help menu from the active menu bar</span></pre>
+<h3><a name="-sns.3B_Save_sticky_color_list"></a><span class="mw-headline">-sns; Save sticky color list</span></h3>
+<p><b>Syntax:</b> menu <b>-sns</b>
+</p><p>Save sticky color list to Origin.ini in User File Folder
+</p>
 <h3><a name="-w.3B_Select_the_worksheet_menu_bar_for_menu_manipulation"></a><span class="mw-headline">-w; Select the worksheet menu bar for menu manipulation</span></h3>
 <p><b>Syntax:</b> menu <b>-w</b>
 </p><p>Select the worksheet menu bar for menu manipulation.

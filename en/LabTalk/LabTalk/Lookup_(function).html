@@ -83,8 +83,7 @@ Book2 searches each numeric C value in column B and returns the matching A value
 </p><p><br />
 Labtalk script to search a number in column B and return the row index:
 </p>
-<pre class="lt" style="font-family:monospace;">range vd <span style="color: #000080;">=</span> col<span style="color: #000000;">&#40;</span>B<span style="color: #000000;">&#41;</span>;
-Lookup<span style="color: #000000;">&#40;</span><span style="color: #0000dd;">0.2</span>, col<span style="color: #000000;">&#40;</span>B<span style="color: #000000;">&#41;</span><span style="color: #000000;">&#41;</span><span style="color: #000080;">=</span>;        <span style="color: #008000;">// nearest (default)</span>
+<pre class="lt" style="font-family:monospace;">Lookup<span style="color: #000000;">&#40;</span><span style="color: #0000dd;">0.2</span>, col<span style="color: #000000;">&#40;</span>B<span style="color: #000000;">&#41;</span><span style="color: #000000;">&#41;</span><span style="color: #000080;">=</span>;        <span style="color: #008000;">// nearest (default)</span>
 Lookup<span style="color: #000000;">&#40;</span><span style="color: #0000dd;">0.2</span>, col<span style="color: #000000;">&#40;</span>B<span style="color: #000000;">&#41;</span>, , <span style="color: #0000dd;">0</span><span style="color: #000000;">&#41;</span><span style="color: #000080;">=</span>;   <span style="color: #008000;">// nearest smaller</span>
 Lookup<span style="color: #000000;">&#40;</span><span style="color: #0000dd;">0.2</span>, col<span style="color: #000000;">&#40;</span>B<span style="color: #000000;">&#41;</span>, , <span style="color: #0000dd;">1</span><span style="color: #000000;">&#41;</span><span style="color: #000080;">=</span>;   <span style="color: #008000;">// nearest larger</span></pre>
 <p>Labtalk script to search a number in column B and return the corresponding A:

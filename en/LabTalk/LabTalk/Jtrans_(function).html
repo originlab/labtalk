@@ -1,0 +1,44 @@
+<h1 class="firstHeading">3.5.2.18 jtrans</h1><p class='urlname' style='display: none'>Jtrans-func</p>
+<p><br />
+</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Description"><span class="tocnumber">1</span> <span class="toctext">Description</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Syntax"><span class="tocnumber">2</span> <span class="toctext">Syntax</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Parameter"><span class="tocnumber">3</span> <span class="toctext">Parameter</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Return"><span class="tocnumber">4</span> <span class="toctext">Return</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="#Example"><span class="tocnumber">5</span> <span class="toctext">Example</span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="#See_Also"><span class="tocnumber">6</span> <span class="toctext">See Also</span></a></li>
+</ul>
+</div>
+
+<h2><a name="Description"></a><span class="mw-headline"><font color="chocolate">Description</font></span></h2>
+<p>This function takes a vector and transforms it into approximately normal distributed one by using Johnson transformation method. 
+</p><p>The three Johnson families of distribution include <b>SB</b>, <b>SL</b> and <b>SU</b>, which are the Johnson families distributions with the variable bounded (<b>SB</b>), lognormal (<b>SL</b>) and unbounded (<b>SU</b>) respectively. And the formulas for the transformation of these three families are:
+</p><p><img src="../images/Jtrans_(function)/math-3acdc53d7b1ddd697b78a44986a76361.png?v=0" title="&#10;Y&#39;=\left\{&#10;\begin{array}{ll}&#10;SB = \gamma + \eta \ln\frac{Y-\epsilon}{\lambda+\epsilon-Y} &amp;\eta, \lambda &gt; 0, -\infty &lt; \gamma &lt; \infty, -\infty &lt; \epsilon &lt; \infty, \epsilon &lt; Y &lt; \epsilon + \lambda\cr&#10;SL = \gamma + \eta \ln(Y-\epsilon) &amp; \eta &gt; 0, -\infty &lt; \gamma &lt; \infty, -\infty &lt; \epsilon &lt; \infty, \epsilon &lt; Y\cr&#10;SU = \gamma + \eta \sinh^{-1}\frac{Y-\epsilon}{\lambda} &amp;\eta, \lambda &gt; 0, -\infty &lt; \gamma &lt; \infty, -\infty &lt; \epsilon &lt; \infty, -\infty &lt; Y &lt; \infty, \sinh^{-1}(x) = \ln(x+\sqrt{1+x^2})&#10;\end{array}&#10;\right.&#10;" alt="&#10;Y&#39;=\left\{&#10;\begin{array}{ll}&#10;SB = \gamma + \eta \ln\frac{Y-\epsilon}{\lambda+\epsilon-Y} &amp;\eta, \lambda &gt; 0, -\infty &lt; \gamma &lt; \infty, -\infty &lt; \epsilon &lt; \infty, \epsilon &lt; Y &lt; \epsilon + \lambda\cr&#10;SL = \gamma + \eta \ln(Y-\epsilon) &amp; \eta &gt; 0, -\infty &lt; \gamma &lt; \infty, -\infty &lt; \epsilon &lt; \infty, \epsilon &lt; Y\cr&#10;SU = \gamma + \eta \sinh^{-1}\frac{Y-\epsilon}{\lambda} &amp;\eta, \lambda &gt; 0, -\infty &lt; \gamma &lt; \infty, -\infty &lt; \epsilon &lt; \infty, -\infty &lt; Y &lt; \infty, \sinh^{-1}(x) = \ln(x+\sqrt{1+x^2})&#10;\end{array}&#10;\right.&#10;" class="tex"/>
+</p><p>The function will transform the input dataset by selecting the best transformation function from the three Johnson families. 
+</p><p>See detaied algorithm on <a class="external text" href="../../App/App/Algorithm_DT.html#Johnson_Transformation">this page</a>.
+</p>
+<h2><a name="Syntax"></a><span class="mw-headline"><font color="chocolate">Syntax</font></span></h2>
+<pre class="lt" style="font-family:monospace;">vector jtrans<span style="color: #000000;">&#40;</span>vector vd<span style="color: #000000;">&#41;</span></pre>
+<h2><a name="Parameter"></a><span class="mw-headline"><font color="chocolate">Parameter</font></span></h2>
+<p><b>vd</b>
+</p>
+<dl><dd>The input vector (column) to be transformed. <b>vd</b> can include positive, negative and zero numbers.</dd></dl>
+<h2><a name="Return"></a><span class="mw-headline"><font color="chocolate">Return</font></span></h2>
+<p>Transformed vector (column) tby the best transformation function from the three Johnson families mentioned in the Description.
+</p>
+<h2><a name="Example"></a><span class="mw-headline"><font color="chocolate">Example</font></span></h2>
+<p><i><b>EX1</b></i>
+</p>
+<pre class="lt" style="font-family:monospace;">newbook;
+col<span style="color: #000000;">&#40;</span>A<span style="color: #000000;">&#41;</span> <span style="color: #000080;">=</span> data<span style="color: #000000;">&#40;</span><span style="color: #0000dd;">0.1</span>, <span style="color: #0000dd;">1.1</span>, <span style="color: #0000dd;">0.002</span><span style="color: #000000;">&#41;</span>;
+col<span style="color: #000000;">&#40;</span>B<span style="color: #000000;">&#41;</span> <span style="color: #000080;">=</span> jtrans<span style="color: #000000;">&#40;</span>col<span style="color: #000000;">&#40;</span>A<span style="color: #000000;">&#41;</span><span style="color: #000000;">&#41;</span>;</pre>
+<h2><a name="See_Also"></a><span class="mw-headline"><font color="chocolate">See Also</font></span></h2>
+<p><a href="../../LabTalk/LabTalk/Boxcox_(function).html" title="LabTalk:Boxcox (function)">boxcox</a>, <a href="../../LabTalk/LabTalk/Yeojohnson_(function).html" title="LabTalk:Yeojohnson (function)">yeojohnson</a>
+</p>
+
+
+
+
+

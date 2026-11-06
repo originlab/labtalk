@@ -1,4 +1,4 @@
-<h1 class="firstHeading">3.3.2.55 Second</h1><p class='urlname' style='display: none'>Second-cmd</p>
+<h1 class="firstHeading">3.3.2.56 Second</h1><p class='urlname' style='display: none'>Second-cmd</p>
 <p>This command performs timer-related operations.
 </p>
 <div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
@@ -66,10 +66,12 @@ watch;</pre>
 </p><p>Reset the timer to zero.
 </p>
 <h3><a name="-p.3B_Pause_for_the_specified_number_of_seconds"></a><span class="mw-headline">-p; Pause for the specified number of seconds</span></h3>
-<p><b>Syntax:</b> sec <b>-p</b> <i>sec</i>
+<p><b>Syntax:</b> sec <b>-p[d][i]</b> <i>sec</i>
 </p><p>Pause for the specified number of seconds.
 The current script is suspended and then continued after the time elapses.  During this period, all other processes continue to execute.
 </p>
+<ul><li> d = disable GUI, i.e. closing, opening project etc. is disable<font color="red">(2021)</font></li>
+<li> i = wait until Origin is idle<font color="red">(2026b)</font></li></ul>
 <h3><a name="-poc.3B_Pause_up_to_the_specified_number_of_seconds_to_wait_for_Origin_OC_startup_compiling_to_finish"></a><span class="mw-headline">-poc; Pause up to the specified number of seconds to wait for Origin OC startup compiling to finish</span></h3>
 <p><b>Syntax:</b> sec <b>-poc</b> <i>sec</i>
 </p><p>(Origin 8 SR4) Pause up to the specified number of seconds to wait for Origin OC startup compiling to finish.
@@ -84,10 +86,12 @@ type <span style="color: #ff00ff;">&quot;ok, can continue now&quot;</span>;</pre
 <p>This is very useful when you need to run some X-Function when Origin starts, as there is a separate thread that loads and prepare Origin C which might take a fraction of a second, but neverthless the main thread will still need to wait during that time.
 </p>
 <h3><a name="-pw_GraphName.3B_Wait_for_graph_to_finish_redrawing"></a><span class="mw-headline">-pw <i>GraphName</i>; Wait for graph to finish redrawing</span></h3>
-<p><b>Syntax:</b> sec <b>-pw</b> <i>GraphName</i>
-</p><p>Pause execution of remaining lines until <i>GraphName</i> has finished redrawing.
+<p><b>Syntax:</b> sec <b>-pw[i]</b> <i>GraphName</i>
 </p>
 <p class="version" >Minimum Origin Version Required: 9.0 SR0</p>
+<p>Pause execution of remaining lines until <i>GraphName</i> has finished redrawing.
+</p>
+<ul><li> i = wait until Origin is idle<font color="red">(2026b)</font></li></ul>
 <h3><a name="-sn.3B_Prevent_Windows_sleep"></a><span class="mw-headline">-sn; Prevent Windows sleep</span></h3>
 <p><b>Syntax:</b> sec <b>-sn</b> 
 </p><p><b>sec -sn</b> to prevent Windows sleep; and <b>sec -sn 0</b> to allow sleep

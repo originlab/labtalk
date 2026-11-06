@@ -208,6 +208,14 @@ wks.<span style="color: #000080;">frozen</span><span style="color: #000080;">$</
 </p>
 </td></tr>
 <tr>
+<td> wks.hasVC
+<p align="right"><font color="red">(2026b)</font></p>
+</td>
+<td> Read only<br />bool
+</td>
+<td> Return whether the worksheet has a mirror: 0 = Failure, 1 = True.
+</td></tr>
+<tr>
 <td> wks.hGrids<br />wks.vGrids
 </td>
 <td> Read/write<br />integer
@@ -304,6 +312,22 @@ See the <code>wks.join()</code> method.
 <td> Read/write<br />bool
 </td>
 <td> When the X column of a column/bar graph contains text, this text is used to label major ticks, ordered by row index. Prior to Origin 2018, when applying a worksheet data filter, plots registered the vacant ticks and labels of filtered data, though the data points were not plotted. This was changed in Origin 2018 so that ticks associated with filtered data no longer display. This only applies to X columns that contain text and are NOT <a class="external text" href="../../UserGuide/UserGuide/Displaying_Supporting_Data_in_Worksheet_Header_Rows.html#Categories">Set as Categorical</a>. 0 (default) = hide filtered data labels, 1 = restore old behavior and show data labels even though data are filtered.
+</td></tr>
+<tr>
+<td> wks.link
+<p align="right"><font color="red">(2027)</font></p>
+</td>
+<td> Read Only<br />int
+</td>
+<td> Returen whether the current worksheet is a mirror or not: 0 = not a mirror sheet; 1 = a mirror sheet.
+</td></tr>
+<tr>
+<td> wks.link$
+<p align="right"><font color="red">(2027)</font></p>
+</td>
+<td> Read Only<br />string
+</td>
+<td> Get the source worksheet to which the current mirror sheet is referring.
 </td></tr>
 <tr>
 <td> wks.loadedgrid

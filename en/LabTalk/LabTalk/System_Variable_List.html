@@ -199,6 +199,21 @@ When @GVC=0, set back to auto, no matter @ABW=0 or 1, object will always follow 
 </p>
 </td></tr>
 <tr>
+<td> @ACG
+</td>
+<td> int
+</td>
+<td> RW
+</td>
+<td> 1
+</td>
+<td> 0,1
+</td>
+<td> 2026b
+</td>
+<td> when use Add Column Toolbar button, @ACG = 1 to add column group, set @ACG = 0 to add replicates
+</td></tr>
+<tr>
 <td> @ACPLD
 </td>
 <td> bool
@@ -418,7 +433,7 @@ Note:@AD is created especially for displaying weekly minor tick labels.
 </td>
 <td> 0
 </td>
-<td> 0 to 7
+<td> 0 to 15
 </td>
 <td> 2022b
 </td>
@@ -426,6 +441,7 @@ Note:@AD is created especially for displaying weekly minor tick labels.
 <p>1 = show Add Apps icon on user's tab<br />
 2 = hide Data Connector tab<br />
 4 = hide All tab<br />
+8 = hides stats bar(2025b)<br />
 Note: @AGO is a combination of these controlling bits which produces cumulative effects
 <br /><span class='persistTag'>Persistent</span>
 </p>
@@ -2154,7 +2170,10 @@ between 0 and 100 = show strong blink after this time<br />
 </td>
 <td> 2026b
 </td>
-<td> get Biostats Mode
+<td> Indicates whether <a class="external text" href="../../UserGuide/Category/Life_Science_Mode.html">Life Science Mode</a> is installed.
+<p>0 = Life Science Mode is not installed. <br />
+1 = Life Science Mode is installed.
+</p>
 </td></tr>
 <tr>
 <td> @BIOG
@@ -3103,7 +3122,7 @@ other = break width will be adjust to break width * @BW
 </td>
 <td> RW
 </td>
-<td> 1
+<td> 0
 </td>
 <td> 0,1
 </td>
@@ -4553,13 +4572,13 @@ Two additional time formats are supported:
 </td>
 <td> RW
 </td>
-<td> 2
+<td> 2 for default mode<br />1 for Life Science mode
 </td>
 <td> 0,1,2
 </td>
 <td> 2015
 </td>
-<td> It specifies the default recalculate mode when open a dialog by setting the default value in <b>Recalculate</b> dropdown list:
+<td> It specifies the default recalculate mode when open a dialog:
 <p>0 = None
 <br />1 = Auto
 <br /> 
@@ -20251,6 +20270,23 @@ Notes:
 </p>
 </td></tr>
 <tr>
+<td> @PLO
+</td>
+<td> bool
+</td>
+<td> RW
+</td>
+<td> 1
+</td>
+<td> 0,1
+</td>
+<td> 2026b
+</td>
+<td> <b>Copy (including label rows)</b> menu copies data and only the Long Name label row. If Long Names are the same or empty, Comments will be copied. If both are the same or empty, the first User-defined parameter row will be copied. If still the same or empty, all label rows will be copied.
+<p>Set @PLO = 0 to copy all label rows.
+</p>
+</td></tr>
+<tr>
 <td> @PLS
 </td>
 <td> bool
@@ -22483,7 +22519,7 @@ Note:
 </td>
 <td> 2021b
 </td>
-<td> It controls the maximum row height of the report sheet's label rows for autosize. 0 means to use original behavior.
+<td> It controls the maximum row height of the flat report sheet's label rows for autosize. 0 means to use original behavior. Other See @RRHH
 </td></tr>
 <tr>
 <td> @RRL
@@ -27353,13 +27389,17 @@ Note: @V and System.Version object property are equivalent.
 </td>
 <td> R
 </td>
-<td>
+<td> 0
 </td>
-<td>
+<td> 0,1,2
 </td>
-<td> 2025b
+<td> 2025b<br />update in 2027
 </td>
-<td> return the registry ConfigMode value
+<td> Returns the active GUI Mode.
+<p>0 = Default Mode (including classic Default GUI, <a class="external text" href="../../UserGuide/UserGuide/Compact_Mode.html">Compact Mode</a>, or custom user-defined OMC mode)<br />
+1 = <a class="external text" href="../../UserGuide/Category/Life_Science_Mode.html">Life Science Mode</a><br />
+2 = <a class="external text" href="../../UserGuide/Category/Stats_Mode.html">Stats Mode</a> 
+</p>
 </td></tr>
 <tr>
 <td> @VDF

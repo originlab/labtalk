@@ -1,4 +1,4 @@
-<h1 class="firstHeading">3.3.2.65.5 Other Options</h1><p class='urlname' style='display: none'>Worksheet_Options_Other</p>
+<h1 class="firstHeading">3.3.2.66.5 Other Options</h1><p class='urlname' style='display: none'>Worksheet_Options_Other</p>
 <p><br />
 </p>
 <h2><a name="-b"></a><span class="mw-headline">-b</span></h2>
@@ -81,6 +81,13 @@ work <span style="color: #000080;">-</span>fp <span style="color: #0000dd;">0</s
 </p><p>Fix duplicates in the active sheet:<br /> 
 All the duplicates except the one whose name matches the column in which it is located get new empty datasets
 </p>
+<h2><a name="-gb.3B_Create_a_Graph_Browser_from_a_Report_Sheet"></a><span class="mw-headline">-gb; Create a Graph Browser from a Report Sheet</span></h2>
+<p><b>Syntax:</b> worksheet <b>-gb</b> <i>&lt;layout_name&gt; &lt;bAll&gt; &lt;bCreate&gt;</i>
+</p><p>With an analysis report sheet active, use this command to create a Layout-style Graph Browser window to navigate the embedded graphs in the report sheet. 
+</p>
+<ul><li> <i>&lt;layout_name&gt;</i> specifies the name of the Graph Browser window to create.</li>
+<li> <i>bAll</i> determines which graphs in the report to send to Graph Browser: 0 = sends graphs from the current branch; 1 = sends graphs from the entire report sheet. </li>
+<li> <i>bCreate</i> determines whether to create a new Layout window: 0 = uses Layout window <i>&lt;layout_name&gt;</i> if the specified name exists; 1 = creates a new Layout window.</li></ul>
 <h2><a name="-gd_pb.3B_Custom_Page_Breaks"></a><span class="mw-headline">-gd pb; Custom Page Breaks</span></h2>
 <p><b>Syntax:</b> worksheet <b>-gb pb -i/m(r/c)</b> rowcol [rowcol2]
 </p><p>Custom Page Breaks:<br /> 
@@ -101,6 +108,10 @@ wWM.<span style="color: #000080;">col2</span>.<span style="color: #000080;">link
 win <span style="color: #000080;">-</span>a Book5;  <span style="color: #008000;">// activate mirror workbook</span>
 worksheet <span style="color: #000080;">-</span>gs; <span style="color: #008000;">// jump to [book1]1! with col(B) highlighted</span></pre>
 <p>See <a class="external text" href="../../UserGuide/UserGuide/Mirror_Column.html">this page</a> for more about mirror column.
+</p>
+<h2><a name="-km"></a><span class="mw-headline">-km</span></h2>
+<p><b>Syntax:</b> worksheet <b>-km</b>
+</p><p>Create a mirror workbook from the current worksheet.
 </p>
 <h2><a name="-q"></a><span class="mw-headline">-q</span></h2>
 <p><b>Syntax:</b> worksheet <b>-q</b> <i>n</i>
@@ -126,6 +137,11 @@ Projects with many <a class="external text" href="../../UserGuide/UserGuide/Quic
 </p>
 <pre class="lt" style="font-family:monospace;">work <span style="color: #000080;">-</span>rf <span style="color: #000080;">*</span>; <span style="color: #008000;">//repair formula for all </span>
 work <span style="color: #000080;">-</span>rf G; <span style="color: #008000;">//repair formula for col(G)</span></pre>
+<h2><a name="-rm"></a><span class="mw-headline">-rm</span></h2>
+<p><b>Syntax:</b> worksheet <b>-rm</b>
+</p><p>With a mirror sheet active, run this command to remove mirror and convert its content to static values. Undo is supported.
+</p>
+<pre class="lt" style="font-family:monospace;">work <span style="color: #000080;">-</span>rmu; <span style="color: #008000;">//remove mirror with undo</span></pre>
 <h2><a name="-rr"></a><span class="mw-headline">-rr</span></h2>
 <p><b>Syntax:</b> worksheet <b>-rr</b>
 </p><p>With a report sheet active, run this command to recover the ranges with empty UID data reference in report sheets
@@ -198,6 +214,16 @@ worksheet <span style="color: #000080;">-</span>sl <span style="color: #008000;"
 </p>
 <pre class="lt" style="font-family:monospace;">work <span style="color: #000080;">-</span>sou mr <span style="color: #0000dd;">1</span>;  <span style="color: #008000;">//move down to next row</span>
 work <span style="color: #000080;">-</span>sou mr <span style="color: #000080;">-</span><span style="color: #0000dd;">1</span>; <span style="color: #008000;">//move up to last row</span></pre>
+<h2><a name="-sq"></a><span class="mw-headline">-sq</span></h2>
+<p><b>Syntax:</b> worksheet <b>-sq</b> 
+</p><p>Convert the syntax in the selected column label cell(s) to LabTex, i.e., enclose the cell content with <code>\q()</code>.
+</p><p><b>Note</b>:
+</p>
+<ul><li>Content enclosed by <code>$...$</code> are recognized and auto-replaced by <code>\q(...)</code>. <code>$</code> is not neccessary to be at the begin or end of the cell, see example below.</li>
+<li>Make sure Rech Text is enable to show the LabTex syntax.</li></ul>
+<pre class="lt" style="font-family:monospace;">col<span style="color: #000000;">&#40;</span>A<span style="color: #000000;">&#41;</span><span style="color: #000000;">&#91;</span>L<span style="color: #000000;">&#93;</span><span style="color: #000080;">$</span><span style="color: #000080;">=</span><span style="color: #ff00ff;">&quot;Significant Level $\alpha$&quot;</span>;
+works <span style="color: #000080;">-</span>sl <span style="color: #0000dd;">1</span> <span style="color: #0000dd;">1</span>;
+work <span style="color: #000080;">-</span>sq;</pre>
 
 
 

@@ -1,4 +1,4 @@
-<h1 class="firstHeading">3.3.2.36 List</h1><p class='urlname' style='display: none'>List-cmd</p>
+<h1 class="firstHeading">3.3.2.37 List</h1><p class='urlname' style='display: none'>List-cmd</p>
 <p>Lists objects in the current project in the Script window.
 </p>
 <div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
@@ -13,32 +13,34 @@
 <li class="toclevel-2 tocsection-7"><a href="#f.3B_List_the_Origin_C_functions_that_can_be_called_from_LabTalk"><span class="tocnumber">3.4</span> <span class="toctext">f; List the Origin C functions that can be called from LabTalk</span></a></li>
 <li class="toclevel-2 tocsection-8"><a href="#ff.3B_List_all_fitting_functions"><span class="tocnumber">3.5</span> <span class="toctext">ff; List all fitting functions</span></a></li>
 <li class="toclevel-2 tocsection-9"><a href="#lg.3B_List_the_GetN_tree_of_the_last_executed_X-Function"><span class="tocnumber">3.6</span> <span class="toctext">lg; List the GetN tree of the last executed X-Function</span></a></li>
-<li class="toclevel-2 tocsection-10"><a href="#o.3B_List_all_objects_and_labels_in_the_current_layer"><span class="tocnumber">3.7</span> <span class="toctext">o; List all objects and labels in the current layer</span></a></li>
-<li class="toclevel-2 tocsection-11"><a href="#op_UID.3B_list_operations_in_the_whole_project"><span class="tocnumber">3.8</span> <span class="toctext">op <i>UID</i>; list operations in the whole project</span></a></li>
-<li class="toclevel-2 tocsection-12"><a href="#opi.2Fopo.3B_list_operations_whose_input.2Foutput_is_in_active_sheet"><span class="tocnumber">3.9</span> <span class="toctext">opi/opo; list operations whose input/output is in active sheet</span></a></li>
-<li class="toclevel-2 tocsection-13"><a href="#ps.3B_search_info_saved_in_project"><span class="tocnumber">3.10</span> <span class="toctext">ps; search info saved in project</span></a></li>
-<li class="toclevel-2 tocsection-14"><a href="#rc.3B_total_number_of_data_ranges_in_the_opened_project"><span class="tocnumber">3.11</span> <span class="toctext">rc; total number of data ranges in the opened project</span></a></li>
-<li class="toclevel-2 tocsection-15"><a href="#rn.3B_list_existing_named_ranges"><span class="tocnumber">3.12</span> <span class="toctext">rn; list existing named ranges</span></a></li>
-<li class="toclevel-2 tocsection-16"><a href="#rrvs_L.2FP.2FD.3Cmore_options.3E.3B_list_all_the_dataplots_using_virtual_datasets"><span class="tocnumber">3.13</span> <span class="toctext">rrvs L/P/D&lt;more options&gt;; list all the dataplots using virtual datasets</span></a></li>
-<li class="toclevel-2 tocsection-17"><a href="#s.3B_List_all_datasets_.28previously_known_as_series.29"><span class="tocnumber">3.14</span> <span class="toctext">s; List all datasets (previously known as <b>series</b>)</span></a></li>
-<li class="toclevel-2 tocsection-18"><a href="#sic.3B_List_all_mirror_columns_in_the_project"><span class="tocnumber">3.15</span> <span class="toctext">sic; List all mirror columns in the project</span></a></li>
-<li class="toclevel-2 tocsection-19"><a href="#sics.3B_List_all_mirror_columns_in_the_ative_sheet"><span class="tocnumber">3.16</span> <span class="toctext">sics; List all mirror columns in the ative sheet</span></a></li>
-<li class="toclevel-2 tocsection-20"><a href="#sicb.3B_List_all_mirror_columns_in_the_ative_book"><span class="tocnumber">3.17</span> <span class="toctext">sicb; List all mirror columns in the ative book</span></a></li>
-<li class="toclevel-2 tocsection-21"><a href="#sl.3B_List_all_loose_datasets"><span class="tocnumber">3.18</span> <span class="toctext">sl; List all loose datasets</span></a></li>
-<li class="toclevel-2 tocsection-22"><a href="#so.3B_List_all_orphaned_datasets"><span class="tocnumber">3.19</span> <span class="toctext">so; List all orphaned datasets</span></a></li>
-<li class="toclevel-2 tocsection-23"><a href="#soc.3B_dump_count_of_orphaned_datasets"><span class="tocnumber">3.20</span> <span class="toctext">soc; dump count of orphaned datasets</span></a></li>
-<li class="toclevel-2 tocsection-24"><a href="#st.3B_List_all_datasets_with_storage"><span class="tocnumber">3.21</span> <span class="toctext">st; List all datasets with storage</span></a></li>
-<li class="toclevel-2 tocsection-25"><a href="#svr.3B_List_all_persistent_system_variables_in_Origin"><span class="tocnumber">3.22</span> <span class="toctext">svr; List all persistent system variables in Origin</span></a></li>
-<li class="toclevel-2 tocsection-26"><a href="#v.3B_List_all_numeric_variables"><span class="tocnumber">3.23</span> <span class="toctext">v; List all numeric variables</span></a></li>
-<li class="toclevel-2 tocsection-27"><a href="#vs.3B_List_all_string_variables"><span class="tocnumber">3.24</span> <span class="toctext">vs; List all string variables</span></a></li>
-<li class="toclevel-2 tocsection-28"><a href="#vsh.3B_Output_all_virtual_datasets_that_use_shared_data_filters.2C_together_with_the_definitions_of_shared_data_filters"><span class="tocnumber">3.25</span> <span class="toctext">vsh; Output all virtual datasets that use shared data filters, together with the definitions of shared data filters</span></a></li>
-<li class="toclevel-2 tocsection-29"><a href="#vsha.3B_List_only_VSShDFs_used_in_the_active_graph_page"><span class="tocnumber">3.26</span> <span class="toctext">vsha; List only VSShDFs used in the active graph page</span></a></li>
-<li class="toclevel-2 tocsection-30"><a href="#vt.3B_List_all_tree_variables"><span class="tocnumber">3.27</span> <span class="toctext">vt; List all tree variables</span></a></li>
-<li class="toclevel-2 tocsection-31"><a href="#wc.3B_List_columns_in_active_worksheet"><span class="tocnumber">3.28</span> <span class="toctext">wc; List columns in active worksheet</span></a></li>
-<li class="toclevel-2 tocsection-32"><a href="#xf.3B_List_X-Functions"><span class="tocnumber">3.29</span> <span class="toctext">xf; List X-Functions</span></a></li>
+<li class="toclevel-2 tocsection-10"><a href="#n.3B_List_Note"><span class="tocnumber">3.7</span> <span class="toctext">n; List Note</span></a></li>
+<li class="toclevel-2 tocsection-11"><a href="#ns.3B_List_Sticky_Note"><span class="tocnumber">3.8</span> <span class="toctext">ns; List Sticky Note</span></a></li>
+<li class="toclevel-2 tocsection-12"><a href="#o.3B_List_all_objects_and_labels_in_the_current_layer"><span class="tocnumber">3.9</span> <span class="toctext">o; List all objects and labels in the current layer</span></a></li>
+<li class="toclevel-2 tocsection-13"><a href="#op_UID.3B_list_operations_in_the_whole_project"><span class="tocnumber">3.10</span> <span class="toctext">op <i>UID</i>; list operations in the whole project</span></a></li>
+<li class="toclevel-2 tocsection-14"><a href="#opi.2Fopo.3B_list_operations_whose_input.2Foutput_is_in_active_sheet"><span class="tocnumber">3.11</span> <span class="toctext">opi/opo; list operations whose input/output is in active sheet</span></a></li>
+<li class="toclevel-2 tocsection-15"><a href="#ps.3B_search_info_saved_in_project"><span class="tocnumber">3.12</span> <span class="toctext">ps; search info saved in project</span></a></li>
+<li class="toclevel-2 tocsection-16"><a href="#rc.3B_total_number_of_data_ranges_in_the_opened_project"><span class="tocnumber">3.13</span> <span class="toctext">rc; total number of data ranges in the opened project</span></a></li>
+<li class="toclevel-2 tocsection-17"><a href="#rn.3B_list_existing_named_ranges"><span class="tocnumber">3.14</span> <span class="toctext">rn; list existing named ranges</span></a></li>
+<li class="toclevel-2 tocsection-18"><a href="#rrvs_L.2FP.2FD.3Cmore_options.3E.3B_list_all_the_dataplots_using_virtual_datasets"><span class="tocnumber">3.15</span> <span class="toctext">rrvs L/P/D&lt;more options&gt;; list all the dataplots using virtual datasets</span></a></li>
+<li class="toclevel-2 tocsection-19"><a href="#s.3B_List_all_datasets_.28previously_known_as_series.29"><span class="tocnumber">3.16</span> <span class="toctext">s; List all datasets (previously known as <b>series</b>)</span></a></li>
+<li class="toclevel-2 tocsection-20"><a href="#sic.3B_List_all_mirror_columns_in_the_project"><span class="tocnumber">3.17</span> <span class="toctext">sic; List all mirror columns in the project</span></a></li>
+<li class="toclevel-2 tocsection-21"><a href="#sics.3B_List_all_mirror_columns_in_the_ative_sheet"><span class="tocnumber">3.18</span> <span class="toctext">sics; List all mirror columns in the ative sheet</span></a></li>
+<li class="toclevel-2 tocsection-22"><a href="#sicb.3B_List_all_mirror_columns_in_the_ative_book"><span class="tocnumber">3.19</span> <span class="toctext">sicb; List all mirror columns in the ative book</span></a></li>
+<li class="toclevel-2 tocsection-23"><a href="#sl.3B_List_all_loose_datasets"><span class="tocnumber">3.20</span> <span class="toctext">sl; List all loose datasets</span></a></li>
+<li class="toclevel-2 tocsection-24"><a href="#so.3B_List_all_orphaned_datasets"><span class="tocnumber">3.21</span> <span class="toctext">so; List all orphaned datasets</span></a></li>
+<li class="toclevel-2 tocsection-25"><a href="#soc.3B_dump_count_of_orphaned_datasets"><span class="tocnumber">3.22</span> <span class="toctext">soc; dump count of orphaned datasets</span></a></li>
+<li class="toclevel-2 tocsection-26"><a href="#st.3B_List_all_datasets_with_storage"><span class="tocnumber">3.23</span> <span class="toctext">st; List all datasets with storage</span></a></li>
+<li class="toclevel-2 tocsection-27"><a href="#svr.3B_List_all_persistent_system_variables_in_Origin"><span class="tocnumber">3.24</span> <span class="toctext">svr; List all persistent system variables in Origin</span></a></li>
+<li class="toclevel-2 tocsection-28"><a href="#v.3B_List_all_numeric_variables"><span class="tocnumber">3.25</span> <span class="toctext">v; List all numeric variables</span></a></li>
+<li class="toclevel-2 tocsection-29"><a href="#vs.3B_List_all_string_variables"><span class="tocnumber">3.26</span> <span class="toctext">vs; List all string variables</span></a></li>
+<li class="toclevel-2 tocsection-30"><a href="#vsh.3B_Output_all_virtual_datasets_that_use_shared_data_filters.2C_together_with_the_definitions_of_shared_data_filters"><span class="tocnumber">3.27</span> <span class="toctext">vsh; Output all virtual datasets that use shared data filters, together with the definitions of shared data filters</span></a></li>
+<li class="toclevel-2 tocsection-31"><a href="#vsha.3B_List_only_VSShDFs_used_in_the_active_graph_page"><span class="tocnumber">3.28</span> <span class="toctext">vsha; List only VSShDFs used in the active graph page</span></a></li>
+<li class="toclevel-2 tocsection-32"><a href="#vt.3B_List_all_tree_variables"><span class="tocnumber">3.29</span> <span class="toctext">vt; List all tree variables</span></a></li>
+<li class="toclevel-2 tocsection-33"><a href="#wc.3B_List_columns_in_active_worksheet"><span class="tocnumber">3.30</span> <span class="toctext">wc; List columns in active worksheet</span></a></li>
+<li class="toclevel-2 tocsection-34"><a href="#xf.3B_List_X-Functions"><span class="tocnumber">3.31</span> <span class="toctext">xf; List X-Functions</span></a></li>
 </ul>
 </li>
-<li class="toclevel-1 tocsection-33"><a href="#See_Also:"><span class="tocnumber">4</span> <span class="toctext">See Also:</span></a></li>
+<li class="toclevel-1 tocsection-35"><a href="#See_Also:"><span class="tocnumber">4</span> <span class="toctext">See Also:</span></a></li>
 </ul>
 </div>
 
@@ -445,7 +447,15 @@ As of <font color="red">8.1 SR0</font>, an optional argument <b>[name]</b> is su
 <pre class="lt" style="font-family:monospace;"><span style="color: #008000;">//Active worksheet and fill some data in column A</span>
 colsplit irng<span style="color: #000000;">:</span><span style="color: #000080;">=</span>col<span style="color: #000000;">&#40;</span>A<span style="color: #000000;">&#41;</span> nrows<span style="color: #000000;">:</span><span style="color: #000080;">=</span><span style="color: #0000dd;">3</span>;
 list <span style="color: #000080;">-</span>lg; <span style="color: #008000;">// The colsplit X-Funtion's GUI tree will be listed</span></pre>  
-<p><br />
+<h3><a name="n.3B_List_Note"></a><span class="mw-headline">n; List Note</span></h3>
+<p>Syntax: list <b>n</b>
+</p><p>List Notes window
+</p>
+<pre class="lt" style="font-family:monospace;">list ne;<span style="color: #008000;">//list with path</span>
+list nl;<span style="color: #008000;">//list with Long name</span></pre>
+<h3><a name="ns.3B_List_Sticky_Note"></a><span class="mw-headline">ns; List Sticky Note</span></h3>
+<p>Syntax: list <b>ns</b>
+</p><p>List current page's Sticky Note
 </p>
 <h3><a name="o.3B_List_all_objects_and_labels_in_the_current_layer"></a><span class="mw-headline">o; List all objects and labels in the current layer</span></h3>
 <p>Syntax: list <b>o</b>

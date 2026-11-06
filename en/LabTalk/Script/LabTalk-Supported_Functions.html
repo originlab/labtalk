@@ -191,6 +191,13 @@
 <ul><li> <code>GetToken("sss|abc|def|xyz", 3,"|")$</code> returns <code>"def"</code>.</li></ul>
 </td></tr>
 <tr>
+<td><a href="../../LabTalk/LabTalk/InSide_(function).html" title="LabTalk:InSide (function)">InSide(str$[, nQuote])$</a>
+<p align="right"><font color="red">(2026b)</font></p>
+</td>
+<td>This function extracts a substring using a matching pair of marks. &#160;<b>examples:</b>
+<ul><li> <code>inside("(1) Which do you like?(apple,  banana)", 1)$</code> returns the first substring in parentheses "1".</li></ul>
+</td></tr>
+<tr>
 <td><a href="../../LabTalk/LabTalk/IsEmpty_(function).html" title="LabTalk:IsEmpty (function)">IsEmpty(str$)</a>
 </td>
 <td>Similar to MS Excel's ISBLANK function. Used to determine whether a worksheet cell is empty or not. Argument <b>str</b> can be a cell address or a column of values. <b>example:</b>
@@ -1321,6 +1328,12 @@ date<span style="color: #000000;">&#40;</span><span style="color: #0000dd;">9</s
 <td>Takes a vector <b>vd</b>, returns sum of values satisfying condition <b>con$</b>.
 </td></tr>
 <tr>
+<td><a href="../../LabTalk/LabTalk/SumSq_(function).html" title="LabTalk:SumSq (function)">SumSq(vd[, vd2,...])</a>
+<p align="right"><font color="red">(2026b)</font></p>
+</td>
+<td>Returns the sum of squares of dataset(s) <b>vd</b>, <b>vd2</b>,....
+</td></tr>
+<tr>
 <td><a href="../../LabTalk/LabTalk/Sumproduct_(function).html" title="LabTalk:Sumproduct (function)">sumproduct(vd1[,vd2,...])</a>
 <p align="right"><font color="red">(2026)</font></p>
 </td>
@@ -1416,7 +1429,7 @@ In "row" mode, it takes two or more columns and returns a vector of row-wise sum
 <li> <code>sum(A:C, D:G, F)</code> sum columns A to C, D to G, and F by row</li>
 <li> <code>sum(A2:D4)_mean</code> calculate the mean of block from A2 to D4 by row </li></ul>
 <p><br />
-<b>Note</b>: This "row" mode syntax supported in Set Values and F(x)= is different and not compatible with scripting. See <a href="../../LabTalk/LabTalk/Sum_(function).html" title="LabTalk:Sum (function)">the <b>sum()</b> function</a> for more information.
+<b>Note</b>: This "row" mode syntax supported in Set Values and F(x)= is different and not compatible with scripting. See the <b>sum()</b> function page for more information.
 </p>
 </td></tr>
 <tr>
@@ -1563,6 +1576,27 @@ In "row" mode, it takes two or more columns and returns a vector of row-wise sum
 </td>
 <td> Takes a vector <b>vd</b> (data to smooth) and vector <b>vw</b> (indexed weight factor), returns a vector of weighted moving averages. Option <b>method</b> specifies which method to use (the fast method or the the robust method). <b>example:</b>
 <ul><li> <code>for(ii=1;ii&lt;=30;ii++) col(1)[ii] = ii;  //data vector<br />for(ii=1;ii&lt;=10;ii++) col(2)[ii] = ii/10; //weight vector<br />col(3)=wmovavg(col(1),col(2)); </code><br />fills col(3) with the weighted moving average at each point, starting at point = 10.</li></ul>
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Boxcox_(function).html" title="LabTalk:Boxcox (function)">boxcox(vd[, lambda, options, period])</a>
+<p align="right"><font color="red">(2026b)</font></p>
+</td>
+<td> Takes a positive nonnormally distributed vector <b>vd</b>, returns an approximately normal distributed vecotr calculated by Box-Cox power transform with <b>lambda</b>. If <b>lambda</b> is not a number, the optimal lambda will be estimated before transformation. <b>options</b> determines which method is used for transform. <b>example:</b>
+<ul><li> <code>csetvalue col:=col(B) formula:="BoxCox(A, 0/0, 1)"; </code> fills col(B) with Box-Cox transformed dataset by using method similar to SPC with estimated lambda.</li></ul>
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Jtrans_(function).html" title="LabTalk:Jtrans (function)">jtrans(vd)</a>
+<p align="right"><font color="red">(2026b)</font></p>
+</td>
+<td> Takes a nonnormally distributed vector <b>vd</b>, returns an approximately normal distributed vector calculated by Johnson transform. <b>example:</b>
+<ul><li> <code>jtrans(col(A)) </code> returns a Johnson transformed dataset from col(A). </li></ul>
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Yeojohnson_(function).html" title="LabTalk:Yeojohnson (function)">yeojohnson(vd[, lambda])</a>
+<p align="right"><font color="red">(2026b)</font></p>
+</td>
+<td> Takes a nonnormally distributed vector <b>vd</b>, returns a Yeo-Johnson transfomed vector with <b>lambda</b>. If <b>lambda</b> is not specified, the optimal lambda will be estimated before transformation. <b>example:</b>
+<ul><li> <code>yeojohnson(col(A),2)</code> returns a Yeo-Johnson transformed vector with lambda = 2.</li></ul>
 </td></tr></table>
 <h2><a name="Distribution_Functions"></a><span class="mw-headline">Distribution Functions</span></h2>
 <h3><a name="Cumulative_Distribution_Functions_.28CDF.29"></a><span class="mw-headline">Cumulative Distribution Functions (CDF)</span></h3>
@@ -4070,13 +4104,10 @@ with
 </p>
 </td></tr>
 <tr>
-<td><a class="external text" href="../../UserGuide/UserGuide/FraserSuzuki.html">FraserSuzuki(x,y0,xc,A,sig)</a>
+<td><a class="external text" href="../../UserGuide/UserGuide/FraserSuzuki.html">FraserSuzuki(x,y0,xc,A,w,a3)</a>
 </td>
-<td>Fraser-Suzuki asymmetric function.<br />
-<p><img src="../images/LabTalk-Supported_Functions/math-aad87f2be1506cc3f4f7a34edc50fea6.png?v=0" title=" y=y_0+\frac{Ae^{-\frac{\left( x-x_c\right) ^2}{2sigL}}}{sig\sqrt{2\pi }}" alt=" y=y_0+\frac{Ae^{-\frac{\left( x-x_c\right) ^2}{2sigL}}}{sig\sqrt{2\pi }}" class="tex"/> <img src="../images/LabTalk-Supported_Functions/math-c7305958b55880be8798eb8e8d4c405e.png?v=0" title="\left( x&lt;0\right) " alt="\left( x&lt;0\right) " class="tex"/>
-</p><p><img src="../images/LabTalk-Supported_Functions/math-447e74460d199d7af929156c7dffc328.png?v=0" title=" y=y_0+\frac{Ae^{-\frac{\left( x-x_c\right) ^2}{2sigR}}}{sig\sqrt{2\pi }}" alt=" y=y_0+\frac{Ae^{-\frac{\left( x-x_c\right) ^2}{2sigR}}}{sig\sqrt{2\pi }}" class="tex"/> <img src="../images/LabTalk-Supported_Functions/math-3373864baae5b92a2752731eaf91b2b9.png?v=0" title="\left( x\geq 0\right) " alt="\left( x\geq 0\right) " class="tex"/>
-</p><p>Where
-</p><p><img src="../images/LabTalk-Supported_Functions/math-3ac1e89e8e8e37746c03af2edda6f2af.png?v=0" title="sigL=sig\left( 1-A\right) " alt="sigL=sig\left( 1-A\right) " class="tex"/>,<img src="../images/LabTalk-Supported_Functions/math-559f1626413961e5769750478f1044ee.png?v=0" title="sigR=sig\left( 1+A\right) " alt="sigR=sig\left( 1+A\right) " class="tex"/>
+<td>Fraser-Suzuki asymmetric function<br />
+<p><img src="../images/LabTalk-Supported_Functions/math-d12c49363f46faf5e89ee027744759b1.png?v=0" title="y = y_{0}+ A \ \text{exp} \left( -\ln2 \left( \frac{ \ln \left(1 + \frac{2a_3( x - x_c )}{w} \right) }{a_3} \right)^2 \right)" alt="y = y_{0}+ A \ \text{exp} \left( -\ln2 \left( \frac{ \ln \left(1 + \frac{2a_3( x - x_c )}{w} \right) }{a_3} \right)^2 \right)" class="tex"/>
 </p>
 </td></tr>
 <tr>
@@ -4648,6 +4679,13 @@ This fitting function is for global fitting. When using it, Vmax, Km, Ki, and Al
 <td>Hill function to determine ligand concentration and maximum number of binding sites.<br />
 <p><img src="../images/LabTalk-Supported_Functions/math-74504106bd7d8e1e37895f9c77be9865.png?v=0" title="y=V_{\max }\frac{x^n}{k^n+x^n}" alt="y=V_{\max }\frac{x^n}{k^n+x^n}" class="tex"/>
 </p>
+</td></tr>
+<tr>
+<td>TightInhib(x,V,Et,Ki,S,Km)
+</td>
+<td>Morrison equation for tight binding inhibitors.
+<p><img src="../images/LabTalk-Supported_Functions/math-4e38d4db35ce7a17b4a5ed2d79335b93.png?v=0" title="y=V\left( -\frac{E_t + K_i(S/K_m + 1) + x - \sqrt{-4E_t x + (E_t + K_i(S/K_m + 1) + x)^2}}{2E_t} + 1\right)" alt="y=V\left( -\frac{E_t + K_i(S/K_m + 1) + x - \sqrt{-4E_t x + (E_t + K_i(S/K_m + 1) + x)^2}}{2E_t} + 1\right)" class="tex"/>
+</p>
 </td></tr></table>
 <h3><a name="Spectroscopy"></a><span class="mw-headline">Spectroscopy</span></h3>
 <table class="simple-FitFunc">
@@ -5073,6 +5111,123 @@ This fitting function is for global fitting. When using it, Vmax, Km, Ki, and Al
 <td>Michaelis Menten function to describe relation of concentration of substrate and enzyme velocity.<br />
 <p><img src="../images/LabTalk-Supported_Functions/math-114b10be130d0b3de68f55506098f06e.png?v=0" title="y=\frac{V_{max}x}{K_m+x}" alt="y=\frac{V_{max}x}{K_m+x}" class="tex"/>
 </p>
+</td></tr>
+<tr>
+<td>OperationalDepletion(x,Em,B,Ka,Tau,n)
+</td>
+<td>Operational model for receptor depletion when X is concentration or dose.
+<p><img src="../images/LabTalk-Supported_Functions/math-41b71afa0727b2e7b517c3c9fcaa749b.png?v=0" title=" y=B+\frac{E_m-B}{1+(op)^n}" alt=" y=B+\frac{E_m-B}{1+(op)^n}" class="tex"/>
+<br /><br /><img src="../images/LabTalk-Supported_Functions/math-b77b6eeb71d79f45118ba3fa3a83e378.png?v=0" title="where \ op = \frac{K_a+x}{T_{au}\cdot  x}" alt="where \ op = \frac{K_a+x}{T_{au}\cdot  x}" class="tex"/>
+</p>
+</td></tr>
+<tr>
+<td>AllostericShift(x,B,KB,alpha,Bt,Tp,EC50,s)
+</td>
+<td>Allosteric EC50 shift when X is concentration or dose.
+<p><img src="../images/LabTalk-Supported_Functions/math-82fd96e76e71ad6e8c3f4e09a5f25c5c.png?v=0" title="y = Bt+\frac{Tp-Bt}{1+\left(\frac{EC50\cdot A}{x}\right)^s} " alt="y = Bt+\frac{Tp-Bt}{1+\left(\frac{EC50\cdot A}{x}\right)^s} " class="tex"/>
+<br /><br /><img src="../images/LabTalk-Supported_Functions/math-85b9908ecda52d285c53026972413ccd.png?v=0" title="where \space A = \frac{B+KB}{alpha\cdot B+KB} " alt="where \space A = \frac{B+KB}{alpha\cdot B+KB} " class="tex"/>
+</p>
+</td></tr>
+<tr>
+<td>ECanything(x,ECF,F,Bt,Tp,s)
+</td>
+<td>Fit the EC80 or EC90, etc. instead of the EC50.
+<p><img src="../images/LabTalk-Supported_Functions/math-0cbb55137fc393fc0357f48747b388c2.png?v=0" title="y = Bt+\frac{Tp-Bt}{1+\left(\frac{EC50}{x}\right)^s} " alt="y = Bt+\frac{Tp-Bt}{1+\left(\frac{EC50}{x}\right)^s} " class="tex"/>
+<br /><br /><img src="../images/LabTalk-Supported_Functions/math-68e780f0cc7aea3efc01bc4f39848459.png?v=0" title=" where\space EC50 = \frac{ECF}{\left(\frac{F}{100-F}\right)^{1/s}}" alt=" where\space EC50 = \frac{ECF}{\left(\frac{F}{100-F}\right)^{1/s}}" class="tex"/>
+</p>
+</td></tr>
+<tr>
+<td>EC50Shift(x,Bt,Tp,EC50,r,s)
+</td>
+<td>EC50 shift for x is concentration.
+<p><img src="../images/LabTalk-Supported_Functions/math-bf6a3b423f5f2ee85549c7e553809cce.png?v=0" title="y = Bt+\frac{Tp-Bt}{1+\left(\frac{EC50\times r}{x}\right)^s} " alt="y = Bt+\frac{Tp-Bt}{1+\left(\frac{EC50\times r}{x}\right)^s} " class="tex"/>
+</p>
+</td></tr>
+<tr>
+<td>AbsoluteIC50(x,B,Bt,Tp,AbsIC50,s)
+</td>
+<td>Fit the absolute IC50.
+<p><img src="../images/LabTalk-Supported_Functions/math-00d798e456a6551523506e4fb5588b2b.png?v=0" title="y = Bt+\frac{Tp-Bt}{1+\left(\frac{Tp-Bt}{fifty-Bt}-1\right)\left(\frac{AbsIC50}{x}\right)^s} " alt="y = Bt+\frac{Tp-Bt}{1+\left(\frac{Tp-Bt}{fifty-Bt}-1\right)\left(\frac{AbsIC50}{x}\right)^s} " class="tex"/>
+<br /><br /><img src="../images/LabTalk-Supported_Functions/math-05d1da822429690c8b78d5eb712c9082.png?v=0" title="where \space fifty = \frac{Tp+B}{2}" alt="where \space fifty = \frac{Tp+B}{2}" class="tex"/>
+</p>
+</td></tr>
+<tr>
+<td>LogisticRichard5(x,Bt,Tp,EC50,HS,s)
+</td>
+<td>Richard's five-parameter dose response curve.
+<p><img src="../images/LabTalk-Supported_Functions/math-90df46155084cbcede364ca81e4c45cc.png?v=0" title="y = Bt + \frac{Tp - Bt}{\left(1+(2^{\frac{1}{s}}-1)(\frac{EC50}{x})^{HS}\right)^s}" alt="y = Bt + \frac{Tp - Bt}{\left(1+(2^{\frac{1}{s}}-1)(\frac{EC50}{x})^{HS}\right)^s}" class="tex"/>
+</p>
+</td></tr>
+<tr>
+<td>GaddumSchildShift(x,Bt,Tp,EC50,HS,SS,B,p)
+</td>
+<td>Gaddum/Schild EC50 shift for x is concentration.
+<p><img src="../images/LabTalk-Supported_Functions/math-f97545612ba83d9bd110b69fb4197f72.png?v=0" title="y = Bt + \frac{Tp-Bt}{1+\left(\left(\left(\frac{B}{10^{-p}}\right)^{SS}+1\right)\left(\frac{EC50}{x}\right)\right)^{HS}} " alt="y = Bt + \frac{Tp-Bt}{1+\left(\left(\left(\frac{B}{10^{-p}}\right)^{SS}+1\right)\left(\frac{EC50}{x}\right)\right)^{HS}} " class="tex"/>
+</p>
+</td></tr>
+<tr>
+<td>BiphasicConcentration(x,Bt,Tp,EC501,EC502,s1,s2,p)
+</td>
+<td>Fit the sum of two stimulatory dose response curves or two inhibitory dose response curve.
+<p><img src="../images/LabTalk-Supported_Functions/math-eebe6e580d4fa49540bae2f97f3c381b.png?v=0" title="y = Bt+\frac{(Tp-Bt)\cdot p}{1+(\frac{EC501}{x})^{s1}}+\frac{(Tp-Bt)(1-p)}{1+(\frac{EC502}{x})^{s2}} " alt="y = Bt+\frac{(Tp-Bt)\cdot p}{1+(\frac{EC501}{x})^{s1}}+\frac{(Tp-Bt)(1-p)}{1+(\frac{EC502}{x})^{s2}} " class="tex"/>
+</p>
+</td></tr>
+<tr>
+<td>DoseResp5P(x,A1,A2,LogEC50,p,s)
+</td>
+<td>Dose-response curve with variable Hill slope and asymmetry factor.
+<p><img src="../images/LabTalk-Supported_Functions/math-2b65ad6ae337738bfbbf331a6b90f560.png?v=0" title="y =A_1 + \frac{A_2-A_1}{(10^{p(\text{LogXb}-x)}+1)^s} " alt="y =A_1 + \frac{A_2-A_1}{(10^{p(\text{LogXb}-x)}+1)^s} " class="tex"/>
+<br /><img src="../images/LabTalk-Supported_Functions/math-2f431bf56beeb69a4ff080a61180e0a4.png?v=0" title="\text{where} \; \text{LogXb} = \text{LogEC50} + \frac{\text{log10}(2^{1/s}-1)}{p}. " alt="\text{where} \; \text{LogXb} = \text{LogEC50} + \frac{\text{log10}(2^{1/s}-1)}{p}. " class="tex"/>
+</p>
+</td></tr>
+<tr>
+<td>OperationalDepletionLog(x,logKa,logtau,n,B,Em)
+</td>
+<td>Operational model for receptor depletion with log(X)
+<p><img src="../images/LabTalk-Supported_Functions/math-2edba96862730e9570f0e623b2a75cd9.png?v=0" title="y =B+\frac{Em-B}{op+1}  " alt="y =B+\frac{Em-B}{op+1}  " class="tex"/>
+<br /><br /><img src="../images/LabTalk-Supported_Functions/math-8877d35177a864c5cb6f3e9e9064074e.png?v=0" title="\text{where} \; op = \left(\frac{10^{\text{logKa}} + 10^x}{10^{\text{logtau} + x}}\right)^n. " alt="\text{where} \; op = \left(\frac{10^{\text{logKa}} + 10^x}{10^{\text{logtau} + x}}\right)^n. " class="tex"/>
+</p>
+</td></tr>
+<tr>
+<td>GaddumSchildShiftLog(x,LogEC50,B,pA2,SchildSlope,A1,A2,p)
+</td>
+<td>Gaddum/Schild EC50 shift with log(X)
+<p><img src="../images/LabTalk-Supported_Functions/math-d054c0a89b115335679237f82374cdf6.png?v=0" title="y =A_1+\frac{A_2 - A_1}{10^{p(\text{LogEC}-x)} + 1} " alt="y =A_1+\frac{A_2 - A_1}{10^{p(\text{LogEC}-x)} + 1} " class="tex"/>
+<br /><img src="../images/LabTalk-Supported_Functions/math-df4f46204249d9254b6dd51daa02c766.png?v=0" title="\text{where} \; \text{LogEC} = \text{LogEC50} + \text{log}10\left(\left(\frac{B}{10^{-pA2}}\right)^{\text{SchildSlope}} + 1\right) " alt="\text{where} \; \text{LogEC} = \text{LogEC50} + \text{log}10\left(\left(\frac{B}{10^{-pA2}}\right)^{\text{SchildSlope}} + 1\right) " class="tex"/>
+</p>
+</td></tr>
+<tr>
+<td>AllostericShiftLog(x,LogEC50,LogKb,Logalpha,B,A1,A2,p)
+</td>
+<td>Allosteric EC50 shift function with log(X)
+<p><img src="../images/LabTalk-Supported_Functions/math-dc1a05c760d45eb5b8ae2c90ce99ac49.png?v=0" title="y =A_1+\frac{A_2 - A_1}{10^{p(\text{LogEC}-x)+1}} " alt="y =A_1+\frac{A_2 - A_1}{10^{p(\text{LogEC}-x)+1}} " class="tex"/>
+<br /><br /><img src="../images/LabTalk-Supported_Functions/math-9b8febb4b677b41705e621dd1607813e.png?v=0" title="\text{where LogEC = LogEC50} + \text{log}10 \left( \frac{B/K_b + 1}{alpha \cdot B/K_b + 1}\right)," alt="\text{where LogEC = LogEC50} + \text{log}10 \left( \frac{B/K_b + 1}{alpha \cdot B/K_b + 1}\right)," class="tex"/>
+<br /><br /><img src="../images/LabTalk-Supported_Functions/math-e134c8e9b5e9fbf7ed7ada48987e8dfd.png?v=0" title="K_b = 10^{\text{LogKb}}, \text{and } alpha = 10^{\text{Logalpha}} " alt="K_b = 10^{\text{LogKb}}, \text{and } alpha = 10^{\text{Logalpha}} " class="tex"/>
+</p>
+</td></tr>
+<tr>
+<td>DoseRespEC(x,LogECF,F,A1,A2,p)
+</td>
+<td>Dose-response curve with variable Hill slope and EC at any percent.
+<p><img src="../images/LabTalk-Supported_Functions/math-41ab4775df95eb591feea6c31b9d2b3c.png?v=0" title="y =A_1 + \frac{A_2 - A_1}{10^{p(\text{LogEC50 - x})+1}}  " alt="y =A_1 + \frac{A_2 - A_1}{10^{p(\text{LogEC50 - x})+1}}  " class="tex"/>
+<br /><img src="../images/LabTalk-Supported_Functions/math-aa79ac44334f8a7294baee6d7bb004cf.png?v=0" title="\text{where LogEC50 = LogECF} - \frac{\text{log10}(F/(100-F))}{p} " alt="\text{where LogEC50 = LogECF} - \frac{\text{log10}(F/(100-F))}{p} " class="tex"/>
+</p>
+</td></tr>
+<tr>
+<td>DoseRespShift(x,LogEC50,ratio,A1,A2,p)
+</td>
+<td>Dose-response curve with variable Hill slope and EC50 shift by ratio.
+<p><img src="../images/LabTalk-Supported_Functions/math-3f5e6585c14353eb5a4f2ed0af2232ea.png?v=0" title="y = A_1 + \frac{A_2 - A_1}{10^{p(\text{LogEC} - x)} +1} " alt="y = A_1 + \frac{A_2 - A_1}{10^{p(\text{LogEC} - x)} +1} " class="tex"/>
+<br /><br /><img src="../images/LabTalk-Supported_Functions/math-0ef8e09010fdbd6fd4ca2468a67a1d4f.png?v=0" title="\text{where LogEC = LogEC50} + \text{log}10(\text{ratio}) " alt="\text{where LogEC = LogEC50} + \text{log}10(\text{ratio}) " class="tex"/>
+</p>
+</td></tr>
+<tr>
+<td>DoseRespAbsIC50(x,A1,A2,LogIC50,p,B)
+</td>
+<td>Dose-response curve with variable Hill slope and absolute IC50.
+<p><img src="../images/LabTalk-Supported_Functions/math-0edcce86518c81f76347f757dac73a11.png?v=0" title="y =A_1 + \frac{A_2 - A_1}{10^{p(\text{LogIC50} - x) + \text{log}10((A_2 - A_1)/(A_{50} - A_1)-1)}+1} " alt="y =A_1 + \frac{A_2 - A_1}{10^{p(\text{LogIC50} - x) + \text{log}10((A_2 - A_1)/(A_{50} - A_1)-1)}+1} " class="tex"/>
+<br /><img src="../images/LabTalk-Supported_Functions/math-2c25031cf2c5f16691e7139ec9d67b4e.png?v=0" title="\text{where } A_{50} = (B + A_2)/2 " alt="\text{where } A_{50} = (B + A_2)/2 " class="tex"/>
+</p>
 </td></tr></table>
 <h3><a name="Binding"></a><span class="mw-headline">Binding</span></h3>
 <table class="simple-FitFunc">
@@ -5115,6 +5270,119 @@ This fitting function is for global fitting. When using it, Vmax, Km, Ki, and Al
 <td>Two sites competition function to describe the competition of a ligand for two types of receptors.<br />
 <p><img src="../images/LabTalk-Supported_Functions/math-d4d04163eb1cdfc5b9231d1653f9a2f5.png?v=0" title=" y=A_2+\frac{\left( A_1-A_2\right) f}{1+10^{\left( x-\log x_{0\_1}\right) }}+\frac{\left( A_1-A_2\right) \left( 1-f\right) }{1+10^{\left( x-\log x_{0\_2}\right) }}" alt=" y=A_2+\frac{\left( A_1-A_2\right) f}{1+10^{\left( x-\log x_{0\_1}\right) }}+\frac{\left( A_1-A_2\right) \left( 1-f\right) }{1+10^{\left( x-\log x_{0\_2}\right) }}" class="tex"/>
 </p>
+</td></tr>
+<tr>
+<td>Assoc1conc(x,Koff,Kon,Hotnm,Bmax)
+</td>
+<td>A radioligand binding model used to determine the association rate constant of a ligand.
+<p><img src="../images/LabTalk-Supported_Functions/math-fabe108bbcb29b2945db7bfbf5a5f268.png?v=0" title="y = \frac{L B_{\text{max}}}{L + K_{\text{off}} / K_{\text{on}}} \left(1 - e^{-(L K_{\text{on}} + K_{\text{off}})x}\right) " alt="y = \frac{L B_{\text{max}}}{L + K_{\text{off}} / K_{\text{on}}} \left(1 - e^{-(L K_{\text{on}} + K_{\text{off}})x}\right) " class="tex"/>
+<br /><img src="../images/LabTalk-Supported_Functions/math-d9cd9c5f9ee289d2a94716924e959cc7.png?v=0" title="\text{where } L = \text{Hotnm} \times 1\text{E}-9 " alt="\text{where } L = \text{Hotnm} \times 1\text{E}-9 " class="tex"/>
+</p>
+</td></tr>
+<tr>
+<td>AssocThenDissoc(x,Hotnm,Kon,Koff,Bmax,Time0,NS)
+</td>
+<td>A piecewise model that simulates ligand binding using an exponential rise equation and an exponential decay equation.
+<p><img src="../images/LabTalk-Supported_Functions/math-092190abbbe29aa5c7956cf8831adecd.png?v=0" title="y = NS + \begin{cases} &#10;\frac{L B_{\text{max}}}{L + K_{\text{off}} / K_{\text{on}}} \left(1 - e^{-(L K_{\text{on}} + K_{\text{off}}) x}\right) &amp; (x \le \text{Time0}) \\[1.5em]&#10;\frac{L B_{\text{max}}}{L + K_{\text{off}} / K_{\text{on}}} \left(1 - e^{-(L K_{\text{on}} + K_{\text{off}}) \text{Time0}}\right) e^{-K_{\text{off}} (x - \text{Time0})} &amp; (x &gt; \text{Time0})&#10;\end{cases}" alt="y = NS + \begin{cases} &#10;\frac{L B_{\text{max}}}{L + K_{\text{off}} / K_{\text{on}}} \left(1 - e^{-(L K_{\text{on}} + K_{\text{off}}) x}\right) &amp; (x \le \text{Time0}) \\[1.5em]&#10;\frac{L B_{\text{max}}}{L + K_{\text{off}} / K_{\text{on}}} \left(1 - e^{-(L K_{\text{on}} + K_{\text{off}}) \text{Time0}}\right) e^{-K_{\text{off}} (x - \text{Time0})} &amp; (x &gt; \text{Time0})&#10;\end{cases}" class="tex"/>
+<br /><img src="../images/LabTalk-Supported_Functions/math-4c316d7948d16abaf087b7ff6414808b.png?v=0" title="\text{where } L = \text{Hotnm} \times 1\text{E}-9" alt="\text{where } L = \text{Hotnm} \times 1\text{E}-9" class="tex"/>
+&lt;/math&gt;
+</p>
+</td></tr>
+<tr>
+<td>CompetitiveBinding(x,K1,L,K2,K3,I,K4,Bmax)
+</td>
+<td>Evaluate a multi-curve model (Motulsky-Mahan) to predict hot ligand binding over time in the presence of varying cold competitor concentrations.
+<p><img src="../images/LabTalk-Supported_Functions/math-51f0cf4d82cca39ccd515159eff0b55a.png?v=0" title="y = Q \left( \frac{K_4 \text{Diff}}{K_F K_S} + (K_4 - K_F) \frac{e^{-K_F x}}{K_F} - (K_4 - K_S) \frac{e^{-K_S x}}{K_S} \right) " alt="y = Q \left( \frac{K_4 \text{Diff}}{K_F K_S} + (K_4 - K_F) \frac{e^{-K_F x}}{K_F} - (K_4 - K_S) \frac{e^{-K_S x}}{K_S} \right) " class="tex"/>
+<br /><br /><img src="../images/LabTalk-Supported_Functions/math-719b874921c72c02239ae679671cce85.png?v=0" title=" \text{where } K_A = K_2 + K_1 L \times 1\text{E}-9, \quad K_B = K_4 + K_3 I \times 1\text{E}-9, " alt=" \text{where } K_A = K_2 + K_1 L \times 1\text{E}-9, \quad K_B = K_4 + K_3 I \times 1\text{E}-9, " class="tex"/>
+<br /><br /><img src="../images/LabTalk-Supported_Functions/math-0170b80edf7a9e95fc3dccd6c73c6410.png?v=0" title=" \quad S = \sqrt{(4\text{E}-18) \times K_1 K_3 L I + (K_A - K_B)^2}," alt=" \quad S = \sqrt{(4\text{E}-18) \times K_1 K_3 L I + (K_A - K_B)^2}," class="tex"/>
+<br /><br /><img src="../images/LabTalk-Supported_Functions/math-fa498727a4acb4e3e835ad0de3776d93.png?v=0" title=" K_F = 0.5 K_A + 0.5 K_B + 0.5 S,  \quad K_S = 0.5 K_A + 0.5 K_B - 0.5 S," alt=" K_F = 0.5 K_A + 0.5 K_B + 0.5 S,  \quad K_S = 0.5 K_A + 0.5 K_B - 0.5 S," class="tex"/>
+<br /><br /><img src="../images/LabTalk-Supported_Functions/math-69ae38bc43ccc9e993080211c431c246.png?v=0" title=" \quad \text{Diff} = K_F - K_S, \quad Q = \frac{K_1 L B_{\text{max}}}{\text{Diff}} \times 1\text{E}-9" alt=" \quad \text{Diff} = K_F - K_S, \quad Q = \frac{K_1 L B_{\text{max}}}{\text{Diff}} \times 1\text{E}-9" class="tex"/>
+</p>
+</td></tr>
+<tr>
+<td>OneSiteTotal(x,Bg,NS,Bmax,K)
+</td>
+<td>Fit total binding only.<br />
+<p><img src="../images/LabTalk-Supported_Functions/math-43d7299d7bc77d5f84960bc829240e18.png?v=0" title=" y = Bg + NS\times x+\frac{B_{max}x}{K+x} " alt=" y = Bg + NS\times x+\frac{B_{max}x}{K+x} " class="tex"/>
+</p>
+</td></tr>
+<tr>
+<td>OneSiteTotalDepletion(x,V,SA,KdnM,NS,Bmax)
+</td>
+<td>Fit total binding accounting for ligand depletion.
+<p><img src="../images/LabTalk-Supported_Functions/math-53e39619babaf49c8236c864bf3e7b09.png?v=0" title="y = \frac{-b+\sqrt{b^2-4ac}}{2a}, where " alt="y = \frac{-b+\sqrt{b^2-4ac}}{2a}, where " class="tex"/>
+<br /><img src="../images/LabTalk-Supported_Functions/math-eaa66e01f86bcc4c0e328456227c286c.png?v=0" title="a = -NS-1" alt="a = -NS-1" class="tex"/>
+<br /><img src="../images/LabTalk-Supported_Functions/math-d98f666c64e91ab8d28e7ffdf0952757.png?v=0" title="KdCPM = 1000 \times V \times KdnM \times SA" alt="KdCPM = 1000 \times V \times KdnM \times SA" class="tex"/>
+<br /><img src="../images/LabTalk-Supported_Functions/math-ba40d28fe12aa627824ef6374dcc71b6.png?v=0" title="b = KdCPM+B_{max}+NS\times KdCPM + x+2\times NS\times x " alt="b = KdCPM+B_{max}+NS\times KdCPM + x+2\times NS\times x " class="tex"/>
+<br /><img src="../images/LabTalk-Supported_Functions/math-750362d60565c8cf1acd393a1cf98d9f.png?v=0" title="c = -x(B_{max}+NS\times KdCPM + NS\times x)" alt="c = -x(B_{max}+NS\times KdCPM + NS\times x)" class="tex"/>
+</p>
+</td></tr>
+<tr>
+<td>TwoSiteTotal(x,Bg,NS,Bmax1,Bmax2,K1,K2)
+</td>
+<td>Two sites total binding function.<br />
+<p><img src="../images/LabTalk-Supported_Functions/math-84b9b0f6414595b7acde013fa87ec9ea.png?v=0" title="y = Bg + NS\cdot x + \frac{B_{max1}\cdot x}{K_1+x} + \frac{B_{max2}\cdot x}{K_2+x}" alt="y = Bg + NS\cdot x + \frac{B_{max1}\cdot x}{K_1+x} + \frac{B_{max2}\cdot x}{K_2+x}" class="tex"/>
+</p>
+</td></tr>
+<tr>
+<td>OneSiteAlloModShift(x,logalpha,logKb,KdHot,Allo,Bmax)
+</td>
+<td>One site binding with allosteric modulator shift.<br />
+<p><img src="../images/LabTalk-Supported_Functions/math-f34e0d7f7c50f90fe63e8dbcea17b640.png?v=0" title="y = \frac{B_{max}\cdot x}{x+KdHot\cdot\frac{10^{logK_b}+Allo}{10^{logK_b}+10^{logalpha}\cdot Allo}}" alt="y = \frac{B_{max}\cdot x}{x+KdHot\cdot\frac{10^{logK_b}+Allo}{10^{logK_b}+10^{logalpha}\cdot Allo}}" class="tex"/>
+</p>
+</td></tr>
+<tr>
+<td>OneSiteBindHS(x,Bmax,k1,s)
+</td>
+<td>One site binding with Hill slope.
+<p><img src="../images/LabTalk-Supported_Functions/math-4f76021f122fb575a66b95d740381ad4.png?v=0" title="y = \frac{B_{max}\cdot x^s}{k_1^s + x^s}" alt="y = \frac{B_{max}\cdot x^s}{k_1^s + x^s}" class="tex"/>
+</p>
+</td></tr>
+<tr>
+<td>OneSiteCompFitKi(x,A1,A2,logKi,H1,H2)
+</td>
+<td>One Site Competition curve. Dose-response curve with Hill slope equal to -1.
+<p><img src="../images/LabTalk-Supported_Functions/math-cc977e2f4b278029ce1577759d0d1ad5.png?v=0" title=" logx_{0}  = \log\left(10^{logKi} \cdot \left(1+\frac{H_{1}}{H_{2}}\right)\right)" alt=" logx_{0}  = \log\left(10^{logKi} \cdot \left(1+\frac{H_{1}}{H_{2}}\right)\right)" class="tex"/>
+<br /><img src="../images/LabTalk-Supported_Functions/math-c10727109d654ade038e7897b66d2de7.png?v=0" title="y = A_2 + \frac{A_1-A_2}{1+10^{\left(x-\log x_{0}\right) }}" alt="y = A_2 + \frac{A_1-A_2}{1+10^{\left(x-\log x_{0}\right) }}" class="tex"/>
+</p>
+</td></tr>
+<tr>
+<td>TwoSiteCompFitKi(x,A1,A2,logKi_1,logKi_2,fraction,H1,H2_1,H2_2)
+</td>
+<td>Two sites competition function to describe the competition of a ligand for two types of receptors
+<p><img src="../images/LabTalk-Supported_Functions/math-68b1bf7f10ef32c01da873dfe5fd7eea.png?v=0" title="logx_{01} = \log\left(10^{logKi_{1}} \cdot \left(1+\frac{H_{1}}{H_{21}}\right)\right)" alt="logx_{01} = \log\left(10^{logKi_{1}} \cdot \left(1+\frac{H_{1}}{H_{21}}\right)\right)" class="tex"/>
+<br /><img src="../images/LabTalk-Supported_Functions/math-e0ec9514649091c622d9cd394828f964.png?v=0" title=" logx_{02} = \log\left(10^{logKi_{2}} \cdot \left(1+\frac{H_{1}}{H_{22}}\right)\right)" alt=" logx_{02} = \log\left(10^{logKi_{2}} \cdot \left(1+\frac{H_{1}}{H_{22}}\right)\right)" class="tex"/>
+<br /><img src="../images/LabTalk-Supported_Functions/math-afc55e1ecc4c43e92bcccffabeb6fe4b.png?v=0" title=" y=A_2+\frac{\left( A_1-A_2\right) f}{1+10^{\left( x-\log x_{01}\right) }}+\frac{\left( A_1-A_2\right) \left( 1-f\right) }{1+10^{\left( x-\log x_{02}\right) }}" alt=" y=A_2+\frac{\left( A_1-A_2\right) f}{1+10^{\left( x-\log x_{01}\right) }}+\frac{\left( A_1-A_2\right) \left( 1-f\right) }{1+10^{\left( x-\log x_{02}\right) }}" class="tex"/>
+</p>
+</td></tr>
+<tr>
+<td>OneSiteLigandDepletion(x,logKi,Bmax,NS,Hot,KdNM,SpAct,Vol)
+</td>
+<td>One site competition binding accounting for radioligand depletion.
+<p><a  class="image"><img alt="OneSiteLigandDepletion Function formula.png" src="../images/LabTalk-Supported_Functions/OneSiteLigandDepletion_Function_formula.png?v=42574" width="311"  /></a>
+</p>
+</td></tr>
+<tr>
+<td>OneSiteHomologous(x,logKd,Bmax,NS,HotnM)
+</td>
+<td>One site homologous binding model with identical hot and cold ligand affinities.
+<p><img src="../images/LabTalk-Supported_Functions/math-3d01abde6c0b4d34330824838bf95142.png?v=0" title="Bottom = NS \cdot HotnM" alt="Bottom = NS \cdot HotnM" class="tex"/>
+<br /><img src="../images/LabTalk-Supported_Functions/math-31e1101ecf2cc24b799aa7660f71521e.png?v=0" title="KdNM = 10^{logKD + 9}" alt="KdNM = 10^{logKD + 9}" class="tex"/>
+<br /><img src="../images/LabTalk-Supported_Functions/math-576b8124225e3ed80100249b1b2c1e69.png?v=0" title="ColdNM = 10^{x + 9}" alt="ColdNM = 10^{x + 9}" class="tex"/>
+<br /><img src="../images/LabTalk-Supported_Functions/math-82705cb287099d19e199fe3acbbf04b3.png?v=0" title="y = Bottom + \frac{Bmax \cdot HotnM}{HotnM + ColdNM + KdNM}" alt="y = Bottom + \frac{Bmax \cdot HotnM}{HotnM + ColdNM + KdNM}" class="tex"/>
+</p>
+</td></tr>
+<tr>
+<td>AllostericModulator(x,logKb,logAlpha,y0,RadioligandNM,HotKdNM)
+</td>
+<td>Allosteric modulator titration of radioligand binding based on the ternary complex model.
+<p><img src="../images/LabTalk-Supported_Functions/math-83b3c7007b7d6be9526d104ffada8c6d.png?v=0" title="alpha = 10^{logAlpha}" alt="alpha = 10^{logAlpha}" class="tex"/>
+<br /><img src="../images/LabTalk-Supported_Functions/math-7a872a9bd1f38a0979b4f330691e6cbe.png?v=0" title="KbNM = 10^{logKb + 9}" alt="KbNM = 10^{logKb + 9}" class="tex"/>
+<br /><img src="../images/LabTalk-Supported_Functions/math-da9631747a1f1e26669730338b9a21e3.png?v=0" title="HotOccupancy = \frac{RadioligandNM}{RadioligandNM + HotKDnm}" alt="HotOccupancy = \frac{RadioligandNM}{RadioligandNM + HotKDnm}" class="tex"/>
+<br /><img src="../images/LabTalk-Supported_Functions/math-82eac1674b4daa6d92be1ca574e30e40.png?v=0" title="AlloNM = 10^{x + 9}" alt="AlloNM = 10^{x + 9}" class="tex"/>
+<br /><img src="../images/LabTalk-Supported_Functions/math-5c23ca680edcaace22da66649d9bb334.png?v=0" title="KAppNM = HotKDnm \cdot \left(\frac{\frac{AlloNM}{KBNM} + 1}{alpha \cdot \left(\frac{AlloNM}{KBNM}\right) + 1}\right)" alt="KAppNM = HotKDnm \cdot \left(\frac{\frac{AlloNM}{KBNM} + 1}{alpha \cdot \left(\frac{AlloNM}{KBNM}\right) + 1}\right)" class="tex"/>
+<br /><img src="../images/LabTalk-Supported_Functions/math-64be79c29d29532c8b341ba708dec07f.png?v=0" title="y = \frac{y_{0} \cdot \left(\frac{RadioligandNM}{RadioligandNM + KAppNM}\right)}{HotOccupancy}" alt="y = \frac{y_{0} \cdot \left(\frac{RadioligandNM}{RadioligandNM + KAppNM}\right)}{HotOccupancy}" class="tex"/>
+</p>
 </td></tr></table>
 <h3><a name="Growth"></a><span class="mw-headline">Growth</span></h3>
 <table class="simple-FitFunc">
@@ -5156,6 +5424,27 @@ This fitting function is for global fitting. When using it, Vmax, Km, Ki, and Al
 </td>
 <td>Sigmoidal Logistic function, type 3.<br />
 <p><img src="../images/LabTalk-Supported_Functions/math-b0649f2d75ec059604397a483e220939.png?v=0" title=" y=\frac a{1+be^{-kx}}" alt=" y=\frac a{1+be^{-kx}}" class="tex"/>
+</p>
+</td></tr>
+<tr>
+<td>GompertzGrowth(x,ym,y0,k)
+</td>
+<td>Growth rate decays exponentially as the population approaches it maximum.
+<p><img src="../images/LabTalk-Supported_Functions/math-00fd210a98811013a76badf4dc4dc095.png?v=0" title=" y = y_m \left( \frac{y_0}{y_m} \right)^{e^{-kx}}" alt=" y = y_m \left( \frac{y_0}{y_m} \right)^{e^{-kx}}" class="tex"/>
+</p>
+</td></tr>
+<tr>
+<td>LogisticGrowth(x,ym,y0,k)
+</td>
+<td>Sigmoidal logistic growth function.
+<p><img src="../images/LabTalk-Supported_Functions/math-286e23cd2921cafe53f7b9af5d1bad2d.png?v=0" title=" y = \frac{y_m y_0}{y_0 + (y_m - y_0) e^{-kx}}" alt=" y = \frac{y_m y_0}{y_0 + (y_m - y_0) e^{-kx}}" class="tex"/>
+</p>
+</td></tr>
+<tr>
+<td>BetaGrowthDecay(x,ym,Te,Tm)
+</td>
+<td>An asymmetrical, dome-shaped curve that rises from zero to a peak and then decays.
+<p><img src="../images/LabTalk-Supported_Functions/math-efc2574470641c8b2cac398fce38115a.png?v=0" title=" y = y_m \left( \frac{T_e - x}{T_e - T_m} + 1 \right) \left( \frac{x}{T_e} \right)^{\frac{T_e}{T_e - T_m}}" alt=" y = y_m \left( \frac{T_e - x}{T_e - T_m} + 1 \right) \left( \frac{x}{T_e} \right)^{\frac{T_e}{T_e - T_m}}" class="tex"/>
 </p>
 </td></tr></table>
 <h3><a name="Expo"></a><span class="mw-headline">Expo</span></h3>
@@ -5206,6 +5495,27 @@ This fitting function is for global fitting. When using it, Vmax, Km, Ki, and Al
 <td>Three-phase exponential decay function with time constant parameters.<br />
 <p><img src="../images/LabTalk-Supported_Functions/math-de323aaa64e2f84ae683c7cd77c80414.png?v=0" title="y=y_0+A_1e^{-x/t_1}+A_2e^{-x/t_2}+A_3e^{-x/t_3}" alt="y=y_0+A_1e^{-x/t_1}+A_2e^{-x/t_2}+A_3e^{-x/t_3}" class="tex"/>
 </p>
+</td></tr>
+<tr>
+<td>ExpDecayDelay1(x,TD,y0,Plateau,Tau)
+</td>
+<td>Plateau followed by one phase decay.
+<p><img src="../images/LabTalk-Supported_Functions/math-87f3a58236883b909656c88d07d9f540.png?v=0" title="y = \begin{cases}y_0 &amp; (x &lt; TD) \\[1.2em]\text{Plateau} + (y_0 - \text{Plateau}) e^{-\frac{(x - TD)}{\tau}} &amp; (x \ge TD)\end{cases}&#10;" alt="y = \begin{cases}y_0 &amp; (x &lt; TD) \\[1.2em]\text{Plateau} + (y_0 - \text{Plateau}) e^{-\frac{(x - TD)}{\tau}} &amp; (x \ge TD)\end{cases}&#10;" class="tex"/>
+</p>
+</td></tr>
+<tr>
+<td>LinearQuadSurv(x,y0,a,b)
+</td>
+<td>Linear quadratic survival function.
+<p><img src="../images/LabTalk-Supported_Functions/math-df8a023bf4d12da08aade8e8a8d1913b.png?v=0" title="y=y_0 e^{-(ax+bx^2)}" alt="y=y_0 e^{-(ax+bx^2)}" class="tex"/>
+</p>
+</td></tr>
+<tr>
+<td>LinearQuadDeath(x,y0,a,b)
+</td>
+<td>Linear quadratic survival function for death cells.
+<p><img src="../images/LabTalk-Supported_Functions/math-c4f2e6eced22813ea1dafab563b09ecd.png?v=0" title="y=y_0 \left( 1-e^{-(ax+bx^2)} \right)" alt="y=y_0 \left( 1-e^{-(ax+bx^2)} \right)" class="tex"/>
+</p>
 </td></tr></table>
 <h3><a name="Poly"></a><span class="mw-headline">Poly</span></h3>
 <table class="simple-FitFunc">
@@ -5255,6 +5565,20 @@ This fitting function is for global fitting. When using it, Vmax, Km, Ki, and Al
 <td>5th order polynomial function.<br />
 <p><img src="../images/LabTalk-Supported_Functions/math-179fade716326e5ac21534b7420a96e2.png?v=0" title="y = A_0+A_1x+A_2x^2+A_3x^3+A_4x^4+A_5x^5" alt="y = A_0+A_1x+A_2x^2+A_3x^3+A_4x^4+A_5x^5" class="tex"/>
 </p>
+</td></tr>
+<tr>
+<td>PWL2Hinge(x,a,k1,x0,k2,s)
+</td>
+<td>Piecewise linear function with two segments and gentle connection.
+<p><img src="../images/LabTalk-Supported_Functions/math-5d2e1cddf1ca1f79e2624de8fce4dd7e.png?v=0" title="y=a+k_1(x - x_0)+s(k_2 - k_1)\text{ln}\left( 1 + e^{(x-x_0)/s} \right)" alt="y=a+k_1(x - x_0)+s(k_2 - k_1)\text{ln}\left( 1 + e^{(x-x_0)/s} \right)" class="tex"/>
+</p>
+</td></tr>
+<tr>
+<td>LineCross(x,xc,yc,k)
+</td>
+<td>Line function with the crossing point.
+<p><img src="../images/LabTalk-Supported_Functions/math-73f2ec21d85b67a88adb3a2d6924bcdd.png?v=0" title="y=y_c + k(x - x_c)" alt="y=y_c + k(x - x_c)" class="tex"/>
+</p>
 </td></tr></table>
 <h3><a name="Periodic"></a><span class="mw-headline">Periodic</span></h3>
 <table class="simple-FitFunc">
@@ -5282,6 +5606,13 @@ This fitting function is for global fitting. When using it, Vmax, Km, Ki, and Al
 </td>
 <td>sine square function.<br />
 <p><img src="../images/LabTalk-Supported_Functions/math-99d675f585814517ce6865e944a57bab.png?v=0" title="y=y_0+A\sin ^2\left( \pi \frac{x-x_c}w\right) " alt="y=y_0+A\sin ^2\left( \pi \frac{x-x_c}w\right) " class="tex"/>
+</p>
+</td></tr>
+<tr>
+<td>Sinc(x,A,w)
+</td>
+<td>Sinc function, Fourier transform of a rectangular pulse.
+<p><img src="../images/LabTalk-Supported_Functions/math-dc32d5437a6b9ecd9ea3355057ab7ff3.png?v=0" title="y=\begin{cases}A, &amp; \text{if } x=0 \\&#10;\frac{A \text{sin}(2 \pi x/w)}{2 \pi x/w}, &amp; \text{otherwise}&#10;\end{cases}" alt="y=\begin{cases}A, &amp; \text{if } x=0 \\&#10;\frac{A \text{sin}(2 \pi x/w)}{2 \pi x/w}, &amp; \text{otherwise}&#10;\end{cases}" class="tex"/>
 </p>
 </td></tr></table>
 <h3><a name="Line_Shapes"></a><span class="mw-headline">Line Shapes</span></h3>
@@ -5808,6 +6139,12 @@ This fitting function is for global fitting. When using it, Vmax, Km, Ki, and Al
 <td>Returns bitwise XOR operation of two integers.
 </td></tr>
 <tr>
+<td><a href="../../LabTalk/LabTalk/BookNames_(function).html" title="LabTalk:BookNames (function)">BookNames(scope)</a>
+<p align="right"><font color="red">(2026b)</font></p>
+</td>
+<td>Get Book Names.
+</td></tr>
+<tr>
 <td><a href="../../LabTalk/LabTalk/ISNA_(function).html" title="LabTalk:ISNA (function)">ISNA(d)</a>
 </td>
 <td>Determines whether the number is a NANUM.
@@ -5836,6 +6173,12 @@ This fitting function is for global fitting. When using it, Vmax, Km, Ki, and Al
 <p align="right"><font color="red">(2019 SR0)</font></p>
 </td>
 <td>Convert an internal color code <b>oColor</b> to RGB value.
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/SheetNames_(function).html" title="LabTalk:SheetNames (function)">SheetNames(scope, exclamation)</a>
+<p align="right"><font color="red">(2026b)</font></p>
+</td>
+<td>Get Sheet Names.
 </td></tr>
 <tr>
 <td><a href="../../LabTalk/LabTalk/Xf_get_last_error_code_(function).html" title="LabTalk:Xf get last error code (function)"> xf_get_last_error_code()</a>

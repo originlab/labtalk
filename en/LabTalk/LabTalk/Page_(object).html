@@ -406,6 +406,22 @@ For Matrices, controls view mode: <br />
 <td> Wether the graph page has filter(s) or not. Return -1 if not a graph window.
 </td></tr>
 <tr>
+<td> <b>page.dpbkshinfo</b><font color="red">(2027)</font>
+</td>
+<td> graphs
+</td>
+<td> Read only,<br />numeric
+</td>
+<td> Return the dataplots status:
+<p><br />-1 = error of some sort,
+<br />0 = no dataplots found,
+<br />1 = there is at least one loose datataset,
+<br />2 = All data is from one sheet,
+<br />3 = Data from at least two sheets, but all from the same book
+<br />4 = Data is from multiple books
+</p>
+</td></tr>
+<tr>
 <td> <b>page.dvHeight</b>
 </td>
 <td> graphs

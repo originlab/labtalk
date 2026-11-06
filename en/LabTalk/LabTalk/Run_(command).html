@@ -1,4 +1,4 @@
-<h1 class="firstHeading">3.3.2.53 Run(command)</h1><p class='urlname' style='display: none'>Run-cmd</p>
+<h1 class="firstHeading">3.3.2.54 Run(command)</h1><p class='urlname' style='display: none'>Run-cmd</p>
 <p>Execute a script file or run a Windows program.
 </p>
 <div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
@@ -7,40 +7,41 @@
 <li class="toclevel-1 tocsection-2"><a href="#Options:"><span class="tocnumber">2</span> <span class="toctext">Options:</span></a>
 <ul>
 <li class="toclevel-2 tocsection-3"><a href="#no_option.3B_Run_the_script_file_scriptfileName"><span class="tocnumber">2.1</span> <span class="toctext">no option; Run the script file <i>scriptfileName</i></span></a></li>
-<li class="toclevel-2 tocsection-4"><a href="#-au_value.3B_Change_the_recalculate_mode_for_the_entire_project"><span class="tocnumber">2.2</span> <span class="toctext">-au <i>value</i>; Change the recalculate mode for the entire project</span></a></li>
-<li class="toclevel-2 tocsection-5"><a href="#-aub_value_UID.3B_block_or_unblock_recalculation_for_a_specific_operation"><span class="tocnumber">2.3</span> <span class="toctext">-aub <i>value</i> <i>UID</i>; block or unblock recalculation for a specific operation</span></a></li>
-<li class="toclevel-2 tocsection-6"><a href="#-auc_UID.3B_Open_dialog_to_change_parameters_for_a_specific_operation"><span class="tocnumber">2.4</span> <span class="toctext">-auc <i>UID</i>; Open dialog to change parameters for a specific operation</span></a></li>
-<li class="toclevel-2 tocsection-7"><a href="#-auf.3B_Dirty_all_recalculation"><span class="tocnumber">2.5</span> <span class="toctext">-auf; Dirty all recalculation</span></a></li>
-<li class="toclevel-2 tocsection-8"><a href="#-aud_value.3B_Change_the_Recalculate_Mode_for_the_current_folder_.28open.29"><span class="tocnumber">2.6</span> <span class="toctext">-aud <i>value</i>; Change the Recalculate Mode for the current folder (open)</span></a></li>
-<li class="toclevel-2 tocsection-9"><a href="#-audr_value.3B_Change_the_Recalculate_Mode_for_the_current_folder_.28recursive.29"><span class="tocnumber">2.7</span> <span class="toctext">-audr <i>value</i>; Change the Recalculate Mode for the current folder (recursive)</span></a></li>
-<li class="toclevel-2 tocsection-10"><a href="#-aul_value.3B_Change_the_Recalculate_Mode_for_the_ative_layer"><span class="tocnumber">2.8</span> <span class="toctext">-aul <i>value</i>; Change the Recalculate Mode for the ative layer</span></a></li>
-<li class="toclevel-2 tocsection-11"><a href="#-aup_value.3B_Change_the_Recalculate_Mode_for_the_ative_page"><span class="tocnumber">2.9</span> <span class="toctext">-aup <i>value</i>; Change the Recalculate Mode for the ative page</span></a></li>
-<li class="toclevel-2 tocsection-12"><a href="#-cr.5B_filename.5D.3B_Remove_file.28s.29_from_Code_Builder_Workspace"><span class="tocnumber">2.10</span> <span class="toctext">-cr[ <i>filename</i>]; Remove file(s) from Code Builder Workspace</span></a></li>
-<li class="toclevel-2 tocsection-13"><a href="#-cra.3B_Remove_Temp_and_User_files_from_Code_Builder_Workspace"><span class="tocnumber">2.11</span> <span class="toctext">-cra; Remove Temp and User files from Code Builder Workspace</span></a></li>
-<li class="toclevel-2 tocsection-14"><a href="#-e.5Bp.5D.3B_Execute_the_following_text_as_if_it_were_typed_into_the_Windows_Run_dialog_box"><span class="tocnumber">2.12</span> <span class="toctext">-e[p]; Execute the following <i>text</i> as if it were typed into the <b>Windows Run</b> dialog box</span></a></li>
-<li class="toclevel-2 tocsection-15"><a href="#-lk.3B_Link_to_open_a_Range.2C_external_link.2C_help_document_or_Note_window"><span class="tocnumber">2.13</span> <span class="toctext">-lk; Link to open a Range, external link, help document or Note window</span></a></li>
-<li class="toclevel-2 tocsection-16"><a href="#-oc.3B_Execute_the_named_Origin_C_function"><span class="tocnumber">2.14</span> <span class="toctext">-oc; Execute the named Origin C function</span></a></li>
-<li class="toclevel-2 tocsection-17"><a href="#-p_au.3B_Force_all_pending_project_operations_to_update"><span class="tocnumber">2.15</span> <span class="toctext">-p au; Force all pending project operations to update</span></a></li>
-<li class="toclevel-2 tocsection-18"><a href="#-p_aub.3B_Force_all_pending_book_operations_to_update"><span class="tocnumber">2.16</span> <span class="toctext">-p aub; Force all pending book operations to update</span></a></li>
-<li class="toclevel-2 tocsection-19"><a href="#-p_aubd.3B_Force_all_pending_book_operations_and_descendant_operations_to_update"><span class="tocnumber">2.17</span> <span class="toctext">-p aubd; Force all pending book operations and descendant operations to update</span></a></li>
-<li class="toclevel-2 tocsection-20"><a href="#-p_aui_UID.3B_Force_a_specific_pending_operation_to_update_to_completion"><span class="tocnumber">2.18</span> <span class="toctext">-p aui <i>UID</i>; Force a specific pending operation to update to completion</span></a></li>
-<li class="toclevel-2 tocsection-21"><a href="#-p_auid_UID.3B_Force_recalculation_of_operation_.22UID.22_descendant_operations"><span class="tocnumber">2.19</span> <span class="toctext">-p auid <i>UID</i>; Force recalculation of operation "UID" descendant operations</span></a></li>
-<li class="toclevel-2 tocsection-22"><a href="#-p_auw.3B_Force_all_pending_sheet_operations_to_update"><span class="tocnumber">2.20</span> <span class="toctext">-p auw; Force all pending sheet operations to update</span></a></li>
-<li class="toclevel-2 tocsection-23"><a href="#-p_auwd.3B_Force_all_pending_sheet_operations_and_descendant_operations_to_update"><span class="tocnumber">2.21</span> <span class="toctext">-p auwd; Force all pending sheet operations and descendant operations to update</span></a></li>
-<li class="toclevel-2 tocsection-24"><a href="#-py.3B_Execute_Python_Command_Line"><span class="tocnumber">2.22</span> <span class="toctext">-py; Execute Python Command Line</span></a></li>
-<li class="toclevel-2 tocsection-25"><a href="#-pyb.3B_Call_the_Python_Code_Attached_to_Text_Object"><span class="tocnumber">2.23</span> <span class="toctext">-pyb; Call the Python Code Attached to Text Object</span></a></li>
-<li class="toclevel-2 tocsection-26"><a href="#-pye.3B_Evaluate_Python_Expression"><span class="tocnumber">2.24</span> <span class="toctext">-pye; Evaluate Python Expression</span></a></li>
-<li class="toclevel-2 tocsection-27"><a href="#-pyf.3B_Execute_Python_File"><span class="tocnumber">2.25</span> <span class="toctext">-pyf; Execute Python File</span></a></li>
-<li class="toclevel-2 tocsection-28"><a href="#-pyp.3B_Execute_the_Python_file_attached_to_the_Origin_project_file"><span class="tocnumber">2.26</span> <span class="toctext">-pyp; Execute the Python file attached to the Origin project file</span></a></li>
-<li class="toclevel-2 tocsection-29"><a href="#-pyr.3B_Reset_the_Origin_Python_environment"><span class="tocnumber">2.27</span> <span class="toctext">-pyr; Reset the Origin Python environment</span></a></li>
-<li class="toclevel-2 tocsection-30"><a href="#-w.5Bu.5D_Bookname_.5BcolIndex.5D.3B_Execute_Column_Formula"><span class="tocnumber">2.28</span> <span class="toctext">-w[u] Bookname [colIndex]; Execute Column Formula</span></a></li>
-<li class="toclevel-2 tocsection-31"><a href="#-w.3Cscope.3E.5BL.5D.3B_Execute_formula_for_active_sheet.2C_book.2C_folder_and_project"><span class="tocnumber">2.29</span> <span class="toctext">-w&lt;scope&gt;[L]; Execute formula for active sheet, book, folder and project</span></a></li>
-<li class="toclevel-2 tocsection-32"><a href="#-ws.3B_Execute_the_script_in_worksheet_script_panel"><span class="tocnumber">2.30</span> <span class="toctext">-ws; Execute the script in worksheet script panel</span></a></li>
-<li class="toclevel-2 tocsection-33"><a href="#-xf.3B_Execute_the_X-Function_named_xfname"><span class="tocnumber">2.31</span> <span class="toctext">-xf; Execute the X-Function named <i>xfname</i></span></a></li>
-<li class="toclevel-2 tocsection-34"><a href="#-xfm.3B_Launch_non-Labtalk-accessible_X-Function_named_xfname"><span class="tocnumber">2.32</span> <span class="toctext">-xfm; Launch non-Labtalk-accessible X-Function named <i>xfname</i></span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="#-app_UID.3B_Open_dialog_to_change_parameters_for_a_specific_App"><span class="tocnumber">2.2</span> <span class="toctext">-app <i>UID</i>; Open dialog to change parameters for a specific App</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#-au_value.3B_Change_the_recalculate_mode_for_the_entire_project"><span class="tocnumber">2.3</span> <span class="toctext">-au <i>value</i>; Change the recalculate mode for the entire project</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#-aub_value_UID.3B_block_or_unblock_recalculation_for_a_specific_operation"><span class="tocnumber">2.4</span> <span class="toctext">-aub <i>value</i> <i>UID</i>; block or unblock recalculation for a specific operation</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="#-auc_UID.3B_Open_dialog_to_change_parameters_for_a_specific_operation"><span class="tocnumber">2.5</span> <span class="toctext">-auc <i>UID</i>; Open dialog to change parameters for a specific operation</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="#-auf.3B_Dirty_all_recalculation"><span class="tocnumber">2.6</span> <span class="toctext">-auf; Dirty all recalculation</span></a></li>
+<li class="toclevel-2 tocsection-9"><a href="#-aud_value.3B_Change_the_Recalculate_Mode_for_the_current_folder_.28open.29"><span class="tocnumber">2.7</span> <span class="toctext">-aud <i>value</i>; Change the Recalculate Mode for the current folder (open)</span></a></li>
+<li class="toclevel-2 tocsection-10"><a href="#-audr_value.3B_Change_the_Recalculate_Mode_for_the_current_folder_.28recursive.29"><span class="tocnumber">2.8</span> <span class="toctext">-audr <i>value</i>; Change the Recalculate Mode for the current folder (recursive)</span></a></li>
+<li class="toclevel-2 tocsection-11"><a href="#-aul_value.3B_Change_the_Recalculate_Mode_for_the_ative_layer"><span class="tocnumber">2.9</span> <span class="toctext">-aul <i>value</i>; Change the Recalculate Mode for the ative layer</span></a></li>
+<li class="toclevel-2 tocsection-12"><a href="#-aup_value.3B_Change_the_Recalculate_Mode_for_the_ative_page"><span class="tocnumber">2.10</span> <span class="toctext">-aup <i>value</i>; Change the Recalculate Mode for the ative page</span></a></li>
+<li class="toclevel-2 tocsection-13"><a href="#-cr.5B_filename.5D.3B_Remove_file.28s.29_from_Code_Builder_Workspace"><span class="tocnumber">2.11</span> <span class="toctext">-cr[ <i>filename</i>]; Remove file(s) from Code Builder Workspace</span></a></li>
+<li class="toclevel-2 tocsection-14"><a href="#-cra.3B_Remove_Temp_and_User_files_from_Code_Builder_Workspace"><span class="tocnumber">2.12</span> <span class="toctext">-cra; Remove Temp and User files from Code Builder Workspace</span></a></li>
+<li class="toclevel-2 tocsection-15"><a href="#-e.5Bp.5D.3B_Execute_the_following_text_as_if_it_were_typed_into_the_Windows_Run_dialog_box"><span class="tocnumber">2.13</span> <span class="toctext">-e[p]; Execute the following <i>text</i> as if it were typed into the <b>Windows Run</b> dialog box</span></a></li>
+<li class="toclevel-2 tocsection-16"><a href="#-lk.3B_Link_to_open_a_Range.2C_external_link.2C_help_document_or_Note_window"><span class="tocnumber">2.14</span> <span class="toctext">-lk; Link to open a Range, external link, help document or Note window</span></a></li>
+<li class="toclevel-2 tocsection-17"><a href="#-oc.3B_Execute_the_named_Origin_C_function"><span class="tocnumber">2.15</span> <span class="toctext">-oc; Execute the named Origin C function</span></a></li>
+<li class="toclevel-2 tocsection-18"><a href="#-p_au.3B_Force_all_pending_project_operations_to_update"><span class="tocnumber">2.16</span> <span class="toctext">-p au; Force all pending project operations to update</span></a></li>
+<li class="toclevel-2 tocsection-19"><a href="#-p_aub.3B_Force_all_pending_book_operations_to_update"><span class="tocnumber">2.17</span> <span class="toctext">-p aub; Force all pending book operations to update</span></a></li>
+<li class="toclevel-2 tocsection-20"><a href="#-p_aubd.3B_Force_all_pending_book_operations_and_descendant_operations_to_update"><span class="tocnumber">2.18</span> <span class="toctext">-p aubd; Force all pending book operations and descendant operations to update</span></a></li>
+<li class="toclevel-2 tocsection-21"><a href="#-p_aui_UID.3B_Force_a_specific_pending_operation_to_update_to_completion"><span class="tocnumber">2.19</span> <span class="toctext">-p aui <i>UID</i>; Force a specific pending operation to update to completion</span></a></li>
+<li class="toclevel-2 tocsection-22"><a href="#-p_auid_UID.3B_Force_recalculation_of_operation_.22UID.22_descendant_operations"><span class="tocnumber">2.20</span> <span class="toctext">-p auid <i>UID</i>; Force recalculation of operation "UID" descendant operations</span></a></li>
+<li class="toclevel-2 tocsection-23"><a href="#-p_auw.3B_Force_all_pending_sheet_operations_to_update"><span class="tocnumber">2.21</span> <span class="toctext">-p auw; Force all pending sheet operations to update</span></a></li>
+<li class="toclevel-2 tocsection-24"><a href="#-p_auwd.3B_Force_all_pending_sheet_operations_and_descendant_operations_to_update"><span class="tocnumber">2.22</span> <span class="toctext">-p auwd; Force all pending sheet operations and descendant operations to update</span></a></li>
+<li class="toclevel-2 tocsection-25"><a href="#-py.3B_Execute_Python_Command_Line"><span class="tocnumber">2.23</span> <span class="toctext">-py; Execute Python Command Line</span></a></li>
+<li class="toclevel-2 tocsection-26"><a href="#-pyb.3B_Call_the_Python_Code_Attached_to_Text_Object"><span class="tocnumber">2.24</span> <span class="toctext">-pyb; Call the Python Code Attached to Text Object</span></a></li>
+<li class="toclevel-2 tocsection-27"><a href="#-pye.3B_Evaluate_Python_Expression"><span class="tocnumber">2.25</span> <span class="toctext">-pye; Evaluate Python Expression</span></a></li>
+<li class="toclevel-2 tocsection-28"><a href="#-pyf.3B_Execute_Python_File"><span class="tocnumber">2.26</span> <span class="toctext">-pyf; Execute Python File</span></a></li>
+<li class="toclevel-2 tocsection-29"><a href="#-pyp.3B_Execute_the_Python_file_attached_to_the_Origin_project_file"><span class="tocnumber">2.27</span> <span class="toctext">-pyp; Execute the Python file attached to the Origin project file</span></a></li>
+<li class="toclevel-2 tocsection-30"><a href="#-pyr.3B_Reset_the_Origin_Python_environment"><span class="tocnumber">2.28</span> <span class="toctext">-pyr; Reset the Origin Python environment</span></a></li>
+<li class="toclevel-2 tocsection-31"><a href="#-w.5Bu.5D_Bookname_.5BcolIndex.5D.3B_Execute_Column_Formula"><span class="tocnumber">2.29</span> <span class="toctext">-w[u] Bookname [colIndex]; Execute Column Formula</span></a></li>
+<li class="toclevel-2 tocsection-32"><a href="#-w.3Cscope.3E.5BL.5D.3B_Execute_formula_for_active_sheet.2C_book.2C_folder_and_project"><span class="tocnumber">2.30</span> <span class="toctext">-w&lt;scope&gt;[L]; Execute formula for active sheet, book, folder and project</span></a></li>
+<li class="toclevel-2 tocsection-33"><a href="#-ws.3B_Execute_the_script_in_worksheet_script_panel"><span class="tocnumber">2.31</span> <span class="toctext">-ws; Execute the script in worksheet script panel</span></a></li>
+<li class="toclevel-2 tocsection-34"><a href="#-xf.3B_Execute_the_X-Function_named_xfname"><span class="tocnumber">2.32</span> <span class="toctext">-xf; Execute the X-Function named <i>xfname</i></span></a></li>
+<li class="toclevel-2 tocsection-35"><a href="#-xfm.3B_Launch_non-Labtalk-accessible_X-Function_named_xfname"><span class="tocnumber">2.33</span> <span class="toctext">-xfm; Launch non-Labtalk-accessible X-Function named <i>xfname</i></span></a></li>
 </ul>
 </li>
-<li class="toclevel-1 tocsection-35"><a href="#Examples:"><span class="tocnumber">3</span> <span class="toctext">Examples:</span></a></li>
+<li class="toclevel-1 tocsection-36"><a href="#Examples:"><span class="tocnumber">3</span> <span class="toctext">Examples:</span></a></li>
 </ul>
 </div>
 
@@ -85,6 +86,14 @@ else
 	</td>
 	</tr>
 	</table>
+<h3><a name="-app_UID.3B_Open_dialog_to_change_parameters_for_a_specific_App"></a><span class="mw-headline">-app <i>UID</i>; Open dialog to change parameters for a specific App</span></h3>
+<p><b>syntax:</b> run <b>-app</b> <i>[UID]</i>
+</p><p>Open dialog to change parameters for an APP specified with <i>UID</i>.
+</p><p>For example, run following script to open the Graph Maker App dialog:
+</p>
+<pre class="lt" style="font-family:monospace;">run <span style="color: #000080;">-</span>auc <span style="color: #0000dd;">1065</span>;</pre>
+<p>You can get the <i>UID</i> number by running <code>list op/opi/opo</code> command documented in <a href="../../LabTalk/LabTalk/List_(command).html#opi.2Fopo.3B_list_operations_whose_input.2Foutput_is_in_active_sheet" title="LabTalk:List (command)">this page</a>.
+</p>
 <h3><a name="-au_value.3B_Change_the_recalculate_mode_for_the_entire_project"></a><span class="mw-headline">-au <i>value</i>; Change the recalculate mode for the entire project</span></h3>
 <p><b>syntax:</b> run <b>-au</b> <i>value</i> <i>[UID]</i>
 </p>
