@@ -1,0 +1,71 @@
+﻿<h1 class="firstHeading">boxcox</h1><p class='urlname' style='display: none'>Boxcox-func</p>
+<p><br />
+</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>目次</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Description"><span class="tocnumber">1</span> <span class="toctext">概要</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Syntax"><span class="tocnumber">2</span> <span class="toctext">構文</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Parameter"><span class="tocnumber">3</span> <span class="toctext">パラメータ</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Return"><span class="tocnumber">4</span> <span class="toctext">戻り値</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="#Example"><span class="tocnumber">5</span> <span class="toctext">サンプル</span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="#See_Also"><span class="tocnumber">6</span> <span class="toctext">関連項目</span></a></li>
+</ul>
+</div>
+
+<h2><a name="Description"></a><span class="mw-headline"><font color="chocolate">概要</font></span></h2>
+<p>この関数は、正の値からなるベクトルを受け取り、Box-Coxべき変換法を用いて、近似的に正規分布に従うベクトルへと変換します。 
+Box-Cox変換は次のように定式化されます。
+</p><p><img src="../images/Boxcox_(function)/math-fcc3c0413cb0b2b80231a6db5e541258.png" title="
+Y&apos;=\left\{
+    \begin{array}{ll}
+    Y^\lambda&amp;\lambda \neq 0\cr
+    \ln(Y)&amp;\lambda = 0
+    \end{array}
+\right.
+" alt="
+Y&apos;=\left\{
+    \begin{array}{ll}
+    Y^\lambda&amp;\lambda \neq 0\cr
+    \ln(Y)&amp;\lambda = 0
+    \end{array}
+\right.
+" class="tex"/>
+</p>
+<h2><a name="Syntax"></a><span class="mw-headline"><font color="chocolate">構文</font></span></h2>
+<pre class="lt" style="font-family:monospace;">vector boxcox<span style="color: #000000;">(</span>vector vd<span style="color: #000000;">[</span>, double lambda, int options, int period<span style="color: #000000;">]</span><span style="color: #000000;">)</span></pre>
+<h2><a name="Parameter"></a><span class="mw-headline"><font color="chocolate">パラメータ</font></span></h2>
+<p><b>vd</b>
+</p>
+<dl><dd>変換される入力ベクトル(列)。VDは正のデータセットである必要があります。</dd></dl>
+<p><b>lambda</b>
+</p>
+<dl><dd>オプション。数値を指定した場合は、指定したラムダでBox-Cox変換を行います。デフォルトのラムダは数値ではありません(NANUM、つまり&ldquo;0/0&rdquo;)。この場合、関数は変換前に対数尤度関数を最大化する最適ラムダを推定し、ラムダは[-5,5]の範囲に制限されます。</dd></dl>
+<p><b>options</b>
+</p>
+<dl><dd>オプション。使用するBox-Cox変換方法を指定します。
+<ul><li>options=0（デフォルト）：SciPyのboxcox関数と同様のメソッドを使用</li>
+<li>options=1：<a class="external text" href="../../Tutorial/App/Algorithm_DT.html#Box-Cox_Transformation">統計プロセス制御</a>の方法を使用</li>
+<li>options=2：<a class="external text" href="../../Tutorial/App/Algorithm_BoxCox.html">時系列分析</a>の方法を使用 </li></ul></dd></dl>
+<p><b>period</b>
+</p>
+<dl><dd>options = 2の場合、時系列分析法を使用するときに、元の時系列の季節期間を決定する<b>period</b>を指定します。<b>period</b>は2以下の整数である必要があります。</dd></dl>
+<h2><a name="Return"></a><span class="mw-headline"><font color="chocolate">戻り値</font></span></h2>
+<p>Box-Coxべき変換法されたベクトル（列）。
+</p>
+<h2><a name="Example"></a><span class="mw-headline"><font color="chocolate">サンプル</font></span></h2>
+<p><i><b>EX1</b></i>
+</p>
+<pre class="lt" style="font-family:monospace;">newbook;
+col<span style="color: #000000;">(</span>A<span style="color: #000000;">)</span> <span style="color: #000080;">=</span> data<span style="color: #000000;">(</span><span style="color: #0000dd;">0.1</span>, <span style="color: #0000dd;">1.1</span>, <span style="color: #0000dd;">0.002</span><span style="color: #000000;">)</span>;
+col<span style="color: #000000;">(</span>B<span style="color: #000000;">)</span> <span style="color: #000080;">=</span> boxcox<span style="color: #000000;">(</span>col<span style="color: #000000;">(</span>A<span style="color: #000000;">)</span><span style="color: #000000;">)</span>; <span style="color: #008000;">//SciPyと同様の出力結果が得られ、最適なラムダ値はOriginによって推定される</span>
+col<span style="color: #000000;">(</span>C<span style="color: #000000;">)</span> <span style="color: #000080;">=</span> boxcox<span style="color: #000000;">(</span>col<span style="color: #000000;">(</span>A<span style="color: #000000;">)</span>,<span style="color: #0000dd;">0</span><span style="color: #000080;">/</span><span style="color: #0000dd;">0</span>,<span style="color: #0000dd;">1</span><span style="color: #000000;">)</span>; <span style="color: #008000;">//SPC法を使用。lambdaは省略不可。デフォルト値「0/0」は、最適なlambdaを推定することを意味する。</span></pre>
+<h2><a name="See_Also"></a><span class="mw-headline"><font color="chocolate">関連情報</font></span></h2>
+<p><a href="../../LabTalk/LabTalk/Yeojohnson_(function).html" title="LabTalk:Yeojohnson (関数)">yeojohnson</a> <a href="../../LabTalk/LabTalk/Jtrans_(function).html" title="LabTalk:Jtrans (関数)">jtrans</a>
+</p>
+
+
+
+
+
+
+    

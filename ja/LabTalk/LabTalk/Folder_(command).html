@@ -1,0 +1,48 @@
+﻿<h1 class="firstHeading">Folder</h1><p class='urlname' style='display: none'>Folder-cmd</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>目次</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Syntax:"><span class="tocnumber">1</span> <span class="toctext">構文</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Options:"><span class="tocnumber">2</span> <span class="toctext">オプション</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="#-dup.3B_Duplicate_the_current_folder"><span class="tocnumber">2.1</span> <span class="toctext">-dup; 現在のフォルダを複製</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-4"><a href="#Examples:"><span class="tocnumber">3</span> <span class="toctext">サンプル</span></a></li>
+</ul>
+</div>
+
+<h2><a name="Syntax:"></a><span class="mw-headline"><font color="chocolate">構文</font></span></h2>
+<pre class="lt" style="font-family:monospace;">folder <span style="color: #000000;">[</span>option<span style="color: #000000;">]</span> argument</pre>
+<h2><a name="Options:"></a><span class="mw-headline"><font color="chocolate">オプション：</font></span></h2>
+<h3><a name="-dup.3B_Duplicate_the_current_folder"></a><span class="mw-headline">-dup; 現在のフォルダを複製する</span></h3>
+<p><b>構文：</b> folder <b>-dup</b> <i>FolderName</i>
+</p>
+<ul><li> 次のように<i>FolderName</i>が省略された場合、</li></ul>
+<pre class="lt" style="font-family:monospace;">folder <span style="color: #000080;">-</span>dup;</pre>
+<p>現在のフォルダを複製し、デフォルト名（例：<i>Folder#</i>）で新しいフォルダを作成します。
+</p>
+<ul><li> 複数の複製フォルダを作成する場合は、複数のフォルダ名を「|」で区切って指定します。現在のフォルダは、指定した名前ごとに1回複製されます。例えば、</li></ul>
+<pre class="lt" style="font-family:monospace;">folder <span style="color: #000080;">-</span>dup Boston<span style="color: #000080;">|</span>New York<span style="color: #000080;">|</span>Washington DC;</pre>
+<p>「Boston」、「New York」、および「Washington DC」という名前の現在のフォルダのコピーを3つ作成します。
+</p>
+<ul><li> 「?」が<i>FolderName</i>として指定された場合は、</li></ul>
+<pre class="lt" style="font-family:monospace;">folder <span style="color: #000080;">-</span>dup&nbsp;?;</pre>
+<p><a class="external text" href="../../UserGuide/UserGuide/Project_Explorer.html#Duplicate_Folder"><b>フォルダを複製</b>ダイアログ</a>を開きます。
+</p>
+<h2><a name="Examples:"></a><span class="mw-headline"><font color="chocolate">サンプル：</font></span></h2>
+<p><b>EX1</b>
+</p><p>実験データが日ごとのフォルダに格納されているとします（フォルダ名は<i>ACCESS-CM1</i>, <i>ACCESS-CM2</i>, <i>ACCESS-CM3</i>のような形式です）。データコネクタで、<b>共通データパス</b>を<b>プロジェクトパスからの相対パス</b>に設定し、<b>プロジェクトエクスプローラフォルダをサブフォルダ名として使用</b>を有効にします。<i>ACCESS-CM1</i>の解析とグラフ化が完了したら、<b>-dup</b>を使用して他の日の対応するフォルダを作成します。 
+</p>
+<pre class="lt" style="font-family:monospace;">for<span style="color: #000000;">(</span>int ii<span style="color: #000080;">=</span><span style="color: #0000dd;">2</span>;ii<span style="color: #000080;">&lt;</span><span style="color: #0000dd;">10</span>;ii<span style="color: #000080;">++</span><span style="color: #000000;">)</span>
+<span style="color: #000000;">{</span>
+string strFolder<span style="color: #000080;">$</span> <span style="color: #000080;">=</span> <span style="color: #ff00ff;">&quot;ACCESS-CM&quot;</span><span style="color: #000080;">+</span><span style="color: #ff00ff;">&quot;$(ii)&quot;</span>;
+folder <span style="color: #000080;">-</span>dup <span style="color: #000080;">%</span><span style="color: #000000;">(</span>strFolder<span style="color: #000080;">$</span><span style="color: #000000;">)</span>;
+<span style="color: #000000;">}</span></pre>
+
+
+
+
+
+
+
+    

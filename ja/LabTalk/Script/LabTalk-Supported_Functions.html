@@ -191,6 +191,13 @@
 <ul><li> <code>GetToken(&quot;sss|abc|def|xyz&quot;, 3,&quot;|&quot;)$</code> は <code>&quot;def&quot;</code>を返します。</li></ul>
 </td></tr>
 <tr>
+<td><a href="../../LabTalk/LabTalk/InSide_(function).html" title="LabTalk:InSide (関数)">InSide(str$[, nQuote])$</a>
+<p align="right"><font color="red">(2026b)</font></p>
+</td>
+<td>この関数は、マッチするマークのペアを使用して部分文字列を抽出します。 &nbsp;<b>サンプル：</b>
+<ul><li> <code>inside(&quot;(1) Which do you like?(apple,  banana)&quot;, 1)$</code> は括弧&quot;1&quot;内の最初の部分文字列を返します。</li></ul>
+</td></tr>
+<tr>
 <td><a href="../../LabTalk/LabTalk/IsEmpty_(function).html" title="LabTalk:IsEmpty (関数)">IsEmpty(str$)</a>
 </td>
 <td>MS ExcelのISBLANK関数と同様です。ワークシートのセルが空かどうかを判断するために使用します。引数 <b>str</b> には、セルアドレスまたは値の列を指定できます。 <b>例：</b>
@@ -1323,6 +1330,12 @@ date<span style="color: #000000;">(</span><span style="color: #0000dd;">9</span>
 <td>ベクトル型 <b>vd</b> をとり、条件 <b>con$</b> を満たす値の合計を返します。
 </td></tr>
 <tr>
+<td><a href="../../LabTalk/LabTalk/SumSq_(function).html" title="LabTalk:SumSq (関数)">SumSq(vd[, vd2,...])</a>
+<p align="right"><font color="red">(2026b)</font></p>
+</td>
+<td>データセット<b>vd</b>, <b>vd2</b>,....の平方和を返します。
+</td></tr>
+<tr>
 <td><a href="../../LabTalk/LabTalk/Sumproduct_(function).html" title="LabTalk:Sumproduct (関数)">sumproduct(vd1[,vd2,...])</a>
 <p align="right"><font color="red">(2026)</font></p>
 </td>
@@ -1418,7 +1431,7 @@ date<span style="color: #000000;">(</span><span style="color: #0000dd;">9</span>
 <li> <code>sum(A:C, D:G, F)</code> 列AからC、DからG、およびFの行ごとの合計値</li>
 <li> <code>sum(A2:D4)_mean</code> A2からD4からなるブロックの行ごとの平均値を計算 </li></ul>
 <p><br />
-<b>Note</b>: 値の設定とF(x)=でサポートされる「行」モードシンタックスは、スクリプトと異なり、互換性がありません。詳細は <a href="../../LabTalk/LabTalk/Sum_(function).html" title="LabTalk:Sum (関数)"><b>sum()</b> 関数</a> を参照してください。
+<b>Note</b>: 値の設定とF(x)=でサポートされる「行」モードシンタックスは、スクリプトと異なり、互換性がありません。詳細は、<b>sum()</b>関数を参照してください。
 </p>
 </td></tr>
 <tr>
@@ -1565,6 +1578,27 @@ date<span style="color: #000000;">(</span><span style="color: #0000dd;">9</span>
 </td>
 <td> ベクトル型 <b>vd</b> (スムージングのためのデータ)、<b>vw</b> (インデックスされた重み付き因子)をとり、加重移動平均のベクトルを返します。オプション <b>method</b> はどの手法を使用するか（速い手法またはロバストな手法)を指定します。<b>サンプル：</b>
 <ul><li> <code>for(ii=1;ii&lt;=30;ii++) col(1)[ii] = ii;  //data vector<br />for(ii=1;ii&lt;=10;ii++) col(2)[ii] = ii/10; //weight vector<br />col(3)=wmovavg(col(1),col(2)); </code><br />は、10行目から始まるそれぞれの値での加重移動平均値を3番目の列に数値を入れます。</li></ul>
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Boxcox_(function).html" title="LabTalk:Boxcox (関数)">boxcox(vd[, lambda, options, period])</a>
+<p align="right"><font color="red">(2026b)</font></p>
+</td>
+<td> 正の値からなる非正規分布のベクトル <b>vd</b> を受け取り、<b>lambda</b> を使用したBox-Cox変換によって計算された、近似的に正規分布に従うベクトルを返します。<b>lambda</b>が数値でない場合は、変換前に最適なlambdaが推定されます。<b>options</b>は変換に使用する方法を指定します。<b>サンプル：</b>
+<ul><li> <code>csetvalue col:=col(B) formula:=&quot;BoxCox(A, 0/0, 1)&quot;; </code> は、推定されたlambdaを使用し、SPCと同様の方法でBox-Cox変換したデータセットを列Bに入力します。</li></ul>
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Jtrans_(function).html" title="LabTalk:Jtrans (関数)">jtrans(vd)</a>
+<p align="right"><font color="red">(2026b)</font></p>
+</td>
+<td> 非正規分布のベクトル <b>vd</b> を受け取り、Johnson変換によって計算された、近似的に正規分布に従うベクトルを返します。<b>サンプル：</b>
+<ul><li> <code>jtrans(col(A)) </code> は、列AのデータをJohnson変換したデータセットを返します。 </li></ul>
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Yeojohnson_(function).html" title="LabTalk:Yeojohnson (関数)">yeojohnson(vd[, lambda])</a>
+<p align="right"><font color="red">(2026b)</font></p>
+</td>
+<td> 非正規分布のベクトル <b>vd</b> を受け取り、<b>lambda</b> を使用してYeo-Johnson変換したベクトルを返します。<b>lambda</b> が指定されていない場合は、変換前に最適なlambdaが推定されます。<b>サンプル：</b>
+<ul><li> <code>yeojohnson(col(A),2)</code> は、lambda = 2 を使用してYeo-Johnson変換したベクトルを返します。</li></ul>
 </td></tr></table>
 <h2><a name="Distribution_Functions"></a><span class="mw-headline">分布関数</span></h2>
 <h3><a name="Cumulative_Distribution_Functions_.28CDF.29"></a><span class="mw-headline">累積分布関数(CDF)</span></h3>
@@ -4249,13 +4283,10 @@ z=&amp;\frac{x-x_c}w\end{aligned}" class="tex"/>
 </p>
 </td></tr>
 <tr>
-<td><a class="external text" href="../../UserGuide/UserGuide/FraserSuzuki.html">FraserSuzuki(x,y0,xc,A,sig)</a>
+<td><a class="external text" href="../../UserGuide/UserGuide/FraserSuzuki.html">FraserSuzuki(x,y0,xc,A,w,a3)</a>
 </td>
 <td>FraserSuzuki 非対称関数<br />
-<p><img src="../images/LabTalk-Supported_Functions/math-aad87f2be1506cc3f4f7a34edc50fea6.png" title=" y=y_0+\frac{Ae^{-\frac{\left( x-x_c\right) ^2}{2sigL}}}{sig\sqrt{2\pi }}" alt=" y=y_0+\frac{Ae^{-\frac{\left( x-x_c\right) ^2}{2sigL}}}{sig\sqrt{2\pi }}" class="tex"/> <img src="../images/LabTalk-Supported_Functions/math-c7305958b55880be8798eb8e8d4c405e.png" title="\left( x&lt;0\right) " alt="\left( x&lt;0\right) " class="tex"/>
-</p><p><img src="../images/LabTalk-Supported_Functions/math-447e74460d199d7af929156c7dffc328.png" title=" y=y_0+\frac{Ae^{-\frac{\left( x-x_c\right) ^2}{2sigR}}}{sig\sqrt{2\pi }}" alt=" y=y_0+\frac{Ae^{-\frac{\left( x-x_c\right) ^2}{2sigR}}}{sig\sqrt{2\pi }}" class="tex"/> <img src="../images/LabTalk-Supported_Functions/math-3373864baae5b92a2752731eaf91b2b9.png" title="\left( x\geq 0\right) " alt="\left( x\geq 0\right) " class="tex"/>
-</p><p>ここで
-</p><p><img src="../images/LabTalk-Supported_Functions/math-3ac1e89e8e8e37746c03af2edda6f2af.png" title="sigL=sig\left( 1-A\right) " alt="sigL=sig\left( 1-A\right) " class="tex"/>,<img src="../images/LabTalk-Supported_Functions/math-559f1626413961e5769750478f1044ee.png" title="sigR=sig\left( 1+A\right) " alt="sigR=sig\left( 1+A\right) " class="tex"/>
+<p><img src="../images/LabTalk-Supported_Functions/math-d12c49363f46faf5e89ee027744759b1.png" title="y = y_{0}+ A \ \text{exp} \left( -\ln2 \left( \frac{ \ln \left(1 + \frac{2a_3( x - x_c )}{w} \right) }{a_3} \right)^2 \right)" alt="y = y_{0}+ A \ \text{exp} \left( -\ln2 \left( \frac{ \ln \left(1 + \frac{2a_3( x - x_c )}{w} \right) }{a_3} \right)^2 \right)" class="tex"/>
 </p>
 </td></tr>
 <tr>
@@ -4863,6 +4894,13 @@ z=&amp;\frac{x-x_c}w\end{aligned}" class="tex"/>
 <td>リガンド濃度と最大結合サイト数を決定するためのHill関数です。<br />
 <p><img src="../images/LabTalk-Supported_Functions/math-74504106bd7d8e1e37895f9c77be9865.png" title="y=V_{\max }\frac{x^n}{k^n+x^n}" alt="y=V_{\max }\frac{x^n}{k^n+x^n}" class="tex"/>
 </p>
+</td></tr>
+<tr>
+<td>TightInhib(x,V,Et,Ki,S,Km)
+</td>
+<td>タイトバインディング阻害剤に対するMorrison式。
+<p><img src="../images/LabTalk-Supported_Functions/math-4e38d4db35ce7a17b4a5ed2d79335b93.png" title="y=V\left( -\frac{E_t + K_i(S/K_m + 1) + x - \sqrt{-4E_t x + (E_t + K_i(S/K_m + 1) + x)^2}}{2E_t} + 1\right)" alt="y=V\left( -\frac{E_t + K_i(S/K_m + 1) + x - \sqrt{-4E_t x + (E_t + K_i(S/K_m + 1) + x)^2}}{2E_t} + 1\right)" class="tex"/>
+</p>
 </td></tr></table>
 <h3><a name="Spectroscopy"></a><span class="mw-headline">Spectroscopy</span></h3>
 <table class="simple-FitFunc">
@@ -5327,6 +5365,123 @@ y_0 &amp; x\leq 0
 <br />
 <p><img src="../images/LabTalk-Supported_Functions/math-114b10be130d0b3de68f55506098f06e.png" title="y=\frac{V_{max}x}{K_m+x}" alt="y=\frac{V_{max}x}{K_m+x}" class="tex"/>
 </p>
+</td></tr>
+<tr>
+<td>OperationalDepletion(x,Em,B,Ka,Tau,n)
+</td>
+<td>Xが濃度または用量の場合の、受容体枯渇に対するオペレーショナルモデル。
+<p><img src="../images/LabTalk-Supported_Functions/math-41b71afa0727b2e7b517c3c9fcaa749b.png" title=" y=B+\frac{E_m-B}{1+(op)^n}" alt=" y=B+\frac{E_m-B}{1+(op)^n}" class="tex"/>
+<br /><br /><img src="../images/LabTalk-Supported_Functions/math-b77b6eeb71d79f45118ba3fa3a83e378.png" title="where \ op = \frac{K_a+x}{T_{au}\cdot  x}" alt="where \ op = \frac{K_a+x}{T_{au}\cdot  x}" class="tex"/>
+</p>
+</td></tr>
+<tr>
+<td>AllostericShift(x,B,KB,alpha,Bt,Tp,EC50,s)
+</td>
+<td>Xが濃度または用量の場合の、アロステリックEC50シフト。
+<p><img src="../images/LabTalk-Supported_Functions/math-82fd96e76e71ad6e8c3f4e09a5f25c5c.png" title="y = Bt+\frac{Tp-Bt}{1+\left(\frac{EC50\cdot A}{x}\right)^s} " alt="y = Bt+\frac{Tp-Bt}{1+\left(\frac{EC50\cdot A}{x}\right)^s} " class="tex"/>
+<br /><br /><img src="../images/LabTalk-Supported_Functions/math-85b9908ecda52d285c53026972413ccd.png" title="where \space A = \frac{B+KB}{alpha\cdot B+KB} " alt="where \space A = \frac{B+KB}{alpha\cdot B+KB} " class="tex"/>
+</p>
+</td></tr>
+<tr>
+<td>ECanything(x,ECF,F,Bt,Tp,s)
+</td>
+<td>EC50の代わりにEC80やEC90などをフィットします。
+<p><img src="../images/LabTalk-Supported_Functions/math-0cbb55137fc393fc0357f48747b388c2.png" title="y = Bt+\frac{Tp-Bt}{1+\left(\frac{EC50}{x}\right)^s} " alt="y = Bt+\frac{Tp-Bt}{1+\left(\frac{EC50}{x}\right)^s} " class="tex"/>
+<br /><br /><img src="../images/LabTalk-Supported_Functions/math-68e780f0cc7aea3efc01bc4f39848459.png" title=" where\space EC50 = \frac{ECF}{\left(\frac{F}{100-F}\right)^{1/s}}" alt=" where\space EC50 = \frac{ECF}{\left(\frac{F}{100-F}\right)^{1/s}}" class="tex"/>
+</p>
+</td></tr>
+<tr>
+<td>EC50Shift(x,Bt,Tp,EC50,r,s)
+</td>
+<td>Xが濃度の場合のEC50シフト。
+<p><img src="../images/LabTalk-Supported_Functions/math-bf6a3b423f5f2ee85549c7e553809cce.png" title="y = Bt+\frac{Tp-Bt}{1+\left(\frac{EC50\times r}{x}\right)^s} " alt="y = Bt+\frac{Tp-Bt}{1+\left(\frac{EC50\times r}{x}\right)^s} " class="tex"/>
+</p>
+</td></tr>
+<tr>
+<td>AbsoluteIC50(x,B,Bt,Tp,AbsIC50,s)
+</td>
+<td>絶対IC50をフィットします。
+<p><img src="../images/LabTalk-Supported_Functions/math-00d798e456a6551523506e4fb5588b2b.png" title="y = Bt+\frac{Tp-Bt}{1+\left(\frac{Tp-Bt}{fifty-Bt}-1\right)\left(\frac{AbsIC50}{x}\right)^s} " alt="y = Bt+\frac{Tp-Bt}{1+\left(\frac{Tp-Bt}{fifty-Bt}-1\right)\left(\frac{AbsIC50}{x}\right)^s} " class="tex"/>
+<br /><br /><img src="../images/LabTalk-Supported_Functions/math-05d1da822429690c8b78d5eb712c9082.png" title="where \space fifty = \frac{Tp+B}{2}" alt="where \space fifty = \frac{Tp+B}{2}" class="tex"/>
+</p>
+</td></tr>
+<tr>
+<td>LogisticRichard5(x,Bt,Tp,EC50,HS,s)
+</td>
+<td>Richardsの5パラメータ用量反応曲線。
+<p><img src="../images/LabTalk-Supported_Functions/math-90df46155084cbcede364ca81e4c45cc.png" title="y = Bt + \frac{Tp - Bt}{\left(1+(2^{\frac{1}{s}}-1)(\frac{EC50}{x})^{HS}\right)^s}" alt="y = Bt + \frac{Tp - Bt}{\left(1+(2^{\frac{1}{s}}-1)(\frac{EC50}{x})^{HS}\right)^s}" class="tex"/>
+</p>
+</td></tr>
+<tr>
+<td>GaddumSchildShift(x,Bt,Tp,EC50,HS,SS,B,p)
+</td>
+<td>Xが濃度の場合のGaddum/Schild EC50シフト。
+<p><img src="../images/LabTalk-Supported_Functions/math-f97545612ba83d9bd110b69fb4197f72.png" title="y = Bt + \frac{Tp-Bt}{1+\left(\left(\left(\frac{B}{10^{-p}}\right)^{SS}+1\right)\left(\frac{EC50}{x}\right)\right)^{HS}} " alt="y = Bt + \frac{Tp-Bt}{1+\left(\left(\left(\frac{B}{10^{-p}}\right)^{SS}+1\right)\left(\frac{EC50}{x}\right)\right)^{HS}} " class="tex"/>
+</p>
+</td></tr>
+<tr>
+<td>BiphasicConcentration(x,Bt,Tp,EC501,EC502,s1,s2,p)
+</td>
+<td>2つの促進性用量反応曲線、または2つの阻害性用量反応曲線の和をフィットします。
+<p><img src="../images/LabTalk-Supported_Functions/math-eebe6e580d4fa49540bae2f97f3c381b.png" title="y = Bt+\frac{(Tp-Bt)\cdot p}{1+(\frac{EC501}{x})^{s1}}+\frac{(Tp-Bt)(1-p)}{1+(\frac{EC502}{x})^{s2}} " alt="y = Bt+\frac{(Tp-Bt)\cdot p}{1+(\frac{EC501}{x})^{s1}}+\frac{(Tp-Bt)(1-p)}{1+(\frac{EC502}{x})^{s2}} " class="tex"/>
+</p>
+</td></tr>
+<tr>
+<td>DoseResp5P(x,A1,A2,LogEC50,p,s)
+</td>
+<td>Hill勾配と非対称係数が可変の用量反応曲線。
+<p><img src="../images/LabTalk-Supported_Functions/math-2b65ad6ae337738bfbbf331a6b90f560.png" title="y =A_1 + \frac{A_2-A_1}{(10^{p(\text{LogXb}-x)}+1)^s} " alt="y =A_1 + \frac{A_2-A_1}{(10^{p(\text{LogXb}-x)}+1)^s} " class="tex"/>
+<br /><img src="../images/LabTalk-Supported_Functions/math-2f431bf56beeb69a4ff080a61180e0a4.png" title="\text{where} \; \text{LogXb} = \text{LogEC50} + \frac{\text{log10}(2^{1/s}-1)}{p}. " alt="\text{where} \; \text{LogXb} = \text{LogEC50} + \frac{\text{log10}(2^{1/s}-1)}{p}. " class="tex"/>
+</p>
+</td></tr>
+<tr>
+<td>OperationalDepletionLog(x,logKa,logtau,n,B,Em)
+</td>
+<td>log(X)を使用した受容体枯渇のオペレーショナルモデル。
+<p><img src="../images/LabTalk-Supported_Functions/math-2edba96862730e9570f0e623b2a75cd9.png" title="y =B+\frac{Em-B}{op+1}  " alt="y =B+\frac{Em-B}{op+1}  " class="tex"/>
+<br /><br /><img src="../images/LabTalk-Supported_Functions/math-8877d35177a864c5cb6f3e9e9064074e.png" title="\text{where} \; op = \left(\frac{10^{\text{logKa}} + 10^x}{10^{\text{logtau} + x}}\right)^n. " alt="\text{where} \; op = \left(\frac{10^{\text{logKa}} + 10^x}{10^{\text{logtau} + x}}\right)^n. " class="tex"/>
+</p>
+</td></tr>
+<tr>
+<td>GaddumSchildShiftLog(x,LogEC50,B,pA2,SchildSlope,A1,A2,p)
+</td>
+<td>log(X)を使用したGaddum/Schild EC50シフト。
+<p><img src="../images/LabTalk-Supported_Functions/math-d054c0a89b115335679237f82374cdf6.png" title="y =A_1+\frac{A_2 - A_1}{10^{p(\text{LogEC}-x)} + 1} " alt="y =A_1+\frac{A_2 - A_1}{10^{p(\text{LogEC}-x)} + 1} " class="tex"/>
+<br /><img src="../images/LabTalk-Supported_Functions/math-df4f46204249d9254b6dd51daa02c766.png" title="\text{where} \; \text{LogEC} = \text{LogEC50} + \text{log}10\left(\left(\frac{B}{10^{-pA2}}\right)^{\text{SchildSlope}} + 1\right) " alt="\text{where} \; \text{LogEC} = \text{LogEC50} + \text{log}10\left(\left(\frac{B}{10^{-pA2}}\right)^{\text{SchildSlope}} + 1\right) " class="tex"/>
+</p>
+</td></tr>
+<tr>
+<td>AllostericShiftLog(x,LogEC50,LogKb,Logalpha,B,A1,A2,p)
+</td>
+<td>log(X)を使用したアロステリックEC50シフト関数。
+<p><img src="../images/LabTalk-Supported_Functions/math-dc1a05c760d45eb5b8ae2c90ce99ac49.png" title="y =A_1+\frac{A_2 - A_1}{10^{p(\text{LogEC}-x)+1}} " alt="y =A_1+\frac{A_2 - A_1}{10^{p(\text{LogEC}-x)+1}} " class="tex"/>
+<br /><br /><img src="../images/LabTalk-Supported_Functions/math-9b8febb4b677b41705e621dd1607813e.png" title="\text{where LogEC = LogEC50} + \text{log}10 \left( \frac{B/K_b + 1}{alpha \cdot B/K_b + 1}\right)," alt="\text{where LogEC = LogEC50} + \text{log}10 \left( \frac{B/K_b + 1}{alpha \cdot B/K_b + 1}\right)," class="tex"/>
+<br /><br /><img src="../images/LabTalk-Supported_Functions/math-e134c8e9b5e9fbf7ed7ada48987e8dfd.png" title="K_b = 10^{\text{LogKb}}, \text{and } alpha = 10^{\text{Logalpha}} " alt="K_b = 10^{\text{LogKb}}, \text{and } alpha = 10^{\text{Logalpha}} " class="tex"/>
+</p>
+</td></tr>
+<tr>
+<td>DoseRespEC(x,LogECF,F,A1,A2,p)
+</td>
+<td>Hill勾配が可変で、任意のパーセントにおけるECを求める用量反応曲線。
+<p><img src="../images/LabTalk-Supported_Functions/math-41ab4775df95eb591feea6c31b9d2b3c.png" title="y =A_1 + \frac{A_2 - A_1}{10^{p(\text{LogEC50 - x})+1}}  " alt="y =A_1 + \frac{A_2 - A_1}{10^{p(\text{LogEC50 - x})+1}}  " class="tex"/>
+<br /><img src="../images/LabTalk-Supported_Functions/math-aa79ac44334f8a7294baee6d7bb004cf.png" title="\text{where LogEC50 = LogECF} - \frac{\text{log10}(F/(100-F))}{p} " alt="\text{where LogEC50 = LogECF} - \frac{\text{log10}(F/(100-F))}{p} " class="tex"/>
+</p>
+</td></tr>
+<tr>
+<td>DoseRespShift(x,LogEC50,ratio,A1,A2,p)
+</td>
+<td>Hill勾配が可変で、比によってEC50がシフトする用量反応曲線。
+<p><img src="../images/LabTalk-Supported_Functions/math-3f5e6585c14353eb5a4f2ed0af2232ea.png" title="y = A_1 + \frac{A_2 - A_1}{10^{p(\text{LogEC} - x)} +1} " alt="y = A_1 + \frac{A_2 - A_1}{10^{p(\text{LogEC} - x)} +1} " class="tex"/>
+<br /><br /><img src="../images/LabTalk-Supported_Functions/math-0ef8e09010fdbd6fd4ca2468a67a1d4f.png" title="\text{where LogEC = LogEC50} + \text{log}10(\text{ratio}) " alt="\text{where LogEC = LogEC50} + \text{log}10(\text{ratio}) " class="tex"/>
+</p>
+</td></tr>
+<tr>
+<td>DoseRespAbsIC50(x,A1,A2,LogIC50,p,B)
+</td>
+<td>Hill勾配が可変で、絶対IC50を求める用量反応曲線。
+<p><img src="../images/LabTalk-Supported_Functions/math-0edcce86518c81f76347f757dac73a11.png" title="y =A_1 + \frac{A_2 - A_1}{10^{p(\text{LogIC50} - x) + \text{log}10((A_2 - A_1)/(A_{50} - A_1)-1)}+1} " alt="y =A_1 + \frac{A_2 - A_1}{10^{p(\text{LogIC50} - x) + \text{log}10((A_2 - A_1)/(A_{50} - A_1)-1)}+1} " class="tex"/>
+<br /><img src="../images/LabTalk-Supported_Functions/math-2c25031cf2c5f16691e7139ec9d67b4e.png" title="\text{where } A_{50} = (B + A_2)/2 " alt="\text{where } A_{50} = (B + A_2)/2 " class="tex"/>
+</p>
 </td></tr></table>
 <h3><a name="Binding"></a><span class="mw-headline">Binding</span></h3>
 <table class="simple-FitFunc">
@@ -5369,6 +5524,125 @@ y_0 &amp; x\leq 0
 <td>2種の受容器のための配位子の競合を説明する両側競合関数<br />
 <p><img src="../images/LabTalk-Supported_Functions/math-d4d04163eb1cdfc5b9231d1653f9a2f5.png" title=" y=A_2+\frac{\left( A_1-A_2\right) f}{1+10^{\left( x-\log x_{0\_1}\right) }}+\frac{\left( A_1-A_2\right) \left( 1-f\right) }{1+10^{\left( x-\log x_{0\_2}\right) }}" alt=" y=A_2+\frac{\left( A_1-A_2\right) f}{1+10^{\left( x-\log x_{0\_1}\right) }}+\frac{\left( A_1-A_2\right) \left( 1-f\right) }{1+10^{\left( x-\log x_{0\_2}\right) }}" class="tex"/>
 </p>
+</td></tr>
+<tr>
+<td>Assoc1conc(x,Koff,Kon,Hotnm,Bmax)
+</td>
+<td>リガンドの会合速度定数を求めるために使用される放射性リガンド結合モデル。
+<p><img src="../images/LabTalk-Supported_Functions/math-fabe108bbcb29b2945db7bfbf5a5f268.png" title="y = \frac{L B_{\text{max}}}{L + K_{\text{off}} / K_{\text{on}}} \left(1 - e^{-(L K_{\text{on}} + K_{\text{off}})x}\right) " alt="y = \frac{L B_{\text{max}}}{L + K_{\text{off}} / K_{\text{on}}} \left(1 - e^{-(L K_{\text{on}} + K_{\text{off}})x}\right) " class="tex"/>
+<br /><img src="../images/LabTalk-Supported_Functions/math-d9cd9c5f9ee289d2a94716924e959cc7.png" title="\text{where } L = \text{Hotnm} \times 1\text{E}-9 " alt="\text{where } L = \text{Hotnm} \times 1\text{E}-9 " class="tex"/>
+</p>
+</td></tr>
+<tr>
+<td>AssocThenDissoc(x,Hotnm,Kon,Koff,Bmax,Time0,NS)
+</td>
+<td>指数上昇式と指数減衰式を使用してリガンド結合をシミュレーションする区分モデル。
+<p><img src="../images/LabTalk-Supported_Functions/math-092190abbbe29aa5c7956cf8831adecd.png" title="y = NS + \begin{cases} 
+\frac{L B_{\text{max}}}{L + K_{\text{off}} / K_{\text{on}}} \left(1 - e^{-(L K_{\text{on}} + K_{\text{off}}) x}\right) &amp; (x \le \text{Time0}) \\[1.5em]
+\frac{L B_{\text{max}}}{L + K_{\text{off}} / K_{\text{on}}} \left(1 - e^{-(L K_{\text{on}} + K_{\text{off}}) \text{Time0}}\right) e^{-K_{\text{off}} (x - \text{Time0})} &amp; (x &gt; \text{Time0})
+\end{cases}" alt="y = NS + \begin{cases} 
+\frac{L B_{\text{max}}}{L + K_{\text{off}} / K_{\text{on}}} \left(1 - e^{-(L K_{\text{on}} + K_{\text{off}}) x}\right) &amp; (x \le \text{Time0}) \\[1.5em]
+\frac{L B_{\text{max}}}{L + K_{\text{off}} / K_{\text{on}}} \left(1 - e^{-(L K_{\text{on}} + K_{\text{off}}) \text{Time0}}\right) e^{-K_{\text{off}} (x - \text{Time0})} &amp; (x &gt; \text{Time0})
+\end{cases}" class="tex"/>
+<br /><img src="../images/LabTalk-Supported_Functions/math-4c316d7948d16abaf087b7ff6414808b.png" title="\text{where } L = \text{Hotnm} \times 1\text{E}-9" alt="\text{where } L = \text{Hotnm} \times 1\text{E}-9" class="tex"/>
+&lt;/math&gt;
+</p>
+</td></tr>
+<tr>
+<td>CompetitiveBinding(x,K1,L,K2,K3,I,K4,Bmax)
+</td>
+<td>濃度の異なる非標識競合リガンド存在下で、時間経過に伴う標識リガンド結合を予測するために、複数曲線モデル（Motulsky-Mahan）を評価します。
+<p><img src="../images/LabTalk-Supported_Functions/math-51f0cf4d82cca39ccd515159eff0b55a.png" title="y = Q \left( \frac{K_4 \text{Diff}}{K_F K_S} + (K_4 - K_F) \frac{e^{-K_F x}}{K_F} - (K_4 - K_S) \frac{e^{-K_S x}}{K_S} \right) " alt="y = Q \left( \frac{K_4 \text{Diff}}{K_F K_S} + (K_4 - K_F) \frac{e^{-K_F x}}{K_F} - (K_4 - K_S) \frac{e^{-K_S x}}{K_S} \right) " class="tex"/>
+<br /><br /><img src="../images/LabTalk-Supported_Functions/math-719b874921c72c02239ae679671cce85.png" title=" \text{where } K_A = K_2 + K_1 L \times 1\text{E}-9, \quad K_B = K_4 + K_3 I \times 1\text{E}-9, " alt=" \text{where } K_A = K_2 + K_1 L \times 1\text{E}-9, \quad K_B = K_4 + K_3 I \times 1\text{E}-9, " class="tex"/>
+<br /><br /><img src="../images/LabTalk-Supported_Functions/math-0170b80edf7a9e95fc3dccd6c73c6410.png" title=" \quad S = \sqrt{(4\text{E}-18) \times K_1 K_3 L I + (K_A - K_B)^2}," alt=" \quad S = \sqrt{(4\text{E}-18) \times K_1 K_3 L I + (K_A - K_B)^2}," class="tex"/>
+<br /><br /><img src="../images/LabTalk-Supported_Functions/math-fa498727a4acb4e3e835ad0de3776d93.png" title=" K_F = 0.5 K_A + 0.5 K_B + 0.5 S,  \quad K_S = 0.5 K_A + 0.5 K_B - 0.5 S," alt=" K_F = 0.5 K_A + 0.5 K_B + 0.5 S,  \quad K_S = 0.5 K_A + 0.5 K_B - 0.5 S," class="tex"/>
+<br /><br /><img src="../images/LabTalk-Supported_Functions/math-69ae38bc43ccc9e993080211c431c246.png" title=" \quad \text{Diff} = K_F - K_S, \quad Q = \frac{K_1 L B_{\text{max}}}{\text{Diff}} \times 1\text{E}-9" alt=" \quad \text{Diff} = K_F - K_S, \quad Q = \frac{K_1 L B_{\text{max}}}{\text{Diff}} \times 1\text{E}-9" class="tex"/>
+</p>
+</td></tr>
+<tr>
+<td>OneSiteTotal(x,Bg,NS,Bmax,K)
+</td>
+<td>全結合のみをフィットします。<br />
+<p><img src="../images/LabTalk-Supported_Functions/math-43d7299d7bc77d5f84960bc829240e18.png" title=" y = Bg + NS\times x+\frac{B_{max}x}{K+x} " alt=" y = Bg + NS\times x+\frac{B_{max}x}{K+x} " class="tex"/>
+</p>
+</td></tr>
+<tr>
+<td>OneSiteTotalDepletion(x,V,SA,KdnM,NS,Bmax)
+</td>
+<td>リガンド枯渇を考慮して全結合をフィットします。
+<p><img src="../images/LabTalk-Supported_Functions/math-53e39619babaf49c8236c864bf3e7b09.png" title="y = \frac{-b+\sqrt{b^2-4ac}}{2a}, where " alt="y = \frac{-b+\sqrt{b^2-4ac}}{2a}, where " class="tex"/>
+<br /><img src="../images/LabTalk-Supported_Functions/math-eaa66e01f86bcc4c0e328456227c286c.png" title="a = -NS-1" alt="a = -NS-1" class="tex"/>
+<br /><img src="../images/LabTalk-Supported_Functions/math-d98f666c64e91ab8d28e7ffdf0952757.png" title="KdCPM = 1000 \times V \times KdnM \times SA" alt="KdCPM = 1000 \times V \times KdnM \times SA" class="tex"/>
+<br /><img src="../images/LabTalk-Supported_Functions/math-ba40d28fe12aa627824ef6374dcc71b6.png" title="b = KdCPM+B_{max}+NS\times KdCPM + x+2\times NS\times x " alt="b = KdCPM+B_{max}+NS\times KdCPM + x+2\times NS\times x " class="tex"/>
+<br /><img src="../images/LabTalk-Supported_Functions/math-750362d60565c8cf1acd393a1cf98d9f.png" title="c = -x(B_{max}+NS\times KdCPM + NS\times x)" alt="c = -x(B_{max}+NS\times KdCPM + NS\times x)" class="tex"/>
+</p>
+</td></tr>
+<tr>
+<td>TwoSiteTotal(x,Bg,NS,Bmax1,Bmax2,K1,K2)
+</td>
+<td>2部位全結合関数。<br />
+<p><img src="../images/LabTalk-Supported_Functions/math-84b9b0f6414595b7acde013fa87ec9ea.png" title="y = Bg + NS\cdot x + \frac{B_{max1}\cdot x}{K_1+x} + \frac{B_{max2}\cdot x}{K_2+x}" alt="y = Bg + NS\cdot x + \frac{B_{max1}\cdot x}{K_1+x} + \frac{B_{max2}\cdot x}{K_2+x}" class="tex"/>
+</p>
+</td></tr>
+<tr>
+<td>OneSiteAlloModShift(x,logalpha,logKb,KdHot,Allo,Bmax)
+</td>
+<td>アロステリックモジュレーターによるシフトを伴う1部位結合。<br />
+<p><img src="../images/LabTalk-Supported_Functions/math-f34e0d7f7c50f90fe63e8dbcea17b640.png" title="y = \frac{B_{max}\cdot x}{x+KdHot\cdot\frac{10^{logK_b}+Allo}{10^{logK_b}+10^{logalpha}\cdot Allo}}" alt="y = \frac{B_{max}\cdot x}{x+KdHot\cdot\frac{10^{logK_b}+Allo}{10^{logK_b}+10^{logalpha}\cdot Allo}}" class="tex"/>
+</p>
+</td></tr>
+<tr>
+<td>OneSiteBindHS(x,Bmax,k1,s)
+</td>
+<td>Hill勾配を伴う1部位結合。
+<p><img src="../images/LabTalk-Supported_Functions/math-4f76021f122fb575a66b95d740381ad4.png" title="y = \frac{B_{max}\cdot x^s}{k_1^s + x^s}" alt="y = \frac{B_{max}\cdot x^s}{k_1^s + x^s}" class="tex"/>
+</p>
+</td></tr>
+<tr>
+<td>OneSiteCompFitKi(x,A1,A2,logKi,H1,H2)
+</td>
+<td>片側競争曲線。Hill傾斜が-1のDose-response曲線
+<p><img src="../images/LabTalk-Supported_Functions/math-cc977e2f4b278029ce1577759d0d1ad5.png" title=" logx_{0}  = \log\left(10^{logKi} \cdot \left(1+\frac{H_{1}}{H_{2}}\right)\right)" alt=" logx_{0}  = \log\left(10^{logKi} \cdot \left(1+\frac{H_{1}}{H_{2}}\right)\right)" class="tex"/>
+<br /><img src="../images/LabTalk-Supported_Functions/math-c10727109d654ade038e7897b66d2de7.png" title="y = A_2 + \frac{A_1-A_2}{1+10^{\left(x-\log x_{0}\right) }}" alt="y = A_2 + \frac{A_1-A_2}{1+10^{\left(x-\log x_{0}\right) }}" class="tex"/>
+</p>
+</td></tr>
+<tr>
+<td>TwoSiteCompFitKi(x,A1,A2,logKi_1,logKi_2,fraction,H1,H2_1,H2_2)
+</td>
+<td>2種類の受容体に対するリガンドの競合を記述する2部位競合関数。
+<p><img src="../images/LabTalk-Supported_Functions/math-68b1bf7f10ef32c01da873dfe5fd7eea.png" title="logx_{01} = \log\left(10^{logKi_{1}} \cdot \left(1+\frac{H_{1}}{H_{21}}\right)\right)" alt="logx_{01} = \log\left(10^{logKi_{1}} \cdot \left(1+\frac{H_{1}}{H_{21}}\right)\right)" class="tex"/>
+<br /><img src="../images/LabTalk-Supported_Functions/math-e0ec9514649091c622d9cd394828f964.png" title=" logx_{02} = \log\left(10^{logKi_{2}} \cdot \left(1+\frac{H_{1}}{H_{22}}\right)\right)" alt=" logx_{02} = \log\left(10^{logKi_{2}} \cdot \left(1+\frac{H_{1}}{H_{22}}\right)\right)" class="tex"/>
+<br /><img src="../images/LabTalk-Supported_Functions/math-afc55e1ecc4c43e92bcccffabeb6fe4b.png" title=" y=A_2+\frac{\left( A_1-A_2\right) f}{1+10^{\left( x-\log x_{01}\right) }}+\frac{\left( A_1-A_2\right) \left( 1-f\right) }{1+10^{\left( x-\log x_{02}\right) }}" alt=" y=A_2+\frac{\left( A_1-A_2\right) f}{1+10^{\left( x-\log x_{01}\right) }}+\frac{\left( A_1-A_2\right) \left( 1-f\right) }{1+10^{\left( x-\log x_{02}\right) }}" class="tex"/>
+</p>
+</td></tr>
+<tr>
+<td>OneSiteLigandDepletion(x,logKi,Bmax,NS,Hot,KdNM,SpAct,Vol)
+</td>
+<td>放射性リガンド枯渇を考慮した1部位競合結合。
+<p><a  class="image"><img alt="OneSiteLigandDepletion Function formula.png" src="../images/LabTalk-Supported_Functions/OneSiteLigandDepletion_Function_formula.png" width="311"  /></a>
+</p>
+</td></tr>
+<tr>
+<td>OneSiteHomologous(x,logKd,Bmax,NS,HotnM)
+</td>
+<td>標識リガンドと非標識リガンドの親和性が同一である1部位相同結合モデル。
+<p><img src="../images/LabTalk-Supported_Functions/math-3d01abde6c0b4d34330824838bf95142.png" title="Bottom = NS \cdot HotnM" alt="Bottom = NS \cdot HotnM" class="tex"/>
+<br /><img src="../images/LabTalk-Supported_Functions/math-31e1101ecf2cc24b799aa7660f71521e.png" title="KdNM = 10^{logKD + 9}" alt="KdNM = 10^{logKD + 9}" class="tex"/>
+<br /><img src="../images/LabTalk-Supported_Functions/math-576b8124225e3ed80100249b1b2c1e69.png" title="ColdNM = 10^{x + 9}" alt="ColdNM = 10^{x + 9}" class="tex"/>
+<br /><img src="../images/LabTalk-Supported_Functions/math-82705cb287099d19e199fe3acbbf04b3.png" title="y = Bottom + \frac{Bmax \cdot HotnM}{HotnM + ColdNM + KdNM}" alt="y = Bottom + \frac{Bmax \cdot HotnM}{HotnM + ColdNM + KdNM}" class="tex"/>
+</p>
+</td></tr>
+<tr>
+<td>AllostericModulator(x,logKb,logAlpha,y0,RadioligandNM,HotKdNM)
+</td>
+<td>三元複合体モデルに基づく、放射性リガンド結合に対するアロステリックモジュレーターの滴定。
+<p><img src="../images/LabTalk-Supported_Functions/math-83b3c7007b7d6be9526d104ffada8c6d.png" title="alpha = 10^{logAlpha}" alt="alpha = 10^{logAlpha}" class="tex"/>
+<br /><img src="../images/LabTalk-Supported_Functions/math-7a872a9bd1f38a0979b4f330691e6cbe.png" title="KbNM = 10^{logKb + 9}" alt="KbNM = 10^{logKb + 9}" class="tex"/>
+<br /><img src="../images/LabTalk-Supported_Functions/math-da9631747a1f1e26669730338b9a21e3.png" title="HotOccupancy = \frac{RadioligandNM}{RadioligandNM + HotKDnm}" alt="HotOccupancy = \frac{RadioligandNM}{RadioligandNM + HotKDnm}" class="tex"/>
+<br /><img src="../images/LabTalk-Supported_Functions/math-82eac1674b4daa6d92be1ca574e30e40.png" title="AlloNM = 10^{x + 9}" alt="AlloNM = 10^{x + 9}" class="tex"/>
+<br /><img src="../images/LabTalk-Supported_Functions/math-5c23ca680edcaace22da66649d9bb334.png" title="KAppNM = HotKDnm \cdot \left(\frac{\frac{AlloNM}{KBNM} + 1}{alpha \cdot \left(\frac{AlloNM}{KBNM}\right) + 1}\right)" alt="KAppNM = HotKDnm \cdot \left(\frac{\frac{AlloNM}{KBNM} + 1}{alpha \cdot \left(\frac{AlloNM}{KBNM}\right) + 1}\right)" class="tex"/>
+<br /><img src="../images/LabTalk-Supported_Functions/math-64be79c29d29532c8b341ba708dec07f.png" title="y = \frac{y_{0} \cdot \left(\frac{RadioligandNM}{RadioligandNM + KAppNM}\right)}{HotOccupancy}" alt="y = \frac{y_{0} \cdot \left(\frac{RadioligandNM}{RadioligandNM + KAppNM}\right)}{HotOccupancy}" class="tex"/>
+</p>
 </td></tr></table>
 <h3><a name="Growth"></a><span class="mw-headline">Growth</span></h3>
 <table class="simple-FitFunc">
@@ -5410,6 +5684,27 @@ y_0 &amp; x\leq 0
 </td>
 <td>タイプ3のシグモイドロジスティック関数<br />
 <p><img src="../images/LabTalk-Supported_Functions/math-b0649f2d75ec059604397a483e220939.png" title=" y=\frac a{1+be^{-kx}}" alt=" y=\frac a{1+be^{-kx}}" class="tex"/>
+</p>
+</td></tr>
+<tr>
+<td>GompertzGrowth(x,ym,y0,k)
+</td>
+<td>増殖率は、個体群が最大値に近づくにつれて指数関数的に減衰します。
+<p><img src="../images/LabTalk-Supported_Functions/math-00fd210a98811013a76badf4dc4dc095.png" title=" y = y_m \left( \frac{y_0}{y_m} \right)^{e^{-kx}}" alt=" y = y_m \left( \frac{y_0}{y_m} \right)^{e^{-kx}}" class="tex"/>
+</p>
+</td></tr>
+<tr>
+<td>LogisticGrowth(x,ym,y0,k)
+</td>
+<td>シグモイド型ロジスティック成長関数。
+<p><img src="../images/LabTalk-Supported_Functions/math-286e23cd2921cafe53f7b9af5d1bad2d.png" title=" y = \frac{y_m y_0}{y_0 + (y_m - y_0) e^{-kx}}" alt=" y = \frac{y_m y_0}{y_0 + (y_m - y_0) e^{-kx}}" class="tex"/>
+</p>
+</td></tr>
+<tr>
+<td>BetaGrowthDecay(x,ym,Te,Tm)
+</td>
+<td>ゼロから上昇してピークに達した後、減衰する非対称のドーム型曲線。
+<p><img src="../images/LabTalk-Supported_Functions/math-efc2574470641c8b2cac398fce38115a.png" title=" y = y_m \left( \frac{T_e - x}{T_e - T_m} + 1 \right) \left( \frac{x}{T_e} \right)^{\frac{T_e}{T_e - T_m}}" alt=" y = y_m \left( \frac{T_e - x}{T_e - T_m} + 1 \right) \left( \frac{x}{T_e} \right)^{\frac{T_e}{T_e - T_m}}" class="tex"/>
 </p>
 </td></tr></table>
 <h3><a name="Expo"></a><span class="mw-headline">Expo</span></h3>
@@ -5466,6 +5761,29 @@ Yb+A\left ( 1-e^{-\frac {(x-TD)}{Tau}}\right ) \quad x\geq TD
 <td>一定時間パラメータの3次指数減少関数<br />
 <p><img src="../images/LabTalk-Supported_Functions/math-de323aaa64e2f84ae683c7cd77c80414.png" title="y=y_0+A_1e^{-x/t_1}+A_2e^{-x/t_2}+A_3e^{-x/t_3}" alt="y=y_0+A_1e^{-x/t_1}+A_2e^{-x/t_2}+A_3e^{-x/t_3}" class="tex"/>
 </p>
+</td></tr>
+<tr>
+<td>ExpDecayDelay1(x,TD,y0,Plateau,Tau)
+</td>
+<td>プラトーに続く1相減衰。
+<p><img src="../images/LabTalk-Supported_Functions/math-87f3a58236883b909656c88d07d9f540.png" title="y = \begin{cases}y_0 &amp; (x &lt; TD) \\[1.2em]\text{Plateau} + (y_0 - \text{Plateau}) e^{-\frac{(x - TD)}{\tau}} &amp; (x \ge TD)\end{cases}
+" alt="y = \begin{cases}y_0 &amp; (x &lt; TD) \\[1.2em]\text{Plateau} + (y_0 - \text{Plateau}) e^{-\frac{(x - TD)}{\tau}} &amp; (x \ge TD)\end{cases}
+" class="tex"/>
+</p>
+</td></tr>
+<tr>
+<td>LinearQuadSurv(x,y0,a,b)
+</td>
+<td>線形二次生存関数。
+<p><img src="../images/LabTalk-Supported_Functions/math-df8a023bf4d12da08aade8e8a8d1913b.png" title="y=y_0 e^{-(ax+bx^2)}" alt="y=y_0 e^{-(ax+bx^2)}" class="tex"/>
+</p>
+</td></tr>
+<tr>
+<td>LinearQuadDeath(x,y0,a,b)
+</td>
+<td>死細胞に対する線形二次生存関数。
+<p><img src="../images/LabTalk-Supported_Functions/math-c4f2e6eced22813ea1dafab563b09ecd.png" title="y=y_0 \left( 1-e^{-(ax+bx^2)} \right)" alt="y=y_0 \left( 1-e^{-(ax+bx^2)} \right)" class="tex"/>
+</p>
 </td></tr></table>
 <h3><a name="Poly"></a><span class="mw-headline">Poly</span></h3>
 <table class="simple-FitFunc">
@@ -5515,6 +5833,20 @@ Yb+A\left ( 1-e^{-\frac {(x-TD)}{Tau}}\right ) \quad x\geq TD
 <td>5次多項式関数<br />
 <p><img src="../images/LabTalk-Supported_Functions/math-179fade716326e5ac21534b7420a96e2.png" title="y = A_0+A_1x+A_2x^2+A_3x^3+A_4x^4+A_5x^5" alt="y = A_0+A_1x+A_2x^2+A_3x^3+A_4x^4+A_5x^5" class="tex"/>
 </p>
+</td></tr>
+<tr>
+<td>PWL2Hinge(x,a,k1,x0,k2,s)
+</td>
+<td>緩やかに接続された2区間の区分線形関数。
+<p><img src="../images/LabTalk-Supported_Functions/math-5d2e1cddf1ca1f79e2624de8fce4dd7e.png" title="y=a+k_1(x - x_0)+s(k_2 - k_1)\text{ln}\left( 1 + e^{(x-x_0)/s} \right)" alt="y=a+k_1(x - x_0)+s(k_2 - k_1)\text{ln}\left( 1 + e^{(x-x_0)/s} \right)" class="tex"/>
+</p>
+</td></tr>
+<tr>
+<td>LineCross(x,xc,yc,k)
+</td>
+<td>交差ポイントを持つ直線関数
+<p><img src="../images/LabTalk-Supported_Functions/math-73f2ec21d85b67a88adb3a2d6924bcdd.png" title="y=y_c + k(x - x_c)" alt="y=y_c + k(x - x_c)" class="tex"/>
+</p>
 </td></tr></table>
 <h3><a name="Periodic"></a><span class="mw-headline">Periodic</span></h3>
 <table class="simple-FitFunc">
@@ -5544,6 +5876,17 @@ Yb+A\left ( 1-e^{-\frac {(x-TD)}{Tau}}\right ) \quad x\geq TD
 </td>
 <td>Sin二乗関数<br />
 <p><img src="../images/LabTalk-Supported_Functions/math-99d675f585814517ce6865e944a57bab.png" title="y=y_0+A\sin ^2\left( \pi \frac{x-x_c}w\right) " alt="y=y_0+A\sin ^2\left( \pi \frac{x-x_c}w\right) " class="tex"/>
+</p>
+</td></tr>
+<tr>
+<td>Sinc(x,A,w)
+</td>
+<td>sinc関数（矩形パルスのフーリエ変換）。
+<p><img src="../images/LabTalk-Supported_Functions/math-dc32d5437a6b9ecd9ea3355057ab7ff3.png" title="y=\begin{cases}A, &amp; \text{if } x=0 \\
+\frac{A \text{sin}(2 \pi x/w)}{2 \pi x/w}, &amp; \text{otherwise}
+\end{cases}" alt="y=\begin{cases}A, &amp; \text{if } x=0 \\
+\frac{A \text{sin}(2 \pi x/w)}{2 \pi x/w}, &amp; \text{otherwise}
+\end{cases}" class="tex"/>
 </p>
 </td></tr></table>
 <h3><a name="Line_Shapes"></a><span class="mw-headline">Line Shapes</span></h3>
@@ -5781,217 +6124,217 @@ y&amp;=y_0+He^{-0.5\left(\frac{x-x_c}{w_2}\right)^2}~~~~~~(x \geq x_c)\end{align
 </p>
 </td></tr>
 <tr>
-<td>Mixed2(x,Vmax,Km,Kas,Kac,S)
+<td><a class="external text" href="../../UserGuide/UserGuide/Mixed2.html">Mixed2(x,Vmax,Km,Kas,Kac,S)</a>
 </td>
 <td>単一基質系における活性化剤濃度に対する反応速度を記述する混合型活性化モデル。
-<p><a  class="image"><img alt="Mixed2 Funcion formula.png" src="../images/LabTalk-Supported_Functions/Mixed2_Funcion_formula.png" width="163"  /></a>
+<p><img src="../images/LabTalk-Supported_Functions/math-3b25e5a90050a61708dd84648ef04b62.png" title="y = \frac {V_{max} \cdot S} {K_m \cdot \left( 1+ \frac {K_{as}}{x} + \frac{S}{K_m} \cdot \left( 1 + \frac{K_{ac}}{x} \right) \right)}" alt="y = \frac {V_{max} \cdot S} {K_m \cdot \left( 1+ \frac {K_{as}}{x} + \frac{S}{K_m} \cdot \left( 1 + \frac{K_{ac}}{x} \right) \right)}" class="tex"/>
 </p>
 </td></tr>
 <tr>
-<td>MixedFull(x,Vmax,Km,Ki,l,alpha)
+<td><a class="external text" href="../../UserGuide/UserGuide/MixedFull.html">MixedFull(x,Vmax,Km,Ki,I,alpha)</a>
 </td>
 <td>完全混合モデル阻害とは、阻害剤が基質親和性と最大反応速度の両方に同時に及ぼす影響を記述するモデルである。
-<p><a  class="image"><img alt="MixedFull Funcion formula.png" src="../images/LabTalk-Supported_Functions/MixedFull_Funcion_formula.png" width="201"  /></a>
+<p><img src="../images/LabTalk-Supported_Functions/math-c0a25090ae01febebfc3d41a86131e06.png" title="y = \frac {V_{max}} { \frac {K_m}{x} \left( 1+ \frac {I}{K_i} \right) + \left( 1 + \frac{I}{\alpha K_i} \right) }" alt="y = \frac {V_{max}} { \frac {K_m}{x} \left( 1+ \frac {I}{K_i} \right) + \left( 1 + \frac{I}{\alpha K_i} \right) }" class="tex"/>
 </p>
 </td></tr>
 <tr>
-<td>MixedFull2(x,Vmax,Km,Ki,S,alpha)
+<td><a class="external text" href="../../UserGuide/UserGuide/MixedFull2.html">MixedFull2(x,Vmax,Km,Ki,S,alpha)</a>
 </td>
 <td>完全混合モデル阻害とは、結合と触媒作用の両方が影響を受ける系において、阻害剤濃度に対する反応速度論的応答を記述するモデルである。
 <p><a  class="image"><img alt="MixedFull2 Funcion formula.png" src="../images/LabTalk-Supported_Functions/MixedFull2_Funcion_formula.png" width="203"  /></a>
 </p>
 </td></tr>
 <tr>
-<td>MixedInhibition(x,Vmax,Km,Ki,alpha,E,S)
+<td><a class="external text" href="../../UserGuide/UserGuide/MixedInhibition.html">MixedInhibition(x,Vmax,Km,Ki,alpha,E,S)</a>
 </td>
 <td>高親和性阻害剤に対する、強力な結合を伴う混合モデル阻害。
 <p><a  class="image"><img alt="MixedInhibition Funcion formula.png" src="../images/LabTalk-Supported_Functions/MixedInhibition_Funcion_formula.png" width="370"  /></a>
 </p>
 </td></tr>
 <tr>
-<td>MixedInhibition2(x,Vmax,Km,Ki,alpha,E,I)
+<td><a class="external text" href="../../UserGuide/UserGuide/MixedInhibition2.html">MixedInhibition2(x,Vmax,Km,Ki,alpha,E,I)</a>
 </td>
 <td>基質濃度に対する反応速度論的応答を記述する、強結合型混合モデル阻害。
 <p><a  class="image"><img alt="MixedInhibition2 Funcion formula.png" src="../images/LabTalk-Supported_Functions/MixedInhibition2_Funcion_formula.png" width="373"  /></a>
 </p>
 </td></tr>
 <tr>
-<td>MixedPartial(x,Vmax,Km,Ki,l,beta,alpha)
+<td><a class="external text" href="../../UserGuide/UserGuide/MixedPartial.html">MixedPartial(x,Vmax,Km,Ki,I,beta,alpha)</a>
 </td>
 <td>部分的な混合モデル阻害。
 <p><a  class="image"><img alt="MixedPartial Funcion formula.png" src="../images/LabTalk-Supported_Functions/MixedPartial_Funcion_formula.png" width="240"  /></a>
 </p>
 </td></tr>
 <tr>
-<td>MixedPartial2(x,Vmax,Km,Ki,S,beta,alpha)
+<td><a class="external text" href="../../UserGuide/UserGuide/MixedPartial2.html">MixedPartial2(x,Vmax,Km,Ki,S,beta,alpha)</a>
 </td>
 <td>部分混合モデル阻害は、阻害剤濃度に対する反応速度論的応答を記述する。
 <p><a  class="image"><img alt="MixedPartial2 Funcion formula.png" src="../images/LabTalk-Supported_Functions/MixedPartial2_Funcion_formula.png" width="234"  /></a>
 </p>
 </td></tr>
 <tr>
-<td>NoncompetitiveFull(x,Vmax,Ki,Km,l)
+<td><a class="external text" href="../../UserGuide/UserGuide/NoncompetitiveFull.html">NoncompetitiveFull(x,Vmax,Ki,Km,I)</a>
 </td>
 <td>完全非競合阻害モデル。
 <p><a  class="image"><img alt="NoncompetitiveFull Funcion formula.png" src="../images/LabTalk-Supported_Functions/NoncompetitiveFull_Funcion_formula.png" width="172"  /></a>
 </p>
 </td></tr>
 <tr>
-<td>NoncompetitiveFull2(x,Vmax,Ki,Km,S)
+<td><a class="external text" href="../../UserGuide/UserGuide/NoncompetitiveFull2.html">NoncompetitiveFull2(x,Vmax,Ki,Km,S)</a>
 </td>
 <td>阻害剤濃度に対する反応速度論的応答を記述する、完全な非競合阻害モデル。
 <p><a  class="image"><img alt="NoncompetitiveFull2 Funcion formula.png" src="../images/LabTalk-Supported_Functions/NoncompetitiveFull2_Funcion_formula.png" width="197"  /></a>
 </p>
 </td></tr>
 <tr>
-<td>NoncompetitiveInhibition(x,Vmax,Km,Ki,E,S)
+<td><a class="external text" href="../../UserGuide/UserGuide/NoncompetitiveInhibition.html">NoncompetitiveInhibition(x,Vmax,Km,Ki,E,S)</a>
 </td>
 <td>高親和性阻害剤に対する、強固な結合を伴う非競合阻害モデル。
 <p><a  class="image"><img alt="NoncompetitiveInhibition Funcion formula.png" src="../images/LabTalk-Supported_Functions/NoncompetitiveInhibition_Funcion_formula.png" width="366"  /></a>
 </p>
 </td></tr>
 <tr>
-<td>NoncompetitiveInhibition2(x,Vmax,Km,Ki,E,l)
+<td><a class="external text" href="../../UserGuide/UserGuide/NoncompetitiveInhibition2.html">NoncompetitiveInhibition2(x,Vmax,Km,Ki,E,I)</a>
 </td>
 <td>基質濃度に対する反応速度論的応答を記述する、強固な結合を伴う非競合阻害モデル。
 <p><a  class="image"><img alt="NoncompetitiveInhibition2 Funcion formula.png" src="../images/LabTalk-Supported_Functions/NoncompetitiveInhibition2_Funcion_formula.png" width="300"  /></a>
 </p>
 </td></tr>
 <tr>
-<td>NoncompetitivePartial(x,Vmax,Km,Ki,l,beta)
+<td><a class="external text" href="../../UserGuide/UserGuide/NoncompetitivePartial.html">NoncompetitivePartial(x,Vmax,Km,Ki,I,beta)</a>
 </td>
 <td>部分的な非競合阻害モデル。
 <p><a  class="image"><img alt="NoncompetitivePartial Funcion formula.png" src="../images/LabTalk-Supported_Functions/NoncompetitivePartial_Funcion_formula.png" width="146"  /></a>
 </p>
 </td></tr>
 <tr>
-<td>NoncompetitivePartial2(x,Vmax,Km,Ki,S,beta)
+<td><a class="external text" href="../../UserGuide/UserGuide/NoncompetitivePartial2.html">NoncompetitivePartial2(x,Vmax,Km,Ki,S,beta)</a>
 </td>
 <td>阻害剤濃度に対する反応速度論的応答を記述する部分非競合阻害モデル。
 <p><a  class="image"><img alt="NoncompetitivePartial2 Funcion formula.png" src="../images/LabTalk-Supported_Functions/NoncompetitivePartial2_Funcion_formula.png" width="155"  /></a>
 </p>
 </td></tr>
 <tr>
-<td>Nonessencial(x,Vmax,Km,Ka,alpha,beta,A)
+<td><a class="external text" href="../../UserGuide/UserGuide/Nonessencial.html">Nonessencial(x,Vmax,Km,Ka,alpha,beta,A)</a>
 </td>
 <td>非必須活性化モデル。
 <p><a  class="image"><img alt="Nonessencial Funcion formula.png" src="../images/LabTalk-Supported_Functions/Nonessencial_Funcion_formula.png" width="220"  /></a>
 </p>
 </td></tr>
 <tr>
-<td>Nonessencial2(x,Vmax,Km,Ka,alpha,beta,S)
+<td><a class="external text" href="../../UserGuide/UserGuide/Nonessencial2.html">Nonessencial2(x,Vmax,Km,Ka,alpha,beta,S)</a>
 </td>
 <td>活性化因子濃度に対する反応速度論的応答を記述する非必須活性化モデル。
 <p><a  class="image"><img alt="Nonessencial2 Funcion formula.png" src="../images/LabTalk-Supported_Functions/Nonessencial2_Funcion_formula.png" width="225"  /></a>
 </p>
 </td></tr>
 <tr>
-<td>OrderedBiBiSequential(x,Vmax,B,Ka,Kb)
+<td><a class="external text" href="../../UserGuide/UserGuide/OrderedBiBiSequential.html">OrderedBiBiSequential(x,Vmax,B,Ka,Kb)</a>
 </td>
 <td>基質に対する反応速度論的応答を記述する、順序付けられたBi-Bi逐次機構。
 <p><a  class="image"><img alt="OrderedBiBiSequential Funcion formula.png" src="../images/LabTalk-Supported_Functions/OrderedBiBiSequential_Funcion_formula.png" width="173"  /></a>
 </p>
 </td></tr>
 <tr>
-<td>OrderedBiBiSequential2(x,Vmax,A,Ka,Kb)
+<td><a class="external text" href="../../UserGuide/UserGuide/OrderedBiBiSequential2.html">OrderedBiBiSequential2(x,Vmax,A,Ka,Kb)</a>
 </td>
 <td>2番目の基質の濃度に対する反応速度論的応答を記述する、順序付けられたBi-Bi逐次機構。
 <p><a  class="image"><img alt="OrderedBiBiSequential2 Funcion formula.png" src="../images/LabTalk-Supported_Functions/OrderedBiBiSequential2_Funcion_formula.png" width="190"  /></a>
 </p>
 </td></tr>
 <tr>
-<td>PingPongBiBiSequential(A,B,Kb,Ka,Vmax)
+<td><a class="external text" href="../../UserGuide/UserGuide/PingPongBiBiSequential.html">PingPongBiBiSequential(A,B,Kb,Ka,Vmax)</a>
 </td>
 <td>Ping-Pung Bi-Bi逐次機構は、二重置換反応を記述する。
 <p><a  class="image"><img alt="PingPongBiBiSequential Funcion formula.png" src="../images/LabTalk-Supported_Functions/PingPongBiBiSequential_Funcion_formula.png" width="228"  /></a>
 </p>
 </td></tr>
 <tr>
-<td>PingPongBiBiSequential2(B,A,Ka,Kb,Vmax)
+<td><a class="external text" href="../../UserGuide/UserGuide/PingPongBiBiSequential2.html">PingPongBiBiSequential2(B,A,Ka,Kb,Vmax)</a>
 </td>
 <td>Ping-Pong Bi-Bi逐次機構は、二重置換反応における基質に対する反応速度論的応答を記述する。
 <p><a  class="image"><img alt="PingPongBiBiSequential2 Funcion formula.png" src="../images/LabTalk-Supported_Functions/PingPongBiBiSequential2_Funcion_formula.png" width="225"  /></a>
 </p>
 </td></tr>
 <tr>
-<td>PlateauShaped(x,Vmaxpla,Vmaxlim,pKa,pKb)
+<td><a class="external text" href="../../UserGuide/UserGuide/PlateauShaped.html">PlateauShaped(x,Vmaxpla,Vmaxlim,pKa,pKb)</a>
 </td>
 <td>プラトー状のpHプロファイルモデル。
 <p><a  class="image"><img alt="PlateauShaped Funcion formula.png" src="../images/LabTalk-Supported_Functions/PlateauShaped_Funcion_formula.png" width="180"  /></a>
 </p>
 </td></tr>
 <tr>
-<td>RandomBiBiSequential(x,Vmax,B,Ka,Kb,alpha)
+<td><a class="external text" href="../../UserGuide/UserGuide/RandomBiBiSequential.html">RandomBiBiSequential(x,Vmax,B,Ka,Kb,alpha)</a>
 </td>
 <td>ランダムBi-BIシーケンシャルメカニズム。
 <p><a  class="image"><img alt="RandomBiBiSequential Funcion formula.png" src="../images/LabTalk-Supported_Functions/RandomBiBiSequential_Funcion_formula.png" width="286"  /></a>
 </p>
 </td></tr>
 <tr>
-<td>RandomBiBiSequential2(x,Vmax,A,Ka,Kb,alpha)
+<td><a class="external text" href="../../UserGuide/UserGuide/RandomBiBiSequential2.html">RandomBiBiSequential2(x,Vmax,A,Ka,Kb,alpha)</a>
 </td>
 <td>ランダムBi-Bi逐次機構は、2番目の基質の濃度に対する反応速度論的応答を記述する。
 <p><a  class="image"><img alt="RandomBiBiSequential2 Funcion formula.png" src="../images/LabTalk-Supported_Functions/RandomBiBiSequential2_Funcion_formula.png" width="315"  /></a>
 </p>
 </td></tr>
 <tr>
-<td>SingleExp(x,ymax,k)
+<td><a class="external text" href="../../UserGuide/UserGuide/SingleExp.html">SingleExp(x,ymax,k)</a>
 </td>
 <td>単一指数減衰モデル。
 <p><a  class="image"><img alt="SingleExp Funcion formula.png" src="../images/LabTalk-Supported_Functions/SingleExp_Funcion_formula.png" width="164"  /></a>
 </p>
 </td></tr>
 <tr>
-<td>SingleExpOffset(x,ymax,y0,k)
+<td><a class="external text" href="../../UserGuide/UserGuide/SingleExpOffset.html">SingleExpOffset(x,ymax,y0,k)</a>
 </td>
 <td>オフセット付きの単一指数減衰モデル。
 <p><a  class="image"><img alt="SingleExpOffset Funcion formula.png" src="../images/LabTalk-Supported_Functions/SingleExpOffset_Funcion_formula.png" width="208"  /></a>
 </p>
 </td></tr>
 <tr>
-<td>SinglepKaFalling(x,Vmaxlim,pKa)
+<td><a class="external text" href="../../UserGuide/UserGuide/SinglepKaFalling.html">SinglepKaFalling(x,Vmaxlim,pKa)</a>
 </td>
 <td>単一pKa値に基づくpH低下プロファイルモデル。
 <p><a  class="image"><img alt="SinglepKaFalling Funcion formula.png" src="../images/LabTalk-Supported_Functions/SinglepKaFalling_Funcion_formula.png" width="88"  /></a>
 </p>
 </td></tr>
 <tr>
-<td>SinglepKaOffset(x,Vlim1,Vlim2,pKa)
+<td><a class="external text" href="../../UserGuide/UserGuide/SinglepKaOffset.html">SinglepKaOffset(x,Vlim1,Vlim2,pKa)</a>
 </td>
 <td>単一pKaオフセットモデル。
 <p><a  class="image"><img alt="SinglepKaOffset Funcion formula.png" src="../images/LabTalk-Supported_Functions/SinglepKaOffset_Funcion_formula.png" width="162"  /></a>
 </p>
 </td></tr>
 <tr>
-<td>SinglepKaRising(x,Vmaxlim,pKa)
+<td><a class="external text" href="../../UserGuide/UserGuide/SinglepKaRising.html">SinglepKaRising(x,Vmaxlim,pKa)</a>
 </td>
 <td>単一pKa上昇pHプロファイルモデル。
 <p><a  class="image"><img alt="SinglepKaRising Funcion formula.png" src="../images/LabTalk-Supported_Functions/SinglepKaRising_Funcion_formula.png" width="104"  /></a>
 </p>
 </td></tr>
 <tr>
-<td>Specific(x,Vmax,Km,Ka,A)
+<td><a class="external text" href="../../UserGuide/UserGuide/Specific.html">Specific(x,Vmax,Km,Ka,A)</a>
 </td>
 <td>2つの基質が関与する反応の具体的なメカニズム。
 <p><a  class="image"><img alt="Specific Funcion formula.png" src="../images/LabTalk-Supported_Functions/Specific_Funcion_formula.png" width="102"  /></a>
 </p>
 </td></tr>
 <tr>
-<td>Specific2(x,Vmax,Km,Ka,S)
+<td><a class="external text" href="../../UserGuide/UserGuide/Specific2.html">Specific2(x,Vmax,Km,Ka,S)</a>
 </td>
 <td>2つの基質が関与する反応における、2番目の基質の濃度に対する反応速度論的応答を記述する具体的なメカニズム。
 <p><a  class="image"><img alt="Specific2 Funcion formula.png" src="../images/LabTalk-Supported_Functions/Specific2_Funcion_formula.png" width="107"  /></a>
 </p>
 </td></tr>
 <tr>
-<td>SubstrateActivationOrdered(x,Vmax,Ks,alpha)
+<td><a class="external text" href="../../UserGuide/UserGuide/SubstrateActivationOrdered.html">SubstrateActivationOrdered(x,Vmax,Ks,alpha)</a>
 </td>
 <td>順序付けられた基質活性化モデル。
 <p><a  class="image"><img alt="SubstrateActivationOrdered Funcion formula.png" src="../images/LabTalk-Supported_Functions/SubstrateActivationOrdered_Funcion_formula.png" width="88"  /></a>
 </p>
 </td></tr>
 <tr>
-<td>SubstrateActivationRandom(x,Vmax,Ks,alpha)
+<td><a class="external text" href="../../UserGuide/UserGuide/SubstrateActivationRandom.html">SubstrateActivationRandom(x,Vmax,Ks,alpha)</a>
 </td>
 <td>ランダムな基質活性化モデル。
 <p><a  class="image"><img alt="SubstrateActivationRandom Funcion formula.png" src="../images/LabTalk-Supported_Functions/SubstrateActivationRandom_Funcion_formula.png" width="125"  /></a>
@@ -6008,42 +6351,42 @@ y&amp;=y_0+He^{-0.5\left(\frac{x-x_c}{w_2}\right)^2}~~~~~~(x \geq x_c)\end{align
 </p>
 </td></tr>
 <tr>
-<td>UncompetitiveFull(x,Vmax,Km,Ki,l)
+<td><a class="external text" href="../../UserGuide/UserGuide/UncompetitiveFull.html">UncompetitiveFull(x,Vmax,Km,Ki,I)</a>
 </td>
 <td>完全非競合阻害モデル。
 <p><a  class="image"><img alt="UncompetitiveFull Funcion formula.png" src="../images/LabTalk-Supported_Functions/UncompetitiveFull_Funcion_formula.png" width="109"  /></a>
 </p>
 </td></tr>
 <tr>
-<td>UncompetitiveFull2(x,Vmax,Km,Ki,S)
+<td><a class="external text" href="../../UserGuide/UserGuide/UncompetitiveFull2.html">UncompetitiveFull2(x,Vmax,Km,Ki,S)</a>
 </td>
 <td>阻害剤濃度に対する反応速度論的応答を記述する、完全な非競合阻害モデル。
 <p><a  class="image"><img alt="UncompetitiveFull2 Funcion formula.png" src="../images/LabTalk-Supported_Functions/UncompetitiveFull2_Funcion_formula.png" width="101"  /></a>
 </p>
 </td></tr>
 <tr>
-<td>UncompetitiveInhibition(x,Vmax,Km,Ki,E,S)
+<td><a class="external text" href="../../UserGuide/UserGuide/UncompetitiveInhibition.html">UncompetitiveInhibition(x,Vmax,Km,Ki,E,S)</a>
 </td>
 <td>強固な結合による非競合阻害モデル。
 <p><a  class="image"><img alt="UncompetitiveInhibition Funcion formula.png" src="../images/LabTalk-Supported_Functions/UncompetitiveInhibition_Funcion_formula.png" width="324"  /></a>
 </p>
 </td></tr>
 <tr>
-<td>UncompetitiveInhibition2(x,Vmax,Km,Ki,E,l)
+<td><a class="external text" href="../../UserGuide/UserGuide/UncompetitiveInhibition2.html">UncompetitiveInhibition2(x,Vmax,Km,Ki,E,I)</a>
 </td>
 <td>基質濃度に対する応答を記述する、強固な結合を伴う非競合阻害モデル。
 <p><a  class="image"><img alt="UncompetitiveInhibition2 Funcion formula.png" src="../images/LabTalk-Supported_Functions/UncompetitiveInhibition2_Funcion_formula.png" width="280"  /></a>
 </p>
 </td></tr>
 <tr>
-<td>UncompetitivePartial(x,Vmax,Km,Ki,l,beta)
+<td><a class="external text" href="../../UserGuide/UserGuide/UncompetitivePartial.html">UncompetitivePartial(x,Vmax,Km,Ki,I,beta)</a>
 </td>
 <td>部分的非競合阻害モデル。
 <p><a  class="image"><img alt="UncompetitivePartial Funcion formula.png" src="../images/LabTalk-Supported_Functions/UncompetitivePartial_Funcion_formula.png" width="92"  /></a>
 </p>
 </td></tr>
 <tr>
-<td>UncompetitivePartial2(x,Vmax,Km,Ki,S,beta)
+<td><a class="external text" href="../../UserGuide/UserGuide/UncompetitivePartial2.html">UncompetitivePartial2(x,Vmax,Km,Ki,S,beta)</a>
 </td>
 <td>阻害剤濃度に対する反応速度論的応答を記述する部分的非競合阻害モデル。
 <p><a  class="image"><img alt="UncompetitivePartial2 Funcion formula.png" src="../images/LabTalk-Supported_Functions/UncompetitivePartial2_Funcion_formula.png" width="97"  /></a>
@@ -6070,6 +6413,12 @@ y&amp;=y_0+He^{-0.5\left(\frac{x-x_c}{w_2}\right)^2}~~~~~~(x \geq x_c)\end{align
 <td><a href="../../LabTalk/LabTalk/BitXOR_(function).html" title="LabTalk:BitXOR (関数)">BitXOR(n1, n2)</a>
 </td>
 <td>2つの整数のビット排他的和を返します。
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/BookNames_(function).html" title="LabTalk:BookNames (関数)">BookNames(scope)</a>
+<p align="right"><font color="red">(2026b)</font></p>
+</td>
+<td>ブック名を取得します。
 </td></tr>
 <tr>
 <td><a href="../../LabTalk/LabTalk/ISNA_(function).html" title="LabTalk:ISNA (関数)">ISNA(d)</a>
@@ -6100,6 +6449,12 @@ y&amp;=y_0+He^{-0.5\left(\frac{x-x_c}{w_2}\right)^2}~~~~~~(x \geq x_c)\end{align
 <p align="right"><font color="red">(2019 SR0)</font></p>
 </td>
 <td>内部カラーコード<b>oColor</b>をRGB値に変換します。
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/SheetNames_(function).html" title="LabTalk:SheetNames (関数)">SheetNames(scope, exclamation)</a>
+<p align="right"><font color="red">(2026b)</font></p>
+</td>
+<td>シート名を取得します。
 </td></tr>
 <tr>
 <td><a href="../../LabTalk/LabTalk/Xf_get_last_error_code_(function).html" title="LabTalk:Xf get last error code (関数)"> xf_get_last_error_code()</a>

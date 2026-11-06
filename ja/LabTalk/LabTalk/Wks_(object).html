@@ -208,6 +208,14 @@ wks.<span style="color: #000080;">frozen</span><span style="color: #000080;">$</
 </p>
 </td></tr>
 <tr>
+<td> wks.hasVC
+<p align="right"><font color="red">(2026b)</font></p>
+</td>
+<td> 読み取り<br />bool
+</td>
+<td> ワークシートにミラーがあるかどうかを返します。0=偽、1=真。
+</td></tr>
+<tr>
 <td> wks.hGrids<br />wks.vGrids
 </td>
 <td> 読み/書き<br />整数
@@ -304,6 +312,22 @@ wks.<span style="color: #000080;">index</span> <span style="color: #000080;">=</
 <td> 読み/書き<br />bool
 </td>
 <td> 列/棒グラフのX列にテキストが含まれている場合、このテキストは行インデックスの順に主目盛のラベルとして使用されます。Origin 2018以前は、ワークシートデータフィルタを適用する場合、データポイントはプロットされていなくても、プロットはフィルタされたデータの空の目盛とラベルを登録していました。これはOrigin 2018で変更され、フィルタされたデータに関連する目盛が表示されなくなりました。これは、テキストを含み、<a class="external text" href="../../UserGuide/UserGuide/Displaying_Supporting_Data_in_Worksheet_Header_Rows.html#Categories">カテゴリとして設定されて</a>いないX列にのみ適用されます。0（デフォルト）=フィルタリングされたデータラベルを非表示。1 =データがフィルタリングされていてもデータラベルを表示（古い動作）。
+</td></tr>
+<tr>
+<td> wks.link
+<p align="right"><font color="red">(2027)</font></p>
+</td>
+<td> 読み取り<br />整数
+</td>
+<td> 現在のワークシートがミラーであるかどうかを取得します。0=ミラーシートではない、1=ミラーシート。
+</td></tr>
+<tr>
+<td> wks.link$
+<p align="right"><font color="red">(2027)</font></p>
+</td>
+<td> 読み取り<br />文字列
+</td>
+<td> 現在のミラーシートが参照しているソースワークシートを取得します。
 </td></tr>
 <tr>
 <td> wks.loadedgrid
@@ -824,20 +848,20 @@ wks.<span style="color: #000080;">nRows</span> <span style="color: #000080;">=</
 <h3><a name="Display_Worksheet_Column_Labels"></a><span class="mw-headline">ワークシートの列ラベルを表示</span></h3>
 <p>このスクリプトは、異なる都市の平均気温の空の表を作成します。この例ではユーザー定義パラメータを作成し、ワークシートのロングネーム、単位、およびユーザー定義パラメータを表示します。
 </p>
-<pre class="lt" style="font-family:monospace;">range ww <span style="color: #000080;">=</span> <span style="color: #000080;">!</span>;  <span style="color: #008000;">// アクティブワークシートで範囲を定義</span>
+<pre class="lt" style="font-family:monospace;">range ww <span style="color: #000080;">=</span> <span style="color: #000080;">!</span>;  <span style="color: #008000;">// アクティブシート上の範囲を定義</span>
 ww.<span style="color: #000080;">name</span><span style="color: #000080;">$</span> <span style="color: #000080;">=</span> <span style="color: #ff00ff;">&quot;Average Temperature&quot;</span>;  <span style="color: #008000;">// ワークシート名を変更</span>
-ww.<span style="color: #000080;">ncols</span> <span style="color: #000080;">=</span> <span style="color: #0000dd;">13</span>;  <span style="color: #008000;">// 列数を設定</span>
+ww.<span style="color: #000080;">ncols</span> <span style="color: #000080;">=</span> <span style="color: #0000dd;">13</span>;  <span style="color: #008000;">// 合計列数を設定</span>
 ww.<span style="color: #000080;">userParam1</span><span style="color: #000080;">$</span> <span style="color: #000080;">=</span> Month;  <span style="color: #008000;">// 新しいユーザパラメータラベルを定義</span>
 <span style="color: #008000;">// ワークシートロングネーム、単位、ユーザパラメータを表示</span>
 ww.<span style="color: #000080;">labels</span><span style="color: #000000;">(</span>LUD1<span style="color: #000000;">)</span>;  
-Col<span style="color: #000000;">(</span><span style="color: #0000dd;">1</span><span style="color: #000000;">)</span><span style="color: #000000;">[</span>L<span style="color: #000000;">]</span><span style="color: #000080;">$</span> <span style="color: #000080;">=</span> City;  <span style="color: #008000;">// 列のロングネームを設定</span>
+Col<span style="color: #000000;">(</span><span style="color: #0000dd;">1</span><span style="color: #000000;">)</span><span style="color: #000000;">[</span>L<span style="color: #000000;">]</span><span style="color: #000080;">$</span> <span style="color: #000080;">=</span> City;  <span style="color: #008000;">// 列ロングネームを設定</span>
 stringarray month <span style="color: #000080;">=</span> <span style="color: #000000;">{</span><span style="color: #ff00ff;">&quot;Jun.&quot;</span>, <span style="color: #ff00ff;">&quot;Feb.&quot;</span>, <span style="color: #ff00ff;">&quot;Mar.&quot;</span>, <span style="color: #ff00ff;">&quot;Apr.&quot;</span>, <span style="color: #ff00ff;">&quot;May.&quot;</span>, <span style="color: #ff00ff;">&quot;Jun.&quot;</span>, 
                    <span style="color: #ff00ff;">&quot;July&quot;</span>, <span style="color: #ff00ff;">&quot;Aug.&quot;</span>, <span style="color: #ff00ff;">&quot;Sep.&quot;</span>, <span style="color: #ff00ff;">&quot;Oct.&quot;</span>, <span style="color: #ff00ff;">&quot;Nov.&quot;</span>, <span style="color: #ff00ff;">&quot;Dec.&quot;</span><span style="color: #000000;">}</span>;
 loop<span style="color: #000000;">(</span>ii, <span style="color: #0000dd;">2</span>, <span style="color: #0000dd;">13</span><span style="color: #000000;">)</span>
 <span style="color: #000000;">{</span>
-	Col<span style="color: #000000;">(</span><span style="color: #000080;">$</span><span style="color: #000000;">(</span>ii<span style="color: #000000;">)</span><span style="color: #000000;">)</span><span style="color: #000000;">[</span>L<span style="color: #000000;">]</span><span style="color: #000080;">$</span> <span style="color: #000080;">=</span> Temperature;  <span style="color: #008000;">// 列のロングネームを設定</span>
-	Col<span style="color: #000000;">(</span><span style="color: #000080;">$</span><span style="color: #000000;">(</span>ii<span style="color: #000000;">)</span><span style="color: #000000;">)</span><span style="color: #000000;">[</span>U<span style="color: #000000;">]</span><span style="color: #000080;">$</span> <span style="color: #000080;">=</span> \<span style="color: #000080;">+</span><span style="color: #000000;">(</span>o<span style="color: #000000;">)</span>F;  <span style="color: #008000;">// 列の単位を設定</span>
-        <span style="color: #008000;">// 列のユーザパラメータを設定</span>
+	Col<span style="color: #000000;">(</span><span style="color: #000080;">$</span><span style="color: #000000;">(</span>ii<span style="color: #000000;">)</span><span style="color: #000000;">)</span><span style="color: #000000;">[</span>L<span style="color: #000000;">]</span><span style="color: #000080;">$</span> <span style="color: #000080;">=</span> Temperature;  <span style="color: #008000;">// 列ロングネームを設定</span>
+	Col<span style="color: #000000;">(</span><span style="color: #000080;">$</span><span style="color: #000000;">(</span>ii<span style="color: #000000;">)</span><span style="color: #000000;">)</span><span style="color: #000000;">[</span>U<span style="color: #000000;">]</span><span style="color: #000080;">$</span> <span style="color: #000080;">=</span> \<span style="color: #000080;">+</span><span style="color: #000000;">(</span>o<span style="color: #000000;">)</span>F;  <span style="color: #008000;">// Set column unit</span>
+        <span style="color: #008000;">// 列ユーザパラメータを設定</span>
 	Col<span style="color: #000000;">(</span><span style="color: #000080;">$</span><span style="color: #000000;">(</span>ii<span style="color: #000000;">)</span><span style="color: #000000;">)</span><span style="color: #000000;">[</span>D1<span style="color: #000000;">]</span><span style="color: #000080;">$</span> <span style="color: #000080;">=</span> month.<span style="color: #000080;">getAt</span><span style="color: #000000;">(</span>ii<span style="color: #000080;">-</span><span style="color: #0000dd;">1</span><span style="color: #000000;">)</span><span style="color: #000080;">$</span>;  
 <span style="color: #000000;">}</span></pre>
 <h3><a name="Get_the_unhidden_value_from_the_column_in_worksheet"></a><span class="mw-headline">ワークシートの列から非表示でない値を取得</span></h3>

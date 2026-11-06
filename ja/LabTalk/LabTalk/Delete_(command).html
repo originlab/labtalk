@@ -6,7 +6,7 @@
 	<td style="vertical-align:top" width="60"><img src="../images/Delete_(command)/Tip_icon.png" width="57"  border="0" /></td><td><p>このコマンドは主にデータセットと変数に対して動作します。  
 </p>
 <ul><li> ページ全体(つまり、ワークブックやグラフウィンドウ)を削除したい場合は、<a href="../../LabTalk/LabTalk/Window_Options_to_Close.html#-c" title="LabTalk:Window Options to Close">Window -c</a>コマンドを参照してください。 </li>
-<li> アクティブなレイヤ(ブック内のワークシートまたはグラフ内のレイヤ)を削除したい場合は、<a href="../../LabTalk/LabTalk/Layer_Options_for_Layer.html#-d" title="LabTalk:Layer Options for Layer">Layer-d</a>コマンドを参照してください。 </li>
+<li> アクティブなレイヤ(ブック内のワークシートまたはグラフ内のレイヤ)を削除したい場合は、<a href="../../LabTalk/LabTalk/Layer_Options_for_Layer.html#-d" title="LabTalk:Layer Options for Layer">Layer -d</a>コマンドを参照してください。 </li>
 <li> テキストラベルやグラフィックオブジェクトを削除したい場合は、<a href="../../LabTalk/LabTalk/Label_(command).html#-r.3B_Delete_the_specified_label_or_graph_object" title="LabTalk:Label （コマンド）">Label -r</a>コマンドを参照してください。 </li></ul>
 </td></tr></table>
 <div id="toc" class="toc"><div id="toctitle"><h2>目次</h2></div>
@@ -43,11 +43,12 @@
 <li class="toclevel-2 tocsection-29"><a href="#-s.3B_Delete_the_given_dataset_or_function"><span class="tocnumber">3.26</span> <span class="toctext">-s; 指定されたデータセットまたは関数を削除</span></a></li>
 <li class="toclevel-2 tocsection-30"><a href="#-sd.3B_Delete_only_the_specified_dataset_and_reset_all_other_dependent_datasets"><span class="tocnumber">3.27</span> <span class="toctext">-sd; 指定されたデータセットのみを削除し、他のすべての依存データセットをリセット</span></a></li>
 <li class="toclevel-2 tocsection-31"><a href="#-si.3B_Delete_all_datasets_with_invalid_name"><span class="tocnumber">3.28</span> <span class="toctext">-si; 無効な名前を持つすべてのデータセットを削除</span></a></li>
-<li class="toclevel-2 tocsection-32"><a href="#-spk.3B_Delete_all_project_sparklines"><span class="tocnumber">3.29</span> <span class="toctext">-spk; すべてのプロジェクトスパークラインを削除</span></a></li>
-<li class="toclevel-2 tocsection-33"><a href="#-sw.3B_Delete_a_set_of_dataset_whose_name_includes_specified_characters"><span class="tocnumber">3.30</span> <span class="toctext">-sw; 名前に指定した文字が含まれるデータセットのセットを削除</span></a></li>
-<li class="toclevel-2 tocsection-34"><a href="#-v.3B_Delete_the_specified_numeric_variable"><span class="tocnumber">3.31</span> <span class="toctext">-v; 指定した数値変数を削除</span></a></li>
-<li class="toclevel-2 tocsection-35"><a href="#-vs.3B_Delete_the_specified_global.2Fproject_string_variable"><span class="tocnumber">3.32</span> <span class="toctext">-vs; 指定したグローバル/プロジェクト文字列変数を削除</span></a></li>
-<li class="toclevel-2 tocsection-36"><a href="#-web.3B_Clear_the_URL-to-File_cache_used_by_Web_Connectors_.28Data:_Connect_to_Web.29"><span class="tocnumber">3.33</span> <span class="toctext">-web; Webコネクタ（データ: Webに接続）で使用されるURL-to-Fileキャッシュをクリア</span></a></li>
+<li class="toclevel-2 tocsection-32"><a href="#-sn.3B_Delete_sticky_notes"><span class="tocnumber">3.29</span> <span class="toctext">-sn; 付箋を削除</span></a></li>
+<li class="toclevel-2 tocsection-33"><a href="#-spk.3B_Delete_all_project_sparklines"><span class="tocnumber">3.30</span> <span class="toctext">-spk; すべてのプロジェクトスパークラインを削除</span></a></li>
+<li class="toclevel-2 tocsection-34"><a href="#-sw.3B_Delete_a_set_of_dataset_whose_name_includes_specified_characters"><span class="tocnumber">3.31</span> <span class="toctext">-sw; 名前に指定した文字が含まれるデータセットのセットを削除</span></a></li>
+<li class="toclevel-2 tocsection-35"><a href="#-v.3B_Delete_the_specified_numeric_variable"><span class="tocnumber">3.32</span> <span class="toctext">-v; 指定した数値変数を削除</span></a></li>
+<li class="toclevel-2 tocsection-36"><a href="#-vs.3B_Delete_the_specified_global.2Fproject_string_variable"><span class="tocnumber">3.33</span> <span class="toctext">-vs; 指定したグローバル/プロジェクト文字列変数を削除</span></a></li>
+<li class="toclevel-2 tocsection-37"><a href="#-web.3B_Clear_the_URL-to-File_cache_used_by_Web_Connectors_.28Data:_Connect_to_Web.29"><span class="tocnumber">3.34</span> <span class="toctext">-web; Webコネクタ（データ: Webに接続）で使用されるURL-to-Fileキャッシュをクリア</span></a></li>
 </ul>
 </li>
 </ul>
@@ -441,6 +442,40 @@ list s;
 <p>構文： del <b>-si</b>
 </p><p>無効な名前のデータセットをすべて削除します。
 </p><p><font color="red">Origin バージョン：2017</font>
+</p>
+<h3><a name="-sn.3B_Delete_sticky_notes"></a><span class="mw-headline">-sn; 付箋を削除</span></h3>
+<p>構文： del <b>-sn[u]</b> <i>[scope]</i>
+</p><p>付箋を削除します。
+</p>
+<ul><li> u =取り消し（アンドゥ）可能</li></ul>
+<table class="simple">
+
+<tr>
+<th>値
+</th>
+<th>スコープ
+</th></tr>
+<tr>
+<td> デフォルト
+</td>
+<td>プロジェクト全体
+</td></tr>
+<tr>
+<td> 1
+</td>
+<td>現在のフォルダとサブフォルダ
+</td></tr>
+<tr>
+<td> 2
+</td>
+<td>現在のフォルダ
+</td></tr>
+<tr>
+<td> 3
+</td>
+<td>アクティブなウィンドウ（またはワークブックとすべてのシート）
+</td></tr></table>
+<p><font color="red">Origin バージョン：2027</font>
 </p>
 <h3><a name="-spk.3B_Delete_all_project_sparklines"></a><span class="mw-headline">-spk; すべてのプロジェクトスパークラインを削除</span></h3>
 <p>構文： del <b>-spk</b>

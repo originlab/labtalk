@@ -1,0 +1,62 @@
+﻿<h1 class="firstHeading">jtrans</h1><p class='urlname' style='display: none'>Jtrans-func</p>
+<p><br />
+</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>目次</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Description"><span class="tocnumber">1</span> <span class="toctext">概要</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Syntax"><span class="tocnumber">2</span> <span class="toctext">構文</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Parameter"><span class="tocnumber">3</span> <span class="toctext">パラメータ</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Return"><span class="tocnumber">4</span> <span class="toctext">戻り値</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="#Example"><span class="tocnumber">5</span> <span class="toctext">サンプル</span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="#See_Also"><span class="tocnumber">6</span> <span class="toctext">関連項目</span></a></li>
+</ul>
+</div>
+
+<h2><a name="Description"></a><span class="mw-headline"><font color="chocolate">概要</font></span></h2>
+<p>この関数はベクトルを取り、Johnson変換法を用いてそれを近似正規分布に変換します。 
+</p><p>Johnson分布族には<b>SB</b>、<b>SL</b>、<b>SU</b>の3種類が含まれます。これらはそれぞれ、変数が有界である分布（<b>SB</b>）、対数正規分布（<b>SL</b>）、および変数が非有界である分布（<b>SU</b>）に対応しています。これら3つの族の変換の公式は次のとおりです。
+</p><p><img src="../images/Jtrans_(function)/math-3acdc53d7b1ddd697b78a44986a76361.png" title="
+Y&apos;=\left\{
+\begin{array}{ll}
+SB = \gamma + \eta \ln\frac{Y-\epsilon}{\lambda+\epsilon-Y} &amp;\eta, \lambda &gt; 0, -\infty &lt; \gamma &lt; \infty, -\infty &lt; \epsilon &lt; \infty, \epsilon &lt; Y &lt; \epsilon + \lambda\cr
+SL = \gamma + \eta \ln(Y-\epsilon) &amp; \eta &gt; 0, -\infty &lt; \gamma &lt; \infty, -\infty &lt; \epsilon &lt; \infty, \epsilon &lt; Y\cr
+SU = \gamma + \eta \sinh^{-1}\frac{Y-\epsilon}{\lambda} &amp;\eta, \lambda &gt; 0, -\infty &lt; \gamma &lt; \infty, -\infty &lt; \epsilon &lt; \infty, -\infty &lt; Y &lt; \infty, \sinh^{-1}(x) = \ln(x+\sqrt{1+x^2})
+\end{array}
+\right.
+" alt="
+Y&apos;=\left\{
+\begin{array}{ll}
+SB = \gamma + \eta \ln\frac{Y-\epsilon}{\lambda+\epsilon-Y} &amp;\eta, \lambda &gt; 0, -\infty &lt; \gamma &lt; \infty, -\infty &lt; \epsilon &lt; \infty, \epsilon &lt; Y &lt; \epsilon + \lambda\cr
+SL = \gamma + \eta \ln(Y-\epsilon) &amp; \eta &gt; 0, -\infty &lt; \gamma &lt; \infty, -\infty &lt; \epsilon &lt; \infty, \epsilon &lt; Y\cr
+SU = \gamma + \eta \sinh^{-1}\frac{Y-\epsilon}{\lambda} &amp;\eta, \lambda &gt; 0, -\infty &lt; \gamma &lt; \infty, -\infty &lt; \epsilon &lt; \infty, -\infty &lt; Y &lt; \infty, \sinh^{-1}(x) = \ln(x+\sqrt{1+x^2})
+\end{array}
+\right.
+" class="tex"/>
+</p><p>この関数は、3つのJohnson族の中から最適な変換関数を選択することにより、入力データセットを変換します。 
+</p><p>詳細なアルゴリズムは<a class="external text" href="../../Tutorial/App/Algorithm_DT.html#Johnson_Transformation">こちらのページ</a>を参照してください。
+</p>
+<h2><a name="Syntax"></a><span class="mw-headline"><font color="chocolate">構文</font></span></h2>
+<pre class="lt" style="font-family:monospace;">vector jtrans<span style="color: #000000;">(</span>vector vd<span style="color: #000000;">)</span></pre>
+<h2><a name="Parameter"></a><span class="mw-headline"><font color="chocolate">パラメータ</font></span></h2>
+<p><b>vd</b>
+</p>
+<dl><dd>変換される入力ベクトル(列)。<b>vd</b>には正、負、ゼロの数値を含めることができます。</dd></dl>
+<h2><a name="Return"></a><span class="mw-headline"><font color="chocolate">戻り値</font></span></h2>
+<p>概要欄で言及した3つのJohnson族の中から、最適な変換関数を用いて変換されたベクトル（列）。
+</p>
+<h2><a name="Example"></a><span class="mw-headline"><font color="chocolate">サンプル</font></span></h2>
+<p><i><b>EX1</b></i>
+</p>
+<pre class="lt" style="font-family:monospace;">newbook;
+col<span style="color: #000000;">(</span>A<span style="color: #000000;">)</span> <span style="color: #000080;">=</span> data<span style="color: #000000;">(</span><span style="color: #0000dd;">0.1</span>, <span style="color: #0000dd;">1.1</span>, <span style="color: #0000dd;">0.002</span><span style="color: #000000;">)</span>;
+col<span style="color: #000000;">(</span>B<span style="color: #000000;">)</span> <span style="color: #000080;">=</span> jtrans<span style="color: #000000;">(</span>col<span style="color: #000000;">(</span>A<span style="color: #000000;">)</span><span style="color: #000000;">)</span>;</pre>
+<h2><a name="See_Also"></a><span class="mw-headline"><font color="chocolate">関連情報</font></span></h2>
+<p><a href="../../LabTalk/LabTalk/Boxcox_(function).html" title="LabTalk:Boxcox (関数)">boxcox</a>, <a href="../../LabTalk/LabTalk/Yeojohnson_(function).html" title="LabTalk:Yeojohnson (関数)">yeojohnson</a>
+</p>
+
+
+
+
+
+
+    

@@ -81,6 +81,13 @@ work <span style="color: #000080;">-</span>fp <span style="color: #0000dd;">0</s
 </p><p>アクティブシート内の重複を修正：<br />
 名前が配置されている列と一致するものを除くすべての重複を新規の空のデータセットに取得します。
 </p>
+<h2><a name="-gb.3B_Create_a_Graph_Browser_from_a_Report_Sheet"></a><span class="mw-headline">-gb; レポートシートからグラフブラウザを作成</span></h2>
+<p><b>構文:</b> worksheet <b>-gb</b> <i>&lt;layout_name&gt; &lt;bAll&gt; &lt;bCreate&gt;</i>
+</p><p>解析レポートシートがアクティブな状態で、レポートシートに埋め込まれたグラフを操作するためのレイアウトスタイルのグラフブラウザウィンドウを作成するには、このコマンドを使用します。 
+</p>
+<ul><li> <i>&lt;layout_name&gt;</i> は、作成するグラフブラウザウィンドウの名前を指定します。</li>
+<li> <i>bAll</i> は、レポート内のどのグラフをグラフブラウザに送信するかを決定します（0=現在のブランチからグラフを送信。1=レポートシート全体からグラフを送信） </li>
+<li> <i>bCreate</i> は、新しいレイアウトウィンドウを作成するかどうかを決定します（0=指定した名前が存在する場合、レイアウトウィンドウ<i>&lt;layout_name&gt;</i>を使用。1=新しいレイアウトウィンドウを作成）。</li></ul>
 <h2><a name="-gd_pb.3B_Custom_Page_Breaks"></a><span class="mw-headline">-gd pb; Custom Page Breaks</span></h2>
 <p><b>構文：</b> worksheet <b>-gb pb -i/m(r/c)</b> rowcol [rowcol2]
 </p><p>カスタム改ページ：<br />
@@ -101,6 +108,10 @@ wWM.<span style="color: #000080;">col2</span>.<span style="color: #000080;">link
 win <span style="color: #000080;">-</span>a Book5;  <span style="color: #008000;">// ミラーワークブックをアクティブ化</span>
 worksheet <span style="color: #000080;">-</span>gs; <span style="color: #008000;">//  [book1]1! にジャンプして col(B) をハイライト表示</span></pre>
 <p>ミラー列の詳細については、<a class="external text" href="../../UserGuide/UserGuide/Mirror_Column.html">こちらのページ</a>を参照してください。
+</p>
+<h2><a name="-km"></a><span class="mw-headline">-km</span></h2>
+<p><b>構文:</b> worksheet <b>-km</b>
+</p><p>現在のワークシートからミラーブックを作成します。
 </p>
 <h2><a name="-q"></a><span class="mw-headline">-q</span></h2>
 <p><b>構文：</b> worksheet <b>-q</b> <i>n</i>
@@ -126,6 +137,11 @@ wo <span style="color: #000080;">-</span>q <span style="color: #0000dd;">0</span
 </p>
 <pre class="lt" style="font-family:monospace;">work <span style="color: #000080;">-</span>rf <span style="color: #000080;">*</span>; <span style="color: #008000;">//すべての数式を修復 </span>
 work <span style="color: #000080;">-</span>rf G; <span style="color: #008000;">//col(G)の数式を修復</span></pre>
+<h2><a name="-rm"></a><span class="mw-headline">-rm</span></h2>
+<p><b>構文:</b> worksheet <b>-rm</b>
+</p><p>ミラーシートがアクティブな状態で、このコマンドを実行してミラーを除去し、その内容を静的な値に変換します。元に戻す機能がサポートされます。
+</p>
+<pre class="lt" style="font-family:monospace;">work <span style="color: #000080;">-</span>rmu; <span style="color: #008000;">//取り消しでミラー削除</span></pre>
 <h2><a name="-rr"></a><span class="mw-headline">-rr</span></h2>
 <p><b>構文：</b> worksheet <b>-rr</b>
 </p><p>レポートシートがアクティブな状態で、このコマンドを実行して、レポートシート内の空のUIDデータ参照を持つ範囲を回復します。
@@ -198,6 +214,16 @@ worksheet <span style="color: #000080;">-</span>sl <span style="color: #008000;"
 </p>
 <pre class="lt" style="font-family:monospace;">work <span style="color: #000080;">-</span>sou mr <span style="color: #0000dd;">1</span>;  <span style="color: #008000;">//1行下へ移動</span>
 work <span style="color: #000080;">-</span>sou mr <span style="color: #000080;">-</span><span style="color: #0000dd;">1</span>; <span style="color: #008000;">//1行上へ移動</span></pre>
+<h2><a name="-sq"></a><span class="mw-headline">-sq</span></h2>
+<p><b>構文:</b> worksheet <b>-sq</b> 
+</p><p>選択した列ラベルセルの構文をLabTexに変換します（セルの内容を<code>\q()</code> で囲みます）。
+</p><p><b>Note</b>:
+</p>
+<ul><li><code>$...$</code> で囲まれたコンテンツは<code>\q(...)</code> で自動的に置換されます。<code>$</code> はセルの開始位置または終了位置にある必要はありません。以下の例を参照してください。</li>
+<li>リッチテキストが有効になっていることを確認して、LabTex構文を表示します。</li></ul>
+<pre class="lt" style="font-family:monospace;">col<span style="color: #000000;">(</span>A<span style="color: #000000;">)</span><span style="color: #000000;">[</span>L<span style="color: #000000;">]</span><span style="color: #000080;">$</span><span style="color: #000080;">=</span><span style="color: #ff00ff;">&quot;Significant Level $\alpha$&quot;</span>;
+works <span style="color: #000080;">-</span>sl <span style="color: #0000dd;">1</span> <span style="color: #0000dd;">1</span>;
+work <span style="color: #000080;">-</span>sq;</pre>
 
 
 

@@ -1,0 +1,41 @@
+﻿<h1 class="firstHeading">InSide</h1><p class='urlname' style='display: none'>InSide-func</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>目次</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Description"><span class="tocnumber">1</span> <span class="toctext">概要</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Syntax"><span class="tocnumber">2</span> <span class="toctext">構文</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Parameter"><span class="tocnumber">3</span> <span class="toctext">パラメータ</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Return"><span class="tocnumber">4</span> <span class="toctext">戻り値</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="#Example"><span class="tocnumber">5</span> <span class="toctext">サンプル</span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="#See_Also"><span class="tocnumber">6</span> <span class="toctext">関連項目</span></a></li>
+</ul>
+</div>
+
+<h2><a name="Description"></a><span class="mw-headline"><font color="chocolate">概要</font></span></h2>
+<p>この関数は、マッチするマークのペアを使用して部分文字列を抽出します。
+</p>
+<h2><a name="Syntax"></a><span class="mw-headline"><font color="chocolate">構文</font></span></h2>
+<pre class="lt" style="font-family:monospace;">string InSide<span style="color: #000000;">(</span>string str<span style="color: #000080;">$</span><span style="color: #000000;">[</span>, int nQuote<span style="color: #000000;">]</span><span style="color: #000000;">)</span><span style="color: #000080;">$</span></pre>
+<h2><a name="Parameter"></a><span class="mw-headline"><font color="chocolate">パラメータ</font></span></h2>
+<p><b>str</b>
+</p>
+<dl><dd>文字が抽出される文字列。</dd></dl>
+<p><b>nQuote</b>
+</p>
+<dl><dd>引用符、デフォルトでは二重引用符（&quot;&quot;）を使用。1 = ( ), 2 = [ ], 3 = &lt; &gt; , 4 = { } , 5 =一重引用符</dd></dl>
+<h2><a name="Return"></a><span class="mw-headline"><font color="chocolate">戻り値</font></span></h2>
+<p>マッチするマークのペアで囲まれた部分文字列を返します。。
+</p>
+<h2><a name="Example"></a><span class="mw-headline"><font color="chocolate">サンプル</font></span></h2>
+<p><i><b>EX1</b></i>
+</p>
+<pre class="lt" style="font-family:monospace;">inside<span style="color: #000000;">(</span><span style="color: #ff00ff;">&quot;(1) Which do you like?(apple,  banana)&quot;</span>, <span style="color: #0000dd;">1</span><span style="color: #000000;">)</span><span style="color: #000080;">$</span><span style="color: #000080;">=</span>; <span style="color: #008000;">//1</span></pre>
+<h2><a name="See_Also"></a><span class="mw-headline"><font color="chocolate">関連情報</font></span></h2>
+<p><a href="../../LabTalk/LabTalk/Between_(function).html" title="LabTalk:Between (function)">Right</a> <a href="../../LabTalk/LabTalk/Mid_(function).html" title="LabTalk:Mid (関数)">Mid</a> <a href="../../LabTalk/LabTalk/Search_(function).html" title="LabTalk:Search (関数)">Search</a> <a href="../../LabTalk/LabTalk/Find_(function).html" title="LabTalk:Find (関数)">Find</a> <a href="../../LabTalk/LabTalk/Left_(function).html" title="LabTalk:Left (function)">Left</a>
+</p>
+
+
+
+
+
+
+    

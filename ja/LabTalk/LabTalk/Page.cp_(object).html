@@ -1,6 +1,30 @@
 ﻿<h1 class="firstHeading">Page.cp</h1><p class='urlname' style='display: none'>Page-cp-obj</p>
 <p>The <i>page.cp</i> object has properties and methods related to the Control Pane in the workbook or matrixbook window. The page object can be referred to using "page".
 </p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Properties"><span class="tocnumber">1</span> <span class="toctext">Properties</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Methods"><span class="tocnumber">2</span> <span class="toctext">Methods</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Examples"><span class="tocnumber">3</span> <span class="toctext">Examples</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#Workbook"><span class="tocnumber">3.1</span> <span class="toctext">Workbook</span></a>
+<ul>
+<li class="toclevel-3 tocsection-5"><a href="#Data_Navigator"><span class="tocnumber">3.1.1</span> <span class="toctext">Data Navigator</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-6"><a href="#Graph"><span class="tocnumber">3.2</span> <span class="toctext">Graph</span></a>
+<ul>
+<li class="toclevel-3 tocsection-7"><a href="#Sheet.2FBook_Switching_Browser_Graph"><span class="tocnumber">3.2.1</span> <span class="toctext">Sheet/Book Switching Browser Graph</span></a></li>
+<li class="toclevel-3 tocsection-8"><a href="#Column_Switching_Browser_Graph"><span class="tocnumber">3.2.2</span> <span class="toctext">Column Switching Browser Graph</span></a></li>
+<li class="toclevel-3 tocsection-9"><a href="#Slicer"><span class="tocnumber">3.2.3</span> <span class="toctext">Slicer</span></a></li>
+<li class="toclevel-3 tocsection-10"><a href="#Worksheet_Slicer"><span class="tocnumber">3.2.4</span> <span class="toctext">Worksheet Slicer</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+
 <h2><a name="Properties"></a><span class="mw-headline">Properties</span></h2>
 <table class="simple">
 <tr>
@@ -11,6 +35,13 @@
 <th width="550">Description
 </th></tr>
 <tr>
+<td> page.cp.bp.switch<font color="red">(2027)</font>
+</td>
+<td> Read/write<br />numeric
+</td>
+<td> Access Column Switching Browser Graph's menu to add more columns: 0 = no , 1 = All Columns from Same Sheet， 2 = Similar Columns from Same Book
+</td></tr>
+<tr>
 <td> page.cp.show
 </td>
 <td> Read/write<br />numeric
@@ -18,11 +49,68 @@
 <td> Show or hide the Control Pane: 1 = show, 0 = hide.
 </td></tr>
 <tr>
+<td> page.cp.type
+</td>
+<td> Read/write<br />numeric
+</td>
+<td> Set to 0 to collapse the Control Pane. Or returns the Control Pane type:
+<p>1 = Column Switching Browser Graph<br />
+2 = Worksheet Slicer<br />
+3 = Data Navigator<br />
+4 = Sheet/Book Switching Browser Graph<br />
+5 = Graph Slicer<br />
+7 = Data Info Panel
+</p>
+</td></tr>
+<tr>
 <td> page.cp.type$
 </td>
 <td> Read Only
 </td>
-<td> Returns the Control Pane type
+<td> Returns the Control Pane type:
+<p>DataFilter = Data Navigator<br />
+DataFilter:Shared = Graph Slicer<br />
+DataHighlighterDataInfo = Data Info Panel<br />
+DataNavigator:DC = Data Navigator<br />
+PlotsBookSheetChanger = Sheet/Book Switching Browser Graph<br />
+PlotSelector = Column Switching Browser Graph
+</p>
+</td></tr>
+<tr>
+<td> page.cp.columnswitchingbrowser
+</td>
+<td> Read/write<br />numeric
+</td>
+<td> Open/Collapse the control panel of <a class="external text" href="../../UserGuide/UserGuide/Graph_With_Browser_Panel.html">Column Switching Browser Graph</a>.
+<p><code>page.cp.columnswitchingbrowser = 1</code> is same as <code>page.cp.type = 1</code>
+</p>
+</td></tr>
+<tr>
+<td> page.cp.booksheetchanger
+</td>
+<td> Read/write<br />numeric
+</td>
+<td> Open/Collapse the control panel of <a class="external text" href="../../UserGuide/UserGuide/Graph_With_Browser_Panel.html">Sheet/Book Switching Browser Graph</a>.
+<p><code>page.cp.booksheetchanger = 1</code> is same as <code>page.cp.type = 4</code>
+</p>
+</td></tr>
+<tr>
+<td> page.cp.datafilter
+</td>
+<td> Read/write<br />numeric
+</td>
+<td> Open/Collapse the control panel of <a class="external text" href="../../UserGuide/UserGuide/Graph_With_Data_Slicer.html#Filter_Controls">worksheet slicer</a>.
+<p><code>page.cp.datafilter= 1</code> is same as <code>page.cp.type = 2</code>
+</p>
+</td></tr>
+<tr>
+<td> page.cp.shareddatafilter
+</td>
+<td> Read/write<br />numeric
+</td>
+<td> Open/Collapse the control panel of <a class="external text" href="../../UserGuide/UserGuide/Graph_With_Data_Slicer.html#Filter_Controls">graph slicer</a>.
+<p><code>page.cp.shareddatafilter= 1</code> is same as <code>page.cp.type = 5</code>
+</p>
 </td></tr></table>
 <h2><a name="Methods"></a><span class="mw-headline">Methods</span></h2>
 <table class="simple">
@@ -34,47 +122,92 @@
 <tr>
 <td> page.cp.add(<i>postion percent name [option]</i>)
 </td>
-<td> Add Control Pane<br />
+<td> Add/Open Control Pane<br />
 <p>postion: 1 = left, 2 = top,3 = right, 4 = bottom<br />
 percent is in width of window<br />
+name: Control Pane type, see <a href="#Examples">Examples</a> below<br />
 option is a combination of bits: 1 = Close Button, 2 = Hide Show Pane Button, 4 = Apply Button
+</p>
+</td></tr>
+<tr>
+<td> page.cp.bp.changewks(<i>BookSheetRangeString</i>)<font color="red">(2027)</font>
+</td>
+<td> For Column Switching Browser Graph to change worksheet. <br />
+<p>Returns 1 if <i>BookSheetRangeString</i> is legal and the change is executed. <br />
+Returns 0 if not done because the input worksheet exists, but the change is illegal. <br />
+Returns error code if <i>BookSheetRangeString</i> does not represent a worksheet at all. Example: 
+</p>
+<pre class="lt" style="font-family:monospace;">page.<span style="color: #000080;">cp</span>.<span style="color: #000080;">bp</span>.<span style="color: #000080;">changewks</span><span style="color: #000000;">&#40;</span><span style="color: #000000;">&#91;</span>Book2<span style="color: #000000;">&#93;</span>Step03<span style="color: #000000;">&#41;</span></pre>
+</td></tr>
+<tr>
+<td> page.cp.bps.switch(<i>value</i>)<font color="red">(2027)</font>
+</td>
+<td> For Sheet/Book Switching Browser Graph to set Data Filter menu. The possibly values depend on the current value of the property <b>page.dpbkshinfo</b> of the graph. Only the values 2 and 3 of page.dpbkshinfo are supported.<br />
+<p>When the value of page.dpbkshinfo = 2, the value 0 of the argument corresponds to "Similar Sheets in Book", the value 1 to "Similar Sheets in Folder", etc.<br />
+When the value of page.dpbkshinfo = 3, the value 0 of the argument corresponds to "Similar books in Folder", the value 1 to "Similar books in Folder(Open)"", etc.
 </p>
 </td></tr>
 <tr>
 <td> page.cp.remove()
 </td>
-<td> Remove the Control Pane.
+<td> Remove/Collapse the Control Pane.
 </td></tr>
 <tr>
-<td> page.cp.settree()
+<td> page.cp.settree()<font color="red">(Reserved)</font>
 </td>
 <td> Set GETN tree to the Control Pane.
-</td></tr>
-<tr>
-<td> page.cp.DATAFILTER
-</td>
-<td> Open/Collapse the control panel of <a class="external text" href="../../UserGuide/UserGuide/Graph_With_Data_Slicer.html#Filter_Controls">worksheet data slicer</a>.
-</td></tr>
-<tr>
-<td> page.cp.BOOKSHEETCHANGER
-</td>
-<td> Open/Collapse the control panel of <a class="external text" href="../../UserGuide/UserGuide/Graph_With_Browser_Panel.html">workbook/worksheet graph browser</a>.
-</td></tr>
-<tr>
-<td> page.cp.SHAREDDATAFILTER
-</td>
-<td> Open/Collapse the control panel of <a class="external text" href="../../UserGuide/UserGuide/Graph_With_Data_Slicer.html#Filter_Controls">graph slicer</a>.
-</td></tr>
-<tr>
-<td> page.cp.COLUMNSWITCHINGBROWSER=
-</td>
-<td> Open/Collapse the control panel of <a class="external text" href="../../UserGuide/UserGuide/Graph_With_Browser_Panel.html">column grph browser</a>.
 </td></tr></table>
 <h2><a name="Examples"></a><span class="mw-headline">Examples</span></h2>
-<pre class="lt" style="font-family:monospace;">page.<span style="color: #000080;">cp</span>.<span style="color: #000080;">add</span><span style="color: #000000;">&#40;</span><span style="color: #0000dd;">1</span> <span style="color: #0000dd;">25</span> DataNavigator<span style="color: #000000;">:</span>DC <span style="color: #0000dd;">3</span><span style="color: #000000;">&#41;</span></pre>
-<p>Add Sheet/Book Switching Browser Graph
-</p>
-<pre class="lt" style="font-family:monospace;">page.<span style="color: #000080;">cp</span>.<span style="color: #000080;">add</span><span style="color: #000000;">&#40;</span><span style="color: #0000dd;">1</span> <span style="color: #0000dd;">24</span> PlotsBookSheetChanger<span style="color: #000000;">&#41;</span></pre>
+<h3><a name="Workbook"></a><span class="mw-headline">Workbook</span></h3>
+<h4><a name="Data_Navigator"></a><span class="mw-headline">Data Navigator</span></h4>
+<pre class="lt" style="font-family:monospace;"><span style="color: #008000;">//import an Excel file by Data Connector</span>
+newbook;
+wbook.<span style="color: #000080;">dc</span>.<span style="color: #000080;">add</span><span style="color: #000000;">&#40;</span><span style="color: #ff00ff;">&quot;Excel&quot;</span><span style="color: #000000;">&#41;</span>;
+wks.<span style="color: #000080;">dc</span>.<span style="color: #000080;">source</span><span style="color: #000080;">$</span><span style="color: #000080;">=</span>System.<span style="color: #000080;">path</span>.<span style="color: #000080;">program</span><span style="color: #000080;">$</span><span style="color: #000080;">+</span><span style="color: #ff00ff;">&quot;Samples\Import and Export\United States Energy (1980-2013).xls&quot;</span>;
+wks.<span style="color: #000080;">dc</span>.<span style="color: #000080;">sel</span><span style="color: #000080;">$</span><span style="color: #000080;">=</span><span style="color: #ff00ff;">&quot;Natural Gas&quot;</span>;
+wks.<span style="color: #000080;">dc</span>.<span style="color: #000080;">import</span><span style="color: #000000;">&#40;</span><span style="color: #000000;">&#41;</span>;
+
+<span style="color: #008000;">//remove data navigator</span>
+wbook.<span style="color: #000080;">dc</span>.<span style="color: #000080;">nav</span><span style="color: #000080;">=</span><span style="color: #0000dd;">0</span>
+
+<span style="color: #008000;">//add back data navigator</span>
+page.<span style="color: #000080;">cp</span>.<span style="color: #000080;">add</span><span style="color: #000000;">&#40;</span><span style="color: #0000dd;">1</span> <span style="color: #0000dd;">25</span> DataNavigator<span style="color: #000000;">:</span>DC <span style="color: #0000dd;">3</span><span style="color: #000000;">&#41;</span>; <span style="color: #008000;">//same as wbook.dc.nav=1</span></pre>
+<h3><a name="Graph"></a><span class="mw-headline">Graph</span></h3>
+<h4><a name="Sheet.2FBook_Switching_Browser_Graph"></a><span class="mw-headline">Sheet/Book Switching Browser Graph</span></h4>
+<pre class="lt" style="font-family:monospace;"><span style="color: #008000;">//import an Excel file by Data Connector</span>
+newbook;
+wbook.<span style="color: #000080;">dc</span>.<span style="color: #000080;">add</span><span style="color: #000000;">&#40;</span><span style="color: #ff00ff;">&quot;Excel&quot;</span><span style="color: #000000;">&#41;</span>;
+wks.<span style="color: #000080;">dc</span>.<span style="color: #000080;">source</span><span style="color: #000080;">$</span><span style="color: #000080;">=</span>System.<span style="color: #000080;">path</span>.<span style="color: #000080;">program</span><span style="color: #000080;">$</span><span style="color: #000080;">+</span><span style="color: #ff00ff;">&quot;Samples\Import and Export\United States Energy (1980-2013).xls&quot;</span>;
+wks.<span style="color: #000080;">dc</span>.<span style="color: #000080;">sel</span><span style="color: #000080;">$</span><span style="color: #000080;">=</span><span style="color: #ff00ff;">&quot;&lt;All&gt;&quot;</span>;
+wks.<span style="color: #000080;">dc</span>.<span style="color: #000080;">import</span><span style="color: #000000;">&#40;</span><span style="color: #000000;">&#41;</span>;
+
+<span style="color: #008000;">//plot</span>
+plotxy iy<span style="color: #000000;">:</span><span style="color: #000080;">=</span><span style="color: #000000;">&#91;</span>Book2<span style="color: #000000;">&#93;</span>Oil<span style="color: #000080;">!</span><span style="color: #000000;">&#40;</span>A,B<span style="color: #000000;">&#41;</span>;
+
+<span style="color: #008000;">//add browser </span>
+page.<span style="color: #000080;">cp</span>.<span style="color: #000080;">add</span><span style="color: #000000;">&#40;</span><span style="color: #0000dd;">1</span> <span style="color: #0000dd;">24</span> PlotsBookSheetChanger <span style="color: #0000dd;">3</span><span style="color: #000000;">&#41;</span>
+
+<span style="color: #008000;">//switch sheet</span>
+page.<span style="color: #000080;">switch</span><span style="color: #000000;">&#40;</span><span style="color: #ff00ff;">&quot;[book2]Coal&quot;</span><span style="color: #000000;">&#41;</span></pre>
+<h4><a name="Column_Switching_Browser_Graph"></a><span class="mw-headline">Column Switching Browser Graph</span></h4>
+<pre class="lt" style="font-family:monospace;">page.<span style="color: #000080;">cp</span>.<span style="color: #000080;">add</span><span style="color: #000000;">&#40;</span><span style="color: #0000dd;">1</span> <span style="color: #0000dd;">24</span> PlotSelector <span style="color: #0000dd;">3</span><span style="color: #000000;">&#41;</span></pre>
+<h4><a name="Slicer"></a><span class="mw-headline">Slicer</span></h4>
+<pre class="lt" style="font-family:monospace;"><span style="color: #008000;">//import data</span>
+newbook;
+wbook.<span style="color: #000080;">dc</span>.<span style="color: #000080;">add</span><span style="color: #000000;">&#40;</span><span style="color: #ff00ff;">&quot;CSV&quot;</span><span style="color: #000000;">&#41;</span>;
+wks.<span style="color: #000080;">dc</span>.<span style="color: #000080;">source</span><span style="color: #000080;">$</span><span style="color: #000080;">=</span>System.<span style="color: #000080;">path</span>.<span style="color: #000080;">program</span><span style="color: #000080;">$</span><span style="color: #000080;">+</span><span style="color: #ff00ff;">&quot;Samples\Statistics\automobile.dat&quot;</span>;
+wks.<span style="color: #000080;">dc</span>.<span style="color: #000080;">import</span><span style="color: #000000;">&#40;</span><span style="color: #000000;">&#41;</span>;
+
+<span style="color: #008000;">//plot</span>
+plotxy iy<span style="color: #000000;">:</span><span style="color: #000080;">=</span><span style="color: #000000;">&#91;</span>Book2<span style="color: #000000;">&#93;</span>automobile<span style="color: #000080;">!</span><span style="color: #000000;">&#40;</span>C,E<span style="color: #000000;">&#41;</span>;
+
+<span style="color: #008000;">//add data filter on plot</span>
+page <span style="color: #000080;">-</span>dfn <span style="color: #0000dd;">2</span>;
+
+<span style="color: #008000;">//add Slicer</span>
+page.<span style="color: #000080;">cp</span>.<span style="color: #000080;">add</span><span style="color: #000000;">&#40;</span><span style="color: #0000dd;">1</span> <span style="color: #0000dd;">25</span> DataFilter<span style="color: #000000;">:</span>Shared <span style="color: #0000dd;">3</span><span style="color: #000000;">&#41;</span>;</pre>
+<h4><a name="Worksheet_Slicer"></a><span class="mw-headline">Worksheet Slicer</span></h4>
+<pre class="lt" style="font-family:monospace;">page.<span style="color: #000080;">cp</span>.<span style="color: #000080;">add</span><span style="color: #000000;">&#40;</span><span style="color: #0000dd;">1</span> <span style="color: #0000dd;">24</span> DataFilter <span style="color: #0000dd;">3</span><span style="color: #000000;">&#41;</span></pre>
 
 
 

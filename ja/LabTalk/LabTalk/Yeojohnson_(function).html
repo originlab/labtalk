@@ -1,0 +1,66 @@
+﻿<h1 class="firstHeading">yeojohnson</h1><p class='urlname' style='display: none'>Yeojohnson-func</p>
+<p><br />
+</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>目次</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Description"><span class="tocnumber">1</span> <span class="toctext">概要</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Syntax"><span class="tocnumber">2</span> <span class="toctext">構文</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Parameter"><span class="tocnumber">3</span> <span class="toctext">パラメータ</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Return"><span class="tocnumber">4</span> <span class="toctext">戻り値</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="#Example"><span class="tocnumber">5</span> <span class="toctext">サンプル</span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="#See_Also"><span class="tocnumber">6</span> <span class="toctext">関連項目</span></a></li>
+</ul>
+</div>
+
+<h2><a name="Description"></a><span class="mw-headline"><font color="chocolate">概要</font></span></h2>
+<p>この関数はベクトルを受け取り、Yeo-Johnsonべき変換法を用いて、それを近似的に正規分布に従うものへと変換します。Box-Cox変換とは異なり、Yeo-Johnson変換は正の値、負の値、ゼロを含むあらゆるデータに適用可能です。
+</p><p>Yeo-Johnson変換は次のように定式化されます。
+</p><p><img src="../images/Yeojohnson_(function)/math-1d094d83e2524a6fecf469796c5bf244.png" title="
+Y&apos;=\left\{
+    \begin{array}{ll}
+    \frac{(Y+1)^\lambda - 1}{\lambda} &amp; ~~~~~~\lambda \neq 0,Y\ge0\cr
+    \ln(Y+1) &amp; ~~~~~~\lambda = 0,Y\ge0\cr
+   -\frac{(-Y+1)^{2-\lambda}-1}{2-\lambda} &amp; ~~~~~~\lambda \neq 2,Y &lt; 0\cr
+   -\ln(-Y+1) &amp; ~~~~~~\lambda = 2,Y &lt; 0
+    \end{array}
+\right.
+" alt="
+Y&apos;=\left\{
+    \begin{array}{ll}
+    \frac{(Y+1)^\lambda - 1}{\lambda} &amp; ~~~~~~\lambda \neq 0,Y\ge0\cr
+    \ln(Y+1) &amp; ~~~~~~\lambda = 0,Y\ge0\cr
+   -\frac{(-Y+1)^{2-\lambda}-1}{2-\lambda} &amp; ~~~~~~\lambda \neq 2,Y &lt; 0\cr
+   -\ln(-Y+1) &amp; ~~~~~~\lambda = 2,Y &lt; 0
+    \end{array}
+\right.
+" class="tex"/>
+</p><p>詳細なアルゴリズムは<a class="external text" href="../../Tutorial/App/Algorithm_DT.html#Yeo-Johnson_Transformation">こちらのページ</a>を参照してください。
+</p>
+<h2><a name="Syntax"></a><span class="mw-headline"><font color="chocolate">構文</font></span></h2>
+<pre class="lt" style="font-family:monospace;">vector yeojohnson <span style="color: #000000;">(</span>vector vd<span style="color: #000000;">[</span>, double lambda<span style="color: #000000;">]</span><span style="color: #000000;">)</span></pre>
+<h2><a name="Parameter"></a><span class="mw-headline"><font color="chocolate">パラメータ</font></span></h2>
+<p><b>vd</b>
+</p>
+<dl><dd>変換される入力ベクトル(列)。vdには正、負、ゼロの数値を含めることができます。</dd></dl>
+<p><b>lambda</b>
+</p>
+<dl><dd>オプション。指定されたラムダでYeo-Johnson変換を実行します。デフォルトのラムダは数値ではありません(NANUM、つまり&ldquo;0/0&rdquo;)。この場合、関数は変換前に対数尤度関数を最大化する最適ラムダを推定し、ラムダは[-5,5]の範囲に制限されます。 </dd></dl>
+<h2><a name="Return"></a><span class="mw-headline"><font color="chocolate">戻り値</font></span></h2>
+<p>Yeo-Johnsonべき変換法されたベクトル（列）。
+</p>
+<h2><a name="Example"></a><span class="mw-headline"><font color="chocolate">サンプル</font></span></h2>
+<p><i><b>EX1</b></i>
+</p>
+<pre class="lt" style="font-family:monospace;">newbook;
+col<span style="color: #000000;">(</span>A<span style="color: #000000;">)</span> <span style="color: #000080;">=</span> data<span style="color: #000000;">(</span><span style="color: #0000dd;">0.1</span>, <span style="color: #0000dd;">1.1</span>, <span style="color: #0000dd;">0.002</span><span style="color: #000000;">)</span>;
+col<span style="color: #000000;">(</span>B<span style="color: #000000;">)</span> <span style="color: #000080;">=</span> yeojohnson<span style="color: #000000;">(</span>col<span style="color: #000000;">(</span>A<span style="color: #000000;">)</span><span style="color: #000000;">)</span>;</pre>
+<h2><a name="See_Also"></a><span class="mw-headline"><font color="chocolate">関連情報</font></span></h2>
+<p><a href="../../LabTalk/LabTalk/Boxcox_(function).html" title="LabTalk:Boxcox (関数)">boxcox</a>, <a href="../../LabTalk/LabTalk/Jtrans_(function).html" title="LabTalk:Jtrans (関数)">jtrans</a>
+</p>
+
+
+
+
+
+
+    
