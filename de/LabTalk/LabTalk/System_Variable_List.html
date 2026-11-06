@@ -115,6 +115,14 @@
 <td>Sie wird verwendet, um den Lizenzstatus (Node-locked und Concurrent) zu pr&uuml;fen und webbasierte Datenkonnektoren zu deaktiieren, bevor Origin aktiv ist. Webbasierte Konnektoren schlie&szlig;en ein: <b>Daten: Mit Datei verbinden: Google Sheet</b>, <b>Daten: Mit Web verbinden</b>, <b>Mit Cloud verbinden</b> und <b>&Uuml;ber Cloud &ouml;ffnen</b>.<p>Wenn Origin aktiv ist, wird eine 0 ausgegeben. Wenn es eine 1 ausgegeben wird, kann auf die webbasierten Konnektoren nicht zugegriffen werden. Siehe auch <a class="external text" href="../../QuickHelp/QuickHelp/Why_my_Connect_to_Wed_Cloud_menu_grey_out.html">diese FAQ</a>.</p>
 </td></tr>
 <tr>
+<td>@ACG</td>
+<td>int</td>
+<td>RW</td>
+<td>1</td>
+<td>0,1</td>
+<td>2026b</td>
+<td>Wenn die Schaltfl&auml;che Spalte anh&auml;ngen verwendet wird, f&uuml;gt @ACG = 1 eine Spaltengruppe hinzu. Wenn @ACG = 0 gesetzt wird, werden Replikationen hinzugef&uuml;gt.</td></tr>
+<tr>
 <td>@ACPLD</td>
 <td>bool</td>
 <td>RW</td>
@@ -216,9 +224,9 @@
 <td>int</td>
 <td>RW</td>
 <td>0</td>
-<td>0 bis 7</td>
+<td>0 bis 15</td>
 <td>2022b</td>
-<td>Optionen der Apps-Galerie:<p>1 = Symbol Apps hinzuf&uuml;gen auf der Registerkarte des Anwenders zeigen<br /> 2 = Registerkarte Datenkonnektor verbergen<br /> 4 = Registerkarte Alle verbergen<br /> Hinweis: @AGO ist eine Kombination dieser Steuerbits, die kumulative Effekte erzeugen<br /><span class='persistTag'>Dauerhaft</span></p>
+<td>Optionen der Apps-Galerie:<p>1 = Symbol Apps hinzuf&uuml;gen auf der Registerkarte des Anwenders zeigen<br /> 2 = Registerkarte Datenkonnektor verbergen<br /> 4 = Registerkarte Alle verbergen<br /> 8 = Statistikleiste verbergen (2025b)<br />Hinweis: @AGO ist eine Kombination dieser Steuerbits, die kumulative Effekte erzeugen<br /><span class='persistTag'>Dauerhaft</span></p>
 </td></tr>
 <tr>
 <td>@AGS</td>
@@ -792,7 +800,7 @@
 <td>RW</td>
 <td>0</td>
 <td>0,1</td>
-<td>6.1052</td>
+<td>6,1052</td>
 <td>Sie wird verwendet, um die Origin-C-Verarbeitung der Arbeitsblattereignisse zu steuern:<p>0 = Gesamte Origin-C-Verarbeitung der Arbeitsblattmeldung deaktivieren <br /> 1 = Origin-C-Verarbeitung einer Auswahl von verwandten Meldungen deaktivieren</p>
 </td></tr>
 <tr>
@@ -846,7 +854,7 @@
 <td>RW</td>
 <td>0</td>
 <td>0,1</td>
-<td>6.1052</td>
+<td>6,1052</td>
 <td>Sie steuert, ob die LabTalk-Anweisungen, die mit #! beginnen, ausgef&uuml;hrt werden.<p>0 = Ausf&uuml;hren von LabTalk-Anweisungen, die mit #! beginnen, deaktivieren <br /> 1 = Ausf&uuml;hren von LabTalk-Anweisungen, die mit #! beginnen, aktivieren <br /> Hinweis: Dies ist &auml;quivalent zur Objekteigenschaft <a class="external text" href="../../LabTalk/LabTalk/System_(object).html">System.Debug</a>.</p>
 </td></tr>
 <tr>
@@ -1058,7 +1066,8 @@
 <td>0</td>
 <td>0,1</td>
 <td>2026b</td>
-<td>Biostats-Modus erhalten</td></tr>
+<td>Kennzeichnet, ob der <a class="external text" href="../../UserGuide/Category/Life_Science_Mode.html">Life-Science-Modus</a> installiert ist.<p>0 = Life-Science-Modus ist nicht installiert. <br /> 1 = Life-Science-Modus ist installiert.</p>
+</td></tr>
 <tr>
 <td>@BIOG</td>
 <td>int</td>
@@ -1176,7 +1185,7 @@
 <td>int</td>
 <td>RW</td>
 <td>1</td>
-<td>-1, 0, 1</td>
+<td>-1,0,1</td>
 <td>2018b</td>
 <td>Sie steuert, ob die Einstellungen des Dialogs <b>Stapelverarbeitung</b> (einschlie&szlig;lich der Zweige <b>Datensatzidentifizierer</b>, <b>Datenblatt</b>, <b>Ergebnisblatt/-bl&auml;tter</b>, <b>Optionen</b> und <b>Skript</b>) in der Analysevorlage f&uuml;r die zuk&uuml;nftige Verwendung gespeichert werden.<p>0 = Einstellungen nie speichern;<br /> 1 = Einstellungen immer speichern;<br /> -1 = Meldungsfeld <b>Dialogeinstellungen f&uuml;r Stapelverarbeitung in Analysevorlage speichern</b> anzeigen, nachdem im Dialog Stapelverarbeitung auf OK geklickt wurde, um zu fragen, ob und wo die Einstellungen gespeichert werden sollen, wenn <b>Ja</b> gew&auml;hlt wird. <br /><br /><span class='persistTag'>Dauerhaft</span></p>
 </td></tr>
@@ -1232,7 +1241,7 @@
 <td>RW</td>
 <td>0</td>
 <td>0,1</td>
-<td>6.1052</td>
+<td>6,1052</td>
 <td>Sie steuert, ob reine oder Dithering-Farbe verwendet wird:<p>0 = Dithering-Farbe verwenden <br /> 1 = Reine Farbe verwenden</p>
 </td></tr>
 <tr>
@@ -1412,7 +1421,7 @@
 <td>RW</td>
 <td>1</td>
 <td>0,1</td>
-<td>6.1052</td>
+<td>6,1052</td>
 <td>Sie steuert, ob die Enhanced MetaFile (EMF) in die Zwischenablage gel&ouml;scht wird, wenn <b>Seite kopieren</b> verwendet wird:<p>0 = EMF nicht in Zwischenablage kopieren <br /> 1 = EMF in Zwischenablage kopieren</p>
 </td></tr>
 <tr>
@@ -1515,7 +1524,7 @@
 <td>@CFP</td>
 <td>bool</td>
 <td>RW</td>
-<td>1</td>
+<td>0</td>
 <td>0,1</td>
 <td>2018</td>
 <td>Steuert, ob Kopieren (volle Genauigkeit) den Wert mit der &quot;vollen Pr&auml;zision&quot; oder Origins internen Wert kopiert und einf&uuml;gt, wenn innerhalb einer Origin-Instanz kopiert und eingef&uuml;gt wird.<br /><p>0 = Kopieren (volle Genauigkeit) kopiert und f&uuml;gt Origins internen (bin&auml;ren) Wert ein.<br /> 1 = Kopieren (volle Genauigkeit) kopiert und f&uuml;gt den Dezimalwert mit &quot;voller Genauigkeit&quot; ein. <br /></p><p>Beachten Sie, dass die Umwandlung von Bin&auml;r (64-Bit doppelte Pr&auml;zision) zu Dezimal (&quot;volle Genauigkeit&quot;) zu sehr kleinen Rundungsdiskrepanzen f&uuml;hren kann.</p>
@@ -1662,7 +1671,7 @@
 <td>int</td>
 <td>RW</td>
 <td>-1</td>
-<td>-1, 0, 1</td>
+<td>-1,0,1</td>
 <td>2025b</td>
 <td>Sie steuert, ob der Statistische Konfigurationsmodus neue ocm-Dateien bearbeitet oder ein omc-Framework verwendet:<p>-1 = @VCM aktivieren, falls @VCM &gt; 0, um ocm- statt omc-Dateien zu verwenden. 0 = omc-Framework verwenden, altes Verhalten 1 = neue ocm-Date bearbeiten <br /> <span class='persistTag'>Dauerhaft</span></p>
 </td></tr>
@@ -2164,7 +2173,7 @@
 <td>RW</td>
 <td>0</td>
 <td>0,1</td>
-<td>6.1052</td>
+<td>6,1052</td>
 <td>Sie gibt an, ob das Befehlsfenster beim Start von Origin sichtbar ist:<p>0 = Befehlsfenster ist beim Start nicht sichtbar <br /> 1 = Befehlsfenster ist beim Start sichtbar <br /> Hinweis: Nach dem Start von Origin und Schlie&szlig;en des Befehlsfensters ist @CWV noch immer 1.</p>
 </td></tr></table>
 <h2><a name="D"></a><span class="mw-headline"><b>D</b></span></h2>
@@ -2214,10 +2223,10 @@
 <td>@DAM</td>
 <td>int</td>
 <td>RW</td>
-<td>2</td>
+<td>2 f&uuml;r Standardmodus<br />1 f&uuml;r Life-Science-Modus</td>
 <td>0,1,2</td>
 <td>2015</td>
-<td>Sie legt den Standardmodus f&uuml;r die Neuberechnung beim &Ouml;ffnen eines Dialogs fest, indem der Standardwert in der Auswahlliste <b>Neu berechnen</b> festgelegt wird:<p>0 = Kein <br /> 1 = Auto <br /> 2 = Manuell</p>
+<td>Sie legt den Standardmodzs zur Neuberechnung beim &Ouml;ffnen eines Dialogs fest:<p>0 = Kein <br /> 1 = Auto <br /> 2 = Manuell</p>
 </td></tr>
 <tr>
 <td>@DAP</td>
@@ -2271,7 +2280,7 @@
 <td>RW</td>
 <td>1</td>
 <td>0,1</td>
-<td>6.1052</td>
+<td>6,1052</td>
 <td>Sie steuert, ob Debug-Meldungen im Skriptfenster ausgegeben werden:<p>0 = Debug-Meldungen im Skriptfenster aktivieren <br /> 1 = Debug-Meldungen im Skriptfenster deaktivieren</p>
 </td></tr>
 <tr>
@@ -2708,7 +2717,7 @@
 <td>RW</td>
 <td>-2900000</td>
 <td>Negative ganze Zahl</td>
-<td>6.1052</td>
+<td>6,1052</td>
 <td>Sie legt die untere Grenze des Ger&auml;ts fest, um die logischen Koordinaten w&auml;hrend des Zeichnens einzuschr&auml;nken.</td></tr>
 <tr>
 <td>@DENG</td>
@@ -2743,7 +2752,7 @@
 <td>RW</td>
 <td>3200000</td>
 <td>Positive ganze Zahl</td>
-<td>6.1052</td>
+<td>6,1052</td>
 <td>Sie legt die obere Grenze des Ger&auml;ts fest, um die logischen Koordinaten w&auml;hrend des Zeichnens einzuschr&auml;nken.</td></tr>
 <tr>
 <td>@DFB</td>
@@ -2814,7 +2823,7 @@
 <td>RW</td>
 <td>1</td>
 <td>0,1</td>
-<td>6.1052</td>
+<td>6,1052</td>
 <td>Sie steuert, ob der Dialog <b>Dateninfo</b> gezeigt wird:<p>0 = Dialog <b>Dateninfo</b> nicht zeigen <br /> 1 = Dialog <b>Dateninfo</b> zeigen</p>
 </td></tr>
 <tr>
@@ -3519,7 +3528,7 @@
 <td>RW</td>
 <td>16728064 (RGB(0,64,255))</td>
 <td>Nat&uuml;rliche Zahl</td>
-<td>6.1052</td>
+<td>6,1052</td>
 <td>Sie legt die unmittelbare fl&uuml;chtige Linienfarbe beim Erstellen von Linie, Polylinie, Pfeil und Freihandzeichnung in ganzen Zahlen fest, die mit der RGB-Farbe &uuml;bereinstimmen.<p><br /> Hinweis: Sie k&ouml;nnen z. B. f&uuml;r RGB(0,64,255) = RGB(00,40,FF) den LabTalk-Befehl hex3Dec verwenden, um folgenderma&szlig;en in eine Dezimalzahl umzuwandeln: hex2Dec(FF4000)=16728064. Im fl&uuml;chtigen Zustand ist die Standardfarbe Blau.</p>
 </td></tr>
 <tr>
@@ -3624,8 +3633,8 @@
 <td>RW</td>
 <td>0</td>
 <td>0,1</td>
-<td>6.1052</td>
-<td>Sie steuert, ob der verborgene Dialog f&uuml;r die erweiterten Einstelloptionen f&uuml;r Boxdiagramme aktiviert werden soll:<p>0 = Erweiterter Dialog bleibt verborgen <br /> 1 = Doppelklick innerhalb eines Boxdiagramms ruft einen neuen Dialog <b>Details Zeichnung</b> <br /> Hinweis: Bei dem neuen Dialog <b>Details Zeichnung</b>, erstellt in Version 5.0, haben Sie zus&auml;tzliche Einstellungen f&uuml;r Boxdiagramme zur Verf&uuml;gung, wie unten zu sehen: <br /> 1. Das Kontrollk&auml;stchen Histogramm f&uuml;gt ein Punktdiagramm mit Histogramm zur Zeichnung hinzu. <br /> 2 Das danebenliegende Kontrollk&auml;stchen verschiebt das Punktdiagramm mit Histogramm an die Seite des Boxdiagramms <br /> 3. &Uuml;ber die zwei Auswahllisten f&uuml;r Symbolgr&ouml;&szlig;e: Die erste Liste steuert die Gr&ouml;&szlig;e der f&uuml;nf &apos;Features&apos;, die sich unten im Dialog  befinden. Die zweite Liste steuert die Gr&ouml;&szlig;e des Punktdiagramm mit Histogramm (und verwendet seine eigene relative Gr&ouml;&szlig;envergabe).</p>
+<td>6,1052</td>
+<td>Sie steuert, ob der verborgene Dialog f&uuml;r die erweiterten Einstelloptionen f&uuml;r Boxdiagramme aktiviert werden soll:<p>0 = Erweiterter Dialog bleibt verborgen <br /> 1 = Doppelklick innerhalb eines Boxdiagramms ruft einen neuen Dialog <b>Details Zeichnung</b> <br /> Hinweis: Bei dem neuen Dialog <b>Details Zeichnung</b>, erstellt in Version 5.0, haben Sie zus&auml;tzliche Einstellungen f&uuml;r Boxdiagramme zur Verf&uuml;gung, wie unten zu sehen: <br /> 1. Das Kontrollk&auml;stchen Histogramm f&uuml;gt ein Punktdiagramm mit Histogramm zur Zeichnung hinzu. <br /> 2. Das danebenliegende Kontrollk&auml;stchen verschiebt das Punktdiagramm mit Histogramm an die Seite des Boxdiagramms <br /> 3. &Uuml;ber die zwei Auswahllisten f&uuml;r Symbolgr&ouml;&szlig;e: Die erste Liste steuert die Gr&ouml;&szlig;e der f&uuml;nf &apos;Features&apos;, die sich unten im Dialog  befinden. Die zweite Liste steuert die Gr&ouml;&szlig;e des Punktdiagramm mit Histogramm (und verwendet seine eigene relative Gr&ouml;&szlig;envergabe).</p>
 </td></tr>
 <tr>
 <td>@EAB</td>
@@ -4051,7 +4060,7 @@
 <td>RW</td>
 <td>0</td>
 <td>0,1</td>
-<td>6.1052</td>
+<td>6,1052</td>
 <td>Sie steuert, ob die Exportbibliothek Image Stream aus Inso f&uuml;r ordin&auml;re Metadateien verwendet wird:<p>0 = Exportbibliothek von Inso nicht f&uuml;r ordin&auml;re Metadatei verwenden <br /> 1 = Exportbibliothek von Inso f&uuml;r ordin&auml;re Metadatei verwenden</p>
 </td></tr>
 <tr>
@@ -4211,7 +4220,7 @@
 <td>RW</td>
 <td>1</td>
 <td>0,1</td>
-<td>6.1052</td>
+<td>6,1052</td>
 <td>Sie steuert, ob das Speichern von Datens&auml;tzen in schnelleren Einzelfenstern aktiviert werden soll:<p>0 = Speichern von Datens&auml;tzen in schnelleren Einzelfenstern deaktivieren <br /> 1 = Speichern von Datens&auml;tzen in schnelleren Einzelfenstern aktivieren</p>
 </td></tr>
 <tr>
@@ -4692,7 +4701,7 @@
 <td>1</td>
 <td>0 bis 4</td>
 <td>8,50013</td>
-<td>Sie legt den Qualit&auml;tsmodus des Alpha -Compositing in GDIPlus fest:<p>0 = CompositingQualityDefault <br /> 1 = CompositingQualityHighSpeed <br /> 2 = CompositingQualityHighQuality <br /> 3 = CompositingQualityGammaCorrected <br /> 4 = CompositingQualityAssumeLinear</p>
+<td>Sie legt den Qualit&auml;tsmodus des Alpha-Compositing in GDIPlus fest:<p>0 = CompositingQualityDefault <br /> 1 = CompositingQualityHighSpeed <br /> 2 = CompositingQualityHighQuality <br /> 3 = CompositingQualityGammaCorrected <br /> 4 = CompositingQualityAssumeLinear</p>
 </td></tr>
 <tr>
 <td>@GDIPE</td>
@@ -5223,7 +5232,7 @@
 <td>RW</td>
 <td>4</td>
 <td>Positive ganze Zahl</td>
-<td>6.1052</td>
+<td>6,1052</td>
 <td>Sie legt den Faktor fest, um die automatische Klassengr&ouml;&szlig;e vor dem Zeichnen des Histogramms zu sch&auml;tzen.<p><br /> Hinweis: Der Ausdruck zum Sch&auml;tzen der Klassengr&ouml;&szlig;e lautet: bin = (max - min) / (1 + factor * log10(npts)). Falls @HBS und @HBN nicht festgelegt sind, wird @HBF verwendet, um die Klassengr&ouml;&szlig;e automatisch zu sch&auml;tzen.</p>
 </td></tr>
 <tr>
@@ -5318,7 +5327,7 @@
 <td>RW</td>
 <td>0</td>
 <td>0,1</td>
-<td>6.1052</td>
+<td>6,1052</td>
 <td>Sie steuert, ob CListCtrl::GetHeaderCtrl() von COKOldBaseListCtrl::GetHeaderCtrl() aufgerufen wird, um die Steuerung des Headers &uuml;ber die der Listen zu erhalten:<p>0 = CListCtrl::GetHeaderCtrl aufrufen <br /> 1 = CListCtrl::GetHeaderCtrl() nicht aufrufen</p>
 </td></tr>
 <tr>
@@ -6448,7 +6457,7 @@ App aus:<p>0 = Latex noch nicht gestartet 1 = Latex bereits richtig gestartet -1
 <td>@LAW</td>
 <td>double</td>
 <td>R</td>
-<td>1, 201</td>
+<td>1,201</td>
 <td>
 </td>
 <td>2019</td>
@@ -6593,7 +6602,7 @@ App aus:<p>0 = Latex noch nicht gestartet 1 = Latex bereits richtig gestartet -1
 <td>RW</td>
 <td>2500</td>
 <td>Ganze Zahl &gt;= 500</td>
-<td>6.0231</td>
+<td>6,0231</td>
 <td>Sie wird verwendet, um die kleinste Anzahl von Pixeln zwischen Zeilen-/Spaltengittern einer Matrix in Promille festzulegen.<p><br /> Hinweis: @LF(default 2500)/1000 ist 2,5 Pixel. Wird @LF auf eine kleinere Zahl festgelegt, k&ouml;nnen mehr Datenpunkte zum Zeichnen eines Konturdiagramms verwendet werden.</p>
 </td></tr>
 <tr>
@@ -6688,7 +6697,7 @@ App aus:<p>0 = Latex noch nicht gestartet 1 = Latex bereits richtig gestartet -1
 <td>RW</td>
 <td>0</td>
 <td>0,1</td>
-<td>6.1052</td>
+<td>6,1052</td>
 <td>Sie steuert, welcher Dialog bei Doppelklick auf das Layersymbol gezeigt wird:<p>0 = Dialog <b>Layerinhalt</b> aufrufen <br /> 1 = Dialog <b>Diagrammeinstellungen</b> aufrufen</p>
 </td></tr>
 <tr>
@@ -6733,7 +6742,7 @@ App aus:<p>0 = Latex noch nicht gestartet 1 = Latex bereits richtig gestartet -1
 <td>RW</td>
 <td>40</td>
 <td>0 bis 100</td>
-<td>6.1052</td>
+<td>6,1052</td>
 <td>Sie wird verwendet, um die kritische prozentuale Anteil der &Uuml;berschneidung zwischen Datenbereich und Achsenbereich festzulegen, &uuml;ber den hinaus Drag&amp;Drop-Operationen eine Neuskalierung ausl&ouml;sen und das Kontrollk&auml;stchen <b>Neuskalieren bei Anwenden</b> im Dialog <b>Layerinhalt</b> aktivieren.<p><br /> Hinweis: @LL wird berechnet, indem der &Uuml;berschneidungsbereich durch den gesamten Datenbereich in Prozent geteilt wird. Der Bereich ist das Produkt der X-/Y-L&auml;ngen.</p>
 </td></tr>
 <tr>
@@ -6865,7 +6874,7 @@ App aus:<p>0 = Latex noch nicht gestartet 1 = Latex bereits richtig gestartet -1
 <td>RW</td>
 <td>0</td>
 <td>0,1</td>
-<td>6.1052</td>
+<td>6,1052</td>
 <td>Sie steuert, ob die Verwendung von @LP f&uuml;r 3D-Diagramme ein- oder ausgeschaltet wird.<p>0 = @LP f&uuml;r 3D-Diagramme ausschalten <br /> 1 = @LP f&uuml;r 3D-Diagramme einschalten</p>
 </td></tr>
 <tr>
@@ -7087,7 +7096,7 @@ App aus:<p>0 = Latex noch nicht gestartet 1 = Latex bereits richtig gestartet -1
 <td>RW</td>
 <td>0</td>
 <td>Nat&uuml;rliche Zahl</td>
-<td>6.1052</td>
+<td>6,1052</td>
 <td>Sie legt die Standardlinienbreite beim Erstellen von Datenzeichnungen fest.<p><br /> Hinweis: @LW=0 deaktiviert diese Systemvariable.</p>
 </td></tr>
 <tr>
@@ -7205,7 +7214,7 @@ App aus:<p>0 = Latex noch nicht gestartet 1 = Latex bereits richtig gestartet -1
 <td>RW</td>
 <td>1</td>
 <td>0 bis 23</td>
-<td>6.1052</td>
+<td>6,1052</td>
 <td>Sie legt die Farbe der Datenmaskierung mit dem globalen Farbindex fest:<p>0 = Schwarz <br /> 1 = Rot <br /> 2 = Gr&uuml;n <br /> 3 = Blau <br /> 4 = Cyan <br /> Hinweis: Die Farbzahl von @MC+1 entspricht der Liste der <b>Einzelfarben</b> in Origin oder dem Index der allgemeinen Farbpalette.</p>
 </td></tr>
 <tr>
@@ -7330,7 +7339,7 @@ App aus:<p>0 = Latex noch nicht gestartet 1 = Latex bereits richtig gestartet -1
 <td>RW</td>
 <td>-1</td>
 <td>-1, Positive ganze Zahl</td>
-<td>6.1052</td>
+<td>6,1052</td>
 <td>Sie legt die Gr&ouml;&szlig;e eines Datenpunkts beim Verwenden von <b>Datenpunkte verschieben</b> fest, um Daten zu verschieben.<p>-1 = Standardgr&ouml;&szlig;e 6 <br /> Hinweis: Durch Setzen von @MDS=20 und Ausw&auml;hlen von <b>Datenpunkte verschieben</b> in einem Punktdiagramm werden die zu verschiebenden Punkte vergr&ouml;&szlig;ert.</p>
 </td></tr>
 <tr>
@@ -7356,7 +7365,7 @@ App aus:<p>0 = Latex noch nicht gestartet 1 = Latex bereits richtig gestartet -1
 <td>RW</td>
 <td>1</td>
 <td>0,1</td>
-<td>6.1052</td>
+<td>6,1052</td>
 <td>Sie steuert, ob Metadateien des Objektcaches, die im Speicher als Bits gespeichert sind, in GDI-Handles gespeichert werden oder nicht:<p>0 = Metadateien des Objektcaches im Speicher nicht als Bits speichern <br /> 1 = Metadateien des Objektcaches im Speichern als Bits speichern <br /> Hinweis: Diese Systemvariable darf nicht ge&auml;ndert werden, w&auml;hrend es im Projekt Grafiken mit Cache gibt (das Beste ist, das Projekt zu schlie&szlig;en, bevor diese Systemvariable ge&auml;ndert wird).</p>
 </td></tr>
 <tr>
@@ -7445,7 +7454,7 @@ App aus:<p>0 = Latex noch nicht gestartet 1 = Latex bereits richtig gestartet -1
 <td>RW</td>
 <td>0</td>
 <td>0,1</td>
-<td>6.1052</td>
+<td>6,1052</td>
 <td>Sie steuert, ob die Maskierung einen Effekt auf die Datenanalyse haben soll:<p>0 = Maskierungseffekt in Analyse aktivieren <br /> 1 = Maskierungseffekt in Analyse deaktivieren</p>
 </td></tr>
 <tr>
@@ -7532,7 +7541,7 @@ App aus:<p>0 = Latex noch nicht gestartet 1 = Latex bereits richtig gestartet -1
 <td>RW</td>
 <td>0</td>
 <td>0,1</td>
-<td>6.1052</td>
+<td>6,1052</td>
 <td>Sie steuert, ob maskierte Datenpunkte in der Zeichnung verborgen werden:<p>0 = Maskierte Datenpunkte nicht verbergen (gezeigt mit Farben, die mit @MC wurden) <br /> 1 = Maskierte Datenpunkte verbergen</p>
 </td></tr>
 <tr>
@@ -7999,7 +8008,7 @@ App aus:<p>0 = Latex noch nicht gestartet 1 = Latex bereits richtig gestartet -1
 <td>RW</td>
 <td>0</td>
 <td>0,1</td>
-<td>6.1052</td>
+<td>6,1052</td>
 <td>Sie steuert, ob Systemmeldungen im Skriptfenster ausgegeben werden:<p>0 = Systemmeldungen nicht im Skriptfenster ausgeben <br /> 1 = Systemmeldungen im Skriptfenster ausgeben <br /> Hinweis: Zum Beispiel @N=1, wenn Sie ein Diagramm als EMF-Datei exportieren, gibt dies die Informationen der EMF-Erzeugung im Skriptfenster aus.</p>
 </td></tr>
 <tr>
@@ -8113,7 +8122,7 @@ App aus:<p>0 = Latex noch nicht gestartet 1 = Latex bereits richtig gestartet -1
 <td>RW</td>
 <td>1E-14</td>
 <td>Kleine positive Zahl</td>
-<td>6.0247</td>
+<td>6,0247</td>
 <td>Sie legt die Standardaufl&ouml;sung beim Vergleichen von zwei Doubles fest (Referenzformel (v2-v1)/(abs(v1)+abs(v2)).</td></tr>
 <tr>
 <td>@NDI</td>
@@ -8572,7 +8581,7 @@ App aus:<p>0 = Latex noch nicht gestartet 1 = Latex bereits richtig gestartet -1
 <td>RW</td>
 <td>1</td>
 <td>1,2</td>
-<td>6.1052</td>
+<td>6,1052</td>
 <td>Sie gibt die aktuelle Druckerausrichtung, wie in <b>Seite einrichten</b> festgelegt, an:<p>1 = Hochformat <br /> 2 = Querformat</p>
 </td></tr>
 <tr>
@@ -8581,7 +8590,7 @@ App aus:<p>0 = Latex noch nicht gestartet 1 = Latex bereits richtig gestartet -1
 <td>RW</td>
 <td>0</td>
 <td>0,1</td>
-<td>6.1052</td>
+<td>6,1052</td>
 <td>Sie steuert, ob die Origin-C-Funktion die LabTalk-Zeichenkette in die C-Standardzeichenkette konvertiert:<p>0 = Nicht konvertieren <br /> 1 = LabTalk-Zeichenkette konvertieren (&ldquo;\t\n&rdquo; etc. wird als der Standard-Escape-Code von C betrachtet.)</p>
 </td></tr>
 <tr>
@@ -8590,7 +8599,7 @@ App aus:<p>0 = Latex noch nicht gestartet 1 = Latex bereits richtig gestartet -1
 <td>RW</td>
 <td>0</td>
 <td>0,1</td>
-<td>6.1052</td>
+<td>6,1052</td>
 <td>Sie steuert, ob <b>Haltepunkte aktivieren</b> im <b>Code Builder</b> festgelegt wird:<p>0 = Deaktiviert das Symbol <b>Haltepunkte aktivieren</b> auf der Symbolleiste <b>Debug</b> <br /> 1 = <b>Haltepunkte aktivieren</b> ist aktiviert, so dass der Debug-Modus ge&ouml;ffnet und alle Haltepunkte aktiviert werden. <br /> Hinweis: @OCB wird automatisch auf von 0 bis 1 gesetzt, wenn der <b>Code Builder</b> ge&ouml;ffnet wird.</p>
 </td></tr>
 <tr>
@@ -8599,7 +8608,7 @@ App aus:<p>0 = Latex noch nicht gestartet 1 = Latex bereits richtig gestartet -1
 <td>RW</td>
 <td>1</td>
 <td>0,1</td>
-<td>6.1052</td>
+<td>6,1052</td>
 <td>Sie steuert, ob unerw&uuml;nschte Informationen nach der Verkn&uuml;pfung bereinigt werden:<p>0 = Bereinigen deaktivieren <br /> 1 = Nach der Verkn&uuml;pfung bereinigen</p>
 </td></tr>
 <tr>
@@ -8608,7 +8617,7 @@ App aus:<p>0 = Latex noch nicht gestartet 1 = Latex bereits richtig gestartet -1
 <td>RW</td>
 <td>1</td>
 <td>0,1</td>
-<td>6.1052</td>
+<td>6,1052</td>
 <td>Sie steuert, ob die Zugriffskontrolle der Klassenmitglieder aktiviert wird:<p>0 = Zugriffskontrolle der Klassenmitglieder deaktivieren <br /> 1 = Zugriffskontrolle der Klassenmitglieder aktivieren</p>
 </td></tr>
 <tr>
@@ -8634,7 +8643,7 @@ App aus:<p>0 = Latex noch nicht gestartet 1 = Latex bereits richtig gestartet -1
 <td>RW</td>
 <td>1</td>
 <td>0,1</td>
-<td>6.1052</td>
+<td>6,1052</td>
 <td>Sie gibt an, ob Origin C bereit ist, so dass LabTalk X-Funktionen kann etc.:<p>0 = Origin C hat das Kompilieren nicht beendet, so dass die X-Funktion zu diesem Zeitpunkt nicht von LabTalk aufgerufen werden kann. <br /> 1 = Origin C hat das Kompilieren beendet und die X-Funktion ist bereit, von LabTalk aufgerufen zu werden.</p>
 </td></tr>
 <tr>
@@ -8643,7 +8652,7 @@ App aus:<p>0 = Latex noch nicht gestartet 1 = Latex bereits richtig gestartet -1
 <td>RW</td>
 <td>1</td>
 <td>Positive ganze Zahl</td>
-<td>6.1052</td>
+<td>6,1052</td>
 <td>Sie legt die Pr&uuml;febene f&uuml;r numerische Zeichen in Origin-C-Zeiger-Casting fest:<p>0 = Pr&uuml;fen deaktivieren <br /> 1 = Redundante Zeiger auf NULL-Zeiger zur&uuml;cksetzen (erfordert gr&uuml;ndliche Tests) <br /> &gt;1 = Fehler melden und Ausf&uuml;hrung anhalten</p>
 </td></tr>
 <tr>
@@ -8652,7 +8661,7 @@ App aus:<p>0 = Latex noch nicht gestartet 1 = Latex bereits richtig gestartet -1
 <td>RW</td>
 <td>0</td>
 <td>0,1</td>
-<td>6.1052</td>
+<td>6,1052</td>
 <td>Sie steuert, ob die aktuelle Origin-Datei gesperrt wird:<p>0 = Aktuelle Origin-Datei nicht sperren, so dass, wenn Sie sie schlie&szlig;en, sie regul&auml;r geschlossen wird <br /> 1 = Aktuelle Origin-Datei ist gesperrt, so dass, wenn Sie versuchen, sie zu schlie&szlig;en, ein Dialog aufgerufen wird mit der Meldung &ldquo;Origin is locked by system variable try setting @OCL=0&rdquo;, bevor Sie die opj-Datei schlie&szlig;en k&ouml;nnen.</p>
 </td></tr>
 <tr>
@@ -8705,7 +8714,7 @@ App aus:<p>0 = Latex noch nicht gestartet 1 = Latex bereits richtig gestartet -1
 <td>RW</td>
 <td>0</td>
 <td>0,1</td>
-<td>6.1052</td>
+<td>6,1052</td>
 <td>Sie steuert, ob das Sperren der Projektdatei aktiviert werden soll, wenn Sie in Origin ge&ouml;ffnet wird:<p>0 = Sperren aktivieren <br /> 1 = Sperren deaktivieren <br /> Hinweis: Wenn Sie die gleiche Datei 2x in Origin &ouml;ffnen, ist die zweite Datei nur lesbar, was bedeutet, dass die Datei gesperrt ist. &Ouml;ffnen Sie die opj-Datei zum ersten Mal und Sie setzen @OE=1, dann ist die gleiche Datei beim zweiten &Ouml;ffnen keine gesperrte, nur lesbare opj-Datei.</p>
 </td></tr>
 <tr>
@@ -9152,7 +9161,7 @@ App aus:<p>0 = Latex noch nicht gestartet 1 = Latex bereits richtig gestartet -1
 <td>RW</td>
 <td>0</td>
 <td>Nat&uuml;rliche Zahl</td>
-<td>6.1052</td>
+<td>6,1052</td>
 <td>Sie steuert, ob beim Laden von OPJ-Dateien alle Fenster und die Ansicht des Projekt Explorers verborgen werden:<p>0 = Verbergen aller Fenster beim Laden von OPJ deaktivieren <br /> &gt; 0 (gr&ouml;&szlig;er als 0) =Alle Fenster beim Laden von OPJ verbergen</p>
 </td></tr>
 <tr>
@@ -9249,7 +9258,7 @@ App aus:<p>0 = Latex noch nicht gestartet 1 = Latex bereits richtig gestartet -1
 <td>RW</td>
 <td>1</td>
 <td>0,1</td>
-<td>6.1052</td>
+<td>6,1052</td>
 <td>Sie steuert, ob ein OPJ zuerst in separate tempor&auml;re Dateien gespeichert wird, bevor es als finale OPJ-Datei gespeichert wird:<p>0 = Nicht in tempor&auml;re Dateien speichern, so dass es direkt als OPJ-Datei gespeichert wird <br /> 1 = OPJ in tempor&auml;re Dateien speichern, bevor es als finale OPJ-Datei gespeichert wird <br /> Hinweis: @OR wird eingef&uuml;hrt, um Speicherverluste zu verhindern, wenn nicht genug Festplattenspeicherplatz beim Speichern eines OPJ vorhanden ist.</p>
 </td></tr>
 <tr>
@@ -9268,7 +9277,7 @@ App aus:<p>0 = Latex noch nicht gestartet 1 = Latex bereits richtig gestartet -1
 <td>RW</td>
 <td>0</td>
 <td>0,1</td>
-<td>6.1052</td>
+<td>6,1052</td>
 <td>Sie steuert das Versatzverhalten von Zeichnungen mit sich &uuml;berschneidenden Datenpunkten, wenn das Kontrollk&auml;stchen <b>&Uuml;berlappende Punkte verschieben </b> auf der Registerkarte <b>Symbol</b> im Dialog <b>Details Zeichnung</b> aktiviert ist:<p>0 = Sich &uuml;berschneidende Datenpunkte in einer horizontalen Linie ausrichten <br /> 1 = Sich &uuml;berschneidende Datenpunkte in mehrere Layer verschieben</p>
 </td></tr>
 <tr>
@@ -9356,7 +9365,7 @@ App aus:<p>0 = Latex noch nicht gestartet 1 = Latex bereits richtig gestartet -1
 <td>RW</td>
 <td>0</td>
 <td>0,1</td>
-<td>6.1052</td>
+<td>6,1052</td>
 <td>Sie steuert, ob der Fortschrittsbalken (Standard) ausgeschaltet wird:<p>0 = Fortschrittsbalken regelm&auml;&szlig;ig zeigen <br /> 1 = Fortschrittsbalken ausschalten</p>
 </td></tr>
 <tr>
@@ -9407,7 +9416,7 @@ App aus:<p>0 = Latex noch nicht gestartet 1 = Latex bereits richtig gestartet -1
 <td>RW</td>
 <td>0</td>
 <td>0,1</td>
-<td>6.1052</td>
+<td>6,1052</td>
 <td>Sie legt das Verhalten beim Einf&uuml;gen fest, wenn eine kleinere Spalte kopiert und in eine gr&ouml;&szlig;ere Spalte eingef&uuml;gt wird:<p>0 = Die kleinere Spalte direkt in die gr&ouml;&szlig;ere Spalte einf&uuml;gen, ohne die gr&ouml;&szlig;ere Spalte zuerst zu l&ouml;schen, so dass die restlichen Elemente der gr&ouml;&szlig;eren Spalte in der gr&ouml;&szlig;eren Spalten bleiben <br /> 1 = Die Elemente in der gr&ouml;&szlig;eren Spalte l&ouml;schen, bevor die kleinere Spalte eingef&uuml;gt wird, so dass keine zus&auml;tzlichen Elemente mehr in der gr&ouml;&szlig;eren Spalte existieren</p>
 </td></tr>
 <tr>
@@ -9451,7 +9460,7 @@ App aus:<p>0 = Latex noch nicht gestartet 1 = Latex bereits richtig gestartet -1
 <td>RW</td>
 <td>1</td>
 <td>0,1</td>
-<td>6.1052</td>
+<td>6,1052</td>
 <td>Sie steuert das Verhalten zum Suchen von Hilfethemen, wenn Sie auf das Symbol ? in der oberen rechten Ecke im Dialog <b>Detail Zeichnung</b> klicken:<p>0 = Generische Seite mit einer Liste der Registerkarten im Dialog <b>Details Zeichnung</b> aufrufen <br /> 1 = Die Seite in der Hilfe aufrufen, die eng mit der aktiven Registerkarte im Dialog <b>Details Zeichnung</b> zusammenh&auml;ngt <br /> Hinweis: @PDHELPACTIVEPAGE = 1, das Verwenden des Symbols ? zur Suche des Hilfethemas ruft die gleiche Seite auf wie das Dr&uuml;cken der Taste F1.</p>
 </td></tr>
 <tr>
@@ -9476,7 +9485,7 @@ App aus:<p>0 = Latex noch nicht gestartet 1 = Latex bereits richtig gestartet -1
 <td>RW</td>
 <td>0</td>
 <td>0,1</td>
-<td>6.1052</td>
+<td>6,1052</td>
 <td>Sie steuert, ob der Schreibzugriff auf die Zeichenkette %D aktiviert ist:<p>0 = Schreib- und Lesezugriff auf die Zeichenkette %D <br /> 1 = Nur lesbare Zeichenkette %D</p>
 </td></tr>
 <tr>
@@ -9548,7 +9557,7 @@ App aus:<p>0 = Latex noch nicht gestartet 1 = Latex bereits richtig gestartet -1
 <td>RW</td>
 <td>0</td>
 <td>0,1</td>
-<td>6.1052</td>
+<td>6,1052</td>
 <td>Sie steuert, ob Parser-Fehlermeldungen im Skriptfenster ausgegeben werden:<p>0 = Parser-Fehlermeldungen im Skriptfenster nicht zeigen <br /> 1 = Parser-Fehlermeldungen im Skriptfenster zeigen</p>
 </td></tr>
 <tr>
@@ -9584,7 +9593,7 @@ App aus:<p>0 = Latex noch nicht gestartet 1 = Latex bereits richtig gestartet -1
 <td>RW</td>
 <td>0</td>
 <td>0,1</td>
-<td>6.1052</td>
+<td>6,1052</td>
 <td>Sie steuert, ob das Element &ldquo;Fenster im aktiven Ordner &amp; Unterordner&rdquo; aus <b>Ansicht: Fenster zeigen</b> entfernt wird:<p>0 = &ldquo;Fenster im aktiven Ordner &amp; Unterordner&rdquo; entfernen <br /> 1 = &ldquo;Fenster im aktiven Ordner &amp; Unterordner&rdquo; beibehalten</p>
 </td></tr>
 <tr>
@@ -9610,7 +9619,7 @@ App aus:<p>0 = Latex noch nicht gestartet 1 = Latex bereits richtig gestartet -1
 <td>RW</td>
 <td>1</td>
 <td>0,1</td>
-<td>6.1052</td>
+<td>6,1052</td>
 <td>Sie legt fest, ob der Projekt Explorer beim Hinzuf&uuml;gen eines neuen Ordners gezeigt wird:<p>0 = Projekt Explorer beim Hinzuf&uuml;gen eines neuen Ordners nicht zeigen <br /> 1 = Projekt Explorer beim Hinzuf&uuml;gen eines neuen Ordners zeigen</p>
 </td></tr>
 
@@ -9682,7 +9691,7 @@ App aus:<p>0 = Latex noch nicht gestartet 1 = Latex bereits richtig gestartet -1
 <td>RW</td>
 <td>1</td>
 <td>0,1</td>
-<td>6.1052</td>
+<td>6,1052</td>
 <td>Sie steuert, ob der Pfad des Projekt Explorers im Fenstertitel gezeigt wird:<p>0 = Pfad des Projekt Explorers nicht im Fenstertitel zeigen <br /> 1 = Pfad des Projekt Explorers im Fenstertitel zeigen</p>
 </td></tr>
 <tr>
@@ -9907,6 +9916,15 @@ App aus:<p>0 = Latex noch nicht gestartet 1 = Latex bereits richtig gestartet -1
 <td>Sie steuert, ob die Legende automatisch rekonstruiert wird, wenn &uuml;ber das Men&uuml; Zeichnen: Benutzerdefiniert oder &uuml;ber die Vorlagenbibliothek mit oder ohne den Dialog Diagrammeinstellungen gezeichnet wird:<p>0 = Legende in obenstehenden F&auml;llen automatisch rekonstruieren <br /> 1 = Legende in obenstehenden F&auml;llen nicht automatisch aktualisieren</p>
 </td></tr>
 <tr>
+<td>@PLO</td>
+<td>bool</td>
+<td>RW</td>
+<td>1</td>
+<td>0,1</td>
+<td>2026b</td>
+<td>Das Men&uuml; <b>Kopieren (einschlie&szlig;lich Beschriftungszeilen)</b> kopiert Daten und nur die Beschriftungszeile Langname. Falls Langnamen die gleichen oder leer sind, werden die Kommentare kopiert. Falls die beiden gleich oder leer sind, wird die erste benutzerdefinierte Parameterzeile kopiert. Falls sie immer noch gleich oder leer sind, werden alle Beschriftungszeilen kopiert.<p>Setzen Sie @PLO = 0 , um alle Beschriftungszeilen zu kopieren.</p>
+</td></tr>
+<tr>
 <td>@PLS</td>
 <td>bool</td>
 <td>RW</td>
@@ -9939,7 +9957,7 @@ App aus:<p>0 = Latex noch nicht gestartet 1 = Latex bereits richtig gestartet -1
 <td>RW</td>
 <td>0</td>
 <td>0,2</td>
-<td>6.1052</td>
+<td>6,1052</td>
 <td>Sie steuert, ob das neue Verhalten auf die Legende der Datenzeichnung angewendet wird. Die Symbolgr&ouml;&szlig;e des ersten  Datenpunkts ist 0:<p>0 = Da der erste Datenpunkt die Punktgr&ouml;&szlig;e 0 hat, gibt es im Legendenfeld keine symbolische Darstellung f&uuml;r das Symbol<br /> 2 = Die erste Symbolgr&ouml;&szlig;e, die nicht Null ist, wird als Gr&ouml;&szlig;e f&uuml;r die Darstellung im Legendenfeld verwendet</p>
 </td></tr>
 <tr>
@@ -9965,7 +9983,7 @@ App aus:<p>0 = Latex noch nicht gestartet 1 = Latex bereits richtig gestartet -1
 <td>RW</td>
 <td>0</td>
 <td>0,1</td>
-<td>6.1052</td>
+<td>6,1052</td>
 <td>Sie legt fest, ob die Zeichenordnung von der Reihenfolge der Auswahl abh&auml;ngt oder nicht:<p>0 = Zeichenordnung ist unabh&auml;ngig von Auswahlreihenfolge <br /> 1 = Zeichenordnung ist abh&auml;ngig von Auswahlreihenfolge <br /> Hinweis: @POS=1, die Legende wird unterschiedlich aussehen, je nachdem ob Sie Spalte B und mit Hilfe der Strg-Taste die Spalten C und D ausw&auml;hlen, um eine Zeichnung zu erstellen, oder ob Sie zuerst Spalte D ausw&auml;hlen und dann mit der Strg-Taste die Spalten C und B.</p>
 </td></tr>
 <tr>
@@ -9974,7 +9992,7 @@ App aus:<p>0 = Latex noch nicht gestartet 1 = Latex bereits richtig gestartet -1
 <td>RW</td>
 <td>0</td>
 <td>0 bis 100</td>
-<td>6.1052</td>
+<td>6,1052</td>
 <td>Sie legt die &Uuml;berschneidung in horizontaler Richtung in Prozent der <b>Druckseitengr&ouml;&szlig;e</b> beim Drucken von mehreren Seiten fest, wenn die <b>Diagrammseitengr&ouml;&szlig;e</b> gr&ouml;&szlig;er als die <b>Druckseitengr&ouml;&szlig;e</b> ist.<p><br /> Hinweis: @POX=0 (Standard) bedeutet, dass es keine &Uuml;berschneidung in horizontaler Richtung zwischen zwei nebeneinanderliegenden Seiten gibt.</p>
 </td></tr>
 <tr>
@@ -9983,7 +10001,7 @@ App aus:<p>0 = Latex noch nicht gestartet 1 = Latex bereits richtig gestartet -1
 <td>RW</td>
 <td>0</td>
 <td>0 bis 100</td>
-<td>6.1052</td>
+<td>6,1052</td>
 <td>Sie legt die &Uuml;berschneidung in vertikaler Richtung in Prozent der <b>Druckseitengr&ouml;&szlig;e</b> beim Drucken von mehreren Seiten fest, wenn die <b>Diagrammseitengr&ouml;&szlig;e</b> gr&ouml;&szlig;er als die <b>Druckseitengr&ouml;&szlig;e</b> ist.<p><br /> Hinweis: @POY=0 (Standard) bedeutet, dass es keine &Uuml;berschneidung in vertikaler Richtung zwischen zwei nebeneinanderliegenden Seiten gibt.</p>
 </td></tr>
 <tr>
@@ -10188,7 +10206,7 @@ App aus:<p>0 = Latex noch nicht gestartet 1 = Latex bereits richtig gestartet -1
 <td>RW</td>
 <td>0</td>
 <td>0,1</td>
-<td>6.1052</td>
+<td>6,1052</td>
 <td>Sie steuert, ob Sie LEERZEICHEN als Trennzeichen verwenden, wenn die Zeichenkette kopiert und in die Zellen eingef&uuml;gt wird:<p>0 = LEERZEICHEN als Trennzeichen verwenden,  d. h., wenn Sie eine Zeichenkette mit mehreren Token (getrennt durch LEERZEICHEN) kopieren und in eine Zelle im Arbeitsblatt einf&uuml;gen, wird der Inhalt getrennt und spalten&uuml;bergreifend in mehreren Zellen eingef&uuml;gt. <br /> 1 = TAB als Trennzeichen verwenden, so dass die Zeichenkette mit mehreren Token (getrennt durch LEERZEICHN) in eine einzelne Zelle eingef&uuml;gt werden.</p>
 </td></tr>
 <tr>
@@ -10465,7 +10483,7 @@ App aus:<p>0 = Latex noch nicht gestartet 1 = Latex bereits richtig gestartet -1
 <td>RW</td>
 <td>0</td>
 <td>0,1</td>
-<td>6.1052</td>
+<td>6,1052</td>
 <td>Sie steuert, ob automatisch die Seite der Y-Achse in der GUI gewechselt wird, wenn die X-Skala umgekehrt wird:<p>0 = Die Seite der Y-Achse automatisch wechseln, unabh&auml;ngig von der X-Skala <br /> 1 = Wenn die X-Skala umgekehrt ist, wechselt die Y-Achse automatisch von der linken zur rechten Seite in der GUI und die Option <b>Umgekehrt</b> ist auf der Seite <b>X-Achse: Skalierung</b> im Dialog <b>Details Zeichnung</b> aktiviert. <br /> Hinweis: Der automatisches Wechsel zur umgekehrten Achsen funktioniert nicht &uuml;ber Skript.</p>
 </td></tr>
 <tr>
@@ -10474,7 +10492,7 @@ App aus:<p>0 = Latex noch nicht gestartet 1 = Latex bereits richtig gestartet -1
 <td>RW</td>
 <td>1</td>
 <td>0,1</td>
-<td>6.1052</td>
+<td>6,1052</td>
 <td>Sie steuert, ob automatisch die Seite der Y-Achse in der GUI gewechselt wird, wenn die X-Skala f&uuml;r das Bilddiagramm umgekehrt wird:<p>0 = Automatisches Wechseln der Seite der Y-Achse unabh&auml;ngig von der X-Skala deaktivieren <br /> 1 = Automatisches Wechseln der Seite der Y-Achse von links nach rechts, wenn die X-Skala umgekehrt ist, unter der Bedingung, dass es mindestens ein Bilddiagramm im aktiven Layer gibt</p>
 </td></tr>
 <tr>
@@ -10509,7 +10527,7 @@ App aus:<p>0 = Latex noch nicht gestartet 1 = Latex bereits richtig gestartet -1
 <td>RW</td>
 <td>0</td>
 <td>0,1</td>
-<td>6.1052</td>
+<td>6,1052</td>
 <td>Sie steuert, ob das Projektskript nur vom Autor ausgef&uuml;hrt werden kann:<p>0 = Von jedem ausf&uuml;hrbar <br /> 1 = Nur vom Autor ausf&uuml;hrbar</p>
 </td></tr>
 <tr>
@@ -10667,7 +10685,7 @@ App aus:<p>0 = Latex noch nicht gestartet 1 = Latex bereits richtig gestartet -1
 <td>RW</td>
 <td>2000</td>
 <td>Positive ganze Zahl</td>
-<td>6.1052</td>
+<td>6,1052</td>
 <td>Sie legt die Chunk Size des Datensatzes beim Lesen der Datenbank fest.</td></tr>
 <tr>
 <td>@RDV</td>
@@ -10675,7 +10693,7 @@ App aus:<p>0 = Latex noch nicht gestartet 1 = Latex bereits richtig gestartet -1
 <td>RW</td>
 <td>500000</td>
 <td>Positive ganze Zahl</td>
-<td>6.1052</td>
+<td>6,1052</td>
 <td>Sie legt die maximal unterst&uuml;tzte Vektorgr&ouml;&szlig;e fest, die in den Berichtsdaten vorkommen kann, ohne per Referenz weitergegeben zu werden.</td></tr>
 <tr>
 <td>@RED</td>
@@ -10754,7 +10772,7 @@ App aus:<p>0 = Latex noch nicht gestartet 1 = Latex bereits richtig gestartet -1
 <td>RW</td>
 <td>1</td>
 <td>0,1,2,3,4</td>
-<td>6.1052</td>
+<td>6,1052</td>
 <td>Sie legt die Quellsprache fest:<p>0 = Standardsprache <br /> 1 = Englisch <br /> 2 = Deutsch <br /> 3 = Japanisch<br /> 4 = Chinesisch</p>
 </td></tr>
 <tr>
@@ -10763,7 +10781,7 @@ App aus:<p>0 = Latex noch nicht gestartet 1 = Latex bereits richtig gestartet -1
 <td>RW</td>
 <td>40</td>
 <td>Positive ganze Zahl</td>
-<td>6.1052</td>
+<td>6,1052</td>
 <td>Sie legt die automatische Grenze der Gr&ouml;&szlig;en&auml;nderung der Spalte fest, wenn die Spalten markiert werden und doppelt auf den Trenner zwischen den Spalten geklickt wird, um die Spaltenbreite automatisch anzupassen. @RLC = 0 bedeutet unbegrenzte Anzahl von Spalten</td></tr>
 <tr>
 <td>@RLL</td>
@@ -10796,7 +10814,7 @@ App aus:<p>0 = Latex noch nicht gestartet 1 = Latex bereits richtig gestartet -1
 <td>RW</td>
 <td>70</td>
 <td>Positive ganze Zahl</td>
-<td>6.1052</td>
+<td>6,1052</td>
 <td>Sie legt die automatische Grenze der Gr&ouml;&szlig;en&auml;nderung der Zeile fest, wenn die Zeilen markiert werden und doppelt auf den Trenner zwischen den Zeilen geklickt wird, um die Spaltenbreite automatisch anzupassen.</td></tr>
 <tr>
 <td>@RLS</td>
@@ -10804,7 +10822,7 @@ App aus:<p>0 = Latex noch nicht gestartet 1 = Latex bereits richtig gestartet -1
 <td>RW</td>
 <td>0</td>
 <td>0,1</td>
-<td>6.1052</td>
+<td>6,1052</td>
 <td>Sie steuert, ob die Anzeigesprache des Berichtsblatts tempor&auml;r auf Englisch geschaltet werden soll, wenn die Hauptsprache Japanisch oder Deutsch ist:<p>0 = Die Berichtssprache bleibt die gleiche wie die Origin-Anzeigesprache <br /> 1 = Die Berichtssprache wechselt tempor&auml;r auf Englisch</p>
 </td></tr>
 <tr>
@@ -10831,7 +10849,7 @@ App aus:<p>0 = Latex noch nicht gestartet 1 = Latex bereits richtig gestartet -1
 <td>RW</td>
 <td>0</td>
 <td>0,1</td>
-<td>6.1052</td>
+<td>6,1052</td>
 <td>Sie steuert, ob das neue Format angewendet wird, um das Ergebnisfenster zu speichern:<p>0 = Neues Format, bin&auml;re Speicherung, Aufzeichnung f&uuml;r Aufzeichnung <br /> 1 = Altes Format, eine Zeichenkette, die beim Laden geparst werden muss</p>
 </td></tr>
 <tr>
@@ -10904,7 +10922,7 @@ App aus:<p>0 = Latex noch nicht gestartet 1 = Latex bereits richtig gestartet -1
 <td>RW</td>
 <td>0</td>
 <td>0,1</td>
-<td>6.1052</td>
+<td>6,1052</td>
 <td>Sie steuert, ob das Drehen und schiefe Anzeigen des ROI-Objekts (grafische Datenauswahl) aktiviert werden:<p>0 = Drehen und schiefes Anzeigen deaktivieren <br /> 1 = Drehen und schiefes Anzeigen aktivieren <br /> Hinweis: In den Versionen nach 6 k&ouml;nnen die Optionen Drehen und schiefes Anzeigen durch Aktivieren des Kontrollk&auml;stchens im Dialog <b>Objekteigenschaften</b> aktiviert werden.</p>
 </td></tr>
 <tr>
@@ -10929,7 +10947,7 @@ App aus:<p>0 = Latex noch nicht gestartet 1 = Latex bereits richtig gestartet -1
 <td>RW</td>
 <td>1</td>
 <td>0,1</td>
-<td>6.1052</td>
+<td>6,1052</td>
 <td>Sie steuert, ob das &Auml;ndern der Gr&ouml;&szlig;e des ROI-Objekts (grafische Datenauswahl) aktiviert wird:<p>0 = &Auml;ndern der Gr&ouml;&szlig;e deaktivieren <br /> 1 = &Auml;ndern der Gr&ouml;&szlig;e aktivieren <br /> Hinweis: In den Versionen nach 6 kann die Option &Auml;ndern der Gr&ouml;&szlig;e durch Anzeigen durch Aktivieren des Kontrollk&auml;stchens im Dialog <b>Objekteigenschaften</b> aktiviert werden.</p>
 </td></tr>
 <tr>
@@ -11010,7 +11028,7 @@ App aus:<p>0 = Latex noch nicht gestartet 1 = Latex bereits richtig gestartet -1
 <td>10</td>
 <td>Positive ganze Zahl</td>
 <td>2021b</td>
-<td>Sie steuert die maximale Zeilenh&ouml;he der Beschriftungszeilen des Berichtsblatts f&uuml;r die automatische Gr&ouml;&szlig;e. Bei 0 wird das urspr&uuml;ngliche Verhalten verwendet.</td></tr>
+<td>Sie steuert die maximale Zeilenh&ouml;he der Beschriftungszeilen des Berichtsblatts f&uuml;r die automatische Gr&ouml;&szlig;e. Bei 0 wird das urspr&uuml;ngliche Verhalten verwendet. F&uuml;r andere siehe @RRHH.</td></tr>
 <tr>
 <td>@RRL</td>
 <td>bool</td>
@@ -11053,7 +11071,7 @@ App aus:<p>0 = Latex noch nicht gestartet 1 = Latex bereits richtig gestartet -1
 <td>RW</td>
 <td>0</td>
 <td>0,1</td>
-<td>6.1052</td>
+<td>6,1052</td>
 <td>Sie steuert, ob die Anzahl der ausstehenden Aufgaben auf der Statusleiste gezeigt wird oder nicht:<p>0 = Anzahl der ausstehenden Aufgaben nicht zeigen <br /> 1 = Anzahl der ausstehenden Aufgaben zeigen</p>
 </td></tr>
 <tr>
@@ -11096,7 +11114,7 @@ App aus:<p>0 = Latex noch nicht gestartet 1 = Latex bereits richtig gestartet -1
 <td>RW</td>
 <td>20</td>
 <td>Nat&uuml;rliche Zahl</td>
-<td>6.1052</td>
+<td>6,1052</td>
 <td>Sie legt die Sensitivit&auml;t des regionalen Selektors f&uuml;r die vorhandene Datenmarkierung in Prozent der Punktsymbolgr&ouml;&szlig;e fest.<p><br /> Hinweis: Innerhalb des Bereichs, der durch @RSS in der vorhandenen Markierung begrenzt ist, werden keine neuen Markierungen erstellt.</p>
 </td></tr>
 <tr>
@@ -11157,7 +11175,7 @@ App aus:<p>0 = Latex noch nicht gestartet 1 = Latex bereits richtig gestartet -1
 <td>RW</td>
 <td>1</td>
 <td>0,1</td>
-<td>6.1052</td>
+<td>6,1052</td>
 <td>Sie steuert, ob ein gezoomtes Diagramm beim Export oder Kopieren der Seite auf die gesamte Seitengr&ouml;&szlig;e passend wiederhergestellt werden soll:<p>0 = Zoom auf Seitengr&ouml;&szlig;e wiederherstellen, wenn die aktuelle Diagrammaufl&ouml;sung sich von der unter <b>Einstellungen: Optionen: Erweitert: Aufl&ouml;sung setzen</b> festgelegten Aufl&ouml;sung unterscheidet. <br /> 1 = Gezoomtes Diagramm unver&auml;ndert lassen</p>
 </td></tr></table>
 <h2><a name="S"></a><span class="mw-headline"><b>S</b></span></h2>
@@ -11176,7 +11194,7 @@ App aus:<p>0 = Latex noch nicht gestartet 1 = Latex bereits richtig gestartet -1
 <td>RW</td>
 <td>-3</td>
 <td>Negative ganze Zahl</td>
-<td>6.1052</td>
+<td>6,1052</td>
 <td>Sie legt die untere Grenze f&uuml;r die Anzahl der signifikanten Stellen fest.</td></tr>
 <tr>
 <td>@SAAP</td>
@@ -11254,7 +11272,7 @@ App aus:<p>0 = Latex noch nicht gestartet 1 = Latex bereits richtig gestartet -1
 <td>RW</td>
 <td>1</td>
 <td>0,1</td>
-<td>6.1052</td>
+<td>6,1052</td>
 <td>Sie steuert, ob das OPJ mit Datenmetadaten gespeichert wird:<p>0 = OPJ nicht mit Dateimetadaten speichern <br /> 1 = OPJ mit Dateimetadaten speichern</p>
 </td></tr>
 <tr>
@@ -11306,7 +11324,7 @@ App aus:<p>0 = Latex noch nicht gestartet 1 = Latex bereits richtig gestartet -1
 <td>RW</td>
 <td>1</td>
 <td>0,1</td>
-<td>6.1052</td>
+<td>6,1052</td>
 <td>Sie steuert, ob sprintf in real2str den Fall ber&uuml;cksichtigt, dass ein Double mit einem Komma als Dezimaltrennzeichen ausgegebem wird:<p>0 = Den Fall nicht ber&uuml;cksichtigen <br /> 1 = Den Fall ber&uuml;cksichtigen</p>
 </td></tr>
 <tr>
@@ -11350,7 +11368,7 @@ App aus:<p>0 = Latex noch nicht gestartet 1 = Latex bereits richtig gestartet -1
 <td>RW</td>
 <td>0</td>
 <td>0,1,4,5</td>
-<td>6.1052</td>
+<td>6,1052</td>
 <td>Sie steuert, ob die Spaltenbeschriftungen LabTalk-Substitution durch Steuerbits zulassen:<p>1 = Substitution f&uuml;r Langname zulassen <br /> 4 = Substitution f&uuml;r Kommentare zulassen <br /> Hinweis: @SCL ist eine Kombination der Steuerbits, @SCL=5 (schlie&szlig;t @SCL=1 und @SCL=4 ein) bedeutet, dass Substitution f&uuml;r beides, Langname und Kommentare, zugelassen ist.</p>
 </td></tr>
 <tr>
@@ -11476,7 +11494,7 @@ App aus:<p>0 = Latex noch nicht gestartet 1 = Latex bereits richtig gestartet -1
 <td>RW</td>
 <td>1</td>
 <td>0,1</td>
-<td>6.1052</td>
+<td>6,1052</td>
 <td>Sie steuert die Methode beim Vergleichen von zwei rohen Zeichenketten, die &ldquo;**&rdquo; enthalten:<p>0 = Zeichenkettenvergleich durchf&uuml;hren <br /> 1 = Platzhalter pr&uuml;fen und Zeichenkettenanpassung durchf&uuml;hren <br /> Hinweis: @SCW wir dnur verwendet, um zu pr&uuml;fen, ob die rohe Zeichenkette (&ldquo;**&rdquo;==&rdquo;Event&rdquo;) gleich ist oder nicht, aber nicht das Zeichenkettenobjekt.</p>
 </td></tr>
 <tr>
@@ -11485,7 +11503,7 @@ App aus:<p>0 = Latex noch nicht gestartet 1 = Latex bereits richtig gestartet -1
 <td>RW</td>
 <td>14</td>
 <td>1 bis 15</td>
-<td>6.1052</td>
+<td>6,1052</td>
 <td>Sie legt die maximale Anzahl der Dezimalstellen zum Drucken im Skriptfenster fest.</td></tr>
 
 <tr>
@@ -11502,7 +11520,7 @@ App aus:<p>0 = Latex noch nicht gestartet 1 = Latex bereits richtig gestartet -1
 <td>RW</td>
 <td>0</td>
 <td>0,1</td>
-<td>6.1052</td>
+<td>6,1052</td>
 <td>Sie wird verwendet, um zu steuern, ob @SD als signifikante Stellen oder Dezimalstellen verwendet wird:<p>0 = @SD wird f&uuml;r Dezimalstellen verwendet <br /> 1 = @SD wird f&uuml;r signifikante Stellen verwendet</p>
 </td></tr>
 <tr>
@@ -11572,7 +11590,7 @@ App aus:<p>0 = Latex noch nicht gestartet 1 = Latex bereits richtig gestartet -1
 <td>RW</td>
 <td>500</td>
 <td>Nat&uuml;rliche Zahl</td>
-<td>6.1052</td>
+<td>6,1052</td>
 <td>Sie legt die Verz&ouml;gerung der Tooltipps in Millisekunden f&uuml;r das Bearbeitungsfeld in Dynacontrol fest.</td></tr>
 <tr>
 <td>@SETGRIDOPENCLOSEIMAGE</td>
@@ -11580,7 +11598,7 @@ App aus:<p>0 = Latex noch nicht gestartet 1 = Latex bereits richtig gestartet -1
 <td>RW</td>
 <td>1</td>
 <td>0,1</td>
-<td>6.1052</td>
+<td>6,1052</td>
 <td>Sie steuert, ob das Symbol &ldquo;+&rdquo; zum Kennzeichnen der Erweiterung eines Ordnerknotens verwendet werden soll:<p>0 = Symbol &ldquo;+&rdquo; f&uuml;r Ordnerknoten deaktivieren <br /> 1 = Symbol &ldquo;+&rdquo; f&uuml;r Ordnerknoten aktivieren</p>
 </td></tr>
 <tr>
@@ -11589,7 +11607,7 @@ App aus:<p>0 = Latex noch nicht gestartet 1 = Latex bereits richtig gestartet -1
 <td>RW</td>
 <td>500</td>
 <td>Positive ganze Zahl</td>
-<td>6.1052</td>
+<td>6,1052</td>
 <td>Sie legt die maximale Anzahl der Dialogobjekte fest, die ge&ouml;ffnet werden d&uuml;rfen.</td></tr>
 <tr>
 <td>@SIC</td>
@@ -11606,7 +11624,7 @@ App aus:<p>0 = Latex noch nicht gestartet 1 = Latex bereits richtig gestartet -1
 <td>RW</td>
 <td>1</td>
 <td>Positive ganze Zahl</td>
-<td>6.1052</td>
+<td>6,1052</td>
 <td>Sie legt den Skalierungsfaktor f&uuml;r das Char-Symbol in der Einheit des internen Standardskalierungsfaktors 1000 fest.</td></tr>
 <tr>
 <td>@SFB</td>
@@ -11734,7 +11752,7 @@ App aus:<p>0 = Latex noch nicht gestartet 1 = Latex bereits richtig gestartet -1
 <td>RW</td>
 <td>100</td>
 <td>Positive ganze Zahl</td>
-<td>6.1052</td>
+<td>6,1052</td>
 <td>Sie legt die Anzahl der Schritte f&uuml;r UV fest, um die Achse und Gitternetzlinien f&uuml;r Smith-Diagramme zu erzeugen.<p><br /> Hinweis: Je gr&ouml;&szlig;er @SI ist, desto besser ist die Aufl&ouml;sung des Smith-Diagramms.</p>
 </td></tr>
 <tr>
@@ -11848,7 +11866,7 @@ App aus:<p>0 = Latex noch nicht gestartet 1 = Latex bereits richtig gestartet -1
 <td>RW</td>
 <td>8</td>
 <td>Positive ganze Zahl</td>
-<td>6.1052</td>
+<td>6,1052</td>
 <td>Sie legt fest den Geschwindigkeitsmultiplikator zum Zeichnen des Liniendiagramms im Entwurfsmodus fest.</td></tr>
 <tr>
 <td>@SMLMM</td>
@@ -11864,7 +11882,7 @@ App aus:<p>0 = Latex noch nicht gestartet 1 = Latex bereits richtig gestartet -1
 <td>RW</td>
 <td>4</td>
 <td>0 bis 5</td>
-<td>6.1052</td>
+<td>6,1052</td>
 <td>Sie legt die Methode f&uuml;r den Entwurfsmodus fest:<p>0 = RD_LARGEST_TRIANGLE <br /> 1 = RD_Y_THRESHOLD <br /> 2 = RD_POINT_DISTANCE <br /> 3 = RD_DOUGLAS_PEUCKER_HULL <br /> 4 = RD_LOCAL_EXTREME <br /> 5 = RD_SORT_ASCENDING</p>
 </td></tr>
 <tr>
@@ -11923,7 +11941,7 @@ App aus:<p>0 = Latex noch nicht gestartet 1 = Latex bereits richtig gestartet -1
 <td>RW</td>
 <td>1</td>
 <td>0,1</td>
-<td>6.1052</td>
+<td>6,1052</td>
 <td>Sie steuert, ob der Entwurfsmodus bei der Sucher nach Minimum und Maximum ignoriert wird:<p>0 = Entwurfsmodus bei Suche nach Minimum/Maximum nicht ignorieren <br /> 1 = Entwurfsmodus bei Suche nach Minimum/Maximum ignorieren</p>
 </td></tr>
 <tr>
@@ -12107,7 +12125,7 @@ App aus:<p>0 = Latex noch nicht gestartet 1 = Latex bereits richtig gestartet -1
 <td>RW</td>
 <td>-1</td>
 <td>-1,0,1,2</td>
-<td>6.1052</td>
+<td>6,1052</td>
 <td>Sie legt die Codeseite fest, die f&uuml;r @SQB = 1 oder 2 verwendet wird:<p>-1 = Origins aktuelle Codeseite verwenden <br /> 0 = Standard f&uuml;r ANSI-Codeseite <br /> 1 = Standard f&uuml;r OEM-Codeseite <br /> 2 = Standard f&uuml;r MAC-Codeseite <br /></p>
 </td></tr>
 <tr>
@@ -12162,7 +12180,7 @@ App aus:<p>0 = Latex noch nicht gestartet 1 = Latex bereits richtig gestartet -1
 <td>RW</td>
 <td>200</td>
 <td>Positive ganze Zahl</td>
-<td>6.1052</td>
+<td>6,1052</td>
 <td>Sie legt die Pause in Millisekunden zwischen dem L&ouml;schen der vorherigen Kopie der Datei und dem Umbenennen der gerade gespeicherten tempor&auml;ren Datei in den eigentlichen Projektnamen beim Speichern als OPJ-Datei fest.<p><br /> Hinweis: @SS = 0 bedeutet das Wiederherstellen des alten Verhaltens.</p>
 </td></tr>
 <tr>
@@ -12233,7 +12251,7 @@ App aus:<p>0 = Latex noch nicht gestartet 1 = Latex bereits richtig gestartet -1
 <td>RW</td>
 <td>1</td>
 <td>0,1</td>
-<td>6.1052</td>
+<td>6,1052</td>
 <td>Sie legt den Anzeigestil f&uuml;r ausgew&auml;hlten statischen Text fest:<p>0 = Statische Textauswahl zeigt blauen Hintergrund und dunkelblauen Text an <br /> 1 = Statische Textauswahl zeigt blauen Hintergrund und wei&szlig;en Text an <br /> Hinweis: Wenn unter <b>Methode</b> der <b>FFT-Filter</b> im Dialog <b>Gl&auml;tten: smooth</b> gew&auml;hlt ist, sehen Sie, dass die <b>Grenzfrequenz</b> nur lesbarer statischer Text ist. @STATICBLUESEL steuert, wie der statische Text in solchen Situationen angezeigt wird.</p>
 </td></tr>
 <tr>
@@ -12275,7 +12293,7 @@ App aus:<p>0 = Latex noch nicht gestartet 1 = Latex bereits richtig gestartet -1
 <td>RW</td>
 <td>6</td>
 <td>Nat&uuml;rliche Zahl</td>
-<td>6.1052</td>
+<td>6,1052</td>
 <td>Sie legt die obere Standardgrenze f&uuml;r die Anzahl der signifikanten Stellen fest.<p><br /> Wenn Sie eine Zahl mit mehr als sechs signifikanten Stellen eingeben, wird sie automatisch auf 6 gek&uuml;rzt.</p>
 </td></tr>
 <tr>
@@ -12358,7 +12376,7 @@ App aus:<p>0 = Latex noch nicht gestartet 1 = Latex bereits richtig gestartet -1
 <td>RW</td>
 <td>1</td>
 <td>0,1</td>
-<td>6.1052</td>
+<td>6,1052</td>
 <td>Sie steuert, ob das OC-basierte Skriptfenster aktiviert ist:<p>0 = OC-basiertes Skriptfenster deaktivieren <br /> 1 = OC-basiertes Skriptfenster aktivieren</p>
 </td></tr>
 <tr>
@@ -12419,7 +12437,7 @@ App aus:<p>0 = Latex noch nicht gestartet 1 = Latex bereits richtig gestartet -1
 <td>RW</td>
 <td>1</td>
 <td>0,1</td>
-<td>6.1052</td>
+<td>6,1052</td>
 <td>Sie steuert, ob der Cache der Schriftarten im Dialog DDK bereinigt wird, wenn alle OC-Bedienelemente der Systemschriften geschlossen sind:<p>0 = Bereinigen der Schriften deaktivieren <br /> 1 = Bereinigen der Schriftarten aktivieren</p>
 </td></tr></table>
 <h2><a name="T"></a><span class="mw-headline"><b>T</b></span></h2>
@@ -12438,7 +12456,7 @@ App aus:<p>0 = Latex noch nicht gestartet 1 = Latex bereits richtig gestartet -1
 <td>RW</td>
 <td>1</td>
 <td>0,1</td>
-<td>6.1052</td>
+<td>6,1052</td>
 <td>Sie steuert, ob die tern&auml;re Achsengrenze aktiviert wird:<p>0 = Tern&auml;re Achsengrenze deaktivieren, so dass die Achsenl&auml;nge nicht f&uuml;r eine ge&auml;nderte Skalierung gek&uuml;rzt wird <br /> 1 = Tern&auml;re Achsengrenze aktivieren, so dass die Achsenl&auml;nge f&uuml;r eine ge&auml;nderte Skalierung gek&uuml;rzt wird <br /> Hinweis: @TAC ist nur f&uuml;r Versionen &auml;lter als 9.1 verf&uuml;gbar.</p>
 </td></tr>
 <tr>
@@ -12596,7 +12614,7 @@ App aus:<p>0 = Latex noch nicht gestartet 1 = Latex bereits richtig gestartet -1
 <td>RW</td>
 <td>0</td>
 <td>0,1</td>
-<td>6.1052</td>
+<td>6,1052</td>
 <td>Sie steuert, ob die Tri-Kontur-Datenreduktion f&uuml;r den Entwurfsmodus aktiviert wird:<p>0 = Tri-Kontur-Datenreduktion deaktivieren <br /> 1 = Tri-Kontur-Datenreduktion aktivieren</p>
 </td></tr>
 <tr>
@@ -12605,7 +12623,7 @@ App aus:<p>0 = Latex noch nicht gestartet 1 = Latex bereits richtig gestartet -1
 <td>RW</td>
 <td>500</td>
 <td>Positive ganze Zahl</td>
-<td>6.1052</td>
+<td>6,1052</td>
 <td>Sie legt die Anzahl der Punkte fest, auf die die Tri-Konturdaten zum Zeichnen reduziert werden, wenn die Anzahl der Datenpunkte gr&ouml;&szlig;er ist als @TED.<p><br /> Hinweis: Wenn die Anzahl der Datenpunkte kleiner ist als @TED, wird sie nicht reduziert.</p>
 </td></tr>
 <tr>
@@ -12623,7 +12641,7 @@ App aus:<p>0 = Latex noch nicht gestartet 1 = Latex bereits richtig gestartet -1
 <td>RW</td>
 <td>1</td>
 <td>0,1</td>
-<td>6.1052</td>
+<td>6,1052</td>
 <td>Sie steuert, ob der neue Konturzeichnungscode der Matrix aktiviert wird:<p>0 = Alten Zeichnungscode f&uuml;r Matrix verwenden <br /> 1 = Neuen Zeichnungscode f&uuml;r Matrix verwenden</p>
 </td></tr>
 <tr>
@@ -12632,7 +12650,7 @@ App aus:<p>0 = Latex noch nicht gestartet 1 = Latex bereits richtig gestartet -1
 <td>RW</td>
 <td>0</td>
 <td>0,1</td>
-<td>6.1052</td>
+<td>6,1052</td>
 <td>Sie steuert, ob der strikte Text-Escape aktiviert werden soll:<p>0 = Der weniger strikte Text-Escape wird verwendet, das hei&szlig;t, irrt&uuml;mliche Leerzeichen und Tabs im Escape, z. B. \b (data) -&gt; \b(data), werden &uuml;bersprungen. <br /> 1 = Strikten Text-Escape verwenden, so dass keine Leerzeichen und Tabs im Escape &uuml;bersprungen werden.</p>
 </td></tr>
 <tr>
@@ -12641,7 +12659,7 @@ App aus:<p>0 = Latex noch nicht gestartet 1 = Latex bereits richtig gestartet -1
 <td>RW</td>
 <td>0,05</td>
 <td>0 bis 1</td>
-<td>6.1052</td>
+<td>6,1052</td>
 <td>Sie legt die Prozent fest, die die Ebene eines fehlenden Werts ergeben, im Umgang mit fehlenden Werten in einer XYZ-Kontur.<p><br /> Hinweis: Fehlende Ebene = Min &ndash; (Max-Min)*Prozent, wobei Prozent = @TET.</p>
 </td></tr>
 <tr>
@@ -12650,7 +12668,7 @@ App aus:<p>0 = Latex noch nicht gestartet 1 = Latex bereits richtig gestartet -1
 <td>RW</td>
 <td>1</td>
 <td>0,1</td>
-<td>6.1052</td>
+<td>6,1052</td>
 <td>Sie steuert, ob das &Uuml;berspringen von fehlenden Werten in 3D-Oberfl&auml;chendiagrammen aktiviert wird:<p>0 = &Uuml;berspringen fehlender Werte deaktivieren <br /> 1 = &Uuml;berspringen fehlender Werte aktivieren, so dass diese nicht gezeichnet werden</p>
 </td></tr>
 <tr>
@@ -12659,7 +12677,7 @@ App aus:<p>0 = Latex noch nicht gestartet 1 = Latex bereits richtig gestartet -1
 <td>RW</td>
 <td>0</td>
 <td>0 bis 100</td>
-<td>6.1052</td>
+<td>6,1052</td>
 <td>Sie legt den Faktor in Prozent fest, um die Abmessung der Texth&ouml;he auf extra eng zu reduzieren.</td></tr>
 <tr>
 <td>@TFC</td>
@@ -12710,7 +12728,7 @@ App aus:<p>0 = Latex noch nicht gestartet 1 = Latex bereits richtig gestartet -1
 <td>RW</td>
 <td>0</td>
 <td>0,1</td>
-<td>6.1052</td>
+<td>6,1052</td>
 <td>Sie steuert, ob GDIPlus f&uuml;r den Beschriftungstext der Datenzeichnung verwendet wird, wenn die Zeichnung transparent ist:<p>0 = GDIPlus f&uuml;r Beschriftungstext der Datenzeichnung nicht verwenden <br /> 1 = GDIPlus f&uuml;r den Beschriftungstext der Datenzeichnung aktivieren</p>
 </td></tr>
 <tr>
@@ -12737,7 +12755,7 @@ App aus:<p>0 = Latex noch nicht gestartet 1 = Latex bereits richtig gestartet -1
 <td>RW</td>
 <td>0</td>
 <td>0,1</td>
-<td>6.1052</td>
+<td>6,1052</td>
 <td>Sie steuert das Verhalten f&uuml;r die Einstellung der Hilfsstriche:<p>0 = Hilfsstrichseinstellungen der Vorlage &uuml;bernehmen <br /> 1 = Hilfsstrichseinstellungen folgen @TKP und @TKS</p>
 </td></tr>
 <tr>
@@ -12746,7 +12764,7 @@ App aus:<p>0 = Latex noch nicht gestartet 1 = Latex bereits richtig gestartet -1
 <td>RW</td>
 <td>10</td>
 <td>0,1,2,4,5,6,8,9,10</td>
-<td>6.1052</td>
+<td>6,1052</td>
 <td>Sie legt die Richtung der Hilfsstriche auf der prim&auml;ren Achse (unten/links) durch Steuerbits fest:<p>1 = Gro&szlig;e Hilfsstriche innen <br /> 2 = Gro&szlig;e Hilfsstriche au&szlig;en <br /> 4 = Kleine Hilfsstriche innen <br /> 8 = Kleine Hilfsstriche au&szlig;en <br /> Hinweis: @TKP ist eine Kombination der Steuerbits, @TKP=10 bedeutet, dass der Standard gro&szlig;e Hilfsstriche au&szlig;en (@TKP=2) und kleine Hilfsstriche au&szlig;en (@TKP=8) ist.</p>
 </td></tr>
 <tr>
@@ -12755,7 +12773,7 @@ App aus:<p>0 = Latex noch nicht gestartet 1 = Latex bereits richtig gestartet -1
 <td>RW</td>
 <td>5</td>
 <td>0,1,2,4,5,6,8,9,10</td>
-<td>6.1052</td>
+<td>6,1052</td>
 <td>Sie legt die Richtung der Hilfsstriche auf der sekund&auml;ren Achse (oben/rechts) durch Steuerbits fest:<p>1 = Gro&szlig;e Hilfsstriche innen <br /> 2 = Gro&szlig;e Hilfsstriche au&szlig;en <br /> 4 = Kleine Hilfsstriche innen <br /> 8 = Kleine Hilfsstriche au&szlig;en <br /> Hinweis: @TKS ist eine Kombination der Steuerbits, @TKS=5 bedeutet, dass der Standard gro&szlig;e Hilfsstriche innen (@TKS=1) und kleine Hilfsstriche innen (@TKS=4) ist.</p>
 </td></tr>
 <tr>
@@ -12764,7 +12782,7 @@ App aus:<p>0 = Latex noch nicht gestartet 1 = Latex bereits richtig gestartet -1
 <td>RW</td>
 <td>10</td>
 <td>Nat&uuml;rliche Zahl</td>
-<td>6.1052</td>
+<td>6,1052</td>
 <td>Sie steuert, ob lineare Hilfsstriche f&uuml;r einen kurzen Bereich mit logarithmischer Skalierung verwendet werden:<p>0 = Urspr&uuml;ngliches Verhalten, nichtlineare Hilfsstriche verwenden <br /> 10 = Innerhalb 1 Zehnerstelle darf linear sein <br /> Hinweis: F&uuml;r den Bereich werden lineare Hilfsstriche verwendet, die die Bedingung 10*log10(max/min)&lt;=@TL erf&uuml;llen.</p>
 </td></tr>
 <tr>
@@ -12943,7 +12961,7 @@ App aus:<p>0 = Latex noch nicht gestartet 1 = Latex bereits richtig gestartet -1
 <td>RW</td>
 <td>1</td>
 <td>0,1</td>
-<td>6.1052</td>
+<td>6,1052</td>
 <td>Sie wird verwendet, um zu steuern, wie der Text gestreckt wird:<p>0 = Der Text ist nicht nach au&szlig;en streckbar <br /> 1 = Der Text ist im Fenstermodus nach au&szlig;en streckbar</p>
 </td></tr>
 <tr>
@@ -13002,7 +13020,7 @@ App aus:<p>0 = Latex noch nicht gestartet 1 = Latex bereits richtig gestartet -1
 <td>RW</td>
 <td>50</td>
 <td>Positive ganze Zahl</td>
-<td>6.1052</td>
+<td>6,1052</td>
 <td>Sie legt fest, wie viele Zeilen gescannt werden m&uuml;ssen, um die maximale Anzahl der zu verwendenden Registerkarten/Spalten zu bestimmen.</td></tr>
 <tr>
 <td>@TSS</td>
@@ -13035,7 +13053,7 @@ App aus:<p>0 = Latex noch nicht gestartet 1 = Latex bereits richtig gestartet -1
 <td>RW</td>
 <td>1</td>
 <td>0 bis 2300</td>
-<td>6.1052</td>
+<td>6,1052</td>
 <td>Sie legt die Testtoleranz der Gleitkommazahl fest, die in einer normalisierten einzelnen Einheit beim 3D-Zeichnen verwendet wird.<p><br /> Hinweis: Zum Beispiel wird (x1, y1, z1) und (x2, y2, z2) als der gleiche Punkt identifiziert,falls und nur falls: ABS(x1-x2) &lt; @TTD und ABS(y1-y2) &lt; @TTD und ABS(z1-z2) &lt; @TTD. @TTD ist in 1 Einheit der Gesamtseitenh&ouml;he.</p>
 </td></tr>
 <tr>
@@ -13044,7 +13062,7 @@ App aus:<p>0 = Latex noch nicht gestartet 1 = Latex bereits richtig gestartet -1
 <td>RW</td>
 <td>0</td>
 <td>0,1</td>
-<td>6.1052</td>
+<td>6,1052</td>
 <td>Sie steuert, ob das neue Verhalten auf Bilder mit vergr&ouml;&szlig;erter Skalierung f&uuml;r Bilddiagramme angewendet wird:<p>0 = Neues Verhalten; Bilddiagramm immer beschneiden, um es an den Achsenbereich anzupassen <br /> 1 = Altes Verhalten; Zulassen, dass das Bilddiagramm au&szlig;erhalb des Achsenbereichs gezeigt wird, ohne dass Pixel abgeschnitten werden</p>
 </td></tr>
 <tr>
@@ -13080,7 +13098,7 @@ App aus:<p>0 = Latex noch nicht gestartet 1 = Latex bereits richtig gestartet -1
 <td>RW</td>
 <td>0</td>
 <td>0,1</td>
-<td>6.1052</td>
+<td>6,1052</td>
 <td>Sie steuert, ob die Beschriftung von Achse und Datenpunkt eine Basislinie f&uuml;r den Druck haben sollten:<p>0 = Die Beschriftung von Achse und Datenpunkt hat eine Basislinie, d. h. sie ist von ihrem Beschriftungsversatz versetzt <br /> 1 = Die Beschriftung von Achse und Datenpunkt hat keine Basislinie, d. h. die Beschriftung ber&uuml;hrt die untere Kante des Beschriftungsrahmens.</p>
 </td></tr>
 <tr>
@@ -13089,7 +13107,7 @@ App aus:<p>0 = Latex noch nicht gestartet 1 = Latex bereits richtig gestartet -1
 <td>RW</td>
 <td>0</td>
 <td>0,1</td>
-<td>6.1052</td>
+<td>6,1052</td>
 <td>Sie steuert, ob die Farbabbildung sofort nach dem &Auml;ndern der Skalierungseinstellungen &uuml;ber LabTalk aktualisiert wird:<p>0 = Nach &Auml;ndern der Skalierung nicht aktualisieren <br /> 1 = Nach &Auml;ndern der Skalierung aktualisieren</p>
 </td></tr>
 <tr>
@@ -13107,7 +13125,7 @@ App aus:<p>0 = Latex noch nicht gestartet 1 = Latex bereits richtig gestartet -1
 <td>RW</td>
 <td>0</td>
 <td>0,1</td>
-<td>6.1052</td>
+<td>6,1052</td>
 <td>Sie steuert, ob alle R&Uuml;CKG&Auml;NGIG-Operationen deaktiviert werden:<p>0 = R&Uuml;CKG&Auml;NGIG-Operationen aktivieren <br /> 1 = Alle R&Uuml;CKG&Auml;NGIG-Operationen globale deaktivieren</p>
 </td></tr>
 <tr>
@@ -13201,7 +13219,7 @@ App aus:<p>0 = Latex noch nicht gestartet 1 = Latex bereits richtig gestartet -1
 <td>RW</td>
 <td>10</td>
 <td>-1 Nat&uuml;rliche Zahl</td>
-<td>6.1052</td>
+<td>6,1052</td>
 <td>Sie legt die maximale Tiefe des r&uuml;ckg&auml;ngig zu machenden Stapels fest.<p>Hinweis: @UN=-1 bedeutet, das uneingeschr&auml;nkt viele Schritte in einer Operation r&uuml;ckg&auml;ngig gemacht werden k&ouml;nnen; @UN=0 deaktiviert R&Uuml;CKG&Auml;NGIG machen.</p>
 </td></tr>
 <tr>
@@ -13245,7 +13263,7 @@ App aus:<p>0 = Latex noch nicht gestartet 1 = Latex bereits richtig gestartet -1
 <td>RW</td>
 <td>1</td>
 <td>0,1</td>
-<td>6.1052</td>
+<td>6,1052</td>
 <td>Sie steuert, ob Grafikobjekte, die mit Skriptbefehlen verbunden sind, gedruckt/exportiert werden:<p>0 = Grafikobjekte mit Befehlen nicht drucken/exportieren <br /> 1 = Grafikobjekte mit Befehlen drucken/exportieren</p>
 </td></tr>
 <tr>
@@ -13339,7 +13357,7 @@ App aus:<p>0 = Latex noch nicht gestartet 1 = Latex bereits richtig gestartet -1
 <td>RW</td>
 <td>1</td>
 <td>0,1</td>
-<td>6.1052</td>
+<td>6,1052</td>
 <td>Sie steuert, ob Vektorisierung aktiviert wird, wenn LabTalk zum Aufrufen von Origin-C-Funktionen verwendet wird:<p>0 = Vektorisierung deaktivieren, wenn LabTalk zum Aufrufen von Origin-C-Funktionen verwendet wird <br /> 1 = Vektorisierung aktivieren, wenn LabTalk zum Aufrufen von Origin-C-Funktionen verwendet wird</p>
 </td></tr>
 <tr>
@@ -13348,7 +13366,7 @@ App aus:<p>0 = Latex noch nicht gestartet 1 = Latex bereits richtig gestartet -1
 <td>RW</td>
 <td>0</td>
 <td>0,1</td>
-<td>6.1052</td>
+<td>6,1052</td>
 <td>Sie steuert, ob ein eingebettetes Diagramm (eingebettet in Zelle) gel&ouml;scht wird, wenn Arbeitsbl&auml;tter gel&ouml;scht werden.<p>0 = Eingebettetes Diagramm beim L&ouml;schen von Arbeitsblatt l&ouml;schen 1 = Eingebettetes Diagramm beim L&ouml;schen von Arbeitsblatt l&ouml;schen, aber eingebettetes Diagramm ist noch vorhanden</p>
 </td></tr>
 <tr>
@@ -13399,19 +13417,18 @@ App aus:<p>0 = Latex noch nicht gestartet 1 = Latex bereits richtig gestartet -1
 <td>@VCM</td>
 <td>int</td>
 <td>R</td>
-<td>
-</td>
-<td>
-</td>
-<td>2025b</td>
-<td>Der ConfigMode-Wert der Registry wird wiedergegeben.</td></tr>
+<td>0</td>
+<td>0,1,2</td>
+<td>2025b<br />Update in 2027</td>
+<td>Kehrt zum aktiven Bedienoberfl&auml;chenmodus zur&uuml;ck.<p>0 = Standardmodus (einschlie&szlig;lich klassischer Standardbedienoberfl&auml;che, <a class="external text" href="../../UserGuide/UserGuide/Compact_Mode.html">Kompaktmodus</a> oder benutzerdefinierter OMC-Modus)<br /> 1 = <a class="external text" href="../../UserGuide/Category/Life_Science_Mode.html">Life-Science-Modus</a><br /> 2 = <a class="external text" href="../../UserGuide/Category/Stats_Mode.html">Statistikmodus</a></p>
+</td></tr>
 <tr>
 <td>@VDF</td>
 <td>bool</td>
 <td>RW</td>
 <td>0</td>
 <td>0,1</td>
-<td>6.1052</td>
+<td>6,1052</td>
 <td>Sie steuert, ob die Origin-Version angegeben wird, in der die Datei beim &Ouml;ffnen einer OPJ-Datei im Skripfenster gespeichert wurde:<p>0 = Origin-Version der im Skriptfenster gespeicherten Datei beim &Ouml;ffnen nicht angeben <br /> 1= Origin-Version der im Skriptfenster gespeicherten Datei beim &Ouml;ffnen angeben Hinweis: Die Meldung im Skriptfenster lautet &ldquo;Verwendete Origin-Version, wenn Datei gespeichert wurde: 9.100271&rdquo;.</p>
 </td></tr>
 <tr>
@@ -13428,7 +13445,7 @@ App aus:<p>0 = Latex noch nicht gestartet 1 = Latex bereits richtig gestartet -1
 <td>RW</td>
 <td>1</td>
 <td>0,1</td>
-<td>6.1052</td>
+<td>6,1052</td>
 <td>Sie steuert, ob Vista und Windows 7 zum Verwenden ihres nativen Datei-Dialogs verwendet werden:<p>0 = Vista und Windows 7 deaktivieren, um ihren nativen Datei-Dialog zu verwenden <br /> 1 = Vista und Windows 7 aktivieren, um ihren nativen Datei-Dialog zu verwenden</p>
 </td></tr>
 <tr>
@@ -13446,7 +13463,7 @@ App aus:<p>0 = Latex noch nicht gestartet 1 = Latex bereits richtig gestartet -1
 <td>RW</td>
 <td>0</td>
 <td>Nat&uuml;rliche Zahl</td>
-<td>6.1052</td>
+<td>6,1052</td>
 <td>Sie steuert, ob die LabTalk-Variable mit der Gruppenzahl gekennzeichnet wird:<p>0 = LabTalk-Variable nicht mit Gruppenzahl kennzeichnen <br /> &gt;0 = Alle neu erstellten LabTalk-Variablen werden mit der Gruppenzahl gekennzeichnet</p>
 </td></tr>
 <tr>
@@ -13482,7 +13499,7 @@ App aus:<p>0 = Latex noch nicht gestartet 1 = Latex bereits richtig gestartet -1
 <td>R</td>
 <td>Abh&auml;ngig von der Version</td>
 <td>0,1</td>
-<td>6.1052</td>
+<td>6,1052</td>
 <td>Sie gibt an, ob die Origin-Version japanisch ist.<p>0 = Nicht japanisch <br /> 1 = Japanisch</p>
 </td></tr>
 <tr>
@@ -13491,7 +13508,7 @@ App aus:<p>0 = Latex noch nicht gestartet 1 = Latex bereits richtig gestartet -1
 <td>R</td>
 <td>Abh&auml;ngig von der Version</td>
 <td>0,1</td>
-<td>6.1052</td>
+<td>6,1052</td>
 <td>Sie gibt die Origin-Version an:<p>0 = Regul&auml;re Version <br /> 1 = Pro-Version</p>
 </td></tr>
 <tr>
@@ -13525,7 +13542,7 @@ App aus:<p>0 = Latex noch nicht gestartet 1 = Latex bereits richtig gestartet -1
 <td>R</td>
 <td>Abh&auml;ngig vom Projekt</td>
 <td>0 bis 88</td>
-<td>6.1052</td>
+<td>6,1052</td>
 <td>Sie legt die Version der geladenen OPJ-Datei fest, anstatt der Version von Origin.</td></tr>
 <tr>
 <td>@VR</td>
@@ -13533,7 +13550,7 @@ App aus:<p>0 = Latex noch nicht gestartet 1 = Latex bereits richtig gestartet -1
 <td>RW</td>
 <td>Abh&auml;ngig vom Zustand</td>
 <td>0,1</td>
-<td>6.1052</td>
+<td>6,1052</td>
 <td>Sie gibt an, ob die Origin-Version registriert ist.<p>0 = Nicht registriert <br /> 1 = Registriert <br /> Hinweis: Das Festlegen von @VR auf einen Wert, der gr&ouml;&szlig;er als Null ist, ruft den Dialog der Registrierung auf.</p>
 </td></tr>
 <tr>
@@ -13542,7 +13559,7 @@ App aus:<p>0 = Latex noch nicht gestartet 1 = Latex bereits richtig gestartet -1
 <td>R</td>
 <td>Abh&auml;ngig von der Version</td>
 <td>1,2,3,4</td>
-<td>6.1052</td>
+<td>6,1052</td>
 <td>Sie gibt die Sprachversion von Origin an:<p>1 = Englisch <br /> 2 = Deutsch <br /> 3 = Japanisch <br /> 4 = Chinesisch</p>
 </td></tr>
 <tr>
@@ -13577,7 +13594,7 @@ App aus:<p>0 = Latex noch nicht gestartet 1 = Latex bereits richtig gestartet -1
 <td>RW</td>
 <td>0</td>
 <td>0,1</td>
-<td>6.1052</td>
+<td>6,1052</td>
 <td>Sie steuert, ob das Fenster der Schnellhilfe gezeigt wird:<p>0 = Nicht zeigen <br /> 1 = Zeigen</p>
 </td></tr>
 <tr>
@@ -13586,7 +13603,7 @@ App aus:<p>0 = Latex noch nicht gestartet 1 = Latex bereits richtig gestartet -1
 <td>RW</td>
 <td>0</td>
 <td>0,1</td>
-<td>6.1052</td>
+<td>6,1052</td>
 <td>Sie steuert, ob das Fenster des Projekt Explorers gezeigt wird:<p>0 = Nicht zeigen <br /> 1 = Zeigen</p>
 </td></tr>
 <tr>
@@ -13595,7 +13612,7 @@ App aus:<p>0 = Latex noch nicht gestartet 1 = Latex bereits richtig gestartet -1
 <td>RW</td>
 <td>0</td>
 <td>0,1</td>
-<td>6.1052</td>
+<td>6,1052</td>
 <td>Sie steuert, ob das Fenster des Ergebnisfensters gezeigt wird:<p>0 = Nicht zeigen <br /> 1 = Zeigen</p>
 </td></tr>
 <tr>
@@ -13604,7 +13621,7 @@ App aus:<p>0 = Latex noch nicht gestartet 1 = Latex bereits richtig gestartet -1
 <td>RW</td>
 <td>1</td>
 <td>0,1</td>
-<td>6.1052</td>
+<td>6,1052</td>
 <td>Sie steuert, ob die Statusleiste des Origin-Fensters gezeigt wird:<p>0 = Nicht zeigen <br /> 1 = Zeigen</p>
 </td></tr></table>
 <h2><a name="W"></a><span class="mw-headline"><b>W</b></span></h2>
@@ -13623,7 +13640,7 @@ App aus:<p>0 = Latex noch nicht gestartet 1 = Latex bereits richtig gestartet -1
 <td>RW</td>
 <td>1</td>
 <td>Positive ganze Zahl</td>
-<td>6.1052</td>
+<td>6,1052</td>
 <td>Sie steuert die Schriftgr&ouml;&szlig;e der Fensteransicht. Je gr&ouml;&szlig;er @W ist, desto gr&ouml;&szlig;er ist die Schriftgr&ouml;&szlig;e.<p><br /> Hinweis: Sie k&ouml;nnen zur Fensteransicht wechseln, indem Sie im Hauptmen&uuml; <b>Ansicht: Fenster zeigen</b> w&auml;hlen.</p>
 </td></tr>
 <tr>
@@ -13641,7 +13658,7 @@ App aus:<p>0 = Latex noch nicht gestartet 1 = Latex bereits richtig gestartet -1
 <td>RW</td>
 <td>0</td>
 <td>0,1</td>
-<td>6.1052</td>
+<td>6,1052</td>
 <td>Sie wird verwendet, um beim Einf&uuml;gen eines Arbeitsmappenkommentars als Infovariable die erste Zeile zu erhalten.<p><br /> Hinweis: Falls die aktive Arbeitsmappe Kommentare hat, wenn Sie ein Textobjekt mit Skript &ldquo;%(1Y,@WC)&rdquo; einf&uuml;gen, wird die erste Zeile der Arbeitsmappenkommentare gezeigt.</p>
 </td></tr>
 <tr>
@@ -13726,7 +13743,7 @@ App aus:<p>0 = Latex noch nicht gestartet 1 = Latex bereits richtig gestartet -1
 <td>RW</td>
 <td>0</td>
 <td>0,1</td>
-<td>6.1052</td>
+<td>6,1052</td>
 <td>Sie steuert das Verhalten, wenn &ldquo;win &ndash;t wks template name&rdquo; zum Erstellen des Arbeitsblatts verwendet wird. Wenn das Arbeitsblatt bereits existiert hat, bewirkt der Befehl nichts. Falls es noch nicht existiert hat, aber bereits ein Datensatz mit dem gleichen Namen und Vorlage bestand:<p>0 = Bestehenden Datensatz mit dem gleichen Namen nicht l&ouml;schen, aber Befehlsfehler zeigen <br /> 1 = Alle bestehenden Datens&auml;tze mit dem gleichen Namen l&ouml;schen</p>
 </td></tr>
 <tr>
@@ -13761,7 +13778,7 @@ App aus:<p>0 = Latex noch nicht gestartet 1 = Latex bereits richtig gestartet -1
 <td>RW</td>
 <td>0</td>
 <td>0,1</td>
-<td>6.1052</td>
+<td>6,1052</td>
 <td>Sie steuert, ob der Cursor mit Hilfe der Pfeiltasten (links/rechts) in eine andere Zelle verschoben wird, wenn er das Ende der zu bearbeitenden Zellen erreicht hat:<p>0 = Cursor bleibt am Ende der Zelle, wenn er das Zellenende erreicht <br /> 1 = Cursor bewegt sich von der zu bearbeitenden Zelle in die n&auml;chstliegende Zelle, wenn er das Zellenende erreicht <br /> Hinweis: @WE wird nach VErsion 7.5 nicht mehr verwendet.</p>
 </td></tr>
 <tr>
@@ -13968,7 +13985,7 @@ App aus:<p>0 = Latex noch nicht gestartet 1 = Latex bereits richtig gestartet -1
 <td>RW</td>
 <td>1</td>
 <td>Positive ganze Zahl</td>
-<td>6.1052</td>
+<td>6,1052</td>
 <td>Sie legt den Skalierungsfaktor des Wasserfalldiagramms fest.<p><br /> Hinweis: Eine h&ouml;here @WSF bedeutet eine niedrigere Abtastrate.</p>
 </td></tr>
 <tr>
@@ -14091,7 +14108,7 @@ App aus:<p>0 = Latex noch nicht gestartet 1 = Latex bereits richtig gestartet -1
 <td>RW</td>
 <td>1</td>
 <td>0,1</td>
-<td>6.1052</td>
+<td>6,1052</td>
 <td>Sie steuert das Dialogdesign beim Verwenden des LabTalk-Befehls &ldquo;GETSAVENAME s;&rdquo;, um den Dialog zu &ouml;ffnen:<p>0 = Der Dialog <b>Speichern unter</b> verwendet den alten Stil <br /> 1 = Der Dialog <b>Speichern unter</b> verwendet den neuen Stil</p>
 </td></tr>
 <tr>
@@ -14127,7 +14144,7 @@ App aus:<p>0 = Latex noch nicht gestartet 1 = Latex bereits richtig gestartet -1
 <td>RW</td>
 <td>0</td>
 <td>0,1</td>
-<td>6.1052</td>
+<td>6,1052</td>
 <td>Sie steuert, ob das Befehlsprotokoll im <b>Ergebnisfenster</b> ausgegeben wird:<p>0= Nicht aufgeben <br /> 1= Ausgeben</p>
 </td></tr>
 <tr>
@@ -14136,7 +14153,7 @@ App aus:<p>0 = Latex noch nicht gestartet 1 = Latex bereits richtig gestartet -1
 <td>RW</td>
 <td>0</td>
 <td>0,1</td>
-<td>6.1052</td>
+<td>6,1052</td>
 <td>Sie steuert, ob der Fehlerbericht der X-Funktion den Dateinamen und die Zeilennummer enthalten sollte:<p>0 = Der Fehlerbericht der X-Funktion enth&auml;lt nicht den Dateinamen und die Zeilennummer, so dass Anwender ihn beheben m&uuml;ssen <br /> 1 = Der Fehlerbericht der X-Funktion den Dateinamen und die Zeilennummer</p>
 </td></tr>
 <tr>
@@ -14145,7 +14162,7 @@ App aus:<p>0 = Latex noch nicht gestartet 1 = Latex bereits richtig gestartet -1
 <td>RW</td>
 <td>0</td>
 <td>0,1</td>
-<td>6.1052</td>
+<td>6,1052</td>
 <td>Sie steuert, wie Ausgabespalten, die durch die Operation mit einer X-Funktion entstanden sind, in das Arbeitsblatt eingef&uuml;gt werden:<p>0 = Ausgabespalten, die durch die Operation mit einer X-Funktion entstanden sind, gleich nach den XY-Eingabespalten einf&uuml;gen <br /> 1 = Ausgabespalten werden an das Ende des Arbeitsblatts angeh&auml;ngt</p>
 </td></tr>
 <tr>
@@ -14154,7 +14171,7 @@ App aus:<p>0 = Latex noch nicht gestartet 1 = Latex bereits richtig gestartet -1
 <td>RW</td>
 <td>0</td>
 <td>0,1</td>
-<td>6.1052</td>
+<td>6,1052</td>
 <td>Sie steuert, wie Ausgabespalten, die durch die Operation mit einer X-Funktion entstanden sind, in das Arbeitsblatt eingef&uuml;gt werden, wenn die Ausgabe zugewiesen ist mit (&lt;Eingabe&gt;, &lt;neu&gt;):<p>0 = Ausgabespalten werden an das Ende des Arbeitsblatts angeh&auml;ngt <br /> 1 =  Ausgabespalten, die durch die Operation mit einer X-Funktion entstanden sind, gleich nach den XY-Eingabespalten einf&uuml;gen <br /> Hinweis: @XFOI=1 &uuml;berschreibt @XFON.</p>
 </td></tr>
 <tr>
@@ -14180,7 +14197,7 @@ App aus:<p>0 = Latex noch nicht gestartet 1 = Latex bereits richtig gestartet -1
 <td>RW</td>
 <td>1</td>
 <td>0,1</td>
-<td>6.1052</td>
+<td>6,1052</td>
 <td>Sie steuert, ob die Daten mit voller Pr&auml;zision kopiert werden oder mit dem, was in Excel angezeigt wurde, wenn aus Excel kopiert und in Origin eingef&uuml;gt wird:<p>0 = Nur Kopieren, was in Excel angezeigt wurde <br /> 1 = Daten mit voller Pr&auml;zision in Excel kopieren</p>
 </td></tr>
 <tr>
@@ -14214,7 +14231,7 @@ App aus:<p>0 = Latex noch nicht gestartet 1 = Latex bereits richtig gestartet -1
 <td>int</td>
 <td>RW</td>
 <td>2</td>
-<td>0, Nat&uuml;rliche Zahl</td>
+<td>0 Nat&uuml;rliche Zahl</td>
 <td>2023</td>
 <td>Bestimmen Sie, ob und wie der Variablenpfad zum Spaltenlangnamen und -kommentar getrennt wird, wenn die XML-Datei per <a class="external text" href="../../UserGuide/UserGuide/Connecting_to_File.html#JSON.2FXML">XML-Datenkonnektor</a> importiert wird. Angenommen, @xmll ist auf <i>N</i> gesetzt. Wenn der Pfad k&uuml;rzer als oder gleich <i>N</i> ist, wird der letzte Eintrag in den Spaltenlangnamen eingegeben und der fr&uuml;here Teil in Kommentar. Wenn der Pfad l&auml;nger als N ist, werden die ersten N-ten Eintr&auml;ge in Kommentar kombiniert und die nach dem N-ten in Langname.<p>Setzen Sie @xmll = 0, um alle Pfade in Spaltenlangname einzugeben. Altes Verhalten.</p><p><br /><span class='persistTag'>Dauerhaft</span></p>
 </td></tr>
@@ -14259,7 +14276,7 @@ App aus:<p>0 = Latex noch nicht gestartet 1 = Latex bereits richtig gestartet -1
 <td>RW</td>
 <td>1</td>
 <td>0,1</td>
-<td>6.1052</td>
+<td>6,1052</td>
 <td>Sie steuert, wie das obere Ende von S&auml;ulendiagrammen entlang des Azimuts in polaren Diagrammen zu zeichnen:<p>0 = Obere Enden des S&auml;ulendiagramms in Form einer gerade Linie zeichnen <br /> 1 = Obere Enden des S&auml;ulendiagramms in gekr&uuml;mmter Form zeichnen</p>
 </td></tr>
 <tr>
@@ -14268,7 +14285,7 @@ App aus:<p>0 = Latex noch nicht gestartet 1 = Latex bereits richtig gestartet -1
 <td>RW</td>
 <td>1</td>
 <td>0,1</td>
-<td>6.1052</td>
+<td>6,1052</td>
 <td>Sie steuert, ob Datenpunkte von S&auml;ulen-/ gestapelten S&auml;ulendiagrammen in polaren Layern gezeichnet werden, wenn Daten nur innerhalb des Rahmens anpassen aktiviert ist, auch wenn sie teilweise oder vollst&auml;ndig au&szlig;erhalb des polaren Layers liegen:<p>0 = Datenpunkte von S&auml;ulen-/ gestapelten S&auml;ulendiagrammen nicht zeichnen, wenn sie teilweise oder vollst&auml;ndig au&szlig;erhalb des polaren Layers liegen <br /> 1 = Datenpunkte von S&auml;ulen-/ gestapelten S&auml;ulendiagrammen zeichnen, wenn sie teilweise oder vollst&auml;ndig au&szlig;erhalb des polaren Layers liegen</p>
 </td></tr>
 <tr>
@@ -14277,7 +14294,7 @@ App aus:<p>0 = Latex noch nicht gestartet 1 = Latex bereits richtig gestartet -1
 <td>RW</td>
 <td>1</td>
 <td>Nat&uuml;rliche Zahl</td>
-<td>6.1052</td>
+<td>6,1052</td>
 <td>Sie legt den Schwellenwert der Grade zum F&uuml;llen entlang der Kontursegmente in polaren Konturdiagrammen fest.<p><br /> Hinweis: @YPF=0 bedeutet, dies ausschalten. Wenn @YPF gr&ouml;&szlig;er als 0 ist, ist es die minimale Anzahl der Grade zwischen den aufeinanderfolgenden Punkten der Kontur in polaren Konturdiagrammen, die zum Einf&uuml;gen der zus&auml;tzlichen Punkte f&uuml;hrt, um &quot;gekr&uuml;mmte&quot; Verbindungen zwischen den Punkten im polaren Konturdiagramm zu erzeugen.</p>
 </td></tr>
 <tr>
@@ -14286,7 +14303,7 @@ App aus:<p>0 = Latex noch nicht gestartet 1 = Latex bereits richtig gestartet -1
 <td>RW</td>
 <td>1</td>
 <td>0,1</td>
-<td>6.1052</td>
+<td>6,1052</td>
 <td>Sie steuert, wie schlechte Datenpunkte entfernt werden:<p>0 = die gesamte Datenzeile l&ouml;schen <br /> 1 = Daten aus Datensatz l&ouml;schen, wenn schlechte Datenpunkte entfernt werden</p>
 </td></tr>
 <tr>
@@ -14303,7 +14320,7 @@ App aus:<p>0 = Latex noch nicht gestartet 1 = Latex bereits richtig gestartet -1
 <td>RW</td>
 <td>0</td>
 <td>0,1</td>
-<td>6.1052</td>
+<td>6,1052</td>
 <td>Sie steuert, ob eine Zahl mit f&uuml;hrenden Nullen (z. B. 002) als ein Text betrachtet wird:<p>0 = Als Zahl betrachten <br /> 1 = Als Text betrachten</p>
 </td></tr>
 <tr>
@@ -14312,7 +14329,7 @@ App aus:<p>0 = Latex noch nicht gestartet 1 = Latex bereits richtig gestartet -1
 <td>RW</td>
 <td>200</td>
 <td>Positive ganze Zahl</td>
-<td>6.1052</td>
+<td>6,1052</td>
 <td>Sie legt die Verz&ouml;gerung in Millisekunden fest, um zwischen Zoomen und Schwenken unter den Hilfsmitteln zum Zoomen zu wechseln.</td></tr>
 <tr>
 <td>@ZZ</td>
@@ -14320,7 +14337,7 @@ App aus:<p>0 = Latex noch nicht gestartet 1 = Latex bereits richtig gestartet -1
 <td>RW</td>
 <td>0</td>
 <td>0,1</td>
-<td>6.1052</td>
+<td>6,1052</td>
 <td>Sie steuert die Weise, wie die 0-te Potenz von 0 behandelt wird (0^0):<p>0 = 0^0 wird als NANUM betrachtet <br /> 1 = 0^0 wird als 1 betrachtet</p>
 </td></tr></table>
 
