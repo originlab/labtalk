@@ -5285,7 +5285,6 @@ This fitting function is for global fitting. When using it, Vmax, Km, Ki, and Al
 <td>A piecewise model that simulates ligand binding using an exponential rise equation and an exponential decay equation.
 <p><img src="../images/LabTalk-Supported_Functions/math-092190abbbe29aa5c7956cf8831adecd.png?v=0" title="y = NS + \begin{cases} &#10;\frac{L B_{\text{max}}}{L + K_{\text{off}} / K_{\text{on}}} \left(1 - e^{-(L K_{\text{on}} + K_{\text{off}}) x}\right) &amp; (x \le \text{Time0}) \\[1.5em]&#10;\frac{L B_{\text{max}}}{L + K_{\text{off}} / K_{\text{on}}} \left(1 - e^{-(L K_{\text{on}} + K_{\text{off}}) \text{Time0}}\right) e^{-K_{\text{off}} (x - \text{Time0})} &amp; (x &gt; \text{Time0})&#10;\end{cases}" alt="y = NS + \begin{cases} &#10;\frac{L B_{\text{max}}}{L + K_{\text{off}} / K_{\text{on}}} \left(1 - e^{-(L K_{\text{on}} + K_{\text{off}}) x}\right) &amp; (x \le \text{Time0}) \\[1.5em]&#10;\frac{L B_{\text{max}}}{L + K_{\text{off}} / K_{\text{on}}} \left(1 - e^{-(L K_{\text{on}} + K_{\text{off}}) \text{Time0}}\right) e^{-K_{\text{off}} (x - \text{Time0})} &amp; (x &gt; \text{Time0})&#10;\end{cases}" class="tex"/>
 <br /><img src="../images/LabTalk-Supported_Functions/math-4c316d7948d16abaf087b7ff6414808b.png?v=0" title="\text{where } L = \text{Hotnm} \times 1\text{E}-9" alt="\text{where } L = \text{Hotnm} \times 1\text{E}-9" class="tex"/>
-&lt;/math&gt;
 </p>
 </td></tr>
 <tr>
@@ -5865,105 +5864,109 @@ This fitting function is for global fitting. When using it, Vmax, Km, Ki, and Al
 <td><a class="external text" href="../../UserGuide/UserGuide/MixedFull2.html">MixedFull2(x,Vmax,Km,Ki,S,alpha)</a>
 </td>
 <td>Full mixed-model inhibition describing the kinetic response to inhibitor concentration for a system where both binding and catalysis are affected.
-<p><a  class="image"><img alt="MixedFull2 Funcion formula.png" src="../images/LabTalk-Supported_Functions/MixedFull2_Funcion_formula.png?v=42363" width="203"  /></a>
+<p><img src="../images/LabTalk-Supported_Functions/math-998eceee0fc9a89eaf5fc7dd223c6148.png?v=0" title="\frac{V_{\max}}{\frac{K_{m}}{S}\left(1+\frac{x}{K_{i}}\right)+\left(1+\frac{x}{\alpha K_{i}}\right)}" alt="\frac{V_{\max}}{\frac{K_{m}}{S}\left(1+\frac{x}{K_{i}}\right)+\left(1+\frac{x}{\alpha K_{i}}\right)}" class="tex"/>
 </p>
 </td></tr>
 <tr>
 <td><a class="external text" href="../../UserGuide/UserGuide/MixedInhibition.html">MixedInhibition(x,Vmax,Km,Ki,alpha,E,S)</a>
 </td>
 <td>Tight-binding mixed-model inhibition for high-affinity inhibitors.
-<p><a  class="image"><img alt="MixedInhibition Funcion formula.png" src="../images/LabTalk-Supported_Functions/MixedInhibition_Funcion_formula.png?v=42364" width="370"  /></a>
+<p><img src="../images/LabTalk-Supported_Functions/math-9def39a89cf91e9392f2b5ed9c8b9c1a.png?v=0" title="V_{0}=\frac{V_{\max}}{\frac{K_{m}}{S}+1}&#10;\qquad&#10;K_{app}=\frac{K_{i}\left(\frac{s}{K_{m}}+1\right)}{1+\frac{s}{\alpha K_{m}}}" alt="V_{0}=\frac{V_{\max}}{\frac{K_{m}}{S}+1}&#10;\qquad&#10;K_{app}=\frac{K_{i}\left(\frac{s}{K_{m}}+1\right)}{1+\frac{s}{\alpha K_{m}}}" class="tex"/>
 </p>
 </td></tr>
 <tr>
 <td><a class="external text" href="../../UserGuide/UserGuide/MixedInhibition2.html">MixedInhibition2(x,Vmax,Km,Ki,alpha,E,I)</a>
 </td>
 <td>Tight-binding mixed-model inhibition describing the kinetic response to substrate concentration.
-<p><a  class="image"><img alt="MixedInhibition2 Funcion formula.png" src="../images/LabTalk-Supported_Functions/MixedInhibition2_Funcion_formula.png?v=42365" width="373"  /></a>
+<p><img src="../images/LabTalk-Supported_Functions/math-9def39a89cf91e9392f2b5ed9c8b9c1a.png?v=0" title="V_{0}=\frac{V_{\max}}{\frac{K_{m}}{S}+1}&#10;\qquad&#10;K_{app}=\frac{K_{i}\left(\frac{s}{K_{m}}+1\right)}{1+\frac{s}{\alpha K_{m}}}" alt="V_{0}=\frac{V_{\max}}{\frac{K_{m}}{S}+1}&#10;\qquad&#10;K_{app}=\frac{K_{i}\left(\frac{s}{K_{m}}+1\right)}{1+\frac{s}{\alpha K_{m}}}" class="tex"/>
+<br /><img src="../images/LabTalk-Supported_Functions/math-d111f9d14c5016923cf0c8829d01d62b.png?v=0" title="y=\frac{V_{0}}{2E}\left(E-I-K_{app}+\sqrt{\left(E-I-K_{app}\right)^{2}+4EK_{app}}\right)" alt="y=\frac{V_{0}}{2E}\left(E-I-K_{app}+\sqrt{\left(E-I-K_{app}\right)^{2}+4EK_{app}}\right)" class="tex"/>
 </p>
 </td></tr>
 <tr>
 <td><a class="external text" href="../../UserGuide/UserGuide/MixedPartial.html">MixedPartial(x,Vmax,Km,Ki,I,beta,alpha)</a>
 </td>
 <td>Partial mixed-model inhibition.
-<p><a  class="image"><img alt="MixedPartial Funcion formula.png" src="../images/LabTalk-Supported_Functions/MixedPartial_Funcion_formula.png?v=42366" width="240"  /></a>
+<p><img src="../images/LabTalk-Supported_Functions/math-d080de7ad400045885cda117236c30cc.png?v=0" title="K_{s}=\frac{1+\frac{I}{K_{i}}}{1+\frac{I}{\alpha K_{i}}}&#10;\qquad&#10;K_{s&#39;}=\frac{1+\frac{\beta I}{K_{i}}}{1+\frac{I}{\alpha K_{i}}}" alt="K_{s}=\frac{1+\frac{I}{K_{i}}}{1+\frac{I}{\alpha K_{i}}}&#10;\qquad&#10;K_{s&#39;}=\frac{1+\frac{\beta I}{K_{i}}}{1+\frac{I}{\alpha K_{i}}}" class="tex"/>
+<br /><img src="../images/LabTalk-Supported_Functions/math-8b6bfd32c5b3d61d08e7b2e64695be1b.png?v=0" title="V=\frac{V_{\max}\cdot x\cdot K_{s&#39;}}{x+K_{m}\cdot K_{s}}" alt="V=\frac{V_{\max}\cdot x\cdot K_{s&#39;}}{x+K_{m}\cdot K_{s}}" class="tex"/>
 </p>
 </td></tr>
 <tr>
 <td><a class="external text" href="../../UserGuide/UserGuide/MixedPartial2.html">MixedPartial2(x,Vmax,Km,Ki,S,beta,alpha)</a>
 </td>
 <td>Partial mixed-model inhibition describing the kinetic response to inhibitor concentration.
-<p><a  class="image"><img alt="MixedPartial2 Funcion formula.png" src="../images/LabTalk-Supported_Functions/MixedPartial2_Funcion_formula.png?v=42368" width="234"  /></a>
+<p><img src="../images/LabTalk-Supported_Functions/math-18f6f0773537211d8447def81a5783cd.png?v=0" title="K_{s}=\frac{1+\frac{x}{K_{i}}}{1+\frac{x}{\alpha K_{i}}}&#10;\qquad&#10;K_{s&#39;}=\frac{1+\frac{\beta x}{K_{i}}}{1+\frac{x}{\alpha K_{i}}}" alt="K_{s}=\frac{1+\frac{x}{K_{i}}}{1+\frac{x}{\alpha K_{i}}}&#10;\qquad&#10;K_{s&#39;}=\frac{1+\frac{\beta x}{K_{i}}}{1+\frac{x}{\alpha K_{i}}}" class="tex"/>
+<br /><img src="../images/LabTalk-Supported_Functions/math-e5c1edb3da63eae15bd6ba9708e6cd36.png?v=0" title="V=\frac{V_{\max}\cdot S\cdot K_{s&#39;}}{S+K_{m}\cdot K_{s}}" alt="V=\frac{V_{\max}\cdot S\cdot K_{s&#39;}}{S+K_{m}\cdot K_{s}}" class="tex"/>
 </p>
 </td></tr>
 <tr>
 <td><a class="external text" href="../../UserGuide/UserGuide/NoncompetitiveFull.html">NoncompetitiveFull(x,Vmax,Ki,Km,I)</a>
 </td>
 <td>Full noncompetitive inhibition model.
-<p><a  class="image"><img alt="NoncompetitiveFull Funcion formula.png" src="../images/LabTalk-Supported_Functions/NoncompetitiveFull_Funcion_formula.png?v=42369" width="172"  /></a>
+<p><img src="../images/LabTalk-Supported_Functions/math-6cf394bdad97577eec93364e15286c5d.png?v=0" title="\frac{V_{\max}}{\left(1+\frac{I}{K_{i}}\right)\left(1+\frac{K_{m}}{x}\right)}" alt="\frac{V_{\max}}{\left(1+\frac{I}{K_{i}}\right)\left(1+\frac{K_{m}}{x}\right)}" class="tex"/>
 </p>
 </td></tr>
 <tr>
 <td><a class="external text" href="../../UserGuide/UserGuide/NoncompetitiveFull2.html">NoncompetitiveFull2(x,Vmax,Ki,Km,S)</a>
 </td>
 <td>Full noncompetitive inhibition model describing the kinetic response to inhibitor concentration.
-<p><a  class="image"><img alt="NoncompetitiveFull2 Funcion formula.png" src="../images/LabTalk-Supported_Functions/NoncompetitiveFull2_Funcion_formula.png?v=42370" width="197"  /></a>
+<p><img src="../images/LabTalk-Supported_Functions/math-5ce5c1d865ed9afe6c95a81f8993542f.png?v=0" title="\frac{V_{\max}}{\left(1+\frac{x}{K_{i}}\right)\left(1+\frac{K_{m}}{S}\right)}" alt="\frac{V_{\max}}{\left(1+\frac{x}{K_{i}}\right)\left(1+\frac{K_{m}}{S}\right)}" class="tex"/>
 </p>
 </td></tr>
 <tr>
 <td><a class="external text" href="../../UserGuide/UserGuide/NoncompetitiveInhibition.html">NoncompetitiveInhibition(x,Vmax,Km,Ki,E,S)</a>
 </td>
 <td>Tight-binding noncompetitive inhibition model for high-affinity inhibitors.
-<p><a  class="image"><img alt="NoncompetitiveInhibition Funcion formula.png" src="../images/LabTalk-Supported_Functions/NoncompetitiveInhibition_Funcion_formula.png?v=42371" width="366"  /></a>
+<p><img src="../images/LabTalk-Supported_Functions/math-0f0dd642e160d639d7b8284356e83f0a.png?v=0" title="V_{0}=\frac{V_{\max}}{\frac{K_{m}}{S}+1}" alt="V_{0}=\frac{V_{\max}}{\frac{K_{m}}{S}+1}" class="tex"/><br /><img src="../images/LabTalk-Supported_Functions/math-c89c54802f31defc4539d90181ab7cdc.png?v=0" title="y=\frac{V_{0}}{2E}\left(E-x-K_{i}+\sqrt{\left(E-x-K_{i}\right)^{2}+4EK_{i}}\right)" alt="y=\frac{V_{0}}{2E}\left(E-x-K_{i}+\sqrt{\left(E-x-K_{i}\right)^{2}+4EK_{i}}\right)" class="tex"/>
 </p>
 </td></tr>
 <tr>
 <td><a class="external text" href="../../UserGuide/UserGuide/NoncompetitiveInhibition2.html">NoncompetitiveInhibition2(x,Vmax,Km,Ki,E,I)</a>
 </td>
 <td>Tight-binding noncompetitive inhibition model describing the kinetic response to substrate concentration.
-<p><a  class="image"><img alt="NoncompetitiveInhibition2 Funcion formula.png" src="../images/LabTalk-Supported_Functions/NoncompetitiveInhibition2_Funcion_formula.png?v=42372" width="300"  /></a>
+<p><img src="../images/LabTalk-Supported_Functions/math-c36dd0eff782e6fe2d006b249cc001fd.png?v=0" title="v_{0}=\frac{V_{\max}\cdot x}{K_{m}+x}" alt="v_{0}=\frac{V_{\max}\cdot x}{K_{m}+x}" class="tex"/>
+</p><p><img src="../images/LabTalk-Supported_Functions/math-12733bb769aa536081bbc071a79bcb76.png?v=0" title="y=\frac{v_{0}}{2E}\left((E-I-K_{i})+\sqrt{\left(E-I-K_{i}\right)^{2}+4EK_{i}}\right)" alt="y=\frac{v_{0}}{2E}\left((E-I-K_{i})+\sqrt{\left(E-I-K_{i}\right)^{2}+4EK_{i}}\right)" class="tex"/>
 </p>
 </td></tr>
 <tr>
 <td><a class="external text" href="../../UserGuide/UserGuide/NoncompetitivePartial.html">NoncompetitivePartial(x,Vmax,Km,Ki,I,beta)</a>
 </td>
 <td>Partial noncompetitive inhibition model.
-<p><a  class="image"><img alt="NoncompetitivePartial Funcion formula.png" src="../images/LabTalk-Supported_Functions/NoncompetitivePartial_Funcion_formula.png?v=42374" width="146"  /></a>
+<p><img src="../images/LabTalk-Supported_Functions/math-9e2c996994d84eea25a4efa1a4e188d4.png?v=0" title="\frac{\frac{V_{\max}}{\left(1+\frac{K_{m}}{x}\right)\left(1+\frac{I}{K_{i}}\right)}}{1+\frac{I\beta}{K_{i}}}" alt="\frac{\frac{V_{\max}}{\left(1+\frac{K_{m}}{x}\right)\left(1+\frac{I}{K_{i}}\right)}}{1+\frac{I\beta}{K_{i}}}" class="tex"/>
 </p>
 </td></tr>
 <tr>
 <td><a class="external text" href="../../UserGuide/UserGuide/NoncompetitivePartial2.html">NoncompetitivePartial2(x,Vmax,Km,Ki,S,beta)</a>
 </td>
 <td>Partial noncompetitive inhibition model describing the kinetic response to inhibitor concentration.
-<p><a  class="image"><img alt="NoncompetitivePartial2 Funcion formula.png" src="../images/LabTalk-Supported_Functions/NoncompetitivePartial2_Funcion_formula.png?v=42375" width="155"  /></a>
+<p><img src="../images/LabTalk-Supported_Functions/math-61064794cb7fb5227bf94b840738692b.png?v=0" title="\frac{\frac{V_{\max}}{\left(1+\frac{K_{m}}{S}\right)\left(1+\frac{x}{K_{i}}\right)}}{1+\frac{x\beta}{K_{i}}}" alt="\frac{\frac{V_{\max}}{\left(1+\frac{K_{m}}{S}\right)\left(1+\frac{x}{K_{i}}\right)}}{1+\frac{x\beta}{K_{i}}}" class="tex"/>
 </p>
 </td></tr>
 <tr>
 <td><a class="external text" href="../../UserGuide/UserGuide/Nonessencial.html">Nonessencial(x,Vmax,Km,Ka,alpha,beta,A)</a>
 </td>
 <td>Non-essential activation model.
-<p><a  class="image"><img alt="Nonessencial Funcion formula.png" src="../images/LabTalk-Supported_Functions/Nonessencial_Funcion_formula.png?v=42376" width="220"  /></a>
+<p><img src="../images/LabTalk-Supported_Functions/math-508bd4f1500425a274723b01ba94ec28.png?v=0" title="\frac{V_{\max}\left(1+\frac{\beta A}{\alpha K_{a}}\right)}{\frac{K_{m}}{x}\left(1+\frac{A}{K_{a}}\right)+\left(1+\frac{A}{\alpha K_{a}}\right)}" alt="\frac{V_{\max}\left(1+\frac{\beta A}{\alpha K_{a}}\right)}{\frac{K_{m}}{x}\left(1+\frac{A}{K_{a}}\right)+\left(1+\frac{A}{\alpha K_{a}}\right)}" class="tex"/>
 </p>
 </td></tr>
 <tr>
 <td><a class="external text" href="../../UserGuide/UserGuide/Nonessencial2.html">Nonessencial2(x,Vmax,Km,Ka,alpha,beta,S)</a>
 </td>
 <td>Non-essential activation model describing the kinetic response to activator concentration.
-<p><a  class="image"><img alt="Nonessencial2 Funcion formula.png" src="../images/LabTalk-Supported_Functions/Nonessencial2_Funcion_formula.png?v=42377" width="225"  /></a>
+<p><img src="../images/LabTalk-Supported_Functions/math-c745c14e29e110cf67a7a2422304d13d.png?v=0" title="\frac{V_{\max}\left(1+\frac{\beta x}{\alpha K_{a}}\right)}{\frac{K_{m}}{S}\left(1+\frac{x}{K_{a}}\right)+\left(1+\frac{x}{\alpha K_{a}}\right)}" alt="\frac{V_{\max}\left(1+\frac{\beta x}{\alpha K_{a}}\right)}{\frac{K_{m}}{S}\left(1+\frac{x}{K_{a}}\right)+\left(1+\frac{x}{\alpha K_{a}}\right)}" class="tex"/>
 </p>
 </td></tr>
 <tr>
 <td><a class="external text" href="../../UserGuide/UserGuide/OrderedBiBiSequential.html">OrderedBiBiSequential(x,Vmax,B,Ka,Kb)</a>
 </td>
 <td>Ordered Bi-Bi sequential mechanism describing the kinetic response to a substrate.
-<p><a  class="image"><img alt="OrderedBiBiSequential Funcion formula.png" src="../images/LabTalk-Supported_Functions/OrderedBiBiSequential_Funcion_formula.png?v=42378" width="173"  /></a>
+<p><img src="../images/LabTalk-Supported_Functions/math-5981d5fbc2b83fd9fcf1ad2cda166efd.png?v=0" title="\frac{V_{\max}\cdot x\cdot B}{K_{a}\cdot K_{b}+K_{b}\cdot x+x\cdot B}" alt="\frac{V_{\max}\cdot x\cdot B}{K_{a}\cdot K_{b}+K_{b}\cdot x+x\cdot B}" class="tex"/>
 </p>
 </td></tr>
 <tr>
 <td><a class="external text" href="../../UserGuide/UserGuide/OrderedBiBiSequential2.html">OrderedBiBiSequential2(x,Vmax,A,Ka,Kb)</a>
 </td>
 <td>Ordered Bi-Bi sequential mechanism describing the kinetic response to the second substrate's concentration.
-<p><a  class="image"><img alt="OrderedBiBiSequential2 Funcion formula.png" src="../images/LabTalk-Supported_Functions/OrderedBiBiSequential2_Funcion_formula.png?v=42379" width="190"  /></a>
+<p><img src="../images/LabTalk-Supported_Functions/math-43bbe702e7aa378d42ec9b04e7343148.png?v=0" title="\frac{V_{\max}\cdot A\cdot x}{K_{a}\cdot K_{b}+K_{b}\cdot A+A\cdot x}" alt="\frac{V_{\max}\cdot A\cdot x}{K_{a}\cdot K_{b}+K_{b}\cdot A+A\cdot x}" class="tex"/>
 </p>
 </td></tr>
 <tr>
@@ -6005,14 +6008,14 @@ This fitting function is for global fitting. When using it, Vmax, Km, Ki, and Al
 <td><a class="external text" href="../../UserGuide/UserGuide/SingleExp.html">SingleExp(x,ymax,k)</a>
 </td>
 <td>Single exponential decay model.
-<p><a  class="image"><img alt="SingleExp Funcion formula.png" src="../images/LabTalk-Supported_Functions/SingleExp_Funcion_formula.png?v=42385" width="164"  /></a>
+<p><img src="../images/LabTalk-Supported_Functions/math-5cdec3c236ee3189cbf3c3a55c53db43.png?v=0" title="y=y_{\max}e^{-kx}" alt="y=y_{\max}e^{-kx}" class="tex"/>
 </p>
 </td></tr>
 <tr>
 <td><a class="external text" href="../../UserGuide/UserGuide/SingleExpOffset.html">SingleExpOffset(x,ymax,y0,k)</a>
 </td>
 <td>Single exponential decay model with offset.
-<p><a  class="image"><img alt="SingleExpOffset Funcion formula.png" src="../images/LabTalk-Supported_Functions/SingleExpOffset_Funcion_formula.png?v=42386" width="208"  /></a>
+<p><img src="../images/LabTalk-Supported_Functions/math-7812847e96297acb32cc95e8c47269c5.png?v=0" title="y=y_{0}+y_{\max}e^{-kx}" alt="y=y_{0}+y_{\max}e^{-kx}" class="tex"/>
 </p>
 </td></tr>
 <tr>
