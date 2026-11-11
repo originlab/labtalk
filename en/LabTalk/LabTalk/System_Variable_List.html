@@ -2550,6 +2550,22 @@ other = break width will be adjust to break width * @BW
 </p>
 </td></tr>
 <tr>
+<td> @CAC
+</td>
+<td> bool
+</td>
+<td> RW
+</td>
+<td> 1
+</td>
+<td> 0,1
+</td>
+<td> 2026b
+</td>
+<td> set @CAC = 0 to disable adding Check-All checkbox to a tab group in GetN dialog
+</td></tr>
+
+<tr>
 <td> @CACM
 </td>
 <td> int
@@ -4224,6 +4240,22 @@ Note: @CS=0, default maximum column width is 3800.@CS=1, use new maximum size 58
 <td> @CTN=1 to allow ctrl+tab/ctrl+shift+tab show page navigator
 </td></tr>
 <tr>
+<td> @CTO
+</td>
+<td> int
+</td>
+<td> RW
+</td>
+<td> 1
+</td>
+<td> 0,1
+</td>
+<td> 2026b
+</td>
+<td> Close intermediate table on opening project if @CTO = 1
+</td></tr>
+
+<tr>
 <td> @CTP
 </td>
 <td> int
@@ -5766,6 +5798,22 @@ col(1)={1:2.1:10}, if @DET=28, end value is 9.4 because (last value(10) - stop v
 <td> for vertical pixel shift of the text from the top of the control. If particular Japanese GUI font cannot show well, try it by setting @DGBV to 1 or 2 and see if it helps.
 </td></tr>
 <tr>
+<td> @DGGROB
+</td>
+<td> bool
+</td>
+<td> RW
+</td>
+<td> 1
+</td>
+<td> 0,1
+</td>
+<td> 2027
+</td>
+<td> If @DGGROB=1, set wks.HIERGRAPHRPTDIGITS=1 when creating a new report (i.e. not on Change Parameters or Recalculate). With wks.HIERGRAPHRPTDIGITS=1, Digits in Report setting will also apply to Report's embedded graphs.
+</td></tr>
+
+<tr>
 <td> @DGOP
 </td>
 <td> int
@@ -6207,6 +6255,25 @@ Note: @DLB=0,
 </p>
 </td></tr>
 <tr>
+<td> @DNM
+</td>
+<td> int
+</td>
+<td> RW
+</td>
+<td> 1
+</td>
+<td> 0,1
+</td>
+<td> 2027
+</td>
+<td> Controls whether Data Navigator can multiple select:
+<p>0 = old behavior<br />
+1 = multiple selection
+</p>
+</td></tr>
+
+<tr>
 <td> @DNS
 </td>
 <td> bool
@@ -6485,6 +6552,35 @@ other value = Customize the scaling factor as desired
 </td>
 <td> @DPR= 1 will reset dialog position when restart Origin if it is not on same monitor as Origin main window
 </td></tr>
+<tr>
+<td> @DPTOC
+</td>
+<td> int
+</td>
+<td> RW
+</td>
+<td> 17
+</td>
+<td> 0,1,16,17,32,33
+</td>
+<td> 2026b
+</td>
+<td> Controls the tooltip content for Overlaid Contour plot
+<p>0 = Coordinate Info and Contour Level Value
+<br />
+1 = Contour Level Value
+<br />
+16 = Coordinate Info and Contour Level Value and Feasible Info
+<br />
+17 = Contour Level Value and Feasible Info
+<br />
+32 = Coordinate Info and Feasible Info
+<br />
+33 = Feasible Info
+</p><p><br /><span class='persistTag'>Persistent</span>
+</p>
+</td></tr>
+
 <tr>
 <td> @DRC
 </td>
@@ -7229,6 +7325,22 @@ Note: @DTR=10, the ellipse drawing is not smooth anymore. @DTR actually defines 
 Note: @DTS=5, the curved arrow drawing is not smooth anymore. @DTS actually defines the resolution of curved arrow drawing.
 </p>
 </td></tr>
+<tr>
+<td> @DTSD
+</td>
+<td> bool
+</td>
+<td> RW
+</td>
+<td> 1
+</td>
+<td> 0,1
+</td>
+<td> 2026b
+</td>
+<td> set @DTSD = 0 to disable change about NLFit summary data table's recalculation on SD or N value change
+</td></tr>
+
 <tr>
 <td> @DTT
 </td>
@@ -8234,6 +8346,22 @@ Note: relative expand mode will add extra @ERP%*current row number rows to the w
 1 = Enable worksheet cell formulas.
 </p>
 </td></tr>
+<tr>
+<td> @ESCB
+</td>
+<td> bool
+</td>
+<td> RW
+</td>
+<td> 0
+</td>
+<td> 0,1
+</td>
+<td> 2027
+</td>
+<td> when @ESCB=0 debugging will disable ESC key checking so debug speed get improved. If set it to 1 then ESC checking may slow down debugging, which is old behavior
+</td></tr>
+
 <tr>
 <td> @ESD
 </td>
@@ -11276,6 +11404,22 @@ non-zero value = enable dropping file onto HTML dialog to open it
 <td> It determines the least file size (in Megabytes) to enable multi-threading when import.
 </td></tr>
 <tr>
+<td> @IAU
+</td>
+<td> bool
+</td>
+<td> R
+</td>
+<td> 0
+</td>
+<td> 0,1
+</td>
+<td> 2026b
+</td>
+<td> Return the In-Auto-Update status. @IAU will be 1 if operation is executed from Recalculate.
+</td></tr>
+
+<tr>
 <td> @IBAO
 </td>
 <td> bool
@@ -11309,6 +11453,22 @@ non-zero value = enable dropping file onto HTML dialog to open it
 </td>
 <td> From Origin 2019 we improved the GUI of By Point tab of Color Chooser. Set 0 to disable this improvement and use the old By Point GUI.
 </td></tr>
+<tr>
+<td> @ICP
+</td>
+<td> int
+</td>
+<td> R
+</td>
+<td> 0
+</td>
+<td> 0,1
+</td>
+<td> 2026b
+</td>
+<td> Return X-Function is in Change Parameter or not
+</td></tr>
+
 <tr>
 <td> @ICT
 </td>
@@ -11462,6 +11622,22 @@ non-zero value = enable dropping file onto HTML dialog to open it
 </td>
 <td> Image Export Update Link, set @IEUL  = 0 to completely prevent link update on export.
 </td></tr>
+<tr>
+<td> @IFD
+</td>
+<td> int
+</td>
+<td> RW
+</td>
+<td> 1
+</td>
+<td> 0,1
+</td>
+<td> 2027
+</td>
+<td> NLFit Independent Fit Drop-Down list default value , 0 = First, 1 = All
+</td></tr>
+
 <tr>
 <td> @IFE
 </td>
@@ -13426,6 +13602,27 @@ Note: if use LaTeX directly, LaTeX equation will show in axis title and legend, 
 </p>
 </td></tr>
 <tr>
+<td> @LCPLC
+</td>
+<td> int
+</td>
+<td> RW
+</td>
+<td> 2
+</td>
+<td> 0,1,2
+</td>
+<td> 2027
+</td>
+<td> Controls the shape of the line cap for Column Plot and Box Plot
+<p>0 = Line cap round
+<br />
+1 = Line cap square
+<br />
+2 = Line cap flat
+</p>
+</td></tr>
+<tr>
 <td> @LCR
 </td>
 <td> int
@@ -15166,6 +15363,21 @@ Note: this system variable must not be changed while there are any graphs with c
 <td> it control the number of total GDI objects
 </td></tr>
 <tr>
+<td> @MGR
+</td>
+<td> int
+</td>
+<td> RW
+</td>
+<td> 100
+</td>
+<td> -3 to 499
+</td>
+<td> 2026b
+</td>
+<td> Worksheet support moving floating graphs and text when columns are added. @MGR is the percent of full column count that the object must be on the right of to move. Set @MGR = -3 will disable this feature.
+</td></tr>
+<tr>
 <td> @MHF
 </td>
 <td> int
@@ -16309,6 +16521,24 @@ Note: @MV=1 (default), vector arithmetic such as assign value for a vector col(B
 </p>
 </td></tr>
 <tr>
+<td> @MYX
+</td>
+<td> int
+</td>
+<td> RW
+</td>
+<td> 12
+</td>
+<td> 1 to 65500
+</td>
+<td> 2026b
+</td>
+<td> It controls whether the X/Y column index shows on the column header for multiple X case. When the Y column number equal or larger than this variable value, the X/Y column index will show on the column header next to X/Y.
+<p>(This system variable is not registry based but it will remember as it is saving the value to Origin.ini )
+</p>
+</td></tr>
+
+<tr>
 <td> @MZ
 </td>
 <td> bool
@@ -17117,6 +17347,21 @@ Note:@NPER=0 will disable showing progress bar.
 </p>
 </td></tr>
 <tr>
+<td> @NPHL
+</td>
+<td> bool
+</td>
+<td> RW
+</td>
+<td> 1
+</td>
+<td> 0,1
+</td>
+<td> 2026b
+</td>
+<td> @NPHL = 1 to use cef http link instead offile://. This will resolve the CORS problem
+</td></tr>
+<tr>
 <td> @NPI
 </td>
 <td> int
@@ -17287,6 +17532,21 @@ Note:@NPO=0 will disable showing progress bar.
 <td> From Origin 2019, Smith chart handles <a class="external text" href="../../UserGuide/UserGuide/Smith_Charts.html#Notes">complex with negative real</a> better. Set @NRSC = 1 to turn off this improvement.
 </td></tr>
 <tr>
+<td> @NRT
+</td>
+<td> int
+</td>
+<td> RW
+</td>
+<td> 0
+</td>
+<td> 0,1
+</td>
+<td> 2027
+</td>
+<td> If recalculation slow due to report theme backup/restore, set @NRT = 1 to disable that.
+</td></tr>
+<tr>
 <td> @NRV
 </td>
 <td> bool
@@ -17438,7 +17698,21 @@ Note:@NPO=0 will disable showing progress bar.
 </td>
 <td> @NUWS = 1 to disable restore worksheet selection on undo
 </td></tr>
-
+<tr>
+<td> @NWI
+</td>
+<td> int
+</td>
+<td> RW
+</td>
+<td> 1
+</td>
+<td> Natural Number
+</td>
+<td> 2026b
+</td>
+<td> access new window increment of current folder
+</td></tr>
 <tr>
 <td> @NWM
 </td>
@@ -18899,6 +19173,21 @@ positive integer = specify a fixed video frame period
 </p>
 </td></tr>
 <tr>
+<td> @OOBR
+</td>
+<td> bool
+</td>
+<td> RW
+</td>
+<td> 1
+</td>
+<td> 0,1
+</td>
+<td> 2026b
+</td>
+<td> @OOBR = 1 to enable Individual Value plot to check overlapping base on value
+</td></tr>
+<tr>
 <td> @OPC
 </td>
 <td> bool
@@ -19026,6 +19315,25 @@ Note: @OR is introduced to prevent saving loss when there is not enough disk spa
 </p>
 </td></tr>
 <tr>
+<td> @OSC
+</td>
+<td> int
+</td>
+<td> RW
+</td>
+<td> 1
+</td>
+<td> 0,1
+</td>
+<td> 2027
+</td>
+<td> Controls whether to show result sheets in Object Manager
+<p>0 = hide<br />
+1 = show
+<br /><span class='persistTag'>Persistent</span> 
+</p>
+</td></tr>
+<tr>
 <td> @OSG
 </td>
 <td> int
@@ -19059,6 +19367,28 @@ Note: the gap is calculated from scatter symbol's center to another scatter symb
 <td> open sample project:
 <p>0 = Append project to new folder of current project<br />
 1 = Open project in new instance of Origin
+</p>
+</td></tr>
+<tr>
+<td> @OSS
+</td>
+<td> int
+</td>
+<td> RW
+</td>
+<td> 0
+</td>
+<td> 0,1,2
+</td>
+<td> 2027
+</td>
+<td> Controls what sheet show in Sheet Tabs when Operation Selected in Object Manager
+<p>0 = all sheets
+<br />
+1 = only relevant result sheets
+<br />
+2 = source and result sheets
+<br /><span class='persistTag'>Persistent</span> 
 </p>
 </td></tr>
 <tr>
@@ -19181,6 +19511,23 @@ For more information, see <a class="external text" href="../../QuickHelp/QuickHe
 <td> 2025b
 </td>
 <td> @PBB = 1 to use simple acrylic background effect for popup menu
+</td></tr>
+<tr>
+<td> @PBH
+</td>
+<td> int
+</td>
+<td> R
+</td>
+<td> 90
+</td>
+<td> 50 to 100
+</td>
+<td> 2027
+</td>
+<td> if @PBH = 90, legend symbol pattern block height = 90% of the default height
+<p><br /><span class='persistTag'>Persistent</span>  
+</p>
 </td></tr>
 <tr>
 <td> @PBN
@@ -20537,6 +20884,21 @@ Note: @PP is a combination of both controlling bits, @PP=3 (default) means maste
 <td> The divider for the size of the Screen Reader cursor on Image window from image width.
 </td></tr>
 <tr>
+<td> @PPCF
+</td>
+<td> bool
+</td>
+<td> RW
+</td>
+<td> 1
+</td>
+<td> 0,1
+</td>
+<td> 2027
+</td>
+<td> @PPCF = 1 to speed up paste from Excel
+</td></tr>
+<tr>
 <td> @PPCP
 </td>
 <td> int
@@ -20550,6 +20912,23 @@ Note: @PP is a combination of both controlling bits, @PP=3 (default) means maste
 <td> 2203
 </td>
 <td> It controls parallel plot curve points to speed upparallel drawing. Positive value for export only, negative value for both export and screen drawing
+</td></tr>
+<tr>
+<td> @PPH
+</td>
+<td> int
+</td>
+<td> RW
+</td>
+<td> 1
+</td>
+<td> 0,1
+</td>
+<td> 2026b
+</td>
+<td> @PPH = 1 to Paste Prism HTML, set to 0 to paste in the old way
+<p><br /><span class='persistTag'>Persistent</span>
+</p>
 </td></tr>
 <tr>
 <td> @PPI
@@ -22522,6 +22901,21 @@ Note:
 <td> It controls the maximum row height of the flat report sheet's label rows for autosize. 0 means to use original behavior. Other See @RRHH
 </td></tr>
 <tr>
+<td> @RRHH
+</td>
+<td> int
+</td>
+<td> RW
+</td>
+<td> 10
+</td>
+<td> Positive integer
+</td>
+<td> 2026b
+</td>
+<td> It controls the maximum row height of the tree-structured report sheet's label rows for autosize. 0 means to use original behavior. Other See @RRH
+</td></tr>
+<tr>
 <td> @RRL
 </td>
 <td> bool
@@ -23122,6 +23516,21 @@ Input column 1 cell 1 as s1,
 <br />
 1 = Account for the case 
 </p>
+</td></tr>
+<tr>
+<td> @SCC
+</td>
+<td> bool
+</td>
+<td> RW
+</td>
+<td> -1
+</td>
+<td> -1, Natural Number
+</td>
+<td> 2027
+</td>
+<td> Sticky Note Custom Color. -1 means no custom color. (This system variable is not registry based but it will remember as it is saving the value to Origin.ini )
 </td></tr>
 <tr>
 <td> @SCCS
@@ -24915,6 +25324,24 @@ Note: @SSFLV=-1 is to use the default step size (a relative value) for fitting f
 </p>
 </td></tr>
 <tr>
+<td> @SSNI
+</td>
+<td> int
+</td>
+<td> RW
+</td>
+<td> 0
+</td>
+<td> 0,1
+</td>
+<td> 2027
+</td>
+<td> Set @SSNI=1 to show sticky note in inactive window. Note that it needs to restart Origin to take effect.
+<p><br />
+<span class='persistTag'>Persistent</span>
+</p>
+</td></tr>
+<tr>
 <td> @SSNUT
 </td>
 <td> bool
@@ -25349,6 +25776,21 @@ When you enter a number with significant digits more than 6, it will automatical
 <p>0=only adjust the order by suitable or not suitable for current window type
 1=old behavior, window type exact match is highest priority
 </p>
+</td></tr>
+<tr>
+<td> @SWW
+</td>
+<td> int
+</td>
+<td> RW
+</td>
+<td> 180
+</td>
+<td> positive integer
+</td>
+<td> 2026b
+</td>
+<td> default width of page splitter, such as data info panel, workbook organizer etc.
 </td></tr>
 <tr>
 <td>@SXA
@@ -26887,6 +27329,24 @@ Note:@UDN=1, run script “type $(0.000123456, .0);” will be 0 whereas @UDN=0 
 <td> @UDRFSD = 1 to fix plot undo gone after PD change. Set @UDRFSD = 0 back to old behavior
 </td></tr>
 <tr>
+<td> @UDT
+</td>
+<td> int
+</td>
+<td> RW
+</td>
+<td> 1
+</td>
+<td> 0,1
+</td>
+<td> 2026b
+</td>
+<td> Controls whether Unstack Columns dialog by default check the Output to Data Table checkbox:
+<p>0 = uncheck<br />
+1 = check
+</p>
+</td></tr>
+<tr>
 <td> @UDZP
 </td>
 <td> int
@@ -28092,6 +28552,29 @@ Set @WDCPA=1 and @LOADA=1 before loading project, it will allow convert on loadi
 </p>
 </td></tr>
 <tr>
+<td> @WDM
+</td>
+<td> int
+</td>
+<td> RW
+</td>
+<td> 0
+</td>
+<td> 0,1,2,3
+</td>
+<td> 2027
+</td>
+<td> Controls whether Longname or Comments label row can dynamic merge:
+<p>0 = None
+<br />
+1 = Long Name
+<br />
+2 = Comments
+<br />
+3 = Both
+</p>
+</td></tr>
+<tr>
 <td> @WDS
 </td>
 <td> int
@@ -28439,6 +28922,29 @@ Note: @WPO is a combination of these controlling bits which produces cumulative 
 <td> 2024b
 </td>
 <td> @WRSW = 1 to enable worksheet rich text in-place edit shown as a separate window
+</td></tr>
+<tr>
+<td> @WRT
+</td>
+<td> int
+</td>
+<td> RW
+</td>
+<td> 0
+</td>
+<td> 0,1,2,3
+</td>
+<td> 2027
+</td>
+<td> Controls whether Longname or Comments label row can have rich text format:
+<p>0 = None
+<br />
+1 = Long Name
+<br />
+2 = Comments
+<br />
+3 = Both
+</p>
 </td></tr>
 <tr>
 <td> @WSA
