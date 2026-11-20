@@ -1631,6 +1631,12 @@ In "row" mode, it takes two or more columns and returns a vector of row-wise sum
 <td>Computes the lower/upper tail probability for the chi-square distribution with real degrees of freedom <b>df</b>.
 </td></tr>
 <tr>
+<td> <a href="../../LabTalk/LabTalk/Expcdf_(function).html" title="LabTalk:Expcdf (function)">expcdf(x,lambda[,iTail]) </a>
+<p align="right"><font color="red">(2026b)</font></p>
+</td>
+<td>cumulative distribution function for exponential
+</td></tr>
+<tr>
 <td> <a href="../../LabTalk/LabTalk/Foldnormcdf_(function).html" title="LabTalk:Foldnormcdf (function)">foldnormcdf(x,mu,sigma) </a>
 </td>
 <td>Computes the lower tail probability for the Folded Normal distribution.
@@ -1658,6 +1664,18 @@ In "row" mode, it takes two or more columns and returns a vector of row-wise sum
 <p align="right"><font color="red">(2024b)</font></p>
 </td>
 <td>Computes the cumulative density function for the Landau distribution at x and with location parameter mu and scale parameter sigma. <b>tail</b> determines the returned probability is the lower tailed or upper tailed.
+</td></tr>
+<tr>
+<td> <a href="../../LabTalk/LabTalk/Levcdf_(function).html" title="LabTalk:Levcdf (function)">levcdf(x,mu,sigma[,iTail]) </a>
+<p align="right"><font color="red">(2026b)</font></p>
+</td>
+<td>cumulative distribution function for Largest Extreme Value
+</td></tr>
+<tr>
+<td> <a href="../../LabTalk/LabTalk/Logisticcdf_(function).html" title="LabTalk:Logisticcdf (function)">logisticcdf(x,mu,sigma[,iTail]) </a>
+<p align="right"><font color="red">(2026b)</font></p>
+</td>
+<td>cumulative distribution function for Logistic
 </td></tr>
 <tr>
 <td> <a href="../../LabTalk/LabTalk/Logncdf_(function).html" title="LabTalk:Logncdf (function)">logncdf(x,mu,sigma[,tail]) </a>
@@ -1713,6 +1731,18 @@ with
 <td>Computes the lower tail probabilities in given value <i>k</i>, associated with a Poisson distribution using the corresponding parameters in <i>lambda</i>.<br />
 <p><img src="../images/LabTalk-Supported_Functions/math-8ba22f47f618250faabb93469db58852.png?v=0" title="P(X\leq k)=\sum_{i=0}^kP(X=i)=\sum_{i=0}^ke^{-\lambda }\frac{\lambda ^k}{k!}" alt="P(X\leq k)=\sum_{i=0}^kP(X=i)=\sum_{i=0}^ke^{-\lambda }\frac{\lambda ^k}{k!}" class="tex"/>
 </p>
+</td></tr>
+<tr>
+<td> <a href="../../LabTalk/LabTalk/Raylcdf_(function).html" title="LabTalk:Raylcdf (function)">raylcdf(x,b[,iTail]) </a>
+<p align="right"><font color="red">(2026b)</font></p>
+</td>
+<td>cumulative distribution function for Rayleigh
+</td></tr>
+<tr>
+<td> <a href="../../LabTalk/LabTalk/Sevcdf_(function).html" title="LabTalk:Sevcdf (function)">sevcdf(x,mu,sigma[,iTail]) </a>
+<p align="right"><font color="red">(2026b)</font></p>
+</td>
+<td>cumulative distribution function for Smallest Extreme Value
 </td></tr>
 <tr>
 <td> <a href="../../LabTalk/LabTalk/Srangecdf_(function).html" title="LabTalk:Srangecdf (function)">srangecdf(q,v,group) </a>
@@ -1835,6 +1865,24 @@ with
 <dl><dd><img src="../images/LabTalk-Supported_Functions/math-a5a9b7eb31d29b76b9351919882b5ec3.png?v=0" title="    = \frac{1}{2b}&#10;    \left\{\begin{matrix}&#10;      \exp \left( -\frac{\mu-x}{b} \right) &amp; \mbox{if }x &lt; \mu&#10;      \\[8pt]&#10;      \exp \left( -\frac{x-\mu}{b} \right) &amp; \mbox{if }x \geq \mu&#10;    \end{matrix}\right.&#10;  " alt="    = \frac{1}{2b}&#10;    \left\{\begin{matrix}&#10;      \exp \left( -\frac{\mu-x}{b} \right) &amp; \mbox{if }x &lt; \mu&#10;      \\[8pt]&#10;      \exp \left( -\frac{x-\mu}{b} \right) &amp; \mbox{if }x \geq \mu&#10;    \end{matrix}\right.&#10;  " class="tex"/></dd></dl></dd></dl>
 </td></tr>
 <tr>
+<td><a href="../../LabTalk/LabTalk/Levpdf_(function).html" title="LabTalk:Levpdf (function)">levpdf(x,mu,sigma)</a>
+<p align="right"><font color="red">(2026b)</font></p>
+</td>
+<td>probability density function for largest extreme value
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Logisticpdf_(function).html" title="LabTalk:Logisticpdf (function)">logisticpdf(x,mu,sigma)</a>
+<p align="right"><font color="red">(2026b)</font></p>
+</td>
+<td>probability density function for logistic
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Loglogisticpdf_(function).html" title="LabTalk:Loglogisticpdf (function)">loglogisticpdf(x,mu,sigma)</a>
+<p align="right"><font color="red">(2026b)</font></p>
+</td>
+<td>probability density function for loglogistic
+</td></tr>
+<tr>
 <td><a href="../../LabTalk/LabTalk/Lognpdf_(function).html" title="LabTalk:Lognpdf (function)">lognpdf(x,mu,sigma)</a>
 <p align="right"><font color="red">(8.6 SR0)</font></p>
 </td>
@@ -1857,6 +1905,18 @@ with
 <td>Computes the Poisson probability density function at each of the values in X using mean parameters in <i>lambda</i>. <br />
 <p><img src="../images/LabTalk-Supported_Functions/math-8a6961f413a3a8f346d5b19de10c5e9f.png?v=0" title="f(x|\lambda )=\frac{\lambda ^x}{x!}e^{-\lambda }I_{(0,1,...)}(x)" alt="f(x|\lambda )=\frac{\lambda ^x}{x!}e^{-\lambda }I_{(0,1,...)}(x)" class="tex"/>
 </p>
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Raylpdf_(function).html" title="LabTalk:Raylpdf (function)">raylpdf(x,b)</a>
+<p align="right"><font color="red">(2026b)</font></p>
+</td>
+<td>probability density function for Rayleigh
+</td></tr>
+<tr>
+<td><a href="../../LabTalk/LabTalk/Sevpdf_(function).html" title="LabTalk:Sevpdf (function)">sevpdf(x,mu,sigma)</a>
+<p align="right"><font color="red">(2026b)</font></p>
+</td>
+<td>probability density function for smallest extreme value
 </td></tr>
 <tr>
 <td><a href="../../LabTalk/LabTalk/Wblpdf_(function).html" title="LabTalk:Wblpdf (function)">wblpdf(x,a,b)</a>
@@ -1887,6 +1947,12 @@ with
 </p>
 </td></tr>
 <tr>
+<td> <a href="../../LabTalk/LabTalk/Expinv_(function).html" title="LabTalk:Expinv (function)">expinv(dP,lambda)</a>
+<p align="right"><font color="red">(2026b)</font></p>
+</td>
+<td>INV for Exponential
+</td></tr>
+<tr>
 <td> <a href="../../LabTalk/LabTalk/Finv_(function).html" title="LabTalk:Finv (function)">finv(p,df1,df2)</a>
 </td>
 <td>Computes the inverse of <i>F</i> cumulative density function at <i>p</i>, with parameters <i>df1</i> and <i>df2.</i><br />
@@ -1915,6 +1981,18 @@ with
 <td>Computes the inverse of the Landau cumulative density function at p , with location parameter mu and scale parameter sigma.
 </td></tr>
 <tr>
+<td> <a href="../../LabTalk/LabTalk/Levinv_(function).html" title="LabTalk:Levinv (function)">levinv(dP,mu,sigma)</a>
+<p align="right"><font color="red">(2026b)</font></p>
+</td>
+<td>INV for Largest Extreme Value
+</td></tr>
+<tr>
+<td> <a href="../../LabTalk/LabTalk/Logisticinv_(function).html" title="LabTalk:Logisticinv (function)">logisticinv(dP,mu,sigma)</a>
+<p align="right"><font color="red">(2026b)</font></p>
+</td>
+<td>INV for Logistic
+</td></tr>
+<tr>
 <td> <a href="../../LabTalk/LabTalk/Logninv_(function).html" title="LabTalk:Logninv (function)">logninv(p,mu,sigma)</a>
 <p align="right"><font color="red">(2015 SR0)</font></p>
 </td>
@@ -1930,6 +2008,18 @@ with
 <p><img src="../images/LabTalk-Supported_Functions/math-6cac1c8ab20c5663c798fb64d9367f24.png?v=0" title=" p=\frac 1{\sqrt{2\pi }}\int_{-\infty }^{x_p}e^{-u^2/2}du" alt=" p=\frac 1{\sqrt{2\pi }}\int_{-\infty }^{x_p}e^{-u^2/2}du" class="tex"/> 
 </p><p>where <img src="../images/LabTalk-Supported_Functions/math-7c3d3968858938c6eec366d5024fe8b8.png?v=0" title="-\infty &lt;x_p&lt;\infty" alt="-\infty &lt;x_p&lt;\infty" class="tex"/>
 </p>
+</td></tr>
+<tr>
+<td> <a href="../../LabTalk/LabTalk/Raylinv_(function).html" title="LabTalk:Raylinv (function)">raylinv(dP,b)</a>
+<p align="right"><font color="red">(2026b)</font></p>
+</td>
+<td>INV for Rayleigh
+</td></tr>
+<tr>
+<td> <a href="../../LabTalk/LabTalk/Sevinv_(function).html" title="LabTalk:Sevinv (function)">sevinv(dP,mu,sigma)</a>
+<p align="right"><font color="red">(2026b)</font></p>
+</td>
+<td>INV for Smallest Extreme Value
 </td></tr>
 <tr>
 <td> <a href="../../LabTalk/LabTalk/Srangeinv_(function).html" title="LabTalk:Srangeinv (function)">srangeinv(p,v,ir)</a>
